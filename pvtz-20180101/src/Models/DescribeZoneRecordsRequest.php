@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneRecordsRequest extends Model
 {
     /**
-     * @description The hostname keyword based on which the system queries the DNS records.
+     * @description The keyword of the hostname. The value is not case-sensitive. You can set SearchMode to LIKE or EXACT. The default value of SearchMode is EXACT.
      *
      * @example test
      *
@@ -18,8 +18,12 @@ class DescribeZoneRecordsRequest extends Model
     public $keyword;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -27,7 +31,7 @@ class DescribeZoneRecordsRequest extends Model
     public $lang;
 
     /**
-     * @description The page number. Pages start from page **1**. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -36,7 +40,7 @@ class DescribeZoneRecordsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: 100. Default value: 20.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
      *
      * @example 100
      *
@@ -48,8 +52,9 @@ class DescribeZoneRecordsRequest extends Model
      * @description The search mode. Valid values:
      *
      *   **LIKE**: fuzzy search
-     *   **EXACT (default)**: exact search
+     *   **EXACT** (default): exact search
      *
+     * The value of Keyword is the search scope.
      * @example LIKE
      *
      * @var string
@@ -57,12 +62,12 @@ class DescribeZoneRecordsRequest extends Model
     public $searchMode;
 
     /**
-     * @description The tags added to the DNS record.
+     * @description The tag added to the DNS record. Valid values:
      *
-     *   This parameter is left empty by default. In this case, the DNS records of the zone are queried.
-     *   If you set Tag to ecs, the DNS records added to the hostnames of Elastic Compute Service (ECS) instances in the zone are queried.
+     *   ecs: If you set Tag to ecs, the DNS records added to the hostnames of Elastic Compute Service (ECS) instances in the zone are queried.
+     *   If Tag is left empty, the DNS records in the zone are queried.
      *
-     * @example tag
+     * @example ecs
      *
      * @var string
      */
@@ -71,17 +76,17 @@ class DescribeZoneRecordsRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 1.1.XX.XX
+     * @example 127.0.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description The zone ID.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * This parameter is required.
-     * @example CAgICA1OA_58
+     * @example a96d70eb4ab8ef01503dc5486914****
      *
      * @var string
      */

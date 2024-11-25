@@ -18,8 +18,12 @@ class SetProxyPatternRequest extends Model
     public $clientToken;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -27,10 +31,10 @@ class SetProxyPatternRequest extends Model
     public $lang;
 
     /**
-     * @description Specifies whether to enable the recursive resolution proxy feature for the zone. Valid values:
+     * @description Specifies whether to enable the recursive resolution proxy for subdomain names. Valid values:
      *
-     *   **ZONE**: disables the recursive resolution proxy feature for the zone.
-     *   **RECORD**: enables the recursive resolution proxy feature for the zone.
+     *   **ZONE**: disables the recursive resolution proxy for subdomain names. In this case, NXDOMAIN is returned if the queried subdomain name does not exist in the zone.
+     *   **RECORD**: enables the recursive resolution proxy for subdomain names. In this case, if the queried domain name does not exist in the zone, Domain Name System (DNS) requests are recursively forwarded to the forward module and then to the recursion module until DNS results are returned.
      *
      * This parameter is required.
      * @example ZONE
@@ -42,17 +46,17 @@ class SetProxyPatternRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 1.1.1.1
+     * @example 10.61.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description The global ID of the zone.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * This parameter is required.
-     * @example AgIDE0OQ_149
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */

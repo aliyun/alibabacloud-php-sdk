@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddResolverEndpointRequest extends Model
 {
     /**
-     * @description The source IP addresses of outbound traffic. You must add two to six source IP addresses to ensure high availability.
+     * @description The source IP addresses of outbound traffic. You must add two to six source IP addresses.
      *
      * This parameter is required.
      * @var ipConfig[]
@@ -18,8 +18,12 @@ class AddResolverEndpointRequest extends Model
     public $ipConfig;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -37,7 +41,7 @@ class AddResolverEndpointRequest extends Model
     public $name;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group. The security group rules are applied to the outbound VPC.
      *
      * This parameter is required.
      * @example kqlqlqjqqkq
@@ -47,7 +51,7 @@ class AddResolverEndpointRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The outbound VPC ID.
+     * @description The outbound VPC ID. All outbound Domain Name System (DNS) requests of the resolver are forwarded by this VPC.
      *
      * This parameter is required.
      * @example vpc-129343jslslsks

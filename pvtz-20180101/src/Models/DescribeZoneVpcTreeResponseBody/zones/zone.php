@@ -30,7 +30,7 @@ class zone extends Model
     /**
      * @description The creator of the zone.
      *
-     * @example 5463564356
+     * @example 141339776561****
      *
      * @var string
      */
@@ -82,7 +82,7 @@ class zone extends Model
     public $isPtr;
 
     /**
-     * @description The number of Domain Name System (DNS) records.
+     * @description The number of Domain Name System (DNS) records added for the zone.
      *
      * @example 1
      *
@@ -118,14 +118,14 @@ class zone extends Model
     public $updateTimestamp;
 
     /**
-     * @description The VPCs bound to the zones.
+     * @description The VPCs associated with the zone.
      *
      * @var vpcs
      */
     public $vpcs;
 
     /**
-     * @description The global ID of the zone.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * @example 6d83e3b31aa60ca4aaa7161f1b6baa95
      *
@@ -134,9 +134,9 @@ class zone extends Model
     public $zoneId;
 
     /**
-     * @description The name of the zone.
+     * @description The zone name.
      *
-     * @example localzone.demo
+     * @example example.com
      *
      * @var string
      */
@@ -145,8 +145,12 @@ class zone extends Model
     /**
      * @description The type of the cloud service.
      *
-     *   If the value of the ZoneType parameter is AUTH_ZONE, no value is returned for this parameter.
-     *   If the value of the ZoneType parameter is CLOUD_PRODUCT_ZONE, the type of the cloud service is returned.
+     *
+     **Valid values:**
+     *
+     *   If ZoneType is set to AUTH_ZONE, no value is returned for this parameter.
+     *
+     *   If ZoneType is set to CLOUD_PRODUCT_ZONE, the type of the cloud service is returned.
      *
      * @example BLINK
      *
@@ -155,7 +159,7 @@ class zone extends Model
     public $zoneTag;
 
     /**
-     * @description The type of the zone. Valid values:
+     * @description The zone type. Valid values:
      *
      *   AUTH_ZONE: authoritative zone
      *   CLOUD_PRODUCT_ZONE: authoritative zone for cloud services

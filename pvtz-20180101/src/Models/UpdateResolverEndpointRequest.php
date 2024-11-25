@@ -13,22 +13,27 @@ class UpdateResolverEndpointRequest extends Model
      * @description The endpoint ID.
      *
      * This parameter is required.
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The source IP addresses of outbound traffic. You must add two to six source IP addresses to ensure high availability.
+     * @description The source IP addresses of outbound traffic. You can add two to six IP addresses.
      *
+     * >  You must add at least two source IP addresses for outbound traffic to ensure high availability. We recommend that you add two IP addresses that reside in different zones. You can add up to six source IP addresses.
      * @var ipConfig[]
      */
     public $ipConfig;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string

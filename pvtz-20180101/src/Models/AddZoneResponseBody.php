@@ -27,9 +27,9 @@ class AddZoneResponseBody extends Model
     public $success;
 
     /**
-     * @description The global ID of the zone.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
-     * @example AgIDE1MQ_151
+     * @example 6fc186295683a131f63bb8b0cddc****
      *
      * @var string
      */

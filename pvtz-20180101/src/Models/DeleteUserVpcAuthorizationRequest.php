@@ -14,6 +14,7 @@ class DeleteUserVpcAuthorizationRequest extends Model
      *   NORMAL: general authorization
      *   NORMAL: cloud service-related authorization
      *
+     * Default value: NORMAL.
      * @example NORMAL
      *
      * @var string
@@ -24,7 +25,7 @@ class DeleteUserVpcAuthorizationRequest extends Model
      * @description The ID of the Alibaba Cloud account.
      *
      * This parameter is required.
-     * @example 11111111
+     * @example 141339776561****
      *
      * @var int
      */

@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeStatisticSummaryRequest extends Model
 {
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -20,7 +24,7 @@ class DescribeStatisticSummaryRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 127.0.0.1
+     * @example 127.0.XX.XX
      *
      * @var string
      */

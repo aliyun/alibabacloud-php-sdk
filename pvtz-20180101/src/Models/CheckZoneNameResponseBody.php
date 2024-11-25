@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CheckZoneNameResponseBody extends Model
 {
     /**
-     * @description Indicates whether the zone name is valid. Valid values:
+     * @description Indicates whether the zone name can be added. Valid values:
      *
      *   **true**
      *   **false**

@@ -9,18 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteResolverEndpointRequest extends Model
 {
     /**
-     * @description The endpoint ID.
+     * @description The endpoint ID. This ID uniquely identifies the endpoint.
      *
      * This parameter is required.
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string

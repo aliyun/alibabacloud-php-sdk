@@ -29,14 +29,14 @@ class DescribeStatisticSummaryResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The top 3 virtual private clouds (VPCs) that initiate the largest number of DNS requests.
+     * @description The top three VPCs with the largest number of DNS requests.
      *
      * @var vpcRequestTops
      */
     public $vpcRequestTops;
 
     /**
-     * @description The top 3 zones with the largest number of DNS requests.
+     * @description The top three zones with the largest number of DNS requests.
      *
      * @var zoneRequestTops
      */

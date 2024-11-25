@@ -53,7 +53,7 @@ class DescribeResolverRulesResponseBody extends Model
     public $totalItems;
 
     /**
-     * @description The total number of pages returned.
+     * @description The total number of returned pages.
      *
      * @example 1
      *

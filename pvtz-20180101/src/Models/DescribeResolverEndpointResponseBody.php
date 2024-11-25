@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverEndpointResponseBody extends Model
 {
     /**
-     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The time when the endpoint was created.
      *
      * @example 2020-07-13 10:45:56
      *
@@ -28,23 +28,25 @@ class DescribeResolverEndpointResponseBody extends Model
     public $createTimestamp;
 
     /**
-     * @description The endpoint ID.
+     * @description The endpoint ID. This ID uniquely identifies the endpoint.
      *
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */
     public $id;
 
     /**
-     * @description The source IP address of outbound traffic.
+     * @description The configurations of the source IP addresses for outbound traffic.
      *
      * @var ipConfigs[]
      */
     public $ipConfigs;
 
     /**
-     * @description The endpoint name.
+     * @description The name of the endpoint.
+     *
+     * @example test
      *
      * @var string
      */
@@ -60,9 +62,9 @@ class DescribeResolverEndpointResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group. The security group rules are applied to the outbound virtual private cloud (VPC).
      *
-     * @example sg-8vb3sigz86xc-group-test
+     * @example sg-8vb3sigz86xc-group-****
      *
      * @var string
      */
@@ -73,10 +75,10 @@ class DescribeResolverEndpointResponseBody extends Model
      *
      *   SUCCESS: The endpoint works as expected.
      *   INIT: The endpoint is being created.
-     *   FAILED: The endpoint fails to be created.
+     *   FAILED: The endpoint failed to be created.
      *   CHANGE_INIT: The endpoint is being modified.
-     *   CHANGE_FAILED: The endpoint fails to be modified.
-     *   EXCEPTION: The endpoint encounters an exception.
+     *   CHANGE_FAILED: The endpoint failed to be modified.
+     *   EXCEPTION: The endpoint encountered an exception.
      *
      * @example SUCCESS
      *
@@ -85,7 +87,7 @@ class DescribeResolverEndpointResponseBody extends Model
     public $status;
 
     /**
-     * @description The time when the endpoint was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The time when the endpoint was updated.
      *
      * @example 2020-07-13 10:48:39
      *
@@ -94,7 +96,7 @@ class DescribeResolverEndpointResponseBody extends Model
     public $updateTime;
 
     /**
-     * @description The time when the endpoint was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the endpoint was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1594608519000
      *
@@ -103,16 +105,16 @@ class DescribeResolverEndpointResponseBody extends Model
     public $updateTimestamp;
 
     /**
-     * @description The outbound VPC ID.
+     * @description The ID of the outbound VPC. All outbound Domain Name System (DNS) requests of the resolver are forwarded by this VPC.
      *
-     * @example vpc-8vbl8mpum-vpc-id
+     * @example vpc-0jl96awrjt75ezglc****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The outbound VPC name.
+     * @description The name of the outbound VPC.
      *
      * @example vpc-name-test
      *
@@ -121,7 +123,7 @@ class DescribeResolverEndpointResponseBody extends Model
     public $vpcName;
 
     /**
-     * @description The ID of the region where the outbound VPC resides.
+     * @description The region ID of the outbound VPC.
      *
      * @example cn-hangzhou
      *
@@ -130,7 +132,9 @@ class DescribeResolverEndpointResponseBody extends Model
     public $vpcRegionId;
 
     /**
-     * @description The name of the region where the outbound virtual private cloud (VPC) resides.
+     * @description The name of the region where the outbound VPC resides.
+     *
+     * @example HuaBei
      *
      * @var string
      */

@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneInfoRequest extends Model
 {
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   **zh**: Chinese
+     *   **en**: English.
+     *
+     * Default value: **en**.
      * @example en
      *
      * @var string
@@ -18,10 +22,10 @@ class DescribeZoneInfoRequest extends Model
     public $lang;
 
     /**
-     * @description The global ID of the zone.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * This parameter is required.
-     * @example AgIDE1MA_149
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */

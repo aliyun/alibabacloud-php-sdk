@@ -10,17 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AddResolverRuleRequest extends Model
 {
     /**
-     * @description The endpoint ID.
+     * @description The outbound endpoint ID. The outbound endpoint is used to forward the DNS requests to the specified destination IP addresses.
      *
      * This parameter is required.
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The destination IP address and port number.
+     * @description The IP addresses and ports of the external DNS servers. Enter the IP addresses and ports of the destination servers to which the DNS requests are forwarded. You can enter up to **six** IP addresses and ports. Both private and public IP addresses are supported.
      *
      * This parameter is required.
      * @var forwardIp[]
@@ -28,8 +28,12 @@ class AddResolverRuleRequest extends Model
     public $forwardIp;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -37,7 +41,7 @@ class AddResolverRuleRequest extends Model
     public $lang;
 
     /**
-     * @description The name of the forwarding rule.
+     * @description The name of the forwarding rule. You can name the rule based on your business requirements.
      *
      * This parameter is required.
      * @example test
@@ -47,10 +51,9 @@ class AddResolverRuleRequest extends Model
     public $name;
 
     /**
-     * @description The type of the forwarding rule. Valid value:
+     * @description The type of the forwarding rule. The parameter value can only be OUTBOUND, which indicates that DNS requests are forwarded to one or more external IP addresses.
      *
-     *   OUTBOUND: forwards Domain Name System (DNS) requests to one or more external IP addresses.
-     *
+     * >  You cannot change the value of Type after you create the forwarding rule.
      * @example OUTBOUND
      *
      * @var string
@@ -58,7 +61,7 @@ class AddResolverRuleRequest extends Model
     public $type;
 
     /**
-     * @description The name of the forward zone.
+     * @description The zone for which you want to forward DNS requests.
      *
      * This parameter is required.
      * @example example.com

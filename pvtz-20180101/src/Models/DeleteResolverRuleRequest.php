@@ -21,7 +21,7 @@ class DeleteResolverRuleRequest extends Model
      * @description The forwarding rule ID.
      *
      * This parameter is required.
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */

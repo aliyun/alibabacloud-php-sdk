@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsRequest extends Model
 {
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -18,7 +22,7 @@ class DescribeTagsRequest extends Model
     public $lang;
 
     /**
-     * @description The page number.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -27,7 +31,7 @@ class DescribeTagsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 20. Maximum value: 200.
+     * @description The number of entries per page. Maximum number: 1. Default value: 20.
      *
      * @example 20
      *

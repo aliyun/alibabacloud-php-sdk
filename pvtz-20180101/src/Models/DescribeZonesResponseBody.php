@@ -46,7 +46,7 @@ class DescribeZonesResponseBody extends Model
     public $totalItems;
 
     /**
-     * @description The total number of pages.
+     * @description The total number of returned pages.
      *
      * @example 3
      *

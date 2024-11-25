@@ -18,8 +18,12 @@ class MoveResourceGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The language of the values for specific response parameters. Default value: en. Valid values: en, zh, and ja.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -27,20 +31,20 @@ class MoveResourceGroupRequest extends Model
     public $lang;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the new resource group.
      *
      * This parameter is required.
-     * @example rg-aekzzk7hx3glaoq
+     * @example rg-aekz2qj7awz****
      *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
-     * @description The global ID of the zone.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * This parameter is required.
-     * @example AgIDE1MA_149
+     * @example df2d03865266bd9842306db586d4****
      *
      * @var string
      */

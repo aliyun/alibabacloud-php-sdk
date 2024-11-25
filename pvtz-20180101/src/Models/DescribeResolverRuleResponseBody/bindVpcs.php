@@ -29,7 +29,7 @@ class bindVpcs extends Model
     /**
      * @description The VPC ID.
      *
-     * @example vpc-8vbl8m-vpc-id
+     * @example vpc-f8zvrvr1payllgz38****
      *
      * @var string
      */
@@ -45,7 +45,7 @@ class bindVpcs extends Model
     public $vpcName;
 
     /**
-     * @description The type of the VPC. Valid values:
+     * @description The VPC type. Valid values:
      *
      *   STANDARD: standard VPC
      *   EDS: Elastic Desktop Service (EDS) workspace VPC
@@ -57,9 +57,9 @@ class bindVpcs extends Model
     public $vpcType;
 
     /**
-     * @description The Alibaba Cloud account to which the VPC belongs.
+     * @description The ID of the user to which the VPC belongs.
      *
-     * @example 324542413
+     * @example 32454****
      *
      * @var string
      */

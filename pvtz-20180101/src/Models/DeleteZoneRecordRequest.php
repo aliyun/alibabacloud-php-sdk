@@ -18,8 +18,12 @@ class DeleteZoneRecordRequest extends Model
     public $clientToken;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -30,7 +34,7 @@ class DeleteZoneRecordRequest extends Model
      * @description The ID of the DNS record.
      *
      * This parameter is required.
-     * @example 5808
+     * @example 306279****
      *
      * @var int
      */
@@ -39,7 +43,7 @@ class DeleteZoneRecordRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 1.1.XX.XX
+     * @example 127.0.XX.XX
      *
      * @var string
      */

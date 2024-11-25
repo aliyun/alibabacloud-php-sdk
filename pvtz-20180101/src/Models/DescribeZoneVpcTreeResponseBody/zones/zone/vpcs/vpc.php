@@ -9,34 +9,34 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
-     * @description The region ID.
+     * @description The region ID of the VPC.
      *
-     * @example cn-beijing
+     * @example cn-heyuan
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the region.
+     * @description The name of the region to which the VPC belongs.
      *
-     * @example China North 2
+     * @example China (Heyuan)
      *
      * @var string
      */
     public $regionName;
 
     /**
-     * @description The VPC ID.
+     * @description The VPC ID. The unique ID of the VPC.
      *
-     * @example vpc-2z21341ssdadsfzyd49ra
+     * @example vpc-f8zvrvr1payllgz38****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The name of the VPC.
+     * @description The VPC name.
      *
      * @example demo-vpc
      *
@@ -45,7 +45,7 @@ class vpc extends Model
     public $vpcName;
 
     /**
-     * @description The type of the VPC. Valid values:
+     * @description The VPC type. Valid values:
      *
      *   STANDARD: standard VPC
      *   EDS: Elastic Desktop Service (EDS) workspace VPC

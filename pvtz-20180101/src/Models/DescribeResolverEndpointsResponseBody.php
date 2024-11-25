@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverEndpointsResponseBody extends Model
 {
     /**
-     * @description The information about endpoints.
+     * @description The endpoints.
      *
      * @var endpoints[]
      */
@@ -44,7 +44,7 @@ class DescribeResolverEndpointsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of endpoints.
      *
      * @example 1
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipConfig extends Model
 {
     /**
-     * @description The zone ID.
+     * @description The ID of the zone to which the vSwitch belongs.
      *
      * This parameter is required.
      * @example cn-hangzhou-a
@@ -29,7 +29,7 @@ class ipConfig extends Model
     public $cidrBlock;
 
     /**
-     * @description The source IP address of outbound traffic. The IP address must be within the specified CIDR block.
+     * @description The source IP address of outbound traffic. The IP address must be within the specified CIDR block. If you leave this parameter empty, the system automatically allocates an IP address.
      *
      * @example 172.16.xx.xx
      *

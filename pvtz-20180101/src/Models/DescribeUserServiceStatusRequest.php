@@ -6,18 +6,8 @@ namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeResolverEndpointRequest extends Model
+class DescribeUserServiceStatusRequest extends Model
 {
-    /**
-     * @description The endpoint ID. This ID uniquely identifies the endpoint.
-     *
-     * This parameter is required.
-     * @example hr****
-     *
-     * @var string
-     */
-    public $endpointId;
-
     /**
      * @description The language of the response. Valid values:
      *
@@ -31,8 +21,7 @@ class DescribeResolverEndpointRequest extends Model
      */
     public $lang;
     protected $_name = [
-        'endpointId' => 'EndpointId',
-        'lang'       => 'Lang',
+        'lang' => 'Lang',
     ];
 
     public function validate()
@@ -42,9 +31,6 @@ class DescribeResolverEndpointRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpointId) {
-            $res['EndpointId'] = $this->endpointId;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -55,14 +41,11 @@ class DescribeResolverEndpointRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeResolverEndpointRequest
+     * @return DescribeUserServiceStatusRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['EndpointId'])) {
-            $model->endpointId = $map['EndpointId'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

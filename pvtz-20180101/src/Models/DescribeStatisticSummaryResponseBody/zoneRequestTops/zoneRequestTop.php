@@ -13,6 +13,7 @@ class zoneRequestTop extends Model
      *
      *   AUTH_ZONE: authoritative zone
      *   RESOLVER_RULE: forwarding rule
+     *   INBOUND: inbound endpoint
      *
      * @example AUTH_ZONE
      *
@@ -21,7 +22,7 @@ class zoneRequestTop extends Model
     public $bizType;
 
     /**
-     * @description The number of DNS requests.
+     * @description The number of DNS requests on the previous day.
      *
      * @example 2251
      *
@@ -30,9 +31,9 @@ class zoneRequestTop extends Model
     public $requestCount;
 
     /**
-     * @description The name of the zone.
+     * @description The zone name.
      *
-     * @example host.local
+     * @example test.com
      *
      * @var string
      */

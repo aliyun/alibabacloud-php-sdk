@@ -13,8 +13,8 @@ class DescribeRegionsRequest extends Model
      *
      *   zh-CN: Chinese
      *   en-US: English
-     *   ja: Japanese
      *
+     * >  AcceptLanguage has a higher priority than Lang.
      * @example en-US
      *
      * @var string
@@ -24,15 +24,21 @@ class DescribeRegionsRequest extends Model
     /**
      * @description The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
      *
-     * @example 111222333
+     * @example 141339776561****
      *
      * @var int
      */
     public $authorizedUserId;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * Default value: **en**.
+     *
+     * >  Lang has a lower priority than AcceptLanguage.
      * @example en
      *
      * @var string
@@ -55,14 +61,14 @@ class DescribeRegionsRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 192.168.1.1
+     * @example 192.168.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description The type of the virtual private cloud (VPC). Valid values:
+     * @description The VPC type. Valid values:
      *
      *   STANDARD: standard VPC
      *   EDS: Elastic Desktop Service (EDS) workspace VPC

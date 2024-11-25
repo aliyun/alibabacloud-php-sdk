@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class AddUserVpcAuthorizationRequest extends Model
 {
     /**
-     * @description The authorization method. Valid values:
+     * @description The authorization channel. Valid values:
      *
-     *   AUTH_CODE: An authorization code is used to associate VPCs across accounts. The system checks whether the value of AuthCode is valid.
-     *   RESOURCE_DIRECTORY: A resource directory is used to associate VPCs across accounts. The system checks whether the value of AuthorizedUserId and the current account are in the same resource directory.
-     *   If this parameter is empty, an authorization code is used to associate VPCs across accounts.
+     *   AUTH_CODE: A verification code is used for authorization.
+     *   RESOURCE_DIRECTORY: A resource directory is used for authorization.
      *
+     * Default value: AUTH_CODE.
      * @example AUTH_CODE
      *
      * @var string
@@ -24,7 +24,12 @@ class AddUserVpcAuthorizationRequest extends Model
     /**
      * @description The verification code.
      *
-     * This parameter is required when AuthType is set to NORMAL or is left empty and AuthChannel is set to AUTH_CODE or is left empty.
+     * >
+     *
+     *   The specified authentication code is used if the value of AuthChannel is left empty or is set to AUTH_CODE.
+     *
+     *   In other cases, a random 6-digit number is used. Example: 123456.
+     *
      * @example 123456
      *
      * @var string
@@ -34,7 +39,7 @@ class AddUserVpcAuthorizationRequest extends Model
     /**
      * @description The authorization scope. Valid values:
      *
-     *   NORMAL: general authorization.
+     *   NORMAL: general authorization
      *   CLOUD_PRODUCT: cloud service-related authorization
      *
      * @example NORMAL
@@ -44,10 +49,10 @@ class AddUserVpcAuthorizationRequest extends Model
     public $authType;
 
     /**
-     * @description The ID of the Alibaba Cloud account.
+     * @description The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
      *
      * This parameter is required.
-     * @example 111222333
+     * @example 141339776561****
      *
      * @var int
      */

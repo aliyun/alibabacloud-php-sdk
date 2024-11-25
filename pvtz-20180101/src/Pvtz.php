@@ -64,6 +64,8 @@ use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeSyncEcsHostTaskRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeSyncEcsHostTaskResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeTagsResponse;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeUserServiceStatusRequest;
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeUserServiceStatusResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeUserVpcAuthorizationsRequest;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeUserVpcAuthorizationsResponse;
 use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZoneInfoRequest;
@@ -144,6 +146,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Creates a custom line.
+     *  *
      * @param AddCustomLineRequest $request AddCustomLineRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -187,6 +191,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Creates a custom line.
+     *  *
      * @param AddCustomLineRequest $request AddCustomLineRequest
      *
      * @return AddCustomLineResponse AddCustomLineResponse
@@ -263,6 +269,9 @@ class Pvtz extends OpenApiClient
     /**
      * @summary Creates a forwarding rule.
      *  *
+     * @description #### [](#)**Precautions**
+     * If a virtual private cloud (VPC) serves as both an inbound VPC and an outbound VPC, the IP addresses of external Domain Name System (DNS) servers cannot be the same as the IP addresses of the inbound endpoint in the VPC. The IP addresses of the external DNS servers are specified in the forwarding rule associated with the outbound endpoint in the same VPC. If the IP addresses are the same, the DNS requests sent from the IP addresses of the inbound endpoint are returned to the VPC. This results in resolution failures.
+     *  *
      * @param AddResolverRuleRequest $request AddResolverRuleRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -311,6 +320,9 @@ class Pvtz extends OpenApiClient
     /**
      * @summary Creates a forwarding rule.
      *  *
+     * @description #### [](#)**Precautions**
+     * If a virtual private cloud (VPC) serves as both an inbound VPC and an outbound VPC, the IP addresses of external Domain Name System (DNS) servers cannot be the same as the IP addresses of the inbound endpoint in the VPC. The IP addresses of the external DNS servers are specified in the forwarding rule associated with the outbound endpoint in the same VPC. If the IP addresses are the same, the DNS requests sent from the IP addresses of the inbound endpoint are returned to the VPC. This results in resolution failures.
+     *  *
      * @param AddResolverRuleRequest $request AddResolverRuleRequest
      *
      * @return AddResolverRuleResponse AddResolverRuleResponse
@@ -324,6 +336,12 @@ class Pvtz extends OpenApiClient
 
     /**
      * @summary Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
+     *  *
+     * @description #### **Limits**
+     * *   You can set an effective scope across accounts only by using an Alibaba Cloud account instead of a RAM user. You can set an effective scope across accounts registered on the same site. For example, you can perform the operation across accounts that are both registered on the Alibaba Cloud China site or Alibaba Cloud international site. You cannot set an effective scope across accounts registered on different sites. For example, you cannot perform the operation across accounts that are separately registered on the Alibaba Cloud China site and Alibaba Cloud international site.
+     * *   No API operation is provided for sending the verification codes that are required for authorization.
+     * #### **Precautions**
+     * If you set an effective scope across accounts, bills are settled within the account that is used to perform routine management on built-in authoritative zones.
      *  *
      * @param AddUserVpcAuthorizationRequest $request AddUserVpcAuthorizationRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -367,6 +385,12 @@ class Pvtz extends OpenApiClient
     /**
      * @summary Adds another account to associate one or more virtual private clouds (VPCs) of the current account with a private zone.
      *  *
+     * @description #### **Limits**
+     * *   You can set an effective scope across accounts only by using an Alibaba Cloud account instead of a RAM user. You can set an effective scope across accounts registered on the same site. For example, you can perform the operation across accounts that are both registered on the Alibaba Cloud China site or Alibaba Cloud international site. You cannot set an effective scope across accounts registered on different sites. For example, you cannot perform the operation across accounts that are separately registered on the Alibaba Cloud China site and Alibaba Cloud international site.
+     * *   No API operation is provided for sending the verification codes that are required for authorization.
+     * #### **Precautions**
+     * If you set an effective scope across accounts, bills are settled within the account that is used to perform routine management on built-in authoritative zones.
+     *  *
      * @param AddUserVpcAuthorizationRequest $request AddUserVpcAuthorizationRequest
      *
      * @return AddUserVpcAuthorizationResponse AddUserVpcAuthorizationResponse
@@ -379,7 +403,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Creates a zone.
+     * @summary Creates a built-in authoritative zone in the regular module or acceleration module.
      *  *
      * @param AddZoneRequest $request AddZoneRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -433,7 +457,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Creates a zone.
+     * @summary Creates a built-in authoritative zone in the regular module or acceleration module.
      *  *
      * @param AddZoneRequest $request AddZoneRequest
      *
@@ -447,7 +471,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Adds a Domain Name System (DNS) record for a zone.
+     * @summary Adds a Domain Name System (DNS) record for a built-in authoritative zone. Within the effective scope, the intranet DNS records rather than the Internet DNS records take effect for the zone.
      *  *
      * @param AddZoneRecordRequest $request AddZoneRecordRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -513,7 +537,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Adds a Domain Name System (DNS) record for a zone.
+     * @summary Adds a Domain Name System (DNS) record for a built-in authoritative zone. Within the effective scope, the intranet DNS records rather than the Internet DNS records take effect for the zone.
      *  *
      * @param AddZoneRecordRequest $request AddZoneRecordRequest
      *
@@ -580,7 +604,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Binds a zone to virtual private clouds (VPCs) or unbinds a zone from VPCs.
+     * @summary Associates or dissociates virtual private clouds (VPCs) from a zone to set the effective scope of the zone.
+     *  *
+     * @description ##### [](#)Precautions:
+     * We recommend that you set the effective scope of a zone after you configure all Domain Name System (DNS) records. If you set an effective scope before you configure DNS records, the DNS resolution for the zone within the effective scope will fail unless you enable the recursive resolution proxy for subdomain names.
      *  *
      * @param BindZoneVpcRequest $request BindZoneVpcRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -625,7 +652,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Binds a zone to virtual private clouds (VPCs) or unbinds a zone from VPCs.
+     * @summary Associates or dissociates virtual private clouds (VPCs) from a zone to set the effective scope of the zone.
+     *  *
+     * @description ##### [](#)Precautions:
+     * We recommend that you set the effective scope of a zone after you configure all Domain Name System (DNS) records. If you set an effective scope before you configure DNS records, the DNS resolution for the zone within the effective scope will fail unless you enable the recursive resolution proxy for subdomain names.
      *  *
      * @param BindZoneVpcRequest $request BindZoneVpcRequest
      *
@@ -639,6 +669,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Changes the logical location of a zone.
+     *  *
      * @param ChangeZoneDnsGroupRequest $request ChangeZoneDnsGroupRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -676,6 +708,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Changes the logical location of a zone.
+     *  *
      * @param ChangeZoneDnsGroupRequest $request ChangeZoneDnsGroupRequest
      *
      * @return ChangeZoneDnsGroupResponse ChangeZoneDnsGroupResponse
@@ -688,7 +722,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the name of a zone is valid based on specific rules.
+     * @summary Checks whether a zone name can be added based on a rule.
      *  *
      * @param CheckZoneNameRequest $request CheckZoneNameRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -727,7 +761,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether the name of a zone is valid based on specific rules.
+     * @summary Checks whether a zone name can be added based on a rule.
      *  *
      * @param CheckZoneNameRequest $request CheckZoneNameRequest
      *
@@ -741,6 +775,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a custom line.
+     *  *
      * @param DeleteCustomLineRequest $request DeleteCustomLineRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -775,6 +811,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a custom line.
+     *  *
      * @param DeleteCustomLineRequest $request DeleteCustomLineRequest
      *
      * @return DeleteCustomLineResponse DeleteCustomLineResponse
@@ -787,7 +825,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an endpoint.
+     * @summary Deletes an endpoint based on the endpoint ID.
      *  *
      * @param DeleteResolverEndpointRequest $request DeleteResolverEndpointRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -823,7 +861,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an endpoint.
+     * @summary Deletes an endpoint based on the endpoint ID.
      *  *
      * @param DeleteResolverEndpointRequest $request DeleteResolverEndpointRequest
      *
@@ -837,7 +875,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a forwarding rule.
+     * @summary Deletes a forwarding rule based on the rule ID.
      *  *
      * @param DeleteResolverRuleRequest $request DeleteResolverRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -873,7 +911,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a forwarding rule.
+     * @summary Deletes a forwarding rule based on the rule ID.
      *  *
      * @param DeleteResolverRuleRequest $request DeleteResolverRuleRequest
      *
@@ -887,7 +925,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an account whose one or more virtual private clouds (VPCs) are associated with a private zone.
+     * @summary Removes an account from the central management of private Domain Name System (DNS) resolution based on the account ID and authorization type.
      *  *
      * @param DeleteUserVpcAuthorizationRequest $request DeleteUserVpcAuthorizationRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -923,7 +961,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an account whose one or more virtual private clouds (VPCs) are associated with a private zone.
+     * @summary Removes an account from the central management of private Domain Name System (DNS) resolution based on the account ID and authorization type.
      *  *
      * @param DeleteUserVpcAuthorizationRequest $request DeleteUserVpcAuthorizationRequest
      *
@@ -937,7 +975,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a zone.
+     * @summary Deletes an idle built-in authoritative zone.
+     *  *
+     * @description #### [](#)Precautions
+     * If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
      *  *
      * @param DeleteZoneRequest $request DeleteZoneRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -979,7 +1020,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a zone.
+     * @summary Deletes an idle built-in authoritative zone.
+     *  *
+     * @description #### [](#)Precautions
+     * If you want to delete a built-in authoritative zone whose effective scope is configured, you must disassociate the zone from the effective scope first.
      *  *
      * @param DeleteZoneRequest $request DeleteZoneRequest
      *
@@ -993,7 +1037,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Domain Name System (DNS) record of a zone.
+     * @summary Deletes a Domain Name System (DNS) record based on the ID of the DNS record.
+     *  *
+     * @description #### **Precautions**
+     * Deleted DNS records cannot be restored. Exercise caution when you perform this operation.
      *  *
      * @param DeleteZoneRecordRequest $request DeleteZoneRecordRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1035,7 +1082,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Domain Name System (DNS) record of a zone.
+     * @summary Deletes a Domain Name System (DNS) record based on the ID of the DNS record.
+     *  *
+     * @description #### **Precautions**
+     * Deleted DNS records cannot be restored. Exercise caution when you perform this operation.
      *  *
      * @param DeleteZoneRecordRequest $request DeleteZoneRecordRequest
      *
@@ -1049,7 +1099,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of operation logs.
+     * @summary Queries the operation logs of Private DNS. Operation logs record operations in modules such as the built-in authoritative module, cache module, forward module, and service address module and record the queries for Domain Name System (DNS) records. You can query operation logs by operation or operation content.
+     *  *
+     * @description #### **Precautions**
+     * You can query the operation logs of Private DNS that are generated within the last six months.
      *  *
      * @param DescribeChangeLogsRequest $request DescribeChangeLogsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1106,7 +1159,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of operation logs.
+     * @summary Queries the operation logs of Private DNS. Operation logs record operations in modules such as the built-in authoritative module, cache module, forward module, and service address module and record the queries for Domain Name System (DNS) records. You can query operation logs by operation or operation content.
+     *  *
+     * @description #### **Precautions**
+     * You can query the operation logs of Private DNS that are generated within the last six months.
      *  *
      * @param DescribeChangeLogsRequest $request DescribeChangeLogsRequest
      *
@@ -1120,6 +1176,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a custom line.
+     *  *
      * @param DescribeCustomLineInfoRequest $request DescribeCustomLineInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -1154,6 +1212,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a custom line.
+     *  *
      * @param DescribeCustomLineInfoRequest $request DescribeCustomLineInfoRequest
      *
      * @return DescribeCustomLineInfoResponse DescribeCustomLineInfoResponse
@@ -1166,6 +1226,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of custom lines.
+     *  *
      * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1203,6 +1265,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of custom lines.
+     *  *
      * @param DescribeCustomLinesRequest $request DescribeCustomLinesRequest
      *
      * @return DescribeCustomLinesResponse DescribeCustomLinesResponse
@@ -1215,7 +1279,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of available regions.
+     * @summary Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
      *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1263,7 +1327,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of available regions.
+     * @summary Queries a list of regions for selection based on the scenario and virtual private cloud (VPC) type.
      *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
@@ -1277,7 +1341,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Domain Name System (DNS) requests.
+     * @summary Queries the information about Domain Name System (DNS) requests based on conditions such as the time range.
      *  *
      * @param DescribeRequestGraphRequest $request DescribeRequestGraphRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1331,7 +1395,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Domain Name System (DNS) requests.
+     * @summary Queries the information about Domain Name System (DNS) requests based on conditions such as the time range.
      *  *
      * @param DescribeRequestGraphRequest $request DescribeRequestGraphRequest
      *
@@ -1398,7 +1462,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an endpoint.
+     * @summary Queries the information about an endpoint based on the endpoint ID.
      *  *
      * @param DescribeResolverEndpointRequest $request DescribeResolverEndpointRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1434,7 +1498,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an endpoint.
+     * @summary Queries the information about an endpoint based on the endpoint ID.
      *  *
      * @param DescribeResolverEndpointRequest $request DescribeResolverEndpointRequest
      *
@@ -1510,7 +1574,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a forwarding rule.
+     * @summary Queries the information about a forwarding rule based on the ID of the forwarding rule.
      *  *
      * @param DescribeResolverRuleRequest $request DescribeResolverRuleRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1546,7 +1610,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a forwarding rule.
+     * @summary Queries the information about a forwarding rule based on the ID of the forwarding rule.
      *  *
      * @param DescribeResolverRuleRequest $request DescribeResolverRuleRequest
      *
@@ -1622,7 +1686,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on the Domain Name System (DNS) requests received on the previous day.
+     * @summary Queries the statistics on Domain Name System (DNS) requests received on the previous day, including the top three zones and virtual private clouds (VPCs) with the largest number of DNS requests.
      *  *
      * @param DescribeStatisticSummaryRequest $request DescribeStatisticSummaryRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1658,7 +1722,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the statistics on the Domain Name System (DNS) requests received on the previous day.
+     * @summary Queries the statistics on Domain Name System (DNS) requests received on the previous day, including the top three zones and virtual private clouds (VPCs) with the largest number of DNS requests.
      *  *
      * @param DescribeStatisticSummaryRequest $request DescribeStatisticSummaryRequest
      *
@@ -1672,7 +1736,9 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a hostname synchronization task.
+     * @summary Queries the information about a hostname synchronization task based on a zone ID.
+     *  *
+     * @description You can call the DescribeSyncEcsHostTask operation to query the information about a hostname synchronization task based on a zone ID.
      *  *
      * @param DescribeSyncEcsHostTaskRequest $request DescribeSyncEcsHostTaskRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1708,7 +1774,9 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a hostname synchronization task.
+     * @summary Queries the information about a hostname synchronization task based on a zone ID.
+     *  *
+     * @description You can call the DescribeSyncEcsHostTask operation to query the information about a hostname synchronization task based on a zone ID.
      *  *
      * @param DescribeSyncEcsHostTaskRequest $request DescribeSyncEcsHostTaskRequest
      *
@@ -1722,7 +1790,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of existing tags.
+     * @summary Queries a list of tags added to zones.
+     *  *
+     * @description #### **Precautions**
+     * You can call this API operation to query the information about tags added only to zones.
      *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1764,7 +1835,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of existing tags.
+     * @summary Queries a list of tags added to zones.
+     *  *
+     * @description #### **Precautions**
+     * You can call this API operation to query the information about tags added only to zones.
      *  *
      * @param DescribeTagsRequest $request DescribeTagsRequest
      *
@@ -1775,6 +1849,53 @@ class Pvtz extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Query the current user\\"s service status, such as whether the service is activated, whether there are any unpaid fees, etc.
+     *  *
+     * @param DescribeUserServiceStatusRequest $request DescribeUserServiceStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeUserServiceStatusResponse DescribeUserServiceStatusResponse
+     */
+    public function describeUserServiceStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserServiceStatus',
+            'version'     => '2018-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Query the current user\\"s service status, such as whether the service is activated, whether there are any unpaid fees, etc.
+     *  *
+     * @param DescribeUserServiceStatusRequest $request DescribeUserServiceStatusRequest
+     *
+     * @return DescribeUserServiceStatusResponse DescribeUserServiceStatusResponse
+     */
+    public function describeUserServiceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserServiceStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1834,7 +1955,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a zone.
+     * @summary Queries the information about a built-in authoritative zone, such as the virtual private clouds (VPCs) that are associated with the zone.
      *  *
      * @param DescribeZoneInfoRequest $request DescribeZoneInfoRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1870,7 +1991,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a zone.
+     * @summary Queries the information about a built-in authoritative zone, such as the virtual private clouds (VPCs) that are associated with the zone.
      *  *
      * @param DescribeZoneInfoRequest $request DescribeZoneInfoRequest
      *
@@ -1884,6 +2005,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a Domain Name System (DNS) record.
+     *  *
      * @param DescribeZoneRecordRequest $request DescribeZoneRecordRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1915,6 +2038,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a Domain Name System (DNS) record.
+     *  *
      * @param DescribeZoneRecordRequest $request DescribeZoneRecordRequest
      *
      * @return DescribeZoneRecordResponse DescribeZoneRecordResponse
@@ -1927,7 +2052,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of Domain Name System (DNS) records for a zone.
+     * @summary Queries a list of Domain Name System (DNS) records.
      *  *
      * @param DescribeZoneRecordsRequest $request DescribeZoneRecordsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1981,7 +2106,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of Domain Name System (DNS) records for a zone.
+     * @summary Queries a list of Domain Name System (DNS) records.
      *  *
      * @param DescribeZoneRecordsRequest $request DescribeZoneRecordsRequest
      *
@@ -1995,9 +2120,9 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of zones and a list of virtual private clouds (VPCs) that are bound to the zones.
+     * @summary Queries a list of zones within the current account and a list of virtual private clouds (VPCs) associated with the zones.
      *  *
-     * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs to which a zone is bound, you can call the DescribeZoneInfo operation based on the zone ID.
+     * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs with which a zone is associated, you can call the DescribeZoneInfo operation based on the zone ID.
      *  *
      * @param DescribeZoneVpcTreeRequest $request DescribeZoneVpcTreeRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2033,9 +2158,9 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of zones and a list of virtual private clouds (VPCs) that are bound to the zones.
+     * @summary Queries a list of zones within the current account and a list of virtual private clouds (VPCs) associated with the zones.
      *  *
-     * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs to which a zone is bound, you can call the DescribeZoneInfo operation based on the zone ID.
+     * @description We recommend that you do not call this API operation due to its poor performance. Instead, you can call the DescribeZones operation to query a list of zones. If you want to query the information about VPCs with which a zone is associated, you can call the DescribeZoneInfo operation based on the zone ID.
      *  *
      * @param DescribeZoneVpcTreeRequest $request DescribeZoneVpcTreeRequest
      *
@@ -2049,7 +2174,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of zones for a user.
+     * @summary Queries a list of zones within the current account.
      *  *
      * @param DescribeZonesRequest $request DescribeZonesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2112,7 +2237,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of zones for a user.
+     * @summary Queries a list of zones within the current account.
      *  *
      * @param DescribeZonesRequest $request DescribeZonesRequest
      *
@@ -2126,7 +2251,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tags added to one or more resources.
+     * @summary Queries a list of tags added to zones.
+     *  *
+     * @description #### [](#)**Precautions**
+     * You can call this API operation to query tags added only to zones.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2174,7 +2302,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of tags added to one or more resources.
+     * @summary Queries a list of tags added to zones.
+     *  *
+     * @description #### [](#)**Precautions**
+     * You can call this API operation to query tags added only to zones.
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -2188,7 +2319,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Moves a zone to another resource group.
+     * @summary Changes a resource group.
+     *  *
+     * @description #### [](#)Precautions
+     * You can call this API operation to change a resource group only for a zone.
      *  *
      * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2230,7 +2364,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Moves a zone to another resource group.
+     * @summary Changes a resource group.
+     *  *
+     * @description #### [](#)Precautions
+     * You can call this API operation to change a resource group only for a zone.
      *  *
      * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
@@ -2244,6 +2381,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of custom lines.
+     *  *
      * @param SearchCustomLinesRequest $request SearchCustomLinesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2302,6 +2441,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of custom lines.
+     *  *
      * @param SearchCustomLinesRequest $request SearchCustomLinesRequest
      *
      * @return SearchCustomLinesResponse SearchCustomLinesResponse
@@ -2314,7 +2455,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Configures the recursive resolution proxy feature.
+     * @summary Enables the recursive resolution proxy for subdomain names.
      *  *
      * @param SetProxyPatternRequest $request SetProxyPatternRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -2359,7 +2500,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Configures the recursive resolution proxy feature.
+     * @summary Enables the recursive resolution proxy for subdomain names.
      *  *
      * @param SetProxyPatternRequest $request SetProxyPatternRequest
      *
@@ -2373,7 +2514,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Specifies the status of a Domain Name System (DNS) record for a zone.
+     * @summary Enables or disables a Domain Name System (DNS) record.
      *  *
      * @param SetZoneRecordStatusRequest $request SetZoneRecordStatusRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -2418,7 +2559,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Specifies the status of a Domain Name System (DNS) record for a zone.
+     * @summary Enables or disables a Domain Name System (DNS) record.
      *  *
      * @param SetZoneRecordStatusRequest $request SetZoneRecordStatusRequest
      *
@@ -2432,7 +2573,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to resources.
+     * @summary Adds or modifies tags for zones.
+     *  *
+     * @description ##### [](#)Precautions
+     * You can configure tags only for zones.
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2477,7 +2621,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Adds tags to resources.
+     * @summary Adds or modifies tags for zones.
+     *  *
+     * @description ##### [](#)Precautions
+     * You can configure tags only for zones.
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
@@ -2491,7 +2638,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources.
+     * @summary Removes the tags of multiple zones at a time.
+     *  *
+     * @description #### [](#)**Precautions**
+     * You can call this API operation to remove tags added only to zones.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2536,7 +2686,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources.
+     * @summary Removes the tags of multiple zones at a time.
+     *  *
+     * @description #### [](#)**Precautions**
+     * You can call this API operation to remove tags added only to zones.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -2550,6 +2703,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a custom line.
+     *  *
      * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2590,6 +2745,8 @@ class Pvtz extends OpenApiClient
     }
 
     /**
+     * @summary Modifies a custom line.
+     *  *
      * @param UpdateCustomLineRequest $request UpdateCustomLineRequest
      *
      * @return UpdateCustomLineResponse UpdateCustomLineResponse
@@ -2602,7 +2759,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a Domain Name System (DNS) record that is added for a zone.
+     * @summary Modifies the description of a Domain Name System (DNS) record based on the record ID.
      *  *
      * @param UpdateRecordRemarkRequest $request UpdateRecordRemarkRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2644,7 +2801,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a Domain Name System (DNS) record that is added for a zone.
+     * @summary Modifies the description of a Domain Name System (DNS) record based on the record ID.
      *  *
      * @param UpdateRecordRemarkRequest $request UpdateRecordRemarkRequest
      *
@@ -2773,7 +2930,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Creates and updates a hostname synchronize task.
+     * @summary Adds or updates a hostname synchronization task.
      *  *
      * @param UpdateSyncEcsHostTaskRequest $request UpdateSyncEcsHostTaskRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2815,7 +2972,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Creates and updates a hostname synchronize task.
+     * @summary Adds or updates a hostname synchronization task.
      *  *
      * @param UpdateSyncEcsHostTaskRequest $request UpdateSyncEcsHostTaskRequest
      *
@@ -2829,7 +2986,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a Domain Name System (DNS) record of a zone.
+     * @summary Modifies a Domain Name System (DNS) record of a zone, including the hostname, record value, and weight value of the DNS record.
+     *  *
+     * @description #### **Precautions**
+     * The DNS record modification for a zone in the regular module takes effect only after the time to live (TTL) expires. The DNS record modification for a zone in the acceleration module takes effect immediately.
      *  *
      * @param UpdateZoneRecordRequest $request UpdateZoneRecordRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2892,7 +3052,10 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a Domain Name System (DNS) record of a zone.
+     * @summary Modifies a Domain Name System (DNS) record of a zone, including the hostname, record value, and weight value of the DNS record.
+     *  *
+     * @description #### **Precautions**
+     * The DNS record modification for a zone in the regular module takes effect only after the time to live (TTL) expires. The DNS record modification for a zone in the acceleration module takes effect immediately.
      *  *
      * @param UpdateZoneRecordRequest $request UpdateZoneRecordRequest
      *
@@ -2906,7 +3069,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a zone.
+     * @summary Modifies the description of a built-in authoritative zone.
      *  *
      * @param UpdateZoneRemarkRequest $request UpdateZoneRemarkRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2951,7 +3114,7 @@ class Pvtz extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the description of a zone.
+     * @summary Modifies the description of a built-in authoritative zone.
      *  *
      * @param UpdateZoneRemarkRequest $request UpdateZoneRemarkRequest
      *

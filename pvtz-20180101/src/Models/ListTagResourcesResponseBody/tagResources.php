@@ -11,7 +11,7 @@ class tagResources extends Model
     /**
      * @description The resource ID, which is a zone ID.
      *
-     * @example 97fe9321a476d0861f624d3f738dcc38
+     * @example 97fe9321a476d0861f624d3f738d****
      *
      * @var string
      */

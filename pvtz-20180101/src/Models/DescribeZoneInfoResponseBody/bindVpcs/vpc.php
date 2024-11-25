@@ -9,43 +9,43 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
-     * @description The region ID.
+     * @description The region ID of the VPC.
      *
-     * @example cn-hangzhou
+     * @example cn-heyuan
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the region.
+     * @description The name of the region where the VPC resides.
      *
-     * @example 1304
+     * @example China (Heyuan)
      *
      * @var string
      */
     public $regionName;
 
     /**
-     * @description The VPC ID.
+     * @description The VPC ID. This ID uniquely identifies the VPC.
      *
-     * @example daily-vpc-id
+     * @example vpc-f8zvrvr1payllgz38****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The name of the VPC.
+     * @description The VPC name.
      *
-     * @example daily-vpc-name
+     * @example vpc_test
      *
      * @var string
      */
     public $vpcName;
 
     /**
-     * @description The type of the VPC. Valid values:
+     * @description The VPC type. Valid values:
      *
      *   STANDARD: standard VPC
      *   EDS: Elastic Desktop Service (EDS) workspace VPC
@@ -57,9 +57,9 @@ class vpc extends Model
     public $vpcType;
 
     /**
-     * @description The ID of the user to which the VPC belongs. The value null indicates that the VPC belongs to the current user.
+     * @description The user ID to which the VPC belongs. If null is returned, the VPC belongs to the current user.
      *
-     * @example vpc-bp1aevy8sofi8mh1q****
+     * @example 141339776561****
      *
      * @var int
      */

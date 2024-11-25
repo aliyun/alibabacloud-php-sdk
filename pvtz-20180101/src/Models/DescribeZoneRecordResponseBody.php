@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneRecordResponseBody extends Model
 {
     /**
+     * @description The time when the DNS record was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-01-23T03:15Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the DNS record was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516775741000
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $createTimestamp;
 
     /**
+     * @description The resolution line.
+     *
      * @example default
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $line;
 
     /**
+     * @description The priority of the mail exchanger (MX) record.
+     *
      * @example 5
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $priority;
 
     /**
+     * @description The ID of the DNS record.
+     *
      * @example 5808
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $recordId;
 
     /**
+     * @description The description of the DNS record.
+     *
      * @example test record
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $remark;
 
     /**
+     * @description The request ID.
+     *
      * @example 0B7AD377-7E86-44A8-B9A8-53E8666E72FE
      *
      * @var string
@@ -58,6 +72,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The hostname.
+     *
      * @example www
      *
      * @var string
@@ -65,6 +81,11 @@ class DescribeZoneRecordResponseBody extends Model
     public $rr;
 
     /**
+     * @description The state of the DNS record. Valid values:
+     *
+     *   **ENABLE**: The DNS record is enabled.
+     *   **DISABLE**: The DNS record is disabled.
+     *
      * @example ENABLE
      *
      * @var string
@@ -72,6 +93,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $status;
 
     /**
+     * @description The time to live (TTL) of the DNS record.
+     *
      * @example 60
      *
      * @var int
@@ -79,6 +102,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $ttl;
 
     /**
+     * @description The type of the DNS record.
+     *
      * @example A
      *
      * @var string
@@ -86,6 +111,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $type;
 
     /**
+     * @description The time when the DNS record was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-01-24T06:35Z
      *
      * @var string
@@ -93,6 +120,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $updateTime;
 
     /**
+     * @description The time when the DNS record was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516775741000
      *
      * @var int
@@ -100,6 +129,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $updateTimestamp;
 
     /**
+     * @description The record value.
+     *
      * @example 127.0.0.1
      *
      * @var string
@@ -107,6 +138,8 @@ class DescribeZoneRecordResponseBody extends Model
     public $value;
 
     /**
+     * @description The weight value of the DNS record.
+     *
      * @example 1
      *
      * @var int
@@ -114,7 +147,7 @@ class DescribeZoneRecordResponseBody extends Model
     public $weight;
 
     /**
-     * @description Zone ID。
+     * @description The zone ID.
      *
      * @example CAgICA1OA_58
      *

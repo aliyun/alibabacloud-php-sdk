@@ -18,9 +18,9 @@ class AddResolverRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The forwarding rule ID.
+     * @description The ID of the forwarding rule.
      *
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */

@@ -30,14 +30,14 @@ class zone extends Model
     /**
      * @description The creator of the zone.
      *
-     * @example 5463564356
+     * @example 546356****
      *
      * @var string
      */
     public $creator;
 
     /**
-     * @description The type of the user account.
+     * @description The account type. Valid values:
      *
      *   **CUSTOMER**: Alibaba Cloud account
      *   **SUB**: RAM user
@@ -87,10 +87,10 @@ class zone extends Model
     public $isPtr;
 
     /**
-     * @description Indicates whether the recursive resolution proxy feature is enabled for the zone. Valid values:
+     * @description Indicates whether the recursive resolution proxy for subdomain names is enabled. Valid values:
      *
-     *   **ZONE**: The recursive resolution proxy feature is disabled for the zone.
-     *   **RECORD**: The recursive resolution proxy feature is enabled for the zone.
+     *   **ZONE**: The recursive resolution proxy for subdomain names is disabled. In this case, NXDOMAIN is returned if the queried domain name does not exist in the zone.
+     *   **RECORD**: The recursive resolution proxy for subdomain names is enabled. In this case, if the queried domain name does not exist in the zone, DNS requests are recursively forwarded to the forward module and then to the recursion module until DNS results are returned.
      *
      * @example ZONE
      *
@@ -99,7 +99,7 @@ class zone extends Model
     public $proxyPattern;
 
     /**
-     * @description The number of Domain Name System (DNS) records.
+     * @description The number of Domain Name System (DNS) records added in the zone.
      *
      * @example 2
      *
@@ -117,16 +117,16 @@ class zone extends Model
     public $remark;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the zone belongs.
      *
-     * @example rg-xxxxx
+     * @example rg-aekz2qj7awz****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tags added to the resources.
+     * @description The tags added to the zone.
      *
      * @var resourceTags
      */
@@ -151,7 +151,7 @@ class zone extends Model
     public $updateTimestamp;
 
     /**
-     * @description The zone ID.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * @example 6d83e3b31aa60ca4aaa7161f1b6b**95
      *
@@ -181,7 +181,7 @@ class zone extends Model
     public $zoneTag;
 
     /**
-     * @description The type of zones. Valid values:
+     * @description The zone type. Valid values:
      *
      *   **AUTH_ZONE**: authoritative zone
      *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services

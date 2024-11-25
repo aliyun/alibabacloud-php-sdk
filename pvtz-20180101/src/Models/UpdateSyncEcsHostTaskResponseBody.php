@@ -18,7 +18,7 @@ class UpdateSyncEcsHostTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the task was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
      *   true
      *   false

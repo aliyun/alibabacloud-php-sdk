@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
-     * @description The region ID.
+     * @description The region ID of the outbound VPC.
      *
      * @example cn-hangzhou
      *
@@ -20,7 +20,7 @@ class vpc extends Model
     /**
      * @description The VPC ID.
      *
-     * @example vpc-kqk1i2o2ajsksl-vpc-test
+     * @example vpc-f8zvrvr1payllgz38****
      *
      * @var string
      */

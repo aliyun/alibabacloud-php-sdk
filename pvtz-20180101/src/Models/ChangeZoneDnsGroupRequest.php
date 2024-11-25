@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeZoneDnsGroupRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
+     *
      * @example 85456erer657cfgfg3437
      *
      * @var string
@@ -16,8 +18,12 @@ class ChangeZoneDnsGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is required.
+     * @description The logical location of the built-in authoritative module in which the zone is added. Valid values:
      *
+     *   Normal zone: regular module
+     *   Fast Zone: acceleration module
+     *
+     * This parameter is required.
      * @example NORMAL_ZONE
      *
      * @var string
@@ -25,8 +31,9 @@ class ChangeZoneDnsGroupRequest extends Model
     public $dnsGroup;
 
     /**
-     * @description This parameter is required.
+     * @description The global ID of the zone.
      *
+     * This parameter is required.
      * @example e0cff188756b1d4579b25e54b66cb830
      *
      * @var string

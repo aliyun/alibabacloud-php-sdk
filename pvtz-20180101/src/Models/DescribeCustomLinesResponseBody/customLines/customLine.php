@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class customLine extends Model
 {
     /**
+     * @description The time when the custom line was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-03-25T08:07Z
      *
      * @var string
@@ -17,6 +19,8 @@ class customLine extends Model
     public $createTime;
 
     /**
+     * @description The time when the custom line was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1671174074000
      *
      * @var int
@@ -24,6 +28,8 @@ class customLine extends Model
     public $createTimestamp;
 
     /**
+     * @description The creator of the custom line.
+     *
      * @example 21312421
      *
      * @var string
@@ -31,6 +37,13 @@ class customLine extends Model
     public $creator;
 
     /**
+     * @description The type of the creator for the custom line. Valid values:
+     *
+     *   CUSTOM: Alibaba Cloud account
+     *   SUB: RAM user
+     *   STS: assumed role that obtains the Security Token Service (STS) token of a RAM role
+     *   OTHER: other roles
+     *
      * @example SUB
      *
      * @var string
@@ -38,6 +51,11 @@ class customLine extends Model
     public $creatorSubType;
 
     /**
+     * @description The role of the creator for the custom line. Valid values:
+     *
+     *   USER: user
+     *   SYSTEM: system
+     *
      * @example USER
      *
      * @var string
@@ -45,11 +63,15 @@ class customLine extends Model
     public $creatorType;
 
     /**
+     * @description The IPv4 CIDR blocks.
+     *
      * @var ipv4s
      */
     public $ipv4s;
 
     /**
+     * @description The unique ID of the custom line.
+     *
      * @example 160002
      *
      * @var string
@@ -57,11 +79,15 @@ class customLine extends Model
     public $lineId;
 
     /**
+     * @description The name of the custom line.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The time when the custom line was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2020-08-24T16:08Z
      *
      * @var string
@@ -69,6 +95,8 @@ class customLine extends Model
     public $updateTime;
 
     /**
+     * @description The time when the custom line was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1681879029000
      *
      * @var int

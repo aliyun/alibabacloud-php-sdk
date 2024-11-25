@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverEndpointsRequest extends Model
 {
     /**
-     * @description The keyword used to filter endpoints in %keyword% mode.
+     * @description The keyword of the endpoint name, which is used for fuzzy searches.
      *
      * @example test
      *
@@ -18,8 +18,12 @@ class DescribeResolverEndpointsRequest extends Model
     public $keyword;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -27,7 +31,7 @@ class DescribeResolverEndpointsRequest extends Model
     public $lang;
 
     /**
-     * @description The page number. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -36,7 +40,7 @@ class DescribeResolverEndpointsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 20. Maximum value: 100.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
      *
      * @example 20
      *
@@ -45,15 +49,16 @@ class DescribeResolverEndpointsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The state of the endpoint that you want to query. If you do not specify this parameter, all endpoints are returned. Valid values:
+     * @description The state of the endpoint that you want to query. Valid values:
      *
      *   SUCCESS: The endpoint works as expected.
      *   INIT: The endpoint is being created.
-     *   FAILED: The endpoint fails to be created.
+     *   FAILED: The endpoint failed to be created.
      *   CHANGE_INIT: The endpoint is being modified.
-     *   CHANGE_FAILED: The endpoint fails to be modified.
-     *   EXCEPTION: The endpoint encounters an exception.
+     *   CHANGE_FAILED: The endpoint failed to be modified.
+     *   EXCEPTION: The endpoint encountered an exception.
      *
+     * >  If you do not specify this parameter, endpoints in all states are returned.
      * @example SUCCESS
      *
      * @var string
@@ -61,6 +66,10 @@ class DescribeResolverEndpointsRequest extends Model
     public $status;
 
     /**
+     * @description The region ID of the outbound virtual private cloud (VPC).
+     *
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $vpcRegionId;

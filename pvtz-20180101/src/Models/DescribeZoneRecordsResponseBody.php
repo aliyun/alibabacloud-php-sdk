@@ -28,7 +28,7 @@ class DescribeZoneRecordsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The returned DNS records.
+     * @description The DNS records.
      *
      * @var records
      */
@@ -53,7 +53,7 @@ class DescribeZoneRecordsResponseBody extends Model
     public $totalItems;
 
     /**
-     * @description The total number of returned pages.
+     * @description The total number of pages returned.
      *
      * @example 100
      *

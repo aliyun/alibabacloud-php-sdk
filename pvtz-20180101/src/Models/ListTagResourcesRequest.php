@@ -10,8 +10,12 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The language of the values for specific response parameters. Valid values: en, zh, and ja.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -19,9 +23,9 @@ class ListTagResourcesRequest extends Model
     public $lang;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
-     * @example 234235354
+     * @example 23423****
      *
      * @var string
      */
@@ -47,7 +51,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The number of entries per page. Valid values: `1 to 200`. Default value: 20.
+     * @description The number of entries per page. Maximum value: 200. Default value: 20.
      *
      * @example 20
      *

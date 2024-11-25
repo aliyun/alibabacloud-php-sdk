@@ -18,9 +18,9 @@ class region extends Model
     public $regionId;
 
     /**
-     * @description The Alibaba Cloud account to which the region belongs. This parameter is used in cross-account synchronization scenarios.
+     * @description The user ID to which the region belongs. This parameter is used in cross-account synchronization scenarios.
      *
-     * @example 1234567890
+     * @example 141339776561****
      *
      * @var int
      */

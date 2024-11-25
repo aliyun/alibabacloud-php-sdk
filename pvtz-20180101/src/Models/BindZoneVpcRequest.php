@@ -19,8 +19,12 @@ class BindZoneVpcRequest extends Model
     public $clientToken;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -30,24 +34,25 @@ class BindZoneVpcRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 1.1.1.1
+     * @example 127.0.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description The information about VPCs.
+     * @description The VPCs.
      *
+     * >  If Vpcs is left empty, all VPCs that are associated with the zone are disassociated from the zone.
      * @var vpcs[]
      */
     public $vpcs;
 
     /**
-     * @description The global ID of the zone.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * This parameter is required.
-     * @example AgIDE0OQ_149
+     * @example 34d4031b63c527358b710a61346a****
      *
      * @var string
      */

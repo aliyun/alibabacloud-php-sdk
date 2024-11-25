@@ -18,7 +18,7 @@ class DescribeResolverRuleResponseBody extends Model
     public $bindVpcs;
 
     /**
-     * @description The time when the forwarding rule was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The time when the forwarding rule was created.
      *
      * @example 2020-07-13 10:51:44
      *
@@ -38,7 +38,7 @@ class DescribeResolverRuleResponseBody extends Model
     /**
      * @description The endpoint ID.
      *
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */
@@ -61,9 +61,9 @@ class DescribeResolverRuleResponseBody extends Model
     public $forwardIps;
 
     /**
-     * @description The forwarding rule ID.
+     * @description The ID of the forwarding rule.
      *
-     * @example hra1**
+     * @example hr****
      *
      * @var string
      */
@@ -90,8 +90,7 @@ class DescribeResolverRuleResponseBody extends Model
     /**
      * @description The type of the forwarding rule. Valid value:
      *
-     *   OUTBOUND: forwards Domain Name System (DNS) requests to one or more external IP addresses.
-     *
+     * OUTBOUND: outbound forwarding rule. This type of rule forwards Domain Name System (DNS) requests to one or more external IP addresses.
      * @example OUTBOUND
      *
      * @var string
@@ -99,7 +98,7 @@ class DescribeResolverRuleResponseBody extends Model
     public $type;
 
     /**
-     * @description The time when the forwarding rule was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The time when the forwarding rule was updated.
      *
      * @example 2020-07-13 10:51:44
      *
@@ -108,7 +107,7 @@ class DescribeResolverRuleResponseBody extends Model
     public $updateTime;
 
     /**
-     * @description The time when the forwarding rule was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the forwarding rule was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1594608704000
      *

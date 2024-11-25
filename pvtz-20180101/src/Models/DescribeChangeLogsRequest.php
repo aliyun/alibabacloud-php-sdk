@@ -20,10 +20,15 @@ class DescribeChangeLogsRequest extends Model
     /**
      * @description The type of operation logs. Valid values:
      *
-     *   **PV_ZONE**: the logs that record the operations on zones
+     *   **PV_ZONE**: the logs that record the operations on built-in authoritative zones
      *   **PV_RECORD**: the logs that record the operations on DNS records
+     *   **RESOLVER_RULE**: the logs that record the operations on forwarding rules
+     *   **CUSTOM_LINE**: the logs that record the operations on user-defined lines
+     *   **RESOLVER_ENDPOINT**: the logs that record the operations on outbound endpoints
+     *   **INBOUND_ENDPOINT**: the logs that record the operations on inbound endpoints
+     *   **CACHE_RESERVE_DOMAIN**: the logs that record the operations on cache retention domain names
      *
-     * If you set this parameter to other values, all types of operation logs are queried.
+     * >  If you set EntityType to other values, all types of logs are queried.
      * @example PV_ZONE
      *
      * @var string
@@ -31,7 +36,7 @@ class DescribeChangeLogsRequest extends Model
     public $entityType;
 
     /**
-     * @description The keyword for searches in "%KeyWord%" mode. The value is not case-sensitive.
+     * @description The keyword of the operation or the operation content. Fuzzy search is supported. The value is not case-sensitive.
      *
      * @example test
      *
@@ -40,8 +45,12 @@ class DescribeChangeLogsRequest extends Model
     public $keyword;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -49,7 +58,7 @@ class DescribeChangeLogsRequest extends Model
     public $lang;
 
     /**
-     * @description The page number. Pages start from page **1**. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -58,7 +67,7 @@ class DescribeChangeLogsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: **100**. Default value: **20**.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
      *
      * @example 100
      *
@@ -78,16 +87,20 @@ class DescribeChangeLogsRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 1.1.XX.XX
+     * @example 192.0.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description The global ID of the zone.\\
-     * If you leave this parameter empty, the logs that record the operations on all zones that belong to the current Alibaba Cloud account and the DNS records of these zones are queried.
-     * @example 6726
+     * @description The zone ID. Valid values:
+     *
+     *   If you set ZoneId to a zone ID, the logs that record the operations on the DNS records of the specified zone are queried.\\
+     *
+     *   If you leave ZoneId empty, the logs that record the operations on all zones and the DNS records of these zones that belong to the current Alibaba Cloud account are queried.
+     *
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */

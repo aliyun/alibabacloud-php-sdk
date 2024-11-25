@@ -11,7 +11,7 @@ class DeleteZoneRecordResponseBody extends Model
     /**
      * @description The ID of the DNS record.
      *
-     * @example 5808
+     * @example 306279****
      *
      * @var int
      */

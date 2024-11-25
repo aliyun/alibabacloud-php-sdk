@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverRulesRequest extends Model
 {
     /**
-     * @description The ID of the outbound endpoint.
+     * @description The outbound endpoint ID.
      *
-     * @example hra2**
+     * @example hr****
      *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The keyword used to filter forwarding rules in %keyword% mode.
+     * @description The keyword of the forwarding rule name. Fuzzy search is supported. The value is not case-sensitive.
      *
      * @example test
      *
@@ -27,8 +27,12 @@ class DescribeResolverRulesRequest extends Model
     public $keyword;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -36,11 +40,12 @@ class DescribeResolverRulesRequest extends Model
     public $lang;
 
     /**
-     * @description Specifies whether to return additional information. Default value: false.
+     * @description Specifies whether to return virtual private clouds (VPCs) associated with the forwarding rule. Valid values:
      *
-     *   If you set this parameter to true, additional information, such as the virtual private clouds (VPCs) that are associated with the queried forwarding rule, is returned.
-     *   If you set this parameter to false, no additional information is returned.
+     *   true
+     *   false
      *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -48,7 +53,7 @@ class DescribeResolverRulesRequest extends Model
     public $needDetailAttributes;
 
     /**
-     * @description The page number. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -57,7 +62,7 @@ class DescribeResolverRulesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 20. Maximum value: 100.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
      *
      * @example 20
      *

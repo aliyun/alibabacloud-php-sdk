@@ -18,9 +18,9 @@ class UpdateZoneRemarkResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The zone ID.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
-     * @example AgIDE1MA_149
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */

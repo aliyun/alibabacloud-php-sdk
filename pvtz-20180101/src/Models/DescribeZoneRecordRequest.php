@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneRecordRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the DNS record.
      *
+     * This parameter is required.
      * @example 5808
      *
      * @var int

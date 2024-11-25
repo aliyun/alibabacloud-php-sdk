@@ -11,7 +11,7 @@ class UpdateZoneRecordResponseBody extends Model
     /**
      * @description The ID of the DNS record.
      *
-     * @example 5809
+     * @example 172223****
      *
      * @var int
      */

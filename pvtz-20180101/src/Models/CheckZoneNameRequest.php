@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CheckZoneNameRequest extends Model
 {
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -20,7 +24,7 @@ class CheckZoneNameRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 192.0.2.0
+     * @example 127.0.XX.XX
      *
      * @var string
      */

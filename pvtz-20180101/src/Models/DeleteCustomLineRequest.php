@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomLineRequest extends Model
 {
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -16,8 +18,9 @@ class DeleteCustomLineRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description The unique ID of the custom line.
      *
+     * This parameter is required.
      * @example 1045001
      *
      * @var string

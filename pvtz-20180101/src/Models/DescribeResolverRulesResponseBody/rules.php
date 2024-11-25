@@ -38,7 +38,7 @@ class rules extends Model
     /**
      * @description The endpoint ID.
      *
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */
@@ -54,7 +54,7 @@ class rules extends Model
     public $endpointName;
 
     /**
-     * @description The destination IP addresses.
+     * @description The IP addresses and ports of the external DNS servers. Enter the IP addresses and ports of the destination servers to which the DNS requests are forwarded.
      *
      * @var forwardIps[]
      */
@@ -63,7 +63,7 @@ class rules extends Model
     /**
      * @description The ID of the forwarding rule.
      *
-     * @example hra1**
+     * @example hr****
      *
      * @var string
      */
@@ -79,10 +79,9 @@ class rules extends Model
     public $name;
 
     /**
-     * @description The type of the forwarding rule. Valid value:
+     * @description The type of the forwarding rule.
      *
-     *   OUTBOUND: Domain Name System (DNS) requests are forwarded to one or more IP addresses.
-     *
+     * The parameter value can only be OUTBOUND, which indicates that Domain Name System (DNS) requests are forwarded to one or more external IP addresses.
      * @example OUTBOUND
      *
      * @var string
@@ -99,7 +98,7 @@ class rules extends Model
     public $updateTime;
 
     /**
-     * @description The timestamp when the forwarding rule was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the forwarding rule was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1594608704000
      *
@@ -108,7 +107,7 @@ class rules extends Model
     public $updateTimestamp;
 
     /**
-     * @description The name of the forward zone.
+     * @description The zone for which you want to forward DNS requests.
      *
      * @example example.com
      *

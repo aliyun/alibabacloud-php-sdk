@@ -36,7 +36,7 @@ class region extends Model
     public $regionId;
 
     /**
-     * @description The name of the region.
+     * @description The region name.
      *
      * @example China (Beijing)
      *

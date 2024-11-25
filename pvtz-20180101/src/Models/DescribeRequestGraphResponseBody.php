@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRequestGraphResponseBody extends Model
 {
     /**
-     * @description The information about the DNS requests.
+     * @description The details of the DNS requests.
      *
      * @var requestDetails
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeZoneDnsGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C6F1D541-E7A6-447A-A2B5-9F7A20B2A8FB
      *
      * @var string
@@ -16,6 +18,8 @@ class ChangeZoneDnsGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The global ID of the zone.
+     *
      * @example e0cff188756b1d4579b25e54b66cb830
      *
      * @var string

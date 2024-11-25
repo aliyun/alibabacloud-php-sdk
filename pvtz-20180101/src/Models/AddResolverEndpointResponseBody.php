@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddResolverEndpointResponseBody extends Model
 {
     /**
-     * @description The outbound endpoint ID.
+     * @description The endpoint ID.
      *
      * @example hra0**
      *

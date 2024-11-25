@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class changeLog extends Model
 {
     /**
-     * @description The details of the operation.
+     * @description The operation content.
      *
-     * @example add test-api.com
+     * @example Add RR:test.03 Type:A Line:default TTL:300 Value:172.20.XX.XX
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class changeLog extends Model
     /**
      * @description The operator ID.
      *
-     * @example 13270376
+     * @example 141339776561****
      *
      * @var string
      */
@@ -50,16 +50,21 @@ class changeLog extends Model
     public $creatorType;
 
     /**
-     * @description The ID of the object on which the operation was performed.
+     * @var string
+     */
+    public $creatorUserId;
+
+    /**
+     * @description The unique ID of the zone, user-defined line, forwarding rule, outbound endpoint, or inbound endpoint.
      *
-     * @example CAgICA1OA_58
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */
     public $entityId;
 
     /**
-     * @description The name of the object on which the operation was performed.
+     * @description The name of the object on which the operation was performed, such as the domain name, user-defined line, cache retention domain name, forwarding rule, outbound endpoint, or inbound endpoint.
      *
      * @example test-api.com
      *
@@ -68,16 +73,16 @@ class changeLog extends Model
     public $entityName;
 
     /**
-     * @description The log ID.
+     * @description The ID of the operation log.
      *
-     * @example 6726
+     * @example 90761578646770****
      *
      * @var int
      */
     public $id;
 
     /**
-     * @description The operation type.
+     * @description The specific operation performed on the object, such as adding, deleting, modifying, or associating the object.
      *
      * @example add
      *
@@ -86,16 +91,24 @@ class changeLog extends Model
     public $operAction;
 
     /**
-     * @description The IP address of the client.
+     * @description The public IP address of the operator terminal. If the IP address of the operator terminal is a private IP address, the value of this parameter is the public IP address to which the private IP address is mapped after network address translation (NAT).
      *
-     * @example 1.1.1.1
+     * @example 192.0.XX.XX
      *
      * @var string
      */
     public $operIp;
 
     /**
-     * @description The type of the object on which the operation is performed.
+     * @description The type of the object on which the operation was performed. Valid values:
+     *
+     *   **PV_ZONE**: the built-in authoritative zone
+     *   **PV_RECORD**: the DNS record
+     *   **RESOLVER_RULE**: the forwarding rule
+     *   **CUSTOM_LINE**: the user-defined line
+     *   **RESOLVER_ENDPOINT**: the outbound endpoint
+     *   **INBOUND_ENDPOINT**: the inbound endpoint
+     *   **CACHE_RESERVE_DOMAIN**: the cache retention domain name
      *
      * @example PV_ZONE
      *
@@ -104,7 +117,7 @@ class changeLog extends Model
     public $operObject;
 
     /**
-     * @description The time when the operation is performed. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the operation is performed. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2018-01-24T07:35Z
      *
@@ -125,6 +138,7 @@ class changeLog extends Model
         'creatorId'      => 'CreatorId',
         'creatorSubType' => 'CreatorSubType',
         'creatorType'    => 'CreatorType',
+        'creatorUserId'  => 'CreatorUserId',
         'entityId'       => 'EntityId',
         'entityName'     => 'EntityName',
         'id'             => 'Id',
@@ -153,6 +167,9 @@ class changeLog extends Model
         }
         if (null !== $this->creatorType) {
             $res['CreatorType'] = $this->creatorType;
+        }
+        if (null !== $this->creatorUserId) {
+            $res['CreatorUserId'] = $this->creatorUserId;
         }
         if (null !== $this->entityId) {
             $res['EntityId'] = $this->entityId;
@@ -201,6 +218,9 @@ class changeLog extends Model
         }
         if (isset($map['CreatorType'])) {
             $model->creatorType = $map['CreatorType'];
+        }
+        if (isset($map['CreatorUserId'])) {
+            $model->creatorUserId = $map['CreatorUserId'];
         }
         if (isset($map['EntityId'])) {
             $model->entityId = $map['EntityId'];

@@ -6,28 +6,33 @@ namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteZoneResponseBody extends Model
+class DescribeUserServiceStatusResponseBody extends Model
 {
     /**
      * @description The request ID.
      *
-     * @example E246E023-F2EB-4034-83F7-B13FCF31459C
+     * @example 99626905-678A-4E8A-984E-6AEB09993996
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The zone ID. This ID uniquely identifies the zone.
+     * @description Current user\\"s service status:
      *
-     * @example 0e41496f12da01311d314f17b801****
+     *  **CLOSED**: Not activated
+     *  **OPENED**: Activated
+     *  **IN_DEBT**: Overdue payment
+     *  **IN_DEBT_OVER_DUE**: Payment overdue
+     *
+     * @example OPENED
      *
      * @var string
      */
-    public $zoneId;
+    public $status;
     protected $_name = [
         'requestId' => 'RequestId',
-        'zoneId'    => 'ZoneId',
+        'status'    => 'Status',
     ];
 
     public function validate()
@@ -40,8 +45,8 @@ class DeleteZoneResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -50,7 +55,7 @@ class DeleteZoneResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteZoneResponseBody
+     * @return DescribeUserServiceStatusResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -58,8 +63,8 @@ class DeleteZoneResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

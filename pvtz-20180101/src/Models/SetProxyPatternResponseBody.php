@@ -20,7 +20,7 @@ class SetProxyPatternResponseBody extends Model
     /**
      * @description The global ID of the zone.
      *
-     * @example AgIDE0OQ_149
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */

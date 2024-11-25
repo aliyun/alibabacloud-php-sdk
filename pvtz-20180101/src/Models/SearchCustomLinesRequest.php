@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchCustomLinesRequest extends Model
 {
     /**
+     * @description The end of the time range during which the custom lines are created to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1672136518234
      *
      * @var int
@@ -16,6 +18,8 @@ class SearchCustomLinesRequest extends Model
     public $createTimestampEnd;
 
     /**
+     * @description The beginning of the time range during which the custom lines are created to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1672136518123
      *
      * @var int
@@ -23,11 +27,15 @@ class SearchCustomLinesRequest extends Model
     public $createTimestampStart;
 
     /**
+     * @description The IDs of the creators for the custom lines.
+     *
      * @var string[]
      */
     public $creator;
 
     /**
+     * @description The IPv4 address.
+     *
      * @example 1.1.1.1
      *
      * @var string
@@ -35,6 +43,8 @@ class SearchCustomLinesRequest extends Model
     public $ipv4;
 
     /**
+     * @description The language.
+     *
      * @example zh
      *
      * @var string
@@ -42,11 +52,15 @@ class SearchCustomLinesRequest extends Model
     public $lang;
 
     /**
+     * @description The name of the custom line.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The page number. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -54,6 +68,8 @@ class SearchCustomLinesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -61,6 +77,8 @@ class SearchCustomLinesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The end of the time range during which the custom lines are updated to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1672136518000
      *
      * @var int
@@ -68,6 +86,8 @@ class SearchCustomLinesRequest extends Model
     public $updateTimestampEnd;
 
     /**
+     * @description The beginning of the time range during which the custom lines are updated to query. Set the time to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1672136515000
      *
      * @var int

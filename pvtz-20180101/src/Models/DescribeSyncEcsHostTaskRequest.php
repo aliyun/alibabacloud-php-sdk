@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeSyncEcsHostTaskRequest extends Model
 {
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -18,10 +22,10 @@ class DescribeSyncEcsHostTaskRequest extends Model
     public $lang;
 
     /**
-     * @description The zone ID.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * This parameter is required.
-     * @example pvtz-test-id-2989149d628c56f00e
+     * @example pvtz-test-id-2989149d628c5****
      *
      * @var string
      */

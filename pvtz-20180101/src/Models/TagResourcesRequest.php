@@ -10,8 +10,12 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -22,7 +26,7 @@ class TagResourcesRequest extends Model
      * @description Specifies whether to replace the original tags added to the resources. Valid values:
      *
      *   True: replaces the original tags.
-     *   False|Null: appends the specified one or more tags to the original tags. If a new tag has the same key but a different value from an original tag, the new tag replaces the original tag.
+     *   False (default): appends the specified one or more tags to the original tags. If a new tag has the same key but a different value from an original tag, the new tag replaces the original tag.
      *
      * @example true
      *
@@ -31,7 +35,7 @@ class TagResourcesRequest extends Model
     public $overWrite;
 
     /**
-     * @description The resource IDs, which are zone IDs. You can specify **1 to 50** IDs.
+     * @description The resource IDs, which are zone IDs. You can specify up to 50 zone IDs.
      *
      * This parameter is required.
      * @example 97fe9321a476d0861f624d3f738dcc38
@@ -41,7 +45,7 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The resource type.
+     * @description The resource type. Valid value: ZONE.
      *
      * This parameter is required.
      * @example ZONE

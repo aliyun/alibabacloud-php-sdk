@@ -10,20 +10,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateResolverRuleRequest extends Model
 {
     /**
+     * @description The endpoint ID.
+     *
+     * @example hr****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
-     * @description The destination IP address and port number.
+     * @description The IP addresses and ports of the external Domain Name System (DNS) servers. Enter the IP addresses and ports of the destination servers to which the DNS requests are forwarded. You can enter up to six IP addresses and ports. Both private and public IP addresses are supported.
      *
+     * >  If you specify public IP addresses as the IP addresses of the external DNS servers and Elastic Compute Service (ECS) instances in the outbound virtual private cloud (VPC) are not assigned public IP addresses, you need to activate NAT Gateway for the VPC and create and manage SNAT entries on a NAT gateway.
      * @var forwardIp[]
      */
     public $forwardIp;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -40,10 +49,10 @@ class UpdateResolverRuleRequest extends Model
     public $name;
 
     /**
-     * @description The forwarding rule ID.
+     * @description The ID of the forwarding rule.
      *
      * This parameter is required.
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */

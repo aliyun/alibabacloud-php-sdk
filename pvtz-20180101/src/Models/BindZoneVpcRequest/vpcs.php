@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vpcs extends Model
 {
     /**
-     * @description The region ID.
+     * @description The region ID of the VPC.
      *
      * @example cn-beijing
      *
@@ -18,16 +18,16 @@ class vpcs extends Model
     public $regionId;
 
     /**
-     * @description The VPC ID. If you do not specify this parameter, the VPCs that are bound to the zone are unbound from the zone.
+     * @description The VPC ID. If the zone is already associated with VPCs and you do not specify this parameter, the associated VPCs are disassociated from the zone.
      *
-     * @example daily-vpc-id
+     * @example vpc-f8zvrvr1payllgz38****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The type of the VPC. Valid values:
+     * @description The VPC type. Valid values:
      *
      *   **STANDARD**: standard VPC
      *   **EDS**: Elastic Desktop Service (EDS) workspace VPC

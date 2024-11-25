@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
-     * @description The keyword of the zone name. The search is performed in the %KeyWord % mode and is not case-sensitive.
+     * @description The keyword of the zone name. The value is not case-sensitive. You can set SearchMode to LIKE or EXACT. The default value of SearchMode is LIKE.
      *
      * @example test
      *
@@ -19,8 +19,12 @@ class DescribeZonesRequest extends Model
     public $keyword;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -37,7 +41,7 @@ class DescribeZonesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: 100. Default value: 20.
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: **20**.
      *
      * @example 100
      *
@@ -46,7 +50,7 @@ class DescribeZonesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the virtual private cloud (VPC) associated with the zone.
      *
      * @example cn-hangzhou
      *
@@ -55,36 +59,37 @@ class DescribeZonesRequest extends Model
     public $queryRegionId;
 
     /**
-     * @description The virtual private cloud (VPC) ID.
+     * @description The ID of the VPC associated with the zone.
      *
-     * @example vpc-xxxxx
+     * @example vpc-f8zvrvr1payllgz38****
      *
      * @var string
      */
     public $queryVpcId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the zone belongs.
      *
-     * @example rg-xxxxx
+     * @example rg-aekz2qj7awz****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tag added to the resource.
+     * @description The tags added to the zone.
      *
      * @var resourceTag[]
      */
     public $resourceTag;
 
     /**
-     * @description The search mode. Valid values:
+     * @description The search mode. The value of Keyword is the search scope. Valid values:
      *
-     *   **LIKE (default)**: fuzzy search
+     *   **LIKE** (default): fuzzy search
      *   **EXACT**: exact search
      *
+     * Default value: **LIKE**.
      * @example LIKE
      *
      * @var string
@@ -92,7 +97,7 @@ class DescribeZonesRequest extends Model
     public $searchMode;
 
     /**
-     * @description The type of the cloud service.
+     * @description The types of cloud services.
      *
      * @example BLINK
      *
@@ -101,13 +106,12 @@ class DescribeZonesRequest extends Model
     public $zoneTag;
 
     /**
-     * @description The type of zones to query. Default value: AUTH_ZONE.
-     *
-     * Valid values:
+     * @description The zone type. Valid values:
      *
      *   **AUTH_ZONE**: authoritative zone
      *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services
      *
+     * Default value: **AUTH_ZONE**.
      * @example CLOUD_PRODUCT_ZONE
      *
      * @var string

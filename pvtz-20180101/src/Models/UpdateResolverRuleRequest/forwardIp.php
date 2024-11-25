@@ -9,16 +9,17 @@ use AlibabaCloud\Tea\Model;
 class forwardIp extends Model
 {
     /**
-     * @description The destination IP address.
+     * @description The IP address of the destination server.
      *
-     * @example 172.16.xx.xx
+     * >  You cannot specify the following IP addresses as the IP addresses of the external DNS servers because the IP addresses are reserved by the system: 100.100.2.136 to 100.100.2.138, and 100.100.2.116 to 100.100.2.118.
+     * @example 172.16.XX.XX
      *
      * @var string
      */
     public $ip;
 
     /**
-     * @description The port number.
+     * @description The port of the destination server.
      *
      * @example 8080
      *

@@ -18,11 +18,14 @@ class AddZoneRequest extends Model
     public $clientToken;
 
     /**
-     * @description The logical location of the built-in authoritative module in which the zone is added. Valid values:
+     * @description The logical location type of the built-in authoritative module in which the zone is added. Valid values:
      *
-     *   Normal zone: regular module
-     *   Fast Zone: acceleration module
+     *   **NORMAL_ZONE**: the regular module. DNS results are stored in the cache module and DNS requests are sent to the regular module if the DNS requests do not match the DNS records in the cache module. DNS record updates take effect based on the time to live (TTL) value. The regular module does not support DNS resolution over user-defined lines or based on weight values.
+     *   **FAST_ZONE**: the acceleration module. It directly responds to DNS requests with the lowest latency and updates DNS records in real time. The acceleration module supports DNS resolution over user-defined lines or based on weight values.
      *
+     * Default value: **NORMAL_ZONE**.
+     *
+     * >  The DNS results returned by the built-in authoritative acceleration module are not stored in the cache module because the built-in authoritative acceleration module is located before the cache module. As a result, you are charged more for DNS requests.
      * @example FAST_ZONE
      *
      * @var string
@@ -30,8 +33,12 @@ class AddZoneRequest extends Model
     public $dnsGroup;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * Default value: **en**.
      * @example en
      *
      * @var string
@@ -39,9 +46,12 @@ class AddZoneRequest extends Model
     public $lang;
 
     /**
-     * @description *   Specifies whether to enable the recursive resolution proxy feature for the zone. Valid values: **ZONE**: disables the recursive resolution proxy feature for the zone.
-     *   **RECORD**: enables the recursive resolution proxy feature for the zone.
+     * @description Specifies whether to enable the recursive resolution proxy for subdomain names. Valid values:
      *
+     *   **ZONE**: disables the recursive resolution proxy for subdomain names. In this case, NXDOMAIN is returned if the queried subdomain name does not exist in the zone.
+     *   **RECORD**: enables the recursive resolution proxy for subdomain names. In this case, if the queried subdomain name does not exist in the zone, DNS requests are recursively forwarded to the forward module and then to the recursion module until DNS results are returned.
+     *
+     * Default value: **ZONE**.
      * @example ZONE
      *
      * @var string
@@ -51,14 +61,14 @@ class AddZoneRequest extends Model
     /**
      * @description The ID of the resource group.
      *
-     * @example rg-resourcegroupid1
+     * @example rg-acfmykd63gt****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The name of the zone.
+     * @description The name of the zone to be added.
      *
      * @example example.com
      *

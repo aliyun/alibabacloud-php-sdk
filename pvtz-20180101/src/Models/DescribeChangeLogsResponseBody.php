@@ -53,7 +53,7 @@ class DescribeChangeLogsResponseBody extends Model
     public $totalItems;
 
     /**
-     * @description The total number of pages.
+     * @description The total number of pages returned.
      *
      * @example 100
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneInfoResponseBody extends Model
 {
     /**
-     * @description The virtual private clouds (VPCs) bound to the zone.
+     * @description The VPCs associated with the zone.
      *
      * @var bindVpcs
      */
@@ -37,14 +37,14 @@ class DescribeZoneInfoResponseBody extends Model
     /**
      * @description The creator of the zone.
      *
-     * @example 2312234523451342
+     * @example 141339776561****
      *
      * @var string
      */
     public $creator;
 
     /**
-     * @description The type of the operator.
+     * @description The type of the creator.
      *
      * @example USER
      *
@@ -53,10 +53,10 @@ class DescribeZoneInfoResponseBody extends Model
     public $creatorType;
 
     /**
-     * @description The logical location of the built-in authoritative module in which the zone is added. Valid values:
+     * @description The logical location type of the built-in authoritative module in which the zone is added. Valid values:
      *
-     *   NORMAL_ZONE: regular module
-     *   FAST_ZONE: acceleration module
+     *   **NORMAL_ZONE**: regular module
+     *   **FAST_ZONE**: acceleration module
      *
      * @example FAST_ZONE
      *
@@ -77,8 +77,10 @@ class DescribeZoneInfoResponseBody extends Model
     public $dnsGroupChanging;
 
     /**
-     * @description *   Indicates whether the zone is a reverse lookup zone. Valid values: true and false. The value true indicates that the zone is a reverse lookup zone.
-     *   The value false indicates that the zone is not a reverse lookup zone.
+     * @description Indicates whether the zone is a reverse lookup zone. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example false
      *
@@ -87,8 +89,10 @@ class DescribeZoneInfoResponseBody extends Model
     public $isPtr;
 
     /**
-     * @description *   Indicates whether the recursive resolution proxy feature is enabled for the zone. Valid values: **ZONE**: The recursive resolution proxy feature is disabled for the zone.
-     *   **RECORD**: The recursive resolution proxy feature is enabled for the zone.
+     * @description Indicates whether the recursive resolution proxy for subdomain names is enabled. Valid values:
+     *
+     *   ZONE: The recursive resolution proxy for subdomain names is disabled. In this case, NXDOMAIN is returned if the queried domain name does not exist in the zone.
+     *   RECORD: The recursive resolution proxy for subdomain names is enabled. In this case, if the queried domain name does not exist in the zone, DNS requests are recursively forwarded to the forward module and then to the recursion module until DNS results are returned.
      *
      * @example ZONE
      *
@@ -97,7 +101,7 @@ class DescribeZoneInfoResponseBody extends Model
     public $proxyPattern;
 
     /**
-     * @description The total number of DNS records.
+     * @description The total number of DNS records added in the zone.
      *
      * @example 2
      *
@@ -108,7 +112,7 @@ class DescribeZoneInfoResponseBody extends Model
     /**
      * @description The description of the zone.
      *
-     * @example specialZone
+     * @example test
      *
      * @var string
      */
@@ -124,9 +128,9 @@ class DescribeZoneInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group to which the zone belongs.
      *
-     * @example rg-xxxxxxxx
+     * @example rg-acfmykd63gt****
      *
      * @var string
      */
@@ -145,7 +149,7 @@ class DescribeZoneInfoResponseBody extends Model
     public $slaveDns;
 
     /**
-     * @description The time when the zone was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the zone was last updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2018-01-24T06:35Z
      *
@@ -154,7 +158,7 @@ class DescribeZoneInfoResponseBody extends Model
     public $updateTime;
 
     /**
-     * @description The time when the zone was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the zone was last updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1516775741000
      *
@@ -163,9 +167,9 @@ class DescribeZoneInfoResponseBody extends Model
     public $updateTimestamp;
 
     /**
-     * @description The global ID of the zone.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
-     * @example AgIDE0OQ_149<
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */
@@ -174,15 +178,14 @@ class DescribeZoneInfoResponseBody extends Model
     /**
      * @description The zone name.
      *
-     * @example test.com
+     * @example zone-test.cn
      *
      * @var string
      */
     public $zoneName;
 
     /**
-     * @description *   If ZoneType is set to AUTH_ZONE, no value is returned for this parameter.
-     *   If ZoneType is set to CLOUD_PRODUCT_ZONE, the type of the cloud service is returned.
+     * @description The tag added to the zone.
      *
      * @example pvtz
      *
@@ -191,10 +194,10 @@ class DescribeZoneInfoResponseBody extends Model
     public $zoneTag;
 
     /**
-     * @description The type of the zone. Valid values:
+     * @description The zone type. Valid values:
      *
-     *   AUTH_ZONE: authoritative zone
-     *   CLOUD_PRODUCT_ZONE: authoritative zone for cloud services
+     *   **AUTH_ZONE**: authoritative zone
+     *   **CLOUD_PRODUCT_ZONE**: authoritative zone for cloud services
      *
      * @example CLOUD_PRODUCT_ZONE
      *

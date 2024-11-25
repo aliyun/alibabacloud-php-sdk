@@ -20,14 +20,14 @@ class vpcRequestTop extends Model
     /**
      * @description The name of the region.
      *
-     * @example China (Beijing)
+     * @example 华北 2
      *
      * @var string
      */
     public $regionName;
 
     /**
-     * @description The number of DNS requests.
+     * @description The number of DNS requests on the previous day.
      *
      * @example 2254
      *
@@ -38,7 +38,7 @@ class vpcRequestTop extends Model
     /**
      * @description The tunnel ID.
      *
-     * @example 46574
+     * @example tun-7h33lkqfuhgnyy****
      *
      * @var string
      */
@@ -47,14 +47,14 @@ class vpcRequestTop extends Model
     /**
      * @description The VPC ID.
      *
-     * @example vpc-2zeisd8c0j6wk1451jr6o
+     * @example vpc-f8zvrvr1payllgz38****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The type of the VPC. Valid values:
+     * @description The VPC type. Valid values:
      *
      *   STANDARD: standard VPC
      *   EDS: Elastic Desktop Service (EDS) workspace VPC

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLineInfoResponseBody extends Model
 {
     /**
+     * @description The time when the custom line was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-01-23T03:15Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeCustomLineInfoResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the custom line was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516775741000
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeCustomLineInfoResponseBody extends Model
     public $createTimestamp;
 
     /**
+     * @description The creator of the custom line.
+     *
      * @example 260282302749096109
      *
      * @var string
@@ -30,6 +36,13 @@ class DescribeCustomLineInfoResponseBody extends Model
     public $creator;
 
     /**
+     * @description The type of the creator. Valid values:
+     *
+     *   CUSTOM: Alibaba Cloud account
+     *   SUB: RAM user
+     *   STS: assumed role that obtains the Security Token Service (STS) token of a RAM role
+     *   OTHER: other roles
+     *
      * @example CUSTOM
      *
      * @var string
@@ -37,6 +50,11 @@ class DescribeCustomLineInfoResponseBody extends Model
     public $creatorSubType;
 
     /**
+     * @description The role of the creator. Valid values:
+     *
+     *   USER: user
+     *   SYSTEM: system
+     *
      * @example USER
      *
      * @var string
@@ -44,11 +62,15 @@ class DescribeCustomLineInfoResponseBody extends Model
     public $creatorType;
 
     /**
+     * @description The IPv4 CIDR blocks.
+     *
      * @var string[]
      */
     public $ipv4s;
 
     /**
+     * @description The unique ID of the custom line.
+     *
      * @example 100003
      *
      * @var string
@@ -56,11 +78,15 @@ class DescribeCustomLineInfoResponseBody extends Model
     public $lineId;
 
     /**
+     * @description The name of the custom line.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The request ID.
+     *
      * @example 0B7AD377-7E86-44A8-B9A8-53E8666E72FE
      *
      * @var string
@@ -68,6 +94,8 @@ class DescribeCustomLineInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the custom line was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2018-01-24T06:35Z
      *
      * @var string
@@ -75,6 +103,8 @@ class DescribeCustomLineInfoResponseBody extends Model
     public $updateTime;
 
     /**
+     * @description The time when the custom line was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1516775741000
      *
      * @var int

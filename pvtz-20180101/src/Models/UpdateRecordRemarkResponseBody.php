@@ -11,7 +11,7 @@ class UpdateRecordRemarkResponseBody extends Model
     /**
      * @description The ID of the DNS record.
      *
-     * @example 18954952
+     * @example 202991****
      *
      * @var int
      */

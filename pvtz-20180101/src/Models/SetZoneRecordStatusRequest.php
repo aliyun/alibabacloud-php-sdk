@@ -18,8 +18,12 @@ class SetZoneRecordStatusRequest extends Model
     public $clientToken;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -30,7 +34,7 @@ class SetZoneRecordStatusRequest extends Model
      * @description The ID of the DNS record.
      *
      * This parameter is required.
-     * @example 5809
+     * @example 207541****
      *
      * @var int
      */
@@ -52,7 +56,7 @@ class SetZoneRecordStatusRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 1.1.XX.XX
+     * @example 127.XX.XX
      *
      * @var string
      */

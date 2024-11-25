@@ -43,8 +43,12 @@ class DescribeRequestGraphRequest extends Model
     public $endTimestamp;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -64,7 +68,7 @@ class DescribeRequestGraphRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 127.0.0.1
+     * @example 192.168.XX.XX
      *
      * @var string
      */
@@ -73,16 +77,17 @@ class DescribeRequestGraphRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC).
      *
-     * @example vpc-1111
+     * @example vpc-f8zvrvr1payllgz38****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The global ID of the zone. To query the number of DNS requests for a zone, you can specify ZoneId or BizType and BizId.
+     * @description The zone ID.
      *
-     * @example 29c752a01cd281a20ddcfaecef
+     * >  To query the number of DNS requests for a zone, you can specify ZoneId or BizType and BizId.
+     * @example 29c752a01cd281a20ddcfa****
      *
      * @var string
      */

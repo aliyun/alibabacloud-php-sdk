@@ -10,8 +10,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateSyncEcsHostTaskRequest extends Model
 {
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -19,7 +23,7 @@ class UpdateSyncEcsHostTaskRequest extends Model
     public $lang;
 
     /**
-     * @description The information about regions to be synchronized.
+     * @description The regions to be synchronized.
      *
      * This parameter is required.
      * @var region[]
@@ -27,10 +31,10 @@ class UpdateSyncEcsHostTaskRequest extends Model
     public $region;
 
     /**
-     * @description The state of the task. Valid values:
+     * @description The state of the hostname synchronization task. Valid values:
      *
-     *   ON
-     *   OFF
+     *   ON: The task is started.
+     *   OFF: The task is ended.
      *
      * This parameter is required.
      * @example ON
@@ -40,10 +44,10 @@ class UpdateSyncEcsHostTaskRequest extends Model
     public $status;
 
     /**
-     * @description The zone ID.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * This parameter is required.
-     * @example test79afafec***********1d28f7889c
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */

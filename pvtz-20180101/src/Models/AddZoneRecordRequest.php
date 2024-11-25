@@ -18,8 +18,12 @@ class AddZoneRecordRequest extends Model
     public $clientToken;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -27,7 +31,17 @@ class AddZoneRecordRequest extends Model
     public $lang;
 
     /**
-     * @description The resolution line. Default value: **default**.
+     * @description The DNS request source. Valid values:
+     *
+     *   default: the default resolution line. The default line is equivalent to a global line. We recommend that you configure a default line to ensure that a DNS record can be returned if no intelligent line is matched.
+     *   Alibaba Cloud lines: indicate that DNS requests are originated from Alibaba Cloud, including Alibaba Cloud public cloud, Alibaba Finance Cloud, and Alibaba Gov Cloud.
+     *   Custom lines: You can configure custom lines so that Private DNS can return specific IP addresses for DNS requests that are originated from a specific CIDR block.
+     *
+     * >
+     *
+     *   Only built-in authoritative acceleration zones support custom lines.
+     *
+     *   Set Line to default if you want to choose the default line. Set Line to a specific line code if you want to choose an Alibaba Cloud line or a custom line. Example: aliyun_r_cn-beijing-a.
      *
      * @example default
      *
@@ -36,7 +50,7 @@ class AddZoneRecordRequest extends Model
     public $line;
 
     /**
-     * @description The priority of the mail exchanger (MX) record. Valid values: **1 to 99**.
+     * @description The priority of the mail exchanger (MX) record. Valid values: **1 to 99**. A smaller value indicates a higher priority.
      *
      * @example 5
      *
@@ -45,7 +59,7 @@ class AddZoneRecordRequest extends Model
     public $priority;
 
     /**
-     * @description The language.
+     * @description The description of the DNS record.
      *
      * @example en
      *
@@ -54,7 +68,7 @@ class AddZoneRecordRequest extends Model
     public $remark;
 
     /**
-     * @description The hostname.
+     * @description The hostname. The hostname is the prefix of the subdomain name for the zone. Example: www, @, \\* (used for wildcard DNS resolution), and mail (used for specifying the mail server that receives emails).
      *
      * This parameter is required.
      * @example www
@@ -64,7 +78,7 @@ class AddZoneRecordRequest extends Model
     public $rr;
 
     /**
-     * @description The time to live (TTL) of the DNS record. Default value: **60**.
+     * @description The time to live (TTL) period. Valid values: 5, 30, 60, 3600, 43200, and 86400. Unit: seconds. Default value: 60.
      *
      * @example 60
      *
@@ -73,7 +87,15 @@ class AddZoneRecordRequest extends Model
     public $ttl;
 
     /**
-     * @description The type of the DNS record. Valid values: **A**, **AAAA**, **CNAME**, **TXT**, **MX**, **PTR**, and **SRV**.
+     * @description The type of the DNS record. Valid values:
+     *
+     *   **A**: An A record maps a domain name to an IPv4 address in the dotted decimal notation format.
+     *   **AAAA**: An AAAA record maps a domain name to an IPv6 address.
+     *   **CNAME**: A canonical name (CNAME) record maps a domain name to another domain name.
+     *   **TXT**: A text (TXT) record usually serves as a Sender Policy Framework (SPF) record to prevent email spam. The record value of the TXT record can be up to 255 characters in length.
+     *   **MX**: A mail exchanger (MX) record maps a domain name to the domain name of a mail server.
+     *   **PTR**: A pointer (PTR) record maps an IP address to a domain name.
+     *   **SRV**: A service (SRV) record specifies a server that hosts a specific service. Enter a record value in the format of Priority Weight Port Destination domain name. Separate these items with spaces.
      *
      * This parameter is required.
      * @example A
@@ -85,24 +107,24 @@ class AddZoneRecordRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 2.2.XX.XX
+     * @example 127.0.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description The record value.
+     * @description The record value. You need to enter the record value based on the DNS record type.
      *
      * This parameter is required.
-     * @example 1.1.XX.XX
+     * @example 114.55.XX.XX
      *
      * @var string
      */
     public $value;
 
     /**
-     * @description The weight of the address. Valid values: **0 to 100**. Default value: 1.
+     * @description The weight value of the address. You can set a different weight value for each address. This way, addresses are returned based on the weight values for DNS requests. A weight value must be an integer that ranges from 1 to 100. Default value: 1.
      *
      * @example 1
      *
@@ -111,10 +133,10 @@ class AddZoneRecordRequest extends Model
     public $weight;
 
     /**
-     * @description The global ID of the zone.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
      * This parameter is required.
-     * @example CAgICA1OA_58
+     * @example df2d03865266bd9842306db586d3****
      *
      * @var string
      */

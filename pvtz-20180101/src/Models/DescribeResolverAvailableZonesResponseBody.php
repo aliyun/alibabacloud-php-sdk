@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResolverAvailableZonesResponseBody extends Model
 {
     /**
-     * @description The information about the queried zones.
+     * @description The queried zones.
      *
      * @var availableZones[]
      */

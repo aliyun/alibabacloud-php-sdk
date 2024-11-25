@@ -18,8 +18,12 @@ class UpdateRecordRemarkRequest extends Model
     public $clientToken;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -30,7 +34,7 @@ class UpdateRecordRemarkRequest extends Model
      * @description The ID of the DNS record.
      *
      * This parameter is required.
-     * @example 18954952
+     * @example 202991****
      *
      * @var int
      */

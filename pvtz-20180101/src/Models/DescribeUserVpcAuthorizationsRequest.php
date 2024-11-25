@@ -11,7 +11,7 @@ class DescribeUserVpcAuthorizationsRequest extends Model
     /**
      * @description The authorization scope. Valid values:
      *
-     *   NORMAL: general authorization.
+     *   NORMAL: general authorization
      *   CLOUD_PRODUCT: cloud service-related authorization
      *
      * @example NORMAL
@@ -21,16 +21,16 @@ class DescribeUserVpcAuthorizationsRequest extends Model
     public $authType;
 
     /**
-     * @description The ID of the Alibaba Cloud account.
+     * @description The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
      *
-     * @example 111222333
+     * @example 141339776561****
      *
      * @var int
      */
     public $authorizedUserId;
 
     /**
-     * @description The page number. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -39,7 +39,7 @@ class DescribeUserVpcAuthorizationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: 20. Maximum value: 100.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
      *
      * @example 20
      *

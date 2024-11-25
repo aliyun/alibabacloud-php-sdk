@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddCustomLineRequest extends Model
 {
     /**
+     * @description This parameter is not available. You can ignore it.
+     *
      * @example INTRANET
      *
      * @var string
@@ -16,13 +18,16 @@ class AddCustomLineRequest extends Model
     public $dnsCategory;
 
     /**
-     * @description This parameter is required.
+     * @description The IPv4 CIDR blocks.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $ipv4s;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -30,13 +35,16 @@ class AddCustomLineRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the custom line.
      *
+     * This parameter is required.
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is not available. You can ignore it.
+     *
      * @example GLOBAL
      *
      * @var string

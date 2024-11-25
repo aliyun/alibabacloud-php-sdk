@@ -38,7 +38,7 @@ class record extends Model
     /**
      * @description The priority of the mail exchanger (MX) record.
      *
-     * @example 60
+     * @example 10
      *
      * @var int
      */
@@ -47,7 +47,7 @@ class record extends Model
     /**
      * @description The ID of the DNS record.
      *
-     * @example 5809
+     * @example 246959****
      *
      * @var int
      */
@@ -56,7 +56,7 @@ class record extends Model
     /**
      * @description The description of the DNS record.
      *
-     * @example xxx
+     * @example test
      *
      * @var string
      */
@@ -84,7 +84,7 @@ class record extends Model
     public $status;
 
     /**
-     * @description The time-to-live (TTL) of the DNS record.
+     * @description The time to live (TTL) period.
      *
      * @example 60
      *
@@ -93,7 +93,15 @@ class record extends Model
     public $ttl;
 
     /**
-     * @description The type of the DNS record.
+     * @description The type of the DNS record. Valid values:
+     *
+     *   **A**: An A record points a domain name to an IPv4 address.
+     *   **AAAA**: An AAAA record points a domain name to an IPv6 address.
+     *   **CNAME**: A canonical name (CNAME) record points a domain name to another domain name.
+     *   **TXT**: A text (TXT) record usually serves as a Sender Policy Framework (SPF) record to prevent email spam. The record value of the TXT record can be up to 255 characters in length.
+     *   **MX**: A mail exchanger (MX) record points a domain name to a mail server address.
+     *   **PTR**: A pointer (PTR) points an IP address to a domain name.
+     *   **SRV**: A service (SRV) record specifies a server that hosts a specific service.
      *
      * @example A
      *
@@ -122,14 +130,14 @@ class record extends Model
     /**
      * @description The record value.
      *
-     * @example 1.1.XX.XX
+     * @example 127.0.XX.XX
      *
      * @var string
      */
     public $value;
 
     /**
-     * @description The weight of the address.
+     * @description The weight value of the address. You can set a different weight value for each address. This way, addresses are returned based on the weight values for DNS requests. A weight value must be an integer that ranges from 1 to 100.
      *
      * @example 1
      *
@@ -140,7 +148,7 @@ class record extends Model
     /**
      * @description The zone ID.
      *
-     * @example a49f55537f3b0b1e6e43add0bf5f0033
+     * @example a49f55537f3b0b1e6e43add0bf5f****
      *
      * @var string
      */

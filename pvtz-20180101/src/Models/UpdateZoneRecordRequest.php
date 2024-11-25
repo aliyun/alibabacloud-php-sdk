@@ -18,8 +18,12 @@ class UpdateZoneRecordRequest extends Model
     public $clientToken;
 
     /**
-     * @description The language.
+     * @description The language of the response. Valid values:
      *
+     *   zh: Chinese
+     *   en: English
+     *
+     * Default value: en.
      * @example en
      *
      * @var string
@@ -27,7 +31,7 @@ class UpdateZoneRecordRequest extends Model
     public $lang;
 
     /**
-     * @description The resolution line.
+     * @description The resolution line. Default value: default.
      *
      * @example default
      *
@@ -36,9 +40,9 @@ class UpdateZoneRecordRequest extends Model
     public $line;
 
     /**
-     * @description The priority of the mail exchanger (MX) record. Valid values: **1 to 99**.
+     * @description The priority of the MX record. You can set priorities for different email servers. Valid values: 1 to 99. A smaller value indicates a higher priority.
      *
-     * This parameter is required if the type of the DNS record is MX.
+     * >  This parameter is required if the type of the DNS record is MX.
      * @example 60
      *
      * @var int
@@ -46,17 +50,17 @@ class UpdateZoneRecordRequest extends Model
     public $priority;
 
     /**
-     * @description The ID of the DNS record.
+     * @description The ID of the DNS record. You can call the DescribeZoneRecords operation to query a list of DNS records.
      *
      * This parameter is required.
-     * @example 5809
+     * @example 172223****
      *
      * @var int
      */
     public $recordId;
 
     /**
-     * @description The hostname.
+     * @description The hostname. The hostname is the prefix of the subdomain name for zone. Example: www, @, \\* (used for wildcard DNS resolution), and mail (used for specifying the mail server that receives emails).
      *
      * This parameter is required.
      * @example www
@@ -66,7 +70,7 @@ class UpdateZoneRecordRequest extends Model
     public $rr;
 
     /**
-     * @description The time-to-live (TTL) of the DNS record.
+     * @description The TTL period. Valid values: 5, 30, 60, 3600, 43200, and 86400. Unit: seconds.
      *
      * @example 60
      *
@@ -75,7 +79,15 @@ class UpdateZoneRecordRequest extends Model
     public $ttl;
 
     /**
-     * @description The type of the DNS record. Valid values: **A**, **AAAA**, **CNAME**, **TXT**, **MX**, **PTR**, and **SRV**.
+     * @description The type of the DNS record. Valid values:
+     *
+     *   **A**: An A record maps a domain name to an IPv4 address in the dotted decimal notation format.
+     *   **AAAA**: An AAAA record maps a domain name to an IPv6 address.
+     *   **CNAME**: A canonical name (CNAME) record maps a domain name to another domain name.
+     *   **TXT**: A text (TXT) record usually serves as a Sender Policy Framework (SPF) record to prevent email spam. The record value of the TXT record can be up to 255 characters in length.
+     *   **MX**: A mail exchanger (MX) record maps a domain name to the domain name of a mail server.
+     *   **PTR**: A pointer (PTR) record maps an IP address to a domain name.
+     *   **SRV**: A service (SRV) record specifies a server that hosts a specific service. Enter a record value in the format of Priority Weight Port Destination domain name. Separate these items with spaces.
      *
      * This parameter is required.
      * @example A
@@ -87,24 +99,24 @@ class UpdateZoneRecordRequest extends Model
     /**
      * @description The IP address of the client.
      *
-     * @example 2.2.XX.XX
+     * @example 127.0.XX.XX
      *
      * @var string
      */
     public $userClientIp;
 
     /**
-     * @description The record value.
+     * @description The record value. You need to enter the record value based on the DNS record type.
      *
      * This parameter is required.
-     * @example 1.1.XX.XX
+     * @example 192.16.XX.XX
      *
      * @var string
      */
     public $value;
 
     /**
-     * @description The weight of the address. Valid values: **1 to 100**.
+     * @description The weight value of the address. You can set a different weight value for each address. This way, addresses are returned based on the weight values for DNS requests. A weight value must be an integer that ranges from 1 to 100.
      *
      * @example 1
      *

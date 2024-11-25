@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
-     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The time when the endpoint was created.
      *
      * @example 2020-07-13 10:36:26
      *
@@ -30,7 +30,7 @@ class endpoints extends Model
     /**
      * @description The endpoint ID.
      *
-     * @example hra0**
+     * @example hr****
      *
      * @var string
      */
@@ -44,7 +44,7 @@ class endpoints extends Model
     public $ipConfigs;
 
     /**
-     * @description The endpoint name.
+     * @description The name of the endpoint.
      *
      * @example endpoint-test
      *
@@ -53,23 +53,23 @@ class endpoints extends Model
     public $name;
 
     /**
-     * @description The security group ID.
+     * @description The ID of the security group.
      *
-     * @example sg-8vb3sigz86xc-test-group
+     * @example sg-0jld3m9yq7l2cw12****
      *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description The state of the endpoint. Valid values:
+     * @description The state of the endpoint that you queried. Valid values:
      *
      *   SUCCESS: The endpoint works as expected.
      *   INIT: The endpoint is being created.
-     *   FAILED: The endpoint fails to be created.
+     *   FAILED: The endpoint failed to be created.
      *   CHANGE_INIT: The endpoint is being modified.
-     *   CHANGE_FAILED: The endpoint fails to be modified.
-     *   EXCEPTION: The endpoint encounters an exception.
+     *   CHANGE_FAILED: The endpoint failed to be modified.
+     *   EXCEPTION: The endpoint encountered an exception.
      *
      * @example SUCCESS
      *
@@ -78,7 +78,7 @@ class endpoints extends Model
     public $status;
 
     /**
-     * @description The time when the endpoint was last modified. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The time when the endpoint was updated.
      *
      * @example 2020-07-13 10:38:24
      *
@@ -87,7 +87,7 @@ class endpoints extends Model
     public $updateTime;
 
     /**
-     * @description The time when the endpoint was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time when the endpoint was updated. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1594607904000
      *
@@ -96,16 +96,16 @@ class endpoints extends Model
     public $updateTimestamp;
 
     /**
-     * @description The ID of the outbound virtual private cloud (VPC).
+     * @description The ID of the outbound VPC. All outbound Domain Name System (DNS) requests of the resolver are forwarded by this VPC.
      *
-     * @example vpc-8vbl8mpum-test-vpc-id
+     * @example vpc-0jlxhpfnj5bfu0bsd****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description The VPC name.
+     * @description The name of the outbound VPC.
      *
      * @example vpc-test-name
      *
@@ -123,7 +123,7 @@ class endpoints extends Model
     public $vpcRegionId;
 
     /**
-     * @description The name of the region where the outbound VPC resides.
+     * @description The name of the region where the VPC resides.
      *
      * @example China East 1 (Hangzhou)
      *

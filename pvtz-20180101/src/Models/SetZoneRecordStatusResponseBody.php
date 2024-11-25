@@ -11,7 +11,7 @@ class SetZoneRecordStatusResponseBody extends Model
     /**
      * @description The ID of the DNS record.
      *
-     * @example 5809
+     * @example 207541****
      *
      * @var int
      */
@@ -27,7 +27,10 @@ class SetZoneRecordStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the DNS record.
+     * @description The state of the DNS record. Valid values:
+     *
+     *   ENABLE: The DNS record is enabled.
+     *   DISABLE: The DNS record is disabled.
      *
      * @example DISABLE
      *

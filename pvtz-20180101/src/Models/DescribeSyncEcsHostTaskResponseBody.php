@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeSyncEcsHostTaskResponseBody extends Model
 {
     /**
-     * @description The information about regions.
+     * @description The synchronized regions where the ECS instances are deployed.
      *
      * @var ecsRegions
      */
     public $ecsRegions;
 
     /**
-     * @description The information about the regions within the current account.
+     * @description The synchronized region IDs of the ECS instances.
      *
      * @var regions
      */
@@ -34,10 +34,10 @@ class DescribeSyncEcsHostTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The state of the task. Valid values:
+     * @description Indicates whether hostname automatic synchronization is enabled. Valid values:
      *
-     *   ON
-     *   OFF
+     *   ON: Hostname automatic synchronization is enabled. After this feature is enabled, the system automatically reads the hostnames of the Elastic Compute Service (ECS) instances in the specified regions and updates Domain Name System (DNS) records at an interval of 1 minute.
+     *   OFF: Hostname automatic synchronization is disabled.
      *
      * @example ON
      *
@@ -58,9 +58,9 @@ class DescribeSyncEcsHostTaskResponseBody extends Model
     public $success;
 
     /**
-     * @description The zone ID.
+     * @description The zone ID. This ID uniquely identifies the zone.
      *
-     * @example pvtz-test-id-2989149d628c56f00e
+     * @example pvtz-test-id-2989149d628c56****
      *
      * @var string
      */

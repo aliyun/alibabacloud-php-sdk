@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomLineRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IPv4 CIDR blocks.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $ipv4s;
 
     /**
+     * @description The language.
+     *
      * @example en
      *
      * @var string
@@ -23,8 +26,9 @@ class UpdateCustomLineRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description The unique ID of the custom line.
      *
+     * This parameter is required.
      * @example 100003
      *
      * @var string
@@ -32,6 +36,8 @@ class UpdateCustomLineRequest extends Model
     public $lineId;
 
     /**
+     * @description The name of the custom line.
+     *
      * @var string
      */
     public $name;

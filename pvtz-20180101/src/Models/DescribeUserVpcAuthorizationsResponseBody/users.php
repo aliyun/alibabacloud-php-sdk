@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description The authorization scope. Valid value:
+     * @description The authorization scope. Valid values:
      *
-     *   NORMAL: general authorization.
+     *   NORMAL: general authorization
+     *   CLOUD_PRODUCT: cloud service-related authorization
      *
      * @example NORMAL
      *
@@ -20,18 +21,18 @@ class users extends Model
     public $authType;
 
     /**
-     * @description The name of the Alibaba Cloud account.
+     * @description The name of the Alibaba Cloud account to which the permissions on the resources are granted.
      *
-     * @example alidns***@test.com
+     * @example alidn****@test.com
      *
      * @var string
      */
     public $authorizedAliyunId;
 
     /**
-     * @description The ID of the Alibaba Cloud account.
+     * @description The ID of the Alibaba Cloud account to which the permissions on the resources are granted.
      *
-     * @example 111222333
+     * @example 141339776561****
      *
      * @var int
      */
