@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveTranscodeJobsRequest extends Model
 {
     /**
+     * @description The search keyword. You can use the job ID or name as the keyword to search for jobs. If you search for jobs by name, fuzzy match is supported.
+     *
      * @example 24ecbb5c-4f98-4194-9400-f17102e27fc5
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLiveTranscodeJobsRequest extends Model
     public $keyWord;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListLiveTranscodeJobsRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,11 @@ class ListLiveTranscodeJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
+     *
+     *   asc
+     *   desc
+     *
      * @example asc
      *
      * @var string
@@ -37,6 +48,11 @@ class ListLiveTranscodeJobsRequest extends Model
     public $sortBy;
 
     /**
+     * @description The start mode of the transcoding job.
+     *
+     *   0: The transcoding job immediately starts.
+     *   1: The transcoding job starts at the scheduled time.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +60,9 @@ class ListLiveTranscodeJobsRequest extends Model
     public $startMode;
 
     /**
+     * @description The state of the job.
+     *
+     * 0: The job is not started. 1: The job is in progress. 2: The job is stopped.
      * @example 1
      *
      * @var int
@@ -51,6 +70,13 @@ class ListLiveTranscodeJobsRequest extends Model
     public $status;
 
     /**
+     * @description The type of the template used by the transcoding job.
+     *
+     *   normal
+     *   narrow-band
+     *   audio-only
+     *   origin
+     *
      * @example normal
      *
      * @var string

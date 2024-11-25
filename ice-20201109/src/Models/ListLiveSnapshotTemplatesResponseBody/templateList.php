@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class templateList extends Model
 {
     /**
+     * @description The time when the job was created.
+     *
      * @example 2022-07-20T02:48:58Z
      *
      * @var string
@@ -16,6 +18,8 @@ class templateList extends Model
     public $createTime;
 
     /**
+     * @description The template ID.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -23,11 +27,15 @@ class templateList extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The interval between two adjacent snapshots. Unit: seconds.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +43,13 @@ class templateList extends Model
     public $timeInterval;
 
     /**
+     * @description The type of the template.
+     *
+     * Valid values:
+     *
+     *   system
+     *   custom
+     *
      * @example custom
      *
      * @var string

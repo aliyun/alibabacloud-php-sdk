@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class streamInfos extends Model
 {
     /**
+     * @description The URL of the output stream.
+     *
      * @example rtmp://mydomain/app/mytranscode1
      *
      * @var string
@@ -16,6 +18,8 @@ class streamInfos extends Model
     public $outputUrl;
 
     /**
+     * @description The type of the output stream protocol. Only the RTMP protocol is supported.
+     *
      * @example rtmp
      *
      * @var string

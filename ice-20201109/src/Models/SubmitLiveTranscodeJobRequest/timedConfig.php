@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class timedConfig extends Model
 {
     /**
+     * @description The stop time of the transcoding job. Note: The time span between the stop time and the current time cannot exceed seven days.
+     *
      * @example 2022-07-20T08:20:32Z
      *
      * @var string
@@ -16,6 +18,8 @@ class timedConfig extends Model
     public $endTime;
 
     /**
+     * @description The start time of the transcoding job. Note: The time span between the start time and the current time cannot exceed seven days.
+     *
      * @example 2022-02-21T00:00:00Z
      *
      * @var string

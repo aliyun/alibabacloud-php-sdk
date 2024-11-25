@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveSnapshotTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateLiveSnapshotTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The template ID.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string

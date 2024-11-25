@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordTemplatesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListLiveRecordTemplatesResponseBody extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,15 @@ class ListLiveRecordTemplatesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The list of recording templates.
+     *
      * @var recordTemplateList[]
      */
     public $recordTemplateList;
 
     /**
+     * @description The request ID.
+     *
      * @example BEA98A0C-7870-15FE-B96F-8880BB600A2C
      *
      * @var string
@@ -36,6 +44,13 @@ class ListLiveRecordTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The sorting order. By default, the query results are sorted by creation time in descending order.
+     *
+     * Valid values:
+     *
+     *   asc: sorts the query results in ascending order.
+     *   desc: sorts the query results in descending order.
+     *
      * @example desc
      *
      * @var string
@@ -43,6 +58,8 @@ class ListLiveRecordTemplatesResponseBody extends Model
     public $sortBy;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 5
      *
      * @var int

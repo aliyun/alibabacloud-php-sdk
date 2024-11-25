@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveRecordTemplateRequest extends Model
 {
     /**
-     * @description 代表资源名称的资源属性字段
+     * @description The name of the template.
      *
      * This parameter is required.
      * @var string
@@ -18,7 +18,7 @@ class CreateLiveRecordTemplateRequest extends Model
     public $name;
 
     /**
-     * @description 录制格式
+     * @description The list of recording formats.
      *
      * This parameter is required.
      * @var recordFormat[]

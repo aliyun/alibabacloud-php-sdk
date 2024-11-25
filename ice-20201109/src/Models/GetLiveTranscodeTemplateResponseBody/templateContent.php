@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class templateContent extends Model
 {
     /**
+     * @description The category of the template. Valid values:
+     *
+     *   system
+     *   customized
+     *
      * @example customized
      *
      * @var string
@@ -17,6 +22,8 @@ class templateContent extends Model
     public $category;
 
     /**
+     * @description The time when the template was created.
+     *
      * @example 2022-07-25T06:15:14Z
      *
      * @var string
@@ -24,6 +31,8 @@ class templateContent extends Model
     public $createTime;
 
     /**
+     * @description The name of the template.
+     *
      * @example my-template
      *
      * @var string
@@ -31,11 +40,15 @@ class templateContent extends Model
     public $name;
 
     /**
+     * @description The configuration of the template.
+     *
      * @var templateConfig
      */
     public $templateConfig;
 
     /**
+     * @description The template ID.
+     *
      * @example bcfa57950bc649b2abfb476ecd36ea4f
      *
      * @var string
@@ -43,6 +56,8 @@ class templateContent extends Model
     public $templateId;
 
     /**
+     * @description The type of the template.
+     *
      * @example normal
      *
      * @var string

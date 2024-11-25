@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveSnapshotTemplateRequest extends Model
 {
     /**
+     * @description The naming format of the snapshot captured in overwrite mode.
+     *
+     *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+     *   The value cannot exceed 255 characters in length.
+     *   The {JobId} placeholder is supported. It specifies the ID of the snapshot job.
+     *   Placeholders such as {UnixTimestamp}, {Sequence}, and {Date} are not allowed.
+     *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+     *
      * @example snapshot/{JobId}.jpg
      *
      * @var string
@@ -16,6 +24,13 @@ class UpdateLiveSnapshotTemplateRequest extends Model
     public $overwriteFormat;
 
     /**
+     * @description The naming format of the snapshot captured in time series mode.
+     *
+     *   The value cannot start with a forward slash (/). Only the suffix .jpg is supported.
+     *   The value cannot exceed 255 characters in length.
+     *   The {JobId}, {Date}, {UnixTimestamp}, and {Sequence} placeholders are supported. {JobId} specifies the ID of the snapshot job. {Date} specifies the date on which the snapshot is captured. {UnixTimestamp} specifies the timestamp of the snapshot. {Sequence} specifies the sequence number of the snapshot. You must specify at least one of the {UnixTimestamp} and {Sequence} placeholders.
+     *   You must specify at least one of the OverwriteFormat and SequenceFormat parameters.
+     *
      * @example snapshot/{JobId}/{UnixTimestamp}.jpg
      *
      * @var string
@@ -23,8 +38,9 @@ class UpdateLiveSnapshotTemplateRequest extends Model
     public $sequenceFormat;
 
     /**
-     * @description This parameter is required.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -32,15 +48,21 @@ class UpdateLiveSnapshotTemplateRequest extends Model
     public $templateId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the template.
      *
+     *   It cannot exceed 128 characters in length.
+     *
+     * This parameter is required.
      * @var string
      */
     public $templateName;
 
     /**
-     * @description This parameter is required.
+     * @description The interval between two adjacent snapshots. Unit: seconds.
      *
+     *   Valid values: [5,3600].
+     *
+     * This parameter is required.
      * @example 5
      *
      * @var int

@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListLiveSnapshotFilesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     *   The maximum time range that can be specified is one day.
+     *
+     * This parameter is required.
      * @example 2022-02-02T23:59:59Z
      *
      * @var string
@@ -18,8 +21,9 @@ class ListLiveSnapshotFilesRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the snapshot job.
      *
+     * This parameter is required.
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -27,6 +31,8 @@ class ListLiveSnapshotFilesRequest extends Model
     public $jobId;
 
     /**
+     * @description The number of results to return each time. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -34,6 +40,13 @@ class ListLiveSnapshotFilesRequest extends Model
     public $limit;
 
     /**
+     * @description The sorting order. Default value: asc.
+     *
+     * Valid values:
+     *
+     *   asc: sorts the query results by creation time in ascending order.
+     *   desc: sorts the query results by creation time in descending order.
+     *
      * @example desc
      *
      * @var string
@@ -41,8 +54,9 @@ class ListLiveSnapshotFilesRequest extends Model
     public $sortBy;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2022-02-02T00:00:00Z
      *
      * @var string

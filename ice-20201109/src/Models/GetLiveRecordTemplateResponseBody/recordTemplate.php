@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class recordTemplate extends Model
 {
     /**
-     * @description 代表创建时间的资源属性字段
+     * @description The time when the job was created.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
      * @example 2022-07-20T03:26:36Z
@@ -20,7 +20,7 @@ class recordTemplate extends Model
     public $createTime;
 
     /**
-     * @description 代表创建时间的资源属性字段
+     * @description The time when the template was last modified.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
      * @example 2022-07-20T03:26:36Z
@@ -30,7 +30,7 @@ class recordTemplate extends Model
     public $lastModified;
 
     /**
-     * @description 代表资源名称的资源属性字段
+     * @description The template name.
      *
      * @example test template
      *
@@ -39,14 +39,14 @@ class recordTemplate extends Model
     public $name;
 
     /**
-     * @description 录制格式
+     * @description The list of recording formats.
      *
      * @var recordFormatList[]
      */
     public $recordFormatList;
 
     /**
-     * @description 代表资源一级ID的资源属性字段
+     * @description The template ID.
      *
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
      *
@@ -55,7 +55,12 @@ class recordTemplate extends Model
     public $templateId;
 
     /**
-     * @description 代表资源名称的资源属性字段
+     * @description The type of the template.
+     *
+     * Valid values:
+     *
+     *   system
+     *   custom
      *
      * @example custom
      *

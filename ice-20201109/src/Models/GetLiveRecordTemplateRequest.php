@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveRecordTemplateRequest extends Model
 {
     /**
+     * @description The ID of the recording job. You can specify the JobId parameter to retrieve the snapshot of the template used by the job.
+     *
      * @example ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
      *
      * @var string
@@ -16,8 +18,9 @@ class GetLiveRecordTemplateRequest extends Model
     public $jobId;
 
     /**
-     * @description This parameter is required.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordTemplatesRequest extends Model
 {
     /**
+     * @description The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+     *
      * @example test template
      *
      * @var string
@@ -16,6 +18,8 @@ class ListLiveRecordTemplatesRequest extends Model
     public $keyword;
 
     /**
+     * @description The page number. Minimum value: 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListLiveRecordTemplatesRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,13 @@ class ListLiveRecordTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The sorting order. By default, the query results are sorted by creation time in descending order.
+     *
+     * Valid values:
+     *
+     *   asc: sorts the query results in ascending order.
+     *   desc: sorts the query results in descending order.
+     *
      * @example desc
      *
      * @var string
@@ -42,6 +55,13 @@ class ListLiveRecordTemplatesRequest extends Model
     public $templateIds;
 
     /**
+     * @description The type of the template.
+     *
+     * Valid values:
+     *
+     *   system
+     *   custom
+     *
      * @example custom
      *
      * @var string

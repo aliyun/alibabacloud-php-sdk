@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListLiveTranscodeJobsResponseBody extends Model
 {
     /**
+     * @description The list of transcoding jobs.
+     *
      * @var jobList[]
      */
     public $jobList;
 
     /**
+     * @description The request ID.
+     *
      * @example ******3B-0E1A-586A-AC29-742247******
      *
      * @var string
@@ -22,6 +26,8 @@ class ListLiveTranscodeJobsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

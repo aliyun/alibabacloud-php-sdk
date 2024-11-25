@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class templateConfig extends Model
 {
     /**
+     * @description The audio parameters.
+     *
      * @var audioParams
      */
     public $audioParams;
 
     /**
+     * @description The video parameters.
+     *
      * @var videoParams
      */
     public $videoParams;

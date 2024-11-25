@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveRecordJobShrinkRequest extends Model
 {
     /**
-     * @description 代表资源名称的资源属性字段
+     * @description The name of the recording job.
      *
      * This parameter is required.
      * @example live stream record 1
@@ -19,7 +19,7 @@ class SubmitLiveRecordJobShrinkRequest extends Model
     public $name;
 
     /**
-     * @description 回调地址
+     * @description The callback URL.
      *
      * @example https://example.com/imsnotify
      *
@@ -28,21 +28,23 @@ class SubmitLiveRecordJobShrinkRequest extends Model
     public $notifyUrl;
 
     /**
-     * @description This parameter is required.
+     * @description The storage address of the recording.
      *
+     * This parameter is required.
      * @var string
      */
     public $recordOutputShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The URL of the live stream.
      *
+     * This parameter is required.
      * @var string
      */
     public $streamInputShrink;
 
     /**
-     * @description 录制模板ID
+     * @description The ID of the recording template.
      *
      * This parameter is required.
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66

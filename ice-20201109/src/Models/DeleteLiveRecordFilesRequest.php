@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveRecordFilesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The collection of IDs of recording files.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $recordIds;
 
     /**
+     * @description Specifies whether to delete the original files in OSS.
+     *
      * @example true
      *
      * @var bool

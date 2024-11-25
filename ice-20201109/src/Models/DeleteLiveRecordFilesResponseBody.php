@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveRecordFilesResponseBody extends Model
 {
     /**
+     * @description The list of files deleted.
+     *
      * @var deleteFileInfoList[]
      */
     public $deleteFileInfoList;
 
     /**
+     * @description The description of the state returned.
+     *
      * @example OK
      *
      * @var string

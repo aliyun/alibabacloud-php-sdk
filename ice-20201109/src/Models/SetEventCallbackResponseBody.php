@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetEventCallbackResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -16,6 +18,8 @@ class SetEventCallbackResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the configuration was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

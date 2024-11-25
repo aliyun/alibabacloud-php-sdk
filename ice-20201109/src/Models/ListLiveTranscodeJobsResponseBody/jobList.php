@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class jobList extends Model
 {
     /**
+     * @description The time when the job was created.
+     *
      * @example 2022-07-20T02:48:58Z
      *
      * @var string
@@ -18,6 +20,8 @@ class jobList extends Model
     public $createTime;
 
     /**
+     * @description The job ID.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -25,6 +29,8 @@ class jobList extends Model
     public $jobId;
 
     /**
+     * @description The name of the transcoding job.
+     *
      * @example mytask
      *
      * @var string
@@ -32,11 +38,15 @@ class jobList extends Model
     public $name;
 
     /**
+     * @description The information about the output stream.
+     *
      * @var outputStream
      */
     public $outputStream;
 
     /**
+     * @description The start mode of the job.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class jobList extends Model
     public $startMode;
 
     /**
+     * @description The state of the job.
+     *
      * @example 1
      *
      * @var int
@@ -51,11 +63,15 @@ class jobList extends Model
     public $status;
 
     /**
+     * @description The information about the input stream.
+     *
      * @var streamInput
      */
     public $streamInput;
 
     /**
+     * @description The ID of the transcoding template used by the transcoding job.
+     *
      * @example ****a046-263c-3560-978a-fb287666****
      *
      * @var string
@@ -63,11 +79,15 @@ class jobList extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The type of the transcoding template used by the transcoding job.
+     *
      * @example normal
      *
      * @var string

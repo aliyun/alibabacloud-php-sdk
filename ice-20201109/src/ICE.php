@@ -1426,7 +1426,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建直播录制模板
+     * @summary Creates a live stream recording template to submit live stream recording jobs.
+     *  *
+     * @description You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
      *  *
      * @param CreateLiveRecordTemplateRequest $tmpReq  CreateLiveRecordTemplateRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1467,7 +1469,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建直播录制模板
+     * @summary Creates a live stream recording template to submit live stream recording jobs.
+     *  *
+     * @description You must specify a recording template for live stream recording. You can configure information such as the format and duration of a recording in a recording template. The recording format can be M3U8, MP4, or FLV.
      *  *
      * @param CreateLiveRecordTemplateRequest $request CreateLiveRecordTemplateRequest
      *
@@ -1481,7 +1485,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建直播截图模板
+     * @summary Create a live stream snapshot template to facilitate the creation of snapshot jobs.
      *  *
      * @param CreateLiveSnapshotTemplateRequest $request CreateLiveSnapshotTemplateRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1523,7 +1527,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建直播截图模板
+     * @summary Create a live stream snapshot template to facilitate the creation of snapshot jobs.
      *  *
      * @param CreateLiveSnapshotTemplateRequest $request CreateLiveSnapshotTemplateRequest
      *
@@ -1537,7 +1541,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建转码模版
+     * @summary Creates a live stream transcoding template to submit live stream transcoding jobs.
      *  *
      * @param CreateLiveTranscodeTemplateRequest $tmpReq  CreateLiveTranscodeTemplateRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1581,7 +1585,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建转码模版
+     * @summary Creates a live stream transcoding template to submit live stream transcoding jobs.
      *  *
      * @param CreateLiveTranscodeTemplateRequest $request CreateLiveTranscodeTemplateRequest
      *
@@ -2363,7 +2367,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 实时媒体服务-删除录制文件
+     * @summary Deletes live stream recording files. You can choose to delete only the recording files or delete both the recording files and the original Object Storage Service (OSS) files.
      *  *
      * @param DeleteLiveRecordFilesRequest $request DeleteLiveRecordFilesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2399,7 +2403,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 实时媒体服务-删除录制文件
+     * @summary Deletes live stream recording files. You can choose to delete only the recording files or delete both the recording files and the original Object Storage Service (OSS) files.
      *  *
      * @param DeleteLiveRecordFilesRequest $request DeleteLiveRecordFilesRequest
      *
@@ -2413,7 +2417,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除直播录制模板
+     * @summary Deletes a live stream recording template without affecting existing jobs.
      *  *
      * @param DeleteLiveRecordTemplateRequest $request DeleteLiveRecordTemplateRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2446,7 +2450,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除直播录制模板
+     * @summary Deletes a live stream recording template without affecting existing jobs.
      *  *
      * @param DeleteLiveRecordTemplateRequest $request DeleteLiveRecordTemplateRequest
      *
@@ -2460,7 +2464,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除直播截图文件
+     * @summary Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
      *  *
      * @param DeleteLiveSnapshotFilesRequest $tmpReq  DeleteLiveSnapshotFilesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2504,7 +2508,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 批量删除直播截图文件
+     * @summary Deletes live stream snapshot files. You can choose to delete only the snapshot files or delete both the snapshot files and the original Object Storage Service (OSS) files.
      *  *
      * @param DeleteLiveSnapshotFilesRequest $request DeleteLiveSnapshotFilesRequest
      *
@@ -2518,7 +2522,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除直播截图模板
+     * @summary Deletes a live stream snapshot template.
      *  *
      * @param DeleteLiveSnapshotTemplateRequest $request DeleteLiveSnapshotTemplateRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2551,7 +2555,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除直播截图模板
+     * @summary Deletes a live stream snapshot template.
      *  *
      * @param DeleteLiveSnapshotTemplateRequest $request DeleteLiveSnapshotTemplateRequest
      *
@@ -2612,7 +2616,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定转码模版
+     * @summary Deletes a live stream transcoding template.
      *  *
      * @param DeleteLiveTranscodeTemplateRequest $request DeleteLiveTranscodeTemplateRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -2645,7 +2649,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 删除指定转码模版
+     * @summary Deletes a live stream transcoding template.
      *  *
      * @param DeleteLiveTranscodeTemplateRequest $request DeleteLiveTranscodeTemplateRequest
      *
@@ -4428,7 +4432,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取事件回调地址
+     * @summary Queries event callback configurations.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -4453,7 +4457,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取事件回调地址
+     * @summary Queries event callback configurations.
      *  *
      * @return GetEventCallbackResponse GetEventCallbackResponse
      */
@@ -4568,7 +4572,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询录制任务明细
+     * @summary Queries the information about a live stream recording job.
      *  *
      * @param GetLiveRecordJobRequest $request GetLiveRecordJobRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4598,7 +4602,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询录制任务明细
+     * @summary Queries the information about a live stream recording job.
      *  *
      * @param GetLiveRecordJobRequest $request GetLiveRecordJobRequest
      *
@@ -4612,7 +4616,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播录制模板详情
+     * @summary Queries the information about a live stream recording template or a snapshot of the template.
      *  *
      * @param GetLiveRecordTemplateRequest $request GetLiveRecordTemplateRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4642,7 +4646,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播录制模板详情
+     * @summary Queries the information about a live stream recording template or a snapshot of the template.
      *  *
      * @param GetLiveRecordTemplateRequest $request GetLiveRecordTemplateRequest
      *
@@ -4656,7 +4660,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图任务
+     * @summary Queries the information a live stream snapshot job.
      *  *
      * @param GetLiveSnapshotJobRequest $request GetLiveSnapshotJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4686,7 +4690,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图任务
+     * @summary Queries the information a live stream snapshot job.
      *  *
      * @param GetLiveSnapshotJobRequest $request GetLiveSnapshotJobRequest
      *
@@ -4700,7 +4704,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图模板
+     * @summary Queries the information about a live stream snapshot template.
      *  *
      * @param GetLiveSnapshotTemplateRequest $request GetLiveSnapshotTemplateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4730,7 +4734,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图模板
+     * @summary Queries the information about a live stream snapshot template.
      *  *
      * @param GetLiveSnapshotTemplateRequest $request GetLiveSnapshotTemplateRequest
      *
@@ -4744,7 +4748,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询转码任务详情
+     * @summary Queries the information about a live stream transcoding job.
      *  *
      * @param GetLiveTranscodeJobRequest $request GetLiveTranscodeJobRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -4777,7 +4781,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询转码任务详情
+     * @summary Queries the information about a live stream transcoding job.
      *  *
      * @param GetLiveTranscodeJobRequest $request GetLiveTranscodeJobRequest
      *
@@ -4791,7 +4795,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询转码模版详情
+     * @summary Queries the information a live stream transcoding template.
      *  *
      * @param GetLiveTranscodeTemplateRequest $request GetLiveTranscodeTemplateRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -4824,7 +4828,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询转码模版详情
+     * @summary Queries the information a live stream transcoding template.
      *  *
      * @param GetLiveTranscodeTemplateRequest $request GetLiveTranscodeTemplateRequest
      *
@@ -6638,7 +6642,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询录制文件
+     * @summary Queries all recording index files in the specified period of time.
      *  *
      * @param ListLiveRecordFilesRequest $request ListLiveRecordFilesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6668,7 +6672,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询录制文件
+     * @summary Queries all recording index files in the specified period of time.
      *  *
      * @param ListLiveRecordFilesRequest $request ListLiveRecordFilesRequest
      *
@@ -6682,7 +6686,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询录制任务
+     * @summary Queries a list of live stream recording jobs by page.
      *  *
      * @param ListLiveRecordJobsRequest $request ListLiveRecordJobsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -6712,7 +6716,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询录制任务
+     * @summary Queries a list of live stream recording jobs by page.
      *  *
      * @param ListLiveRecordJobsRequest $request ListLiveRecordJobsRequest
      *
@@ -6726,7 +6730,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播录制模板
+     * @summary Queries a list of live stream recording templates.
      *  *
      * @param ListLiveRecordTemplatesRequest $request ListLiveRecordTemplatesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6756,7 +6760,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播录制模板
+     * @summary Queries a list of live stream recording templates.
      *  *
      * @param ListLiveRecordTemplatesRequest $request ListLiveRecordTemplatesRequest
      *
@@ -6770,7 +6774,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图文件列表
+     * @summary Queries a list of live stream snapshot files by page.
      *  *
      * @param ListLiveSnapshotFilesRequest $request ListLiveSnapshotFilesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -6800,7 +6804,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图文件列表
+     * @summary Queries a list of live stream snapshot files by page.
      *  *
      * @param ListLiveSnapshotFilesRequest $request ListLiveSnapshotFilesRequest
      *
@@ -6814,7 +6818,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图任务列表
+     * @summary Queries a list of live stream snapshot jobs by page.
      *  *
      * @param ListLiveSnapshotJobsRequest $request ListLiveSnapshotJobsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -6844,7 +6848,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图任务列表
+     * @summary Queries a list of live stream snapshot jobs by page.
      *  *
      * @param ListLiveSnapshotJobsRequest $request ListLiveSnapshotJobsRequest
      *
@@ -6858,7 +6862,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图模板列表
+     * @summary Queries a list of live stream snapshot templates by page.
      *  *
      * @param ListLiveSnapshotTemplatesRequest $request ListLiveSnapshotTemplatesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6888,7 +6892,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询直播截图模板列表
+     * @summary Queries a list of live stream snapshot templates by page.
      *  *
      * @param ListLiveSnapshotTemplatesRequest $request ListLiveSnapshotTemplatesRequest
      *
@@ -6902,7 +6906,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询转码任务列表
+     * @summary Queries a list of live stream transcoding jobs.
      *  *
      * @param ListLiveTranscodeJobsRequest $request ListLiveTranscodeJobsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -6953,7 +6957,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询转码任务列表
+     * @summary Queries a list of live stream transcoding jobs.
      *  *
      * @param ListLiveTranscodeJobsRequest $request ListLiveTranscodeJobsRequest
      *
@@ -6967,7 +6971,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询转码模版列表
+     * @summary Queries a list of live stream transcoding templates.
      *  *
      * @param ListLiveTranscodeTemplatesRequest $request ListLiveTranscodeTemplatesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -7018,7 +7022,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 查询转码模版列表
+     * @summary Queries a list of live stream transcoding templates.
      *  *
      * @param ListLiveTranscodeTemplatesRequest $request ListLiveTranscodeTemplatesRequest
      *
@@ -9296,7 +9300,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 发送实时截图任务指令
+     * @summary Sends a command to process a live stream snapshot job.
      *  *
      * @param SendLiveSnapshotJobCommandRequest $request SendLiveSnapshotJobCommandRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -9332,7 +9336,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 发送实时截图任务指令
+     * @summary Sends a command to process a live stream snapshot job.
      *  *
      * @param SendLiveSnapshotJobCommandRequest $request SendLiveSnapshotJobCommandRequest
      *
@@ -9346,7 +9350,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 给指定转码任务发实时命令
+     * @summary Sends a command to process a live stream transcoding job.
      *  *
      * @param SendLiveTranscodeJobCommandRequest $request SendLiveTranscodeJobCommandRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -9382,7 +9386,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 给指定转码任务发实时命令
+     * @summary Sends a command to process a live stream transcoding job.
      *  *
      * @param SendLiveTranscodeJobCommandRequest $request SendLiveTranscodeJobCommandRequest
      *
@@ -9549,7 +9553,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 配置事件回调地址
+     * @summary Configures a callback method for one or more events.
      *  *
      * @param SetEventCallbackRequest $request SetEventCallbackRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -9597,7 +9601,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 配置事件回调地址
+     * @summary Configures a callback method for one or more events.
      *  *
      * @param SetEventCallbackRequest $request SetEventCallbackRequest
      *
@@ -10128,7 +10132,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交虚拟人视频合成任务
+     * @summary Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
      *  *
      * @param SubmitAvatarVideoJobRequest $request SubmitAvatarVideoJobRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -10176,7 +10180,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交虚拟人视频合成任务
+     * @summary Submits a video rendering job for a digitized virtual human based on text or an audio file of a human voice.
      *  *
      * @param SubmitAvatarVideoJobRequest $request SubmitAvatarVideoJobRequest
      *
@@ -10701,7 +10705,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交录制任务
+     * @summary Submits a live stream recording job.
+     *  *
+     * @description You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
+     * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
+     * If the preset recording template does not meet your requirements, you can create a custom recording template.
      *  *
      * @param SubmitLiveRecordJobRequest $tmpReq  SubmitLiveRecordJobRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -10754,7 +10762,11 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交录制任务
+     * @summary Submits a live stream recording job.
+     *  *
+     * @description You can call this operation to record live streams of ApsaraVideo Live or third-party Real-Time Messaging Protocol (RTMP) live streams. We recommend that you ingest a stream before you call this operation to submit a recording job. If no stream is pulled from the streaming URL, the job attempts to pull a stream for 3 minutes. If the attempt times out, the recording service stops.
+     * Before you submit a recording job, you must prepare an Object Storage Service (OSS) or ApsaraVideo VOD bucket. We recommend that you use a storage address configured in Intelligent Media Services (IMS) to facilitate the management and processing of generated recording files.
+     * If the preset recording template does not meet your requirements, you can create a custom recording template.
      *  *
      * @param SubmitLiveRecordJobRequest $request SubmitLiveRecordJobRequest
      *
@@ -10768,7 +10780,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建直播截图任务
+     * @summary Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
      *  *
      * @param SubmitLiveSnapshotJobRequest $tmpReq  SubmitLiveSnapshotJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -10821,7 +10833,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 创建直播截图任务
+     * @summary Submits a live stream snapshot job. If the job is submitted during stream ingest, it automatically starts in asynchronous mode. Otherwise, it does not start.
      *  *
      * @param SubmitLiveSnapshotJobRequest $request SubmitLiveSnapshotJobRequest
      *
@@ -10835,7 +10847,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交转码任务
+     * @summary Submits a live stream transcoding job.
+     *  *
+     * @description *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
+     * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
      *  *
      * @param SubmitLiveTranscodeJobRequest $tmpReq  SubmitLiveTranscodeJobRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -10894,7 +10909,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 提交转码任务
+     * @summary Submits a live stream transcoding job.
+     *  *
+     * @description *   When you submit a transcoding job that immediately takes effect, make sure that the input stream can be streamed.
+     * *   When you submit a timed transcoding job, make sure that the input stream can be streamed before the specified time.
      *  *
      * @param SubmitLiveTranscodeJobRequest $request SubmitLiveTranscodeJobRequest
      *
@@ -12192,7 +12210,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 修改直播录制模板
+     * @summary Updates the information about a live stream recording template.
+     *  *
+     * @description Only user-created templates can be updated. The preset template cannot be updated.
      *  *
      * @param UpdateLiveRecordTemplateRequest $tmpReq  UpdateLiveRecordTemplateRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -12236,7 +12256,9 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 修改直播录制模板
+     * @summary Updates the information about a live stream recording template.
+     *  *
+     * @description Only user-created templates can be updated. The preset template cannot be updated.
      *  *
      * @param UpdateLiveRecordTemplateRequest $request UpdateLiveRecordTemplateRequest
      *
@@ -12250,7 +12272,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新直播截图模板
+     * @summary Updates the information about a live stream snapshot template.
      *  *
      * @param UpdateLiveSnapshotTemplateRequest $request UpdateLiveSnapshotTemplateRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -12295,7 +12317,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新直播截图模板
+     * @summary Updates the information about a live stream snapshot template.
      *  *
      * @param UpdateLiveSnapshotTemplateRequest $request UpdateLiveSnapshotTemplateRequest
      *
@@ -12309,7 +12331,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新转码任务配置
+     * @summary Updates the information about a live stream transcoding job.
+     *  *
+     * @description *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
+     * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
      *  *
      * @param UpdateLiveTranscodeJobRequest $tmpReq  UpdateLiveTranscodeJobRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -12365,7 +12390,10 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新转码任务配置
+     * @summary Updates the information about a live stream transcoding job.
+     *  *
+     * @description *   For a non-timed transcoding job, you can modify the Name parameter of the job, regardless of the job state.
+     * *   For a timed job, you can modify the Name, StreamInput, TranscodeOutput, and TimedConfig parameters. However, the StreamInput, TranscodeOutput, and TimedConfig parameters can be modified only when the job is not started.
      *  *
      * @param UpdateLiveTranscodeJobRequest $request UpdateLiveTranscodeJobRequest
      *
@@ -12379,7 +12407,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新转码模版
+     * @summary Updates the information about a live stream transcoding template.
      *  *
      * @param UpdateLiveTranscodeTemplateRequest $tmpReq  UpdateLiveTranscodeTemplateRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -12423,7 +12451,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 更新转码模版
+     * @summary Updates the information about a live stream transcoding template.
      *  *
      * @param UpdateLiveTranscodeTemplateRequest $request UpdateLiveTranscodeTemplateRequest
      *

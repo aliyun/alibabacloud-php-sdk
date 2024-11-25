@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class recordFormat extends Model
 {
     /**
+     * @description The duration of the recording cycle. Unit: seconds. If you do not specify this parameter, the default value 6 hours is used.
+     *
+     * >
+     *
+     *   If a live stream is interrupted during a recording cycle but is resumed within 3 minutes, the stream is recorded in the same recording before and after the interruption.
+     *
+     *   If a live stream is interrupted for more than 3 minutes, a new recording is generated. To change the default stream interruption time, submit a ticket.
+     *
      * @example 3600
      *
      * @var int
@@ -16,7 +24,7 @@ class recordFormat extends Model
     public $cycleDuration;
 
     /**
-     * @description 格式
+     * @description The format.
      *
      * This parameter is required.
      * @example m3u8
@@ -26,7 +34,10 @@ class recordFormat extends Model
     public $format;
 
     /**
-     * @description Oss对象名，不包含后缀
+     * @description The name of the recording file that is stored in Object Storage Service (OSS).
+     *
+     *   The name must be less than 256 bytes in length and can contain the {JobId}, {Sequence}, {StartTime}, {EndTime}, {EscapedStartTime}, and {EscapedEndTime} variables.
+     *   The name must contain the {StartTime} and {EndTime} variables or the {EscapedStartTime} and {EscapedEndTime} variables.
      *
      * @example record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
      *
@@ -35,8 +46,9 @@ class recordFormat extends Model
     public $ossObjectPrefix;
 
     /**
-     * @description 切片时长
+     * @description The duration of a single segment. Unit: seconds.
      *
+     * If you do not specify this parameter, the default value 30 seconds is used. Valid values: 5 to 30.
      * @example 30
      *
      * @var int
@@ -44,7 +56,12 @@ class recordFormat extends Model
     public $sliceDuration;
 
     /**
-     * @description 切片Oss对象名，不包含后缀
+     * @description The name of the TS segment.
+     *
+     * >  This parameter is required only if you set Format to m3u8.
+     *
+     *   By default, the duration of a segment is 30 seconds. The segment name must be less than 256 bytes in length and can contain the {JobId}, {UnixTimestamp}, and {Sequence} variables.
+     *   The segment name must contain the {UnixTimestamp} and {Sequence} variables.
      *
      * @example record/{JobId}/{UnixTimestamp}_{Sequence}
      *

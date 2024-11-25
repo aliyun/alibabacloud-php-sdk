@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class recordOutput extends Model
 {
     /**
+     * @description The bucket name.
+     *
      * @example imsbucket1
      *
      * @var string
@@ -16,6 +18,8 @@ class recordOutput extends Model
     public $bucket;
 
     /**
+     * @description The endpoint of the storage service.
+     *
      * @example oss-cn-hangzhou.aliyuncs.com
      *
      * @var string
@@ -23,8 +27,9 @@ class recordOutput extends Model
     public $endpoint;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the storage address.
      *
+     * This parameter is required.
      * @example oss
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveSnapshotTemplatesRequest extends Model
 {
     /**
+     * @description The page number. Valid values: [1,n). Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListLiveSnapshotTemplatesRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,10 @@ class ListLiveSnapshotTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+     *
+     *   It cannot exceed 128 characters in length.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -30,6 +38,13 @@ class ListLiveSnapshotTemplatesRequest extends Model
     public $searchKeyWord;
 
     /**
+     * @description The sorting order. By default, the query results are sorted by creation time in descending order.
+     *
+     * Valid values:
+     *
+     *   asc: sorts the query results by creation time in ascending order.
+     *   desc: sorts the query results by creation time in descending order.
+     *
      * @example desc
      *
      * @var string
@@ -37,11 +52,23 @@ class ListLiveSnapshotTemplatesRequest extends Model
     public $sortBy;
 
     /**
+     * @description The template IDs.
+     *
+     *   If you specify the SearchKeyWord parameter, this condition does not take effect.
+     *   The maximum length of the array is 200.
+     *
      * @var string[]
      */
     public $templateIds;
 
     /**
+     * @description The type of the template. By default, all types are queried.
+     *
+     * Valid values:
+     *
+     *   system
+     *   custom
+     *
      * @example custom
      *
      * @var string

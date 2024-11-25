@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deleteFileInfoList extends Model
 {
     /**
+     * @description The code that identifies the result of the deletion.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +18,8 @@ class deleteFileInfoList extends Model
     public $code;
 
     /**
+     * @description The result of deletion.
+     *
      * @example OK
      *
      * @var string
@@ -23,6 +27,8 @@ class deleteFileInfoList extends Model
     public $message;
 
     /**
+     * @description The ID of the deleted recording file.
+     *
      * @example 13cbb83e-043c-4728-ac35-*****
      *
      * @var string

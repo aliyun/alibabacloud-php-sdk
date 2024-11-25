@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveTranscodeTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ******3B-0E1A-586A-AC29-742247******
      *
      * @var string

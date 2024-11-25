@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordFilesResponseBody extends Model
 {
     /**
+     * @description The list of index files.
+     *
      * @var files[]
      */
     public $files;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListLiveRecordFilesResponseBody extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -29,6 +35,8 @@ class ListLiveRecordFilesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example DE24625C-7C0F-4020-8448-****
      *
      * @var string
@@ -36,6 +44,8 @@ class ListLiveRecordFilesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The sorting order of the index files by creation time.
+     *
      * @example asc
      *
      * @var string
@@ -43,6 +53,8 @@ class ListLiveRecordFilesResponseBody extends Model
     public $sortBy;
 
     /**
+     * @description The total number of files that meet the specified conditions.
+     *
      * @example 100
      *
      * @var string

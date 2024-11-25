@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateLiveTranscodeTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the template.
      *
+     * This parameter is required.
      * @example my template
      *
      * @var string
@@ -19,13 +20,21 @@ class CreateLiveTranscodeTemplateRequest extends Model
     public $name;
 
     /**
+     * @description The configuration of the template.
+     *
      * @var templateConfig
      */
     public $templateConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the template. Valid values:
      *
+     *   normal
+     *   narrow-band
+     *   audio-only
+     *   origin
+     *
+     * This parameter is required.
      * @example normal
      *
      * @var string

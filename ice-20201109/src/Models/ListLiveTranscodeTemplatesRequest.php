@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListLiveTranscodeTemplatesRequest extends Model
 {
     /**
+     * @description The category of the template. Valid values:
+     *
+     *   system
+     *   customized
+     *
      * @example customized
      *
      * @var string
@@ -16,6 +21,8 @@ class ListLiveTranscodeTemplatesRequest extends Model
     public $category;
 
     /**
+     * @description The search keyword. You can use the template ID or name as the keyword to search for templates. If you search for templates by name, fuzzy match is supported.
+     *
      * @example my_template
      *
      * @var string
@@ -23,6 +30,8 @@ class ListLiveTranscodeTemplatesRequest extends Model
     public $keyWord;
 
     /**
+     * @description The page number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,8 @@ class ListLiveTranscodeTemplatesRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +48,11 @@ class ListLiveTranscodeTemplatesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The sorting order. By default, the query results are sorted by creation time in descending order. Valid values:
+     *
+     *   asc
+     *   desc
+     *
      * @example asc
      *
      * @var string
@@ -44,6 +60,13 @@ class ListLiveTranscodeTemplatesRequest extends Model
     public $sortBy;
 
     /**
+     * @description The type of the template. Valid values:
+     *
+     *   normal
+     *   narrow-band
+     *   audio-only
+     *   origin
+     *
      * @example normal
      *
      * @var string
@@ -51,6 +74,11 @@ class ListLiveTranscodeTemplatesRequest extends Model
     public $type;
 
     /**
+     * @description The video codec. Valid values:
+     *
+     *   H.264
+     *   H.265
+     *
      * @example H.264
      *
      * @var string

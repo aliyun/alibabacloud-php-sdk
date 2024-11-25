@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class audioParams extends Model
 {
     /**
+     * @description The bitrate of the output audio. Unit: Kbit/s. Valid values: 1 to 1000.
+     *
      * @example 100
      *
      * @var string
@@ -16,6 +18,8 @@ class audioParams extends Model
     public $bitrate;
 
     /**
+     * @description The number of sound channels. Valid values: 1: mono 2: binaural
+     *
      * @example 2
      *
      * @var string
@@ -23,6 +27,8 @@ class audioParams extends Model
     public $channels;
 
     /**
+     * @description The audio codec. Valid values: AAC MP3
+     *
      * @example AAC
      *
      * @var string
@@ -30,6 +36,13 @@ class audioParams extends Model
     public $codec;
 
     /**
+     * @description The audio codec profile. Valid values when the Codec parameter is set to AAC:
+     *
+     *   aac_low
+     *   aac_he
+     *   aac_he_v2
+     *   aac_ld
+     *
      * @example aac_low
      *
      * @var string
@@ -37,6 +50,9 @@ class audioParams extends Model
     public $profile;
 
     /**
+     * @description The audio sampling rate. Valid values: 22050 to 96000.
+     *
+     * Note If you set AudioProfile to aac_ld, the audio sampling rate cannot exceed 44100.
      * @example 44100
      *
      * @var string

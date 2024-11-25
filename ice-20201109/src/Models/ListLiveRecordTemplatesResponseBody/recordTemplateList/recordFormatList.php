@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class recordFormatList extends Model
 {
     /**
+     * @description The duration of the recording cycle. Unit: seconds.
+     *
      * @example 21600
      *
      * @var int
@@ -16,7 +18,7 @@ class recordFormatList extends Model
     public $cycleDuration;
 
     /**
-     * @description 格式
+     * @description The output file format.
      *
      * @example m3u8
      *
@@ -25,7 +27,7 @@ class recordFormatList extends Model
     public $format;
 
     /**
-     * @description Oss对象名，不包含后缀
+     * @description The name of the recording file that is stored in Object Storage Service (OSS).
      *
      * @example record/{JobId}/{Sequence}_{EscapedStartTime}_{EscapedEndTime}
      *
@@ -34,7 +36,7 @@ class recordFormatList extends Model
     public $ossObjectPrefix;
 
     /**
-     * @description 切片时长
+     * @description The duration of a single segment. Unit: seconds.
      *
      * @example 30
      *
@@ -43,7 +45,7 @@ class recordFormatList extends Model
     public $sliceDuration;
 
     /**
-     * @description 切片Oss对象名，不包含后缀
+     * @description The name of the TS segment.
      *
      * @example record/{JobId}/{UnixTimestamp}_{Sequence}
      *

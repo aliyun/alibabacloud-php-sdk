@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class audioParams extends Model
 {
     /**
+     * @description The bitrate of the output audio.
+     *
      * @example 1000
      *
      * @var string
@@ -16,6 +18,8 @@ class audioParams extends Model
     public $bitrate;
 
     /**
+     * @description The number of sound channels.
+     *
      * @example 2
      *
      * @var string
@@ -23,6 +27,8 @@ class audioParams extends Model
     public $channels;
 
     /**
+     * @description The audio codec.
+     *
      * @example AAC
      *
      * @var string
@@ -30,6 +36,8 @@ class audioParams extends Model
     public $codec;
 
     /**
+     * @description The audio codec profile.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class audioParams extends Model
     public $profile;
 
     /**
+     * @description The audio sampling rate.
+     *
      * @example 44100
      *
      * @var string

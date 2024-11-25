@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveTranscodeTemplateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ******3B-0E1A-586A-AC29-742247******
      *
      * @var string
@@ -17,6 +19,8 @@ class GetLiveTranscodeTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The content of the template.
+     *
      * @var templateContent
      */
     public $templateContent;

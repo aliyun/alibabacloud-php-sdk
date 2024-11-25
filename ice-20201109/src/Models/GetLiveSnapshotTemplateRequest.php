@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetLiveSnapshotTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string

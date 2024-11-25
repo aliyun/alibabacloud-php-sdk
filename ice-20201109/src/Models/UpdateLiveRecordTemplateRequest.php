@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveRecordTemplateRequest extends Model
 {
     /**
-     * @description 代表资源名称的资源属性字段
+     * @description The template name.
      *
      * This parameter is required.
      * @example test template
@@ -20,7 +20,7 @@ class UpdateLiveRecordTemplateRequest extends Model
     public $name;
 
     /**
-     * @description 录制格式
+     * @description The list of recording formats.
      *
      * This parameter is required.
      * @var recordFormat[]
@@ -28,7 +28,7 @@ class UpdateLiveRecordTemplateRequest extends Model
     public $recordFormat;
 
     /**
-     * @description 代表资源一级ID的资源属性字段
+     * @description The template ID.
      *
      * This parameter is required.
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66

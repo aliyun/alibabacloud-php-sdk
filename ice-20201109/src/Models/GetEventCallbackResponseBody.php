@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetEventCallbackResponseBody extends Model
 {
     /**
+     * @description The authentication key. This parameter is returned only for HTTP callbacks.
+     *
      * @example TestKey001
      *
      * @var string
@@ -16,6 +18,11 @@ class GetEventCallbackResponseBody extends Model
     public $authKey;
 
     /**
+     * @description Specifies whether callback authentication is enabled. This parameter is returned only for **HTTP** callbacks. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example on
      *
      * @var string
@@ -23,6 +30,8 @@ class GetEventCallbackResponseBody extends Model
     public $authSwitch;
 
     /**
+     * @description The name of the Simple Message Queue (SMQ) queue to which callback messages are sent.
+     *
      * @example ice-callback-queue
      *
      * @var string
@@ -30,6 +39,11 @@ class GetEventCallbackResponseBody extends Model
     public $callbackQueueName;
 
     /**
+     * @description The callback method. Valid values:
+     *
+     *   **HTTP**
+     *   **MNS**
+     *
      * @example HTTP
      *
      * @var string
@@ -37,6 +51,8 @@ class GetEventCallbackResponseBody extends Model
     public $callbackType;
 
     /**
+     * @description The callback URL to which event notifications are sent.
+     *
      * @example http://xxx.yyy/callback
      *
      * @var string
@@ -44,6 +60,8 @@ class GetEventCallbackResponseBody extends Model
     public $callbackURL;
 
     /**
+     * @description The type of the callback event. Multiple values are separated with commas (,). For more information about callback event types, see [Event notification content](https://help.aliyun.com/document_detail/441362.html).
+     *
      * @example ProduceMediaComplete,TranscodeComplete
      *
      * @var string
@@ -51,6 +69,8 @@ class GetEventCallbackResponseBody extends Model
     public $eventTypeList;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListLiveSnapshotFilesResponseBody extends Model
 {
     /**
+     * @description The list of files.
+     *
      * @var fileList[]
      */
     public $fileList;
 
     /**
+     * @description The start time of the next page. If no value is returned, the pagination ends.
+     *
      * @example 2022-02-02T22:22:22Z
      *
      * @var string
@@ -22,6 +26,8 @@ class ListLiveSnapshotFilesResponseBody extends Model
     public $nextStartTime;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveTranscodeJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the transcoding job.
      *
+     * This parameter is required.
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveSnapshotFilesResponseBody extends Model
 {
     /**
+     * @description The list of deleted files.
+     *
      * @var deleteFileResultList[]
      */
     public $deleteFileResultList;
 
     /**
+     * @description The request ID.
+     *
      * @example ****2876-6263-4B75-8F2C-CD0F7FCF****
      *
      * @var string

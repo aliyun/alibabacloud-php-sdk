@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveTranscodeJobShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The job ID.
      *
+     * This parameter is required.
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string
@@ -18,6 +19,8 @@ class UpdateLiveTranscodeJobShrinkRequest extends Model
     public $jobId;
 
     /**
+     * @description The name of the job.
+     *
      * @example mytest3
      *
      * @var string
@@ -25,16 +28,22 @@ class UpdateLiveTranscodeJobShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The information about the input stream.
+     *
      * @var string
      */
     public $streamInputShrink;
 
     /**
+     * @description The configuration of a timed transcoding job.
+     *
      * @var string
      */
     public $timedConfigShrink;
 
     /**
+     * @description The information about the transcoding output.
+     *
      * @var string
      */
     public $transcodeOutputShrink;

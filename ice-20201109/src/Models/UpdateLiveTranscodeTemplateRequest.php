@@ -10,18 +10,23 @@ use AlibabaCloud\Tea\Model;
 class UpdateLiveTranscodeTemplateRequest extends Model
 {
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The configuration of the template.
+     *
      * @var templateConfig
      */
     public $templateConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The template ID. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ims.console.aliyun.com/summary), choose Real-time Media Processing > Template Management, and then click the Transcoding tab. Alternatively, find the ID from the response parameters of the [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html) operation.
      *
+     * This parameter is required.
      * @example ****96e8864746a0b6f3****
      *
      * @var string

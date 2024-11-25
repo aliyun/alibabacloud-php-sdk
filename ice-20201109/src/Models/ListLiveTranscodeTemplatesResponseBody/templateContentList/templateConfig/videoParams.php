@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class videoParams extends Model
 {
     /**
+     * @description The video bitrate.
+     *
      * @example 2500
      *
      * @var string
@@ -16,6 +18,8 @@ class videoParams extends Model
     public $bitrate;
 
     /**
+     * @description The encoding format.
+     *
      * @example 264
      *
      * @var string
@@ -23,6 +27,8 @@ class videoParams extends Model
     public $codec;
 
     /**
+     * @description The video frame rate.
+     *
      * @example 30
      *
      * @var string
@@ -30,6 +36,8 @@ class videoParams extends Model
     public $fps;
 
     /**
+     * @description The group of pictures (GOP) of the output video. Unit: frame.
+     *
      * @example 1000
      *
      * @var string
@@ -37,6 +45,8 @@ class videoParams extends Model
     public $gop;
 
     /**
+     * @description The vertical resolution of the video.
+     *
      * @example 1280
      *
      * @var string
@@ -44,6 +54,8 @@ class videoParams extends Model
     public $height;
 
     /**
+     * @description The encoding profile.
+     *
      * @example 3
      *
      * @var string
@@ -51,6 +63,8 @@ class videoParams extends Model
     public $profile;
 
     /**
+     * @description The horizontal resolution of the video.
+     *
      * @example 720
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendLiveTranscodeJobCommandRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The operation command. Only the stop command is supported. This command is used to stop a transcoding job.
      *
+     * This parameter is required.
      * @example stop
      *
      * @var string
@@ -18,8 +19,9 @@ class SendLiveTranscodeJobCommandRequest extends Model
     public $command;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the transcoding job.
      *
+     * This parameter is required.
      * @example ****20b48fb04483915d4f2cd8ac****
      *
      * @var string

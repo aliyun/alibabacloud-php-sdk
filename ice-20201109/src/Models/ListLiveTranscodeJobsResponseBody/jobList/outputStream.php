@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class outputStream extends Model
 {
     /**
+     * @description The list of stream URLs.
+     *
      * @var streamInfos[]
      */
     public $streamInfos;

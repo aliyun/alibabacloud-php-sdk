@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class jobList extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
      * @example 2022-07-20T02:48:58Z
      *
      * @var string
@@ -17,6 +19,8 @@ class jobList extends Model
     public $createTime;
 
     /**
+     * @description The job ID.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -24,16 +28,28 @@ class jobList extends Model
     public $jobId;
 
     /**
+     * @description The name of the job.
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The output information.
+     *
      * @var snapshotOutput
      */
     public $snapshotOutput;
 
     /**
+     * @description The state of the job.
+     *
+     * Valid values:
+     *
+     *   init: The job is not started.
+     *   paused: The job is paused.
+     *   started: The job is in progress.
+     *
      * @example started
      *
      * @var string
@@ -41,6 +57,8 @@ class jobList extends Model
     public $status;
 
     /**
+     * @description The template ID.
+     *
      * @example ****a046-263c-3560-978a-fb287666****
      *
      * @var string
@@ -48,11 +66,15 @@ class jobList extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The interval between two adjacent snapshots. Unit: seconds.
+     *
      * @example 5
      *
      * @var int

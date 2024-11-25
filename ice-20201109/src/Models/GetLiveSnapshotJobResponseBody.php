@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveSnapshotJobResponseBody extends Model
 {
     /**
+     * @description The snapshot callback URL.
+     *
      * @example http://www.aliyun.com/snapshot/callback
      *
      * @var string
@@ -18,6 +20,8 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $callbackUrl;
 
     /**
+     * @description The time when the file was created.
+     *
      * @example 2022-02-02T22:22:22Z
      *
      * @var string
@@ -25,6 +29,8 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The job ID.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -32,11 +38,15 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The name of the job.
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The time when the file was last modified.
+     *
      * @example 2022-02-02T22:22:22Z
      *
      * @var string
@@ -44,6 +54,8 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $lastModified;
 
     /**
+     * @description The naming format of the snapshot captured in overwrite mode.
+     *
      * @example snapshot/{JobId}.jpg
      *
      * @var string
@@ -51,6 +63,8 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $overwriteFormat;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -58,6 +72,8 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The naming format of the snapshot captured in time series mode.
+     *
      * @example snapshot/{JobId}/{UnixTimestamp}.jpg
      *
      * @var string
@@ -65,11 +81,21 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $sequenceFormat;
 
     /**
+     * @description The output information.
+     *
      * @var snapshotOutput
      */
     public $snapshotOutput;
 
     /**
+     * @description The state of the job.
+     *
+     * Valid values:
+     *
+     *   init: The job is not started.
+     *   paused: The job is paused.
+     *   started: The job is in progress.
+     *
      * @example started
      *
      * @var string
@@ -77,11 +103,15 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $status;
 
     /**
+     * @description The input information.
+     *
      * @var streamInput
      */
     public $streamInput;
 
     /**
+     * @description The template ID.
+     *
      * @example ****a046-263c-3560-978a-fb287666****
      *
      * @var string
@@ -89,11 +119,15 @@ class GetLiveSnapshotJobResponseBody extends Model
     public $templateId;
 
     /**
+     * @description The name of the template.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The interval between two adjacent snapshots.
+     *
      * @example 5
      *
      * @var int

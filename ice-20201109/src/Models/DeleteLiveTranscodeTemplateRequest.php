@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteLiveTranscodeTemplateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The template ID. To obtain the template ID, log on to the [Intelligent Media Services (IMS) console](https://ice.console.aliyun.com/summary), choose Real-time Media Processing > Template Management, and then click the Transcoding tab. Alternatively, find the ID from the response parameters of the [CreateLiveTranscodeTemplate](https://help.aliyun.com/document_detail/449217.html) operation.
      *
+     * This parameter is required.
      * @example ****d80e4e4044975745c14b****
      *
      * @var string

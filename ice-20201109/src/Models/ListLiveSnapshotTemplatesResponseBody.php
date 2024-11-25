@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveSnapshotTemplatesResponseBody extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListLiveSnapshotTemplatesResponseBody extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class ListLiveSnapshotTemplatesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -31,6 +37,8 @@ class ListLiveSnapshotTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The sorting order of the results by creation time.
+     *
      * @example desc
      *
      * @var string
@@ -38,11 +46,15 @@ class ListLiveSnapshotTemplatesResponseBody extends Model
     public $sortBy;
 
     /**
+     * @description The list of the templates.
+     *
      * @var templateList[]
      */
     public $templateList;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

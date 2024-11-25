@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snapshotOutput extends Model
 {
     /**
+     * @description The bucket of the output endpoint. If the storage type is set to oss, the OSS bucket is returned.
+     *
      * @example testbucket
      *
      * @var string
@@ -16,6 +18,8 @@ class snapshotOutput extends Model
     public $bucket;
 
     /**
+     * @description The output endpoint. If the storage type is set to oss, the Object Storage Service (OSS) domain name is returned.
+     *
      * @example oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -23,6 +27,8 @@ class snapshotOutput extends Model
     public $endpoint;
 
     /**
+     * @description The storage type. The value can only be oss.
+     *
      * @example oss
      *
      * @var string

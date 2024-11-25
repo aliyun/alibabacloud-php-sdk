@@ -105,6 +105,11 @@ class mediaProducingJob extends Model
     public $modifiedTime;
 
     /**
+     * @var int
+     */
+    public $progress;
+
+    /**
      * @description The ID of the online editing project.
      *
      * @example ****fddd7748b58bf1d47e95****
@@ -178,6 +183,7 @@ class mediaProducingJob extends Model
         'mediaURL'        => 'MediaURL',
         'message'         => 'Message',
         'modifiedTime'    => 'ModifiedTime',
+        'progress'        => 'Progress',
         'projectId'       => 'ProjectId',
         'status'          => 'Status',
         'subJobMaterials' => 'SubJobMaterials',
@@ -223,6 +229,9 @@ class mediaProducingJob extends Model
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -286,6 +295,9 @@ class mediaProducingJob extends Model
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];

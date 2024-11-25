@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordFilesRequest extends Model
 {
     /**
+     * @description The end of the time range to query. The maximum time range to query is four days. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-12-22T08:00:00Z
      *
      * @var string
@@ -16,11 +18,15 @@ class ListLiveRecordFilesRequest extends Model
     public $endTime;
 
     /**
+     * @description The list of job IDs.
+     *
      * @var string[]
      */
     public $jobIds;
 
     /**
+     * @description The page number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +34,8 @@ class ListLiveRecordFilesRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Valid values: 5 to 30. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +43,9 @@ class ListLiveRecordFilesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The format of the recording file. Valid values:
+     *
+     * M3U8, FLV, and MP4
      * @example m3u8
      *
      * @var string
@@ -42,6 +53,9 @@ class ListLiveRecordFilesRequest extends Model
     public $recordFormat;
 
     /**
+     * @description The sorting order of the index files by creation time. Valid values:
+     *
+     * desc: The query results are displayed in descending order.
      * @example asc
      *
      * @var string
@@ -49,6 +63,8 @@ class ListLiveRecordFilesRequest extends Model
     public $sortBy;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-12-21T08:00:01Z
      *
      * @var string

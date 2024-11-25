@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveSnapshotJobShrinkRequest extends Model
 {
     /**
+     * @description The snapshot callback URL.
+     *
+     *   It cannot exceed 255 characters in length.
+     *   Both HTTP and HTTPS URLs are supported.
+     *
      * @example http://www.aliyun.com/snapshot/callback
      *
      * @var string
@@ -16,29 +21,35 @@ class SubmitLiveSnapshotJobShrinkRequest extends Model
     public $callbackUrl;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the job.
      *
+     *   It cannot exceed 128 characters in length.
+     *
+     * This parameter is required.
      * @var string
      */
     public $jobName;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the output snapshot.
      *
+     * This parameter is required.
      * @var string
      */
     public $snapshotOutputShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the input stream.
      *
+     * This parameter is required.
      * @var string
      */
     public $streamInputShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string

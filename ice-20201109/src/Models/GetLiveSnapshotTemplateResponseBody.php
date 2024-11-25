@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLiveSnapshotTemplateResponseBody extends Model
 {
     /**
+     * @description The time when the configuration was modified.
+     *
      * @example 2022-02-02T22:22:22Z
      *
      * @var string
@@ -16,6 +18,8 @@ class GetLiveSnapshotTemplateResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the template was created.
+     *
      * @example 2022-02-02T22:22:22Z
      *
      * @var string
@@ -23,6 +27,8 @@ class GetLiveSnapshotTemplateResponseBody extends Model
     public $lastModified;
 
     /**
+     * @description The naming format of the snapshot captured in overwrite mode.
+     *
      * @example snapshot/{JobId}.jpg
      *
      * @var string
@@ -30,6 +36,8 @@ class GetLiveSnapshotTemplateResponseBody extends Model
     public $overwriteFormat;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -37,6 +45,8 @@ class GetLiveSnapshotTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The naming format of the snapshot captured in time series mode.
+     *
      * @example snapshot/{JobId}/{UnixTimestamp}.jpg
      *
      * @var string
@@ -44,6 +54,8 @@ class GetLiveSnapshotTemplateResponseBody extends Model
     public $sequenceFormat;
 
     /**
+     * @description The template ID.
+     *
      * @example ****a046-263c-3560-978a-fb287782****
      *
      * @var string
@@ -51,11 +63,15 @@ class GetLiveSnapshotTemplateResponseBody extends Model
     public $templateId;
 
     /**
+     * @description The template name.
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The interval between two adjacent snapshots.
+     *
      * @example 5
      *
      * @var int
@@ -63,6 +79,13 @@ class GetLiveSnapshotTemplateResponseBody extends Model
     public $timeInterval;
 
     /**
+     * @description The type of the template.
+     *
+     * Valid values:
+     *
+     *   system
+     *   custom
+     *
      * @example custom
      *
      * @var string

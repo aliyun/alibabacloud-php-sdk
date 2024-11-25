@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class liveRecordJobs extends Model
 {
     /**
-     * @description 代表创建时间的资源属性字段
+     * @description The time when the job was created.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mmZ
      * @example 2022-07-20T03:26:36Z
@@ -21,6 +21,8 @@ class liveRecordJobs extends Model
     public $createTime;
 
     /**
+     * @description The ID of the recording job.
+     *
      * @example ab0e3e76-1e9d-11ed-ba64-0c42a1b73d66
      *
      * @var string
@@ -28,14 +30,14 @@ class liveRecordJobs extends Model
     public $jobId;
 
     /**
-     * @description 代表资源名称的资源属性字段
+     * @description The name of the recording job.
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 回调地址
+     * @description The callback URL.
      *
      * @example https://example.com/imsnotify
      *
@@ -44,11 +46,15 @@ class liveRecordJobs extends Model
     public $notifyUrl;
 
     /**
+     * @description The storage address of the recording.
+     *
      * @var recordOutput
      */
     public $recordOutput;
 
     /**
+     * @description The state of the recording job.
+     *
      * @example paused
      *
      * @var string
@@ -56,12 +62,14 @@ class liveRecordJobs extends Model
     public $status;
 
     /**
+     * @description The URL of the live stream.
+     *
      * @var streamInput
      */
     public $streamInput;
 
     /**
-     * @description 录制模板ID
+     * @description The ID of the recording template.
      *
      * @example 69e1f9fe-1e97-11ed-ba64-0c42a1b73d66
      *
@@ -70,6 +78,8 @@ class liveRecordJobs extends Model
     public $templateId;
 
     /**
+     * @description The name of the recording template.
+     *
      * @example test template
      *
      * @var string

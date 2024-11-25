@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SubmitLiveTranscodeJobShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the transcoding job.
      *
+     * This parameter is required.
      * @example task1
      *
      * @var string
@@ -18,8 +19,12 @@ class SubmitLiveTranscodeJobShrinkRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The start mode of the transcoding job.
      *
+     *   0: The transcoding job immediately starts.
+     *   1: The transcoding job starts at the scheduled time.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var int
@@ -27,15 +32,17 @@ class SubmitLiveTranscodeJobShrinkRequest extends Model
     public $startMode;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the input stream.
      *
+     * This parameter is required.
      * @var string
      */
     public $streamInputShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The template ID.
      *
+     * This parameter is required.
      * @example ****96e8864746a0b6f3****
      *
      * @var string
@@ -43,13 +50,16 @@ class SubmitLiveTranscodeJobShrinkRequest extends Model
     public $templateId;
 
     /**
+     * @description The configuration of a timed transcoding job. This parameter is required if you set StartMode to 1.
+     *
      * @var string
      */
     public $timedConfigShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the transcoding output.
      *
+     * This parameter is required.
      * @var string
      */
     public $transcodeOutputShrink;

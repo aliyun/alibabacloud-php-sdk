@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordJobsResponseBody extends Model
 {
     /**
+     * @description The list of live stream recording jobs.
+     *
      * @var liveRecordJobs[]
      */
     public $liveRecordJobs;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListLiveRecordJobsResponseBody extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class ListLiveRecordJobsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example A27DFFA4-F272-5563-8363-CB0BC42740BA
      *
      * @var string
@@ -36,6 +44,8 @@ class ListLiveRecordJobsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The sorting order. By default, the query results are sorted by creation time in descending order.
+     *
      * @example desc
      *
      * @var string
@@ -43,6 +53,8 @@ class ListLiveRecordJobsResponseBody extends Model
     public $sortBy;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 180
      *
      * @var int

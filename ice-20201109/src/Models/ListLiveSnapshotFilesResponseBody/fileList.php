@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fileList extends Model
 {
     /**
+     * @description The time when the template was created.
+     *
      * @example 2022-02-02T22:22:22Z
      *
      * @var string
@@ -16,6 +18,8 @@ class fileList extends Model
     public $createTime;
 
     /**
+     * @description The creation timestamp that is used as an input parameter for a delete API operation.
+     *
      * @example 1619503516000
      *
      * @var int
@@ -23,6 +27,8 @@ class fileList extends Model
     public $createTimestamp;
 
     /**
+     * @description Specifies whether to overlay snapshots.
+     *
      * @example true
      *
      * @var bool
@@ -30,7 +36,7 @@ class fileList extends Model
     public $isOverlay;
 
     /**
-     * @description OSS bucket。
+     * @description The OSS bucket.
      *
      * @example testbucket
      *
@@ -39,6 +45,8 @@ class fileList extends Model
     public $ossBucket;
 
     /**
+     * @description The Object Storage Service (OSS) domain name.
+     *
      * @example oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -46,6 +54,8 @@ class fileList extends Model
     public $ossEndpoint;
 
     /**
+     * @description The location in which the OSS object is stored.
+     *
      * @var string
      */
     public $ossObject;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class streamInput extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the input stream. The value can only be rtmp.
      *
+     * This parameter is required.
      * @example rtmp
      *
      * @var string
@@ -18,8 +19,11 @@ class streamInput extends Model
     public $type;
 
     /**
-     * @description This parameter is required.
+     * @description The URL of the input stream.
      *
+     *   It cannot exceed 255 characters in length.
+     *
+     * This parameter is required.
      * @example rtmp://www.aliyun.com/stream
      *
      * @var string

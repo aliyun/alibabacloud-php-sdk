@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListLiveSnapshotJobsResponseBody extends Model
 {
     /**
+     * @description The list of jobs.
+     *
      * @var jobList[]
      */
     public $jobList;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListLiveSnapshotJobsResponseBody extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListLiveSnapshotJobsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -36,6 +44,8 @@ class ListLiveSnapshotJobsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The sorting order of the jobs by creation time.
+     *
      * @example desc
      *
      * @var string
@@ -43,6 +53,8 @@ class ListLiveSnapshotJobsResponseBody extends Model
     public $sortBy;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class transcodeOutput extends Model
 {
     /**
+     * @description The streaming domain name of ApsaraVideo Live.
+     *
      * @example mydomain
      *
      * @var string
@@ -16,8 +18,9 @@ class transcodeOutput extends Model
     public $domainName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the output stream. A value of LiveCenter indicates that the URL of the output stream is generated based on the domain name of ApsaraVideo Live. The value can only be LiveCenter.
      *
+     * This parameter is required.
      * @example LiveCenter
      *
      * @var string

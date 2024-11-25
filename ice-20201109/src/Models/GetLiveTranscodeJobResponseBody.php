@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetLiveTranscodeJobResponseBody extends Model
 {
     /**
+     * @description The information about the transcoding job.
+     *
      * @var job
      */
     public $job;
 
     /**
+     * @description The request ID.
+     *
      * @example ******3B-0E1A-586A-AC29-742247******
      *
      * @var string
