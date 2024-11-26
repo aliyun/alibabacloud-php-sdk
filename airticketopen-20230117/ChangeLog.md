@@ -2,6 +2,10 @@
 - Update API Enrich: update param journey_param_list.
 
 
+2024-11-26 Version: 2.0.2
+- Update API Enrich: update param journey_param_list.
+
+
 2024-11-25 Version: 2.0.1
 - Generated php 2023-01-17 for airticketOpen.
 
