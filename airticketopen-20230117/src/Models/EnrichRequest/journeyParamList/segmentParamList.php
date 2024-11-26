@@ -11,7 +11,6 @@ class segmentParamList extends Model
     /**
      * @description arrival airport code (capitalized)
      *
-     * This parameter is required.
      * @example MFM
      *
      * @var string
@@ -48,7 +47,6 @@ class segmentParamList extends Model
     /**
      * @description departure airport code (capitalized)
      *
-     * This parameter is required.
      * @example PVG
      *
      * @var string
@@ -67,7 +65,6 @@ class segmentParamList extends Model
     /**
      * @description departure time in string format (yyyy-MM-dd HH:mm:ss)
      *
-     * This parameter is required.
      * @example 2023-03-10 07:55:00
      *
      * @var string
