@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Qianzhou\V20211111\Models;
 
+use AlibabaCloud\SDK\Qianzhou\V20211111\Models\AICreateSessionMessageResponseBody\reference;
 use AlibabaCloud\Tea\Model;
 
 class AICreateSessionMessageResponseBody extends Model
@@ -29,6 +30,11 @@ class AICreateSessionMessageResponseBody extends Model
     public $msg;
 
     /**
+     * @var reference[]
+     */
+    public $reference;
+
+    /**
      * @var string
      */
     public $requestId;
@@ -42,6 +48,7 @@ class AICreateSessionMessageResponseBody extends Model
         'code'      => 'code',
         'data'      => 'data',
         'msg'       => 'msg',
+        'reference' => 'reference',
         'requestId' => 'requestId',
         'sessionId' => 'session_id',
     ];
@@ -64,6 +71,15 @@ class AICreateSessionMessageResponseBody extends Model
         }
         if (null !== $this->msg) {
             $res['msg'] = $this->msg;
+        }
+        if (null !== $this->reference) {
+            $res['reference'] = [];
+            if (null !== $this->reference && \is_array($this->reference)) {
+                $n = 0;
+                foreach ($this->reference as $item) {
+                    $res['reference'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -94,6 +110,15 @@ class AICreateSessionMessageResponseBody extends Model
         }
         if (isset($map['msg'])) {
             $model->msg = $map['msg'];
+        }
+        if (isset($map['reference'])) {
+            if (!empty($map['reference'])) {
+                $model->reference = [];
+                $n                = 0;
+                foreach ($map['reference'] as $item) {
+                    $model->reference[$n++] = null !== $item ? reference::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
