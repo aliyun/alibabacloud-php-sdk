@@ -64,6 +64,11 @@ class UpdateVideoInfoRequest extends Model
     public $title;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @description The ID of the video.
      *
      * This parameter is required.
@@ -78,6 +83,7 @@ class UpdateVideoInfoRequest extends Model
         'description' => 'Description',
         'tags'        => 'Tags',
         'title'       => 'Title',
+        'userData'    => 'UserData',
         'videoId'     => 'VideoId',
     ];
 
@@ -102,6 +108,9 @@ class UpdateVideoInfoRequest extends Model
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
@@ -132,6 +141,9 @@ class UpdateVideoInfoRequest extends Model
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];

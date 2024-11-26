@@ -77,6 +77,13 @@ class playInfo extends Model
     public $encrypt;
 
     /**
+     * @description The encryption type of the media stream. Valid values:
+     *
+     *   **License**: decryption on local devices
+     *
+     * >  If the encryption type is **License**, only ApsaraVideo Player SDK can be used to play videos.
+     * @example License
+     *
      * @var string
      */
     public $encryptMode;

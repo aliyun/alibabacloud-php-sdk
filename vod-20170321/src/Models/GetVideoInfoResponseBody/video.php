@@ -234,6 +234,11 @@ class video extends Model
     public $title;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @description The ID of the media file.
      *
      * @example 9b73864d75f1d231e9001cd5f8****
@@ -264,6 +269,7 @@ class video extends Model
         'tags'              => 'Tags',
         'templateGroupId'   => 'TemplateGroupId',
         'title'             => 'Title',
+        'userData'          => 'UserData',
         'videoId'           => 'VideoId',
     ];
 
@@ -339,6 +345,9 @@ class video extends Model
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->videoId) {
             $res['VideoId'] = $this->videoId;
@@ -420,6 +429,9 @@ class video extends Model
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['VideoId'])) {
             $model->videoId = $map['VideoId'];

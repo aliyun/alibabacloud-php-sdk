@@ -11016,6 +11016,9 @@ class Vod extends OpenApiClient
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;
         }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
         if (!Utils::isUnset($request->videoId)) {
             $query['VideoId'] = $request->videoId;
         }
