@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class AddUserRequest extends Model
 {
     /**
+     * @deprecated
+     *
+     * @var string
+     */
+    public $accountId;
+
+    /**
      * @description This parameter is required.
      *
      * @example xxxxxx@163.com
@@ -54,6 +61,7 @@ class AddUserRequest extends Model
      */
     public $userType;
     protected $_name = [
+        'accountId'     => 'AccountId',
         'accountName'   => 'AccountName',
         'adminUser'     => 'AdminUser',
         'authAdminUser' => 'AuthAdminUser',
@@ -69,6 +77,9 @@ class AddUserRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountId) {
+            $res['AccountId'] = $this->accountId;
+        }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
@@ -99,6 +110,9 @@ class AddUserRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountId'])) {
+            $model->accountId = $map['AccountId'];
+        }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }

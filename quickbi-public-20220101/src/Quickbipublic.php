@@ -193,6 +193,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionRuleCo
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionRuleConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionWhiteListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionWhiteListResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateEmbeddedStatusRequest;
@@ -437,6 +439,9 @@ class Quickbipublic extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $query['AccountId'] = $request->accountId;
+        }
         if (!Utils::isUnset($request->accountName)) {
             $query['AccountName'] = $request->accountName;
         }
@@ -5195,6 +5200,59 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDataLevelPermissionWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 问数能力开放
+     *  *
+     * @param SmartqQueryAbilityRequest $request SmartqQueryAbilityRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SmartqQueryAbilityResponse SmartqQueryAbilityResponse
+     */
+    public function smartqQueryAbilityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userQuestion)) {
+            $query['UserQuestion'] = $request->userQuestion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SmartqQueryAbility',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SmartqQueryAbilityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 问数能力开放
+     *  *
+     * @param SmartqQueryAbilityRequest $request SmartqQueryAbilityRequest
+     *
+     * @return SmartqQueryAbilityResponse SmartqQueryAbilityResponse
+     */
+    public function smartqQueryAbility($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->smartqQueryAbilityWithOptions($request, $runtime);
     }
 
     /**
