@@ -89,6 +89,16 @@ class approvalDetail extends Model
     public $templateId;
 
     /**
+     * @var string
+     */
+    public $thirdpartyWorkflowComment;
+
+    /**
+     * @var string
+     */
+    public $thirdpartyWorkflowUrl;
+
+    /**
      * @description The title of the approval process.
      *
      * @example Permission application ticket - 384\\*\\*\\*\\*
@@ -119,17 +129,19 @@ class approvalDetail extends Model
      */
     public $workflowNodes;
     protected $_name = [
-        'auditId'         => 'AuditId',
-        'createTime'      => 'CreateTime',
-        'currentHandlers' => 'CurrentHandlers',
-        'description'     => 'Description',
-        'orderId'         => 'OrderId',
-        'orderType'       => 'OrderType',
-        'reasonList'      => 'ReasonList',
-        'templateId'      => 'TemplateId',
-        'title'           => 'Title',
-        'workflowInsCode' => 'WorkflowInsCode',
-        'workflowNodes'   => 'WorkflowNodes',
+        'auditId'                   => 'AuditId',
+        'createTime'                => 'CreateTime',
+        'currentHandlers'           => 'CurrentHandlers',
+        'description'               => 'Description',
+        'orderId'                   => 'OrderId',
+        'orderType'                 => 'OrderType',
+        'reasonList'                => 'ReasonList',
+        'templateId'                => 'TemplateId',
+        'thirdpartyWorkflowComment' => 'ThirdpartyWorkflowComment',
+        'thirdpartyWorkflowUrl'     => 'ThirdpartyWorkflowUrl',
+        'title'                     => 'Title',
+        'workflowInsCode'           => 'WorkflowInsCode',
+        'workflowNodes'             => 'WorkflowNodes',
     ];
 
     public function validate()
@@ -162,6 +174,12 @@ class approvalDetail extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->thirdpartyWorkflowComment) {
+            $res['ThirdpartyWorkflowComment'] = $this->thirdpartyWorkflowComment;
+        }
+        if (null !== $this->thirdpartyWorkflowUrl) {
+            $res['ThirdpartyWorkflowUrl'] = $this->thirdpartyWorkflowUrl;
         }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
@@ -207,6 +225,12 @@ class approvalDetail extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['ThirdpartyWorkflowComment'])) {
+            $model->thirdpartyWorkflowComment = $map['ThirdpartyWorkflowComment'];
+        }
+        if (isset($map['ThirdpartyWorkflowUrl'])) {
+            $model->thirdpartyWorkflowUrl = $map['ThirdpartyWorkflowUrl'];
         }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];

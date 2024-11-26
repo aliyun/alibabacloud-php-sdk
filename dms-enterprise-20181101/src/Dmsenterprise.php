@@ -35,6 +35,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAbacAuthorizationRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAbacAuthorizationResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAbacPolicyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAbacPolicyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderRequest;
@@ -97,6 +101,10 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadFileJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateUploadOSSFileJobShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAbacAuthorizationRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAbacAuthorizationResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAbacPolicyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAbacPolicyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceRequest;
@@ -146,6 +154,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteScriptRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteScriptResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteStructSyncRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ExecuteStructSyncResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAbacPolicyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAbacPolicyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetApprovalDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemRequest;
@@ -273,8 +283,20 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GrantUserPermissionResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\InspectProxyAccessSecretResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAbacAuthorizationsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAbacAuthorizationsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAbacPoliciesRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAbacPoliciesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedDatabasesForUserRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedDatabasesForUserResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedInstancesForUserRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedInstancesForUserResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedUsersForDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedUsersForDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedUsersForInstanceRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListAuthorizedUsersForInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListClassificationTemplatesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListClassificationTemplatesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListColumnsRequest;
@@ -450,6 +472,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncDatabaseMetaResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncInstanceMetaRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SyncInstanceMetaResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAbacPolicyRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAbacPolicyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAuthorityTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceRequest;
@@ -1449,6 +1473,121 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->closeOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建权限策略授权
+     *  *
+     * @param CreateAbacAuthorizationRequest $request CreateAbacAuthorizationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAbacAuthorizationResponse CreateAbacAuthorizationResponse
+     */
+    public function createAbacAuthorizationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identityType)) {
+            $query['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->roleId)) {
+            $query['RoleId'] = $request->roleId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAbacAuthorization',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建权限策略授权
+     *  *
+     * @param CreateAbacAuthorizationRequest $request CreateAbacAuthorizationRequest
+     *
+     * @return CreateAbacAuthorizationResponse CreateAbacAuthorizationResponse
+     */
+    public function createAbacAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAbacAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建权限策略
+     *  *
+     * @param CreateAbacPolicyRequest $request CreateAbacPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAbacPolicyResponse CreateAbacPolicyResponse
+     */
+    public function createAbacPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->abacPolicyContent)) {
+            $query['AbacPolicyContent'] = $request->abacPolicyContent;
+        }
+        if (!Utils::isUnset($request->abacPolicyDesc)) {
+            $query['AbacPolicyDesc'] = $request->abacPolicyDesc;
+        }
+        if (!Utils::isUnset($request->abacPolicyName)) {
+            $query['AbacPolicyName'] = $request->abacPolicyName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAbacPolicy',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建权限策略
+     *  *
+     * @param CreateAbacPolicyRequest $request CreateAbacPolicyRequest
+     *
+     * @return CreateAbacPolicyResponse CreateAbacPolicyResponse
+     */
+    public function createAbacPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAbacPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -3043,6 +3182,109 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @summary 删除权限策略授权
+     *  *
+     * @param DeleteAbacAuthorizationRequest $request DeleteAbacAuthorizationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAbacAuthorizationResponse DeleteAbacAuthorizationResponse
+     */
+    public function deleteAbacAuthorizationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorizationId)) {
+            $query['AuthorizationId'] = $request->authorizationId;
+        }
+        if (!Utils::isUnset($request->identityType)) {
+            $query['IdentityType'] = $request->identityType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAbacAuthorization',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除权限策略授权
+     *  *
+     * @param DeleteAbacAuthorizationRequest $request DeleteAbacAuthorizationRequest
+     *
+     * @return DeleteAbacAuthorizationResponse DeleteAbacAuthorizationResponse
+     */
+    public function deleteAbacAuthorization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAbacAuthorizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除权限策略
+     *  *
+     * @param DeleteAbacPolicyRequest $request DeleteAbacPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAbacPolicyResponse DeleteAbacPolicyResponse
+     */
+    public function deleteAbacPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->abacPolicyId)) {
+            $query['AbacPolicyId'] = $request->abacPolicyId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAbacPolicy',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除权限策略
+     *  *
+     * @param DeleteAbacPolicyRequest $request DeleteAbacPolicyRequest
+     *
+     * @return DeleteAbacPolicyResponse DeleteAbacPolicyResponse
+     */
+    public function deleteAbacPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAbacPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 删除权限模版
      *  *
      * @param DeleteAuthorityTemplateRequest $request DeleteAuthorityTemplateRequest
@@ -4293,6 +4535,59 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->executeStructSyncWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取策略详情
+     *  *
+     * @param GetAbacPolicyRequest $request GetAbacPolicyRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAbacPolicyResponse GetAbacPolicyResponse
+     */
+    public function getAbacPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->abacPolicyId)) {
+            $query['AbacPolicyId'] = $request->abacPolicyId;
+        }
+        if (!Utils::isUnset($request->abacPolicyName)) {
+            $query['AbacPolicyName'] = $request->abacPolicyName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAbacPolicy',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取策略详情
+     *  *
+     * @param GetAbacPolicyRequest $request GetAbacPolicyRequest
+     *
+     * @return GetAbacPolicyResponse GetAbacPolicyResponse
+     */
+    public function getAbacPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAbacPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -7606,6 +7901,121 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @summary 获取权限策略授权列表
+     *  *
+     * @param ListAbacAuthorizationsRequest $request ListAbacAuthorizationsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAbacAuthorizationsResponse ListAbacAuthorizationsResponse
+     */
+    public function listAbacAuthorizationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->policySource)) {
+            $query['PolicySource'] = $request->policySource;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAbacAuthorizations',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAbacAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取权限策略授权列表
+     *  *
+     * @param ListAbacAuthorizationsRequest $request ListAbacAuthorizationsRequest
+     *
+     * @return ListAbacAuthorizationsResponse ListAbacAuthorizationsResponse
+     */
+    public function listAbacAuthorizations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAbacAuthorizationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取权限策略列表
+     *  *
+     * @param ListAbacPoliciesRequest $request ListAbacPoliciesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAbacPoliciesResponse ListAbacPoliciesResponse
+     */
+    public function listAbacPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAbacPolicies',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAbacPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取权限策略列表
+     *  *
+     * @param ListAbacPoliciesRequest $request ListAbacPoliciesRequest
+     *
+     * @return ListAbacPoliciesResponse ListAbacPoliciesResponse
+     */
+    public function listAbacPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAbacPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取权限模版列表
      *  *
      * @param ListAuthorityTemplateRequest $request ListAuthorityTemplateRequest
@@ -7659,6 +8069,260 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAuthorityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取用户有权限的数据库
+     *  *
+     * @param ListAuthorizedDatabasesForUserRequest $request ListAuthorizedDatabasesForUserRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAuthorizedDatabasesForUserResponse ListAuthorizedDatabasesForUserResponse
+     */
+    public function listAuthorizedDatabasesForUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthorizedDatabasesForUser',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAuthorizedDatabasesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取用户有权限的数据库
+     *  *
+     * @param ListAuthorizedDatabasesForUserRequest $request ListAuthorizedDatabasesForUserRequest
+     *
+     * @return ListAuthorizedDatabasesForUserResponse ListAuthorizedDatabasesForUserResponse
+     */
+    public function listAuthorizedDatabasesForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedDatabasesForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取用户有权限的实例
+     *  *
+     * @param ListAuthorizedInstancesForUserRequest $request ListAuthorizedInstancesForUserRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAuthorizedInstancesForUserResponse ListAuthorizedInstancesForUserResponse
+     */
+    public function listAuthorizedInstancesForUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbType)) {
+            $query['DbType'] = $request->dbType;
+        }
+        if (!Utils::isUnset($request->envType)) {
+            $query['EnvType'] = $request->envType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthorizedInstancesForUser',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAuthorizedInstancesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取用户有权限的实例
+     *  *
+     * @param ListAuthorizedInstancesForUserRequest $request ListAuthorizedInstancesForUserRequest
+     *
+     * @return ListAuthorizedInstancesForUserResponse ListAuthorizedInstancesForUserResponse
+     */
+    public function listAuthorizedInstancesForUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedInstancesForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询有数据库权限的用户
+     *  *
+     * @param ListAuthorizedUsersForDatabaseRequest $request ListAuthorizedUsersForDatabaseRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAuthorizedUsersForDatabaseResponse ListAuthorizedUsersForDatabaseResponse
+     */
+    public function listAuthorizedUsersForDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->logic)) {
+            $query['Logic'] = $request->logic;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthorizedUsersForDatabase',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAuthorizedUsersForDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询有数据库权限的用户
+     *  *
+     * @param ListAuthorizedUsersForDatabaseRequest $request ListAuthorizedUsersForDatabaseRequest
+     *
+     * @return ListAuthorizedUsersForDatabaseResponse ListAuthorizedUsersForDatabaseResponse
+     */
+    public function listAuthorizedUsersForDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedUsersForDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询有实例权限的用户
+     *  *
+     * @param ListAuthorizedUsersForInstanceRequest $request ListAuthorizedUsersForInstanceRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAuthorizedUsersForInstanceResponse ListAuthorizedUsersForInstanceResponse
+     */
+    public function listAuthorizedUsersForInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthorizedUsersForInstance',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAuthorizedUsersForInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询有实例权限的用户
+     *  *
+     * @param ListAuthorizedUsersForInstanceRequest $request ListAuthorizedUsersForInstanceRequest
+     *
+     * @return ListAuthorizedUsersForInstanceResponse ListAuthorizedUsersForInstanceResponse
+     */
+    public function listAuthorizedUsersForInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthorizedUsersForInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -12748,6 +13412,65 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->syncInstanceMetaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新权限策略
+     *  *
+     * @param UpdateAbacPolicyRequest $request UpdateAbacPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAbacPolicyResponse UpdateAbacPolicyResponse
+     */
+    public function updateAbacPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->abacPolicyContent)) {
+            $query['AbacPolicyContent'] = $request->abacPolicyContent;
+        }
+        if (!Utils::isUnset($request->abacPolicyDesc)) {
+            $query['AbacPolicyDesc'] = $request->abacPolicyDesc;
+        }
+        if (!Utils::isUnset($request->abacPolicyId)) {
+            $query['AbacPolicyId'] = $request->abacPolicyId;
+        }
+        if (!Utils::isUnset($request->abacPolicyName)) {
+            $query['AbacPolicyName'] = $request->abacPolicyName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAbacPolicy',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新权限策略
+     *  *
+     * @param UpdateAbacPolicyRequest $request UpdateAbacPolicyRequest
+     *
+     * @return UpdateAbacPolicyResponse UpdateAbacPolicyResponse
+     */
+    public function updateAbacPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAbacPolicyWithOptions($request, $runtime);
     }
 
     /**
