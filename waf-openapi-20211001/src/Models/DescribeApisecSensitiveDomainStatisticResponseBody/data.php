@@ -28,7 +28,7 @@ class data extends Model
 
     /**
      * @description The code of the sensitive data.
-     *
+     * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported sensitive data types.
      * @example 10
      *
      * @var string
@@ -36,7 +36,11 @@ class data extends Model
     public $sensitiveCode;
 
     /**
-     * @description The sensitivity level of the sensitive data.
+     * @description The sensitivity level of the sensitive data.Valid values:
+     *
+     * **S1**: low sensitivity.
+     * **S2**: moderate sensitivity.
+     * **S3**: high sensitivity.
      *
      * @example L3
      *

@@ -36,7 +36,7 @@ class data extends Model
     public $assetOffline;
 
     /**
-     * @description The timestamp. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The time for statistics. Specify a UNIX timestamp in UTC. Unit: seconds.
      *
      * @example 1683600042
      *

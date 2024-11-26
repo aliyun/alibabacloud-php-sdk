@@ -105,7 +105,7 @@ class DescribeSensitiveRequestLogRequest extends Model
     /**
      * @description The type of the sensitive data.
      *
-     * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of sensitive data.
+     * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of sensitive data.
      * @example 1000,1001
      *
      * @var string

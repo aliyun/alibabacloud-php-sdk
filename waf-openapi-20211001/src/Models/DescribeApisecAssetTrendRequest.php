@@ -18,7 +18,7 @@ class DescribeApisecAssetTrendRequest extends Model
     public $clusterId;
 
     /**
-     * @description The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+     * @description The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
      *
      * @example 1683183599
      *
@@ -58,7 +58,7 @@ class DescribeApisecAssetTrendRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+     * @description The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
      *
      * @example 1668496310
      *

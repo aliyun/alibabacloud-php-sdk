@@ -17,7 +17,7 @@ class DescribeApisecAssetTrendResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
+     * @description Id of the request.
      *
      * @example D7861F61-5B61-46CE-A47C-6B19****5EB0
      *

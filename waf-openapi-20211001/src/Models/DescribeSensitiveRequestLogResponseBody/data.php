@@ -54,6 +54,11 @@ class data extends Model
     public $matchedHost;
 
     /**
+     * @var string
+     */
+    public $remoteCountryId;
+
+    /**
      * @description The time when the request was initiated. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
      *
      * @example 1723392000
@@ -80,14 +85,15 @@ class data extends Model
      */
     public $traceId;
     protected $_name = [
-        'apiFormat'     => 'ApiFormat',
-        'apiId'         => 'ApiId',
-        'clientIP'      => 'ClientIP',
-        'count'         => 'Count',
-        'matchedHost'   => 'MatchedHost',
-        'requestTime'   => 'RequestTime',
-        'sensitiveList' => 'SensitiveList',
-        'traceId'       => 'TraceId',
+        'apiFormat'       => 'ApiFormat',
+        'apiId'           => 'ApiId',
+        'clientIP'        => 'ClientIP',
+        'count'           => 'Count',
+        'matchedHost'     => 'MatchedHost',
+        'remoteCountryId' => 'RemoteCountryId',
+        'requestTime'     => 'RequestTime',
+        'sensitiveList'   => 'SensitiveList',
+        'traceId'         => 'TraceId',
     ];
 
     public function validate()
@@ -111,6 +117,9 @@ class data extends Model
         }
         if (null !== $this->matchedHost) {
             $res['MatchedHost'] = $this->matchedHost;
+        }
+        if (null !== $this->remoteCountryId) {
+            $res['RemoteCountryId'] = $this->remoteCountryId;
         }
         if (null !== $this->requestTime) {
             $res['RequestTime'] = $this->requestTime;
@@ -147,6 +156,9 @@ class data extends Model
         }
         if (isset($map['MatchedHost'])) {
             $model->matchedHost = $map['MatchedHost'];
+        }
+        if (isset($map['RemoteCountryId'])) {
+            $model->remoteCountryId = $map['RemoteCountryId'];
         }
         if (isset($map['RequestTime'])) {
             $model->requestTime = $map['RequestTime'];

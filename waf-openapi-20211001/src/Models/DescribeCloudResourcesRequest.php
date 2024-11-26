@@ -85,6 +85,8 @@ class DescribeCloudResourcesRequest extends Model
     public $resourceInstanceId;
 
     /**
+     * @description The name of the instance that is added to WAF.
+     *
      * @example test-name
      *
      * @var string
@@ -112,12 +114,16 @@ class DescribeCloudResourcesRequest extends Model
     public $resourceName;
 
     /**
-     * @description The cloud service to which the resource belongs. Valid values:
+     * @description The cloud service to which the resource belongs. If you do not specify this parameter, the system automatically returns the Application Load Balancer (ALB), Microservices Engine (MSE), Function Compute, and Serverless App Engine (SAE) resources that are added to WAF. Valid values:
      *
-     *   **alb**: Application Load Balancer (ALB).
-     *   **mse**: Microservices Engine (MSE).
+     *   **alb**: ALB.
+     *   **mse**: MSE.
      *   **fc**: Function Compute.
-     *   **sae**: Serverless App Engine (SAE).
+     *   **sae**: SAE.
+     *   **ecs**: Elastic Compute Service (ECS).
+     *   **clb4**: Layer 4 Classic Load Balancer (CLB).
+     *   **clb7**: Layer 7 CLB.
+     *   **nlb**: Network Load Balancer (NLB).
      *
      * >  Different cloud services are available in different regions. The specified cloud service must be available in the specified region.
      * @example alb

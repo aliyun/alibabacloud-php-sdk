@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiExportsResponseBody extends Model
 {
     /**
-     * @description The time when the data export task was created. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
+     * @description The returned data export tasks.
      *
      * @var apiExports[]
      */
     public $apiExports;
 
     /**
-     * @description The format of the exported file.
+     * @description The request ID.
      *
      * @example D9532525-E885-54E7-A178-D5554D563AFB
      *

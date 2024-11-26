@@ -38,7 +38,7 @@ class data extends Model
     /**
      * @description The business purpose of the API.
      *
-     * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purpose of the API.
+     * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purpose of the API.
      * @example SendMail
      *
      * @var string
@@ -133,7 +133,7 @@ class data extends Model
     /**
      * @description The type of the event.
      *
-     * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported event types.
+     * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported event types.
      * @example ObtainSensitiveUnauthorized
      *
      * @var string

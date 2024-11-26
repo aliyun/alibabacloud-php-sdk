@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiExportsRequest extends Model
 {
     /**
-     * @description The returned data export tasks.
+     * @description The ID of the Web Application Firewall (WAF) instance.
      *
      * This parameter is required.
      * @example waf_v3prepaid_public_cn-p****
@@ -19,8 +19,10 @@ class DescribeApiExportsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The response parameters.
+     * @description Language type. Valid values:
      *
+     * - **cn**: Chinese.
+     * - **en**: English.
      * @example zh
      *
      * @var string
@@ -28,7 +30,7 @@ class DescribeApiExportsRequest extends Model
     public $lang;
 
     /**
-     * @description The request ID.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -37,7 +39,7 @@ class DescribeApiExportsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries to return on each page. Default value: **10**.
      *
      * @example 10
      *
@@ -46,7 +48,10 @@ class DescribeApiExportsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The returned data export task.
+     * @description The region ID of the Web Application Firewall (WAF) instance. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
      *
      * @example cn-hangzhou
      *
@@ -55,7 +60,7 @@ class DescribeApiExportsRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the file.
+     * @description The ID of the Alibaba Cloud resource group.
      *
      * @example rg-acfm***q
      *

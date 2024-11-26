@@ -37,11 +37,10 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $instanceId;
 
     /**
-     * @description The sorting order.
+     * @description The sorting order. Valid values:
      *
-     *   asc: ascending order.
-     *   desc: descending order.
-     *
+     * -  **asc**: ascending order.
+     * - **desc**: descending order.
      * @example desc
      *
      * @var string
@@ -58,9 +57,9 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: **10**.
+     * @description The number of entries per page. Default value: **5**.
      *
-     * @example 10
+     * @example 5
      *
      * @var int
      */
@@ -97,11 +96,10 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
     public $startTime;
 
     /**
-     * @description The sensitive data type.
+     * @description The sensitive data type. Valid values:
      *
-     *   request: sensitive data in requests.
-     *   response: sensitive data in responses.
-     *
+     * - **request**: sensitive data in requests.
+     * - **response**: sensitive data in responses.
      * @example request
      *
      * @var string

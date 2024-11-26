@@ -60,7 +60,7 @@ class event extends Model
     /**
      * @description The type of the security event.
      *
-     * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of security events.
+     * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of security events.
      * @example Event_DataTraverse
      *
      * @var string

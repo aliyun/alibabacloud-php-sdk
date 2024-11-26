@@ -17,7 +17,7 @@ class DescribeApisecEventDomainStatisticResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
+     * @description Id of the request.
      *
      * @example 66A98669-*******-80A6-3014697B11AE
      *

@@ -10,7 +10,7 @@ class DescribeApisecEventDomainStatisticRequest extends Model
 {
     /**
      * @description The ID of the hybrid cloud cluster.
-     *
+     * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
      * @example 428
      *
      * @var string
@@ -18,7 +18,7 @@ class DescribeApisecEventDomainStatisticRequest extends Model
     public $clusterId;
 
     /**
-     * @description The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+     * @description The end of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
      *
      * @example 1686895256
      *
@@ -37,11 +37,10 @@ class DescribeApisecEventDomainStatisticRequest extends Model
     public $instanceId;
 
     /**
-     * @description The sorting order.
+     * @description The sorting order. Valid values:
      *
-     *   asc: ascending order.
-     *   desc: descending order.
-     *
+     * - **asc**: ascending order.
+     * - **desc**: descending order.
      * @example desc
      *
      * @var string
@@ -49,7 +48,7 @@ class DescribeApisecEventDomainStatisticRequest extends Model
     public $orderWay;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -58,9 +57,9 @@ class DescribeApisecEventDomainStatisticRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: **10**.
+     * @description The number of entries per page. Default value: **5**.
      *
-     * @example 10
+     * @example 5
      *
      * @var int
      */
@@ -88,7 +87,7 @@ class DescribeApisecEventDomainStatisticRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: milliseconds.
+     * @description The beginning of the time range to query. Specify a UNIX timestamp in UTC. Unit: seconds.
      *
      * @example 1668496310
      *

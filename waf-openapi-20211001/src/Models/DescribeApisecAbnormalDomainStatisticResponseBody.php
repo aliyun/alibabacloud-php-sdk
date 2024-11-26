@@ -17,7 +17,7 @@ class DescribeApisecAbnormalDomainStatisticResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
+     * @description Id of the request.
      *
      * @example 66A98669-CC6E-4F3E-80A6-3014***B11AE
      *

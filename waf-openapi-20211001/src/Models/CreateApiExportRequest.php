@@ -44,10 +44,9 @@ class CreateApiExportRequest extends Model
     public $param;
 
     /**
-     * @description The region in which the Web Application Firewall (WAF) instance is deployed. Valid values:
-     *
-     * - **cn** (default): Chinese mainland.
-     * - **cn-hongkong**: outside the Chinese mainland.
+     * @description Language type. Valid values:
+     * - **cn**: Chinese.
+     * - **en**: English.
      * @example cn
      *
      * @var string

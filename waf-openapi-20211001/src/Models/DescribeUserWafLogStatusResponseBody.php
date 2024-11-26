@@ -15,7 +15,6 @@ class DescribeUserWafLogStatusResponseBody extends Model
      *   **cn-beijing**: China (Beijing).
      *   **cn-hongkong**: China (Hong Kong).
      *   **ap-southeast-1**: Singapore.
-     *   **ap-southeast-2**: Australia (Sydney).
      *   **ap-southeast-3**: Malaysia (Kuala Lumpur).
      *   **ap-southeast-5**: Indonesia (Jakarta).
      *   **ap-southeast-6**: Philippines (Manila).

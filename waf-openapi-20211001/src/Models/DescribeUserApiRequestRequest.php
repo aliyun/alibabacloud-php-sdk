@@ -10,7 +10,7 @@ class DescribeUserApiRequestRequest extends Model
 {
     /**
      * @description The API.
-     *
+     * >Notice: This parameter is deprecated, please use ApiId to query.
      * @example /api/v1/know
      *
      * @var string
@@ -38,7 +38,7 @@ class DescribeUserApiRequestRequest extends Model
 
     /**
      * @description The domain name or IP address of the API.
-     *
+     * >Notice: This parameter is deprecated, please use ApiId to query.
      * @example c.***.com
      *
      * @var string

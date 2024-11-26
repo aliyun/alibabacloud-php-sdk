@@ -38,7 +38,7 @@ class DescribeUserAssetRequest extends Model
 
     /**
      * @description The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
-     *
+     * >Notice: The parameter has been deprecated.
      * @example 1723435200
      *
      * @var string

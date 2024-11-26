@@ -37,7 +37,7 @@ class trend extends Model
 
     /**
      * @description The time at which the API was called. The value is a UNIX timestamp displayed in UTC. Unit: seconds.
-     *
+     * >Notice: The parameter has been deprecated, it is recommended to use the Timestamp parameter.
      * @example 1723435200
      *
      * @var int

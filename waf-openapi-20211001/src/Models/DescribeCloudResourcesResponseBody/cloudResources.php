@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class cloudResources extends Model
 {
     /**
+     * @description The number of the HTTP ports that are added to WAF.
+     *
+     * >  This parameter is returned only if the cloud service is ECS or CLB.
      * @example 1
      *
      * @var int
@@ -16,6 +19,9 @@ class cloudResources extends Model
     public $httpPortCount;
 
     /**
+     * @description The number of the HTTPS ports that are added to WAF.
+     *
+     * >  This parameter is returned only if the cloud service is ECS or CLB.
      * @example 1
      *
      * @var int
@@ -61,6 +67,8 @@ class cloudResources extends Model
     public $resourceInstance;
 
     /**
+     * @description The ID of the instance that is added to WAF.
+     *
      * @example lb-uf60ub45fr9b***
      *
      * @var string
@@ -68,6 +76,8 @@ class cloudResources extends Model
     public $resourceInstanceId;
 
     /**
+     * @description The IP address of the instance that is added to WAF.
+     *
      * @example 1.1.1.1
      *
      * @var string
@@ -75,6 +85,8 @@ class cloudResources extends Model
     public $resourceInstanceIp;
 
     /**
+     * @description The name of the instance that is added to WAF.
+     *
      * @example test-name
      *
      * @var string
@@ -99,6 +111,9 @@ class cloudResources extends Model
      *   **mse**: MSE.
      *   **fc**: Function Compute.
      *   **sae**: SAE.
+     *   **ecs**: ECS.
+     *   **clb4**: Layer 4 CLB.
+     *   **clb7**: Layer 7 CLB.
      *
      * @example alb
      *

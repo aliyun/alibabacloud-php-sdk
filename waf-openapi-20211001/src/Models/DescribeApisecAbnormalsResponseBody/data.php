@@ -56,7 +56,7 @@ class data extends Model
     /**
      * @description The type of the risk.
      *
-     * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the supported types of risks.
+     * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported types of risks.
      * @example LackOfSpeedLimit
      *
      * @var string
@@ -93,7 +93,7 @@ class data extends Model
     /**
      * @description The business purpose of the API.
      *
-     * >  You can call the [DescribeApisecRules](~~DescribeApisecRules~~) operation to query the business purposes of APIs.
+     * >  You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the business purposes of APIs.
      * @example SendMail
      *
      * @var string

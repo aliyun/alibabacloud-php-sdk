@@ -17,7 +17,7 @@ class DescribeApisecSensitiveDomainStatisticResponseBody extends Model
     public $data;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 56B40D30-4960-4F19-B7D5-2B1F***6CB70
      *

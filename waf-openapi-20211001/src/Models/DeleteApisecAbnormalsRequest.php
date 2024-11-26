@@ -18,7 +18,7 @@ class DeleteApisecAbnormalsRequest extends Model
 
     /**
      * @description The ID of the hybrid cloud cluster.
-     *
+     * >For hybrid cloud scenarios only, you can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the hybrid cloud clusters.
      * @example 428
      *
      * @var string
@@ -48,7 +48,7 @@ class DeleteApisecAbnormalsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud resource group.
+     * @description 阿里云资源组ID。
      *
      * @example rg-acfm***q
      *
