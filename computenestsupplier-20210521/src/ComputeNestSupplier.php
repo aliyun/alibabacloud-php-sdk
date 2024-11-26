@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RemoveServiceSharedAcc
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RemoveServiceSharedAccountsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RestartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RestartServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RollbackServiceInstanceRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RollbackServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\StartServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\StartServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\StopServiceInstanceRequest;
@@ -2267,6 +2269,59 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 回滚服务实例
+     *  *
+     * @param RollbackServiceInstanceRequest $request RollbackServiceInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RollbackServiceInstanceResponse RollbackServiceInstanceResponse
+     */
+    public function rollbackServiceInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackServiceInstance',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RollbackServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 回滚服务实例
+     *  *
+     * @param RollbackServiceInstanceRequest $request RollbackServiceInstanceRequest
+     *
+     * @return RollbackServiceInstanceResponse RollbackServiceInstanceResponse
+     */
+    public function rollbackServiceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackServiceInstanceWithOptions($request, $runtime);
     }
 
     /**
