@@ -23,12 +23,16 @@ use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkRes
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkShrinkRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceForIsvRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceForIsvResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeLicenseRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeLicenseResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeOrderForIsvRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeOrderForIsvResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeOrderRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeOrderResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribePriceRequest;
@@ -560,6 +564,53 @@ class Market extends OpenApiClient
     }
 
     /**
+     * @summary 服务商侧查询实例信息
+     *  *
+     * @param DescribeInstanceForIsvRequest $request DescribeInstanceForIsvRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceForIsvResponse DescribeInstanceForIsvResponse
+     */
+    public function describeInstanceForIsvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceForIsv',
+            'version'     => '2015-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 服务商侧查询实例信息
+     *  *
+     * @param DescribeInstanceForIsvRequest $request DescribeInstanceForIsvRequest
+     *
+     * @return DescribeInstanceForIsvResponse DescribeInstanceForIsvResponse
+     */
+    public function describeInstanceForIsv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceForIsvWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -702,6 +753,53 @@ class Market extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 服务商侧查询订单详情
+     *  *
+     * @param DescribeOrderForIsvRequest $request DescribeOrderForIsvRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeOrderForIsvResponse DescribeOrderForIsvResponse
+     */
+    public function describeOrderForIsvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOrderForIsv',
+            'version'     => '2015-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOrderForIsvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 服务商侧查询订单详情
+     *  *
+     * @param DescribeOrderForIsvRequest $request DescribeOrderForIsvRequest
+     *
+     * @return DescribeOrderForIsvResponse DescribeOrderForIsvResponse
+     */
+    public function describeOrderForIsv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOrderForIsvWithOptions($request, $runtime);
     }
 
     /**
