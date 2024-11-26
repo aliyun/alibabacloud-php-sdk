@@ -10326,6 +10326,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->ensRegionId)) {
             $query['EnsRegionId'] = $request->ensRegionId;
         }
+        if (!Utils::isUnset($request->ensRegionIds)) {
+            $query['EnsRegionIds'] = $request->ensRegionIds;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -10337,6 +10340,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->snapshotId)) {
             $query['SnapshotId'] = $request->snapshotId;
+        }
+        if (!Utils::isUnset($request->snapshotName)) {
+            $query['SnapshotName'] = $request->snapshotName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

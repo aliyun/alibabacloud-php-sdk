@@ -27,6 +27,11 @@ class DescribeSnapshotsRequest extends Model
     public $ensRegionId;
 
     /**
+     * @var string
+     */
+    public $ensRegionIds;
+
+    /**
      * @description The ID of the instance.
      *
      * @example i-bp67acfmxazb4p****
@@ -61,13 +66,20 @@ class DescribeSnapshotsRequest extends Model
      * @var string
      */
     public $snapshotId;
+
+    /**
+     * @var string
+     */
+    public $snapshotName;
     protected $_name = [
-        'diskId'      => 'DiskId',
-        'ensRegionId' => 'EnsRegionId',
-        'instanceId'  => 'InstanceId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'snapshotId'  => 'SnapshotId',
+        'diskId'       => 'DiskId',
+        'ensRegionId'  => 'EnsRegionId',
+        'ensRegionIds' => 'EnsRegionIds',
+        'instanceId'   => 'InstanceId',
+        'pageNumber'   => 'PageNumber',
+        'pageSize'     => 'PageSize',
+        'snapshotId'   => 'SnapshotId',
+        'snapshotName' => 'SnapshotName',
     ];
 
     public function validate()
@@ -83,6 +95,9 @@ class DescribeSnapshotsRequest extends Model
         if (null !== $this->ensRegionId) {
             $res['EnsRegionId'] = $this->ensRegionId;
         }
+        if (null !== $this->ensRegionIds) {
+            $res['EnsRegionIds'] = $this->ensRegionIds;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -94,6 +109,9 @@ class DescribeSnapshotsRequest extends Model
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
+        }
+        if (null !== $this->snapshotName) {
+            $res['SnapshotName'] = $this->snapshotName;
         }
 
         return $res;
@@ -113,6 +131,9 @@ class DescribeSnapshotsRequest extends Model
         if (isset($map['EnsRegionId'])) {
             $model->ensRegionId = $map['EnsRegionId'];
         }
+        if (isset($map['EnsRegionIds'])) {
+            $model->ensRegionIds = $map['EnsRegionIds'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -124,6 +145,9 @@ class DescribeSnapshotsRequest extends Model
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
+        }
+        if (isset($map['SnapshotName'])) {
+            $model->snapshotName = $map['SnapshotName'];
         }
 
         return $model;

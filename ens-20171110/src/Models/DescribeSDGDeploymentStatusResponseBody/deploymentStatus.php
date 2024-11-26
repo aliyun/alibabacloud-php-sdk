@@ -32,6 +32,11 @@ class deploymentStatus extends Model
     public $mountType;
 
     /**
+     * @var string
+     */
+    public $phase;
+
+    /**
      * @description The ID of the edge node.
      *
      * @example cn-hangzhou
@@ -66,6 +71,7 @@ class deploymentStatus extends Model
     protected $_name = [
         'instanceId' => 'InstanceId',
         'mountType'  => 'MountType',
+        'phase'      => 'Phase',
         'regionId'   => 'RegionId',
         'status'     => 'Status',
         'updateTime' => 'UpdateTime',
@@ -83,6 +89,9 @@ class deploymentStatus extends Model
         }
         if (null !== $this->mountType) {
             $res['MountType'] = $this->mountType;
+        }
+        if (null !== $this->phase) {
+            $res['Phase'] = $this->phase;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -110,6 +119,9 @@ class deploymentStatus extends Model
         }
         if (isset($map['MountType'])) {
             $model->mountType = $map['MountType'];
+        }
+        if (isset($map['Phase'])) {
+            $model->phase = $map['Phase'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
