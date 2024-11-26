@@ -24,10 +24,16 @@ class RunCommentGenerationResponseBody extends Model
      * @var payload
      */
     public $payload;
+
+    /**
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'end'     => 'end',
-        'header'  => 'header',
-        'payload' => 'payload',
+        'end'       => 'end',
+        'header'    => 'header',
+        'payload'   => 'payload',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class RunCommentGenerationResponseBody extends Model
         }
         if (null !== $this->payload) {
             $res['payload'] = null !== $this->payload ? $this->payload->toMap() : null;
+        }
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class RunCommentGenerationResponseBody extends Model
         }
         if (isset($map['payload'])) {
             $model->payload = payload::fromMap($map['payload']);
+        }
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

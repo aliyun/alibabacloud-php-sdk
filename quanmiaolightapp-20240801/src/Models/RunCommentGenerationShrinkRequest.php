@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RunCommentGenerationRequest extends Model
+class RunCommentGenerationShrinkRequest extends Model
 {
     /**
      * @var bool
@@ -28,9 +28,9 @@ class RunCommentGenerationRequest extends Model
     public $length;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $lengthRange;
+    public $lengthRangeShrink;
 
     /**
      * @var string
@@ -45,9 +45,9 @@ class RunCommentGenerationRequest extends Model
     public $numComments;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $sentiment;
+    public $sentimentShrink;
 
     /**
      * @var string
@@ -62,20 +62,20 @@ class RunCommentGenerationRequest extends Model
     public $style;
 
     /**
-     * @var mixed[]
+     * @var string
      */
-    public $type;
+    public $typeShrink;
     protected $_name = [
-        'allowEmoji'     => 'allowEmoji',
-        'extraInfo'      => 'extraInfo',
-        'length'         => 'length',
-        'lengthRange'    => 'lengthRange',
-        'modelId'        => 'modelId',
-        'numComments'    => 'numComments',
-        'sentiment'      => 'sentiment',
-        'sourceMaterial' => 'sourceMaterial',
-        'style'          => 'style',
-        'type'           => 'type',
+        'allowEmoji'        => 'allowEmoji',
+        'extraInfo'         => 'extraInfo',
+        'length'            => 'length',
+        'lengthRangeShrink' => 'lengthRange',
+        'modelId'           => 'modelId',
+        'numComments'       => 'numComments',
+        'sentimentShrink'   => 'sentiment',
+        'sourceMaterial'    => 'sourceMaterial',
+        'style'             => 'style',
+        'typeShrink'        => 'type',
     ];
 
     public function validate()
@@ -94,8 +94,8 @@ class RunCommentGenerationRequest extends Model
         if (null !== $this->length) {
             $res['length'] = $this->length;
         }
-        if (null !== $this->lengthRange) {
-            $res['lengthRange'] = $this->lengthRange;
+        if (null !== $this->lengthRangeShrink) {
+            $res['lengthRange'] = $this->lengthRangeShrink;
         }
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
@@ -103,8 +103,8 @@ class RunCommentGenerationRequest extends Model
         if (null !== $this->numComments) {
             $res['numComments'] = $this->numComments;
         }
-        if (null !== $this->sentiment) {
-            $res['sentiment'] = $this->sentiment;
+        if (null !== $this->sentimentShrink) {
+            $res['sentiment'] = $this->sentimentShrink;
         }
         if (null !== $this->sourceMaterial) {
             $res['sourceMaterial'] = $this->sourceMaterial;
@@ -112,8 +112,8 @@ class RunCommentGenerationRequest extends Model
         if (null !== $this->style) {
             $res['style'] = $this->style;
         }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->typeShrink) {
+            $res['type'] = $this->typeShrink;
         }
 
         return $res;
@@ -122,7 +122,7 @@ class RunCommentGenerationRequest extends Model
     /**
      * @param array $map
      *
-     * @return RunCommentGenerationRequest
+     * @return RunCommentGenerationShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -137,7 +137,7 @@ class RunCommentGenerationRequest extends Model
             $model->length = $map['length'];
         }
         if (isset($map['lengthRange'])) {
-            $model->lengthRange = $map['lengthRange'];
+            $model->lengthRangeShrink = $map['lengthRange'];
         }
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
@@ -146,7 +146,7 @@ class RunCommentGenerationRequest extends Model
             $model->numComments = $map['numComments'];
         }
         if (isset($map['sentiment'])) {
-            $model->sentiment = $map['sentiment'];
+            $model->sentimentShrink = $map['sentiment'];
         }
         if (isset($map['sourceMaterial'])) {
             $model->sourceMaterial = $map['sourceMaterial'];
@@ -155,7 +155,7 @@ class RunCommentGenerationRequest extends Model
             $model->style = $map['style'];
         }
         if (isset($map['type'])) {
-            $model->type = $map['type'];
+            $model->typeShrink = $map['type'];
         }
 
         return $model;
