@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class operations extends Model
 {
     /**
+     * @description Operation ID.
+     *
+     * @example op-xxx
+     *
      * @var string
      */
     public $operationId;

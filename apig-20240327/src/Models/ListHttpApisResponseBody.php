@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListHttpApisResponseBody extends Model
 {
     /**
+     * @description Response status code.
+     *
      * @example Ok
      *
      * @var string
@@ -17,11 +19,15 @@ class ListHttpApisResponseBody extends Model
     public $code;
 
     /**
+     * @description API list.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Response message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class ListHttpApisResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example 585657D2-1C20-5B8A-AF17-D727C6490BE4
      *
      * @var string

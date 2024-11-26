@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayResponseBody extends Model
 {
     /**
+     * @description Response status code.
+     *
      * @example Ok
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteGatewayResponseBody extends Model
     public $code;
 
     /**
+     * @description Response message.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteGatewayResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example DE97DFDB-7DF0-5AB9-941C-10D27D769E4B
      *
      * @var string

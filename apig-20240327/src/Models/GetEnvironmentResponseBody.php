@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetEnvironmentResponseBody extends Model
 {
     /**
+     * @description Response code.
+     *
      * @example Ok
      *
      * @var string
@@ -17,11 +19,15 @@ class GetEnvironmentResponseBody extends Model
     public $code;
 
     /**
+     * @description Response data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Response message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class GetEnvironmentResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID, used for tracing the API call chain.
+     *
      * @example 3F8EE674-BB08-5E92-BE6F-E4756A748B0F
      *
      * @var string

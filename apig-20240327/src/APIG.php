@@ -12,70 +12,42 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateEnvironmentResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRouteRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayRouteResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayServiceRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayServiceResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayServiceVersionRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiOperationRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceSourceRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\CreateServiceSourceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteEnvironmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayRouteResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayServiceResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteHttpApiResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\DeleteServiceSourceResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayRouteResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\GetGatewayServiceResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetHttpApiRouteResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListEnvironmentsResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayRoutesRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayRoutesResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayServicesRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewayServicesResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponse;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysShrinkRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiOperationsRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApiOperationsResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListHttpApisResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\OfflineGatewayRouteResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\OfflineHttpApiRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\OfflineHttpApiResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\PublishGatewayRouteResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\PublishHttpApiRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\PublishHttpApiResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateEnvironmentRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateEnvironmentResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayRouteRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayRouteResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayServiceRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayServiceResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayServiceVersionRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateGatewayServiceVersionResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiOperationRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiOperationResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateHttpApiResponse;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceSourceRequest;
-use AlibabaCloud\SDK\APIG\V20240327\Models\UpdateServiceSourceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -116,7 +88,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 授权网关访问服务的安全组
+     * @summary Authorize the security group for gateway to access services
      *  *
      * @param string                             $gatewayId
      * @param AddGatewaySecurityGroupRuleRequest $request   AddGatewaySecurityGroupRuleRequest
@@ -158,7 +130,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 授权网关访问服务的安全组
+     * @summary Authorize the security group for gateway to access services
      *  *
      * @param string                             $gatewayId
      * @param AddGatewaySecurityGroupRuleRequest $request   AddGatewaySecurityGroupRuleRequest
@@ -174,7 +146,9 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 创建域名
+     * @summary Create Domain
+     *  *
+     * @description Create Domain.
      *  *
      * @param CreateDomainRequest $request CreateDomainRequest
      * @param string[]            $headers map
@@ -186,11 +160,11 @@ class APIG extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->caCertIndentifier)) {
-            $body['caCertIndentifier'] = $request->caCertIndentifier;
+        if (!Utils::isUnset($request->caCertIdentifier)) {
+            $body['caCertIdentifier'] = $request->caCertIdentifier;
         }
-        if (!Utils::isUnset($request->certIndentifier)) {
-            $body['certIndentifier'] = $request->certIndentifier;
+        if (!Utils::isUnset($request->certIdentifier)) {
+            $body['certIdentifier'] = $request->certIdentifier;
         }
         if (!Utils::isUnset($request->forceHttps)) {
             $body['forceHttps'] = $request->forceHttps;
@@ -203,6 +177,9 @@ class APIG extends OpenApiClient
         }
         if (!Utils::isUnset($request->protocol)) {
             $body['protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->tlsMax)) {
             $body['tlsMax'] = $request->tlsMax;
@@ -230,7 +207,9 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 创建域名
+     * @summary Create Domain
+     *  *
+     * @description Create Domain.
      *  *
      * @param CreateDomainRequest $request CreateDomainRequest
      *
@@ -246,6 +225,8 @@ class APIG extends OpenApiClient
 
     /**
      * @summary CreateEnvironment
+     *  *
+     * @description Create environment.
      *  *
      * @param CreateEnvironmentRequest $request CreateEnvironmentRequest
      * @param string[]                 $headers map
@@ -269,6 +250,9 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $body['name'] = $request->name;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -291,6 +275,8 @@ class APIG extends OpenApiClient
     /**
      * @summary CreateEnvironment
      *  *
+     * @description Create environment.
+     *  *
      * @param CreateEnvironmentRequest $request CreateEnvironmentRequest
      *
      * @return CreateEnvironmentResponse CreateEnvironmentResponse
@@ -304,183 +290,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关路由
-     *  *
-     * @param string                    $gatewayId
-     * @param CreateGatewayRouteRequest $request   CreateGatewayRouteRequest
-     * @param string[]                  $headers   map
-     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
-     *
-     * @return CreateGatewayRouteResponse CreateGatewayRouteResponse
-     */
-    public function createGatewayRouteWithOptions($gatewayId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->backendConfig)) {
-            $body['backendConfig'] = $request->backendConfig;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->domainConfig)) {
-            $body['domainConfig'] = $request->domainConfig;
-        }
-        if (!Utils::isUnset($request->match)) {
-            $body['match'] = $request->match;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateGatewayRoute',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/http-routes',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateGatewayRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建网关路由
-     *  *
-     * @param string                    $gatewayId
-     * @param CreateGatewayRouteRequest $request   CreateGatewayRouteRequest
-     *
-     * @return CreateGatewayRouteResponse CreateGatewayRouteResponse
-     */
-    public function createGatewayRoute($gatewayId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createGatewayRouteWithOptions($gatewayId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 创建服务
-     *  *
-     * @param string                      $gatewayId
-     * @param CreateGatewayServiceRequest $request   CreateGatewayServiceRequest
-     * @param string[]                    $headers   map
-     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
-     *
-     * @return CreateGatewayServiceResponse CreateGatewayServiceResponse
-     */
-    public function createGatewayServiceWithOptions($gatewayId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->gatewayServiceConfigs)) {
-            $body['gatewayServiceConfigs'] = $request->gatewayServiceConfigs;
-        }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['sourceType'] = $request->sourceType;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateGatewayService',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-services',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateGatewayServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建服务
-     *  *
-     * @param string                      $gatewayId
-     * @param CreateGatewayServiceRequest $request   CreateGatewayServiceRequest
-     *
-     * @return CreateGatewayServiceResponse CreateGatewayServiceResponse
-     */
-    public function createGatewayService($gatewayId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createGatewayServiceWithOptions($gatewayId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 创建服务版本
-     *  *
-     * @param string                             $gatewayId
-     * @param string                             $gatewayServiceId
-     * @param CreateGatewayServiceVersionRequest $request          CreateGatewayServiceVersionRequest
-     * @param string[]                           $headers          map
-     * @param RuntimeOptions                     $runtime          runtime options for this request RuntimeOptions
-     *
-     * @return CreateGatewayServiceVersionResponse CreateGatewayServiceVersionResponse
-     */
-    public function createGatewayServiceVersionWithOptions($gatewayId, $gatewayServiceId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->labels)) {
-            $body['labels'] = $request->labels;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateGatewayServiceVersion',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-services/' . OpenApiUtilClient::getEncodeParam($gatewayServiceId) . '/service-versions',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateGatewayServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建服务版本
-     *  *
-     * @param string                             $gatewayId
-     * @param string                             $gatewayServiceId
-     * @param CreateGatewayServiceVersionRequest $request          CreateGatewayServiceVersionRequest
-     *
-     * @return CreateGatewayServiceVersionResponse CreateGatewayServiceVersionResponse
-     */
-    public function createGatewayServiceVersion($gatewayId, $gatewayServiceId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createGatewayServiceVersionWithOptions($gatewayId, $gatewayServiceId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 创建一个HTTP类型的API
+     * @summary Create an API of HTTP type
      *  *
      * @param CreateHttpApiRequest $request CreateHttpApiRequest
      * @param string[]             $headers map
@@ -492,17 +302,32 @@ class APIG extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->aiProtocols)) {
+            $body['aiProtocols'] = $request->aiProtocols;
+        }
         if (!Utils::isUnset($request->basePath)) {
             $body['basePath'] = $request->basePath;
         }
+        if (!Utils::isUnset($request->deployConfigs)) {
+            $body['deployConfigs'] = $request->deployConfigs;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ingressConfig)) {
+            $body['ingressConfig'] = $request->ingressConfig;
         }
         if (!Utils::isUnset($request->name)) {
             $body['name'] = $request->name;
         }
         if (!Utils::isUnset($request->protocols)) {
             $body['protocols'] = $request->protocols;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $body['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
         if (!Utils::isUnset($request->versionConfig)) {
             $body['versionConfig'] = $request->versionConfig;
@@ -527,7 +352,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个HTTP类型的API
+     * @summary Create an API of HTTP type
      *  *
      * @param CreateHttpApiRequest $request CreateHttpApiRequest
      *
@@ -542,7 +367,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 为HTTP API创建Operation
+     * @summary Create an Operation for HTTP API
      *  *
      * @param string                        $httpApiId
      * @param CreateHttpApiOperationRequest $request   CreateHttpApiOperationRequest
@@ -578,7 +403,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 为HTTP API创建Operation
+     * @summary Create an Operation for HTTP API
      *  *
      * @param string                        $httpApiId
      * @param CreateHttpApiOperationRequest $request   CreateHttpApiOperationRequest
@@ -591,64 +416,6 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->createHttpApiOperationWithOptions($httpApiId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 创建服务来源
-     *  *
-     * @param string                     $gatewayId
-     * @param CreateServiceSourceRequest $request   CreateServiceSourceRequest
-     * @param string[]                   $headers   map
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
-     *
-     * @return CreateServiceSourceResponse CreateServiceSourceResponse
-     */
-    public function createServiceSourceWithOptions($gatewayId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->k8sServiceSourceConfig)) {
-            $body['k8sServiceSourceConfig'] = $request->k8sServiceSourceConfig;
-        }
-        if (!Utils::isUnset($request->nacosServiceSourceConfig)) {
-            $body['nacosServiceSourceConfig'] = $request->nacosServiceSourceConfig;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateServiceSource',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/service-sources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateServiceSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建服务来源
-     *  *
-     * @param string                     $gatewayId
-     * @param CreateServiceSourceRequest $request   CreateServiceSourceRequest
-     *
-     * @return CreateServiceSourceResponse CreateServiceSourceResponse
-     */
-    public function createServiceSource($gatewayId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createServiceSourceWithOptions($gatewayId, $request, $headers, $runtime);
     }
 
     /**
@@ -740,7 +507,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 删除网关
+     * @summary Delete Gateway
      *  *
      * @param string         $gatewayId
      * @param string[]       $headers   map
@@ -769,7 +536,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 删除网关
+     * @summary Delete Gateway
      *  *
      * @param string $gatewayId
      *
@@ -784,147 +551,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关路由
-     *  *
-     * @param string         $gatewayId
-     * @param string         $gatewayRouteId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return DeleteGatewayRouteResponse DeleteGatewayRouteResponse
-     */
-    public function deleteGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteGatewayRoute',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/http-routes/' . OpenApiUtilClient::getEncodeParam($gatewayRouteId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteGatewayRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建网关路由
-     *  *
-     * @param string $gatewayId
-     * @param string $gatewayRouteId
-     *
-     * @return DeleteGatewayRouteResponse DeleteGatewayRouteResponse
-     */
-    public function deleteGatewayRoute($gatewayId, $gatewayRouteId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 删除服务
-     *  *
-     * @param string         $gatewayId
-     * @param string         $gatewayServiceId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
-     *
-     * @return DeleteGatewayServiceResponse DeleteGatewayServiceResponse
-     */
-    public function deleteGatewayServiceWithOptions($gatewayId, $gatewayServiceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteGatewayService',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-services/' . OpenApiUtilClient::getEncodeParam($gatewayServiceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteGatewayServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 删除服务
-     *  *
-     * @param string $gatewayId
-     * @param string $gatewayServiceId
-     *
-     * @return DeleteGatewayServiceResponse DeleteGatewayServiceResponse
-     */
-    public function deleteGatewayService($gatewayId, $gatewayServiceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteGatewayServiceWithOptions($gatewayId, $gatewayServiceId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 删除服务版本
-     *  *
-     * @param string         $gatewayId
-     * @param string         $gatewayServiceId
-     * @param string         $name
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
-     *
-     * @return DeleteGatewayServiceVersionResponse DeleteGatewayServiceVersionResponse
-     */
-    public function deleteGatewayServiceVersionWithOptions($gatewayId, $gatewayServiceId, $name, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteGatewayServiceVersion',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-services/' . OpenApiUtilClient::getEncodeParam($gatewayServiceId) . '/service-versions/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteGatewayServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 删除服务版本
-     *  *
-     * @param string $gatewayId
-     * @param string $gatewayServiceId
-     * @param string $name
-     *
-     * @return DeleteGatewayServiceVersionResponse DeleteGatewayServiceVersionResponse
-     */
-    public function deleteGatewayServiceVersion($gatewayId, $gatewayServiceId, $name)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteGatewayServiceVersionWithOptions($gatewayId, $gatewayServiceId, $name, $headers, $runtime);
-    }
-
-    /**
-     * @summary 删除HTTP API
+     * @summary Delete HTTP API
      *  *
      * @param string         $httpApiId
      * @param string[]       $headers   map
@@ -953,7 +580,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 删除HTTP API
+     * @summary Delete HTTP API
      *  *
      * @param string $httpApiId
      *
@@ -968,7 +595,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 删除Operation
+     * @summary Delete Operation
      *  *
      * @param string         $httpApiId
      * @param string         $operationId
@@ -998,7 +625,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 删除Operation
+     * @summary Delete Operation
      *  *
      * @param string $httpApiId
      * @param string $operationId
@@ -1014,64 +641,25 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 删除服务来源
+     * @summary Query domain details
      *  *
-     * @param string         $gatewayId
-     * @param string         $serviceSourceId
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
-     *
-     * @return DeleteServiceSourceResponse DeleteServiceSourceResponse
-     */
-    public function deleteServiceSourceWithOptions($gatewayId, $serviceSourceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteServiceSource',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/service-sources/' . OpenApiUtilClient::getEncodeParam($serviceSourceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteServiceSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 删除服务来源
-     *  *
-     * @param string $gatewayId
-     * @param string $serviceSourceId
-     *
-     * @return DeleteServiceSourceResponse DeleteServiceSourceResponse
-     */
-    public function deleteServiceSource($gatewayId, $serviceSourceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->deleteServiceSourceWithOptions($gatewayId, $serviceSourceId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 查询域名详情
-     *  *
-     * @param string         $domainId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * @param string           $domainId
+     * @param GetDomainRequest $request  GetDomainRequest
+     * @param string[]         $headers  map
+     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
      *
      * @return GetDomainResponse GetDomainResponse
      */
-    public function getDomainWithOptions($domainId, $headers, $runtime)
+    public function getDomainWithOptions($domainId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->withStatistics)) {
+            $query['withStatistics'] = $request->withStatistics;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDomain',
@@ -1089,33 +677,44 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 查询域名详情
+     * @summary Query domain details
      *  *
-     * @param string $domainId
+     * @param string           $domainId
+     * @param GetDomainRequest $request  GetDomainRequest
      *
      * @return GetDomainResponse GetDomainResponse
      */
-    public function getDomain($domainId)
+    public function getDomain($domainId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getDomainWithOptions($domainId, $headers, $runtime);
+        return $this->getDomainWithOptions($domainId, $request, $headers, $runtime);
     }
 
     /**
      * @summary GetEnvironment
      *  *
-     * @param string         $environmentId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string                $environmentId
+     * @param GetEnvironmentRequest $request       GetEnvironmentRequest
+     * @param string[]              $headers       map
+     * @param RuntimeOptions        $runtime       runtime options for this request RuntimeOptions
      *
      * @return GetEnvironmentResponse GetEnvironmentResponse
      */
-    public function getEnvironmentWithOptions($environmentId, $headers, $runtime)
+    public function getEnvironmentWithOptions($environmentId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->withStatistics)) {
+            $query['withStatistics'] = $request->withStatistics;
+        }
+        if (!Utils::isUnset($request->withVpcInfo)) {
+            $query['withVpcInfo'] = $request->withVpcInfo;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetEnvironment',
@@ -1135,20 +734,21 @@ class APIG extends OpenApiClient
     /**
      * @summary GetEnvironment
      *  *
-     * @param string $environmentId
+     * @param string                $environmentId
+     * @param GetEnvironmentRequest $request       GetEnvironmentRequest
      *
      * @return GetEnvironmentResponse GetEnvironmentResponse
      */
-    public function getEnvironment($environmentId)
+    public function getEnvironment($environmentId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getEnvironmentWithOptions($environmentId, $headers, $runtime);
+        return $this->getEnvironmentWithOptions($environmentId, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 获取网关实例详情
+     * @summary Get a gateway.
      *  *
      * @param string         $gatewayId
      * @param string[]       $headers   map
@@ -1177,7 +777,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关实例详情
+     * @summary Get a gateway.
      *  *
      * @param string $gatewayId
      *
@@ -1192,99 +792,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关路由
-     *  *
-     * @param string         $gatewayId
-     * @param string         $gatewayRouteId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return GetGatewayRouteResponse GetGatewayRouteResponse
-     */
-    public function getGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetGatewayRoute',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/http-routes/' . OpenApiUtilClient::getEncodeParam($gatewayRouteId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetGatewayRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建网关路由
-     *  *
-     * @param string $gatewayId
-     * @param string $gatewayRouteId
-     *
-     * @return GetGatewayRouteResponse GetGatewayRouteResponse
-     */
-    public function getGatewayRoute($gatewayId, $gatewayRouteId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 查询服务
-     *  *
-     * @param string         $gatewayId
-     * @param string         $gatewayServiceId
-     * @param string[]       $headers          map
-     * @param RuntimeOptions $runtime          runtime options for this request RuntimeOptions
-     *
-     * @return GetGatewayServiceResponse GetGatewayServiceResponse
-     */
-    public function getGatewayServiceWithOptions($gatewayId, $gatewayServiceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetGatewayService',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-services/' . OpenApiUtilClient::getEncodeParam($gatewayServiceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetGatewayServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询服务
-     *  *
-     * @param string $gatewayId
-     * @param string $gatewayServiceId
-     *
-     * @return GetGatewayServiceResponse GetGatewayServiceResponse
-     */
-    public function getGatewayService($gatewayId, $gatewayServiceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getGatewayServiceWithOptions($gatewayId, $gatewayServiceId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 读取HttpApi
+     * @summary Read HttpApi
      *  *
      * @param string         $httpApiId
      * @param string[]       $headers   map
@@ -1313,7 +821,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 读取HttpApi
+     * @summary Read HttpApi
      *  *
      * @param string $httpApiId
      *
@@ -1328,7 +836,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 读取Operation
+     * @summary Get Operation
      *  *
      * @param string         $httpApiId
      * @param string         $operationId
@@ -1358,7 +866,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 读取Operation
+     * @summary Get Operation
      *  *
      * @param string $httpApiId
      * @param string $operationId
@@ -1371,6 +879,52 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->getHttpApiOperationWithOptions($httpApiId, $operationId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取HttpApi的路由详情
+     *  *
+     * @param string         $httpApiId
+     * @param string         $routeId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetHttpApiRouteResponse GetHttpApiRouteResponse
+     */
+    public function getHttpApiRouteWithOptions($httpApiId, $routeId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetHttpApiRoute',
+            'version'     => '2024-03-27',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/routes/' . OpenApiUtilClient::getEncodeParam($routeId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取HttpApi的路由详情
+     *  *
+     * @param string $httpApiId
+     * @param string $routeId
+     *
+     * @return GetHttpApiRouteResponse GetHttpApiRouteResponse
+     */
+    public function getHttpApiRoute($httpApiId, $routeId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getHttpApiRouteWithOptions($httpApiId, $routeId, $headers, $runtime);
     }
 
     /**
@@ -1397,6 +951,9 @@ class APIG extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['resourceGroupId'] = $request->resourceGroupId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1463,6 +1020,9 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['resourceGroupId'] = $request->resourceGroupId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1498,145 +1058,22 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关路由
+     * @summary Retrieve the list of created cloud-native gateways
      *  *
-     * @param string                   $gatewayId
-     * @param ListGatewayRoutesRequest $request   ListGatewayRoutesRequest
-     * @param string[]                 $headers   map
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
-     *
-     * @return ListGatewayRoutesResponse ListGatewayRoutesResponse
-     */
-    public function listGatewayRoutesWithOptions($gatewayId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->path)) {
-            $query['path'] = $request->path;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListGatewayRoutes',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/http-routes',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListGatewayRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建网关路由
-     *  *
-     * @param string                   $gatewayId
-     * @param ListGatewayRoutesRequest $request   ListGatewayRoutesRequest
-     *
-     * @return ListGatewayRoutesResponse ListGatewayRoutesResponse
-     */
-    public function listGatewayRoutes($gatewayId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listGatewayRoutesWithOptions($gatewayId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 查询服务列表
-     *  *
-     * @param string                     $gatewayId
-     * @param ListGatewayServicesRequest $request   ListGatewayServicesRequest
-     * @param string[]                   $headers   map
-     * @param RuntimeOptions             $runtime   runtime options for this request RuntimeOptions
-     *
-     * @return ListGatewayServicesResponse ListGatewayServicesResponse
-     */
-    public function listGatewayServicesWithOptions($gatewayId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['sourceType'] = $request->sourceType;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListGatewayServices',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-services',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListGatewayServicesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询服务列表
-     *  *
-     * @param string                     $gatewayId
-     * @param ListGatewayServicesRequest $request   ListGatewayServicesRequest
-     *
-     * @return ListGatewayServicesResponse ListGatewayServicesResponse
-     */
-    public function listGatewayServices($gatewayId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listGatewayServicesWithOptions($gatewayId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 获取已经创建的云原生网关列表
-     *  *
-     * @param ListGatewaysRequest $request ListGatewaysRequest
+     * @param ListGatewaysRequest $tmpReq  ListGatewaysRequest
      * @param string[]            $headers map
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
      * @return ListGatewaysResponse ListGatewaysResponse
      */
-    public function listGatewaysWithOptions($request, $headers, $runtime)
+    public function listGatewaysWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListGatewaysShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->gatewayId)) {
             $query['gatewayId'] = $request->gatewayId;
@@ -1652,6 +1089,12 @@ class APIG extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1673,7 +1116,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 获取已经创建的云原生网关列表
+     * @summary Retrieve the list of created cloud-native gateways
      *  *
      * @param ListGatewaysRequest $request ListGatewaysRequest
      *
@@ -1688,7 +1131,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 列举Operation
+     * @summary List Operations
      *  *
      * @param string                       $httpApiId
      * @param ListHttpApiOperationsRequest $request   ListHttpApiOperationsRequest
@@ -1701,6 +1144,9 @@ class APIG extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->consumerAuthorizationRuleId)) {
+            $query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
+        }
         if (!Utils::isUnset($request->method)) {
             $query['method'] = $request->method;
         }
@@ -1718,6 +1164,12 @@ class APIG extends OpenApiClient
         }
         if (!Utils::isUnset($request->pathLike)) {
             $query['pathLike'] = $request->pathLike;
+        }
+        if (!Utils::isUnset($request->withConsumerInEnvironmentId)) {
+            $query['withConsumerInEnvironmentId'] = $request->withConsumerInEnvironmentId;
+        }
+        if (!Utils::isUnset($request->withConsumerInfoById)) {
+            $query['withConsumerInfoById'] = $request->withConsumerInfoById;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1739,7 +1191,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 列举Operation
+     * @summary List Operations
      *  *
      * @param string                       $httpApiId
      * @param ListHttpApiOperationsRequest $request   ListHttpApiOperationsRequest
@@ -1755,7 +1207,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 列举HTTP API
+     * @summary List HTTP APIs
      *  *
      * @param ListHttpApisRequest $request ListHttpApisRequest
      * @param string[]            $headers map
@@ -1767,6 +1219,9 @@ class APIG extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->gatewayId)) {
+            $query['gatewayId'] = $request->gatewayId;
+        }
         if (!Utils::isUnset($request->keyword)) {
             $query['keyword'] = $request->keyword;
         }
@@ -1779,8 +1234,20 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->publishedOnly)) {
-            $query['publishedOnly'] = $request->publishedOnly;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['resourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->types)) {
+            $query['types'] = $request->types;
+        }
+        if (!Utils::isUnset($request->withAuthPolicyInEnvironmentId)) {
+            $query['withAuthPolicyInEnvironmentId'] = $request->withAuthPolicyInEnvironmentId;
+        }
+        if (!Utils::isUnset($request->withConsumerInfoById)) {
+            $query['withConsumerInfoById'] = $request->withConsumerInfoById;
+        }
+        if (!Utils::isUnset($request->withEnvironmentInfo)) {
+            $query['withEnvironmentInfo'] = $request->withEnvironmentInfo;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1802,7 +1269,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 列举HTTP API
+     * @summary List HTTP APIs
      *  *
      * @param ListHttpApisRequest $request ListHttpApisRequest
      *
@@ -1814,211 +1281,6 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->listHttpApisWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 发布路由
-     *  *
-     * @param string         $gatewayId
-     * @param string         $gatewayRouteId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return OfflineGatewayRouteResponse OfflineGatewayRouteResponse
-     */
-    public function offlineGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'OfflineGatewayRoute',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/http-routes/' . OpenApiUtilClient::getEncodeParam($gatewayRouteId) . '/offline',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return OfflineGatewayRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 发布路由
-     *  *
-     * @param string $gatewayId
-     * @param string $gatewayRouteId
-     *
-     * @return OfflineGatewayRouteResponse OfflineGatewayRouteResponse
-     */
-    public function offlineGatewayRoute($gatewayId, $gatewayRouteId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->offlineGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 下线已发布的HTTP API
-     *  *
-     * @param string                $httpApiId
-     * @param OfflineHttpApiRequest $request   OfflineHttpApiRequest
-     * @param string[]              $headers   map
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
-     *
-     * @return OfflineHttpApiResponse OfflineHttpApiResponse
-     */
-    public function offlineHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $body['environmentId'] = $request->environmentId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'OfflineHttpApi',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/offline',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return OfflineHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 下线已发布的HTTP API
-     *  *
-     * @param string                $httpApiId
-     * @param OfflineHttpApiRequest $request   OfflineHttpApiRequest
-     *
-     * @return OfflineHttpApiResponse OfflineHttpApiResponse
-     */
-    public function offlineHttpApi($httpApiId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->offlineHttpApiWithOptions($httpApiId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 发布路由
-     *  *
-     * @param string         $gatewayId
-     * @param string         $gatewayRouteId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return PublishGatewayRouteResponse PublishGatewayRouteResponse
-     */
-    public function publishGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'PublishGatewayRoute',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/http-routes/' . OpenApiUtilClient::getEncodeParam($gatewayRouteId) . '/publish',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return PublishGatewayRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 发布路由
-     *  *
-     * @param string $gatewayId
-     * @param string $gatewayRouteId
-     *
-     * @return PublishGatewayRouteResponse PublishGatewayRouteResponse
-     */
-    public function publishGatewayRoute($gatewayId, $gatewayRouteId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->publishGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 发布HTTP API
-     *  *
-     * @param string                $httpApiId
-     * @param PublishHttpApiRequest $request   PublishHttpApiRequest
-     * @param string[]              $headers   map
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
-     *
-     * @return PublishHttpApiResponse PublishHttpApiResponse
-     */
-    public function publishHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->allowOverwrite)) {
-            $body['allowOverwrite'] = $request->allowOverwrite;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->environment)) {
-            $body['environment'] = $request->environment;
-        }
-        if (!Utils::isUnset($request->revisionId)) {
-            $body['revisionId'] = $request->revisionId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PublishHttpApi',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/publish',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return PublishHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 发布HTTP API
-     *  *
-     * @param string                $httpApiId
-     * @param PublishHttpApiRequest $request   PublishHttpApiRequest
-     *
-     * @return PublishHttpApiResponse PublishHttpApiResponse
-     */
-    public function publishHttpApi($httpApiId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->publishHttpApiWithOptions($httpApiId, $request, $headers, $runtime);
     }
 
     /**
@@ -2147,183 +1409,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关路由
-     *  *
-     * @param string                    $gatewayId
-     * @param string                    $gatewayRouteId
-     * @param UpdateGatewayRouteRequest $request        UpdateGatewayRouteRequest
-     * @param string[]                  $headers        map
-     * @param RuntimeOptions            $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return UpdateGatewayRouteResponse UpdateGatewayRouteResponse
-     */
-    public function updateGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->backendConfig)) {
-            $body['backendConfig'] = $request->backendConfig;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->domainConfig)) {
-            $body['domainConfig'] = $request->domainConfig;
-        }
-        if (!Utils::isUnset($request->match)) {
-            $body['match'] = $request->match;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateGatewayRoute',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/http-routes/' . OpenApiUtilClient::getEncodeParam($gatewayRouteId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateGatewayRouteResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建网关路由
-     *  *
-     * @param string                    $gatewayId
-     * @param string                    $gatewayRouteId
-     * @param UpdateGatewayRouteRequest $request        UpdateGatewayRouteRequest
-     *
-     * @return UpdateGatewayRouteResponse UpdateGatewayRouteResponse
-     */
-    public function updateGatewayRoute($gatewayId, $gatewayRouteId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateGatewayRouteWithOptions($gatewayId, $gatewayRouteId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 更新服务
-     *  *
-     * @param string                      $gatewayId
-     * @param string                      $gatewayServiceId
-     * @param UpdateGatewayServiceRequest $request          UpdateGatewayServiceRequest
-     * @param string[]                    $headers          map
-     * @param RuntimeOptions              $runtime          runtime options for this request RuntimeOptions
-     *
-     * @return UpdateGatewayServiceResponse UpdateGatewayServiceResponse
-     */
-    public function updateGatewayServiceWithOptions($gatewayId, $gatewayServiceId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->addresses)) {
-            $body['addresses'] = $request->addresses;
-        }
-        if (!Utils::isUnset($request->port)) {
-            $body['port'] = $request->port;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateGatewayService',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-services/' . OpenApiUtilClient::getEncodeParam($gatewayServiceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateGatewayServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 更新服务
-     *  *
-     * @param string                      $gatewayId
-     * @param string                      $gatewayServiceId
-     * @param UpdateGatewayServiceRequest $request          UpdateGatewayServiceRequest
-     *
-     * @return UpdateGatewayServiceResponse UpdateGatewayServiceResponse
-     */
-    public function updateGatewayService($gatewayId, $gatewayServiceId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateGatewayServiceWithOptions($gatewayId, $gatewayServiceId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 更新服务版本
-     *  *
-     * @param string                             $gatewayId
-     * @param string                             $gatewayServiceId
-     * @param string                             $name
-     * @param UpdateGatewayServiceVersionRequest $request          UpdateGatewayServiceVersionRequest
-     * @param string[]                           $headers          map
-     * @param RuntimeOptions                     $runtime          runtime options for this request RuntimeOptions
-     *
-     * @return UpdateGatewayServiceVersionResponse UpdateGatewayServiceVersionResponse
-     */
-    public function updateGatewayServiceVersionWithOptions($gatewayId, $gatewayServiceId, $name, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->labels)) {
-            $body['labels'] = $request->labels;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateGatewayServiceVersion',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-services/' . OpenApiUtilClient::getEncodeParam($gatewayServiceId) . '/service-versions/' . OpenApiUtilClient::getEncodeParam($name) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateGatewayServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 更新服务版本
-     *  *
-     * @param string                             $gatewayId
-     * @param string                             $gatewayServiceId
-     * @param string                             $name
-     * @param UpdateGatewayServiceVersionRequest $request          UpdateGatewayServiceVersionRequest
-     *
-     * @return UpdateGatewayServiceVersionResponse UpdateGatewayServiceVersionResponse
-     */
-    public function updateGatewayServiceVersion($gatewayId, $gatewayServiceId, $name, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateGatewayServiceVersionWithOptions($gatewayId, $gatewayServiceId, $name, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 更新HTTP API
+     * @summary Update HTTP API
      *  *
      * @param string               $httpApiId
      * @param UpdateHttpApiRequest $request   UpdateHttpApiRequest
@@ -2336,11 +1422,20 @@ class APIG extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->aiProtocols)) {
+            $body['aiProtocols'] = $request->aiProtocols;
+        }
         if (!Utils::isUnset($request->basePath)) {
             $body['basePath'] = $request->basePath;
         }
+        if (!Utils::isUnset($request->deployConfigs)) {
+            $body['deployConfigs'] = $request->deployConfigs;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->ingressConfig)) {
+            $body['ingressConfig'] = $request->ingressConfig;
         }
         if (!Utils::isUnset($request->protocols)) {
             $body['protocols'] = $request->protocols;
@@ -2368,7 +1463,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 更新HTTP API
+     * @summary Update HTTP API
      *  *
      * @param string               $httpApiId
      * @param UpdateHttpApiRequest $request   UpdateHttpApiRequest
@@ -2384,7 +1479,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 更新Operation
+     * @summary Update Operation
      *  *
      * @param string                        $httpApiId
      * @param string                        $operationId
@@ -2421,7 +1516,7 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 更新Operation
+     * @summary Update Operation
      *  *
      * @param string                        $httpApiId
      * @param string                        $operationId
@@ -2435,59 +1530,5 @@ class APIG extends OpenApiClient
         $headers = [];
 
         return $this->updateHttpApiOperationWithOptions($httpApiId, $operationId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 更新服务来源
-     *  *
-     * @param string                     $gatewayId
-     * @param string                     $serviceSourceId
-     * @param UpdateServiceSourceRequest $request         UpdateServiceSourceRequest
-     * @param string[]                   $headers         map
-     * @param RuntimeOptions             $runtime         runtime options for this request RuntimeOptions
-     *
-     * @return UpdateServiceSourceResponse UpdateServiceSourceResponse
-     */
-    public function updateServiceSourceWithOptions($gatewayId, $serviceSourceId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->k8sServiceSourceConfig)) {
-            $body['k8sServiceSourceConfig'] = $request->k8sServiceSourceConfig;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateServiceSource',
-            'version'     => '2024-03-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/service-sources/' . OpenApiUtilClient::getEncodeParam($serviceSourceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateServiceSourceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 更新服务来源
-     *  *
-     * @param string                     $gatewayId
-     * @param string                     $serviceSourceId
-     * @param UpdateServiceSourceRequest $request         UpdateServiceSourceRequest
-     *
-     * @return UpdateServiceSourceResponse UpdateServiceSourceResponse
-     */
-    public function updateServiceSource($gatewayId, $serviceSourceId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateServiceSourceWithOptions($gatewayId, $serviceSourceId, $request, $headers, $runtime);
     }
 }

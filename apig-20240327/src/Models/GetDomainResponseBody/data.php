@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponseBody;
 
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponseBody\data\statisticsInfo;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Encryption algorithm name
+     *
      * @example RSA
      *
      * @var string
@@ -16,6 +19,8 @@ class data extends Model
     public $algorithm;
 
     /**
+     * @description Cloud Shield CA certificate identity.
+     *
      * @example 223576-cn-hangzhou
      *
      * @var string
@@ -23,6 +28,8 @@ class data extends Model
     public $caCertIndentifier;
 
     /**
+     * @description Cloud Shield certificate identity.
+     *
      * @example 123576-cn-hangzhou
      *
      * @var string
@@ -30,6 +37,8 @@ class data extends Model
     public $certIndentifier;
 
     /**
+     * @description Certificate name
+     *
      * @example test-cert
      *
      * @var string
@@ -37,6 +46,8 @@ class data extends Model
     public $certName;
 
     /**
+     * @description Where it was created from.
+     *
      * @example Console
      *
      * @var string
@@ -44,6 +55,8 @@ class data extends Model
     public $createFrom;
 
     /**
+     * @description Creation timestamp.
+     *
      * @example 1719386834548
      *
      * @var int
@@ -51,6 +64,8 @@ class data extends Model
     public $createTimestamp;
 
     /**
+     * @description Whether it is the default domain.
+     *
      * @example false
      *
      * @var bool
@@ -58,6 +73,8 @@ class data extends Model
     public $default;
 
     /**
+     * @description Domain ID.
+     *
      * @example d-cq1m3utlhtgvgkv7sitg
      *
      * @var string
@@ -65,6 +82,8 @@ class data extends Model
     public $domainId;
 
     /**
+     * @description Setting for HTTPS protocol type, whether to enable forced HTTPS redirection.
+     *
      * @example false
      *
      * @var bool
@@ -72,6 +91,8 @@ class data extends Model
     public $forceHttps;
 
     /**
+     * @description HTTP/2 setting.
+     *
      * @example Open
      *
      * @var string
@@ -79,6 +100,8 @@ class data extends Model
     public $http2Option;
 
     /**
+     * @description Certificate issuer.
+     *
      * @example Alibaba
      *
      * @var string
@@ -86,6 +109,8 @@ class data extends Model
     public $issuer;
 
     /**
+     * @description Domain name.
+     *
      * @example abc.com
      *
      * @var string
@@ -93,6 +118,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description Certificate expiration time.
+     *
      * @example 1719386834548
      *
      * @var int
@@ -100,6 +127,8 @@ class data extends Model
     public $notAfterTimstamp;
 
     /**
+     * @description Certificate effective time.
+     *
      * @example 1719386834548
      *
      * @var int
@@ -107,6 +136,9 @@ class data extends Model
     public $notBeforeTimestamp;
 
     /**
+     * @description The protocol types supported by the domain.
+     *
+     * - HTTPS: Supports only HTTPS protocol.
      * @example HTTP
      *
      * @var string
@@ -114,6 +146,13 @@ class data extends Model
     public $protocol;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description All domain names bound to the certificate.
+     *
      * @example aliyun.com
      *
      * @var string
@@ -121,6 +160,13 @@ class data extends Model
     public $sans;
 
     /**
+     * @var statisticsInfo
+     */
+    public $statisticsInfo;
+
+    /**
+     * @description Maximum TLS protocol version, supports up to TLS 1.3.
+     *
      * @example TLS 1.3
      *
      * @var string
@@ -128,6 +174,8 @@ class data extends Model
     public $tlsMax;
 
     /**
+     * @description Minimum TLS protocol version, supports down to TLS 1.0.
+     *
      * @example TLS 1.0
      *
      * @var string
@@ -135,6 +183,8 @@ class data extends Model
     public $tlsMin;
 
     /**
+     * @description Update timestamp.
+     *
      * @example 1719386834548
      *
      * @var int
@@ -156,7 +206,9 @@ class data extends Model
         'notAfterTimstamp'   => 'notAfterTimstamp',
         'notBeforeTimestamp' => 'notBeforeTimestamp',
         'protocol'           => 'protocol',
+        'resourceGroupId'    => 'resourceGroupId',
         'sans'               => 'sans',
+        'statisticsInfo'     => 'statisticsInfo',
         'tlsMax'             => 'tlsMax',
         'tlsMin'             => 'tlsMin',
         'updatetimestamp'    => 'updatetimestamp',
@@ -214,8 +266,14 @@ class data extends Model
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->sans) {
             $res['sans'] = $this->sans;
+        }
+        if (null !== $this->statisticsInfo) {
+            $res['statisticsInfo'] = null !== $this->statisticsInfo ? $this->statisticsInfo->toMap() : null;
         }
         if (null !== $this->tlsMax) {
             $res['tlsMax'] = $this->tlsMax;
@@ -283,8 +341,14 @@ class data extends Model
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
         if (isset($map['sans'])) {
             $model->sans = $map['sans'];
+        }
+        if (isset($map['statisticsInfo'])) {
+            $model->statisticsInfo = statisticsInfo::fromMap($map['statisticsInfo']);
         }
         if (isset($map['tlsMax'])) {
             $model->tlsMax = $map['tlsMax'];

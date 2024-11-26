@@ -9,20 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainRequest extends Model
 {
     /**
-     * @example 194445-cn-hangzhou
+     * @description CA Certificate Identifier.
+     *
+     * @example 1ef1da5f-38ed-69b3-****-037781890265
      *
      * @var string
      */
-    public $caCertIndentifier;
+    public $caCertIdentifier;
 
     /**
-     * @example 194445-cn-hangzhou
+     * @description Certificate Unique Identifier.
+     *
+     * @example 1ef1da5f-38ed-69b3-****-037781890265
      *
      * @var string
      */
-    public $certIndentifier;
+    public $certIdentifier;
 
     /**
+     * @description Set the HTTPS protocol type, whether to enable forced HTTPS redirection.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class CreateDomainRequest extends Model
     public $forceHttps;
 
     /**
+     * @description HTTP/2 settings.
+     *
      * @example Open
      *
      * @var string
@@ -37,8 +45,9 @@ class CreateDomainRequest extends Model
     public $http2Option;
 
     /**
-     * @description This parameter is required.
+     * @description Domain name.
      *
+     * This parameter is required.
      * @example abc.com
      *
      * @var string
@@ -46,8 +55,9 @@ class CreateDomainRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The protocol type supported by the domain.
      *
+     * This parameter is required.
      * @example HTTP
      *
      * @var string
@@ -55,6 +65,13 @@ class CreateDomainRequest extends Model
     public $protocol;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description Maximum TLS protocol version, supports up to TLS 1.3.
+     *
      * @example TLS1.3
      *
      * @var string
@@ -62,20 +79,23 @@ class CreateDomainRequest extends Model
     public $tlsMax;
 
     /**
+     * @description Minimum TLS protocol version, supports down to TLS 1.0.
+     *
      * @example TLS1.0
      *
      * @var string
      */
     public $tlsMin;
     protected $_name = [
-        'caCertIndentifier' => 'caCertIndentifier',
-        'certIndentifier'   => 'certIndentifier',
-        'forceHttps'        => 'forceHttps',
-        'http2Option'       => 'http2Option',
-        'name'              => 'name',
-        'protocol'          => 'protocol',
-        'tlsMax'            => 'tlsMax',
-        'tlsMin'            => 'tlsMin',
+        'caCertIdentifier' => 'caCertIdentifier',
+        'certIdentifier'   => 'certIdentifier',
+        'forceHttps'       => 'forceHttps',
+        'http2Option'      => 'http2Option',
+        'name'             => 'name',
+        'protocol'         => 'protocol',
+        'resourceGroupId'  => 'resourceGroupId',
+        'tlsMax'           => 'tlsMax',
+        'tlsMin'           => 'tlsMin',
     ];
 
     public function validate()
@@ -85,11 +105,11 @@ class CreateDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->caCertIndentifier) {
-            $res['caCertIndentifier'] = $this->caCertIndentifier;
+        if (null !== $this->caCertIdentifier) {
+            $res['caCertIdentifier'] = $this->caCertIdentifier;
         }
-        if (null !== $this->certIndentifier) {
-            $res['certIndentifier'] = $this->certIndentifier;
+        if (null !== $this->certIdentifier) {
+            $res['certIdentifier'] = $this->certIdentifier;
         }
         if (null !== $this->forceHttps) {
             $res['forceHttps'] = $this->forceHttps;
@@ -102,6 +122,9 @@ class CreateDomainRequest extends Model
         }
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tlsMax) {
             $res['tlsMax'] = $this->tlsMax;
@@ -121,11 +144,11 @@ class CreateDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['caCertIndentifier'])) {
-            $model->caCertIndentifier = $map['caCertIndentifier'];
+        if (isset($map['caCertIdentifier'])) {
+            $model->caCertIdentifier = $map['caCertIdentifier'];
         }
-        if (isset($map['certIndentifier'])) {
-            $model->certIndentifier = $map['certIndentifier'];
+        if (isset($map['certIdentifier'])) {
+            $model->certIdentifier = $map['certIdentifier'];
         }
         if (isset($map['forceHttps'])) {
             $model->forceHttps = $map['forceHttps'];
@@ -138,6 +161,9 @@ class CreateDomainRequest extends Model
         }
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['tlsMax'])) {
             $model->tlsMax = $map['tlsMax'];

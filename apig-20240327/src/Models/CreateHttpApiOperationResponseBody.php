@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateHttpApiOperationResponseBody extends Model
 {
     /**
+     * @description Response status code.
+     *
      * @example Ok
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateHttpApiOperationResponseBody extends Model
     public $code;
 
     /**
+     * @description Operation information.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Response message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateHttpApiOperationResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example 393E2630-DBE7-5221-AB35-9E740675491A
      *
      * @var string

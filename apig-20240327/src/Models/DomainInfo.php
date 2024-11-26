@@ -44,6 +44,13 @@ class DomainInfo extends Model
     public $protocol;
 
     /**
+     * @example rg-xxxx
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string
      */
     public $status;
@@ -60,6 +67,7 @@ class DomainInfo extends Model
         'forceHttps'      => 'forceHttps',
         'name'            => 'name',
         'protocol'        => 'protocol',
+        'resourceGroupId' => 'resourceGroupId',
         'status'          => 'status',
         'updateTimestamp' => 'updateTimestamp',
     ];
@@ -91,6 +99,9 @@ class DomainInfo extends Model
         }
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -130,6 +141,9 @@ class DomainInfo extends Model
         }
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

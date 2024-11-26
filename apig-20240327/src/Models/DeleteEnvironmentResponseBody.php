@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEnvironmentResponseBody extends Model
 {
     /**
+     * @description Response code.
+     *
      * @example Ok
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteEnvironmentResponseBody extends Model
     public $code;
 
     /**
+     * @description Response message.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteEnvironmentResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID, used for tracing the request chain.
+     *
      * @example C61E30D3-579A-5B43-994E-31E02EDC9129
      *
      * @var string

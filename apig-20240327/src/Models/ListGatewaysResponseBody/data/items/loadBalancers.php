@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class loadBalancers extends Model
 {
     /**
+     * @description Load balancer address.
+     *
      * @example nlb-xoh3pghr***.cn-hangzhou.nlb.aliyuncs.com
      *
      * @var string
@@ -17,6 +19,8 @@ class loadBalancers extends Model
     public $address;
 
     /**
+     * @description IP version:
+     * - ipv6: IPv6.
      * @example ipv4
      *
      * @var string
@@ -24,6 +28,8 @@ class loadBalancers extends Model
     public $addressIpVersion;
 
     /**
+     * @description Load balancer address type:
+     * - Intranet: Private network.
      * @example Internet
      *
      * @var string
@@ -31,6 +37,8 @@ class loadBalancers extends Model
     public $addressType;
 
     /**
+     * @description Indicates whether this is the default entry address for the gateway.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +46,8 @@ class loadBalancers extends Model
     public $gatewayDefault;
 
     /**
+     * @description Load balancer ID.
+     *
      * @example nlb-xqwioje1c91r***
      *
      * @var string
@@ -45,6 +55,8 @@ class loadBalancers extends Model
     public $loadBalancerId;
 
     /**
+     * @description Mode of load balancer provision for the gateway:
+     * - Managed: Managed by the Cloud Native API Gateway.
      * @example Managed
      *
      * @var string
@@ -52,11 +64,15 @@ class loadBalancers extends Model
     public $mode;
 
     /**
+     * @description List of listening ports.
+     *
      * @var ports[]
      */
     public $ports;
 
     /**
+     * @description Status of the load balancer:
+     * - NotCreate: No associated instance.
      * @example Ready
      *
      * @var string
@@ -64,6 +80,8 @@ class loadBalancers extends Model
     public $status;
 
     /**
+     * @description Type of load balancer for the gateway:
+     * - CLB: Classic Load Balancer.
      * @example NLB
      *
      * @var string

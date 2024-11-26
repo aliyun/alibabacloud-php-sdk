@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data;
 
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\loadBalancers;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\securityGroup;
+use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\tags;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\vpc;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\vSwitch;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items\zones;
@@ -14,6 +15,9 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description Charge type
+     *
+     * - PREPAY: Prepaid (subscription)
      * @example POSTPAY
      *
      * @var string
@@ -21,6 +25,8 @@ class items extends Model
     public $chargeType;
 
     /**
+     * @description Source of gateway creation:
+     * - Console: Console.
      * @example Console
      *
      * @var string
@@ -28,6 +34,8 @@ class items extends Model
     public $createFrom;
 
     /**
+     * @description Creation timestamp, in milliseconds.
+     *
      * @example 1719386834548
      *
      * @var int
@@ -35,6 +43,8 @@ class items extends Model
     public $createTimestamp;
 
     /**
+     * @description Expiration timestamp for the prepaid (annual or monthly) plan. Unit: milliseconds.
+     *
      * @example 172086834548
      *
      * @var int
@@ -42,6 +52,8 @@ class items extends Model
     public $expireTimestamp;
 
     /**
+     * @description Gateway ID.
+     *
      * @example gw-cpv54p5***
      *
      * @var string
@@ -49,11 +61,15 @@ class items extends Model
     public $gatewayId;
 
     /**
+     * @description List of gateway entry addresses.
+     *
      * @var loadBalancers[]
      */
     public $loadBalancers;
 
     /**
+     * @description Gateway name.
+     *
      * @example itemcenter-gateway
      *
      * @var string
@@ -61,6 +77,8 @@ class items extends Model
     public $name;
 
     /**
+     * @description Number of gateway instance nodes.
+     *
      * @example 2
      *
      * @var string
@@ -68,11 +86,20 @@ class items extends Model
     public $replicas;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The Security Group.
+     *
      * @var securityGroup
      */
     public $securityGroup;
 
     /**
+     * @description Gateway specification:
+     * - apigw.small.x1: Small specification.
      * @example apigw.small.x1
      *
      * @var string
@@ -80,6 +107,8 @@ class items extends Model
     public $spec;
 
     /**
+     * @description Gateway status:
+     * - DeleteFailed: Deletion failed.
      * @example Running
      *
      * @var string
@@ -87,6 +116,13 @@ class items extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description Target version of the gateway. When it is inconsistent with `version`, a version upgrade can be performed.
+     *
      * @example 2.0.2
      *
      * @var string
@@ -94,6 +130,8 @@ class items extends Model
     public $targetVersion;
 
     /**
+     * @description Update timestamp. Unit: milliseconds.
+     *
      * @example 1719386834548
      *
      * @var int
@@ -106,6 +144,8 @@ class items extends Model
     public $vSwitch;
 
     /**
+     * @description Gateway version.
+     *
      * @example 2.0.2
      *
      * @var string
@@ -130,9 +170,11 @@ class items extends Model
         'loadBalancers'   => 'loadBalancers',
         'name'            => 'name',
         'replicas'        => 'replicas',
+        'resourceGroupId' => 'resourceGroupId',
         'securityGroup'   => 'securityGroup',
         'spec'            => 'spec',
         'status'          => 'status',
+        'tags'            => 'tags',
         'targetVersion'   => 'targetVersion',
         'updateTimestamp' => 'updateTimestamp',
         'vSwitch'         => 'vSwitch',
@@ -178,6 +220,9 @@ class items extends Model
         if (null !== $this->replicas) {
             $res['replicas'] = $this->replicas;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->securityGroup) {
             $res['securityGroup'] = null !== $this->securityGroup ? $this->securityGroup->toMap() : null;
         }
@@ -186,6 +231,15 @@ class items extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->targetVersion) {
             $res['targetVersion'] = $this->targetVersion;
@@ -253,6 +307,9 @@ class items extends Model
         if (isset($map['replicas'])) {
             $model->replicas = $map['replicas'];
         }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
         if (isset($map['securityGroup'])) {
             $model->securityGroup = securityGroup::fromMap($map['securityGroup']);
         }
@@ -261,6 +318,15 @@ class items extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['targetVersion'])) {
             $model->targetVersion = $map['targetVersion'];

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class environments extends Model
 {
     /**
+     * @description The environment alias.
+     *
+     * @example 默认环境
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description Environment ID.
+     *
      * @example env-cp9uhudlht***
      *
      * @var string
@@ -21,6 +27,8 @@ class environments extends Model
     public $environmentId;
 
     /**
+     * @description The environment name。
+     *
      * @example default-gw-cp9ugg5***
      *
      * @var string

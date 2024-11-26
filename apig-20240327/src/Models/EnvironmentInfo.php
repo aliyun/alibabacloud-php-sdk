@@ -44,6 +44,13 @@ class EnvironmentInfo extends Model
     public $name;
 
     /**
+     * @example rg-xxxx
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var SubDomainInfo[]
      */
     public $subDomainInfos;
@@ -60,6 +67,7 @@ class EnvironmentInfo extends Model
         'environmentId'   => 'environmentId',
         'gatewayInfo'     => 'gatewayInfo',
         'name'            => 'name',
+        'resourceGroupId' => 'resourceGroupId',
         'subDomainInfos'  => 'subDomainInfos',
         'updateTimestamp' => 'updateTimestamp',
     ];
@@ -91,6 +99,9 @@ class EnvironmentInfo extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->subDomainInfos) {
             $res['subDomainInfos'] = [];
@@ -136,6 +147,9 @@ class EnvironmentInfo extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
         if (isset($map['subDomainInfos'])) {
             if (!empty($map['subDomainInfos'])) {

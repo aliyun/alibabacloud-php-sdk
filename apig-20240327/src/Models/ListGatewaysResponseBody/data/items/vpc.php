@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-xxxxx
+     *
      * @var string
      */
     public $vpcId;

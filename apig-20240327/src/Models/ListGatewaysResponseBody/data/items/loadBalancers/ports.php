@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ports extends Model
 {
     /**
+     * @description Port number.
+     *
      * @example 443
      *
      * @var int
@@ -16,6 +18,8 @@ class ports extends Model
     public $port;
 
     /**
+     * @description Protocol:
+     * - UDP
      * @example TCP
      *
      * @var string

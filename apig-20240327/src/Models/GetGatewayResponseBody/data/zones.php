@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
+     * @description Availability zone name.
+     *
+     * @example 杭州可用区E
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Virtual switch.
+     *
      * @var vSwitch
      */
     public $vSwitch;
 
     /**
+     * @description Availability zone ID.
+     *
      * @example cn-hangzhou-e
      *
      * @var string

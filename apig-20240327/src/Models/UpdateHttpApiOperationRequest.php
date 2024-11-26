@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHttpApiOperationRequest extends Model
 {
     /**
+     * @description operation definition.
+     *
      * @var HttpApiOperation
      */
     public $operation;

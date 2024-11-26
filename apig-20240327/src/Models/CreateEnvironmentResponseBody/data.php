@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Environment ID.
+     *
      * @example env-cq7l5s5lhtgi6qasrdc0
      *
      * @var string

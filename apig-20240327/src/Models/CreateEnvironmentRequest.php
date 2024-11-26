@@ -9,20 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateEnvironmentRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Environment alias.
+     *
+     * This parameter is required.
+     * @example 测试环境
      *
      * @var string
      */
     public $alias;
 
     /**
+     * @description Description of the environment, which can include information such as the purpose of the environment and its owner.
+     *
+     * @example 这是xxx的xx项目测试环境
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description Gateway ID.
      *
+     * This parameter is required.
      * @example gw-cq7l5s5lhtgi6qasrdc0
      *
      * @var string
@@ -30,18 +38,25 @@ class CreateEnvironmentRequest extends Model
     public $gatewayId;
 
     /**
-     * @description This parameter is required.
+     * @description Environment name.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'alias'       => 'alias',
-        'description' => 'description',
-        'gatewayId'   => 'gatewayId',
-        'name'        => 'name',
+        'alias'           => 'alias',
+        'description'     => 'description',
+        'gatewayId'       => 'gatewayId',
+        'name'            => 'name',
+        'resourceGroupId' => 'resourceGroupId',
     ];
 
     public function validate()
@@ -62,6 +77,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -86,6 +104,9 @@ class CreateEnvironmentRequest extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         return $model;

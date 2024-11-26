@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentsRequest extends Model
 {
     /**
+     * @description Environment alias, fuzzy search.
+     *
+     * @example 测试
+     *
      * @var string
      */
     public $aliasLike;
 
     /**
+     * @description Gateway ID, exact search.
+     *
      * @example gw-cptv6ktlhtgnqr73h8d1
      *
      * @var string
@@ -21,6 +27,8 @@ class ListEnvironmentsRequest extends Model
     public $gatewayId;
 
     /**
+     * @description Gateway name, fuzzy search.
+     *
      * @example test-gw
      *
      * @var string
@@ -28,6 +36,8 @@ class ListEnvironmentsRequest extends Model
     public $gatewayNameLike;
 
     /**
+     * @description Environment name, fuzzy search.
+     *
      * @example test
      *
      * @var string
@@ -35,6 +45,8 @@ class ListEnvironmentsRequest extends Model
     public $nameLike;
 
     /**
+     * @description Page number, default is 1.
+     *
      * @example 1
      *
      * @var int
@@ -42,11 +54,18 @@ class ListEnvironmentsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description Page size, default is 10.
+     *
      * @example 10
      *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
         'aliasLike'       => 'aliasLike',
         'gatewayId'       => 'gatewayId',
@@ -54,6 +73,7 @@ class ListEnvironmentsRequest extends Model
         'nameLike'        => 'nameLike',
         'pageNumber'      => 'pageNumber',
         'pageSize'        => 'pageSize',
+        'resourceGroupId' => 'resourceGroupId',
     ];
 
     public function validate()
@@ -80,6 +100,9 @@ class ListEnvironmentsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -110,6 +133,9 @@ class ListEnvironmentsRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         return $model;

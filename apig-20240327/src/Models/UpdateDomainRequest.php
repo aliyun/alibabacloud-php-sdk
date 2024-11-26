@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDomainRequest extends Model
 {
     /**
+     * @description Cloud Shield CA certificate identifier.
+     *
      * @example 123455-cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateDomainRequest extends Model
     public $caCertIndentifier;
 
     /**
+     * @description Cloud Shield certificate identifier.
+     *
      * @example 123458-cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateDomainRequest extends Model
     public $certIndentifier;
 
     /**
+     * @description Set the HTTPS protocol type, whether to enable forced HTTPS redirection.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class UpdateDomainRequest extends Model
     public $forceHttps;
 
     /**
+     * @description HTTP/2 settings.
+     *
      * @example Open
      *
      * @var string
@@ -37,8 +45,9 @@ class UpdateDomainRequest extends Model
     public $http2Option;
 
     /**
-     * @description This parameter is required.
+     * @description The protocol type supported by the domain.
      *
+     * This parameter is required.
      * @example HTTP
      *
      * @var string
@@ -46,6 +55,8 @@ class UpdateDomainRequest extends Model
     public $protocol;
 
     /**
+     * @description Maximum TLS protocol version, supports up to TLS 1.3.
+     *
      * @example TLS 1.3
      *
      * @var string
@@ -53,6 +64,8 @@ class UpdateDomainRequest extends Model
     public $tlsMax;
 
     /**
+     * @description Minimum TLS protocol version, supports down to TLS 1.0.
+     *
      * @example TLS 1.0
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddGatewaySecurityGroupRuleResponseBody extends Model
 {
     /**
+     * @description Response status code.
+     *
      * @example Ok
      *
      * @var string
@@ -16,6 +18,8 @@ class AddGatewaySecurityGroupRuleResponseBody extends Model
     public $code;
 
     /**
+     * @description Response message.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class AddGatewaySecurityGroupRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example 2A6E90D5-A711-54F4-A489-E33C2021EDDF
      *
      * @var string

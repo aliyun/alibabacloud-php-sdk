@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateHttpApiOperationRequest extends Model
 {
     /**
+     * @description List of operation definitions.
+     *
      * @var HttpApiOperation[]
      */
     public $operations;

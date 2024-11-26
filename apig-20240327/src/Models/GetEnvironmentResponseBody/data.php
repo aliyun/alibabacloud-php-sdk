@@ -5,17 +5,24 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentResponseBody;
 
 use AlibabaCloud\SDK\APIG\V20240327\Models\GatewayInfo;
+use AlibabaCloud\SDK\APIG\V20240327\Models\GetEnvironmentResponseBody\data\statisticsInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\SubDomainInfo;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
+     * @description Environment alias.
+     *
+     * @example 测试环境
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description Creation timestamp.
+     *
      * @example 1719386834548
      *
      * @var int
@@ -23,6 +30,8 @@ class data extends Model
     public $createTimestamp;
 
     /**
+     * @description Whether it is the default environment.
+     *
      * @example true
      *
      * @var bool
@@ -30,11 +39,17 @@ class data extends Model
     public $default;
 
     /**
+     * @description Environment description.
+     *
+     * @example 这是xxx的xx项目测试环境
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Environment ID.
+     *
      * @example env-cq7l5s5lhtgi6qasrdc0
      *
      * @var string
@@ -42,11 +57,15 @@ class data extends Model
     public $environmentId;
 
     /**
+     * @description Gateway information
+     *
      * @var GatewayInfo
      */
     public $gatewayInfo;
 
     /**
+     * @description Environment name.
+     *
      * @example test
      *
      * @var string
@@ -54,11 +73,25 @@ class data extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var statisticsInfo
+     */
+    public $statisticsInfo;
+
+    /**
+     * @description List of subdomains.
+     *
      * @var SubDomainInfo[]
      */
     public $subDomainInfos;
 
     /**
+     * @description Update timestamp.
+     *
      * @example 1719386834548
      *
      * @var int
@@ -72,6 +105,8 @@ class data extends Model
         'environmentId'   => 'environmentId',
         'gatewayInfo'     => 'gatewayInfo',
         'name'            => 'name',
+        'resourceGroupId' => 'resourceGroupId',
+        'statisticsInfo'  => 'statisticsInfo',
         'subDomainInfos'  => 'subDomainInfos',
         'updateTimestamp' => 'updateTimestamp',
     ];
@@ -103,6 +138,12 @@ class data extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->statisticsInfo) {
+            $res['statisticsInfo'] = null !== $this->statisticsInfo ? $this->statisticsInfo->toMap() : null;
         }
         if (null !== $this->subDomainInfos) {
             $res['subDomainInfos'] = [];
@@ -148,6 +189,12 @@ class data extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['statisticsInfo'])) {
+            $model->statisticsInfo = statisticsInfo::fromMap($map['statisticsInfo']);
         }
         if (isset($map['subDomainInfos'])) {
             if (!empty($map['subDomainInfos'])) {

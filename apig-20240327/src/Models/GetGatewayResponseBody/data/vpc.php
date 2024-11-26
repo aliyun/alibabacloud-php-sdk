@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
+     * @description VPC gateway name.
+     *
+     * @example 杭州VPC
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description VPC network ID.
+     *
      * @example vpc-bp1llj52lvj6xc***
      *
      * @var string

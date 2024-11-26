@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetGatewayResponseBody extends Model
 {
     /**
+     * @description Response status code.
+     *
      * @example Ok
      *
      * @var string
@@ -17,11 +19,15 @@ class GetGatewayResponseBody extends Model
     public $code;
 
     /**
+     * @description Response data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Response message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class GetGatewayResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example 0F138FFC-6E2B-56C1-9BAB-A67462E339D1
      *
      * @var string

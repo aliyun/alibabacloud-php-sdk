@@ -43,6 +43,13 @@ class serviceConfigs extends Model
     public $protocol;
 
     /**
+     * @example svc-xxx
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
      * @example v1
      *
      * @var string
@@ -61,6 +68,7 @@ class serviceConfigs extends Model
         'name'             => 'name',
         'port'             => 'port',
         'protocol'         => 'protocol',
+        'serviceId'        => 'serviceId',
         'version'          => 'version',
         'weight'           => 'weight',
     ];
@@ -86,6 +94,9 @@ class serviceConfigs extends Model
         }
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
+        }
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
         }
         if (null !== $this->version) {
             $res['version'] = $this->version;
@@ -119,6 +130,9 @@ class serviceConfigs extends Model
         }
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
+        }
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];

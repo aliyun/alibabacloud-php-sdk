@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class securityGroup extends Model
 {
     /**
+     * @description Security group name.
+     *
      * @example APIG-sg-gw-cq7ke5ll***
      *
      * @var string
@@ -16,6 +18,8 @@ class securityGroup extends Model
     public $name;
 
     /**
+     * @description Security group ID.
+     *
      * @example sg-bp16tafq9***
      *
      * @var string

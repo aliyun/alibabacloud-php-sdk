@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Gateway list
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description Page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description Page size.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description Total count.
+     *
      * @example 6
      *
      * @var int

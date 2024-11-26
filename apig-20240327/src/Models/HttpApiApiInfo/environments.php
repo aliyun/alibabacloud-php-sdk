@@ -4,14 +4,21 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo;
 
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\environments\cloudProductConfig;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\environments\dnsConfigs;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\environments\gatewayInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\environments\serviceConfigs;
-use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\environments\vipConfigs;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiApiInfo\environments\subDomains;
+use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiDomainInfo;
 use AlibabaCloud\Tea\Model;
 
 class environments extends Model
 {
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $alias;
+
     /**
      * @example SingleService
      *
@@ -27,14 +34,16 @@ class environments extends Model
     public $backendType;
 
     /**
-     * @var cloudProductConfig
+     * @var HttpApiDomainInfo[]
      */
-    public $cloudProductConfig;
+    public $customDomains;
 
     /**
-     * @var dnsConfigs[]
+     * @example Deployed
+     *
+     * @var string
      */
-    public $dnsConfigs;
+    public $deployStatus;
 
     /**
      * @example env-xxx
@@ -44,22 +53,37 @@ class environments extends Model
     public $environmentId;
 
     /**
+     * @var gatewayInfo
+     */
+    public $gatewayInfo;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var serviceConfigs[]
      */
     public $serviceConfigs;
 
     /**
-     * @var vipConfigs[]
+     * @var subDomains[]
      */
-    public $vipConfigs;
+    public $subDomains;
     protected $_name = [
-        'backendScene'       => 'backendScene',
-        'backendType'        => 'backendType',
-        'cloudProductConfig' => 'cloudProductConfig',
-        'dnsConfigs'         => 'dnsConfigs',
-        'environmentId'      => 'environmentId',
-        'serviceConfigs'     => 'serviceConfigs',
-        'vipConfigs'         => 'vipConfigs',
+        'alias'          => 'alias',
+        'backendScene'   => 'backendScene',
+        'backendType'    => 'backendType',
+        'customDomains'  => 'customDomains',
+        'deployStatus'   => 'deployStatus',
+        'environmentId'  => 'environmentId',
+        'gatewayInfo'    => 'gatewayInfo',
+        'name'           => 'name',
+        'serviceConfigs' => 'serviceConfigs',
+        'subDomains'     => 'subDomains',
     ];
 
     public function validate()
@@ -69,26 +93,35 @@ class environments extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alias) {
+            $res['alias'] = $this->alias;
+        }
         if (null !== $this->backendScene) {
             $res['backendScene'] = $this->backendScene;
         }
         if (null !== $this->backendType) {
             $res['backendType'] = $this->backendType;
         }
-        if (null !== $this->cloudProductConfig) {
-            $res['cloudProductConfig'] = null !== $this->cloudProductConfig ? $this->cloudProductConfig->toMap() : null;
-        }
-        if (null !== $this->dnsConfigs) {
-            $res['dnsConfigs'] = [];
-            if (null !== $this->dnsConfigs && \is_array($this->dnsConfigs)) {
+        if (null !== $this->customDomains) {
+            $res['customDomains'] = [];
+            if (null !== $this->customDomains && \is_array($this->customDomains)) {
                 $n = 0;
-                foreach ($this->dnsConfigs as $item) {
-                    $res['dnsConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->customDomains as $item) {
+                    $res['customDomains'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
+        if (null !== $this->deployStatus) {
+            $res['deployStatus'] = $this->deployStatus;
+        }
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
+        }
+        if (null !== $this->gatewayInfo) {
+            $res['gatewayInfo'] = null !== $this->gatewayInfo ? $this->gatewayInfo->toMap() : null;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->serviceConfigs) {
             $res['serviceConfigs'] = [];
@@ -99,12 +132,12 @@ class environments extends Model
                 }
             }
         }
-        if (null !== $this->vipConfigs) {
-            $res['vipConfigs'] = [];
-            if (null !== $this->vipConfigs && \is_array($this->vipConfigs)) {
+        if (null !== $this->subDomains) {
+            $res['subDomains'] = [];
+            if (null !== $this->subDomains && \is_array($this->subDomains)) {
                 $n = 0;
-                foreach ($this->vipConfigs as $item) {
-                    $res['vipConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->subDomains as $item) {
+                    $res['subDomains'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -120,26 +153,35 @@ class environments extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['alias'])) {
+            $model->alias = $map['alias'];
+        }
         if (isset($map['backendScene'])) {
             $model->backendScene = $map['backendScene'];
         }
         if (isset($map['backendType'])) {
             $model->backendType = $map['backendType'];
         }
-        if (isset($map['cloudProductConfig'])) {
-            $model->cloudProductConfig = cloudProductConfig::fromMap($map['cloudProductConfig']);
-        }
-        if (isset($map['dnsConfigs'])) {
-            if (!empty($map['dnsConfigs'])) {
-                $model->dnsConfigs = [];
-                $n                 = 0;
-                foreach ($map['dnsConfigs'] as $item) {
-                    $model->dnsConfigs[$n++] = null !== $item ? dnsConfigs::fromMap($item) : $item;
+        if (isset($map['customDomains'])) {
+            if (!empty($map['customDomains'])) {
+                $model->customDomains = [];
+                $n                    = 0;
+                foreach ($map['customDomains'] as $item) {
+                    $model->customDomains[$n++] = null !== $item ? HttpApiDomainInfo::fromMap($item) : $item;
                 }
             }
         }
+        if (isset($map['deployStatus'])) {
+            $model->deployStatus = $map['deployStatus'];
+        }
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
+        }
+        if (isset($map['gatewayInfo'])) {
+            $model->gatewayInfo = gatewayInfo::fromMap($map['gatewayInfo']);
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['serviceConfigs'])) {
             if (!empty($map['serviceConfigs'])) {
@@ -150,12 +192,12 @@ class environments extends Model
                 }
             }
         }
-        if (isset($map['vipConfigs'])) {
-            if (!empty($map['vipConfigs'])) {
-                $model->vipConfigs = [];
+        if (isset($map['subDomains'])) {
+            if (!empty($map['subDomains'])) {
+                $model->subDomains = [];
                 $n                 = 0;
-                foreach ($map['vipConfigs'] as $item) {
-                    $model->vipConfigs[$n++] = null !== $item ? vipConfigs::fromMap($item) : $item;
+                foreach ($map['subDomains'] as $item) {
+                    $model->subDomains[$n++] = null !== $item ? subDomains::fromMap($item) : $item;
                 }
             }
         }

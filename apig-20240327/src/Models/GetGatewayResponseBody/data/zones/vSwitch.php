@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @description Virtual switch name.
+     *
+     * @example 杭州VPC虚拟交换机
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Virtual switch ID.
+     *
      * @example vsw-bp1c7ggkj***
      *
      * @var string

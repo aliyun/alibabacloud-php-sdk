@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
+     * @description The vSwitch.
+     *
      * @var vSwitch
      */
     public $vSwitch;
 
     /**
+     * @description The ID of the current zone.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $zoneId;

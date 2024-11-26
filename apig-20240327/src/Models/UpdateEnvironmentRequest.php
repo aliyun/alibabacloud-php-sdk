@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class UpdateEnvironmentRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Environment alias.
+     *
+     * This parameter is required.
+     * @example 测试环境
      *
      * @var string
      */
     public $alias;
 
     /**
+     * @description Description of the environment, which can include information such as the purpose of the environment and its users.
+     *
+     * @example 这是xx的xx项目测试环境
+     *
      * @var string
      */
     public $description;

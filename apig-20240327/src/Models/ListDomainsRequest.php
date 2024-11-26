@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsRequest extends Model
 {
     /**
+     * @description Gateway Id.
+     *
+     * @example gw-xxx
+     *
      * @var string
      */
     public $gatewayId;
 
     /**
+     * @description Domain name, fuzzy search.
+     *
      * @example test
      *
      * @var string
@@ -21,6 +27,8 @@ class ListDomainsRequest extends Model
     public $nameLike;
 
     /**
+     * @description Page number, default is 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,16 +36,24 @@ class ListDomainsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description Number of items per page, default is 10.
+     *
      * @example 10
      *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'gatewayId'  => 'gatewayId',
-        'nameLike'   => 'nameLike',
-        'pageNumber' => 'pageNumber',
-        'pageSize'   => 'pageSize',
+        'gatewayId'       => 'gatewayId',
+        'nameLike'        => 'nameLike',
+        'pageNumber'      => 'pageNumber',
+        'pageSize'        => 'pageSize',
+        'resourceGroupId' => 'resourceGroupId',
     ];
 
     public function validate()
@@ -58,6 +74,9 @@ class ListDomainsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['resourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -82,6 +101,9 @@ class ListDomainsRequest extends Model
         }
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
+        }
+        if (isset($map['resourceGroupId'])) {
+            $model->resourceGroupId = $map['resourceGroupId'];
         }
 
         return $model;

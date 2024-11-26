@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Operation information.
+     *
      * @var operations[]
      */
     public $operations;

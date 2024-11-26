@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsResponseBody extends Model
 {
     /**
+     * @description Response code.
+     *
      * @example Ok
      *
      * @var string
@@ -17,11 +19,15 @@ class ListDomainsResponseBody extends Model
     public $code;
 
     /**
+     * @description Response data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Response message.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class ListDomainsResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID, used for tracing the API call chain.
+     *
      * @example C61E30D3-579A-5B43-994E-31E02EDC9129
      *
      * @var string

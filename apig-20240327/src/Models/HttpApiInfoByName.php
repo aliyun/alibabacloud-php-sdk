@@ -16,6 +16,13 @@ class HttpApiInfoByName extends Model
     public $name;
 
     /**
+     * @example Http
+     *
+     * @var string
+     */
+    public $type;
+
+    /**
      * @example true
      *
      * @var bool
@@ -28,6 +35,7 @@ class HttpApiInfoByName extends Model
     public $versionedHttpApis;
     protected $_name = [
         'name'              => 'name',
+        'type'              => 'type',
         'versionEnabled'    => 'versionEnabled',
         'versionedHttpApis' => 'versionedHttpApis',
     ];
@@ -41,6 +49,9 @@ class HttpApiInfoByName extends Model
         $res = [];
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
         if (null !== $this->versionEnabled) {
             $res['versionEnabled'] = $this->versionEnabled;
@@ -68,6 +79,9 @@ class HttpApiInfoByName extends Model
         $model = new self();
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
         if (isset($map['versionEnabled'])) {
             $model->versionEnabled = $map['versionEnabled'];

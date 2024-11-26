@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AddGatewaySecurityGroupRuleRequest extends Model
 {
     /**
+     * @description Description of the security group rule.
+     *
+     * @example 商品中心访问安全组
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Port ranges.
+     *
      * @var string[]
      */
     public $portRanges;
 
     /**
+     * @description Security group ID.
+     *
      * @example sg-wz929kxhcdp****
      *
      * @var string

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-xxxxx
+     *
      * @var string
      */
     public $vSwitchId;

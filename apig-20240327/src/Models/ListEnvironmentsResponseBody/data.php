@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description List of environment information.
+     *
      * @var EnvironmentInfo[]
      */
     public $items;
 
     /**
+     * @description Page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description Number of items per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description Total number of items.
+     *
      * @example 25
      *
      * @var int

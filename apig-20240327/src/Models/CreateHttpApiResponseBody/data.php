@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description HTTP API ID.
+     *
+     * @example api-xxx
+     *
      * @var string
      */
     public $httpApiId;
 
     /**
+     * @description Name of the API.
+     *
+     * @example test-api
+     *
      * @var string
      */
     public $name;
