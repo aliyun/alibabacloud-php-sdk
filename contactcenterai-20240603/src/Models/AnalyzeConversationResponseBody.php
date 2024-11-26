@@ -28,6 +28,16 @@ class AnalyzeConversationResponseBody extends Model
     public $finishReason;
 
     /**
+     * @var string
+     */
+    public $inputTokens;
+
+    /**
+     * @var string
+     */
+    public $outputTokens;
+
+    /**
      * @example 968A8634-FA2C-5381-9B3E-C552DED7E8BF
      *
      * @var string
@@ -45,13 +55,21 @@ class AnalyzeConversationResponseBody extends Model
      * @var string
      */
     public $text;
+
+    /**
+     * @var string
+     */
+    public $totalTokens;
     protected $_name = [
         'errorCode'    => 'errorCode',
         'errorInfo'    => 'errorInfo',
         'finishReason' => 'finishReason',
+        'inputTokens'  => 'inputTokens',
+        'outputTokens' => 'outputTokens',
         'requestId'    => 'requestId',
         'success'      => 'success',
         'text'         => 'text',
+        'totalTokens'  => 'totalTokens',
     ];
 
     public function validate()
@@ -70,6 +88,12 @@ class AnalyzeConversationResponseBody extends Model
         if (null !== $this->finishReason) {
             $res['finishReason'] = $this->finishReason;
         }
+        if (null !== $this->inputTokens) {
+            $res['inputTokens'] = $this->inputTokens;
+        }
+        if (null !== $this->outputTokens) {
+            $res['outputTokens'] = $this->outputTokens;
+        }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -78,6 +102,9 @@ class AnalyzeConversationResponseBody extends Model
         }
         if (null !== $this->text) {
             $res['text'] = $this->text;
+        }
+        if (null !== $this->totalTokens) {
+            $res['totalTokens'] = $this->totalTokens;
         }
 
         return $res;
@@ -100,6 +127,12 @@ class AnalyzeConversationResponseBody extends Model
         if (isset($map['finishReason'])) {
             $model->finishReason = $map['finishReason'];
         }
+        if (isset($map['inputTokens'])) {
+            $model->inputTokens = $map['inputTokens'];
+        }
+        if (isset($map['outputTokens'])) {
+            $model->outputTokens = $map['outputTokens'];
+        }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
@@ -108,6 +141,9 @@ class AnalyzeConversationResponseBody extends Model
         }
         if (isset($map['text'])) {
             $model->text = $map['text'];
+        }
+        if (isset($map['totalTokens'])) {
+            $model->totalTokens = $map['totalTokens'];
         }
 
         return $model;

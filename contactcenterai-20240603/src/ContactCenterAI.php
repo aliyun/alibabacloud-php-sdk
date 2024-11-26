@@ -8,8 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeConversationResponse;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateConversationAnalysisTaskRequest;
-use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateConversationAnalysisTaskResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeImageRequest;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\AnalyzeImageResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultRequest;
@@ -99,6 +99,9 @@ class ContactCenterAI extends OpenApiClient
         if (!Utils::isUnset($request->stream)) {
             $body['stream'] = $request->stream;
         }
+        if (!Utils::isUnset($request->timeConstraintList)) {
+            $body['timeConstraintList'] = $request->timeConstraintList;
+        }
         if (!Utils::isUnset($request->userProfiles)) {
             $body['userProfiles'] = $request->userProfiles;
         }
@@ -139,68 +142,38 @@ class ContactCenterAI extends OpenApiClient
     }
 
     /**
-     * @summary 创建语音文件调用llm任务
+     * @summary 图片分析
      *  *
-     * @param string                                $workspaceId
-     * @param string                                $appId
-     * @param CreateConversationAnalysisTaskRequest $request     CreateConversationAnalysisTaskRequest
-     * @param string[]                              $headers     map
-     * @param RuntimeOptions                        $runtime     runtime options for this request RuntimeOptions
+     * @param string              $workspaceId
+     * @param string              $appId
+     * @param AnalyzeImageRequest $request     AnalyzeImageRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
      *
-     * @return CreateConversationAnalysisTaskResponse CreateConversationAnalysisTaskResponse
+     * @return AnalyzeImageResponse AnalyzeImageResponse
      */
-    public function createConversationAnalysisTaskWithOptions($workspaceId, $appId, $request, $headers, $runtime)
+    public function analyzeImageWithOptions($workspaceId, $appId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->autoSplit)) {
-            $body['autoSplit'] = $request->autoSplit;
-        }
-        if (!Utils::isUnset($request->clientChannel)) {
-            $body['clientChannel'] = $request->clientChannel;
-        }
-        if (!Utils::isUnset($request->examples)) {
-            $body['examples'] = $request->examples;
-        }
-        if (!Utils::isUnset($request->fields)) {
-            $body['fields'] = $request->fields;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $body['fileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->modelCode)) {
-            $body['modelCode'] = $request->modelCode;
+        if (!Utils::isUnset($request->imageUrls)) {
+            $body['imageUrls'] = $request->imageUrls;
         }
         if (!Utils::isUnset($request->resultTypes)) {
             $body['resultTypes'] = $request->resultTypes;
         }
-        if (!Utils::isUnset($request->sceneName)) {
-            $body['sceneName'] = $request->sceneName;
-        }
-        if (!Utils::isUnset($request->serviceChannel)) {
-            $body['serviceChannel'] = $request->serviceChannel;
-        }
-        if (!Utils::isUnset($request->serviceChannelKeywords)) {
-            $body['serviceChannelKeywords'] = $request->serviceChannelKeywords;
-        }
-        if (!Utils::isUnset($request->serviceInspection)) {
-            $body['serviceInspection'] = $request->serviceInspection;
-        }
-        if (!Utils::isUnset($request->templateIds)) {
-            $body['templateIds'] = $request->templateIds;
-        }
-        if (!Utils::isUnset($request->voiceFileUrl)) {
-            $body['voiceFileUrl'] = $request->voiceFileUrl;
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateConversationAnalysisTask',
+            'action'      => 'AnalyzeImage',
             'version'     => '2024-06-03',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/createConversationAnalysisTask',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/ccai/app/' . OpenApiUtilClient::getEncodeParam($appId) . '/analyzeImage',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -208,24 +181,24 @@ class ContactCenterAI extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateConversationAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AnalyzeImageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 创建语音文件调用llm任务
+     * @summary 图片分析
      *  *
-     * @param string                                $workspaceId
-     * @param string                                $appId
-     * @param CreateConversationAnalysisTaskRequest $request     CreateConversationAnalysisTaskRequest
+     * @param string              $workspaceId
+     * @param string              $appId
+     * @param AnalyzeImageRequest $request     AnalyzeImageRequest
      *
-     * @return CreateConversationAnalysisTaskResponse CreateConversationAnalysisTaskResponse
+     * @return AnalyzeImageResponse AnalyzeImageResponse
      */
-    public function createConversationAnalysisTask($workspaceId, $appId, $request)
+    public function analyzeImage($workspaceId, $appId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createConversationAnalysisTaskWithOptions($workspaceId, $appId, $request, $headers, $runtime);
+        return $this->analyzeImageWithOptions($workspaceId, $appId, $request, $headers, $runtime);
     }
 
     /**

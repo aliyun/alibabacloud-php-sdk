@@ -70,20 +70,26 @@ class AnalyzeConversationRequest extends Model
     public $stream;
 
     /**
+     * @var string[]
+     */
+    public $timeConstraintList;
+
+    /**
      * @var userProfiles[]
      */
     public $userProfiles;
     protected $_name = [
-        'categoryTags'      => 'categoryTags',
-        'dialogue'          => 'dialogue',
-        'examples'          => 'examples',
-        'fields'            => 'fields',
-        'modelCode'         => 'modelCode',
-        'resultTypes'       => 'resultTypes',
-        'sceneName'         => 'sceneName',
-        'serviceInspection' => 'serviceInspection',
-        'stream'            => 'stream',
-        'userProfiles'      => 'userProfiles',
+        'categoryTags'       => 'categoryTags',
+        'dialogue'           => 'dialogue',
+        'examples'           => 'examples',
+        'fields'             => 'fields',
+        'modelCode'          => 'modelCode',
+        'resultTypes'        => 'resultTypes',
+        'sceneName'          => 'sceneName',
+        'serviceInspection'  => 'serviceInspection',
+        'stream'             => 'stream',
+        'timeConstraintList' => 'timeConstraintList',
+        'userProfiles'       => 'userProfiles',
     ];
 
     public function validate()
@@ -137,6 +143,9 @@ class AnalyzeConversationRequest extends Model
         }
         if (null !== $this->stream) {
             $res['stream'] = $this->stream;
+        }
+        if (null !== $this->timeConstraintList) {
+            $res['timeConstraintList'] = $this->timeConstraintList;
         }
         if (null !== $this->userProfiles) {
             $res['userProfiles'] = [];
@@ -205,6 +214,11 @@ class AnalyzeConversationRequest extends Model
         }
         if (isset($map['stream'])) {
             $model->stream = $map['stream'];
+        }
+        if (isset($map['timeConstraintList'])) {
+            if (!empty($map['timeConstraintList'])) {
+                $model->timeConstraintList = $map['timeConstraintList'];
+            }
         }
         if (isset($map['userProfiles'])) {
             if (!empty($map['userProfiles'])) {

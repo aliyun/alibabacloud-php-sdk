@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateConversationAnalysisTaskResponse extends Model
+class AnalyzeImageResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateConversationAnalysisTaskResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateConversationAnalysisTaskResponseBody
+     * @var AnalyzeImageResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreateConversationAnalysisTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateConversationAnalysisTaskResponse
+     * @return AnalyzeImageResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreateConversationAnalysisTaskResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateConversationAnalysisTaskResponseBody::fromMap($map['body']);
+            $model->body = AnalyzeImageResponseBody::fromMap($map['body']);
         }
 
         return $model;
