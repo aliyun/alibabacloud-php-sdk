@@ -92,6 +92,11 @@ class RCInstances extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
      * @description The instance status. Valid values:
      *
      *   **Pending**
@@ -136,6 +141,7 @@ class RCInstances extends Model
         'instanceChargeType' => 'InstanceChargeType',
         'instanceId'         => 'InstanceId',
         'regionId'           => 'RegionId',
+        'spotStrategy'       => 'SpotStrategy',
         'status'             => 'Status',
         'tagResources'       => 'TagResources',
         'vpcId'              => 'VpcId',
@@ -178,6 +184,9 @@ class RCInstances extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -238,6 +247,9 @@ class RCInstances extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

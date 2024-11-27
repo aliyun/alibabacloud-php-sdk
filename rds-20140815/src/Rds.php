@@ -21755,6 +21755,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->dbEndpointAliases)) {
             $query['DbEndpointAliases'] = $request->dbEndpointAliases;
         }
+        if (!Utils::isUnset($request->dbEndpointMinSlaveCount)) {
+            $query['DbEndpointMinSlaveCount'] = $request->dbEndpointMinSlaveCount;
+        }
         if (!Utils::isUnset($request->dbEndpointOperator)) {
             $query['DbEndpointOperator'] = $request->dbEndpointOperator;
         }
@@ -26126,6 +26129,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->spotStrategy)) {
+            $query['SpotStrategy'] = $request->spotStrategy;
         }
         if (!Utils::isUnset($request->systemDiskShrink)) {
             $query['SystemDisk'] = $request->systemDiskShrink;

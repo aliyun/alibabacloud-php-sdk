@@ -69,6 +69,11 @@ class ModifyDBProxyEndpointRequest extends Model
     public $dbEndpointAliases;
 
     /**
+     * @var string
+     */
+    public $dbEndpointMinSlaveCount;
+
+    /**
      * @description The type of operation that you want to perform. Valid values:
      *
      *   **Modify**: Modify a proxy terminal. This is the default value.
@@ -209,6 +214,7 @@ class ModifyDBProxyEndpointRequest extends Model
         'DBProxyEndpointId'                => 'DBProxyEndpointId',
         'DBProxyEngineType'                => 'DBProxyEngineType',
         'dbEndpointAliases'                => 'DbEndpointAliases',
+        'dbEndpointMinSlaveCount'          => 'DbEndpointMinSlaveCount',
         'dbEndpointOperator'               => 'DbEndpointOperator',
         'dbEndpointReadWriteMode'          => 'DbEndpointReadWriteMode',
         'dbEndpointType'                   => 'DbEndpointType',
@@ -245,6 +251,9 @@ class ModifyDBProxyEndpointRequest extends Model
         }
         if (null !== $this->dbEndpointAliases) {
             $res['DbEndpointAliases'] = $this->dbEndpointAliases;
+        }
+        if (null !== $this->dbEndpointMinSlaveCount) {
+            $res['DbEndpointMinSlaveCount'] = $this->dbEndpointMinSlaveCount;
         }
         if (null !== $this->dbEndpointOperator) {
             $res['DbEndpointOperator'] = $this->dbEndpointOperator;
@@ -311,6 +320,9 @@ class ModifyDBProxyEndpointRequest extends Model
         }
         if (isset($map['DbEndpointAliases'])) {
             $model->dbEndpointAliases = $map['DbEndpointAliases'];
+        }
+        if (isset($map['DbEndpointMinSlaveCount'])) {
+            $model->dbEndpointMinSlaveCount = $map['DbEndpointMinSlaveCount'];
         }
         if (isset($map['DbEndpointOperator'])) {
             $model->dbEndpointOperator = $map['DbEndpointOperator'];

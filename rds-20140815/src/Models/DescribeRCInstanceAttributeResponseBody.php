@@ -332,6 +332,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $serialNumber;
 
     /**
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
      * @description The instance status. Valid values:
      *
      *   **Pending**
@@ -421,6 +426,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'resourceGroupId'         => 'ResourceGroupId',
         'securityGroupIds'        => 'SecurityGroupIds',
         'serialNumber'            => 'SerialNumber',
+        'spotStrategy'            => 'SpotStrategy',
         'status'                  => 'Status',
         'stoppedMode'             => 'StoppedMode',
         'vlanId'                  => 'VlanId',
@@ -542,6 +548,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -677,6 +686,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

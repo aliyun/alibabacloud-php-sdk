@@ -242,6 +242,11 @@ class RunRCInstancesRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
      * @description The specification of the system disk.
      *
      * @var systemDisk
@@ -298,6 +303,7 @@ class RunRCInstancesRequest extends Model
         'resourceGroupId'             => 'ResourceGroupId',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId'             => 'SecurityGroupId',
+        'spotStrategy'                => 'SpotStrategy',
         'systemDisk'                  => 'SystemDisk',
         'tag'                         => 'Tag',
         'vSwitchId'                   => 'VSwitchId',
@@ -391,6 +397,9 @@ class RunRCInstancesRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
         }
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
@@ -502,6 +511,9 @@ class RunRCInstancesRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
         }
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);

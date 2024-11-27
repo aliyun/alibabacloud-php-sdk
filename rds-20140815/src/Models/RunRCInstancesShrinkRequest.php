@@ -240,6 +240,11 @@ class RunRCInstancesShrinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
      * @description The specification of the system disk.
      *
      * @var string
@@ -296,6 +301,7 @@ class RunRCInstancesShrinkRequest extends Model
         'resourceGroupId'             => 'ResourceGroupId',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId'             => 'SecurityGroupId',
+        'spotStrategy'                => 'SpotStrategy',
         'systemDiskShrink'            => 'SystemDisk',
         'tag'                         => 'Tag',
         'vSwitchId'                   => 'VSwitchId',
@@ -383,6 +389,9 @@ class RunRCInstancesShrinkRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
         }
         if (null !== $this->systemDiskShrink) {
             $res['SystemDisk'] = $this->systemDiskShrink;
@@ -488,6 +497,9 @@ class RunRCInstancesShrinkRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
         }
         if (isset($map['SystemDisk'])) {
             $model->systemDiskShrink = $map['SystemDisk'];

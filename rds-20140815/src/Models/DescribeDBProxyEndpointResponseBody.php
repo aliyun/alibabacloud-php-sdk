@@ -50,6 +50,11 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public $DBProxyEndpointId;
 
     /**
+     * @var string
+     */
+    public $DBProxyEndpointMinSlaveCount;
+
+    /**
      * @description An internal parameter. You can ignore this parameter.
      *
      * @example normal
@@ -176,6 +181,7 @@ class DescribeDBProxyEndpointResponseBody extends Model
         'DBProxyConnectStringNetType'      => 'DBProxyConnectStringNetType',
         'DBProxyConnectStringPort'         => 'DBProxyConnectStringPort',
         'DBProxyEndpointId'                => 'DBProxyEndpointId',
+        'DBProxyEndpointMinSlaveCount'     => 'DBProxyEndpointMinSlaveCount',
         'DBProxyEngineType'                => 'DBProxyEngineType',
         'DBProxyFeatures'                  => 'DBProxyFeatures',
         'DBProxyNodes'                     => 'DBProxyNodes',
@@ -208,6 +214,9 @@ class DescribeDBProxyEndpointResponseBody extends Model
         }
         if (null !== $this->DBProxyEndpointId) {
             $res['DBProxyEndpointId'] = $this->DBProxyEndpointId;
+        }
+        if (null !== $this->DBProxyEndpointMinSlaveCount) {
+            $res['DBProxyEndpointMinSlaveCount'] = $this->DBProxyEndpointMinSlaveCount;
         }
         if (null !== $this->DBProxyEngineType) {
             $res['DBProxyEngineType'] = $this->DBProxyEngineType;
@@ -268,6 +277,9 @@ class DescribeDBProxyEndpointResponseBody extends Model
         }
         if (isset($map['DBProxyEndpointId'])) {
             $model->DBProxyEndpointId = $map['DBProxyEndpointId'];
+        }
+        if (isset($map['DBProxyEndpointMinSlaveCount'])) {
+            $model->DBProxyEndpointMinSlaveCount = $map['DBProxyEndpointMinSlaveCount'];
         }
         if (isset($map['DBProxyEngineType'])) {
             $model->DBProxyEngineType = $map['DBProxyEngineType'];
