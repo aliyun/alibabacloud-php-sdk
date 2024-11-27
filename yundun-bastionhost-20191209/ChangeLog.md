@@ -1,3 +1,10 @@
+2024-11-27 Version: 1.3.0
+- Support API CreateExportConfigJob.
+- Support API CreateOperationTicket.
+- Support API GetExportConfigJob.
+- Support API GetInstanceStoreInfo.
+
+
 2024-11-05 Version: 1.2.1
 - Update API AcceptOperationTicket: add param Comment.
 - Update API AcceptOperationTicket: update param EffectCount.

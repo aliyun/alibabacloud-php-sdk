@@ -38,6 +38,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateDatabaseAccountReq
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateDatabaseAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateDatabaseRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateDatabaseResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateExportConfigJobRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateExportConfigJobResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostAccountRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostGroupRequest;
@@ -48,6 +50,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostShareKeyReques
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateHostShareKeyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateNetworkDomainRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateNetworkDomainResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateOperationTicketRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateOperationTicketResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreatePolicyResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\CreateRuleRequest;
@@ -116,6 +120,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseAccountReques
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetDatabaseResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetExportConfigJobRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetExportConfigJobResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostAccountRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostAccountResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetHostGroupRequest;
@@ -128,6 +134,8 @@ use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceADAuthServerR
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceADAuthServerResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceLDAPAuthServerRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceLDAPAuthServerResponse;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceStoreInfoRequest;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceStoreInfoResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceTwoFactorRequest;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetInstanceTwoFactorResponse;
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\GetNetworkDomainRequest;
@@ -1321,6 +1329,52 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param CreateExportConfigJobRequest $request CreateExportConfigJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateExportConfigJobResponse CreateExportConfigJobResponse
+     */
+    public function createExportConfigJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateExportConfigJob',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateExportConfigJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateExportConfigJobRequest $request CreateExportConfigJobRequest
+     *
+     * @return CreateExportConfigJobResponse CreateExportConfigJobResponse
+     */
+    public function createExportConfigJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createExportConfigJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Bastionhost allows you to perform O\\&M operations on hosts from different sources, such as Alibaba Cloud Elastic Compute Service (ECS) instances, servers in on-premises data centers, and servers on other cloud platforms. Before you perform O\\&M operations on hosts by using a bastion host, you must import the hosts to the bastion host. You can call this operation to import a host to a bastion host.
      *  *
      * @param CreateHostRequest $request CreateHostRequest
@@ -1646,6 +1700,73 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNetworkDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOperationTicketRequest $request CreateOperationTicketRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateOperationTicketResponse CreateOperationTicketResponse
+     */
+    public function createOperationTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->approveComment)) {
+            $query['ApproveComment'] = $request->approveComment;
+        }
+        if (!Utils::isUnset($request->assetAccountName)) {
+            $query['AssetAccountName'] = $request->assetAccountName;
+        }
+        if (!Utils::isUnset($request->assetId)) {
+            $query['AssetId'] = $request->assetId;
+        }
+        if (!Utils::isUnset($request->effectEndTime)) {
+            $query['EffectEndTime'] = $request->effectEndTime;
+        }
+        if (!Utils::isUnset($request->effectStartTime)) {
+            $query['EffectStartTime'] = $request->effectStartTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->isOneTimeEffect)) {
+            $query['IsOneTimeEffect'] = $request->isOneTimeEffect;
+        }
+        if (!Utils::isUnset($request->protocolName)) {
+            $query['ProtocolName'] = $request->protocolName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOperationTicket',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOperationTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOperationTicketRequest $request CreateOperationTicketRequest
+     *
+     * @return CreateOperationTicketResponse CreateOperationTicketResponse
+     */
+    public function createOperationTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOperationTicketWithOptions($request, $runtime);
     }
 
     /**
@@ -3633,6 +3754,55 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @param GetExportConfigJobRequest $request GetExportConfigJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetExportConfigJobResponse GetExportConfigJobResponse
+     */
+    public function getExportConfigJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetExportConfigJob',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetExportConfigJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetExportConfigJobRequest $request GetExportConfigJobRequest
+     *
+     * @return GetExportConfigJobResponse GetExportConfigJobResponse
+     */
+    public function getExportConfigJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getExportConfigJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details of a host, such as the name, source, address, protocol, and service port of the host.
      *  *
      * @param GetHostRequest $request GetHostRequest
@@ -3952,6 +4122,52 @@ class Yundunbastionhost extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceLDAPAuthServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetInstanceStoreInfoRequest $request GetInstanceStoreInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetInstanceStoreInfoResponse GetInstanceStoreInfoResponse
+     */
+    public function getInstanceStoreInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceStoreInfo',
+            'version'     => '2019-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceStoreInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetInstanceStoreInfoRequest $request GetInstanceStoreInfoRequest
+     *
+     * @return GetInstanceStoreInfoResponse GetInstanceStoreInfoResponse
+     */
+    public function getInstanceStoreInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceStoreInfoWithOptions($request, $runtime);
     }
 
     /**
