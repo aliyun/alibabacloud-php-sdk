@@ -11,6 +11,7 @@ class OnsConsumerResetOffsetRequest extends Model
     /**
      * @description The ID of the consumer group whose dead-letter message you want to query.
      *
+     * This parameter is required.
      * @example GID_test_consumer_id
      *
      * @var string
@@ -38,6 +39,7 @@ class OnsConsumerResetOffsetRequest extends Model
     /**
      * @description The name of the topic for which you want to reset the consumer offset.
      *
+     * This parameter is required.
      * @example test-mq-topic
      *
      * @var string
@@ -53,7 +55,7 @@ class OnsConsumerResetOffsetRequest extends Model
      *
      *   **1:** The messages that were published to the topic before the specified point in time are cleared. You must specify a point in time. Consumers in the specified consumer group consume only the messages that are published to the topic after the specified point in time.
      *
-     * You can specify a point in time from the earliest point in time when a message was published to the topic to the most recent point in time when a message was published to the topic. Points in time that are not within the allowed time range are invalid.
+     * This parameter is required.
      * @example 1
      *
      * @var int

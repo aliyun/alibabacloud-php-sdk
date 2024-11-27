@@ -23,7 +23,7 @@ class subscriptionDataList extends Model
      *   **CLUSTERING**: the clustering consumption mode
      *   **BROADCASTING**: the broadcasting consumption mode
      *
-     * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](~~43163~~).
+     * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](https://help.aliyun.com/document_detail/43163.html).
      * @example CLUSTERING
      *
      * @var string

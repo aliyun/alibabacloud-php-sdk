@@ -11,7 +11,7 @@ class subClientInfoDo extends Model
     /**
      * @description The address of the consumer.
      *
-     * @example 30.5.**.**
+     * @example ``30.5.**.**``
      *
      * @var string
      */

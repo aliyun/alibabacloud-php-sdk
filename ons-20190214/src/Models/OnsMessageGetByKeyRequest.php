@@ -20,6 +20,7 @@ class OnsMessageGetByKeyRequest extends Model
     /**
      * @description The key of the messages that you want to query.
      *
+     * This parameter is required.
      * @example messageKey1
      *
      * @var string
@@ -29,6 +30,7 @@ class OnsMessageGetByKeyRequest extends Model
     /**
      * @description The topic that contains the messages that you want to query.
      *
+     * This parameter is required.
      * @example test-mq_topic
      *
      * @var string

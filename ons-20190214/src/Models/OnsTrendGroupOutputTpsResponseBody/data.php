@@ -19,7 +19,7 @@ class data extends Model
     /**
      * @description The name of the table.
      *
-     * @example MQ_INST\_111111111111\_DOxxxxxx%test@MQ_INST\_111111111111\_DOxxxxxx%GID_test trend chart of delivered messages
+     * @example MQ_INST_111111111111_DOxxxxxx%test@MQ_INST_111111111111_DOxxxxxx%GID_test trend chart of delivered messages
      *
      * @var string
      */

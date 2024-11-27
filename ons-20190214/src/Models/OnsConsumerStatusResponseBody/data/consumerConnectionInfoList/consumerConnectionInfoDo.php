@@ -14,7 +14,7 @@ class consumerConnectionInfoDo extends Model
     /**
      * @description The ID of the consumer instance.
      *
-     * @example 30.5.**.**@25560#-1999745829#-1737591554#458773089270275
+     * @example ``30.5.**.**``@25560#-1999745829#-1737591554#458773089270275
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class consumerConnectionInfoDo extends Model
      *   **CLUSTERING**: the clustering consumption mode
      *   **BROADCASTING**: the broadcasting consumption mode
      *
-     * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](~~43163~~).
+     * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](https://help.aliyun.com/document_detail/43163.html).
      * @example CLUSTERING
      *
      * @var string

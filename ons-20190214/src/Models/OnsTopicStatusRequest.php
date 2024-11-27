@@ -20,6 +20,7 @@ class OnsTopicStatusRequest extends Model
     /**
      * @description The name of the topic that you want to query.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

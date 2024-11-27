@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsTraceQueryByMsgKeyResponseBody extends Model
 {
     /**
-     * @description The ID of the query task. You can call the [OnsTraceGetResult](~~59832~~) operation to query the details of the message trace based on the task ID.
+     * @description The ID of the query task. You can call the [OnsTraceGetResult](https://help.aliyun.com/document_detail/59832.html) operation to query the details of the message trace based on the task ID.
      *
      * @example 272967562652883649157096685****
      *

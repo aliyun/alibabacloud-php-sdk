@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsInstanceInServiceListResponseBody extends Model
 {
     /**
-     * @description The returned list of all published instances.
+     * @description The returned information about the queried instances.
      *
      * @var data
      */

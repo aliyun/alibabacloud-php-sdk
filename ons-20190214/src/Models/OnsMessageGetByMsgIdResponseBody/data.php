@@ -21,7 +21,7 @@ class data extends Model
     /**
      * @description The producer instance that generated the message.
      *
-     * @example 42.120.**.**:64646
+     * @example ``42.120.**.**``:64646
      *
      * @var string
      */

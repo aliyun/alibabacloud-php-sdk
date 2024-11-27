@@ -11,6 +11,7 @@ class OnsTraceQueryByMsgKeyRequest extends Model
     /**
      * @description The start of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
      *
+     * This parameter is required.
      * @example 1570852800000
      *
      * @var int
@@ -20,6 +21,7 @@ class OnsTraceQueryByMsgKeyRequest extends Model
     /**
      * @description The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
      *
+     * This parameter is required.
      * @example 1570968000000
      *
      * @var int
@@ -38,6 +40,7 @@ class OnsTraceQueryByMsgKeyRequest extends Model
     /**
      * @description The key of the message that you want to query.
      *
+     * This parameter is required.
      * @example ORDERID_100
      *
      * @var string
@@ -47,6 +50,7 @@ class OnsTraceQueryByMsgKeyRequest extends Model
     /**
      * @description The topic that contains the message you want to query.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

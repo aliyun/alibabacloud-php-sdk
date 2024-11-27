@@ -20,6 +20,7 @@ class OnsTopicDeleteRequest extends Model
     /**
      * @description The name of the topic that you want to delete.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

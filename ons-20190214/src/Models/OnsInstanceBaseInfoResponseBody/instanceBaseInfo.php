@@ -49,7 +49,7 @@ class instanceBaseInfo extends Model
     /**
      * @description The name of the instance.
      *
-     * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
+     * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      * @example test
      *
      * @var string
@@ -76,7 +76,7 @@ class instanceBaseInfo extends Model
      *   **1**: Standard Edition instances that use the pay-as-you-go billing method.
      *   **2**: Enterprise Platinum Edition instances that use the subscription billing method.
      *
-     * For information about the editions and specifications of ApsaraMQ for RocketMQ instances, see [Instance editions](~~185261~~).
+     * For information about the editions and specifications of ApsaraMQ for RocketMQ instances, see [Instance editions](https://help.aliyun.com/document_detail/185261.html).
      * @example 2
      *
      * @var int

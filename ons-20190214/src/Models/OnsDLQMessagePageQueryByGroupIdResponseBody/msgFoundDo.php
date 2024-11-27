@@ -28,7 +28,7 @@ class msgFoundDo extends Model
     public $maxPageCount;
 
     /**
-     * @description The information about dead-letter messages that are returned on the current page. The information that is contained in this parameter is the same as the information that is returned by the [OnsDLQMessageGetById](~~112667~~) operation.
+     * @description The information about dead-letter messages that are returned on the current page. The information that is contained in this parameter is the same as the information that is returned by the [OnsDLQMessageGetById](https://help.aliyun.com/document_detail/112667.html) operation.
      *
      * @var msgFoundList
      */

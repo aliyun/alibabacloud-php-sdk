@@ -29,6 +29,7 @@ class UntagResourcesRequest extends Model
     /**
      * @description The resource IDs.
      *
+     * This parameter is required.
      * @example TopicA
      *
      * @var string[]
@@ -42,6 +43,7 @@ class UntagResourcesRequest extends Model
      *   **TOPIC**
      *   **GROUP**
      *
+     * This parameter is required.
      * @example TOPIC
      *
      * @var string

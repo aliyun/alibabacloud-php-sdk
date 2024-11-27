@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class OnsInstanceInServiceListRequest extends Model
 {
     /**
+     * @description Specifies whether you want the resource information to be returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $needResourceInfo;
 
     /**
-     * @description The list of tags that are attached to the instance. A maximum of 20 tags can be included in a list.
+     * @description The tags that you want to attach to the instance. You can attach up to 20 tags to the instance.
      *
      * @var tag[]
      */

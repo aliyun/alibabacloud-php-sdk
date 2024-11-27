@@ -19,15 +19,19 @@ class instanceVO extends Model
     public $createTime;
 
     /**
+     * @description The number of consumer groups.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $groupCount;
 
     /**
-     * @description Indicates whether the instance uses a namespace. Valid values:
+     * @description Indicates whether a namespace is used for the instance. Valid values:
      *
-     *   **true**: The instance uses a separate namespace. The name of each resource must be unique in the instance. The names of resources in different instances can be the same.
-     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within the instance and across all instances.
+     *   **true**: A separate namespace is used for the instance. The identifier of each resource in the instance must be unique within the instance. However, the identifier of a resource in the instance can be the same as the identifier of a resource in another instance that uses a different namespace.
+     *   **false**: A separate namespace is not used for the instance. The name of each resource must be globally unique within the instance and across all instances.
      *
      * @example true
      *
@@ -36,7 +40,7 @@ class instanceVO extends Model
     public $independentNaming;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example MQ_INST_188077086902****_BXSuW61e
      *
@@ -45,9 +49,9 @@ class instanceVO extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
-     * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
+     * The name must be 3 to 64 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
      * @example test1
      *
      * @var string
@@ -55,11 +59,11 @@ class instanceVO extends Model
     public $instanceName;
 
     /**
-     * @description The status of the instance. Valid values:
+     * @description The instance status. Valid values:
      *
      *   **0**: The instance is being deployed. This value is valid only for Enterprise Platinum Edition instances.
      *   **2**: The instance has overdue payments. This value is valid only for Standard Edition instances.
-     *   **5**: The instance is running. This value is valid for Standard Edition instances and Enterprise Platinum Edition instances.
+     *   **5**: The instance is running. This value is valid only for Standard Edition instances and Enterprise Platinum Edition instances.
      *   **7**: The instance is being upgraded and is running. This value is valid only for Enterprise Platinum Edition instances.
      *
      * @example 5
@@ -71,10 +75,10 @@ class instanceVO extends Model
     /**
      * @description The instance type. Valid values:
      *
-     *   **1**: Standard Edition instances
-     *   **2**: Enterprise Platinum Edition instances
+     *   **1**: Standard Edition
+     *   **2**: Enterprise Platinum Edition
      *
-     * For more information about the instance editions and differences between the editions, see [Instance editions](~~185261~~).
+     * For information about the instance editions and the differences between the editions, see [Instance editions](https://help.aliyun.com/document_detail/185261.html).
      * @example 2
      *
      * @var int
@@ -82,7 +86,7 @@ class instanceVO extends Model
     public $instanceType;
 
     /**
-     * @description The time when the instance expires. If the instance is an Enterprise Platinum Edition instance, this parameter is returned.
+     * @description The time when the instance expires. If the instance is of Enterprise Platinum Edition, this parameter is returned.
      *
      * @example 1551024000000
      *
@@ -91,13 +95,17 @@ class instanceVO extends Model
     public $releaseTime;
 
     /**
-     * @description The tags that are attached to the instance you want to query.
+     * @description The tags that are attached to the instance.
      *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The number of topics.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $topicCount;

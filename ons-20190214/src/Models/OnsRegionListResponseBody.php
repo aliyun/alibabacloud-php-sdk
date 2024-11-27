@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsRegionListResponseBody extends Model
 {
     /**
-     * @description The result returned
+     * @description The returned data.
      *
      * @var data
      */

@@ -28,7 +28,7 @@ class msgFoundDo extends Model
     public $maxPageCount;
 
     /**
-     * @description The information about messages on the returned page. The information that is contained in this parameter is the same as the information that is returned by the [OnsMessageGetByMsgId](~~29607~~) operation.
+     * @description The information about messages on the returned page. The information that is contained in this parameter is the same as the information that is returned by the [OnsMessageGetByMsgId](https://help.aliyun.com/document_detail/29607.html) operation.
      *
      * @var msgFoundList
      */

@@ -22,6 +22,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The resource IDs.
      *
+     * This parameter is required.
      * @example TopicA
      *
      * @var string[]
@@ -35,6 +36,7 @@ class TagResourcesRequest extends Model
      *   **TOPIC**
      *   **GROUP**
      *
+     * This parameter is required.
      * @example TOPIC
      *
      * @var string
@@ -44,6 +46,7 @@ class TagResourcesRequest extends Model
     /**
      * @description The tags that you want to attach to the resource.
      *
+     * This parameter is required.
      * @var tag[]
      */
     public $tag;

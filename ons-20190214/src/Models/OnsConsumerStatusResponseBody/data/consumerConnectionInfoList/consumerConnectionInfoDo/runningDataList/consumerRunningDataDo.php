@@ -27,15 +27,6 @@ class consumerRunningDataDo extends Model
     public $failedTps;
 
     /**
-     * @description The ID of the consumer group.
-     *
-     * @example 0
-     *
-     * @var string
-     */
-    public $groupId;
-
-    /**
      * @description The TPS for successful message consumption.
      *
      * @example 0
@@ -64,7 +55,6 @@ class consumerRunningDataDo extends Model
     protected $_name = [
         'failedCountPerHour' => 'FailedCountPerHour',
         'failedTps'          => 'FailedTps',
-        'groupId'            => 'GroupId',
         'okTps'              => 'OkTps',
         'rt'                 => 'Rt',
         'topic'              => 'Topic',
@@ -82,9 +72,6 @@ class consumerRunningDataDo extends Model
         }
         if (null !== $this->failedTps) {
             $res['FailedTps'] = $this->failedTps;
-        }
-        if (null !== $this->groupId) {
-            $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->okTps) {
             $res['OkTps'] = $this->okTps;
@@ -112,9 +99,6 @@ class consumerRunningDataDo extends Model
         }
         if (isset($map['FailedTps'])) {
             $model->failedTps = $map['FailedTps'];
-        }
-        if (isset($map['GroupId'])) {
-            $model->groupId = $map['GroupId'];
         }
         if (isset($map['OkTps'])) {
             $model->okTps = $map['OkTps'];

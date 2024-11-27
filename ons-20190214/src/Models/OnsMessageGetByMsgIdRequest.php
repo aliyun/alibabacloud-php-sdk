@@ -20,6 +20,7 @@ class OnsMessageGetByMsgIdRequest extends Model
     /**
      * @description The ID of the message that you want to query.
      *
+     * This parameter is required.
      * @example 1E0578FE110F18B4AAC235C05F2*****
      *
      * @var string
@@ -29,6 +30,7 @@ class OnsMessageGetByMsgIdRequest extends Model
     /**
      * @description The topic that contains the message you want to query.
      *
+     * This parameter is required.
      * @example test-mq_topic
      *
      * @var string

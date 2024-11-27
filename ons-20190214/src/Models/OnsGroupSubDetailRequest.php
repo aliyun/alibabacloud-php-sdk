@@ -11,6 +11,7 @@ class OnsGroupSubDetailRequest extends Model
     /**
      * @description The ID of the consumer group that you want to query.
      *
+     * This parameter is required.
      * @example GID_test_group_id
      *
      * @var string
@@ -20,6 +21,7 @@ class OnsGroupSubDetailRequest extends Model
     /**
      * @description The ID of the instance to which the consumer group you want to query belongs.
      *
+     * This parameter is required.
      * @example MQ_INST_111111111111_DOxxxxxx
      *
      * @var string

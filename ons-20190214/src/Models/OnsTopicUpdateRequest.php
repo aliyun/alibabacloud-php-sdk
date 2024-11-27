@@ -24,6 +24,7 @@ class OnsTopicUpdateRequest extends Model
      *   **4**: Write operations are forbidden.
      *   **2**: Read operations are forbidden.
      *
+     * This parameter is required.
      * @example 6
      *
      * @var int
@@ -33,6 +34,7 @@ class OnsTopicUpdateRequest extends Model
     /**
      * @description The name of the topic that you want to manage.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string

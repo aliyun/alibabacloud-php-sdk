@@ -11,6 +11,7 @@ class OnsInstanceDeleteRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example MQ_INST_188077086902****_BXSuW61e
      *
      * @var string

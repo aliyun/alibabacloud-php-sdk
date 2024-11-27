@@ -11,6 +11,7 @@ class OnsGroupDeleteRequest extends Model
     /**
      * @description The ID of the consumer group that you want to delete.
      *
+     * This parameter is required.
      * @example GID_test_groupId
      *
      * @var string

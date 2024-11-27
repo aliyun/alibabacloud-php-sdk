@@ -11,6 +11,7 @@ class OnsMessageDetailRequest extends Model
     /**
      * @description The ID of the ApsaraMQ for RocketMQ Instance.
      *
+     * This parameter is required.
      * @example MQ_INST_184681981******_BXig0x6A
      *
      * @var string
@@ -20,6 +21,7 @@ class OnsMessageDetailRequest extends Model
     /**
      * @description The ID of the message that you want to query.
      *
+     * This parameter is required.
      * @example 1E0578FE110F18B4AAC235C0******
      *
      * @var string
@@ -29,6 +31,7 @@ class OnsMessageDetailRequest extends Model
     /**
      * @description The name of the topic in which the message you want to query is stored.
      *
+     * This parameter is required.
      * @example test-mq_topic
      *
      * @var string

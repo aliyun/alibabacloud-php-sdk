@@ -44,6 +44,7 @@ class ListTagResourcesRequest extends Model
      *   **TOPIC**
      *   **GROUP**
      *
+     * This parameter is required.
      * @example TOPIC
      *
      * @var string

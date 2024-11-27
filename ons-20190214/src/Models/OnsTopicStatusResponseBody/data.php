@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @description The point in time when the latest message is ready in the topic. If no message exists in the topic, the return value of this parameter is 0.
      *
-     * For information about the definition of ready messages and ready time, see [Terms](~~29533~~).
+     * For information about the definition of ready messages and ready time, see [Terms](https://help.aliyun.com/document_detail/29533.html).
      * @example 1570864984364
      *
      * @var int

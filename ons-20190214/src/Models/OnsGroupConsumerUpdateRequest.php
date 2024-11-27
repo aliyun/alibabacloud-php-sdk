@@ -11,6 +11,7 @@ class OnsGroupConsumerUpdateRequest extends Model
     /**
      * @description The ID of the consumer group for which you want to configure read permissions.
      *
+     * This parameter is required.
      * @example GID_test_groupId
      *
      * @var string
@@ -33,6 +34,8 @@ class OnsGroupConsumerUpdateRequest extends Model
      *   **false**: The consumer group cannot read messages.
      *
      * Default value: **true**.
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool

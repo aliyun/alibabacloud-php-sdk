@@ -12,7 +12,7 @@ class traceMapDo extends Model
     /**
      * @description The address of the producer that generated the message.
      *
-     * @example 30.5.**.**
+     * @example ``30.5.**.**``
      *
      * @var string
      */

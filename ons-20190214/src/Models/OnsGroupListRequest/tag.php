@@ -14,6 +14,7 @@ class tag extends Model
      *   The value of this parameter cannot be an empty string.
      *   The tag value must be 1 to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      *
+     * This parameter is required.
      * @example CartService
      *
      * @var string
@@ -26,6 +27,7 @@ class tag extends Model
      *   The value of this parameter can be an empty string.
      *   The tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
      *
+     * This parameter is required.
      * @example ServiceA
      *
      * @var string

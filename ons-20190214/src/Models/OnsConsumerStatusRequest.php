@@ -23,6 +23,7 @@ class OnsConsumerStatusRequest extends Model
     /**
      * @description The ID of the consumer group whose details you want to query.
      *
+     * This parameter is required.
      * @example GID_test_group_id
      *
      * @var string

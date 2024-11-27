@@ -11,6 +11,7 @@ class OnsTrendTopicInputTpsRequest extends Model
     /**
      * @description The timestamp that indicates the beginning of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1570852800000
      *
      * @var int
@@ -20,6 +21,7 @@ class OnsTrendTopicInputTpsRequest extends Model
     /**
      * @description The timestamp that indicates the end of the time range to query. Unit: milliseconds.
      *
+     * This parameter is required.
      * @example 1570868400000
      *
      * @var int
@@ -47,6 +49,7 @@ class OnsTrendTopicInputTpsRequest extends Model
     /**
      * @description The name of the topic that you want to query.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -59,6 +62,7 @@ class OnsTrendTopicInputTpsRequest extends Model
      *   **0**: the number of messages that are published to the topic during each sampling period.
      *   **1**: the TPS for message publishing in the topic during each sampling period.
      *
+     * This parameter is required.
      * @example 0
      *
      * @var int

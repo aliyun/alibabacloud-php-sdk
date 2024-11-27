@@ -16,7 +16,7 @@ class messageProperty extends Model
      *   **TAGS**: indicates the tag of the message.
      *   **INSTANCE_ID**: indicates the ID of the instance that contains the message.
      *
-     * For information about the terms that are used in ApsaraMQ for RocketMQ see [Terms](~~29533~~).
+     * For information about the terms that are used in ApsaraMQ for RocketMQ see [Terms](https://help.aliyun.com/document_detail/29533.html).
      * @example TAGS
      *
      * @var string

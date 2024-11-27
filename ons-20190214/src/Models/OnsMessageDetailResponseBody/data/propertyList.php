@@ -13,11 +13,11 @@ class propertyList extends Model
      *
      *   **TRACE_ON**: indicates whether the trace of the message exists.
      *   **MSG_REGION**: The region ID of the instance to which the topic belongs.
-     *   **\__MESSAGE_DECODED_TIME**: The time when the message was decoded.
-     *   **\__BORNHOST**: The IP address of the producer client.
+     *   **__MESSAGE_DECODED_TIME**: The time when the message was decoded.
+     *   **__BORNHOST**: The IP address of the producer client.
      *   **UNIQ_KEY**: The ID of the message.
      *
-     * For information about the terms that are used in ApsaraMQ for RocketMQ, see [Terms](~~29533~~).
+     * For information about the terms that are used in ApsaraMQ for RocketMQ, see [Terms](https://help.aliyun.com/document_detail/29533.html).
      * @example cn-hangzhou
      *
      * @var string

@@ -20,6 +20,7 @@ class OnsMessageTraceRequest extends Model
     /**
      * @description The ID of the message that you want to query.
      *
+     * This parameter is required.
      * @example 1E05791C117818B4AAC23B1BB0CE****
      *
      * @var string
@@ -29,6 +30,7 @@ class OnsMessageTraceRequest extends Model
     /**
      * @description The topic to which the message belongs.
      *
+     * This parameter is required.
      * @example test-mq_topic
      *
      * @var string
