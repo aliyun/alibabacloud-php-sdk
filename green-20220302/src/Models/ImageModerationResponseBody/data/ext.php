@@ -66,6 +66,8 @@ class ext extends Model
     public $textInImage;
 
     /**
+     * @description the vl output content
+     *
      * @var vlContent
      */
     public $vlContent;

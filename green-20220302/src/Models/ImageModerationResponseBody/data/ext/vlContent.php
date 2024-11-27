@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class vlContent extends Model
 {
     /**
+     * @description the vl output content
+     *
+     * @example this is a cat
+     *
      * @var string
      */
     public $outputText;

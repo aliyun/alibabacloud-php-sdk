@@ -19,6 +19,8 @@ use AlibabaCloud\SDK\Green\V20220302\Models\FileModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\FileModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageAsyncModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\ImageBatchModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationPlusRequest;
@@ -441,6 +443,56 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->imageAsyncModerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 图片批量调用
+     *  *
+     * @param ImageBatchModerationRequest $request ImageBatchModerationRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ImageBatchModerationResponse ImageBatchModerationResponse
+     */
+    public function imageBatchModerationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $query['ServiceParameters'] = $request->serviceParameters;
+        }
+        if (!Utils::isUnset($request->services)) {
+            $query['Services'] = $request->services;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ImageBatchModeration',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ImageBatchModerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 图片批量调用
+     *  *
+     * @param ImageBatchModerationRequest $request ImageBatchModerationRequest
+     *
+     * @return ImageBatchModerationResponse ImageBatchModerationResponse
+     */
+    public function imageBatchModeration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->imageBatchModerationWithOptions($request, $runtime);
     }
 
     /**
