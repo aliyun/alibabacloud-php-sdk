@@ -1,3 +1,7 @@
+2024-11-27 Version: 7.3.1
+- Update API GetRumExceptionStack: update response param.
+
+
 2024-11-21 Version: 7.3.0
 - Support API ListEnvironmentAddons.
 - Support API ListEnvironmentAlertRules.

@@ -12,6 +12,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $binaryImages;
+
+    /**
+     * @var string
+     */
     public $crashAddress;
 
     /**
@@ -50,6 +55,7 @@ class data extends Model
      */
     public $uuid;
     protected $_name = [
+        'binaryImages'   => 'BinaryImages',
         'crashAddress'   => 'CrashAddress',
         'crashReason'    => 'CrashReason',
         'lines'          => 'Lines',
@@ -66,6 +72,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->binaryImages) {
+            $res['BinaryImages'] = $this->binaryImages;
+        }
         if (null !== $this->crashAddress) {
             $res['CrashAddress'] = $this->crashAddress;
         }
@@ -105,6 +114,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BinaryImages'])) {
+            $model->binaryImages = $map['BinaryImages'];
+        }
         if (isset($map['CrashAddress'])) {
             $model->crashAddress = $map['CrashAddress'];
         }
