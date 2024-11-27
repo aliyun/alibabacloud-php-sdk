@@ -1,3 +1,6 @@
+2024-11-27 Version: 6.4.2
+- Generated php 2017-11-10 for Ens.
+
 2024-11-26 Version: 6.4.1
 - Update API DescribeSDGDeploymentStatus: update response param.
 - Update API DescribeSnapshots: add param EnsRegionIds.
