@@ -14,6 +14,7 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\labels;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\latestSnapshot;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\requestedResource;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\tags;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstancesResponseBody\instances\userVpc;
 use AlibabaCloud\Tea\Model;
 
@@ -241,6 +242,11 @@ class instances extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @example https://dsw-gateway-cn-shanghai.aliyun.com/dsw-39772/tty/
      *
      * @var string
@@ -329,6 +335,7 @@ class instances extends Model
         'resourceId'                 => 'ResourceId',
         'resourceName'               => 'ResourceName',
         'status'                     => 'Status',
+        'tags'                       => 'Tags',
         'terminalUrl'                => 'TerminalUrl',
         'userId'                     => 'UserId',
         'userName'                   => 'UserName',
@@ -468,6 +475,15 @@ class instances extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->terminalUrl) {
             $res['TerminalUrl'] = $this->terminalUrl;
@@ -627,6 +643,15 @@ class instances extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TerminalUrl'])) {
             $model->terminalUrl = $map['TerminalUrl'];

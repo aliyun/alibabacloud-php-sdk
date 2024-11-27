@@ -146,6 +146,11 @@ class ListInstancesShrinkRequest extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $tagShrink;
+
+    /**
      * @example 40823
      *
      * @var string
@@ -175,6 +180,7 @@ class ListInstancesShrinkRequest extends Model
         'resourceId'      => 'ResourceId',
         'sortBy'          => 'SortBy',
         'status'          => 'Status',
+        'tagShrink'       => 'Tag',
         'workspaceId'     => 'WorkspaceId',
     ];
 
@@ -253,6 +259,9 @@ class ListInstancesShrinkRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -337,6 +346,9 @@ class ListInstancesShrinkRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tagShrink = $map['Tag'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

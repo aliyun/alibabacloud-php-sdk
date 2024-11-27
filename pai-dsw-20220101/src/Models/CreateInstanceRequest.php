@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\cloudDisks;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\datasets;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\labels;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\requestedResource;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\tag;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest\userVpc;
 use AlibabaCloud\Tea\Model;
 
@@ -119,6 +120,11 @@ class CreateInstanceRequest extends Model
     public $resourceId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @example 1612285282502324
      *
      * @var string
@@ -160,6 +166,7 @@ class CreateInstanceRequest extends Model
         'priority'             => 'Priority',
         'requestedResource'    => 'RequestedResource',
         'resourceId'           => 'ResourceId',
+        'tag'                  => 'Tag',
         'userId'               => 'UserId',
         'userVpc'              => 'UserVpc',
         'workspaceId'          => 'WorkspaceId',
@@ -238,6 +245,15 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -328,6 +344,15 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

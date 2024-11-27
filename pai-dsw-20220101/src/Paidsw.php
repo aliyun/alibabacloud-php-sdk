@@ -208,6 +208,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->resourceId)) {
             $body['ResourceId'] = $request->resourceId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $body['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->userId)) {
             $body['UserId'] = $request->userId;
         }
@@ -1367,6 +1370,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($tmpReq->labels)) {
             $request->labelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->labels, 'Labels', 'json');
         }
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceleratorType)) {
             $query['AcceleratorType'] = $request->acceleratorType;
@@ -1436,6 +1442,9 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $query['WorkspaceId'] = $request->workspaceId;
