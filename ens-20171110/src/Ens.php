@@ -27,6 +27,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachEnsInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachEnsInstancesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstanceSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstanceSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AttachInstanceSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AttachNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AuthorizeSecurityGroupEgressRequest;
@@ -284,6 +287,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceBandwidthDetailRequest
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceBandwidthDetailResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceMonitorDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceMonitorDataResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceSDGStatusRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceSDGStatusResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceSDGStatusShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstanceSpecResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeInstancesResponse;
@@ -379,6 +385,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DetachInstanceSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DetachInstanceSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DetachInstanceSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachNetworkInterfaceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachNetworkInterfaceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DistApplicationDataRequest;
@@ -456,6 +465,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySnapshotAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySnapshotAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\MountInstanceSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\MountInstanceSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\MountInstanceSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PreloadRegionSDGShrinkRequest;
@@ -590,6 +602,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnloadRegionSDGShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnmountInstanceSDGRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnmountInstanceSDGResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UnmountInstanceSDGShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlRequest;
@@ -1197,6 +1212,61 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachEnsInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 将某个SDG attach到对应的AIC上
+     *  *
+     * @param AttachInstanceSDGRequest $tmpReq  AttachInstanceSDGRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AttachInstanceSDGResponse AttachInstanceSDGResponse
+     */
+    public function attachInstanceSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AttachInstanceSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->SDGId)) {
+            $query['SDGId'] = $request->SDGId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachInstanceSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachInstanceSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 将某个SDG attach到对应的AIC上
+     *  *
+     * @param AttachInstanceSDGRequest $request AttachInstanceSDGRequest
+     *
+     * @return AttachInstanceSDGResponse AttachInstanceSDGResponse
+     */
+    public function attachInstanceSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachInstanceSDGWithOptions($request, $runtime);
     }
 
     /**
@@ -8230,6 +8300,55 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 描述某个AIC实例下的SDG挂载情况
+     *  *
+     * @param DescribeInstanceSDGStatusRequest $tmpReq  DescribeInstanceSDGStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInstanceSDGStatusResponse DescribeInstanceSDGStatusResponse
+     */
+    public function describeInstanceSDGStatusWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeInstanceSDGStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->SDGIds)) {
+            $request->SDGIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->SDGIds, 'SDGIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceSDGStatus',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceSDGStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 描述某个AIC实例下的SDG挂载情况
+     *  *
+     * @param DescribeInstanceSDGStatusRequest $request DescribeInstanceSDGStatusRequest
+     *
+     * @return DescribeInstanceSDGStatusResponse DescribeInstanceSDGStatusResponse
+     */
+    public function describeInstanceSDGStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceSDGStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the instance specifications that you can purchase.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -10772,6 +10891,61 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @summary 解除SDG的attach状态
+     *  *
+     * @param DetachInstanceSDGRequest $tmpReq  DetachInstanceSDGRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DetachInstanceSDGResponse DetachInstanceSDGResponse
+     */
+    public function detachInstanceSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetachInstanceSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->SDGId)) {
+            $query['SDGId'] = $request->SDGId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachInstanceSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachInstanceSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解除SDG的attach状态
+     *  *
+     * @param DetachInstanceSDGRequest $request DetachInstanceSDGRequest
+     *
+     * @return DetachInstanceSDGResponse DetachInstanceSDGResponse
+     */
+    public function detachInstanceSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachInstanceSDGWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Detach an elastic network interface (ENI) from an instance.
      *  *
      * @description Before you call this operation, take note of the following items:
@@ -12838,6 +13012,61 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyVSwitchAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 将已经attach在instance上的SDG实际部署到对应的AIC
+     *  *
+     * @param MountInstanceSDGRequest $tmpReq  MountInstanceSDGRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return MountInstanceSDGResponse MountInstanceSDGResponse
+     */
+    public function mountInstanceSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new MountInstanceSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->SDGId)) {
+            $query['SDGId'] = $request->SDGId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MountInstanceSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MountInstanceSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 将已经attach在instance上的SDG实际部署到对应的AIC
+     *  *
+     * @param MountInstanceSDGRequest $request MountInstanceSDGRequest
+     *
+     * @return MountInstanceSDGResponse MountInstanceSDGResponse
+     */
+    public function mountInstanceSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mountInstanceSDGWithOptions($request, $runtime);
     }
 
     /**
@@ -16408,6 +16637,61 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unloadRegionSDGWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 将已经Mount的SDG从对应的Instance上解除下来，恢复到attach状态
+     *  *
+     * @param UnmountInstanceSDGRequest $tmpReq  UnmountInstanceSDGRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnmountInstanceSDGResponse UnmountInstanceSDGResponse
+     */
+    public function unmountInstanceSDGWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UnmountInstanceSDGShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['InstanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->SDGId)) {
+            $query['SDGId'] = $request->SDGId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnmountInstanceSDG',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnmountInstanceSDGResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 将已经Mount的SDG从对应的Instance上解除下来，恢复到attach状态
+     *  *
+     * @param UnmountInstanceSDGRequest $request UnmountInstanceSDGRequest
+     *
+     * @return UnmountInstanceSDGResponse UnmountInstanceSDGResponse
+     */
+    public function unmountInstanceSDG($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unmountInstanceSDGWithOptions($request, $runtime);
     }
 
     /**
