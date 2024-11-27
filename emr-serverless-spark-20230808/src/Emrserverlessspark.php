@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterReques
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSqlStatementResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetTemplateRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GrantRoleToUsersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListJobRunsRequest;
@@ -421,6 +423,61 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->getSqlStatementWithOptions($workspaceId, $statementId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取任务模板
+     *  *
+     * @param string             $workspaceBizId
+     * @param GetTemplateRequest $request        GetTemplateRequest
+     * @param string[]           $headers        map
+     * @param RuntimeOptions     $runtime        runtime options for this request RuntimeOptions
+     *
+     * @return GetTemplateResponse GetTemplateResponse
+     */
+    public function getTemplateWithOptions($workspaceBizId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['templateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplate',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/interactive/v1/workspace/' . OpenApiUtilClient::getEncodeParam($workspaceBizId) . '/template',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取任务模板
+     *  *
+     * @param string             $workspaceBizId
+     * @param GetTemplateRequest $request        GetTemplateRequest
+     *
+     * @return GetTemplateResponse GetTemplateResponse
+     */
+    public function getTemplate($workspaceBizId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTemplateWithOptions($workspaceBizId, $request, $headers, $runtime);
     }
 
     /**
