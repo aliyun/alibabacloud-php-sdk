@@ -457,11 +457,11 @@ class Green extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->service)) {
+            $query['Service'] = $request->service;
+        }
         if (!Utils::isUnset($request->serviceParameters)) {
             $query['ServiceParameters'] = $request->serviceParameters;
-        }
-        if (!Utils::isUnset($request->services)) {
-            $query['Services'] = $request->services;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

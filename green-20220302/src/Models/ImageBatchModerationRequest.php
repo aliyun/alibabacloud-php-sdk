@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ImageBatchModerationRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $service;
+
+    /**
      * @example {
      * "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
      * "dataId": "img123****"
@@ -16,16 +21,9 @@ class ImageBatchModerationRequest extends Model
      * @var string
      */
     public $serviceParameters;
-
-    /**
-     * @example baselineCheck,tonalityImprove
-     *
-     * @var string
-     */
-    public $services;
     protected $_name = [
+        'service'           => 'Service',
         'serviceParameters' => 'ServiceParameters',
-        'services'          => 'Services',
     ];
 
     public function validate()
@@ -35,11 +33,11 @@ class ImageBatchModerationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->service) {
+            $res['Service'] = $this->service;
+        }
         if (null !== $this->serviceParameters) {
             $res['ServiceParameters'] = $this->serviceParameters;
-        }
-        if (null !== $this->services) {
-            $res['Services'] = $this->services;
         }
 
         return $res;
@@ -53,11 +51,11 @@ class ImageBatchModerationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Service'])) {
+            $model->service = $map['Service'];
+        }
         if (isset($map['ServiceParameters'])) {
             $model->serviceParameters = $map['ServiceParameters'];
-        }
-        if (isset($map['Services'])) {
-            $model->services = $map['Services'];
         }
 
         return $model;
