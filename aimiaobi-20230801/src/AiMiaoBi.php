@@ -53,6 +53,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateUploadConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GenerateViewPointShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCategoriesByTaskIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomHotTopicBroadcastJobResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetCustomTextRequest;
@@ -63,6 +65,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetHotTopicBroadcastRequest;
@@ -94,6 +98,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneGlobalReplyShrinkR
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\InsertInterveneRuleShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAnalysisTagDetailByTaskIdRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAnalysisTagDetailByTaskIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAnalysisTagDetailByTaskIdShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListAsyncTasksShrinkRequest;
@@ -203,6 +210,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitCustomTopicSelectionPerspec
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest;
@@ -214,6 +224,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentShrinkReque
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ValidateUploadTemplateRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ValidateUploadTemplateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1395,6 +1407,56 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 获取某次标签挖掘结果分类
+     *  *
+     * @param GetCategoriesByTaskIdRequest $request GetCategoriesByTaskIdRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCategoriesByTaskIdResponse GetCategoriesByTaskIdResponse
+     */
+    public function getCategoriesByTaskIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCategoriesByTaskId',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCategoriesByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取某次标签挖掘结果分类
+     *  *
+     * @param GetCategoriesByTaskIdRequest $request GetCategoriesByTaskIdRequest
+     *
+     * @return GetCategoriesByTaskIdResponse GetCategoriesByTaskIdResponse
+     */
+    public function getCategoriesByTaskId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCategoriesByTaskIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取自定义播报单任务结果
      *  *
      * @param GetCustomHotTopicBroadcastJobRequest $request GetCustomHotTopicBroadcastJobRequest
@@ -1653,6 +1715,56 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDocClusterTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取企业VOC分析任务结果
+     *  *
+     * @param GetEnterpriseVocAnalysisTaskRequest $request GetEnterpriseVocAnalysisTaskRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEnterpriseVocAnalysisTaskResponse GetEnterpriseVocAnalysisTaskResponse
+     */
+    public function getEnterpriseVocAnalysisTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEnterpriseVocAnalysisTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取企业VOC分析任务结果
+     *  *
+     * @param GetEnterpriseVocAnalysisTaskRequest $request GetEnterpriseVocAnalysisTaskRequest
+     *
+     * @return GetEnterpriseVocAnalysisTaskResponse GetEnterpriseVocAnalysisTaskResponse
+     */
+    public function getEnterpriseVocAnalysisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEnterpriseVocAnalysisTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -2418,6 +2530,76 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->insertInterveneRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 分页获取企业VOC分析任务明细列表
+     *  *
+     * @param ListAnalysisTagDetailByTaskIdRequest $tmpReq  ListAnalysisTagDetailByTaskIdRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAnalysisTagDetailByTaskIdResponse ListAnalysisTagDetailByTaskIdResponse
+     */
+    public function listAnalysisTagDetailByTaskIdWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListAnalysisTagDetailByTaskIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categories)) {
+            $request->categoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoriesShrink)) {
+            $body['Categories'] = $request->categoriesShrink;
+        }
+        if (!Utils::isUnset($request->current)) {
+            $body['Current'] = $request->current;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $body['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnalysisTagDetailByTaskId',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页获取企业VOC分析任务明细列表
+     *  *
+     * @param ListAnalysisTagDetailByTaskIdRequest $request ListAnalysisTagDetailByTaskIdRequest
+     *
+     * @return ListAnalysisTagDetailByTaskIdResponse ListAnalysisTagDetailByTaskIdResponse
+     */
+    public function listAnalysisTagDetailByTaskId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAnalysisTagDetailByTaskIdWithOptions($request, $runtime);
     }
 
     /**
@@ -5283,6 +5465,91 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 提交VOC异步任务
+     *  *
+     * @param SubmitEnterpriseVocAnalysisTaskRequest $tmpReq  SubmitEnterpriseVocAnalysisTaskRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitEnterpriseVocAnalysisTaskResponse SubmitEnterpriseVocAnalysisTaskResponse
+     */
+    public function submitEnterpriseVocAnalysisTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitEnterpriseVocAnalysisTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->contentTags)) {
+            $request->contentTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contentTags, 'ContentTags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->contents)) {
+            $request->contentsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contents, 'Contents', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->filterTags)) {
+            $request->filterTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterTags, 'FilterTags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->contentTagsShrink)) {
+            $body['ContentTags'] = $request->contentTagsShrink;
+        }
+        if (!Utils::isUnset($request->contentsShrink)) {
+            $body['Contents'] = $request->contentsShrink;
+        }
+        if (!Utils::isUnset($request->fileKey)) {
+            $body['FileKey'] = $request->fileKey;
+        }
+        if (!Utils::isUnset($request->filterTagsShrink)) {
+            $body['FilterTags'] = $request->filterTagsShrink;
+        }
+        if (!Utils::isUnset($request->materialType)) {
+            $body['MaterialType'] = $request->materialType;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['ModelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->positiveSample)) {
+            $body['PositiveSample'] = $request->positiveSample;
+        }
+        if (!Utils::isUnset($request->positiveSampleFileKey)) {
+            $body['PositiveSampleFileKey'] = $request->positiveSampleFileKey;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $body['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitEnterpriseVocAnalysisTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitEnterpriseVocAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交VOC异步任务
+     *  *
+     * @param SubmitEnterpriseVocAnalysisTaskRequest $request SubmitEnterpriseVocAnalysisTaskRequest
+     *
+     * @return SubmitEnterpriseVocAnalysisTaskResponse SubmitEnterpriseVocAnalysisTaskResponse
+     */
+    public function submitEnterpriseVocAnalysisTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitEnterpriseVocAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 提交选题热点分析任务
      *  *
      * @param SubmitTopicSelectionPerspectiveAnalysisTaskRequest $tmpReq  SubmitTopicSelectionPerspectiveAnalysisTaskRequest
@@ -5575,5 +5842,61 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMaterialDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 校验企业VOC上传模板
+     *  *
+     * @param ValidateUploadTemplateRequest $request ValidateUploadTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ValidateUploadTemplateResponse ValidateUploadTemplateResponse
+     */
+    public function validateUploadTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileKey)) {
+            $body['FileKey'] = $request->fileKey;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $body['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $body['TemplateType'] = $request->templateType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateUploadTemplate',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ValidateUploadTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 校验企业VOC上传模板
+     *  *
+     * @param ValidateUploadTemplateRequest $request ValidateUploadTemplateRequest
+     *
+     * @return ValidateUploadTemplateResponse ValidateUploadTemplateResponse
+     */
+    public function validateUploadTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateUploadTemplateWithOptions($request, $runtime);
     }
 }
