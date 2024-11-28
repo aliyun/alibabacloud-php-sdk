@@ -89,11 +89,19 @@ class approvalDetail extends Model
     public $templateId;
 
     /**
+     * @description Third-party approval flow remarks.
+     *
+     * @example test
+     *
      * @var string
      */
     public $thirdpartyWorkflowComment;
 
     /**
+     * @description The third-party approval flow link.
+     *
+     * @example https://xxx
+     *
      * @var string
      */
     public $thirdpartyWorkflowUrl;

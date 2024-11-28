@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddAuthorityTemplateItemsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddAuthorityTemplateItemsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddAuthorityTemplateItemsShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddDesensitizationRuleRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddDesensitizationRuleResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddInstanceRequest;
@@ -195,6 +198,12 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportPreCheckDetailR
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataExportPreCheckDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataImportSQLRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataImportSQLResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeCatalogRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeCatalogResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeTableRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobDegreeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobDegreeResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobTableMetaRequest;
@@ -315,6 +324,12 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataImportSQLPreCheckDet
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataImportSQLPreCheckDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataImportSQLTypeRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataImportSQLTypeResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeCatalogRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeCatalogResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTablebaseInfoRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTablebaseInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobRequest;
@@ -456,6 +471,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetWorkflowExtraInfoRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetWorkflowExtraInfoResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SkipDataCorrectRowCheckRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SkipDataCorrectRowCheckResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\StopTaskFlowInstanceRequest;
@@ -557,6 +574,64 @@ class Dmsenterprise extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 添加权限模板资源
+     *  *
+     * @param AddAuthorityTemplateItemsRequest $tmpReq  AddAuthorityTemplateItemsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddAuthorityTemplateItemsResponse AddAuthorityTemplateItemsResponse
+     */
+    public function addAuthorityTemplateItemsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AddAuthorityTemplateItemsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->items)) {
+            $request->itemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->items, 'Items', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->itemsShrink)) {
+            $query['Items'] = $request->itemsShrink;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAuthorityTemplateItems',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddAuthorityTemplateItemsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加权限模板资源
+     *  *
+     * @param AddAuthorityTemplateItemsRequest $request AddAuthorityTemplateItemsRequest
+     *
+     * @return AddAuthorityTemplateItemsResponse AddAuthorityTemplateItemsResponse
+     */
+    public function addAuthorityTemplateItems($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAuthorityTemplateItemsWithOptions($request, $runtime);
     }
 
     /**
@@ -5585,6 +5660,174 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @summary 获取uc的数据库目录
+     *  *
+     * @param GetDataLakeCatalogRequest $request GetDataLakeCatalogRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataLakeCatalogResponse GetDataLakeCatalogResponse
+     */
+    public function getDataLakeCatalogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataLakeCatalog',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取uc的数据库目录
+     *  *
+     * @param GetDataLakeCatalogRequest $request GetDataLakeCatalogRequest
+     *
+     * @return GetDataLakeCatalogResponse GetDataLakeCatalogResponse
+     */
+    public function getDataLakeCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataLakeCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取UC的数据库
+     *  *
+     * @param GetDataLakeDatabaseRequest $request GetDataLakeDatabaseRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataLakeDatabaseResponse GetDataLakeDatabaseResponse
+     */
+    public function getDataLakeDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataLakeDatabase',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取UC的数据库
+     *  *
+     * @param GetDataLakeDatabaseRequest $request GetDataLakeDatabaseRequest
+     *
+     * @return GetDataLakeDatabaseResponse GetDataLakeDatabaseResponse
+     */
+    public function getDataLakeDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取表信息
+     *  *
+     * @param GetDataLakeTableRequest $request GetDataLakeTableRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataLakeTableResponse GetDataLakeTableResponse
+     */
+    public function getDataLakeTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataLakeTable',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取表信息
+     *  *
+     * @param GetDataLakeTableRequest $request GetDataLakeTableRequest
+     *
+     * @return GetDataLakeTableResponse GetDataLakeTableResponse
+     */
+    public function getDataLakeTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataLakeTableWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the progress of a data tracking task.
      *  *
      * @param GetDataTrackJobDegreeRequest $request GetDataTrackJobDegreeRequest
@@ -8888,6 +9131,180 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataImportSQLTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取uc的数据库目录列表
+     *  *
+     * @param ListDataLakeCatalogRequest $request ListDataLakeCatalogRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataLakeCatalogResponse ListDataLakeCatalogResponse
+     */
+    public function listDataLakeCatalogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakeCatalog',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取uc的数据库目录列表
+     *  *
+     * @param ListDataLakeCatalogRequest $request ListDataLakeCatalogRequest
+     *
+     * @return ListDataLakeCatalogResponse ListDataLakeCatalogResponse
+     */
+    public function listDataLakeCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakeCatalogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据库列表
+     *  *
+     * @param ListDataLakeDatabaseRequest $request ListDataLakeDatabaseRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataLakeDatabaseResponse ListDataLakeDatabaseResponse
+     */
+    public function listDataLakeDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakeDatabase',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据库列表
+     *  *
+     * @param ListDataLakeDatabaseRequest $request ListDataLakeDatabaseRequest
+     *
+     * @return ListDataLakeDatabaseResponse ListDataLakeDatabaseResponse
+     */
+    public function listDataLakeDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取表信息
+     *  *
+     * @param ListDataLakeTablebaseInfoRequest $request ListDataLakeTablebaseInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataLakeTablebaseInfoResponse ListDataLakeTablebaseInfoResponse
+     */
+    public function listDataLakeTablebaseInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->rows)) {
+            $query['Rows'] = $request->rows;
+        }
+        if (!Utils::isUnset($request->searchKey)) {
+            $query['SearchKey'] = $request->searchKey;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakeTablebaseInfo',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataLakeTablebaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取表信息
+     *  *
+     * @param ListDataLakeTablebaseInfoRequest $request ListDataLakeTablebaseInfoRequest
+     *
+     * @return ListDataLakeTablebaseInfoResponse ListDataLakeTablebaseInfoResponse
+     */
+    public function listDataLakeTablebaseInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakeTablebaseInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -12987,6 +13404,77 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setOwnersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改审批流额外信息
+     *  *
+     * @param SetWorkflowExtraInfoRequest $request SetWorkflowExtraInfoRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetWorkflowExtraInfoResponse SetWorkflowExtraInfoResponse
+     */
+    public function setWorkflowExtraInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->renderAddApprovalNode)) {
+            $query['RenderAddApprovalNode'] = $request->renderAddApprovalNode;
+        }
+        if (!Utils::isUnset($request->renderAgree)) {
+            $query['RenderAgree'] = $request->renderAgree;
+        }
+        if (!Utils::isUnset($request->renderCancel)) {
+            $query['RenderCancel'] = $request->renderCancel;
+        }
+        if (!Utils::isUnset($request->renderReject)) {
+            $query['RenderReject'] = $request->renderReject;
+        }
+        if (!Utils::isUnset($request->renderTransfer)) {
+            $query['RenderTransfer'] = $request->renderTransfer;
+        }
+        if (!Utils::isUnset($request->thirdpartyWorkflowComment)) {
+            $query['ThirdpartyWorkflowComment'] = $request->thirdpartyWorkflowComment;
+        }
+        if (!Utils::isUnset($request->thirdpartyWorkflowUrl)) {
+            $query['ThirdpartyWorkflowUrl'] = $request->thirdpartyWorkflowUrl;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        if (!Utils::isUnset($request->workflowInstanceId)) {
+            $query['WorkflowInstanceId'] = $request->workflowInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetWorkflowExtraInfo',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetWorkflowExtraInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改审批流额外信息
+     *  *
+     * @param SetWorkflowExtraInfoRequest $request SetWorkflowExtraInfoRequest
+     *
+     * @return SetWorkflowExtraInfoResponse SetWorkflowExtraInfoResponse
+     */
+    public function setWorkflowExtraInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setWorkflowExtraInfoWithOptions($request, $runtime);
     }
 
     /**

@@ -6,44 +6,56 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DLDatabase extends Model
+class GetDataLakeTableRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example hive
+     *
      * @var string
      */
     public $catalogName;
 
     /**
-     * @var int
-     */
-    public $dbId;
-
-    /**
+     * @description This parameter is required.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
-    public $description;
+    public $dataRegion;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example default
+     *
      * @var string
      */
-    public $location;
+    public $dbName;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 100g_customer
+     *
      * @var string
      */
     public $name;
 
     /**
-     * @var mixed[]
+     * @example 3
+     *
+     * @var int
      */
-    public $parameters;
+    public $tid;
     protected $_name = [
         'catalogName' => 'CatalogName',
-        'dbId'        => 'DbId',
-        'description' => 'Description',
-        'location'    => 'Location',
+        'dataRegion'  => 'DataRegion',
+        'dbName'      => 'DbName',
         'name'        => 'Name',
-        'parameters'  => 'Parameters',
+        'tid'         => 'Tid',
     ];
 
     public function validate()
@@ -56,20 +68,17 @@ class DLDatabase extends Model
         if (null !== $this->catalogName) {
             $res['CatalogName'] = $this->catalogName;
         }
-        if (null !== $this->dbId) {
-            $res['DbId'] = $this->dbId;
+        if (null !== $this->dataRegion) {
+            $res['DataRegion'] = $this->dataRegion;
         }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->location) {
-            $res['Location'] = $this->location;
+        if (null !== $this->dbName) {
+            $res['DbName'] = $this->dbName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
-        if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+        if (null !== $this->tid) {
+            $res['Tid'] = $this->tid;
         }
 
         return $res;
@@ -78,7 +87,7 @@ class DLDatabase extends Model
     /**
      * @param array $map
      *
-     * @return DLDatabase
+     * @return GetDataLakeTableRequest
      */
     public static function fromMap($map = [])
     {
@@ -86,20 +95,17 @@ class DLDatabase extends Model
         if (isset($map['CatalogName'])) {
             $model->catalogName = $map['CatalogName'];
         }
-        if (isset($map['DbId'])) {
-            $model->dbId = $map['DbId'];
+        if (isset($map['DataRegion'])) {
+            $model->dataRegion = $map['DataRegion'];
         }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Location'])) {
-            $model->location = $map['Location'];
+        if (isset($map['DbName'])) {
+            $model->dbName = $map['DbName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
-        if (isset($map['Parameters'])) {
-            $model->parameters = $map['Parameters'];
+        if (isset($map['Tid'])) {
+            $model->tid = $map['Tid'];
         }
 
         return $model;
