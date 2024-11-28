@@ -56,6 +56,11 @@ class SubmitTranscodeJobsRequest extends Model
     public $priority;
 
     /**
+     * @var string
+     */
+    public $sessionId;
+
+    /**
      * @description The ID of the transcoding template group that you want to use. To view the template group ID, perform the following operations: Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Processing** > **Transcoding Template Groups**.
      *
      * This parameter is required.
@@ -92,6 +97,7 @@ class SubmitTranscodeJobsRequest extends Model
         'overrideParams'  => 'OverrideParams',
         'pipelineId'      => 'PipelineId',
         'priority'        => 'Priority',
+        'sessionId'       => 'SessionId',
         'templateGroupId' => 'TemplateGroupId',
         'userData'        => 'UserData',
         'videoId'         => 'VideoId',
@@ -115,6 +121,9 @@ class SubmitTranscodeJobsRequest extends Model
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
         if (null !== $this->templateGroupId) {
             $res['TemplateGroupId'] = $this->templateGroupId;
@@ -148,6 +157,9 @@ class SubmitTranscodeJobsRequest extends Model
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
         if (isset($map['TemplateGroupId'])) {
             $model->templateGroupId = $map['TemplateGroupId'];

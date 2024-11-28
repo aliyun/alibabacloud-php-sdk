@@ -10405,6 +10405,9 @@ class Vod extends OpenApiClient
         if (!Utils::isUnset($request->priority)) {
             $query['Priority'] = $request->priority;
         }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
         if (!Utils::isUnset($request->templateGroupId)) {
             $query['TemplateGroupId'] = $request->templateGroupId;
         }
