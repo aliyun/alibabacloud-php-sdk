@@ -26,7 +26,7 @@ class mnsParameter extends Model
     public $id;
 
     /**
-     * @description The name of the MNS queue.
+     * @description The name of the SMQ queue.
      *
      * @example testQueue
      *
@@ -35,7 +35,7 @@ class mnsParameter extends Model
     public $queue;
 
     /**
-     * @description The region where MNS is deployed.
+     * @description The region for SMQ.
      *
      * @example cn-hangzhou
      *
@@ -44,7 +44,7 @@ class mnsParameter extends Model
     public $region;
 
     /**
-     * @description The MNS topic.
+     * @description The SMQ topic.
      *
      * @example topic_sample
      *

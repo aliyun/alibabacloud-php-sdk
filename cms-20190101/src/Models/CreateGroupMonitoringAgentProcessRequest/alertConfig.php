@@ -22,7 +22,7 @@ class alertConfig extends Model
      *   GreaterThanLastWeek: greater than the metric value at the same time last week
      *   LessThanLastWeek: less than the metric value at the same time last week
      *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the previous monitoring cycle
      *
      * This parameter is required.
      * @example GreaterThanOrEqualToThreshold
@@ -32,7 +32,7 @@ class alertConfig extends Model
     public $comparisonOperator;
 
     /**
-     * @description The time period during which the alert rule is effective.
+     * @description The period of time during which the alert rule is effective.
      *
      * Valid values of N: 1 to 3.
      * @example 00:00-23:59
@@ -44,9 +44,9 @@ class alertConfig extends Model
     /**
      * @description The alert level. Valid values:
      *
-     *   critical (default): critical
-     *   warn: warning
-     *   info: information
+     *   critical (default)
+     *   warn
+     *   info
      *
      * This parameter is required.
      * @example warn
@@ -67,7 +67,7 @@ class alertConfig extends Model
     /**
      * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
      *
-     * >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
+     * >  Only one alert notification is sent during a mute period even if the metric value exceeds the alert threshold during consecutive checks.
      * @example 86400
      *
      * @var string
@@ -75,7 +75,7 @@ class alertConfig extends Model
     public $silenceTime;
 
     /**
-     * @description The statistical method for alerts.
+     * @description The statistical aggregation method that is used to calculate the metric values.
      *
      * This parameter is required.
      * @example Average

@@ -194,6 +194,16 @@ class optionJson extends Model
     public $header;
 
     /**
+     * @var string
+     */
+    public $hostBinding;
+
+    /**
+     * @var int
+     */
+    public $hostBindingType;
+
+    /**
      * @description The HTTP request method. Valid values:
      *
      *   get
@@ -363,9 +373,18 @@ class optionJson extends Model
     public $retryDelay;
 
     /**
+     * @description 是否开启页面截图
+     *
+     * @example false
+     *
      * @var bool
      */
     public $screenShot;
+
+    /**
+     * @var bool
+     */
+    public $scrollEnd;
 
     /**
      * @example false
@@ -438,6 +457,8 @@ class optionJson extends Model
         'expectValue'                   => 'expect_value',
         'failureRate'                   => 'failure_rate',
         'header'                        => 'header',
+        'hostBinding'                   => 'host_binding',
+        'hostBindingType'               => 'host_binding_type',
         'httpMethod'                    => 'http_method',
         'ipNetwork'                     => 'ip_network',
         'isBase64Encode'                => 'isBase64Encode',
@@ -457,6 +478,7 @@ class optionJson extends Model
         'responseFormat'                => 'response_format',
         'retryDelay'                    => 'retry_delay',
         'screenShot'                    => 'screen_shot',
+        'scrollEnd'                     => 'scroll_end',
         'strictMode'                    => 'strict_mode',
         'timeOut'                       => 'time_out',
         'trafficHijackElementBlacklist' => 'traffic_hijack_element_blacklist',
@@ -539,6 +561,12 @@ class optionJson extends Model
         if (null !== $this->header) {
             $res['header'] = $this->header;
         }
+        if (null !== $this->hostBinding) {
+            $res['host_binding'] = $this->hostBinding;
+        }
+        if (null !== $this->hostBindingType) {
+            $res['host_binding_type'] = $this->hostBindingType;
+        }
         if (null !== $this->httpMethod) {
             $res['http_method'] = $this->httpMethod;
         }
@@ -595,6 +623,9 @@ class optionJson extends Model
         }
         if (null !== $this->screenShot) {
             $res['screen_shot'] = $this->screenShot;
+        }
+        if (null !== $this->scrollEnd) {
+            $res['scroll_end'] = $this->scrollEnd;
         }
         if (null !== $this->strictMode) {
             $res['strict_mode'] = $this->strictMode;
@@ -695,6 +726,12 @@ class optionJson extends Model
         if (isset($map['header'])) {
             $model->header = $map['header'];
         }
+        if (isset($map['host_binding'])) {
+            $model->hostBinding = $map['host_binding'];
+        }
+        if (isset($map['host_binding_type'])) {
+            $model->hostBindingType = $map['host_binding_type'];
+        }
         if (isset($map['http_method'])) {
             $model->httpMethod = $map['http_method'];
         }
@@ -751,6 +788,9 @@ class optionJson extends Model
         }
         if (isset($map['screen_shot'])) {
             $model->screenShot = $map['screen_shot'];
+        }
+        if (isset($map['scroll_end'])) {
+            $model->scrollEnd = $map['scroll_end'];
         }
         if (isset($map['strict_mode'])) {
             $model->strictMode = $map['strict_mode'];

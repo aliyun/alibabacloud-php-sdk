@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class vpcConfig extends Model
 {
     /**
+     * @description 内网拨测任务的目标站点所在地域。
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example sg-xxxxxx
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example vpc-xxxxxx
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-xxxxxx
+     *
      * @var string
      */
     public $vswitchId;

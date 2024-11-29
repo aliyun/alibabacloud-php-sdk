@@ -1,3 +1,7 @@
+2024-11-29 Version: 8.1.2
+- Update API DescribeSiteMonitorAttribute: update response param.
+
+
 2024-09-25 Version: 8.1.1
 - Update API DescribeSiteMonitorAttribute: update response param.
 

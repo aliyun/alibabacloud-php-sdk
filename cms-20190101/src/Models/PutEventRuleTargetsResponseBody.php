@@ -36,7 +36,7 @@ class PutEventRuleTargetsResponseBody extends Model
     public $failedFcParameters;
 
     /**
-     * @description This parameter is returned if the specified queues in the request failed to be created or modified in MNS.
+     * @description This parameter is returned if the specified queues in the request failed to be created or modified in SMQ.
      *
      * @var failedMnsParameters
      */

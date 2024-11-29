@@ -48,7 +48,7 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public $message;
 
     /**
-     * @description The information about the recipients in Message Service (MNS).
+     * @description The notifications of Simple Message Queue (formerly MNS) (SMQ).
      *
      * @var mnsParameters
      */

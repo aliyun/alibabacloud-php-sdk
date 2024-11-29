@@ -31,7 +31,7 @@ class CreateHostAvailabilityRequest extends Model
     public $alertConfigEscalationList;
 
     /**
-     * @description The information about the resources for which alerts are triggered.
+     * @description The resources for which alerts are triggered.
      *
      * @var alertConfigTargetList[]
      */

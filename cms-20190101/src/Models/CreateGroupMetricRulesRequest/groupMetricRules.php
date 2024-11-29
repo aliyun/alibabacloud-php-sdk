@@ -81,7 +81,7 @@ class groupMetricRules extends Model
      *   UIS: Ultimate Internet Service (UIS)
      *   nls: Intelligent Speech Interaction
      *   ots: Tablestore
-     *   NAS: Apsara File Storage NAS
+     *   NAS: File Storage NAS
      *   ECI: Elastic Container Instance (ECI)
      *   OpenAPI: OpenAPI Explorer
      *   pvtzpost: Alibaba Cloud DNS PrivateZone
@@ -247,6 +247,8 @@ class groupMetricRules extends Model
     public $noEffectiveInterval;
 
     /**
+     * @example {
+     * }
      * @var string
      */
     public $options;

@@ -18,7 +18,7 @@ class mnsParameters extends Model
     public $id;
 
     /**
-     * @description The name of the MNS queue. Valid values of N: 1 to 5.
+     * @description The name of the SMQ queue. Valid values of N: 1 to 5.
      *
      * @example queue1
      *
@@ -27,7 +27,7 @@ class mnsParameters extends Model
     public $queue;
 
     /**
-     * @description The region where Message Service (MNS) is deployed. Valid values of N: 1 to 5.
+     * @description The region for SMQ. Valid values of N: 1 to 5.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class mnsParameters extends Model
     public $region;
 
     /**
-     * @description The MNS topic.
+     * @description The SMQ topic.
      *
      * @example topic_sample
      *

@@ -41,6 +41,10 @@ class ispCity extends Model
     public $ispName;
 
     /**
+     * @description 探测点网络类型。取值：
+     * MOBILE: 移动蜂窝网
+     * @example IDC
+     *
      * @var string
      */
     public $type;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeExporterOutputListRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeExporterOutputListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 10
      *

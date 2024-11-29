@@ -11,15 +11,15 @@ class targetList extends Model
     /**
      * @description The Alibaba Cloud Resource Name (ARN) of the resource.
      *
-     * For information about how to obtain the ARN of a resource, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+     * For more information about how to query the ARN of a resource, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
      *
      * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
      *
-     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
+     *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
      *
      *   {userId}: the ID of the Alibaba Cloud account.
      *
-     *   {regionId}: the region ID of the message queue or topic.
+     *   {regionId}: the region ID of the SMQ queue or topic.
      *
      *   {Resource type}: the type of the resource that triggers the alert. Valid values:
      *
@@ -40,7 +40,7 @@ class targetList extends Model
     /**
      * @description The ID of the resource for which alerts are triggered.
      *
-     * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
+     * For more information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](https://help.aliyun.com/document_detail/121592.html).
      * @example 1
      *
      * @var string
@@ -48,7 +48,7 @@ class targetList extends Model
     public $id;
 
     /**
-     * @description The parameters of the alert callback. Specify the parameters in the JSON format.
+     * @description The parameters of the alert callback. The parameters are in the JSON format.
      *
      * @example {"customField1":"value1","customField2":"$.name"}
      *

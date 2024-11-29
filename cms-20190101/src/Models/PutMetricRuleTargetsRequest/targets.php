@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the resource. Message Service (MNS), Auto Scaling, Simple Log Service, and Function Compute are supported.
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource. Simple Message Queue (formerly MNS) (SMQ), Auto Scaling, Simple Log Service, and Function Compute are supported.
      *
      * `acs:mns:{regionId}:{userId}:/{Resource type}/{Resource name}/message`.
      *
-     *   {regionId}: the region ID of the message queue or topic.
+     *   {regionId}: the region ID of the SMQ queue or topic.
      *
      *   {userId}: the ID of the Alibaba Cloud account that owns the resource.
      *
@@ -45,7 +45,7 @@ class targets extends Model
     public $id;
 
     /**
-     * @description The JSON-formatted parameters of the alert callback.
+     * @description The parameters of the alert callback. The parameters are in the JSON format.
      *
      * @example {"customField1":"value1","customField2":"$.name"}
      *

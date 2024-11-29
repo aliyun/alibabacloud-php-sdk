@@ -25,7 +25,7 @@ class PutMetricRuleTargetsRequest extends Model
     public $ruleId;
 
     /**
-     * @description N/A.
+     * @description None.
      *
      * This parameter is required.
      * @var targets[]

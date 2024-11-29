@@ -11,13 +11,13 @@ class alertConfigTargetList extends Model
     /**
      * @description The Alibaba Cloud Resource Name (ARN) of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
      *
-     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
+     *   {Service name abbreviation}: the abbreviation of the service name. Set the value to Simple Message Queue (formerly MNS) (SMQ).
      *
      *   {userId}: the ID of the Alibaba Cloud account.
      *
-     *   {regionId}: the region ID of the message queue or topic.
+     *   {regionId}: the region ID of the SMQ queue or topic.
      *
-     *   {Resource type}: the type of the resource that triggers the alert. Valid values:
+     *   {Resource type}: the type of the resource for which alerts are triggered. Valid values:
      *
      *   **queues**
      *   **topics**

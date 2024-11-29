@@ -81,7 +81,7 @@ class alertConfig extends Model
     public $statistics;
 
     /**
-     * @description The resource for which alerts are triggered.
+     * @description The resources for which alerts are triggered.
      *
      * @var targetList
      */

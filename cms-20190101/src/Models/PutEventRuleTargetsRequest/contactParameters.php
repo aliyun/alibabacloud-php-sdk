@@ -25,9 +25,9 @@ class contactParameters extends Model
     public $id;
 
     /**
-     * @description The alert level and the corresponding notification methods. Valid values of N: 1 to 5. Valid values:
+     * @description The alert notification methods. Valid values of N: 1 to 5. Valid values:
      *
-     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
+     * 4: Alert notifications are sent by using DingTalk and emails.
      * @example 3
      *
      * @var string
