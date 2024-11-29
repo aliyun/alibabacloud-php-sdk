@@ -6,8 +6,12 @@ namespace AlibabaCloud\SDK\Agency\V20221216;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CancelCouponRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CancelCouponResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CancelSubscriptionBillResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CouponApprovalStatusListRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\CouponApprovalStatusListResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCouponTemplateRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCouponTemplateResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CreateCouponTemplateShrinkRequest;
@@ -17,6 +21,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\CustomerQuotaRecordListRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\CustomerQuotaRecordListResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\DeductOutstandingBalanceRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\DeductOutstandingBalanceResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\DeleteCouponTemplateRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\DeleteCouponTemplateResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditEndUserStatusRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditEndUserStatusResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditNewBuyStatusRequest;
@@ -29,6 +35,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\GetAccountInfoRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetAccountInfoResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetCoupondeductProductCodeRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetCoupondeductProductCodeResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetCouponTemplateDetailRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\GetCouponTemplateDetailResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetCreditInfoRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetCreditInfoResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\GetCustomerOrdersRequest;
@@ -158,6 +166,53 @@ class Agency extends OpenApiClient
     }
 
     /**
+     * @summary 作废优惠券
+     *  *
+     * @param CancelCouponRequest $request CancelCouponRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelCouponResponse CancelCouponResponse
+     */
+    public function cancelCouponWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->couponId)) {
+            $query['CouponId'] = $request->couponId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelCoupon',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelCouponResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 作废优惠券
+     *  *
+     * @param CancelCouponRequest $request CancelCouponRequest
+     *
+     * @return CancelCouponResponse CancelCouponResponse
+     */
+    public function cancelCoupon($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelCouponWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Cancels the subscription to multi-level bills as an Alibaba Cloud eco-partner.
      *  *
      * @description Make sure that you are a distributor of the Alibaba Cloud international ecosystem.
@@ -212,6 +267,65 @@ class Agency extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelSubscriptionBillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 优惠券审批状态列表
+     *  *
+     * @param CouponApprovalStatusListRequest $request CouponApprovalStatusListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CouponApprovalStatusListResponse CouponApprovalStatusListResponse
+     */
+    public function couponApprovalStatusListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateStatus)) {
+            $query['TemplateStatus'] = $request->templateStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CouponApprovalStatusList',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CouponApprovalStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 优惠券审批状态列表
+     *  *
+     * @param CouponApprovalStatusListRequest $request CouponApprovalStatusListRequest
+     *
+     * @return CouponApprovalStatusListResponse CouponApprovalStatusListResponse
+     */
+    public function couponApprovalStatusList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->couponApprovalStatusListWithOptions($request, $runtime);
     }
 
     /**
@@ -462,6 +576,53 @@ class Agency extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deductOutstandingBalanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 作废优惠券模板
+     *  *
+     * @param DeleteCouponTemplateRequest $request DeleteCouponTemplateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCouponTemplateResponse DeleteCouponTemplateResponse
+     */
+    public function deleteCouponTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCouponTemplate',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCouponTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 作废优惠券模板
+     *  *
+     * @param DeleteCouponTemplateRequest $request DeleteCouponTemplateRequest
+     *
+     * @return DeleteCouponTemplateResponse DeleteCouponTemplateResponse
+     */
+    public function deleteCouponTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCouponTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -731,6 +892,53 @@ class Agency extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAccountInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询优惠券模板详情
+     *  *
+     * @param GetCouponTemplateDetailRequest $request GetCouponTemplateDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCouponTemplateDetailResponse GetCouponTemplateDetailResponse
+     */
+    public function getCouponTemplateDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCouponTemplateDetail',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCouponTemplateDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询优惠券模板详情
+     *  *
+     * @param GetCouponTemplateDetailRequest $request GetCouponTemplateDetailRequest
+     *
+     * @return GetCouponTemplateDetailResponse GetCouponTemplateDetailResponse
+     */
+    public function getCouponTemplateDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCouponTemplateDetailWithOptions($request, $runtime);
     }
 
     /**
