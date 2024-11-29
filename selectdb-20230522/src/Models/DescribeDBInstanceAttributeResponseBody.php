@@ -129,12 +129,16 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     /**
      * @description The end time of the instance maintenance window.
      *
+     * @example 1970-01-01T05:00Z
+     *
      * @var string
      */
     public $maintainEndtime;
 
     /**
      * @description The start time of the instance maintenance window.
+     *
+     * @example 1970-01-01T02:00Z
      *
      * @var string
      */
@@ -150,7 +154,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $objectStoreSize;
 
     /**
-     * @description 地域ID。
+     * @description The Region ID.
      *
      * @example cn-beijing
      *
@@ -211,7 +215,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $storageSize;
 
     /**
-     * @description The zone ID.
+     * @description The subdomain zone ID.
      *
      * @example cn-beijing-h-aliyun
      *
@@ -220,12 +224,14 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $subDomain;
 
     /**
+     * @description The tags that are added to the instances. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. Format: `{"key1":"value1"}`.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description VPC ID。
+     * @description The VPC ID.
      *
      * @example vpc-bp175iuvg8nxqraf2****
      *
@@ -234,7 +240,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description 实例可用区ID
+     * @description The Zone ID.
      *
      * @example cn-beijing-h
      *

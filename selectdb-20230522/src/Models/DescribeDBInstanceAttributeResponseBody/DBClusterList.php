@@ -94,6 +94,8 @@ class DBClusterList extends Model
     /**
      * @description The instance name.
      *
+     * @example test instance
+     *
      * @var string
      */
     public $dbInstanceName;
@@ -108,7 +110,7 @@ class DBClusterList extends Model
     public $memory;
 
     /**
-     * @description 修改时间。
+     * @description The modified time.
      *
      * @example 2024-07-02T16:35:44+08:00
      *
@@ -124,6 +126,11 @@ class DBClusterList extends Model
      * @var string
      */
     public $performanceLevel;
+
+    /**
+     * @var bool
+     */
+    public $scalingRulesEnable;
 
     /**
      * @description The time when the cluster started.
@@ -162,6 +169,7 @@ class DBClusterList extends Model
         'memory'             => 'Memory',
         'modifiedTime'       => 'ModifiedTime',
         'performanceLevel'   => 'PerformanceLevel',
+        'scalingRulesEnable' => 'ScalingRulesEnable',
         'startTime'          => 'StartTime',
         'status'             => 'Status',
     ];
@@ -208,6 +216,9 @@ class DBClusterList extends Model
         }
         if (null !== $this->performanceLevel) {
             $res['PerformanceLevel'] = $this->performanceLevel;
+        }
+        if (null !== $this->scalingRulesEnable) {
+            $res['ScalingRulesEnable'] = $this->scalingRulesEnable;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -262,6 +273,9 @@ class DBClusterList extends Model
         }
         if (isset($map['PerformanceLevel'])) {
             $model->performanceLevel = $map['PerformanceLevel'];
+        }
+        if (isset($map['ScalingRulesEnable'])) {
+            $model->scalingRulesEnable = $map['ScalingRulesEnable'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
