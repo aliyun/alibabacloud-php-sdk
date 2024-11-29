@@ -1,3 +1,24 @@
+2024-11-29 Version: 2.6.0
+- Support API CreateClientCertificate.
+- Support API CreateSiteFunction.
+- Support API DeleteCertificate.
+- Support API DeleteClientCaCertificate.
+- Support API DeleteClientCertificate.
+- Support API DeleteSiteFunction.
+- Support API GetCertificateQuota.
+- Support API GetClientCaCertificate.
+- Support API GetClientCertificate.
+- Support API ListCiphers.
+- Support API ListClientCaCertificates.
+- Support API ListSiteFunctions.
+- Support API RevokeClientCertificate.
+- Support API UpdateSiteFunction.
+- Support API UploadClientCaCertificate.
+- Update API ListSites: add param OrderBy.
+- Update API ListSites: update response param.
+- Update API ListUserRatePlanInstances: add param RemainingExpireDays.
+
+
 2024-11-21 Version: 2.5.0
 - Support API CreateOriginProtection.
 - Support API DeleteOriginProtection.

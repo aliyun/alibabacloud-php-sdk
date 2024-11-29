@@ -43,6 +43,11 @@ class ListSitesShrinkRequest extends Model
     public $onlyEnterprise;
 
     /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
      * @description The page number. Default value: **1**.
      *
      * @example 1
@@ -125,6 +130,7 @@ class ListSitesShrinkRequest extends Model
         'accessType'        => 'AccessType',
         'coverage'          => 'Coverage',
         'onlyEnterprise'    => 'OnlyEnterprise',
+        'orderBy'           => 'OrderBy',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'planSubscribeType' => 'PlanSubscribeType',
@@ -150,6 +156,9 @@ class ListSitesShrinkRequest extends Model
         }
         if (null !== $this->onlyEnterprise) {
             $res['OnlyEnterprise'] = $this->onlyEnterprise;
+        }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -195,6 +204,9 @@ class ListSitesShrinkRequest extends Model
         }
         if (isset($map['OnlyEnterprise'])) {
             $model->onlyEnterprise = $map['OnlyEnterprise'];
+        }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

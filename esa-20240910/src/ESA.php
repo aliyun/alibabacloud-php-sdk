@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CheckUserProjectNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckUserProjectNameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CommitRoutineStagingCodeResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateClientCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateEdgeContainerAppRecordRequest;
@@ -83,6 +85,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteCustomLogShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteFunctionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteFunctionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteFunctionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
@@ -98,6 +103,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCaCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCaCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteEdgeContainerAppRecordRequest;
@@ -132,6 +143,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadJobRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadJobResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteDeliveryTaskResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteFunctionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteFunctionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskRequest;
@@ -169,6 +182,12 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\EnableCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppStatusRequest;
@@ -239,6 +258,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCiphersRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCiphersResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCaCertificatesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCaCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeContainerAppRecordsRequest;
@@ -277,6 +300,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesShrinkRequest;
@@ -331,6 +356,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvReque
 use AlibabaCloud\SDK\ESA\V20240910\Models\RebuildEdgeContainerAppStagingEnvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ResetScheduledPreloadJobRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ResetScheduledPreloadJobResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RevokeClientCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\RevokeClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateRequest;
@@ -374,6 +401,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteFunctionRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteFunctionResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteFunctionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskRequest;
@@ -392,6 +422,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomRuleRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomRuleResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UploadClientCaCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UploadClientCaCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadFileAdvanceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadFileRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UploadFileResponse;
@@ -1588,6 +1620,64 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 创建客户端证书
+     *  *
+     * @param CreateClientCertificateRequest $request CreateClientCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateClientCertificateResponse CreateClientCertificateResponse
+     */
+    public function createClientCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->CSR)) {
+            $body['CSR'] = $request->CSR;
+        }
+        if (!Utils::isUnset($request->pkeyType)) {
+            $body['PkeyType'] = $request->pkeyType;
+        }
+        if (!Utils::isUnset($request->validityDays)) {
+            $body['ValidityDays'] = $request->validityDays;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClientCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建客户端证书
+     *  *
+     * @param CreateClientCertificateRequest $request CreateClientCertificateRequest
+     *
+     * @return CreateClientCertificateResponse CreateClientCertificateResponse
+     */
+    public function createClientCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an account-level custom scenario policy. You can execute a policy after you associate the policy with a website.
      *  *
      * @param CreateCustomScenePolicyRequest $request CreateCustomScenePolicyRequest
@@ -2658,6 +2748,200 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary Configures one or more feature settings for a website.
+     *  *
+     * @description This API operation is used the first time you configure feature settings for your website. To modify existing feature settings, call the UpdateSiteFunction operation.
+     *  *
+     * @param CreateSiteFunctionRequest $tmpReq  CreateSiteFunctionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateSiteFunctionResponse CreateSiteFunctionResponse
+     */
+    public function createSiteFunctionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateSiteFunctionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cacheReserve)) {
+            $request->cacheReserveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheReserve, 'CacheReserve', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->cacheRules)) {
+            $request->cacheRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheRules, 'CacheRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->cacheTags)) {
+            $request->cacheTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheTags, 'CacheTags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->cnameFlattening)) {
+            $request->cnameFlatteningShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cnameFlattening, 'CnameFlattening', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->compressionRules)) {
+            $request->compressionRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->compressionRules, 'CompressionRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->crossBorderOptimization)) {
+            $request->crossBorderOptimizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->crossBorderOptimization, 'CrossBorderOptimization', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->developmentMode)) {
+            $request->developmentModeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->developmentMode, 'DevelopmentMode', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->httpRequestHeaderModificationRules)) {
+            $request->httpRequestHeaderModificationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpRequestHeaderModificationRules, 'HttpRequestHeaderModificationRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->httpResponseHeaderModificationRules)) {
+            $request->httpResponseHeaderModificationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpResponseHeaderModificationRules, 'HttpResponseHeaderModificationRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->httpsApplicationConfiguration)) {
+            $request->httpsApplicationConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpsApplicationConfiguration, 'HttpsApplicationConfiguration', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->httpsBasicConfiguration)) {
+            $request->httpsBasicConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpsBasicConfiguration, 'HttpsBasicConfiguration', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->imageTransform)) {
+            $request->imageTransformShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageTransform, 'ImageTransform', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ipv6)) {
+            $request->ipv6Shrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipv6, 'Ipv6', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->managedTransforms)) {
+            $request->managedTransformsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managedTransforms, 'ManagedTransforms', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->networkOptimization)) {
+            $request->networkOptimizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkOptimization, 'NetworkOptimization', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->originProtection)) {
+            $request->originProtectionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->originProtection, 'OriginProtection', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->originRules)) {
+            $request->originRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->originRules, 'OriginRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->redirectRules)) {
+            $request->redirectRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirectRules, 'RedirectRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->rewriteUrlRules)) {
+            $request->rewriteUrlRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rewriteUrlRules, 'RewriteUrlRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->seoBypass)) {
+            $request->seoBypassShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->seoBypass, 'SeoBypass', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->siteNameExclusive)) {
+            $request->siteNameExclusiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->siteNameExclusive, 'SiteNameExclusive', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sitePause)) {
+            $request->sitePauseShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sitePause, 'SitePause', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tieredCache)) {
+            $request->tieredCacheShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tieredCache, 'TieredCache', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->cacheReserveShrink)) {
+            $query['CacheReserve'] = $request->cacheReserveShrink;
+        }
+        if (!Utils::isUnset($request->cacheRulesShrink)) {
+            $query['CacheRules'] = $request->cacheRulesShrink;
+        }
+        if (!Utils::isUnset($request->cacheTagsShrink)) {
+            $query['CacheTags'] = $request->cacheTagsShrink;
+        }
+        if (!Utils::isUnset($request->cnameFlatteningShrink)) {
+            $query['CnameFlattening'] = $request->cnameFlatteningShrink;
+        }
+        if (!Utils::isUnset($request->compressionRulesShrink)) {
+            $query['CompressionRules'] = $request->compressionRulesShrink;
+        }
+        if (!Utils::isUnset($request->crossBorderOptimizationShrink)) {
+            $query['CrossBorderOptimization'] = $request->crossBorderOptimizationShrink;
+        }
+        if (!Utils::isUnset($request->developmentModeShrink)) {
+            $query['DevelopmentMode'] = $request->developmentModeShrink;
+        }
+        if (!Utils::isUnset($request->httpRequestHeaderModificationRulesShrink)) {
+            $query['HttpRequestHeaderModificationRules'] = $request->httpRequestHeaderModificationRulesShrink;
+        }
+        if (!Utils::isUnset($request->httpResponseHeaderModificationRulesShrink)) {
+            $query['HttpResponseHeaderModificationRules'] = $request->httpResponseHeaderModificationRulesShrink;
+        }
+        if (!Utils::isUnset($request->httpsApplicationConfigurationShrink)) {
+            $query['HttpsApplicationConfiguration'] = $request->httpsApplicationConfigurationShrink;
+        }
+        if (!Utils::isUnset($request->httpsBasicConfigurationShrink)) {
+            $query['HttpsBasicConfiguration'] = $request->httpsBasicConfigurationShrink;
+        }
+        if (!Utils::isUnset($request->imageTransformShrink)) {
+            $query['ImageTransform'] = $request->imageTransformShrink;
+        }
+        if (!Utils::isUnset($request->ipv6Shrink)) {
+            $query['Ipv6'] = $request->ipv6Shrink;
+        }
+        if (!Utils::isUnset($request->managedTransformsShrink)) {
+            $query['ManagedTransforms'] = $request->managedTransformsShrink;
+        }
+        if (!Utils::isUnset($request->networkOptimizationShrink)) {
+            $query['NetworkOptimization'] = $request->networkOptimizationShrink;
+        }
+        if (!Utils::isUnset($request->originProtectionShrink)) {
+            $query['OriginProtection'] = $request->originProtectionShrink;
+        }
+        if (!Utils::isUnset($request->originRulesShrink)) {
+            $query['OriginRules'] = $request->originRulesShrink;
+        }
+        if (!Utils::isUnset($request->redirectRulesShrink)) {
+            $query['RedirectRules'] = $request->redirectRulesShrink;
+        }
+        if (!Utils::isUnset($request->rewriteUrlRulesShrink)) {
+            $query['RewriteUrlRules'] = $request->rewriteUrlRulesShrink;
+        }
+        if (!Utils::isUnset($request->seoBypassShrink)) {
+            $query['SeoBypass'] = $request->seoBypassShrink;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        if (!Utils::isUnset($request->siteNameExclusiveShrink)) {
+            $query['SiteNameExclusive'] = $request->siteNameExclusiveShrink;
+        }
+        if (!Utils::isUnset($request->sitePauseShrink)) {
+            $query['SitePause'] = $request->sitePauseShrink;
+        }
+        if (!Utils::isUnset($request->siteVersion)) {
+            $query['SiteVersion'] = $request->siteVersion;
+        }
+        if (!Utils::isUnset($request->tieredCacheShrink)) {
+            $query['TieredCache'] = $request->tieredCacheShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSiteFunction',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSiteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Configures one or more feature settings for a website.
+     *  *
+     * @description This API operation is used the first time you configure feature settings for your website. To modify existing feature settings, call the UpdateSiteFunction operation.
+     *  *
+     * @param CreateSiteFunctionRequest $request CreateSiteFunctionRequest
+     *
+     * @return CreateSiteFunctionResponse CreateSiteFunctionResponse
+     */
+    public function createSiteFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSiteFunctionWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a log delivery task to ship logs to the specified destination.
      *  *
      * @description This API operation allows you to deliver logs to destinations such as Simple Log Service (SLS), HTTP servers, Object Storage Service (OSS), Amazon Simple Storage Service (S3), and Kafka. You can specify the task name, log fields to deliver, data center, discard rate, delivery type, and delivery details.
@@ -3095,6 +3379,138 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createWaitingRoomRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除证书
+     *  *
+     * @param DeleteCertificateRequest $request DeleteCertificateRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteCertificateResponse DeleteCertificateResponse
+     */
+    public function deleteCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除证书
+     *  *
+     * @param DeleteCertificateRequest $request DeleteCertificateRequest
+     *
+     * @return DeleteCertificateResponse DeleteCertificateResponse
+     */
+    public function deleteCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除客户端CA证书
+     *  *
+     * @param DeleteClientCaCertificateRequest $request DeleteClientCaCertificateRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteClientCaCertificateResponse DeleteClientCaCertificateResponse
+     */
+    public function deleteClientCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteClientCaCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除客户端CA证书
+     *  *
+     * @param DeleteClientCaCertificateRequest $request DeleteClientCaCertificateRequest
+     *
+     * @return DeleteClientCaCertificateResponse DeleteClientCaCertificateResponse
+     */
+    public function deleteClientCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClientCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除客户端证书
+     *  *
+     * @param DeleteClientCertificateRequest $request DeleteClientCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteClientCertificateResponse DeleteClientCertificateResponse
+     */
+    public function deleteClientCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteClientCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除客户端证书
+     *  *
+     * @param DeleteClientCertificateRequest $request DeleteClientCertificateRequest
+     *
+     * @return DeleteClientCertificateResponse DeleteClientCertificateResponse
+     */
+    public function deleteClientCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClientCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -3979,6 +4395,56 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSiteDeliveryTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除站点配置
+     *  *
+     * @param DeleteSiteFunctionRequest $request DeleteSiteFunctionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteSiteFunctionResponse DeleteSiteFunctionResponse
+     */
+    public function deleteSiteFunctionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configIds)) {
+            $query['ConfigIds'] = $request->configIds;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSiteFunction',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSiteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除站点配置
+     *  *
+     * @param DeleteSiteFunctionRequest $request DeleteSiteFunctionRequest
+     *
+     * @return DeleteSiteFunctionResponse DeleteSiteFunctionResponse
+     */
+    public function deleteSiteFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSiteFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -4868,6 +5334,138 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询证书quota及用量
+     *  *
+     * @param GetCertificateQuotaRequest $request GetCertificateQuotaRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCertificateQuotaResponse GetCertificateQuotaResponse
+     */
+    public function getCertificateQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCertificateQuota',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCertificateQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询证书quota及用量
+     *  *
+     * @param GetCertificateQuotaRequest $request GetCertificateQuotaRequest
+     *
+     * @return GetCertificateQuotaResponse GetCertificateQuotaResponse
+     */
+    public function getCertificateQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCertificateQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取客户端CA证书信息
+     *  *
+     * @param GetClientCaCertificateRequest $request GetClientCaCertificateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetClientCaCertificateResponse GetClientCaCertificateResponse
+     */
+    public function getClientCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClientCaCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取客户端CA证书信息
+     *  *
+     * @param GetClientCaCertificateRequest $request GetClientCaCertificateRequest
+     *
+     * @return GetClientCaCertificateResponse GetClientCaCertificateResponse
+     */
+    public function getClientCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取客户端证书以及证书信息
+     *  *
+     * @param GetClientCertificateRequest $request GetClientCertificateRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetClientCertificateResponse GetClientCertificateResponse
+     */
+    public function getClientCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClientCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取客户端证书以及证书信息
+     *  *
+     * @param GetClientCertificateRequest $request GetClientCertificateRequest
+     *
+     * @return GetClientCertificateResponse GetClientCertificateResponse
+     */
+    public function getClientCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
      *  *
      * @param GetEdgeContainerAppRequest $request GetEdgeContainerAppRequest
@@ -5583,7 +6181,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个记录信息
+     * @summary Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
      *  *
      * @param GetRecordRequest $request GetRecordRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -5613,7 +6211,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个记录信息
+     * @summary Queries the configuration of a single DNS record, such as the record value, priority, and origin authentication setting (exclusive to CNAME records).
      *  *
      * @param GetRecordRequest $request GetRecordRequest
      *
@@ -6571,6 +7169,94 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询TLS密码套件列表
+     *  *
+     * @param ListCiphersRequest $request ListCiphersRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCiphersResponse ListCiphersResponse
+     */
+    public function listCiphersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCiphers',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCiphersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询TLS密码套件列表
+     *  *
+     * @param ListCiphersRequest $request ListCiphersRequest
+     *
+     * @return ListCiphersResponse ListCiphersResponse
+     */
+    public function listCiphers($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCiphersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询站点下客户端CA证书列表
+     *  *
+     * @param ListClientCaCertificatesRequest $request ListClientCaCertificatesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListClientCaCertificatesResponse ListClientCaCertificatesResponse
+     */
+    public function listClientCaCertificatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClientCaCertificates',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClientCaCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询站点下客户端CA证书列表
+     *  *
+     * @param ListClientCaCertificatesRequest $request ListClientCaCertificatesRequest
+     *
+     * @return ListClientCaCertificatesResponse ListClientCaCertificatesResponse
+     */
+    public function listClientCaCertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClientCaCertificatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries client certificates configured for a website.
      *  *
      * @param ListClientCertificatesRequest $request ListClientCertificatesRequest
@@ -7487,6 +8173,50 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSiteDeliveryTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询站点配置
+     *  *
+     * @param ListSiteFunctionsRequest $request ListSiteFunctionsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSiteFunctionsResponse ListSiteFunctionsResponse
+     */
+    public function listSiteFunctionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSiteFunctions',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSiteFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询站点配置
+     *  *
+     * @param ListSiteFunctionsRequest $request ListSiteFunctionsRequest
+     *
+     * @return ListSiteFunctionsResponse ListSiteFunctionsResponse
+     */
+    public function listSiteFunctions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSiteFunctionsWithOptions($request, $runtime);
     }
 
     /**
@@ -8879,6 +9609,50 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 吊销客户端证书
+     *  *
+     * @param RevokeClientCertificateRequest $request RevokeClientCertificateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RevokeClientCertificateResponse RevokeClientCertificateResponse
+     */
+    public function revokeClientCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeClientCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 吊销客户端证书
+     *  *
+     * @param RevokeClientCertificateRequest $request RevokeClientCertificateRequest
+     *
+     * @return RevokeClientCertificateResponse RevokeClientCertificateResponse
+     */
+    public function revokeClientCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Rolls back a version of a containerized application.
      *  *
      * @param RollbackEdgeContainerAppVersionRequest $request RollbackEdgeContainerAppVersionRequest
@@ -10038,6 +10812,187 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 修改站点配置
+     *  *
+     * @param UpdateSiteFunctionRequest $tmpReq  UpdateSiteFunctionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateSiteFunctionResponse UpdateSiteFunctionResponse
+     */
+    public function updateSiteFunctionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateSiteFunctionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cacheReserve)) {
+            $request->cacheReserveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheReserve, 'CacheReserve', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->cacheRules)) {
+            $request->cacheRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheRules, 'CacheRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->cacheTags)) {
+            $request->cacheTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheTags, 'CacheTags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->cnameFlattening)) {
+            $request->cnameFlatteningShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cnameFlattening, 'CnameFlattening', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->compressionRules)) {
+            $request->compressionRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->compressionRules, 'CompressionRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->crossBorderOptimization)) {
+            $request->crossBorderOptimizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->crossBorderOptimization, 'CrossBorderOptimization', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->developmentMode)) {
+            $request->developmentModeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->developmentMode, 'DevelopmentMode', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->httpRequestHeaderModificationRules)) {
+            $request->httpRequestHeaderModificationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpRequestHeaderModificationRules, 'HttpRequestHeaderModificationRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->httpResponseHeaderModificationRules)) {
+            $request->httpResponseHeaderModificationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpResponseHeaderModificationRules, 'HttpResponseHeaderModificationRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->httpsApplicationConfiguration)) {
+            $request->httpsApplicationConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpsApplicationConfiguration, 'HttpsApplicationConfiguration', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->httpsBasicConfiguration)) {
+            $request->httpsBasicConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpsBasicConfiguration, 'HttpsBasicConfiguration', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->imageTransform)) {
+            $request->imageTransformShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageTransform, 'ImageTransform', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ipv6)) {
+            $request->ipv6Shrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipv6, 'Ipv6', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->managedTransforms)) {
+            $request->managedTransformsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managedTransforms, 'ManagedTransforms', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->networkOptimization)) {
+            $request->networkOptimizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkOptimization, 'NetworkOptimization', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->originRules)) {
+            $request->originRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->originRules, 'OriginRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->redirectRules)) {
+            $request->redirectRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirectRules, 'RedirectRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->rewriteUrlRules)) {
+            $request->rewriteUrlRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rewriteUrlRules, 'RewriteUrlRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->seoBypass)) {
+            $request->seoBypassShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->seoBypass, 'SeoBypass', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->siteNameExclusive)) {
+            $request->siteNameExclusiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->siteNameExclusive, 'SiteNameExclusive', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sitePause)) {
+            $request->sitePauseShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sitePause, 'SitePause', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tieredCache)) {
+            $request->tieredCacheShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tieredCache, 'TieredCache', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->cacheReserveShrink)) {
+            $query['CacheReserve'] = $request->cacheReserveShrink;
+        }
+        if (!Utils::isUnset($request->cacheRulesShrink)) {
+            $query['CacheRules'] = $request->cacheRulesShrink;
+        }
+        if (!Utils::isUnset($request->cacheTagsShrink)) {
+            $query['CacheTags'] = $request->cacheTagsShrink;
+        }
+        if (!Utils::isUnset($request->cnameFlatteningShrink)) {
+            $query['CnameFlattening'] = $request->cnameFlatteningShrink;
+        }
+        if (!Utils::isUnset($request->compressionRulesShrink)) {
+            $query['CompressionRules'] = $request->compressionRulesShrink;
+        }
+        if (!Utils::isUnset($request->crossBorderOptimizationShrink)) {
+            $query['CrossBorderOptimization'] = $request->crossBorderOptimizationShrink;
+        }
+        if (!Utils::isUnset($request->developmentModeShrink)) {
+            $query['DevelopmentMode'] = $request->developmentModeShrink;
+        }
+        if (!Utils::isUnset($request->httpRequestHeaderModificationRulesShrink)) {
+            $query['HttpRequestHeaderModificationRules'] = $request->httpRequestHeaderModificationRulesShrink;
+        }
+        if (!Utils::isUnset($request->httpResponseHeaderModificationRulesShrink)) {
+            $query['HttpResponseHeaderModificationRules'] = $request->httpResponseHeaderModificationRulesShrink;
+        }
+        if (!Utils::isUnset($request->httpsApplicationConfigurationShrink)) {
+            $query['HttpsApplicationConfiguration'] = $request->httpsApplicationConfigurationShrink;
+        }
+        if (!Utils::isUnset($request->httpsBasicConfigurationShrink)) {
+            $query['HttpsBasicConfiguration'] = $request->httpsBasicConfigurationShrink;
+        }
+        if (!Utils::isUnset($request->imageTransformShrink)) {
+            $query['ImageTransform'] = $request->imageTransformShrink;
+        }
+        if (!Utils::isUnset($request->ipv6Shrink)) {
+            $query['Ipv6'] = $request->ipv6Shrink;
+        }
+        if (!Utils::isUnset($request->managedTransformsShrink)) {
+            $query['ManagedTransforms'] = $request->managedTransformsShrink;
+        }
+        if (!Utils::isUnset($request->networkOptimizationShrink)) {
+            $query['NetworkOptimization'] = $request->networkOptimizationShrink;
+        }
+        if (!Utils::isUnset($request->originRulesShrink)) {
+            $query['OriginRules'] = $request->originRulesShrink;
+        }
+        if (!Utils::isUnset($request->redirectRulesShrink)) {
+            $query['RedirectRules'] = $request->redirectRulesShrink;
+        }
+        if (!Utils::isUnset($request->rewriteUrlRulesShrink)) {
+            $query['RewriteUrlRules'] = $request->rewriteUrlRulesShrink;
+        }
+        if (!Utils::isUnset($request->seoBypassShrink)) {
+            $query['SeoBypass'] = $request->seoBypassShrink;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        if (!Utils::isUnset($request->siteNameExclusiveShrink)) {
+            $query['SiteNameExclusive'] = $request->siteNameExclusiveShrink;
+        }
+        if (!Utils::isUnset($request->sitePauseShrink)) {
+            $query['SitePause'] = $request->sitePauseShrink;
+        }
+        if (!Utils::isUnset($request->tieredCacheShrink)) {
+            $query['TieredCache'] = $request->tieredCacheShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSiteFunction',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateSiteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改站点配置
+     *  *
+     * @param UpdateSiteFunctionRequest $request UpdateSiteFunctionRequest
+     *
+     * @return UpdateSiteFunctionResponse UpdateSiteFunctionResponse
+     */
+    public function updateSiteFunction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateSiteFunctionWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Updates the custom nameserver names for a single website.
      *  *
      * @param UpdateSiteVanityNSRequest $request UpdateSiteVanityNSRequest
@@ -10591,11 +11546,65 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 上传客户端CA证书
+     *  *
+     * @param UploadClientCaCertificateRequest $request UploadClientCaCertificateRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UploadClientCaCertificateResponse UploadClientCaCertificateResponse
+     */
+    public function uploadClientCaCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->certificate)) {
+            $body['Certificate'] = $request->certificate;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadClientCaCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadClientCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 上传客户端CA证书
+     *  *
+     * @param UploadClientCaCertificateRequest $request UploadClientCaCertificateRequest
+     *
+     * @return UploadClientCaCertificateResponse UploadClientCaCertificateResponse
+     */
+    public function uploadClientCaCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadClientCaCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Uploads the file that contains resources to be purged or prefetched.
      *  *
      * @description >
      * *   The file can be up to 10 MB in size.
-     * *   After the file is uploaded, you can call [SubmitUploadTask](~~SubmitUploadTask~~) to submit the purge or prefetch task.
      *  *
      * @param UploadFileRequest $request UploadFileRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -10641,7 +11650,6 @@ class ESA extends OpenApiClient
      *  *
      * @description >
      * *   The file can be up to 10 MB in size.
-     * *   After the file is uploaded, you can call [SubmitUploadTask](~~SubmitUploadTask~~) to submit the purge or prefetch task.
      *  *
      * @param UploadFileRequest $request UploadFileRequest
      *

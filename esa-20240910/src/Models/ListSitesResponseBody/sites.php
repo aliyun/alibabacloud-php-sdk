@@ -154,6 +154,11 @@ class sites extends Model
      * @var string
      */
     public $verifyCode;
+
+    /**
+     * @var string
+     */
+    public $visitTime;
     protected $_name = [
         'accessType'      => 'AccessType',
         'cnameZone'       => 'CnameZone',
@@ -170,6 +175,7 @@ class sites extends Model
         'tags'            => 'Tags',
         'updateTime'      => 'UpdateTime',
         'verifyCode'      => 'VerifyCode',
+        'visitTime'       => 'VisitTime',
     ];
 
     public function validate()
@@ -223,6 +229,9 @@ class sites extends Model
         }
         if (null !== $this->verifyCode) {
             $res['VerifyCode'] = $this->verifyCode;
+        }
+        if (null !== $this->visitTime) {
+            $res['VisitTime'] = $this->visitTime;
         }
 
         return $res;
@@ -280,6 +289,9 @@ class sites extends Model
         }
         if (isset($map['VerifyCode'])) {
             $model->verifyCode = $map['VerifyCode'];
+        }
+        if (isset($map['VisitTime'])) {
+            $model->visitTime = $map['VisitTime'];
         }
 
         return $model;

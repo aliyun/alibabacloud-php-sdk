@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetRecordResponseBody extends Model
 {
     /**
+     * @description The information about the queried record.
+     *
      * @var recordModel
      */
     public $recordModel;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
      *

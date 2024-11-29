@@ -48,6 +48,11 @@ class ListUserRatePlanInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $remainingExpireDays;
+
+    /**
      * @description The sorting field. By default, the queried plans are sorted by purchase time. Valid values:
      *
      *   CreateTime: the time when the plans were purchased.
@@ -89,6 +94,7 @@ class ListUserRatePlanInstancesRequest extends Model
         'instanceId'              => 'InstanceId',
         'pageNumber'              => 'PageNumber',
         'pageSize'                => 'PageSize',
+        'remainingExpireDays'     => 'RemainingExpireDays',
         'sortBy'                  => 'SortBy',
         'sortOrder'               => 'SortOrder',
         'status'                  => 'Status',
@@ -112,6 +118,9 @@ class ListUserRatePlanInstancesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->remainingExpireDays) {
+            $res['RemainingExpireDays'] = $this->remainingExpireDays;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -145,6 +154,9 @@ class ListUserRatePlanInstancesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RemainingExpireDays'])) {
+            $model->remainingExpireDays = $map['RemainingExpireDays'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
