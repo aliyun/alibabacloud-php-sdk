@@ -21,7 +21,7 @@ class commodity extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
+     * @description Specifies whether to enable auto-renewal for the service instance. Valid values:
      *
      *   **true**
      *   **false**
@@ -33,6 +33,10 @@ class commodity extends Model
     public $autoRenew;
 
     /**
+     * @description The coupon ID.
+     *
+     * @example 302070970220
+     *
      * @var string
      */
     public $couponId;
@@ -49,9 +53,9 @@ class commodity extends Model
     /**
      * @description The unit of the subscription duration. Valid values:
      *
-     *   Year
-     *   Month
-     *   Day
+     *   **Year**
+     *   **Month**
+     *   **Day**
      *
      * @example Year
      *

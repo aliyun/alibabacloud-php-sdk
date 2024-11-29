@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceProvisionsShrinkRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceTemplateParameterConstraintsResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceCategoriesResponse;
@@ -41,6 +43,8 @@ use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceUpgradeHistoryRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceInstanceUpgradeHistoryResponse;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesRequest;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServicesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesRequest;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListServiceUsagesResponse;
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagKeysRequest;
@@ -561,6 +565,64 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateServicePolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceRequest $request GetServiceRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetServiceResponse GetServiceResponse
+     */
+    public function getServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->showDetails)) {
+            $query['ShowDetails'] = $request->showDetails;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetService',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceRequest $request GetServiceRequest
+     *
+     * @return GetServiceResponse GetServiceResponse
+     */
+    public function getService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -1193,6 +1255,73 @@ class ComputeNest extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listServiceUsagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListServicesRequest $request ListServicesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListServicesResponse ListServicesResponse
+     */
+    public function listServicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->fuzzyKeyword)) {
+            $query['FuzzyKeyword'] = $request->fuzzyKeyword;
+        }
+        if (!Utils::isUnset($request->inUsed)) {
+            $query['InUsed'] = $request->inUsed;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->orderByType)) {
+            $query['OrderByType'] = $request->orderByType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceAccessType)) {
+            $query['ServiceAccessType'] = $request->serviceAccessType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServices',
+            'version'     => '2021-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListServicesRequest $request ListServicesRequest
+     *
+     * @return ListServicesResponse ListServicesResponse
+     */
+    public function listServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServicesWithOptions($request, $runtime);
     }
 
     /**

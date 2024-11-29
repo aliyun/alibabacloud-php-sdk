@@ -1,3 +1,9 @@
+2024-11-29 Version: 2.5.0
+- Support API GetService.
+- Support API ListServices.
+- Update API GetServiceInstance: update response param.
+
+
 2024-10-25 Version: 2.4.1
 - Update API ListServiceInstanceLogs: update response param.
 - Update API ListServiceInstanceResources: add param Filters.

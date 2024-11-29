@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponseBody;
 
 use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponseBody\service\serviceInfos;
+use AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceInstanceResponseBody\service\upgradableServiceInfos;
 use AlibabaCloud\Tea\Model;
 
 class service extends Model
@@ -124,6 +125,11 @@ class service extends Model
     public $supplierUrl;
 
     /**
+     * @var upgradableServiceInfos[]
+     */
+    public $upgradableServiceInfos;
+
+    /**
      * @description The service version that can be updated.
      *
      * @var string[]
@@ -168,6 +174,7 @@ class service extends Model
         'status'                    => 'Status',
         'supplierName'              => 'SupplierName',
         'supplierUrl'               => 'SupplierUrl',
+        'upgradableServiceInfos'    => 'UpgradableServiceInfos',
         'upgradableServiceVersions' => 'UpgradableServiceVersions',
         'upgradeMetadata'           => 'UpgradeMetadata',
         'version'                   => 'Version',
@@ -219,6 +226,15 @@ class service extends Model
         }
         if (null !== $this->supplierUrl) {
             $res['SupplierUrl'] = $this->supplierUrl;
+        }
+        if (null !== $this->upgradableServiceInfos) {
+            $res['UpgradableServiceInfos'] = [];
+            if (null !== $this->upgradableServiceInfos && \is_array($this->upgradableServiceInfos)) {
+                $n = 0;
+                foreach ($this->upgradableServiceInfos as $item) {
+                    $res['UpgradableServiceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->upgradableServiceVersions) {
             $res['UpgradableServiceVersions'] = $this->upgradableServiceVersions;
@@ -282,6 +298,15 @@ class service extends Model
         }
         if (isset($map['SupplierUrl'])) {
             $model->supplierUrl = $map['SupplierUrl'];
+        }
+        if (isset($map['UpgradableServiceInfos'])) {
+            if (!empty($map['UpgradableServiceInfos'])) {
+                $model->upgradableServiceInfos = [];
+                $n                             = 0;
+                foreach ($map['UpgradableServiceInfos'] as $item) {
+                    $model->upgradableServiceInfos[$n++] = null !== $item ? upgradableServiceInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UpgradableServiceVersions'])) {
             if (!empty($map['UpgradableServiceVersions'])) {
