@@ -87,6 +87,11 @@ class data extends Model
     public $ingressOptions;
 
     /**
+     * @var bool
+     */
+    public $invalid;
+
+    /**
      * @description The name.
      *
      * @example test
@@ -138,6 +143,7 @@ class data extends Model
         'groupList'          => 'GroupList',
         'id'                 => 'Id',
         'ingressOptions'     => 'IngressOptions',
+        'invalid'            => 'Invalid',
         'name'               => 'Name',
         'pathList'           => 'PathList',
         'source'             => 'Source',
@@ -178,6 +184,9 @@ class data extends Model
         }
         if (null !== $this->ingressOptions) {
             $res['IngressOptions'] = null !== $this->ingressOptions ? $this->ingressOptions->toMap() : null;
+        }
+        if (null !== $this->invalid) {
+            $res['Invalid'] = $this->invalid;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -234,6 +243,9 @@ class data extends Model
         }
         if (isset($map['IngressOptions'])) {
             $model->ingressOptions = ingressOptions::fromMap($map['IngressOptions']);
+        }
+        if (isset($map['Invalid'])) {
+            $model->invalid = $map['Invalid'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
