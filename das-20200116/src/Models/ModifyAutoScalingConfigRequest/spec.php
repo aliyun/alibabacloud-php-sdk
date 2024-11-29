@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class spec extends Model
 {
     /**
-     * @description Specifies whether to apply the **Spec** configuration of the auto scaling feature for specifications. Valid values:
+     * @description Specifies whether to apply the **Spec** configuration of the specification auto scaling feature. Valid values:
      *
      *   **true**
      *   **false**
@@ -21,10 +21,10 @@ class spec extends Model
     public $apply;
 
     /**
-     * @description The quiescent period. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute, the **h** time unit suffix specifies the hour, and the **d** time suffix unit specifies the day.
+     * @description The quiescent period. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute, the **h** time unit suffix specifies the hour, and the **d** time unit suffix specifies the day.
      *
      *   Valid values for PolarDB for MySQL Cluster Edition instances: **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
-     *   Valid values for ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
+     *   Valid values for ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or Enterprise SSDs (ESSDs): **5m**, **10m**, **30m**, **1h**, **2h**, **3h**, **1d**, and **7d**.
      *
      * @example 5m
      *
@@ -41,7 +41,7 @@ class spec extends Model
      *   **80**
      *   **90**
      *
-     * > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
+     * >  This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
      * @example 70
      *
      * @var int
@@ -49,12 +49,12 @@ class spec extends Model
     public $cpuUsageUpperThreshold;
 
     /**
-     * @description Specifies whether to enable the automatic specification scale-down feature. Valid values:
+     * @description Specifies whether to enable automatic specification scale-down. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
+     * >  This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance or an ApsaraDB RDS for MySQL High-availability Edition instance that uses standard SSDs or ESSDs.
      * @example true
      *
      * @var bool
@@ -64,7 +64,7 @@ class spec extends Model
     /**
      * @description The maximum number of read-only nodes of the instance.
      *
-     * > This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance.
+     * >  This parameter must be specified if the database instance is a PolarDB for MySQL Cluster Edition instance.
      * @example 10
      *
      * @var int
@@ -92,7 +92,7 @@ class spec extends Model
      *   **80**
      *   **90**
      *
-     * > This parameter must be specified if the database instance is an ApsaraDB for Redis Community Edition cloud-native instance on the China site (aliyun.com).
+     * >  This parameter must be specified if the database instance is a Tair (Redis OSS-compatible) Community Edition cloud-native instance on the China site (aliyun.com).
      * @example 70
      *
      * @var int
@@ -104,7 +104,7 @@ class spec extends Model
      *
      *   Valid values for PolarDB for MySQL Cluster Edition instances: **5m**, **10m**, **15m**, and **30m**.
      *   Valid values for ApsaraDB RDS for MySQL High-availability Edition instances that use standard SSDs or ESSDs: **5m**, **20m**, **30m**, **40m**, and **1h**.
-     *   Valid values for ApsaraDB for Redis Community Edition cloud-native instances: **5m**, **10m**, **15m**, and **30m**.
+     *   Valid values for Tair (Redis OSS-compatible) Community Edition cloud-native instances: **5m**, **10m**, **15m**, and **30m**.
      *
      * @example 5m
      *
@@ -113,7 +113,7 @@ class spec extends Model
     public $observationWindowSize;
 
     /**
-     * @description Specifies whether to enable the automatic specification scale-up feature. Valid values:
+     * @description Specifies whether to enable automatic specification scale-up. Valid values:
      *
      *   **true**
      *   **false**

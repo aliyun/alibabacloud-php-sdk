@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
-use AlibabaCloud\SDK\DAS\V20200116\Models\DescribeAutoScalingConfigResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeAutoScalingConfigResponseBody extends Model
+class GetDeadLockDetailResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned.
-     *
      * @example 200
      *
      * @var string
@@ -19,16 +16,11 @@ class DescribeAutoScalingConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The configurations of the auto scaling feature for instances.
-     *
-     * @var data
+     * @var string
      */
     public $data;
 
     /**
-     * @description The returned message.
-     *
-     * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
      * @example Successful
      *
      * @var string
@@ -36,31 +28,32 @@ class DescribeAutoScalingConfigResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example B6D17591-B48B-4D31-9CD6-9B9796B2****
+     * @example 9CB97BC4-6479-55D0-B9D0-EA925AFE****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
      * @example true
      *
      * @var string
      */
     public $success;
+
+    /**
+     * @example None
+     *
+     * @var string
+     */
+    public $synchro;
     protected $_name = [
         'code'      => 'Code',
         'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
+        'synchro'   => 'Synchro',
     ];
 
     public function validate()
@@ -74,7 +67,7 @@ class DescribeAutoScalingConfigResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -85,6 +78,9 @@ class DescribeAutoScalingConfigResponseBody extends Model
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+        if (null !== $this->synchro) {
+            $res['Synchro'] = $this->synchro;
+        }
 
         return $res;
     }
@@ -92,7 +88,7 @@ class DescribeAutoScalingConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAutoScalingConfigResponseBody
+     * @return GetDeadLockDetailResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -101,7 +97,7 @@ class DescribeAutoScalingConfigResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -111,6 +107,9 @@ class DescribeAutoScalingConfigResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Synchro'])) {
+            $model->synchro = $map['Synchro'];
         }
 
         return $model;

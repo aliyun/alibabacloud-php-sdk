@@ -51,7 +51,7 @@ class GetPfsSqlSummariesRequest extends Model
     /**
      * @description The node ID.
      *
-     * >  This parameter must be specified if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
+     * >  This parameter is required if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
      * @example r-****-db-0
      *
      * @var string

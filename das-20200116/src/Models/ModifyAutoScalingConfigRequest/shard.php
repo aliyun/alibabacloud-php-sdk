@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class shard extends Model
 {
     /**
-     * @description Specifies whether to apply the **Shard** configuration of the auto scaling feature for shards. Valid values:
+     * @description Specifies whether to apply the **Shard** configuration of the shard auto scaling feature. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * > The auto scaling feature for shards is available only for ApsaraDB for Redis Community Edition cloud-native instances on the China site (aliyun.com).
+     * >  The shard auto scaling feature is available only for Tair (Redis OSS-compatible) cloud-native cluster instances on the China site (aliyun.com).
      * @example true
      *
      * @var bool
@@ -22,12 +22,12 @@ class shard extends Model
     public $apply;
 
     /**
-     * @description Specifies whether to enable the feature of automatically removing shards. Valid values:
+     * @description Specifies whether to enable automatic shard removal. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * >  The feature of automatically removing shards is in canary release.
+     * >  The automatic shard removal feature is in a canary release.
      * @example true
      *
      * @var bool
@@ -35,7 +35,7 @@ class shard extends Model
     public $downgrade;
 
     /**
-     * @description The observation window of the feature of automatically removing shards. The value of this parameter consists of a numeric value and a time unit suffix. The **h** time unit suffix specifies the hour. The **d** time unit suffix specifies the day. Valid values:
+     * @description The observation window of the automatic shard removal feature. The value of this parameter consists of a numeric value and a time unit suffix. The **h** time unit suffix specifies the hour. The **d** time unit suffix specifies the day. Valid values:
      *
      *   **1h**
      *   **2h**
@@ -59,7 +59,7 @@ class shard extends Model
     public $maxShards;
 
     /**
-     * @description The average memory usage threshold that triggers automatic removal of shards. Unit: %. Valid values:
+     * @description The average memory usage threshold that triggers automatic shard removal. Unit: %. Valid values:
      *
      *   **10**
      *   **20**
@@ -72,7 +72,7 @@ class shard extends Model
     public $memUsageLowerThreshold;
 
     /**
-     * @description The average memory usage threshold that triggers automatic adding of shards. Unit: %. Valid values:
+     * @description The average memory usage threshold that triggers automatic shard addition. Unit: %. Valid values:
      *
      *   **50**
      *   **60**
@@ -96,7 +96,7 @@ class shard extends Model
     public $minShards;
 
     /**
-     * @description Specifies whether to enable the feature of automatically adding shards. Valid values:
+     * @description Specifies whether to enable automatic shard addition. Valid values:
      *
      *   **true**
      *   **false**
@@ -108,7 +108,7 @@ class shard extends Model
     public $upgrade;
 
     /**
-     * @description The observation window of the feature of automatically adding shards. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+     * @description The observation window of the automatic shard addition feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
      *
      *   **5m**
      *   **10m**

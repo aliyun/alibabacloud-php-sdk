@@ -19,7 +19,7 @@ class data extends Model
     public $extra;
 
     /**
-     * @description The detailed information.
+     * @description The details of the data returned.
      *
      * @var list_[]
      */

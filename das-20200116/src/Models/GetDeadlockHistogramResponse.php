@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SyncHDMAliyunResourceResponse extends Model
+class GetDeadlockHistogramResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class SyncHDMAliyunResourceResponse extends Model
     public $statusCode;
 
     /**
-     * @var SyncHDMAliyunResourceResponseBody
+     * @var GetDeadlockHistogramResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class SyncHDMAliyunResourceResponse extends Model
     /**
      * @param array $map
      *
-     * @return SyncHDMAliyunResourceResponse
+     * @return GetDeadlockHistogramResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class SyncHDMAliyunResourceResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = SyncHDMAliyunResourceResponseBody::fromMap($map['body']);
+            $model->body = GetDeadlockHistogramResponseBody::fromMap($map['body']);
         }
 
         return $model;

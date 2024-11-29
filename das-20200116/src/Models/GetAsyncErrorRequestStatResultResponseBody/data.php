@@ -48,7 +48,7 @@ class data extends Model
     /**
      * @description The returned data of the asynchronous request.
      *
-     * @var DataResultValue[][]
+     * @var DataResultValue[]
      */
     public $result;
 
@@ -109,7 +109,12 @@ class data extends Model
             $res['isFinish'] = $this->isFinish;
         }
         if (null !== $this->result) {
-            $res['result'] = $this->result;
+            $res['result'] = [];
+            if (null !== $this->result && \is_array($this->result)) {
+                foreach ($this->result as $key => $val) {
+                    $res['result'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
         if (null !== $this->resultId) {
             $res['resultId'] = $this->resultId;
@@ -142,9 +147,7 @@ class data extends Model
             $model->isFinish = $map['isFinish'];
         }
         if (isset($map['result'])) {
-            if (!empty($map['result'])) {
-                $model->result = $map['result'];
-            }
+            $model->result = $map['result'];
         }
         if (isset($map['resultId'])) {
             $model->resultId = $map['resultId'];

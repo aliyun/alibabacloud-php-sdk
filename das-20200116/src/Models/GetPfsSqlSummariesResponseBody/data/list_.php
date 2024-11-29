@@ -221,7 +221,7 @@ class list_ extends Model
     /**
      * @description The node ID.
      *
-     * > This parameter is returned only if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
+     * >  This parameter is returned only if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL cluster.
      * @example r-x****-db-0
      *
      * @var string

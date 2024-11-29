@@ -17,7 +17,7 @@ class data extends Model
     public $list;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *

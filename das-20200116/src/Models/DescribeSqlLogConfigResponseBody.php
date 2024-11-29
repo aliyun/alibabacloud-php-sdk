@@ -19,7 +19,7 @@ class DescribeSqlLogConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The data that is returned.
      *
      * @var data
      */

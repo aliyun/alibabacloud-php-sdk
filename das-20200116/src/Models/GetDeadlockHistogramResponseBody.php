@@ -4,46 +4,49 @@
 
 namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
+use AlibabaCloud\SDK\DAS\V20200116\Models\GetDeadlockHistogramResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class SyncHDMAliyunResourceResponseBody extends Model
+class GetDeadlockHistogramResponseBody extends Model
 {
     /**
-     * @var string
+     * @example 200
+     *
+     * @var int
      */
     public $code;
 
     /**
-     * @var string
+     * @var data[]
      */
     public $data;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0A74B755-98B7-59DB-8724-1321B394****
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var string
+     * @example true
+     *
+     * @var bool
      */
     public $success;
-
-    /**
-     * @var string
-     */
-    public $synchro;
     protected $_name = [
         'code'      => 'Code',
         'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
-        'synchro'   => 'Synchro',
     ];
 
     public function validate()
@@ -57,7 +60,13 @@ class SyncHDMAliyunResourceResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -68,9 +77,6 @@ class SyncHDMAliyunResourceResponseBody extends Model
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
-        if (null !== $this->synchro) {
-            $res['Synchro'] = $this->synchro;
-        }
 
         return $res;
     }
@@ -78,7 +84,7 @@ class SyncHDMAliyunResourceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SyncHDMAliyunResourceResponseBody
+     * @return GetDeadlockHistogramResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -87,7 +93,13 @@ class SyncHDMAliyunResourceResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
@@ -97,9 +109,6 @@ class SyncHDMAliyunResourceResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
-        }
-        if (isset($map['Synchro'])) {
-            $model->synchro = $map['Synchro'];
         }
 
         return $model;

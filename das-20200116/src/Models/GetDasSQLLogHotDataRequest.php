@@ -182,7 +182,7 @@ class GetDasSQLLogHotDataRequest extends Model
     /**
      * @description The keyword that is used for the query.
      *
-     * >  The keyword must be at least four characters in length. You can specify multiple keywords that are separated by spaces. Fuzzy queries are not supported.
+     * >  Fuzzy search is not supported. You can query data by using multiple keywords. Separate keywords with spaces.
      * @example test
      *
      * @var string
@@ -238,7 +238,7 @@ class GetDasSQLLogHotDataRequest extends Model
     public $sqlType;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the UNIX timestamp format. Unit: millisecond.
+     * @description The beginning of the time range to query. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * This parameter is required.
      * @example 1684734297000

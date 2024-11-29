@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description Specifies whether to apply the **Resource** configuration of the auto scaling feature for resources. Valid values:
+     * @description Specifies whether to apply the **Resource** configuration of the resource auto scaling feature. Valid values:
      *
      *   **true**
      *   **false**
@@ -21,7 +21,7 @@ class resource extends Model
     public $apply;
 
     /**
-     * @description The average CPU utilization threshold that triggers automatic scale-out of resources. Unit: %. Valid values:
+     * @description The average CPU utilization threshold that triggers automatic resource scale-out. Unit: %. Valid values:
      *
      *   **70**
      *   **80**
@@ -50,7 +50,7 @@ class resource extends Model
     public $downgradeObservationWindowSize;
 
     /**
-     * @description Specifies whether to enable the auto scaling feature for resources. Valid values:
+     * @description Specifies whether to enable resource auto scaling. Valid values:
      *
      *   **true**
      *   **false**

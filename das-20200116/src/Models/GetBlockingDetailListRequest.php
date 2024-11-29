@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetBlockingDetailListRequest extends Model
 {
     /**
-     * @description The database name list.
-     *
-     *   Separate multiple database names with commas (,).
+     * @description The name of the database. Separate multiple database names with commas (,).
      *
      * @example school1,school2
      *
@@ -30,7 +28,7 @@ class GetBlockingDetailListRequest extends Model
     public $endTime;
 
     /**
-     * @description The database instance ID.
+     * @description The ID of the database instance.
      *
      * This parameter is required.
      * @example rm-t4nfalp2ap421312z
@@ -58,7 +56,7 @@ class GetBlockingDetailListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The hash value of the SQL statement.
+     * @description The hash value of the SQL statement. The hash values of SQL statements of the same type are the same.
      *
      * @example DC08B955CAD25E7B
      *
@@ -67,7 +65,7 @@ class GetBlockingDetailListRequest extends Model
     public $queryHash;
 
     /**
-     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * This parameter is required.
      * @example 1679429913757

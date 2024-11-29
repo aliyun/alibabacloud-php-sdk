@@ -36,12 +36,12 @@ class storage extends Model
     public $diskUsageUpperThreshold;
 
     /**
-     * @description The maximum storage size of the database instance. The value must be greater than or equal to the total storage size of the instance. Valid values of different types of instances:
+     * @description The maximum storage size of the database instance. Unit: GB. The value must be greater than or equal to the total storage size of the instance.
      *
-     *   If the ApsaraDB for RDS instance uses ESSDs, the value of this parameter can be set to 32000, in GB.
-     *   If the ApsaraDB for RDS instance uses standard SSDs, the value of this parameter can be set to 6000, in GB.
+     *   If the instance uses ESSDs, the maximum value of this parameter can be 32000.
+     *   If the instance uses standard SSDs, the maximum value of this parameter can be 6000.
      *
-     * >  The ApsaraDB RDS for MySQL instances that use standard SSDs are discontinued. We recommend that you [upgrade the storage type of an ApsaraDB RDS for MySQL instance from standard SSDs to ESSDs](https://help.aliyun.com/document_detail/314678.html).
+     * >  The standard SSD storage type is phased out. We recommend that you [upgrade the storage type of your instance from standard SSDs to ESSDs](https://help.aliyun.com/document_detail/314678.html).
      * @example 32000
      *
      * @var int
@@ -49,7 +49,7 @@ class storage extends Model
     public $maxStorage;
 
     /**
-     * @description Specifies whether to enable the automatic storage expansion feature. Valid values:
+     * @description Specifies whether to enable automatic storage expansion. Valid values:
      *
      *   **true**
      *   **false**

@@ -6,65 +6,54 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPfsMetricTrendsRequest extends Model
+class GetDeadlockHistogramRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description This parameter is required.
      *
-     * >  The end time must be later than the start time. You can view the data of up to seven days in the previous 30 days.
-     * @example 1678432430967
+     * @example 1732069466000
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The instance ID.
+     * @description This parameter is required.
      *
-     * @example rm-m5ea73876ukci****
+     * @example pc-bp1u5mas9exx7****
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The metric whose trend you want to query. Valid values:
-     *
-     *   **count**: the number of executions.
-     *   **avgRt**: the average execution duration.
-     *   **rtRate**: the execution duration percentage.
-     *   **rowsExamined**: the total number of scanned rows.
-     *
-     * @example Count
-     *
-     * @var string
-     */
-    public $metric;
-
-    /**
-     * @description The node ID.
-     *
-     * >  This parameter is required if the database instance is an ApsaraDB RDS for MySQL Cluster Edition instance or a PolarDB for MySQL clusters.
-     * @example r-x****-db-0
+     * @example pi-bp16v3824rt73****
      *
      * @var string
      */
     public $nodeId;
 
     /**
-     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     * @description This parameter is required.
      *
-     * @example 1677461663092
+     * @example 1731983066000
      *
      * @var int
      */
     public $startTime;
+
+    /**
+     * @example SUCCESS
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
-        'metric'     => 'Metric',
         'nodeId'     => 'NodeId',
         'startTime'  => 'StartTime',
+        'status'     => 'Status',
     ];
 
     public function validate()
@@ -80,14 +69,14 @@ class GetPfsMetricTrendsRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->metric) {
-            $res['Metric'] = $this->metric;
-        }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -96,7 +85,7 @@ class GetPfsMetricTrendsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPfsMetricTrendsRequest
+     * @return GetDeadlockHistogramRequest
      */
     public static function fromMap($map = [])
     {
@@ -107,14 +96,14 @@ class GetPfsMetricTrendsRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['Metric'])) {
-            $model->metric = $map['Metric'];
-        }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

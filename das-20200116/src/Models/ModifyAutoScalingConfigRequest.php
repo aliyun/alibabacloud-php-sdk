@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoScalingConfigRequest extends Model
 {
     /**
-     * @description The configuration item of the automatic bandwidth adjustment feature.
+     * @description The configuration item of the bandwidth auto scaling feature.
      *
      * @var bandwidth
      */
@@ -31,21 +31,21 @@ class ModifyAutoScalingConfigRequest extends Model
     public $instanceId;
 
     /**
-     * @description The configuration item of the auto scaling feature for resources.
+     * @description The configuration item of the resource auto scaling feature.
      *
      * @var resource
      */
     public $resource;
 
     /**
-     * @description The configuration item of the auto scaling feature for shards.
+     * @description The configuration item of the shard auto scaling feature.
      *
      * @var shard
      */
     public $shard;
 
     /**
-     * @description The configuration item of the auto scaling feature for specifications.
+     * @description The configuration item of the specification auto scaling feature.
      *
      * @var spec
      */

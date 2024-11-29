@@ -27,7 +27,7 @@ class list_ extends Model
     public $clientAppName;
 
     /**
-     * @description The time when the blocking data was collected.
+     * @description The time when the blocking data was collected. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1700065800000
      *
@@ -36,7 +36,7 @@ class list_ extends Model
     public $currentCollectionTime;
 
     /**
-     * @description The database name.
+     * @description The name of the database.
      *
      * @example school
      *
@@ -90,7 +90,7 @@ class list_ extends Model
     public $sqlText;
 
     /**
-     * @description The time when the execution started.
+     * @description The time when the execution started. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1608888296000
      *
@@ -99,7 +99,7 @@ class list_ extends Model
     public $startTime;
 
     /**
-     * @description The blocking duration. Unit: milliseconds.
+     * @description The duration of the blocking. Unit: milliseconds.
      *
      * @example 30000
      *
@@ -108,7 +108,7 @@ class list_ extends Model
     public $waitTimeMs;
 
     /**
-     * @description The wait type.
+     * @description The wait type. For more information about wait types, see [sys.dm_os_wait_stats (Transact-SQL)](https://learn.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql?view=sql-server-ver15).
      *
      * @example MISCELLANEOUS
      *

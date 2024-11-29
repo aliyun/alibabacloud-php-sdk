@@ -6,30 +6,23 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopCloudBenchTaskResponseBody extends Model
+class CreateLatestDeadLockAnalysisResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned.
-     *
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $code;
 
     /**
-     * @description The reserved parameter.
+     * @example true
      *
-     * @example None
-     *
-     * @var string
+     * @var bool
      */
     public $data;
 
     /**
-     * @description The returned message.
-     *
-     * >  If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
      * @example Successful
      *
      * @var string
@@ -37,8 +30,6 @@ class StopCloudBenchTaskResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
-     *
      * @example B6D17591-B48B-4D31-9CD6-9B9796B2****
      *
      * @var string
@@ -46,14 +37,9 @@ class StopCloudBenchTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $success;
     protected $_name = [
@@ -93,7 +79,7 @@ class StopCloudBenchTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return StopCloudBenchTaskResponseBody
+     * @return CreateLatestDeadLockAnalysisResponseBody
      */
     public static function fromMap($map = [])
     {

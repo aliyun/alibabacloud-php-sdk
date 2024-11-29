@@ -54,7 +54,7 @@ class DescribeSqlLogTasksRequest extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries per page. Default value: 10.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 10.
      *
      * @example 10
      *

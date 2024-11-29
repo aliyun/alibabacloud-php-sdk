@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class StopCloudBenchTaskResponse extends Model
+class GetDeadLockHistoryResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class StopCloudBenchTaskResponse extends Model
     public $statusCode;
 
     /**
-     * @var StopCloudBenchTaskResponseBody
+     * @var GetDeadLockHistoryResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class StopCloudBenchTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return StopCloudBenchTaskResponse
+     * @return GetDeadLockHistoryResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class StopCloudBenchTaskResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = StopCloudBenchTaskResponseBody::fromMap($map['body']);
+            $model->body = GetDeadLockHistoryResponseBody::fromMap($map['body']);
         }
 
         return $model;

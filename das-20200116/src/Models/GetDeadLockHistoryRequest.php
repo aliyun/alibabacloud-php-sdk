@@ -6,70 +6,69 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetDeadLockDetailListRequest extends Model
+class GetDeadLockHistoryRequest extends Model
 {
     /**
-     * @description The name of the database. When you specify multiple databases, you must separate the database names with commas (,).
+     * @description This parameter is required.
      *
-     * @example school1,school2
+     * @example 1732069466000
      *
-     * @var string
-     */
-    public $dbNameList;
-
-    /**
-     * @description The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * This parameter is required.
-     * @example 1702360530292
-     *
-     * @var string
+     * @var int
      */
     public $endTime;
 
     /**
-     * @description The ID of the database instance.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example rm-2ze2016723b328gs2
+     * @example pc-bp1u5mas9exx7****
      *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The page number. The value must be an integer that is greater than 0. Default value: 1.
-     *
-     * @example 1
+     * @example pi-bp16v3824rt73****
      *
      * @var string
+     */
+    public $nodeId;
+
+    /**
+     * @example 1
+     *
+     * @var int
      */
     public $pageNo;
 
     /**
-     * @description The number of entries per page. Default value: 10.
+     * @example 10
      *
-     * @example 5
-     *
-     * @var string
+     * @var int
      */
     public $pageSize;
 
     /**
-     * @description The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
-     *
-     * This parameter is required.
-     * @example 1701755730292
+     * @example AUTO
      *
      * @var string
      */
+    public $source;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example 1731983066000
+     *
+     * @var int
+     */
     public $startTime;
     protected $_name = [
-        'dbNameList' => 'DbNameList',
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
+        'nodeId'     => 'NodeId',
         'pageNo'     => 'PageNo',
         'pageSize'   => 'PageSize',
+        'source'     => 'Source',
         'startTime'  => 'StartTime',
     ];
 
@@ -80,20 +79,23 @@ class GetDeadLockDetailListRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dbNameList) {
-            $res['DbNameList'] = $this->dbNameList;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
+        }
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -105,25 +107,28 @@ class GetDeadLockDetailListRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetDeadLockDetailListRequest
+     * @return GetDeadLockHistoryRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DbNameList'])) {
-            $model->dbNameList = $map['DbNameList'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
+        }
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

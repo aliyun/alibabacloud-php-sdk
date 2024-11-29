@@ -9,28 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DataResultValue extends Model
 {
     /**
-     * @description The SQL ID.
-     *
-     * @example ad78a4e7d3ce81590c9dc2d5f4bc****
-     *
      * @var string
      */
     public $sqlId;
 
     /**
-     * @description The instance ID.
-     *
-     * @example rm-2ze8g2am97624****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The number of failed executions.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;

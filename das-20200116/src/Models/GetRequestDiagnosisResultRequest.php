@@ -19,7 +19,7 @@ class GetRequestDiagnosisResultRequest extends Model
     public $instanceId;
 
     /**
-     * @description The unique ID of the diagnostics task. You can call the [CreateRequestDiagnosis](https://help.aliyun.com/document_detail/341609.html) operation to query the diagnostics task ID.
+     * @description The unique ID of the diagnostic task.[](~~341609~~)
      *
      * This parameter is required.
      * @example 61820b594664275c4429****

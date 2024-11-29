@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateAdamBenchTaskResponseBody extends Model
+class GetDeadLockHistoryResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned.
-     *
      * @example 200
      *
      * @var string
@@ -18,18 +16,25 @@ class CreateAdamBenchTaskResponseBody extends Model
     public $code;
 
     /**
-     * @description The detailed information, including the error codes and the number of entries that are returned.
-     *
-     * @example "Data": { "total": 1, "list":[...] }, "Code": 200, "Success": true }
-     *
+     * @example {
+     * {
+     * "accountId": "108************",
+     * "textId": "35303d12d52d29ba73bb85fa2d5b****",
+     * "gmtCreate": 1732712680000,
+     * "nodeId": "pi-8****************",
+     * "uuid": "pc-8v**************"
+     * {
+     * "accountId": "108************",
+     * "textId": "50a24bdcc5fe7e03f92a55ae7574****",
+     * "gmtCreate": 1732626448000,
+     * "nodeId": "pi-8****************",
+     * "uuid": "pc-8v**************"
+     * }
      * @var string
      */
     public $data;
 
     /**
-     * @description The returned message.
-     *
-     * > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
      * @example Successful
      *
      * @var string
@@ -37,8 +42,6 @@ class CreateAdamBenchTaskResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
-     *
      * @example B6D17591-B48B-4D31-9CD6-9B9796B2****
      *
      * @var string
@@ -46,22 +49,25 @@ class CreateAdamBenchTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**: The request was successful.
-     *   **false**: The request failed.
-     *
      * @example true
      *
      * @var string
      */
     public $success;
+
+    /**
+     * @example None
+     *
+     * @var string
+     */
+    public $synchro;
     protected $_name = [
         'code'      => 'Code',
         'data'      => 'Data',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
+        'synchro'   => 'Synchro',
     ];
 
     public function validate()
@@ -86,6 +92,9 @@ class CreateAdamBenchTaskResponseBody extends Model
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+        if (null !== $this->synchro) {
+            $res['Synchro'] = $this->synchro;
+        }
 
         return $res;
     }
@@ -93,7 +102,7 @@ class CreateAdamBenchTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateAdamBenchTaskResponseBody
+     * @return GetDeadLockHistoryResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -112,6 +121,9 @@ class CreateAdamBenchTaskResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Synchro'])) {
+            $model->synchro = $map['Synchro'];
         }
 
         return $model;

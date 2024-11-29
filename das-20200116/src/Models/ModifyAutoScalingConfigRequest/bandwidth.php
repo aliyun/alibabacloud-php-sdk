@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class bandwidth extends Model
 {
     /**
-     * @description Specifies whether to apply the **Bandwidth** configuration of the automatic bandwidth adjustment feature. Valid values:
+     * @description Specifies whether to apply the **Bandwidth** configuration of the bandwidth auto scaling feature. Valid values:
      *
      *   **true**
      *   **false**
@@ -50,7 +50,7 @@ class bandwidth extends Model
     public $bandwidthUsageUpperThreshold;
 
     /**
-     * @description Specifies whether to enable the automatic bandwidth downgrade feature. Valid values:
+     * @description Specifies whether to enable automatic bandwidth downgrade. Valid values:
      *
      *   **true**
      *   **false**
@@ -62,7 +62,7 @@ class bandwidth extends Model
     public $downgrade;
 
     /**
-     * @description The observation window of the automatic bandwidth adjustment feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
+     * @description The observation window of the bandwidth auto scaling feature. The value of this parameter consists of a numeric value and a time unit suffix. The **m** time unit suffix specifies the minute. Valid values:
      *
      *   **1m**
      *   **5m**
@@ -77,7 +77,7 @@ class bandwidth extends Model
     public $observationWindowSize;
 
     /**
-     * @description Specifies whether to enable the automatic bandwidth upgrade feature. Valid values:
+     * @description Specifies whether to enable automatic bandwidth upgrade. Valid values:
      *
      *   **true**
      *   **false**

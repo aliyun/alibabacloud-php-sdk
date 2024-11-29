@@ -19,7 +19,7 @@ class GetPfsSqlSummariesResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data
      */

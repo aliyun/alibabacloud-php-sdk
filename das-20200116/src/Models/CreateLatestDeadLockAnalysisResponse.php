@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\DAS\V20200116\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateAdamBenchTaskResponse extends Model
+class CreateLatestDeadLockAnalysisResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class CreateAdamBenchTaskResponse extends Model
     public $statusCode;
 
     /**
-     * @var CreateAdamBenchTaskResponseBody
+     * @var CreateLatestDeadLockAnalysisResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class CreateAdamBenchTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return CreateAdamBenchTaskResponse
+     * @return CreateLatestDeadLockAnalysisResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class CreateAdamBenchTaskResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = CreateAdamBenchTaskResponseBody::fromMap($map['body']);
+            $model->body = CreateLatestDeadLockAnalysisResponseBody::fromMap($map['body']);
         }
 
         return $model;
