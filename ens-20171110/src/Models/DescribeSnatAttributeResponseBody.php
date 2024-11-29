@@ -37,6 +37,11 @@ class DescribeSnatAttributeResponseBody extends Model
     public $idleTimeout;
 
     /**
+     * @var bool
+     */
+    public $ispAffinity;
+
+    /**
      * @description The ID of the Network Address Translation (NAT) gateway.
      *
      * @example nat-5t7nh1cfm6kxiszlttr38****
@@ -148,6 +153,7 @@ class DescribeSnatAttributeResponseBody extends Model
         'creationTime'  => 'CreationTime',
         'destCIDR'      => 'DestCIDR',
         'idleTimeout'   => 'IdleTimeout',
+        'ispAffinity'   => 'IspAffinity',
         'natGatewayId'  => 'NatGatewayId',
         'requestId'     => 'RequestId',
         'snatEntryId'   => 'SnatEntryId',
@@ -176,6 +182,9 @@ class DescribeSnatAttributeResponseBody extends Model
         }
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
+        }
+        if (null !== $this->ispAffinity) {
+            $res['IspAffinity'] = $this->ispAffinity;
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
@@ -236,6 +245,9 @@ class DescribeSnatAttributeResponseBody extends Model
         }
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];
+        }
+        if (isset($map['IspAffinity'])) {
+            $model->ispAffinity = $map['IspAffinity'];
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];

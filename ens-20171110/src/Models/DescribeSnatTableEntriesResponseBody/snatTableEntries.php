@@ -18,6 +18,11 @@ class snatTableEntries extends Model
     public $idleTimeout;
 
     /**
+     * @var bool
+     */
+    public $ispAffinity;
+
+    /**
      * @description The ID of the NAT gateway.
      *
      * @example nat-5t7nh1cfm6kxiszlttr38****
@@ -99,6 +104,7 @@ class snatTableEntries extends Model
     public $status;
     protected $_name = [
         'idleTimeout'   => 'IdleTimeout',
+        'ispAffinity'   => 'IspAffinity',
         'natGatewayId'  => 'NatGatewayId',
         'snatEntryId'   => 'SnatEntryId',
         'snatEntryName' => 'SnatEntryName',
@@ -118,6 +124,9 @@ class snatTableEntries extends Model
         $res = [];
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
+        }
+        if (null !== $this->ispAffinity) {
+            $res['IspAffinity'] = $this->ispAffinity;
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
@@ -157,6 +166,9 @@ class snatTableEntries extends Model
         $model = new self();
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];
+        }
+        if (isset($map['IspAffinity'])) {
+            $model->ispAffinity = $map['IspAffinity'];
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];

@@ -18,6 +18,11 @@ class CreateSnatEntryRequest extends Model
     public $idleTimeout;
 
     /**
+     * @var bool
+     */
+    public $ispAffinity;
+
+    /**
      * @description The ID of the Network Address Translation (NAT) gateway.
      *
      * This parameter is required.
@@ -86,6 +91,7 @@ class CreateSnatEntryRequest extends Model
     public $standbySnatIp;
     protected $_name = [
         'idleTimeout'     => 'IdleTimeout',
+        'ispAffinity'     => 'IspAffinity',
         'natGatewayId'    => 'NatGatewayId',
         'snatEntryName'   => 'SnatEntryName',
         'snatIp'          => 'SnatIp',
@@ -104,6 +110,9 @@ class CreateSnatEntryRequest extends Model
         $res = [];
         if (null !== $this->idleTimeout) {
             $res['IdleTimeout'] = $this->idleTimeout;
+        }
+        if (null !== $this->ispAffinity) {
+            $res['IspAffinity'] = $this->ispAffinity;
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
@@ -140,6 +149,9 @@ class CreateSnatEntryRequest extends Model
         $model = new self();
         if (isset($map['IdleTimeout'])) {
             $model->idleTimeout = $map['IdleTimeout'];
+        }
+        if (isset($map['IspAffinity'])) {
+            $model->ispAffinity = $map['IspAffinity'];
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];

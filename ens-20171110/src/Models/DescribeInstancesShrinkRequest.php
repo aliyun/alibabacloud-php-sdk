@@ -161,6 +161,11 @@ class DescribeInstancesShrinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var string
+     */
+    public $serviceStatusShrink;
+
+    /**
      * @description The status of the instance. Valid values:
      *
      *   Running
@@ -205,6 +210,7 @@ class DescribeInstancesShrinkRequest extends Model
         'pageSize'             => 'PageSize',
         'searchKey'            => 'SearchKey',
         'securityGroupId'      => 'SecurityGroupId',
+        'serviceStatusShrink'  => 'ServiceStatus',
         'status'               => 'Status',
         'tagsShrink'           => 'Tags',
         'vSwitchId'            => 'VSwitchId',
@@ -264,6 +270,9 @@ class DescribeInstancesShrinkRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->serviceStatusShrink) {
+            $res['ServiceStatus'] = $this->serviceStatusShrink;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -333,6 +342,9 @@ class DescribeInstancesShrinkRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['ServiceStatus'])) {
+            $model->serviceStatusShrink = $map['ServiceStatus'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

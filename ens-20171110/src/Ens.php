@@ -3761,6 +3761,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->idleTimeout)) {
             $query['IdleTimeout'] = $request->idleTimeout;
         }
+        if (!Utils::isUnset($request->ispAffinity)) {
+            $query['IspAffinity'] = $request->ispAffinity;
+        }
         if (!Utils::isUnset($request->natGatewayId)) {
             $query['NatGatewayId'] = $request->natGatewayId;
         }
@@ -8486,6 +8489,9 @@ class Ens extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new DescribeInstancesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serviceStatus)) {
+            $request->serviceStatusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serviceStatus, 'ServiceStatus', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
@@ -8537,6 +8543,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->serviceStatusShrink)) {
+            $query['ServiceStatus'] = $request->serviceStatusShrink;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;

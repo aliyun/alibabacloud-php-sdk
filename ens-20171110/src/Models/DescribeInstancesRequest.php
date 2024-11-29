@@ -162,6 +162,11 @@ class DescribeInstancesRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var string[]
+     */
+    public $serviceStatus;
+
+    /**
      * @description The status of the instance. Valid values:
      *
      *   Running
@@ -206,6 +211,7 @@ class DescribeInstancesRequest extends Model
         'pageSize'             => 'PageSize',
         'searchKey'            => 'SearchKey',
         'securityGroupId'      => 'SecurityGroupId',
+        'serviceStatus'        => 'ServiceStatus',
         'status'               => 'Status',
         'tags'                 => 'Tags',
         'vSwitchId'            => 'VSwitchId',
@@ -265,6 +271,9 @@ class DescribeInstancesRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->serviceStatus) {
+            $res['ServiceStatus'] = $this->serviceStatus;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -340,6 +349,11 @@ class DescribeInstancesRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['ServiceStatus'])) {
+            if (!empty($map['ServiceStatus'])) {
+                $model->serviceStatus = $map['ServiceStatus'];
+            }
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

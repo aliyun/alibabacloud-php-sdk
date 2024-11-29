@@ -239,6 +239,11 @@ class instance extends Model
     public $securityGroupIds;
 
     /**
+     * @var string
+     */
+    public $serviceStatus;
+
+    /**
      * @description The instance type.
      *
      * @example ens.sn1.stiny
@@ -309,6 +314,7 @@ class instance extends Model
         'publicIpAddress'         => 'PublicIpAddress',
         'publicIpAddresses'       => 'PublicIpAddresses',
         'securityGroupIds'        => 'SecurityGroupIds',
+        'serviceStatus'           => 'ServiceStatus',
         'specName'                => 'SpecName',
         'spotStrategy'            => 'SpotStrategy',
         'status'                  => 'Status',
@@ -397,6 +403,9 @@ class instance extends Model
         }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = null !== $this->securityGroupIds ? $this->securityGroupIds->toMap() : null;
+        }
+        if (null !== $this->serviceStatus) {
+            $res['ServiceStatus'] = $this->serviceStatus;
         }
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
@@ -499,6 +508,9 @@ class instance extends Model
         }
         if (isset($map['SecurityGroupIds'])) {
             $model->securityGroupIds = securityGroupIds::fromMap($map['SecurityGroupIds']);
+        }
+        if (isset($map['ServiceStatus'])) {
+            $model->serviceStatus = $map['ServiceStatus'];
         }
         if (isset($map['SpecName'])) {
             $model->specName = $map['SpecName'];
