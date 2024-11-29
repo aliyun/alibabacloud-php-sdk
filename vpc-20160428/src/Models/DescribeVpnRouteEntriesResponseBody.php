@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnRouteEntriesResponseBody\vpnRouteCounts;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnRouteEntriesResponseBody\vpnRouteEntries;
 use AlibabaCloud\Tea\Model;
 
@@ -46,6 +47,11 @@ class DescribeVpnRouteEntriesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @var vpnRouteCounts
+     */
+    public $vpnRouteCounts;
+
+    /**
      * @description The list of route entries.
      *
      * @var vpnRouteEntries
@@ -56,6 +62,7 @@ class DescribeVpnRouteEntriesResponseBody extends Model
         'pageSize'        => 'PageSize',
         'requestId'       => 'RequestId',
         'totalCount'      => 'TotalCount',
+        'vpnRouteCounts'  => 'VpnRouteCounts',
         'vpnRouteEntries' => 'VpnRouteEntries',
     ];
 
@@ -77,6 +84,9 @@ class DescribeVpnRouteEntriesResponseBody extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->vpnRouteCounts) {
+            $res['VpnRouteCounts'] = null !== $this->vpnRouteCounts ? $this->vpnRouteCounts->toMap() : null;
         }
         if (null !== $this->vpnRouteEntries) {
             $res['VpnRouteEntries'] = null !== $this->vpnRouteEntries ? $this->vpnRouteEntries->toMap() : null;
@@ -104,6 +114,9 @@ class DescribeVpnRouteEntriesResponseBody extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['VpnRouteCounts'])) {
+            $model->vpnRouteCounts = vpnRouteCounts::fromMap($map['VpnRouteCounts']);
         }
         if (isset($map['VpnRouteEntries'])) {
             $model->vpnRouteEntries = vpnRouteEntries::fromMap($map['VpnRouteEntries']);

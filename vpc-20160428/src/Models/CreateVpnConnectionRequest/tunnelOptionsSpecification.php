@@ -12,11 +12,11 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptionsSpecification extends Model
 {
     /**
-     * @description The ID of the customer gateway associated with the tunnel.
+     * @description The ID of the customer gateway that is associated with the tunnel.
      *
-     * > *   This parameter is required if the VPN gateway supports the dual-tunnel mode.
-     * >*   You can specify the parameters in the **TunnelOptionsSpecification** array if you create an IPsec-VPN connection in dual-tunnel mode.
-     * >*   If you create an IPsec-VPN connection in dual-tunnel mode, you need to configure an active tunnel and a standby tunnel. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
+     * > - This parameter is required when you create an IPsec-VPN connection in dual-tunnel mode.
+     * > - You can specify parameters in the **TunnelOptionsSpecification** array when you create an IPsec-VPN connection in dual tunnel mode.
+     * > - When you create an IPsec-VPN connection in dual tunnel mode, you must add configurations of the active and standby tunnels for the IPsec-VPN connection. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
      * @example cgw-p0wy363lucf1uyae8****
      *
      * @var string
@@ -24,10 +24,10 @@ class tunnelOptionsSpecification extends Model
     public $customerGatewayId;
 
     /**
-     * @description Specifies whether to enable DPD for the tunnel. Valid values:
+     * @description Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
      *
-     *   **true** (default) The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
-     *   **false**
+     *   **true** (default): enables DPD. The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within the specified period of time, the connection fails. In this case, ISAKMP SA and IPsec SA are deleted. The security tunnel is also deleted.
+     *   **false**: disables DPD. The initiator of the IPsec-VPN connection does not send DPD packets.
      *
      * @example true
      *
@@ -38,8 +38,8 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description Specifies whether to enable NAT traversal for the tunnel. Valid values:
      *
-     *   **true** (default) After NAT traversal is enabled, the verification process for the peer UDP port is deleted from IKE negotiations. In addition, the NAT gateway in the tunnel can be found.
-     *   **false**
+     *   **true** (default): enables NAT traversal. After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
+     *   **false**: disables NAT traversal.
      *
      * @example true
      *
@@ -48,10 +48,10 @@ class tunnelOptionsSpecification extends Model
     public $enableNatTraversal;
 
     /**
-     * @description The CA certificate. If the VPN gateway is of the SM type, you must configure a CA certificate for the peer gateway device.
+     * @description If the VPN gateway uses an SM certificate, you need to configure the CA certificate used by the IPsec peer.
      *
-     *   If an SM VPN gateway is used to create the IPsec-VPN connection, this parameter is required.
-     *   If a standard VPN gateway is used to create the IPsec-VPN connection, leave this parameter empty.
+     *   If the VPN gateway uses an SM certificate, this parameter is required.
+     *   If the VPN gateway does not use an SM certificate, leave this parameter empty.
      *
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
@@ -60,10 +60,10 @@ class tunnelOptionsSpecification extends Model
     public $remoteCaCertificate;
 
     /**
-     * @description The role of the tunnel. Valid values:
+     * @description The role of the tunnel. Valid values: Valid values:
      *
-     *   **master**: The tunnel is the active tunnel.
-     *   **slave**: The tunnel is the standby tunnel.
+     *   **master**: The tunnel is an active tunnel.
+     *   **slave**: The tunnel is a standby tunnel.
      *
      * @example master
      *
@@ -72,7 +72,7 @@ class tunnelOptionsSpecification extends Model
     public $role;
 
     /**
-     * @description The BGP configurations for the tunnel.
+     * @description The Border Gateway Protocol (BGP) configurations of the tunnel.
      *
      * @var tunnelBgpConfig
      */

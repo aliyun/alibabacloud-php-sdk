@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNatGatewayShrinkRequest extends Model
 {
     /**
+     * @description The access mode for reverse access to the VPC NAT gateway.
+     *
      * @var string
      */
     public $accessModeShrink;
@@ -57,14 +59,11 @@ class CreateNatGatewayShrinkRequest extends Model
     /**
      * @description The mode in which the EIP is associated with the NAT gateway. Valid values:
      *
-     *   **MULTI_BINDED** (default): Multi-EIP-to-ENI mode.
+     * - **MULTI_BINDED**(default): the multi-EIP-to-ENI mode.
      *
-     *   **NAT**: NAT mode. IPv4 gateways are supported in this mode.
+     * - **NAT**: NAT mode, which is compatible with IPv4 addresses.
      *
-     **
-     *
-     **Note** If a NAT gateway is associated with an EIP in NAT mode, the EIP occupies one private IP address in the vSwitch. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
-     *
+     * > If an EIP is associated with a NAT gateway in NAT mode, the EIP occupies a private IP address of the vSwitch where the NAT gateway is deployed. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, EIPs cannot be associated with the NAT gateway. In NAT mode, a maximum number of 50 EIPs can be associated with each NAT gateway.
      * @example MULTI_BINDED
      *
      * @var string
@@ -77,7 +76,7 @@ class CreateNatGatewayShrinkRequest extends Model
      *   **true** (default)
      *   **false**
      *
-     * @example false
+     * @example true
      *
      * @var bool
      */
@@ -155,6 +154,8 @@ class CreateNatGatewayShrinkRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description PrivateLink is not supported by default. If you set the value to true, PrivateLink is supported.
+     *
      * @var bool
      */
     public $privateLinkEnabled;
@@ -203,6 +204,8 @@ class CreateNatGatewayShrinkRequest extends Model
 
     /**
      * @description The tags.
+     *
+     * @example MULTI_BINDED
      *
      * @var tag[]
      */

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeRequest\tunnelOptionsSpecification;
 use AlibabaCloud\Tea\Model;
 
 class ModifyVpnAttachmentAttributeRequest extends Model
@@ -99,6 +100,11 @@ class ModifyVpnAttachmentAttributeRequest extends Model
      * @var bool
      */
     public $enableNatTraversal;
+
+    /**
+     * @var bool
+     */
+    public $enableTunnelsBgp;
 
     /**
      * @description The health check configurations:
@@ -258,6 +264,11 @@ class ModifyVpnAttachmentAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var tunnelOptionsSpecification[]
+     */
+    public $tunnelOptionsSpecification;
+
+    /**
      * @description The ID of the IPsec-VPN connection.
      *
      * This parameter is required.
@@ -267,26 +278,28 @@ class ModifyVpnAttachmentAttributeRequest extends Model
      */
     public $vpnConnectionId;
     protected $_name = [
-        'autoConfigRoute'      => 'AutoConfigRoute',
-        'bgpConfig'            => 'BgpConfig',
-        'clientToken'          => 'ClientToken',
-        'customerGatewayId'    => 'CustomerGatewayId',
-        'effectImmediately'    => 'EffectImmediately',
-        'enableDpd'            => 'EnableDpd',
-        'enableNatTraversal'   => 'EnableNatTraversal',
-        'healthCheckConfig'    => 'HealthCheckConfig',
-        'ikeConfig'            => 'IkeConfig',
-        'ipsecConfig'          => 'IpsecConfig',
-        'localSubnet'          => 'LocalSubnet',
-        'name'                 => 'Name',
-        'networkType'          => 'NetworkType',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
-        'remoteCaCert'         => 'RemoteCaCert',
-        'remoteSubnet'         => 'RemoteSubnet',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vpnConnectionId'      => 'VpnConnectionId',
+        'autoConfigRoute'            => 'AutoConfigRoute',
+        'bgpConfig'                  => 'BgpConfig',
+        'clientToken'                => 'ClientToken',
+        'customerGatewayId'          => 'CustomerGatewayId',
+        'effectImmediately'          => 'EffectImmediately',
+        'enableDpd'                  => 'EnableDpd',
+        'enableNatTraversal'         => 'EnableNatTraversal',
+        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
+        'healthCheckConfig'          => 'HealthCheckConfig',
+        'ikeConfig'                  => 'IkeConfig',
+        'ipsecConfig'                => 'IpsecConfig',
+        'localSubnet'                => 'LocalSubnet',
+        'name'                       => 'Name',
+        'networkType'                => 'NetworkType',
+        'ownerAccount'               => 'OwnerAccount',
+        'regionId'                   => 'RegionId',
+        'remoteCaCert'               => 'RemoteCaCert',
+        'remoteSubnet'               => 'RemoteSubnet',
+        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
+        'resourceOwnerId'            => 'ResourceOwnerId',
+        'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
+        'vpnConnectionId'            => 'VpnConnectionId',
     ];
 
     public function validate()
@@ -316,6 +329,9 @@ class ModifyVpnAttachmentAttributeRequest extends Model
         }
         if (null !== $this->enableNatTraversal) {
             $res['EnableNatTraversal'] = $this->enableNatTraversal;
+        }
+        if (null !== $this->enableTunnelsBgp) {
+            $res['EnableTunnelsBgp'] = $this->enableTunnelsBgp;
         }
         if (null !== $this->healthCheckConfig) {
             $res['HealthCheckConfig'] = $this->healthCheckConfig;
@@ -353,6 +369,15 @@ class ModifyVpnAttachmentAttributeRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->tunnelOptionsSpecification) {
+            $res['TunnelOptionsSpecification'] = [];
+            if (null !== $this->tunnelOptionsSpecification && \is_array($this->tunnelOptionsSpecification)) {
+                $n = 0;
+                foreach ($this->tunnelOptionsSpecification as $item) {
+                    $res['TunnelOptionsSpecification'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->vpnConnectionId) {
             $res['VpnConnectionId'] = $this->vpnConnectionId;
         }
@@ -389,6 +414,9 @@ class ModifyVpnAttachmentAttributeRequest extends Model
         if (isset($map['EnableNatTraversal'])) {
             $model->enableNatTraversal = $map['EnableNatTraversal'];
         }
+        if (isset($map['EnableTunnelsBgp'])) {
+            $model->enableTunnelsBgp = $map['EnableTunnelsBgp'];
+        }
         if (isset($map['HealthCheckConfig'])) {
             $model->healthCheckConfig = $map['HealthCheckConfig'];
         }
@@ -424,6 +452,15 @@ class ModifyVpnAttachmentAttributeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['TunnelOptionsSpecification'])) {
+            if (!empty($map['TunnelOptionsSpecification'])) {
+                $model->tunnelOptionsSpecification = [];
+                $n                                 = 0;
+                foreach ($map['TunnelOptionsSpecification'] as $item) {
+                    $model->tunnelOptionsSpecification[$n++] = null !== $item ? tunnelOptionsSpecification::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpnConnectionId'])) {
             $model->vpnConnectionId = $map['VpnConnectionId'];

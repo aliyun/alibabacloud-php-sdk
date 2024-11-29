@@ -78,12 +78,17 @@ class CreateSslVpnServerRequest extends Model
     public $compress;
 
     /**
-     * @description Specifies whether to enable two-factor authentication. If you enable two-factor authentication, you must configure `IDaaSInstanceId` and `IDaaSRegionId`. Valid values:
+     * @description Specifies whether to enable two-factor authentication. To enable two-factor authentication, you need to specify `IDaaSInstanceId`, `IDaaSRegionId`, and `IDaaSApplicationId`. Valid values:
      *
-     *   **true**: enables this feature.
-     *   **false** (default): disables this feature.
+     *   **true**
+     *   **false** (default)
      *
-     * > - If two-factor authentication is already enabled for existing SSL servers, you can continue to use two-factor authentication.
+     * >
+     *
+     *   If you use two-factor authentication for the first time, you need to complete [authorization](https://ram.console.aliyun.com/role/authorization?request=%7B%22Services%22%3A%5B%7B%22Service%22%3A%22VPN%22%2C%22Roles%22%3A%5B%7B%22RoleName%22%3A%22AliyunVpnAccessingIdaasRole%22%2C%22TemplateId%22%3A%22IdaasRole%22%7D%5D%7D%5D%2C%22ReturnUrl%22%3A%22https%3A%2F%2Fvpc.console.aliyun.com%2Fsslvpn%2Fcn-shanghai%2Fvpn-servers%22%7D) before you create an SSL server.
+     *
+     *   IDaaS EIAM 1.0 instances are no longer available for purchase. If your Alibaba Cloud account has IDaaS EIAM 1.0 instances, IDaaS EIAM 1.0 instances can be associated after two-factor authentication is enabled. If your Alibaba Cloud account does not have IDaaS EIAM 1.0 instances, only IDaaS EIAM 2.0 instances can be associated after two-factor authentication is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -91,12 +96,19 @@ class CreateSslVpnServerRequest extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @description The ID of the IDaaS application.
+     *
+     *   If an IDaaS EIAM 2.0 instance is associated, you need to specify an IDaaS application ID.
+     *   If an IDaaS EIAM 1.0 instance is associated, you do not need to specify an IDaaS application ID.
+     *
+     * @example app_my6g4qmvnwxzj2f****
+     *
      * @var string
      */
     public $IDaaSApplicationId;
 
     /**
-     * @description The Identity as a Service (IDaaS) instance ID.
+     * @description The ID of the IDaaS EIAM instance.
      *
      * @example idaas-cn-hangzhou-p****
      *
@@ -105,7 +117,7 @@ class CreateSslVpnServerRequest extends Model
     public $IDaaSInstanceId;
 
     /**
-     * @description The ID of the region where the IDaaS instance is created.
+     * @description The region ID of the IDaaS EIAM instance.
      *
      * @example cn-hangzhou
      *

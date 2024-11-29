@@ -126,6 +126,11 @@ class tunnelOptions extends Model
     public $tunnelIkeConfig;
 
     /**
+     * @var int
+     */
+    public $tunnelIndex;
+
+    /**
      * @description The configurations of Phase 2 negotiations.
      *
      * @var tunnelIpsecConfig
@@ -153,6 +158,7 @@ class tunnelOptions extends Model
         'tunnelBgpConfig'     => 'TunnelBgpConfig',
         'tunnelId'            => 'TunnelId',
         'tunnelIkeConfig'     => 'TunnelIkeConfig',
+        'tunnelIndex'         => 'TunnelIndex',
         'tunnelIpsecConfig'   => 'TunnelIpsecConfig',
         'zoneNo'              => 'ZoneNo',
     ];
@@ -196,6 +202,9 @@ class tunnelOptions extends Model
         }
         if (null !== $this->tunnelIkeConfig) {
             $res['TunnelIkeConfig'] = null !== $this->tunnelIkeConfig ? $this->tunnelIkeConfig->toMap() : null;
+        }
+        if (null !== $this->tunnelIndex) {
+            $res['TunnelIndex'] = $this->tunnelIndex;
         }
         if (null !== $this->tunnelIpsecConfig) {
             $res['TunnelIpsecConfig'] = null !== $this->tunnelIpsecConfig ? $this->tunnelIpsecConfig->toMap() : null;
@@ -247,6 +256,9 @@ class tunnelOptions extends Model
         }
         if (isset($map['TunnelIkeConfig'])) {
             $model->tunnelIkeConfig = tunnelIkeConfig::fromMap($map['TunnelIkeConfig']);
+        }
+        if (isset($map['TunnelIndex'])) {
+            $model->tunnelIndex = $map['TunnelIndex'];
         }
         if (isset($map['TunnelIpsecConfig'])) {
             $model->tunnelIpsecConfig = tunnelIpsecConfig::fromMap($map['TunnelIpsecConfig']);

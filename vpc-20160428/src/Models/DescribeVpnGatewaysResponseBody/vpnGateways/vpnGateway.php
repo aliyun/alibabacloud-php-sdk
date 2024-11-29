@@ -232,7 +232,7 @@ class vpnGateway extends Model
     public $status;
 
     /**
-     * @description The tag that is automatically generated for the VPN gateway. The tag consists of the following parameters:
+     * @description The tag that is automatically generated for the VPN gateway.
      *
      *   **VpnEnableBgp**: indicates whether the VPN gateway supports BGP. Valid values:
      *
@@ -251,12 +251,17 @@ class vpnGateway extends Model
      *
      *   **VpnNewImage**: indicates whether the VPN gateway is upgraded. Valid values:
      *
-     *   **true**
+     *   **true**: queries only SQL templates that need to be optimized.
      *   **false**: does not query only SQL statements that need to be optimized.
      *
      *   **description**: the description of the VPN gateway. This parameter is only for internal use.
      *
      *   **VpnVersion**: the version of the VPN gateway.
+     *
+     *   **IDaaSNewVersion**: indicates whether the VPN gateway can be associated with an EIAM 2.0 instance.
+     *
+     *   **true**
+     *   **false**
      *
      * @example {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"forwarding1.3.7\\",\\"VpnVersion\\":\\"v1.2.4\\"}
      *

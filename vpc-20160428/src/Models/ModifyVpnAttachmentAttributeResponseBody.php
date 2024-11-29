@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeResponseBody\ikeConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeResponseBody\ipsecConfig;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeResponseBody\tunnelOptionsSpecification;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeResponseBody\vcoHealthCheck;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeResponseBody\vpnBgpConfig;
 use AlibabaCloud\Tea\Model;
@@ -97,6 +98,11 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
      * @var bool
      */
     public $enableNatTraversal;
+
+    /**
+     * @var bool
+     */
+    public $enableTunnelsBgp;
 
     /**
      * @description The configuration of Phase 1 negotiations.
@@ -195,6 +201,11 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @var tunnelOptionsSpecification[]
+     */
+    public $tunnelOptionsSpecification;
+
+    /**
      * @description The health check configuration of the IPsec-VPN connection.
      *
      * @var vcoHealthCheck
@@ -226,28 +237,30 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
      */
     public $vpnGatewayId;
     protected $_name = [
-        'attachInstanceId'   => 'AttachInstanceId',
-        'attachType'         => 'AttachType',
-        'createTime'         => 'CreateTime',
-        'customerGatewayId'  => 'CustomerGatewayId',
-        'description'        => 'Description',
-        'effectImmediately'  => 'EffectImmediately',
-        'enableDpd'          => 'EnableDpd',
-        'enableNatTraversal' => 'EnableNatTraversal',
-        'ikeConfig'          => 'IkeConfig',
-        'ipsecConfig'        => 'IpsecConfig',
-        'localSubnet'        => 'LocalSubnet',
-        'name'               => 'Name',
-        'networkType'        => 'NetworkType',
-        'remoteSubnet'       => 'RemoteSubnet',
-        'requestId'          => 'RequestId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'spec'               => 'Spec',
-        'status'             => 'Status',
-        'vcoHealthCheck'     => 'VcoHealthCheck',
-        'vpnBgpConfig'       => 'VpnBgpConfig',
-        'vpnConnectionId'    => 'VpnConnectionId',
-        'vpnGatewayId'       => 'VpnGatewayId',
+        'attachInstanceId'           => 'AttachInstanceId',
+        'attachType'                 => 'AttachType',
+        'createTime'                 => 'CreateTime',
+        'customerGatewayId'          => 'CustomerGatewayId',
+        'description'                => 'Description',
+        'effectImmediately'          => 'EffectImmediately',
+        'enableDpd'                  => 'EnableDpd',
+        'enableNatTraversal'         => 'EnableNatTraversal',
+        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
+        'ikeConfig'                  => 'IkeConfig',
+        'ipsecConfig'                => 'IpsecConfig',
+        'localSubnet'                => 'LocalSubnet',
+        'name'                       => 'Name',
+        'networkType'                => 'NetworkType',
+        'remoteSubnet'               => 'RemoteSubnet',
+        'requestId'                  => 'RequestId',
+        'resourceGroupId'            => 'ResourceGroupId',
+        'spec'                       => 'Spec',
+        'status'                     => 'Status',
+        'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
+        'vcoHealthCheck'             => 'VcoHealthCheck',
+        'vpnBgpConfig'               => 'VpnBgpConfig',
+        'vpnConnectionId'            => 'VpnConnectionId',
+        'vpnGatewayId'               => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -281,6 +294,9 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         if (null !== $this->enableNatTraversal) {
             $res['EnableNatTraversal'] = $this->enableNatTraversal;
         }
+        if (null !== $this->enableTunnelsBgp) {
+            $res['EnableTunnelsBgp'] = $this->enableTunnelsBgp;
+        }
         if (null !== $this->ikeConfig) {
             $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toMap() : null;
         }
@@ -310,6 +326,15 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tunnelOptionsSpecification) {
+            $res['TunnelOptionsSpecification'] = [];
+            if (null !== $this->tunnelOptionsSpecification && \is_array($this->tunnelOptionsSpecification)) {
+                $n = 0;
+                foreach ($this->tunnelOptionsSpecification as $item) {
+                    $res['TunnelOptionsSpecification'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vcoHealthCheck) {
             $res['VcoHealthCheck'] = null !== $this->vcoHealthCheck ? $this->vcoHealthCheck->toMap() : null;
@@ -359,6 +384,9 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         if (isset($map['EnableNatTraversal'])) {
             $model->enableNatTraversal = $map['EnableNatTraversal'];
         }
+        if (isset($map['EnableTunnelsBgp'])) {
+            $model->enableTunnelsBgp = $map['EnableTunnelsBgp'];
+        }
         if (isset($map['IkeConfig'])) {
             $model->ikeConfig = ikeConfig::fromMap($map['IkeConfig']);
         }
@@ -388,6 +416,15 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TunnelOptionsSpecification'])) {
+            if (!empty($map['TunnelOptionsSpecification'])) {
+                $model->tunnelOptionsSpecification = [];
+                $n                                 = 0;
+                foreach ($map['TunnelOptionsSpecification'] as $item) {
+                    $model->tunnelOptionsSpecification[$n++] = null !== $item ? tunnelOptionsSpecification::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VcoHealthCheck'])) {
             $model->vcoHealthCheck = vcoHealthCheck::fromMap($map['VcoHealthCheck']);

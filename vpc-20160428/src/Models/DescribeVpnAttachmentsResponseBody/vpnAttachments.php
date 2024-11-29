@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnAttachmentsResponseBody;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnAttachmentsResponseBody\vpnAttachments\tags;
 use AlibabaCloud\Tea\Model;
 
 class vpnAttachments extends Model
@@ -57,6 +58,16 @@ class vpnAttachments extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $tag;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The ID of the transit router with which the IPsec-VPN connection is associated.
      *
      * @example tr-p0wkh4yryb1dnanqw****
@@ -79,6 +90,8 @@ class vpnAttachments extends Model
         'description'            => 'Description',
         'instanceId'             => 'InstanceId',
         'name'                   => 'Name',
+        'tag'                    => 'Tag',
+        'tags'                   => 'Tags',
         'transitRouterId'        => 'TransitRouterId',
         'transitRouterName'      => 'TransitRouterName',
     ];
@@ -104,6 +117,18 @@ class vpnAttachments extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
@@ -137,6 +162,18 @@ class vpnAttachments extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];

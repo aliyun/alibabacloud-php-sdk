@@ -107,9 +107,8 @@ class DescribeVpnGatewaysRequest extends Model
     public $status;
 
     /**
-     * @description The value of tag N to add to the resource.
+     * @description The tags that are added to the VPN gateway.
      *
-     * Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
      * @var tag[]
      */
     public $tag;

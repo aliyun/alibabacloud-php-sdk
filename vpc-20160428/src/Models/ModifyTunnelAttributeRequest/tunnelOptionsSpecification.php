@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptionsSpecification extends Model
 {
     /**
+     * @var string
+     */
+    public $customerGatewayId;
+
+    /**
      * @description Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
      *
      *   **true**: DPD is enabled. The IPsec initiator sends DPD packets to verify the existence and availability of the IPsec peer. If no response is received from the peer within a specified period of time, the IPsec peer is considered disconnected. Then, the ISAKMP SA, IPsec SA, and IPsec tunnel are deleted.
@@ -66,6 +71,7 @@ class tunnelOptionsSpecification extends Model
      */
     public $tunnelIpsecConfig;
     protected $_name = [
+        'customerGatewayId'   => 'CustomerGatewayId',
         'enableDpd'           => 'EnableDpd',
         'enableNatTraversal'  => 'EnableNatTraversal',
         'remoteCaCertificate' => 'RemoteCaCertificate',
@@ -81,6 +87,9 @@ class tunnelOptionsSpecification extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customerGatewayId) {
+            $res['CustomerGatewayId'] = $this->customerGatewayId;
+        }
         if (null !== $this->enableDpd) {
             $res['EnableDpd'] = $this->enableDpd;
         }
@@ -111,6 +120,9 @@ class tunnelOptionsSpecification extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomerGatewayId'])) {
+            $model->customerGatewayId = $map['CustomerGatewayId'];
+        }
         if (isset($map['EnableDpd'])) {
             $model->enableDpd = $map['EnableDpd'];
         }

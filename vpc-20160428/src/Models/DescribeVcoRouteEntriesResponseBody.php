@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVcoRouteEntriesResponseBody\vcoRouteEntries;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVcoRouteEntriesResponseBody\vpnRouteCounts;
 use AlibabaCloud\Tea\Model;
 
 class DescribeVcoRouteEntriesResponseBody extends Model
@@ -51,12 +52,18 @@ class DescribeVcoRouteEntriesResponseBody extends Model
      * @var vcoRouteEntries[]
      */
     public $vcoRouteEntries;
+
+    /**
+     * @var vpnRouteCounts[]
+     */
+    public $vpnRouteCounts;
     protected $_name = [
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'requestId'       => 'RequestId',
         'totalCount'      => 'TotalCount',
         'vcoRouteEntries' => 'VcoRouteEntries',
+        'vpnRouteCounts'  => 'VpnRouteCounts',
     ];
 
     public function validate()
@@ -84,6 +91,15 @@ class DescribeVcoRouteEntriesResponseBody extends Model
                 $n = 0;
                 foreach ($this->vcoRouteEntries as $item) {
                     $res['VcoRouteEntries'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->vpnRouteCounts) {
+            $res['VpnRouteCounts'] = [];
+            if (null !== $this->vpnRouteCounts && \is_array($this->vpnRouteCounts)) {
+                $n = 0;
+                foreach ($this->vpnRouteCounts as $item) {
+                    $res['VpnRouteCounts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -117,6 +133,15 @@ class DescribeVcoRouteEntriesResponseBody extends Model
                 $n                      = 0;
                 foreach ($map['VcoRouteEntries'] as $item) {
                     $model->vcoRouteEntries[$n++] = null !== $item ? vcoRouteEntries::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['VpnRouteCounts'])) {
+            if (!empty($map['VpnRouteCounts'])) {
+                $model->vpnRouteCounts = [];
+                $n                     = 0;
+                foreach ($map['VpnRouteCounts'] as $item) {
+                    $model->vpnRouteCounts[$n++] = null !== $item ? vpnRouteCounts::fromMap($item) : $item;
                 }
             }
         }

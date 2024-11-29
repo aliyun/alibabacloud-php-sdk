@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class accessMode extends Model
 {
     /**
+     * @description Access mode. Valid values:
+     *
+     * - **route**: route mode
+     *
+     * - **tunnel**: tunnel mode
+     *
+     * > If this parameter is specified, you must set **PrivateLinkEnabled** to **true**.
+     * @example route
+     *
      * @var string
      */
     public $modeValue;
 
     /**
+     * @description Tunnel mode type:
+     *
+     * - **geneve**: Geneve type
+     *
+     * > This value takes effect if the access mode is the tunnel mode.
      * @var string
      */
     public $tunnelType;

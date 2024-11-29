@@ -2,26 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateNatGatewayShrinkRequest;
+namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnAttachmentsResponseBody\vpnAttachments;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class tags extends Model
 {
     /**
-     * @description The tag key. The format of Tag.N.Key when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
-     *
-     * @example TestKey
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value. The format of Tag.N.Value when you call the operation. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot contain http:// or https://. The tag key cannot start with acs: or aliyun.
-     *
-     * @example TestValue
-     *
      * @var string
      */
     public $value;
@@ -50,7 +42,7 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return tags
      */
     public static function fromMap($map = [])
     {

@@ -6248,15 +6248,14 @@ class Vpc extends OpenApiClient
     /**
      * @summary Creates an enhanced Internet NAT gateway or a Virtual Private Cloud (VPC) NAT gateway.
      *  *
-     * @description ## [](#)
+     * @description ## Usage notes
      * Before you call this operation, take note of the following items:
-     * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+     * *   When you create an enhanced NAT gateway for the first time, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
      * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
      * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the task.
      *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
      *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
      * It takes 1 to 3 minutes to create a NAT gateway.
-     * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
      *  *
      * @param CreateNatGatewayRequest $tmpReq  CreateNatGatewayRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -6365,15 +6364,14 @@ class Vpc extends OpenApiClient
     /**
      * @summary Creates an enhanced Internet NAT gateway or a Virtual Private Cloud (VPC) NAT gateway.
      *  *
-     * @description ## [](#)
+     * @description ## Usage notes
      * Before you call this operation, take note of the following items:
-     * *   The first time you create a NAT gateway, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
+     * *   When you create an enhanced NAT gateway for the first time, the system automatically creates the service-linked role AliyunServiceRoleForNatgw. Then, the system attaches the permission policy AliyunServiceRolePolicyForNatgw to the role. This allows the NAT gateway to access other resources on Alibaba Cloud. For more information, see [Service-linked roles](https://help.aliyun.com/document_detail/174251.html).
      * *   After you create an enhanced Internet NAT gateway, a route entry is automatically added to the route table of the VPC. The destination CIDR block of the route entry is 0.0.0.0/0 and the next hop is the NAT gateway. This ensures that traffic is routed to the NAT gateway.
      * *   **CreateNatGateway** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeNatGateways](https://help.aliyun.com/document_detail/36054.html) operation to query the status of the task.
      *     *   If a NAT gateway is in the **Creating** state, the NAT gateway is being created. In this case, you can query the NAT gateway but cannot perform other operations.
      *     *   If a NAT gateway is in the **Available** state, the NAT gateway is created.
      * It takes 1 to 3 minutes to create a NAT gateway.
-     * *   You cannot repeatedly call the **CreateNatGateway** operation within a specific period of time.
      *  *
      * @param CreateNatGatewayRequest $request CreateNatGatewayRequest
      *
@@ -7656,12 +7654,13 @@ class Vpc extends OpenApiClient
     /**
      * @summary Creates an SSL server.
      *  *
-     * @description *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     * @description *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
      *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
      *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-     * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
-     * ### [](#)Prerequisites
-     * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2526913.html).
+     * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
+     * ### [](#)Prerequisite
+     * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+     * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
      *  *
      * @param CreateSslVpnServerRequest $request CreateSslVpnServerRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -7747,12 +7746,13 @@ class Vpc extends OpenApiClient
     /**
      * @summary Creates an SSL server.
      *  *
-     * @description *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/73720.html) operation to query the status of the task.
+     * @description *   **CreateSslVpnServer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnGateway](https://help.aliyun.com/document_detail/2794055.html) operation to query the status of the task.
      *     *   If the VPN gateway is in the **updating** state, the SSL server is being created.
      *     *   If the VPN gateway is in the **active** state, the SSL server is created.
-     * *   You cannot call the **CreateSslVpnServer** operation to create multiple SSL servers at a time for the same VPN gateway.
-     * ### [](#)Prerequisites
-     * A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2526913.html).
+     * *   You cannot repeatedly call the **CreateSslVpnServer** operation within the specified period of time.
+     * ### [](#)Prerequisite
+     * *   A VPN gateway is created, and the SSL-VPN feature is enabled for the VPN gateway. For more information, see [CreateVpnGateway](https://help.aliyun.com/document_detail/2794049.html).
+     * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
      *  *
      * @param CreateSslVpnServerRequest $request CreateSslVpnServerRequest
      *
@@ -9058,6 +9058,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->enableNatTraversal)) {
             $query['EnableNatTraversal'] = $request->enableNatTraversal;
         }
+        if (!Utils::isUnset($request->enableTunnelsBgp)) {
+            $query['EnableTunnelsBgp'] = $request->enableTunnelsBgp;
+        }
         if (!Utils::isUnset($request->healthCheckConfig)) {
             $query['HealthCheckConfig'] = $request->healthCheckConfig;
         }
@@ -9100,8 +9103,15 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->tags)) {
             $query['Tags'] = $request->tags;
         }
-        $req = new OpenApiRequest([
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->tunnelOptionsSpecification)) {
+            $bodyFlat['TunnelOptionsSpecification'] = $request->tunnelOptionsSpecification;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVpnAttachment',
@@ -27307,6 +27317,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->enableNatTraversal)) {
             $query['EnableNatTraversal'] = $request->enableNatTraversal;
         }
+        if (!Utils::isUnset($request->enableTunnelsBgp)) {
+            $query['EnableTunnelsBgp'] = $request->enableTunnelsBgp;
+        }
         if (!Utils::isUnset($request->healthCheckConfig)) {
             $query['HealthCheckConfig'] = $request->healthCheckConfig;
         }
@@ -27346,8 +27359,15 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->vpnConnectionId)) {
             $query['VpnConnectionId'] = $request->vpnConnectionId;
         }
-        $req = new OpenApiRequest([
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->tunnelOptionsSpecification)) {
+            $bodyFlat['TunnelOptionsSpecification'] = $request->tunnelOptionsSpecification;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyVpnAttachmentAttribute',

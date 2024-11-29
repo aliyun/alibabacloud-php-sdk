@@ -12,10 +12,19 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptionsSpecification extends Model
 {
     /**
+     * @description The ID of the customer gateway associated with the tunnel.
+     *
+     * @example cgw-1nmwbpgrp7ssqm1yn****
+     *
+     * @var string
+     */
+    public $customerGatewayId;
+
+    /**
      * @description Specifies whether to enable the Dead Peer Detection (DPD) feature for the tunnel. Valid values:
      *
-     *   **true** The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SA and IPsec SA are deleted. The security tunnel is also deleted.
-     *   **false**
+     *   **true**: enables DPD. The initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no feedback is received from the peer within the specified period of time, the connection fails. In this case, ISAKMP SA and IPsec SA are deleted. The security tunnel is also deleted.
+     *   **false**: disables DPD. The initiator of the IPsec-VPN connection does not send DPD packets.
      *
      * @example true
      *
@@ -26,8 +35,8 @@ class tunnelOptionsSpecification extends Model
     /**
      * @description Specifies whether to enable NAT traversal for the tunnel. Valid values:
      *
-     *   **true** After NAT traversal is enabled, the initiator does not check the UDP ports during Internet Key Exchange (IKE) negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
-     *   **false**
+     *   **true**: enables NAT traversal. After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec-VPN tunnel.
+     *   **false**: disables NAT traversal.
      *
      * @example true
      *
@@ -65,9 +74,8 @@ class tunnelOptionsSpecification extends Model
     public $tunnelBgpConfig;
 
     /**
-     * @description **TunnelOptionsSpecification** parameters are supported by dual-tunnel IPsec-VPN gateways. You can modify both the active and standby tunnels of the IPsec-VPN connection.
+     * @description The tunnel ID.
      *
-     * The tunnel ID.
      * @example tun-opsqc4d97wni27****
      *
      * @var string
@@ -88,6 +96,7 @@ class tunnelOptionsSpecification extends Model
      */
     public $tunnelIpsecConfig;
     protected $_name = [
+        'customerGatewayId'   => 'CustomerGatewayId',
         'enableDpd'           => 'EnableDpd',
         'enableNatTraversal'  => 'EnableNatTraversal',
         'remoteCaCertificate' => 'RemoteCaCertificate',
@@ -105,6 +114,9 @@ class tunnelOptionsSpecification extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customerGatewayId) {
+            $res['CustomerGatewayId'] = $this->customerGatewayId;
+        }
         if (null !== $this->enableDpd) {
             $res['EnableDpd'] = $this->enableDpd;
         }
@@ -141,6 +153,9 @@ class tunnelOptionsSpecification extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomerGatewayId'])) {
+            $model->customerGatewayId = $map['CustomerGatewayId'];
+        }
         if (isset($map['EnableDpd'])) {
             $model->enableDpd = $map['EnableDpd'];
         }

@@ -2,48 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpnConnectionRequest\tunnelOptionsSpecification;
+namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnAttachmentAttributeRequest\tunnelOptionsSpecification;
 
 use AlibabaCloud\Tea\Model;
 
 class tunnelIpsecConfig extends Model
 {
     /**
-     * @description The authentication algorithm that is used in Phase 2 negotiations.
-     *
-     * Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.
-     * @example md5
-     *
      * @var string
      */
     public $ipsecAuthAlg;
 
     /**
-     * @description The encryption algorithm that is used in Phase 2 negotiations.
-     *
-     * Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.
-     * @example aes
-     *
      * @var string
      */
     public $ipsecEncAlg;
 
     /**
-     * @description The SA lifetime as a result of Phase 2 negotiations. Unit: seconds.
-     *
-     * Valid values: **0** to **86400**. Default value: **86400**.
-     * @example 86400
-     *
      * @var int
      */
     public $ipsecLifetime;
 
     /**
-     * @description The Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiations. Default value: **group2**.
-     *
-     * Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
-     * @example group2
-     *
      * @var string
      */
     public $ipsecPfs;

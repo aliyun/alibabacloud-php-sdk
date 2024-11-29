@@ -46,6 +46,11 @@ class vcoRouteEntries extends Model
     public $nextHop;
 
     /**
+     * @var string[]
+     */
+    public $nextHopTunnelIdList;
+
+    /**
      * @description The destination CIDR block of the route.
      *
      * @example 192.168.10.0/24
@@ -111,16 +116,17 @@ class vcoRouteEntries extends Model
      */
     public $weight;
     protected $_name = [
-        'asPath'          => 'AsPath',
-        'community'       => 'Community',
-        'createTime'      => 'CreateTime',
-        'nextHop'         => 'NextHop',
-        'routeDest'       => 'RouteDest',
-        'routeEntryType'  => 'RouteEntryType',
-        'source'          => 'Source',
-        'state'           => 'State',
-        'vpnConnectionId' => 'VpnConnectionId',
-        'weight'          => 'Weight',
+        'asPath'              => 'AsPath',
+        'community'           => 'Community',
+        'createTime'          => 'CreateTime',
+        'nextHop'             => 'NextHop',
+        'nextHopTunnelIdList' => 'NextHopTunnelIdList',
+        'routeDest'           => 'RouteDest',
+        'routeEntryType'      => 'RouteEntryType',
+        'source'              => 'Source',
+        'state'               => 'State',
+        'vpnConnectionId'     => 'VpnConnectionId',
+        'weight'              => 'Weight',
     ];
 
     public function validate()
@@ -141,6 +147,9 @@ class vcoRouteEntries extends Model
         }
         if (null !== $this->nextHop) {
             $res['NextHop'] = $this->nextHop;
+        }
+        if (null !== $this->nextHopTunnelIdList) {
+            $res['NextHopTunnelIdList'] = $this->nextHopTunnelIdList;
         }
         if (null !== $this->routeDest) {
             $res['RouteDest'] = $this->routeDest;
@@ -183,6 +192,11 @@ class vcoRouteEntries extends Model
         }
         if (isset($map['NextHop'])) {
             $model->nextHop = $map['NextHop'];
+        }
+        if (isset($map['NextHopTunnelIdList'])) {
+            if (!empty($map['NextHopTunnelIdList'])) {
+                $model->nextHopTunnelIdList = $map['NextHopTunnelIdList'];
+            }
         }
         if (isset($map['RouteDest'])) {
             $model->routeDest = $map['RouteDest'];

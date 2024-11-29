@@ -29,7 +29,7 @@ class tunnelIpsecConfig extends Model
     public $ipsecEncAlg;
 
     /**
-     * @description The SA lifetime that is determined by Phase 2 negotiations. Unit: seconds. Valid values: **0** to **86400**.
+     * @description The SA lifetime as a result of Phase 2 negotiations. Unit: seconds Valid values: **0** to **86400**.
      *
      * @example 86400
      *
@@ -38,7 +38,7 @@ class tunnelIpsecConfig extends Model
     public $ipsecLifetime;
 
     /**
-     * @description The DH key exchange algorithm that is used in Phase 2 negotiations.
+     * @description The Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiations.
      *
      * Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
      * @example group2

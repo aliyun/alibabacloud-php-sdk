@@ -242,31 +242,36 @@ class DescribeVpnGatewayResponseBody extends Model
     public $status;
 
     /**
-     * @description The automatically generated tag of the VPN gateway.
+     * @description The tag that is automatically generated for the VPN gateway. The tag consists of the following parameters:
      *
      *   **VpnEnableBgp**: indicates whether the VPN gateway supports BGP. Valid values:
      *
      *   **true**
      *   **false**
      *
-     *   **VisuallySsl**: indicates whether the VPN gateway allows you to view information about connected SSL clients.
+     *   **VisuallySsl**: indicates whether the VPN gateway allows you to view the connection information of SSL clients. Valid values:
      *
      *   **true**
      *   **false**
      *
-     *   **PbrPriority**: indicates whether the VPN gateway allows you to configure priorities for policy-based routes.
+     *   **PbrPriority**: indicates whether the VPN gateway allows you to configure priorities for policy-based routes. Valid values:
      *
      *   **true**
      *   **false**
      *
-     *   **VpnNewImage**: indicates whether the VPN gateway is upgraded.
+     *   **VpnNewImage**: indicates whether the VPN gateway is upgraded. Valid values:
      *
      *   **true**
      *   **false**
      *
-     *   **description**
+     *   **description**: the description of the VPN gateway. This parameter is only for internal use.
      *
-     *   **VpnVersion**
+     *   **VpnVersion**: the version of the VPN gateway.
+     *
+     *   **IDaaSNewVersion**: indicates whether the VPN gateway can be associated with an EIAM 2.0 instance.
+     *
+     *   **true**
+     *   **false**
      *
      * @example {\\"VpnEnableBgp\\":\\"true\\",\\"VisuallySsl\\":\\"true\\",\\"PbrPriority\\":\\"true\\",\\"VpnNewImage\\":\\"true\\",\\"description\\":\\"forwarding1.3.7\\",\\"VpnVersion\\":\\"v1.2.4\\"}
      *
@@ -275,7 +280,7 @@ class DescribeVpnGatewayResponseBody extends Model
     public $tag;
 
     /**
-     * @description The tag value.
+     * @description The tags that are added to the VPN gateway.
      *
      * @var tags
      */
@@ -309,9 +314,8 @@ class DescribeVpnGatewayResponseBody extends Model
     public $vpnGatewayId;
 
     /**
-     * @description The type of the VPN gateway.
+     * @description The type of VPN gateway. Only **Normal** may be returned, which indicates a standard VPN gateway.
      *
-     * Only **Normal** may be returned, which indicates a standard VPN gateway.
      * @example Normal
      *
      * @var string
