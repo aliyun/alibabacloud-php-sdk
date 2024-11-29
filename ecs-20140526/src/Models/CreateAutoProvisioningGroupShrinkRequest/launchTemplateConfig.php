@@ -44,6 +44,11 @@ class launchTemplateConfig extends Model
     public $excludedInstanceTypes;
 
     /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
      * @description The instance family level of the instance type in extended configuration N. This parameter is used to filter instance types. Valid values:
      *
      *   EntryLevel: entry level (shared instance types). Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
@@ -129,6 +134,7 @@ class launchTemplateConfig extends Model
         'burstablePerformance'  => 'BurstablePerformance',
         'cores'                 => 'Cores',
         'excludedInstanceTypes' => 'ExcludedInstanceTypes',
+        'imageId'               => 'ImageId',
         'instanceFamilyLevel'   => 'InstanceFamilyLevel',
         'instanceType'          => 'InstanceType',
         'maxPrice'              => 'MaxPrice',
@@ -157,6 +163,9 @@ class launchTemplateConfig extends Model
         }
         if (null !== $this->excludedInstanceTypes) {
             $res['ExcludedInstanceTypes'] = $this->excludedInstanceTypes;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
         }
         if (null !== $this->instanceFamilyLevel) {
             $res['InstanceFamilyLevel'] = $this->instanceFamilyLevel;
@@ -211,6 +220,9 @@ class launchTemplateConfig extends Model
             if (!empty($map['ExcludedInstanceTypes'])) {
                 $model->excludedInstanceTypes = $map['ExcludedInstanceTypes'];
             }
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
         }
         if (isset($map['InstanceFamilyLevel'])) {
             $model->instanceFamilyLevel = $map['InstanceFamilyLevel'];

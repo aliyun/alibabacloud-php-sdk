@@ -21,6 +21,11 @@ class DescribeSavingsPlanPriceRequest extends Model
     /**
      * @var string
      */
+    public $instanceTypeFamilyGroup;
+
+    /**
+     * @var string
+     */
     public $offeringType;
 
     /**
@@ -48,14 +53,15 @@ class DescribeSavingsPlanPriceRequest extends Model
      */
     public $resourceId;
     protected $_name = [
-        'committedAmount'    => 'CommittedAmount',
-        'instanceTypeFamily' => 'InstanceTypeFamily',
-        'offeringType'       => 'OfferingType',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'planType'           => 'PlanType',
-        'regionId'           => 'RegionId',
-        'resourceId'         => 'ResourceId',
+        'committedAmount'         => 'CommittedAmount',
+        'instanceTypeFamily'      => 'InstanceTypeFamily',
+        'instanceTypeFamilyGroup' => 'InstanceTypeFamilyGroup',
+        'offeringType'            => 'OfferingType',
+        'period'                  => 'Period',
+        'periodUnit'              => 'PeriodUnit',
+        'planType'                => 'PlanType',
+        'regionId'                => 'RegionId',
+        'resourceId'              => 'ResourceId',
     ];
 
     public function validate()
@@ -70,6 +76,9 @@ class DescribeSavingsPlanPriceRequest extends Model
         }
         if (null !== $this->instanceTypeFamily) {
             $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
+        if (null !== $this->instanceTypeFamilyGroup) {
+            $res['InstanceTypeFamilyGroup'] = $this->instanceTypeFamilyGroup;
         }
         if (null !== $this->offeringType) {
             $res['OfferingType'] = $this->offeringType;
@@ -106,6 +115,9 @@ class DescribeSavingsPlanPriceRequest extends Model
         }
         if (isset($map['InstanceTypeFamily'])) {
             $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+        }
+        if (isset($map['InstanceTypeFamilyGroup'])) {
+            $model->instanceTypeFamilyGroup = $map['InstanceTypeFamilyGroup'];
         }
         if (isset($map['OfferingType'])) {
             $model->offeringType = $map['OfferingType'];

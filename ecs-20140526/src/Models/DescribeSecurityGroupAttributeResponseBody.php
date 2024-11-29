@@ -65,7 +65,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the destination security group.
+     * @description The ID of the security group.
      *
      * @example sg-bp1gxw6bznjjvhu3****
      *
@@ -74,7 +74,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $securityGroupId;
 
     /**
-     * @description The name of the destination security group.
+     * @description The name of the security group.
      *
      * @example SecurityGroupName Sample
      *

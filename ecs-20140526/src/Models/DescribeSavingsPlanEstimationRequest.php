@@ -11,6 +11,16 @@ class DescribeSavingsPlanEstimationRequest extends Model
     /**
      * @var string
      */
+    public $estimationResource;
+
+    /**
+     * @var string
+     */
+    public $instanceTypeScope;
+
+    /**
+     * @var string
+     */
     public $offeringType;
 
     /**
@@ -38,12 +48,14 @@ class DescribeSavingsPlanEstimationRequest extends Model
      */
     public $resourceId;
     protected $_name = [
-        'offeringType' => 'OfferingType',
-        'period'       => 'Period',
-        'periodUnit'   => 'PeriodUnit',
-        'planType'     => 'PlanType',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'estimationResource' => 'EstimationResource',
+        'instanceTypeScope'  => 'InstanceTypeScope',
+        'offeringType'       => 'OfferingType',
+        'period'             => 'Period',
+        'periodUnit'         => 'PeriodUnit',
+        'planType'           => 'PlanType',
+        'regionId'           => 'RegionId',
+        'resourceId'         => 'ResourceId',
     ];
 
     public function validate()
@@ -53,6 +65,12 @@ class DescribeSavingsPlanEstimationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->estimationResource) {
+            $res['EstimationResource'] = $this->estimationResource;
+        }
+        if (null !== $this->instanceTypeScope) {
+            $res['InstanceTypeScope'] = $this->instanceTypeScope;
+        }
         if (null !== $this->offeringType) {
             $res['OfferingType'] = $this->offeringType;
         }
@@ -83,6 +101,12 @@ class DescribeSavingsPlanEstimationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EstimationResource'])) {
+            $model->estimationResource = $map['EstimationResource'];
+        }
+        if (isset($map['InstanceTypeScope'])) {
+            $model->instanceTypeScope = $map['InstanceTypeScope'];
+        }
         if (isset($map['OfferingType'])) {
             $model->offeringType = $map['OfferingType'];
         }
