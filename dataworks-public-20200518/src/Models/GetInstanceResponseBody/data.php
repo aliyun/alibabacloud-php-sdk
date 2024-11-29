@@ -188,6 +188,11 @@ class data extends Model
     public $nodeName;
 
     /**
+     * @var string
+     */
+    public $owner;
+
+    /**
      * @description The parameters related to the node.
      *
      * @example bizdate=$bizdate tbods=$tbods tbdw=$tbdw tbpmic=$tbpmic tbpidx=$tbpidx tbptcif=$tbptcif
@@ -195,6 +200,11 @@ class data extends Model
      * @var string
      */
     public $paramValues;
+
+    /**
+     * @var int
+     */
+    public $periodNumber;
 
     /**
      * @description The priority of the instance. Valid values: 1, 3, 5, 7, and 8. A greater value indicates a higher priority. Default value: 1.
@@ -300,7 +310,9 @@ class data extends Model
         'modifyTime'        => 'ModifyTime',
         'nodeId'            => 'NodeId',
         'nodeName'          => 'NodeName',
+        'owner'             => 'Owner',
         'paramValues'       => 'ParamValues',
+        'periodNumber'      => 'PeriodNumber',
         'priority'          => 'Priority',
         'relatedFlowId'     => 'RelatedFlowId',
         'repeatInterval'    => 'RepeatInterval',
@@ -374,8 +386,14 @@ class data extends Model
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+        if (null !== $this->owner) {
+            $res['Owner'] = $this->owner;
+        }
         if (null !== $this->paramValues) {
             $res['ParamValues'] = $this->paramValues;
+        }
+        if (null !== $this->periodNumber) {
+            $res['PeriodNumber'] = $this->periodNumber;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -467,8 +485,14 @@ class data extends Model
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+        if (isset($map['Owner'])) {
+            $model->owner = $map['Owner'];
+        }
         if (isset($map['ParamValues'])) {
             $model->paramValues = $map['ParamValues'];
+        }
+        if (isset($map['PeriodNumber'])) {
+            $model->periodNumber = $map['PeriodNumber'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
