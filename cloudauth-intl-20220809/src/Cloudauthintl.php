@@ -734,6 +734,9 @@ class Cloudauthintl extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appQualityCheck)) {
+            $query['AppQualityCheck'] = $request->appQualityCheck;
+        }
         if (!Utils::isUnset($request->authorize)) {
             $query['Authorize'] = $request->authorize;
         }

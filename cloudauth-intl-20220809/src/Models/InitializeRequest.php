@@ -11,6 +11,11 @@ class InitializeRequest extends Model
     /**
      * @var string
      */
+    public $appQualityCheck;
+
+    /**
+     * @var string
+     */
     public $authorize;
 
     /**
@@ -179,6 +184,7 @@ class InitializeRequest extends Model
      */
     public $styleConfig;
     protected $_name = [
+        'appQualityCheck'   => 'AppQualityCheck',
         'authorize'         => 'Authorize',
         'callbackToken'     => 'CallbackToken',
         'callbackUrl'       => 'CallbackUrl',
@@ -217,6 +223,9 @@ class InitializeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appQualityCheck) {
+            $res['AppQualityCheck'] = $this->appQualityCheck;
+        }
         if (null !== $this->authorize) {
             $res['Authorize'] = $this->authorize;
         }
@@ -316,6 +325,9 @@ class InitializeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppQualityCheck'])) {
+            $model->appQualityCheck = $map['AppQualityCheck'];
+        }
         if (isset($map['Authorize'])) {
             $model->authorize = $map['Authorize'];
         }
