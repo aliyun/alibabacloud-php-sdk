@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeActivationCodeDetailsResponseBody extends Model
 {
     /**
+     * @description The time when the activation code takes effect.
+     *
      * @example 2024-10-16 16:46:20
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $activateAt;
 
     /**
+     * @description The activation code in the base64 format. The activation code is decoded and stored into a file named license.lic. PolarDB can access and read the license.lic file upon startup to validate the license or perform related operations.
+     *
      * @example AAEAA******AAA=
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $certContentB64;
 
     /**
+     * @description The description of the activation code.
+     *
      * @example testCode
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $description;
 
     /**
+     * @description The time when the activation code expires.
+     *
      * @example 2054-10-09 16:46:20
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $expireAt;
 
     /**
+     * @description The time when the activation code was created.
+     *
      * @example 2024-10-16 16:46:20
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $gmtCreated;
 
     /**
+     * @description The time when the activation code was last updated.
+     *
      * @example 2024-10-16 16:46:20
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the activation code.
+     *
      * @example 123
      *
      * @var int
@@ -58,6 +72,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $id;
 
     /**
+     * @description The MAC address.
+     *
      * @example 12:34:56:78:98:00
      *
      * @var string
@@ -65,6 +81,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $macAddress;
 
     /**
+     * @description The name of the activation code.
+     *
      * @example testName
      *
      * @var string
@@ -72,7 +90,7 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $name;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example F2A9EFA7-915F-4572-8299-85A307******
      *
@@ -81,6 +99,8 @@ class DescribeActivationCodeDetailsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The system identifier of the database.
+     *
      * @example 1234567890123456
      *
      * @var string

@@ -195,11 +195,17 @@ class CreateDBClusterRequest extends Model
     public $DBNodeClass;
 
     /**
-     * @description Number of standard edition nodes. Values are as follows:
+     * @description The number of nodes. This parameter is supported for Standard Edition clusters. Valid values:
      *
-     * - **1** (default): Indicates there is only one read-write node.
-     * - **2**: Indicates there is one read-only node and one read-write node.
-     * > - Only supported by PolarDB MySQL edition.
+     *   **1** (default): only one primary node.
+     *   **2**: one read-only node and one primary node.
+     *
+     * >
+     *
+     *   By default, an Enterprise Edition cluster has two nodes and a Standard Edition cluster has one node.
+     *
+     *   This parameter is supported only for PolarDB for MySQL clusters.
+     *
      * @example 1
      *
      * @var int
@@ -604,6 +610,11 @@ class CreateDBClusterRequest extends Model
     public $tag;
 
     /**
+     * @var string
+     */
+    public $targetMinorVersion;
+
+    /**
      * @description If the payment type is **Prepaid**, this parameter is required.
      * - When **Period** is **Month**, **UsedTime** should be an integer within `[1-9]`.
      * - When **Period** is **Year**, **UsedTime** should be an integer within `[1-3]`.
@@ -693,6 +704,7 @@ class CreateDBClusterRequest extends Model
         'strictConsistency'                      => 'StrictConsistency',
         'TDEStatus'                              => 'TDEStatus',
         'tag'                                    => 'Tag',
+        'targetMinorVersion'                     => 'TargetMinorVersion',
         'usedTime'                               => 'UsedTime',
         'VPCId'                                  => 'VPCId',
         'vSwitchId'                              => 'VSwitchId',
@@ -864,6 +876,9 @@ class CreateDBClusterRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->targetMinorVersion) {
+            $res['TargetMinorVersion'] = $this->targetMinorVersion;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -1047,6 +1062,9 @@ class CreateDBClusterRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TargetMinorVersion'])) {
+            $model->targetMinorVersion = $map['TargetMinorVersion'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

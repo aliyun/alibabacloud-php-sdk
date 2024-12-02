@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeActivationCodeDetailsRequest extends Model
 {
     /**
+     * @description The ID of the activation code.
+     *
      * @example 123
      *
      * @var int
@@ -16,8 +18,9 @@ class DescribeActivationCodeDetailsRequest extends Model
     public $activationCodeId;
 
     /**
-     * @description This parameter is required.
+     * @description The Alibaba Cloud order ID (including the virtual order ID).
      *
+     * This parameter is required.
      * @example 2233****445566
      *
      * @var string

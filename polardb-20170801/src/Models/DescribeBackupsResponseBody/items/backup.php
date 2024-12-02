@@ -118,8 +118,8 @@ class backup extends Model
     public $DBClusterId;
 
     /**
-     * @description The expected expiration time of the backup set.
-     * > This parameter is supported only for instances that are enabled with sparse backup.
+     * @description The expected expiration time of the backup set (This parameter is supported only for clusters for which sparse backup is enabled).
+     *
      * @example 2022-10-24T08:13:23Z
      *
      * @var string

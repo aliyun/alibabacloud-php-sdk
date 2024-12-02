@@ -262,6 +262,13 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $hotStandbyCluster;
 
     /**
+     * @description Indicates whether the automatic IMCI-based query acceleration feature is enabled. Valid values:
+     *
+     *   `ON`: enabled
+     *   `OFF`: disabled
+     *
+     * @example OFF
+     *
      * @var string
      */
     public $imciAutoIndex;
@@ -523,7 +530,8 @@ class DescribeDBClusterAttributeResponseBody extends Model
 
     /**
      * @description Storage billing type. Valid values are as follows:
-     * - **Postpaid**：Pay-as-you-go (by capacity). - **Prepaid**：Subscription (by space).
+     * - **Postpaid**: Pay-as-you-go (by capacity).
+     * - **Prepaid**: Subscription (by space).
      * @example Prepaid
      *
      * @var string
@@ -580,7 +588,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $subCategory;
 
     /**
-     * @description Indicates whether the failover with hot replica feature is supported if the cluster has In-Memory Column Index (IMCI) nodes.
+     * @description Indicates whether queries based on In-Memory Column Indexes (IMCIs) are supported during and after a failover with hot replica.
      *
      * @example ON
      *

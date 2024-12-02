@@ -11,6 +11,8 @@ class DescribeAITaskStatusResponseBody extends Model
     /**
      * @description The name of the database account that is used to connect to the AI nodes in the cluster.
      *
+     * @example testacc
+     *
      * @var string
      */
     public $accountName;

@@ -1126,7 +1126,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Create Database Cluster
+     * @summary CreateDBCluster.
      *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1290,6 +1290,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
+        if (!Utils::isUnset($request->targetMinorVersion)) {
+            $query['TargetMinorVersion'] = $request->targetMinorVersion;
+        }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
         }
@@ -1321,7 +1324,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Create Database Cluster
+     * @summary CreateDBCluster.
      *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
@@ -3102,7 +3105,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查询激活码详情
+     * @summary Queries the details of an activation code.
      *  *
      * @param DescribeActivationCodeDetailsRequest $request DescribeActivationCodeDetailsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -3150,7 +3153,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查询激活码详情
+     * @summary Queries the details of an activation code.
      *  *
      * @param DescribeActivationCodeDetailsRequest $request DescribeActivationCodeDetailsRequest
      *
@@ -5649,7 +5652,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查看License订单详情
+     * @summary Queries the information of a license order.
      *  *
      * @param DescribeLicenseOrderDetailsRequest $request DescribeLicenseOrderDetailsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5694,7 +5697,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 查看License订单详情
+     * @summary Queries the information of a license order.
      *  *
      * @param DescribeLicenseOrderDetailsRequest $request DescribeLicenseOrderDetailsRequest
      *
@@ -9326,7 +9329,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the hot standby node in a cluster.
+     * @summary Enables or disables the failover with hot replica feature for a node in a cluster.
      *  *
      * @param ModifyDBNodeHotReplicaModeRequest $request ModifyDBNodeHotReplicaModeRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -9377,7 +9380,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables the hot standby node in a cluster.
+     * @summary Enables or disables the failover with hot replica feature for a node in a cluster.
      *  *
      * @param ModifyDBNodeHotReplicaModeRequest $request ModifyDBNodeHotReplicaModeRequest
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLicenseOrderDetailsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The Alibaba Cloud order ID (or virtual order ID).
      *
+     * This parameter is required.
      * @example 239618016570503
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClassListResponseBody extends Model
 {
     /**
-     * @description The specifications of the cluster.
+     * @description The cluster specifications.
      *
      * @var items[]
      */

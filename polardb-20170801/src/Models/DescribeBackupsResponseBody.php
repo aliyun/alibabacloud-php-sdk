@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsResponseBody extends Model
 {
     /**
-     * @description The details of backup sets.
+     * @description The queried backup sets.
      *
      * @var items
      */
@@ -44,6 +44,8 @@ class DescribeBackupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @example 4639948800
+     *
      * @var string
      */
     public $totalLevel2BackupSize;
