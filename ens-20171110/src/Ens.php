@@ -463,6 +463,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySecurityGroupAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySecurityGroupAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySnapshotAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySnapshotAttributeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySnatEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ModifySnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ModifyVSwitchAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\MountInstanceSDGRequest;
@@ -12962,6 +12964,59 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySnapshotAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改snat规则
+     *  *
+     * @param ModifySnatEntryRequest $request ModifySnatEntryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifySnatEntryResponse ModifySnatEntryResponse
+     */
+    public function modifySnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ispAffinity)) {
+            $query['IspAffinity'] = $request->ispAffinity;
+        }
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        if (!Utils::isUnset($request->snatEntryName)) {
+            $query['SnatEntryName'] = $request->snatEntryName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifySnatEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifySnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改snat规则
+     *  *
+     * @param ModifySnatEntryRequest $request ModifySnatEntryRequest
+     *
+     * @return ModifySnatEntryResponse ModifySnatEntryResponse
+     */
+    public function modifySnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifySnatEntryWithOptions($request, $runtime);
     }
 
     /**

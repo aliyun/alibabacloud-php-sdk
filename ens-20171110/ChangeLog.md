@@ -1,3 +1,7 @@
+2024-12-02 Version: 6.6.0
+- Support API ModifySnatEntry.
+
+
 2024-11-29 Version: 6.5.1
 - Update API CreateSnatEntry: add param IspAffinity.
 - Update API DescribeInstances: add param ServiceStatus.
