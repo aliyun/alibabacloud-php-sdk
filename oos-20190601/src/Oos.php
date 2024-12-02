@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Oos\V20190601;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Oos\V20190601\Models\AnalyzeGitRepositoryRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\AnalyzeGitRepositoryResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CancelExecutionRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CancelExecutionResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ChangeResourceGroupRequest;
@@ -105,6 +107,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListExecutionsShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListGitRepositoriesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListGitRepositoriesResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListGitRepositoryContentsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListGitRepositoryContentsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePackageStatesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePackageStatesResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListInstancePatchesRequest;
@@ -234,6 +238,74 @@ class Oos extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 分析仓库
+     *  *
+     * @param AnalyzeGitRepositoryRequest $request AnalyzeGitRepositoryRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AnalyzeGitRepositoryResponse AnalyzeGitRepositoryResponse
+     */
+    public function analyzeGitRepositoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->branch)) {
+            $query['Branch'] = $request->branch;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $query['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->repoFullName)) {
+            $query['RepoFullName'] = $request->repoFullName;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AnalyzeGitRepository',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AnalyzeGitRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分析仓库
+     *  *
+     * @param AnalyzeGitRepositoryRequest $request AnalyzeGitRepositoryRequest
+     *
+     * @return AnalyzeGitRepositoryResponse AnalyzeGitRepositoryResponse
+     */
+    public function analyzeGitRepository($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->analyzeGitRepositoryWithOptions($request, $runtime);
     }
 
     /**
@@ -2992,6 +3064,80 @@ class Oos extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGitRepositoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取仓库文件与目录信息
+     *  *
+     * @param ListGitRepositoryContentsRequest $request ListGitRepositoryContentsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListGitRepositoryContentsResponse ListGitRepositoryContentsResponse
+     */
+    public function listGitRepositoryContentsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->branch)) {
+            $query['Branch'] = $request->branch;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->contentType)) {
+            $query['ContentType'] = $request->contentType;
+        }
+        if (!Utils::isUnset($request->orgId)) {
+            $query['OrgId'] = $request->orgId;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $query['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->repoFullName)) {
+            $query['RepoFullName'] = $request->repoFullName;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListGitRepositoryContents',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGitRepositoryContentsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取仓库文件与目录信息
+     *  *
+     * @param ListGitRepositoryContentsRequest $request ListGitRepositoryContentsRequest
+     *
+     * @return ListGitRepositoryContentsResponse ListGitRepositoryContentsResponse
+     */
+    public function listGitRepositoryContents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listGitRepositoryContentsWithOptions($request, $runtime);
     }
 
     /**

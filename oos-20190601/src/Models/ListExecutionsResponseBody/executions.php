@@ -143,6 +143,11 @@ class executions extends Model
     public $mode;
 
     /**
+     * @var string
+     */
+    public $nextScheduleTime;
+
+    /**
      * @description The output of the execution.
      *
      * @example { "InstanceId":"i-xxx" }
@@ -319,6 +324,7 @@ class executions extends Model
         'lastTriggerStatusMessage'  => 'LastTriggerStatusMessage',
         'lastTriggerTime'           => 'LastTriggerTime',
         'mode'                      => 'Mode',
+        'nextScheduleTime'          => 'NextScheduleTime',
         'outputs'                   => 'Outputs',
         'parameters'                => 'Parameters',
         'parentExecutionId'         => 'ParentExecutionId',
@@ -396,6 +402,9 @@ class executions extends Model
         }
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
+        }
+        if (null !== $this->nextScheduleTime) {
+            $res['NextScheduleTime'] = $this->nextScheduleTime;
         }
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
@@ -513,6 +522,9 @@ class executions extends Model
         }
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
+        }
+        if (isset($map['NextScheduleTime'])) {
+            $model->nextScheduleTime = $map['NextScheduleTime'];
         }
         if (isset($map['Outputs'])) {
             $model->outputs = $map['Outputs'];
