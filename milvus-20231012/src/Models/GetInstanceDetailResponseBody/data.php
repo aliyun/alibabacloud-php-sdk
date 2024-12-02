@@ -51,6 +51,11 @@ class data extends Model
     public $clusterName;
 
     /**
+     * @var bool
+     */
+    public $enableHa;
+
+    /**
      * @example 1721664000000
      *
      * @var int
@@ -180,6 +185,7 @@ class data extends Model
         'bucketPath'      => 'BucketPath',
         'clusterInfo'     => 'ClusterInfo',
         'clusterName'     => 'ClusterName',
+        'enableHa'        => 'EnableHa',
         'expireTime'      => 'ExpireTime',
         'instanceId'      => 'InstanceId',
         'instanceStatus'  => 'InstanceStatus',
@@ -224,6 +230,9 @@ class data extends Model
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->enableHa) {
+            $res['EnableHa'] = $this->enableHa;
         }
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
@@ -308,6 +317,9 @@ class data extends Model
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['EnableHa'])) {
+            $model->enableHa = $map['EnableHa'];
         }
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
