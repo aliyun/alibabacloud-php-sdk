@@ -18,6 +18,11 @@ class CreateArtifactResponseBody extends Model
     public $artifactBuildProperty;
 
     /**
+     * @var string
+     */
+    public $artifactBuildType;
+
+    /**
      * @description The ID of the deployment package.
      *
      * @example artifact-eea08d1e2d3a43aexxxx
@@ -135,6 +140,7 @@ class CreateArtifactResponseBody extends Model
     public $versionName;
     protected $_name = [
         'artifactBuildProperty' => 'ArtifactBuildProperty',
+        'artifactBuildType'     => 'ArtifactBuildType',
         'artifactId'            => 'ArtifactId',
         'artifactProperty'      => 'ArtifactProperty',
         'artifactType'          => 'ArtifactType',
@@ -159,6 +165,9 @@ class CreateArtifactResponseBody extends Model
         $res = [];
         if (null !== $this->artifactBuildProperty) {
             $res['ArtifactBuildProperty'] = $this->artifactBuildProperty;
+        }
+        if (null !== $this->artifactBuildType) {
+            $res['ArtifactBuildType'] = $this->artifactBuildType;
         }
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
@@ -213,6 +222,9 @@ class CreateArtifactResponseBody extends Model
         $model = new self();
         if (isset($map['ArtifactBuildProperty'])) {
             $model->artifactBuildProperty = $map['ArtifactBuildProperty'];
+        }
+        if (isset($map['ArtifactBuildType'])) {
+            $model->artifactBuildType = $map['ArtifactBuildType'];
         }
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];

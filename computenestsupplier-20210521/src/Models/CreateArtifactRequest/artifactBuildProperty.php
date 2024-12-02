@@ -4,10 +4,22 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest\artifactBuildProperty\buildArgs;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest\artifactBuildProperty\codeRepo;
 use AlibabaCloud\Tea\Model;
 
 class artifactBuildProperty extends Model
 {
+    /**
+     * @var buildArgs[]
+     */
+    public $buildArgs;
+
+    /**
+     * @var codeRepo
+     */
+    public $codeRepo;
+
     /**
      * @description The command content.
      *
@@ -33,6 +45,11 @@ class artifactBuildProperty extends Model
     public $commandType;
 
     /**
+     * @var string
+     */
+    public $dockerfilePath;
+
+    /**
      * @description The region ID where the source mirror image is located.
      *
      * >  This parameter is available only if the deployment package is a ecs image type.
@@ -41,6 +58,11 @@ class artifactBuildProperty extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $sourceContainerImage;
 
     /**
      * @description The source image id. Supported Types:
@@ -52,10 +74,14 @@ class artifactBuildProperty extends Model
      */
     public $sourceImageId;
     protected $_name = [
-        'commandContent' => 'CommandContent',
-        'commandType'    => 'CommandType',
-        'regionId'       => 'RegionId',
-        'sourceImageId'  => 'SourceImageId',
+        'buildArgs'            => 'BuildArgs',
+        'codeRepo'             => 'CodeRepo',
+        'commandContent'       => 'CommandContent',
+        'commandType'          => 'CommandType',
+        'dockerfilePath'       => 'DockerfilePath',
+        'regionId'             => 'RegionId',
+        'sourceContainerImage' => 'SourceContainerImage',
+        'sourceImageId'        => 'SourceImageId',
     ];
 
     public function validate()
@@ -65,14 +91,32 @@ class artifactBuildProperty extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildArgs) {
+            $res['BuildArgs'] = [];
+            if (null !== $this->buildArgs && \is_array($this->buildArgs)) {
+                $n = 0;
+                foreach ($this->buildArgs as $item) {
+                    $res['BuildArgs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->codeRepo) {
+            $res['CodeRepo'] = null !== $this->codeRepo ? $this->codeRepo->toMap() : null;
+        }
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
         }
         if (null !== $this->commandType) {
             $res['CommandType'] = $this->commandType;
         }
+        if (null !== $this->dockerfilePath) {
+            $res['DockerfilePath'] = $this->dockerfilePath;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->sourceContainerImage) {
+            $res['SourceContainerImage'] = $this->sourceContainerImage;
         }
         if (null !== $this->sourceImageId) {
             $res['SourceImageId'] = $this->sourceImageId;
@@ -89,14 +133,32 @@ class artifactBuildProperty extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildArgs'])) {
+            if (!empty($map['BuildArgs'])) {
+                $model->buildArgs = [];
+                $n                = 0;
+                foreach ($map['BuildArgs'] as $item) {
+                    $model->buildArgs[$n++] = null !== $item ? buildArgs::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['CodeRepo'])) {
+            $model->codeRepo = codeRepo::fromMap($map['CodeRepo']);
+        }
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
         }
         if (isset($map['CommandType'])) {
             $model->commandType = $map['CommandType'];
         }
+        if (isset($map['DockerfilePath'])) {
+            $model->dockerfilePath = $map['DockerfilePath'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SourceContainerImage'])) {
+            $model->sourceContainerImage = $map['SourceContainerImage'];
         }
         if (isset($map['SourceImageId'])) {
             $model->sourceImageId = $map['SourceImageId'];

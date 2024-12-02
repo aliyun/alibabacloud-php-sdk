@@ -17,6 +17,11 @@ class CreateArtifactShrinkRequest extends Model
     public $artifactBuildPropertyShrink;
 
     /**
+     * @var string
+     */
+    public $artifactBuildType;
+
+    /**
      * @description The ID of the deployment package.
      *
      * @example artifact-eea08d1e2d3a43aexxxx
@@ -100,6 +105,7 @@ class CreateArtifactShrinkRequest extends Model
     public $versionName;
     protected $_name = [
         'artifactBuildPropertyShrink' => 'ArtifactBuildProperty',
+        'artifactBuildType'           => 'ArtifactBuildType',
         'artifactId'                  => 'ArtifactId',
         'artifactPropertyShrink'      => 'ArtifactProperty',
         'artifactType'                => 'ArtifactType',
@@ -120,6 +126,9 @@ class CreateArtifactShrinkRequest extends Model
         $res = [];
         if (null !== $this->artifactBuildPropertyShrink) {
             $res['ArtifactBuildProperty'] = $this->artifactBuildPropertyShrink;
+        }
+        if (null !== $this->artifactBuildType) {
+            $res['ArtifactBuildType'] = $this->artifactBuildType;
         }
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
@@ -168,6 +177,9 @@ class CreateArtifactShrinkRequest extends Model
         $model = new self();
         if (isset($map['ArtifactBuildProperty'])) {
             $model->artifactBuildPropertyShrink = $map['ArtifactBuildProperty'];
+        }
+        if (isset($map['ArtifactBuildType'])) {
+            $model->artifactBuildType = $map['ArtifactBuildType'];
         }
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];

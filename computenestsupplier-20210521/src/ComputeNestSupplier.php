@@ -344,6 +344,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->artifactBuildPropertyShrink)) {
             $query['ArtifactBuildProperty'] = $request->artifactBuildPropertyShrink;
         }
+        if (!Utils::isUnset($request->artifactBuildType)) {
+            $query['ArtifactBuildType'] = $request->artifactBuildType;
+        }
         if (!Utils::isUnset($request->artifactId)) {
             $query['ArtifactId'] = $request->artifactId;
         }
