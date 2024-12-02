@@ -1,3 +1,6 @@
+2024-12-02 Version: 4.0.2
+- Generated php 2023-05-22 for selectdb.
+
 2024-11-29 Version: 4.0.1
 - Update API DescribeDBInstanceAttribute: update response param.
 
