@@ -9,11 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticStrengthRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $dataDiskCategories;
+
+    /**
+     * @var string
+     */
+    public $imageFamily;
+
+    /**
+     * @var string
+     */
+    public $imageId;
+
+    /**
+     * @var string
+     */
+    public $imageName;
+
+    /**
      * @description The instance types. The instance types specified by this parameter overwrite the instance types specified in the scaling configuration.
      *
      * @var string[]
      */
     public $instanceTypes;
+
+    /**
+     * @var int
+     */
+    public $ipv6AddressCount;
 
     /**
      * @description The preemption policy that you want to apply to pay-as-you-go instances. The preemption policy specified by this parameter overwrites the preemption policy specified in the scaling configuration. Valid values:
@@ -56,6 +81,11 @@ class DescribeElasticStrengthRequest extends Model
     public $scalingGroupIds;
 
     /**
+     * @var string
+     */
+    public $spotStrategy;
+
+    /**
      * @description The categories of the system disks. The categories of the system disks specified by this parameter overwrite the categories of the system disks specified in the scaling configuration. Valid values:
      *
      *   cloud: basic disk.
@@ -66,13 +96,25 @@ class DescribeElasticStrengthRequest extends Model
      * @var string[]
      */
     public $systemDiskCategories;
+
+    /**
+     * @var string[]
+     */
+    public $vSwitchIds;
     protected $_name = [
+        'dataDiskCategories'   => 'DataDiskCategories',
+        'imageFamily'          => 'ImageFamily',
+        'imageId'              => 'ImageId',
+        'imageName'            => 'ImageName',
         'instanceTypes'        => 'InstanceTypes',
+        'ipv6AddressCount'     => 'Ipv6AddressCount',
         'priorityStrategy'     => 'PriorityStrategy',
         'regionId'             => 'RegionId',
         'scalingGroupId'       => 'ScalingGroupId',
         'scalingGroupIds'      => 'ScalingGroupIds',
+        'spotStrategy'         => 'SpotStrategy',
         'systemDiskCategories' => 'SystemDiskCategories',
+        'vSwitchIds'           => 'VSwitchIds',
     ];
 
     public function validate()
@@ -82,8 +124,23 @@ class DescribeElasticStrengthRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataDiskCategories) {
+            $res['DataDiskCategories'] = $this->dataDiskCategories;
+        }
+        if (null !== $this->imageFamily) {
+            $res['ImageFamily'] = $this->imageFamily;
+        }
+        if (null !== $this->imageId) {
+            $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->imageName) {
+            $res['ImageName'] = $this->imageName;
+        }
         if (null !== $this->instanceTypes) {
             $res['InstanceTypes'] = $this->instanceTypes;
+        }
+        if (null !== $this->ipv6AddressCount) {
+            $res['Ipv6AddressCount'] = $this->ipv6AddressCount;
         }
         if (null !== $this->priorityStrategy) {
             $res['PriorityStrategy'] = $this->priorityStrategy;
@@ -97,8 +154,14 @@ class DescribeElasticStrengthRequest extends Model
         if (null !== $this->scalingGroupIds) {
             $res['ScalingGroupIds'] = $this->scalingGroupIds;
         }
+        if (null !== $this->spotStrategy) {
+            $res['SpotStrategy'] = $this->spotStrategy;
+        }
         if (null !== $this->systemDiskCategories) {
             $res['SystemDiskCategories'] = $this->systemDiskCategories;
+        }
+        if (null !== $this->vSwitchIds) {
+            $res['VSwitchIds'] = $this->vSwitchIds;
         }
 
         return $res;
@@ -112,10 +175,27 @@ class DescribeElasticStrengthRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataDiskCategories'])) {
+            if (!empty($map['DataDiskCategories'])) {
+                $model->dataDiskCategories = $map['DataDiskCategories'];
+            }
+        }
+        if (isset($map['ImageFamily'])) {
+            $model->imageFamily = $map['ImageFamily'];
+        }
+        if (isset($map['ImageId'])) {
+            $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['ImageName'])) {
+            $model->imageName = $map['ImageName'];
+        }
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = $map['InstanceTypes'];
             }
+        }
+        if (isset($map['Ipv6AddressCount'])) {
+            $model->ipv6AddressCount = $map['Ipv6AddressCount'];
         }
         if (isset($map['PriorityStrategy'])) {
             $model->priorityStrategy = $map['PriorityStrategy'];
@@ -131,9 +211,17 @@ class DescribeElasticStrengthRequest extends Model
                 $model->scalingGroupIds = $map['ScalingGroupIds'];
             }
         }
+        if (isset($map['SpotStrategy'])) {
+            $model->spotStrategy = $map['SpotStrategy'];
+        }
         if (isset($map['SystemDiskCategories'])) {
             if (!empty($map['SystemDiskCategories'])) {
                 $model->systemDiskCategories = $map['SystemDiskCategories'];
+            }
+        }
+        if (isset($map['VSwitchIds'])) {
+            if (!empty($map['VSwitchIds'])) {
+                $model->vSwitchIds = $map['VSwitchIds'];
             }
         }
 
