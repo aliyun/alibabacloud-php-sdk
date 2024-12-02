@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @var int
+     */
+    public $bandWidth;
+
+    /**
      * @description The remarks of the bastion host.
      *
      * @example Test API
@@ -143,6 +148,11 @@ class instances extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $slaveVswitchId;
+
+    /**
      * @description The timestamp when the bastion host is purchased or renewed. Unit: milliseconds.
      *
      * @example 1577681345000
@@ -169,6 +179,7 @@ class instances extends Model
      */
     public $vswitchId;
     protected $_name = [
+        'bandWidth'           => 'BandWidth',
         'description'         => 'Description',
         'expireTime'          => 'ExpireTime',
         'imageVersion'        => 'ImageVersion',
@@ -182,6 +193,7 @@ class instances extends Model
         'publicNetworkAccess' => 'PublicNetworkAccess',
         'regionId'            => 'RegionId',
         'resourceGroupId'     => 'ResourceGroupId',
+        'slaveVswitchId'      => 'SlaveVswitchId',
         'startTime'           => 'StartTime',
         'vpcId'               => 'VpcId',
         'vswitchId'           => 'VswitchId',
@@ -194,6 +206,9 @@ class instances extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandWidth) {
+            $res['BandWidth'] = $this->bandWidth;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -233,6 +248,9 @@ class instances extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->slaveVswitchId) {
+            $res['SlaveVswitchId'] = $this->slaveVswitchId;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -254,6 +272,9 @@ class instances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandWidth'])) {
+            $model->bandWidth = $map['BandWidth'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
@@ -292,6 +313,9 @@ class instances extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SlaveVswitchId'])) {
+            $model->slaveVswitchId = $map['SlaveVswitchId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

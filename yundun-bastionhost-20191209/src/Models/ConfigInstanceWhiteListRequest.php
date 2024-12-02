@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models;
 
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\ConfigInstanceWhiteListRequest\whiteListPolicies;
 use AlibabaCloud\Tea\Model;
 
 class ConfigInstanceWhiteListRequest extends Model
@@ -35,10 +36,16 @@ class ConfigInstanceWhiteListRequest extends Model
      * @var string[]
      */
     public $whiteList;
+
+    /**
+     * @var whiteListPolicies[]
+     */
+    public $whiteListPolicies;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'whiteList'  => 'WhiteList',
+        'instanceId'        => 'InstanceId',
+        'regionId'          => 'RegionId',
+        'whiteList'         => 'WhiteList',
+        'whiteListPolicies' => 'WhiteListPolicies',
     ];
 
     public function validate()
@@ -56,6 +63,15 @@ class ConfigInstanceWhiteListRequest extends Model
         }
         if (null !== $this->whiteList) {
             $res['WhiteList'] = $this->whiteList;
+        }
+        if (null !== $this->whiteListPolicies) {
+            $res['WhiteListPolicies'] = [];
+            if (null !== $this->whiteListPolicies && \is_array($this->whiteListPolicies)) {
+                $n = 0;
+                foreach ($this->whiteListPolicies as $item) {
+                    $res['WhiteListPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -78,6 +94,15 @@ class ConfigInstanceWhiteListRequest extends Model
         if (isset($map['WhiteList'])) {
             if (!empty($map['WhiteList'])) {
                 $model->whiteList = $map['WhiteList'];
+            }
+        }
+        if (isset($map['WhiteListPolicies'])) {
+            if (!empty($map['WhiteListPolicies'])) {
+                $model->whiteListPolicies = [];
+                $n                        = 0;
+                foreach ($map['WhiteListPolicies'] as $item) {
+                    $model->whiteListPolicies[$n++] = null !== $item ? whiteListPolicies::fromMap($item) : $item;
+                }
             }
         }
 

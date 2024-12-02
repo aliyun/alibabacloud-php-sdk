@@ -37,6 +37,11 @@ class ListTagKeysRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The type of the resource.
      *
      * This parameter is required.
@@ -46,10 +51,11 @@ class ListTagKeysRequest extends Model
      */
     public $resourceType;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'resourceType' => 'ResourceType',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceType'    => 'ResourceType',
     ];
 
     public function validate()
@@ -67,6 +73,9 @@ class ListTagKeysRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -91,6 +100,9 @@ class ListTagKeysRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

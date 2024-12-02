@@ -1140,6 +1140,9 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->whiteList)) {
             $query['WhiteList'] = $request->whiteList;
         }
+        if (!Utils::isUnset($request->whiteListPolicies)) {
+            $query['WhiteListPolicies'] = $request->whiteListPolicies;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2852,6 +2855,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @summary 堡垒机实例列表
+     *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -2904,6 +2909,8 @@ class Yundunbastionhost extends OpenApiClient
     }
 
     /**
+     * @summary 堡垒机实例列表
+     *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
      * @return DescribeInstancesResponse DescribeInstancesResponse
@@ -6434,6 +6441,9 @@ class Yundunbastionhost extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
         }
@@ -6486,6 +6496,9 @@ class Yundunbastionhost extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
@@ -9048,6 +9061,12 @@ class Yundunbastionhost extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientSecurityGroupIds)) {
+            $query['ClientSecurityGroupIds'] = $request->clientSecurityGroupIds;
+        }
+        if (!Utils::isUnset($request->enablePortalPrivateAccess)) {
+            $query['EnablePortalPrivateAccess'] = $request->enablePortalPrivateAccess;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -9056,6 +9075,9 @@ class Yundunbastionhost extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityGroupIds)) {
             $query['SecurityGroupIds'] = $request->securityGroupIds;
+        }
+        if (!Utils::isUnset($request->slaveVswitchId)) {
+            $query['SlaveVswitchId'] = $request->slaveVswitchId;
         }
         if (!Utils::isUnset($request->vswitchId)) {
             $query['VswitchId'] = $request->vswitchId;

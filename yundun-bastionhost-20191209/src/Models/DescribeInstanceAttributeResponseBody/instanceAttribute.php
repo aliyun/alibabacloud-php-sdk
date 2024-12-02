@@ -5,10 +5,16 @@
 namespace AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeResponseBody;
 
 use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeResponseBody\instanceAttribute\ports;
+use AlibabaCloud\SDK\Yundunbastionhost\V20191209\Models\DescribeInstanceAttributeResponseBody\instanceAttribute\whiteListPolicies;
 use AlibabaCloud\Tea\Model;
 
 class instanceAttribute extends Model
 {
+    /**
+     * @var string
+     */
+    public $appOperationModule;
+
     /**
      * @description The IDs of authorized security groups.
      *
@@ -69,6 +75,16 @@ class instanceAttribute extends Model
     public $expireTime;
 
     /**
+     * @var string
+     */
+    public $HSMModule;
+
+    /**
+     * @var string
+     */
+    public $IDaaSModule;
+
+    /**
      * @description The ID of the instance.
      *
      * @example bastionhost-cn-78v1ghxxxxx
@@ -111,6 +127,11 @@ class instanceAttribute extends Model
      * @var string
      */
     public $intranetEndpoint;
+
+    /**
+     * @var string
+     */
+    public $kmsSecretModule;
 
     /**
      * @description The license code.
@@ -195,6 +216,11 @@ class instanceAttribute extends Model
     public $publicWhiteList;
 
     /**
+     * @var string
+     */
+    public $RDModule;
+
+    /**
      * @description The region ID of the instance.
      *
      * @example cn-hangzhou
@@ -213,11 +239,26 @@ class instanceAttribute extends Model
     public $resourceGroupId;
 
     /**
+     * @var string[]
+     */
+    public $routerRules;
+
+    /**
+     * @var string
+     */
+    public $scriptDeliverModule;
+
+    /**
      * @description The IDs of the security groups to which the instance belongs.
      *
      * @var string[]
      */
     public $securityGroupIds;
+
+    /**
+     * @var string
+     */
+    public $slaveVswitchId;
 
     /**
      * @description The time when the instance started.
@@ -265,7 +306,13 @@ class instanceAttribute extends Model
      * @var string
      */
     public $webTerminalModule;
+
+    /**
+     * @var whiteListPolicies[]
+     */
+    public $whiteListPolicies;
     protected $_name = [
+        'appOperationModule'       => 'AppOperationModule',
         'authorizedSecurityGroups' => 'AuthorizedSecurityGroups',
         'bandwidth'                => 'Bandwidth',
         'bandwidthPackage'         => 'BandwidthPackage',
@@ -273,10 +320,13 @@ class instanceAttribute extends Model
         'description'              => 'Description',
         'eniInstanceId'            => 'EniInstanceId',
         'expireTime'               => 'ExpireTime',
+        'HSMModule'                => 'HSMModule',
+        'IDaaSModule'              => 'IDaaSModule',
         'instanceId'               => 'InstanceId',
         'instanceStatus'           => 'InstanceStatus',
         'internetEndpoint'         => 'InternetEndpoint',
         'intranetEndpoint'         => 'IntranetEndpoint',
+        'kmsSecretModule'          => 'KmsSecretModule',
         'licenseCode'              => 'LicenseCode',
         'modifyPasswordModule'     => 'ModifyPasswordModule',
         'networkProxyModule'       => 'NetworkProxyModule',
@@ -287,14 +337,19 @@ class instanceAttribute extends Model
         'publicIps'                => 'PublicIps',
         'publicNetworkAccess'      => 'PublicNetworkAccess',
         'publicWhiteList'          => 'PublicWhiteList',
+        'RDModule'                 => 'RDModule',
         'regionId'                 => 'RegionId',
         'resourceGroupId'          => 'ResourceGroupId',
+        'routerRules'              => 'RouterRules',
+        'scriptDeliverModule'      => 'ScriptDeliverModule',
         'securityGroupIds'         => 'SecurityGroupIds',
+        'slaveVswitchId'           => 'SlaveVswitchId',
         'startTime'                => 'StartTime',
         'storage'                  => 'Storage',
         'vpcId'                    => 'VpcId',
         'vswitchId'                => 'VswitchId',
         'webTerminalModule'        => 'WebTerminalModule',
+        'whiteListPolicies'        => 'WhiteListPolicies',
     ];
 
     public function validate()
@@ -304,6 +359,9 @@ class instanceAttribute extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appOperationModule) {
+            $res['AppOperationModule'] = $this->appOperationModule;
+        }
         if (null !== $this->authorizedSecurityGroups) {
             $res['AuthorizedSecurityGroups'] = $this->authorizedSecurityGroups;
         }
@@ -325,6 +383,12 @@ class instanceAttribute extends Model
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+        if (null !== $this->HSMModule) {
+            $res['HSMModule'] = $this->HSMModule;
+        }
+        if (null !== $this->IDaaSModule) {
+            $res['IDaaSModule'] = $this->IDaaSModule;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -336,6 +400,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->intranetEndpoint) {
             $res['IntranetEndpoint'] = $this->intranetEndpoint;
+        }
+        if (null !== $this->kmsSecretModule) {
+            $res['KmsSecretModule'] = $this->kmsSecretModule;
         }
         if (null !== $this->licenseCode) {
             $res['LicenseCode'] = $this->licenseCode;
@@ -373,14 +440,26 @@ class instanceAttribute extends Model
         if (null !== $this->publicWhiteList) {
             $res['PublicWhiteList'] = $this->publicWhiteList;
         }
+        if (null !== $this->RDModule) {
+            $res['RDModule'] = $this->RDModule;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->routerRules) {
+            $res['RouterRules'] = $this->routerRules;
+        }
+        if (null !== $this->scriptDeliverModule) {
+            $res['ScriptDeliverModule'] = $this->scriptDeliverModule;
+        }
         if (null !== $this->securityGroupIds) {
             $res['SecurityGroupIds'] = $this->securityGroupIds;
+        }
+        if (null !== $this->slaveVswitchId) {
+            $res['SlaveVswitchId'] = $this->slaveVswitchId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -397,6 +476,15 @@ class instanceAttribute extends Model
         if (null !== $this->webTerminalModule) {
             $res['WebTerminalModule'] = $this->webTerminalModule;
         }
+        if (null !== $this->whiteListPolicies) {
+            $res['WhiteListPolicies'] = [];
+            if (null !== $this->whiteListPolicies && \is_array($this->whiteListPolicies)) {
+                $n = 0;
+                foreach ($this->whiteListPolicies as $item) {
+                    $res['WhiteListPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -409,6 +497,9 @@ class instanceAttribute extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppOperationModule'])) {
+            $model->appOperationModule = $map['AppOperationModule'];
+        }
         if (isset($map['AuthorizedSecurityGroups'])) {
             if (!empty($map['AuthorizedSecurityGroups'])) {
                 $model->authorizedSecurityGroups = $map['AuthorizedSecurityGroups'];
@@ -432,6 +523,12 @@ class instanceAttribute extends Model
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+        if (isset($map['HSMModule'])) {
+            $model->HSMModule = $map['HSMModule'];
+        }
+        if (isset($map['IDaaSModule'])) {
+            $model->IDaaSModule = $map['IDaaSModule'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -443,6 +540,9 @@ class instanceAttribute extends Model
         }
         if (isset($map['IntranetEndpoint'])) {
             $model->intranetEndpoint = $map['IntranetEndpoint'];
+        }
+        if (isset($map['KmsSecretModule'])) {
+            $model->kmsSecretModule = $map['KmsSecretModule'];
         }
         if (isset($map['LicenseCode'])) {
             $model->licenseCode = $map['LicenseCode'];
@@ -490,16 +590,30 @@ class instanceAttribute extends Model
                 $model->publicWhiteList = $map['PublicWhiteList'];
             }
         }
+        if (isset($map['RDModule'])) {
+            $model->RDModule = $map['RDModule'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['RouterRules'])) {
+            if (!empty($map['RouterRules'])) {
+                $model->routerRules = $map['RouterRules'];
+            }
+        }
+        if (isset($map['ScriptDeliverModule'])) {
+            $model->scriptDeliverModule = $map['ScriptDeliverModule'];
+        }
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = $map['SecurityGroupIds'];
             }
+        }
+        if (isset($map['SlaveVswitchId'])) {
+            $model->slaveVswitchId = $map['SlaveVswitchId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
@@ -515,6 +629,15 @@ class instanceAttribute extends Model
         }
         if (isset($map['WebTerminalModule'])) {
             $model->webTerminalModule = $map['WebTerminalModule'];
+        }
+        if (isset($map['WhiteListPolicies'])) {
+            if (!empty($map['WhiteListPolicies'])) {
+                $model->whiteListPolicies = [];
+                $n                        = 0;
+                foreach ($map['WhiteListPolicies'] as $item) {
+                    $model->whiteListPolicies[$n++] = null !== $item ? whiteListPolicies::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
