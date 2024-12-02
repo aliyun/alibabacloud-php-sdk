@@ -62,15 +62,6 @@ class GetServiceResponseBody extends Model
     public $commodity;
 
     /**
-     * @description The commodity code of the service in Alibaba Cloud Marketplace.
-     *
-     * @example cmjj00xxxx
-     *
-     * @var string
-     */
-    public $commodityCode;
-
-    /**
      * @var complianceMetadata
      */
     public $complianceMetadata;
@@ -92,15 +83,6 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $crossRegionConnectionStatus;
-
-    /**
-     * @description The validity period of the default license. Unit: day. Valid values: 1 to 1000.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $defaultLicenseDays;
 
     /**
      * @description The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
@@ -195,20 +177,6 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $payFromType;
-
-    /**
-     * @description The billing method of the service. Valid values:
-     *
-     *   Permanent: Once you purchase the service, you can use it permanently.
-     *   Subscription: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a subscription basis.
-     *   PayAsYouGo: You purchase the service from Alibaba Cloud Marketplace and are charged for the service on a pay-as-you-go basis.
-     *   CustomFixTime: You are charged for the service based on a custom duration fixed by the service provider.
-     *
-     * @example Permanent
-     *
-     * @var string
-     */
-    public $payType;
 
     /**
      * @description The permissions on the service. Valid values:
@@ -308,15 +276,6 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $serviceDiscoverable;
-
-    /**
-     * @description The URL of the service documentation.
-     *
-     * @example http://example1.com
-     *
-     * @var string
-     */
-    public $serviceDocUrl;
 
     /**
      * @var serviceDocumentInfos[]
@@ -578,11 +537,9 @@ class GetServiceResponseBody extends Model
         'buildInfo'                   => 'BuildInfo',
         'categories'                  => 'Categories',
         'commodity'                   => 'Commodity',
-        'commodityCode'               => 'CommodityCode',
         'complianceMetadata'          => 'ComplianceMetadata',
         'createTime'                  => 'CreateTime',
         'crossRegionConnectionStatus' => 'CrossRegionConnectionStatus',
-        'defaultLicenseDays'          => 'DefaultLicenseDays',
         'deployMetadata'              => 'DeployMetadata',
         'deployType'                  => 'DeployType',
         'duration'                    => 'Duration',
@@ -592,7 +549,6 @@ class GetServiceResponseBody extends Model
         'logMetadata'                 => 'LogMetadata',
         'operationMetadata'           => 'OperationMetadata',
         'payFromType'                 => 'PayFromType',
-        'payType'                     => 'PayType',
         'permission'                  => 'Permission',
         'policyNames'                 => 'PolicyNames',
         'progress'                    => 'Progress',
@@ -603,7 +559,6 @@ class GetServiceResponseBody extends Model
         'resourceGroupId'             => 'ResourceGroupId',
         'serviceAuditDocumentUrl'     => 'ServiceAuditDocumentUrl',
         'serviceDiscoverable'         => 'ServiceDiscoverable',
-        'serviceDocUrl'               => 'ServiceDocUrl',
         'serviceDocumentInfos'        => 'ServiceDocumentInfos',
         'serviceId'                   => 'ServiceId',
         'serviceInfos'                => 'ServiceInfos',
@@ -654,9 +609,6 @@ class GetServiceResponseBody extends Model
         if (null !== $this->commodity) {
             $res['Commodity'] = null !== $this->commodity ? $this->commodity->toMap() : null;
         }
-        if (null !== $this->commodityCode) {
-            $res['CommodityCode'] = $this->commodityCode;
-        }
         if (null !== $this->complianceMetadata) {
             $res['ComplianceMetadata'] = null !== $this->complianceMetadata ? $this->complianceMetadata->toMap() : null;
         }
@@ -665,9 +617,6 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->crossRegionConnectionStatus) {
             $res['CrossRegionConnectionStatus'] = $this->crossRegionConnectionStatus;
-        }
-        if (null !== $this->defaultLicenseDays) {
-            $res['DefaultLicenseDays'] = $this->defaultLicenseDays;
         }
         if (null !== $this->deployMetadata) {
             $res['DeployMetadata'] = $this->deployMetadata;
@@ -695,9 +644,6 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->payFromType) {
             $res['PayFromType'] = $this->payFromType;
-        }
-        if (null !== $this->payType) {
-            $res['PayType'] = $this->payType;
         }
         if (null !== $this->permission) {
             $res['Permission'] = $this->permission;
@@ -728,9 +674,6 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->serviceDiscoverable) {
             $res['ServiceDiscoverable'] = $this->serviceDiscoverable;
-        }
-        if (null !== $this->serviceDocUrl) {
-            $res['ServiceDocUrl'] = $this->serviceDocUrl;
         }
         if (null !== $this->serviceDocumentInfos) {
             $res['ServiceDocumentInfos'] = [];
@@ -855,9 +798,6 @@ class GetServiceResponseBody extends Model
         if (isset($map['Commodity'])) {
             $model->commodity = commodity::fromMap($map['Commodity']);
         }
-        if (isset($map['CommodityCode'])) {
-            $model->commodityCode = $map['CommodityCode'];
-        }
         if (isset($map['ComplianceMetadata'])) {
             $model->complianceMetadata = complianceMetadata::fromMap($map['ComplianceMetadata']);
         }
@@ -866,9 +806,6 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['CrossRegionConnectionStatus'])) {
             $model->crossRegionConnectionStatus = $map['CrossRegionConnectionStatus'];
-        }
-        if (isset($map['DefaultLicenseDays'])) {
-            $model->defaultLicenseDays = $map['DefaultLicenseDays'];
         }
         if (isset($map['DeployMetadata'])) {
             $model->deployMetadata = $map['DeployMetadata'];
@@ -896,9 +833,6 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['PayFromType'])) {
             $model->payFromType = $map['PayFromType'];
-        }
-        if (isset($map['PayType'])) {
-            $model->payType = $map['PayType'];
         }
         if (isset($map['Permission'])) {
             $model->permission = $map['Permission'];
@@ -929,9 +863,6 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['ServiceDiscoverable'])) {
             $model->serviceDiscoverable = $map['ServiceDiscoverable'];
-        }
-        if (isset($map['ServiceDocUrl'])) {
-            $model->serviceDocUrl = $map['ServiceDocUrl'];
         }
         if (isset($map['ServiceDocumentInfos'])) {
             if (!empty($map['ServiceDocumentInfos'])) {

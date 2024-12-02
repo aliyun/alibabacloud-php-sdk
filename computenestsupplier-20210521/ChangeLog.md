@@ -1,3 +1,7 @@
+2024-12-02 Version: 4.0.0
+- Update API GetService: update response param.
+
+
 2024-11-29 Version: 3.1.1
 - Update API GetServiceInstance: update response param.
 
