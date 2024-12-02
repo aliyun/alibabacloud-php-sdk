@@ -313,6 +313,9 @@ class Emr extends OpenApiClient
         if (!Utils::isUnset($request->clusterType)) {
             $query['ClusterType'] = $request->clusterType;
         }
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
+        }
         if (!Utils::isUnset($request->deployMode)) {
             $query['DeployMode'] = $request->deployMode;
         }
@@ -503,6 +506,12 @@ class Emr extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->batchInterval)) {
+            $query['BatchInterval'] = $request->batchInterval;
+        }
+        if (!Utils::isUnset($request->batchSize)) {
+            $query['BatchSize'] = $request->batchSize;
+        }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
@@ -4000,6 +4009,10 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+     *  *
+     * @description RunCluster is an upgraded version of CreateCluster and supports more parameters. Parameters of the object and array types are in the JSON format, which are friendly for users who use CLI.
+     *  *
      * @param RunClusterRequest $tmpReq  RunClusterRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -4054,6 +4067,9 @@ class Emr extends OpenApiClient
         if (!Utils::isUnset($request->clusterType)) {
             $body['ClusterType'] = $request->clusterType;
         }
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $body['DeletionProtection'] = $request->deletionProtection;
+        }
         if (!Utils::isUnset($request->deployMode)) {
             $body['DeployMode'] = $request->deployMode;
         }
@@ -4104,6 +4120,10 @@ class Emr extends OpenApiClient
     }
 
     /**
+     * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
+     *  *
+     * @description RunCluster is an upgraded version of CreateCluster and supports more parameters. Parameters of the object and array types are in the JSON format, which are friendly for users who use CLI.
+     *  *
      * @param RunClusterRequest $request RunClusterRequest
      *
      * @return RunClusterResponse RunClusterResponse

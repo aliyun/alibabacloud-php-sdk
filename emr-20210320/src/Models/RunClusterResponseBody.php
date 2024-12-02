@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RunClusterResponseBody extends Model
 {
     /**
-     * @description 集群ID。
+     * @description The cluster ID.
      *
      * @example c-b933c5aac7f7***
      *
@@ -18,7 +18,7 @@ class RunClusterResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description 操作ID。
+     * @description The operation ID.
      *
      * @example op-13c37a77c505****
      *
@@ -27,7 +27,7 @@ class RunClusterResponseBody extends Model
     public $operationId;
 
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *

@@ -54,6 +54,11 @@ class ClusterSummary extends Model
     public $createTime;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @var string
      */
     public $description;
@@ -133,21 +138,22 @@ class ClusterSummary extends Model
      */
     public $tags;
     protected $_name = [
-        'clusterId'         => 'ClusterId',
-        'clusterName'       => 'ClusterName',
-        'clusterState'      => 'ClusterState',
-        'clusterType'       => 'ClusterType',
-        'createTime'        => 'CreateTime',
-        'description'       => 'Description',
-        'emrDefaultRole'    => 'EmrDefaultRole',
-        'endTime'           => 'EndTime',
-        'expireTime'        => 'ExpireTime',
-        'paymentType'       => 'PaymentType',
-        'readyTime'         => 'ReadyTime',
-        'releaseVersion'    => 'ReleaseVersion',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'stateChangeReason' => 'StateChangeReason',
-        'tags'              => 'Tags',
+        'clusterId'          => 'ClusterId',
+        'clusterName'        => 'ClusterName',
+        'clusterState'       => 'ClusterState',
+        'clusterType'        => 'ClusterType',
+        'createTime'         => 'CreateTime',
+        'deletionProtection' => 'DeletionProtection',
+        'description'        => 'Description',
+        'emrDefaultRole'     => 'EmrDefaultRole',
+        'endTime'            => 'EndTime',
+        'expireTime'         => 'ExpireTime',
+        'paymentType'        => 'PaymentType',
+        'readyTime'          => 'ReadyTime',
+        'releaseVersion'     => 'ReleaseVersion',
+        'resourceGroupId'    => 'ResourceGroupId',
+        'stateChangeReason'  => 'StateChangeReason',
+        'tags'               => 'Tags',
     ];
 
     public function validate()
@@ -171,6 +177,9 @@ class ClusterSummary extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -234,6 +243,9 @@ class ClusterSummary extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

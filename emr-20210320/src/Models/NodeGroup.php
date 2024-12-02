@@ -113,6 +113,11 @@ class NodeGroup extends Model
     public $paymentType;
 
     /**
+     * @var PrivatePoolOptions
+     */
+    public $privatePoolOptions;
+
+    /**
      * @description 存活节点数量。
      *
      * @example 3
@@ -152,8 +157,6 @@ class NodeGroup extends Model
     public $stateChangeReason;
 
     /**
-     * @description 节点组状态，NodeGroupState别名。
-     *
      * @example CREATED
      *
      * @var string
@@ -206,6 +209,7 @@ class NodeGroup extends Model
         'nodeGroupType'              => 'NodeGroupType',
         'nodeResizeStrategy'         => 'NodeResizeStrategy',
         'paymentType'                => 'PaymentType',
+        'privatePoolOptions'         => 'PrivatePoolOptions',
         'runningNodeCount'           => 'RunningNodeCount',
         'spotBidPrices'              => 'SpotBidPrices',
         'spotInstanceRemedy'         => 'SpotInstanceRemedy',
@@ -266,6 +270,9 @@ class NodeGroup extends Model
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+        if (null !== $this->privatePoolOptions) {
+            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
         }
         if (null !== $this->runningNodeCount) {
             $res['RunningNodeCount'] = $this->runningNodeCount;
@@ -360,6 +367,9 @@ class NodeGroup extends Model
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+        if (isset($map['PrivatePoolOptions'])) {
+            $model->privatePoolOptions = PrivatePoolOptions::fromMap($map['PrivatePoolOptions']);
         }
         if (isset($map['RunningNodeCount'])) {
             $model->runningNodeCount = $map['RunningNodeCount'];

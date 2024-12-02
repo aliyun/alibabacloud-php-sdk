@@ -67,6 +67,11 @@ class CreateClusterRequest extends Model
     public $clusterType;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @description The deployment mode of master nodes in the cluster. Valid values:
      *
      *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
@@ -179,6 +184,7 @@ class CreateClusterRequest extends Model
         'clientToken'        => 'ClientToken',
         'clusterName'        => 'ClusterName',
         'clusterType'        => 'ClusterType',
+        'deletionProtection' => 'DeletionProtection',
         'deployMode'         => 'DeployMode',
         'description'        => 'Description',
         'nodeAttributes'     => 'NodeAttributes',
@@ -234,6 +240,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->deployMode) {
             $res['DeployMode'] = $this->deployMode;
@@ -327,6 +336,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['DeployMode'])) {
             $model->deployMode = $map['DeployMode'];

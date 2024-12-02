@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DecreaseNodesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $batchInterval;
+
+    /**
+     * @var int
+     */
+    public $batchSize;
+
+    /**
      * @description The cluster ID.
      *
      * This parameter is required.
@@ -56,6 +66,8 @@ class DecreaseNodesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'batchInterval'     => 'BatchInterval',
+        'batchSize'         => 'BatchSize',
         'clusterId'         => 'ClusterId',
         'decreaseNodeCount' => 'DecreaseNodeCount',
         'nodeGroupId'       => 'NodeGroupId',
@@ -70,6 +82,12 @@ class DecreaseNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->batchInterval) {
+            $res['BatchInterval'] = $this->batchInterval;
+        }
+        if (null !== $this->batchSize) {
+            $res['BatchSize'] = $this->batchSize;
+        }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
@@ -97,6 +115,12 @@ class DecreaseNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BatchInterval'])) {
+            $model->batchInterval = $map['BatchInterval'];
+        }
+        if (isset($map['BatchSize'])) {
+            $model->batchSize = $map['BatchSize'];
+        }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }

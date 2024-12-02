@@ -90,6 +90,11 @@ class clusterCloneMeta extends Model
     public $clusterType;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @description The deployment mode of master nodes in the cluster. Valid values:
      *
      *   NORMAL: regular mode.
@@ -213,6 +218,7 @@ class clusterCloneMeta extends Model
         'clusterName'        => 'ClusterName',
         'clusterState'       => 'ClusterState',
         'clusterType'        => 'ClusterType',
+        'deletionProtection' => 'DeletionProtection',
         'deployMode'         => 'DeployMode',
         'emrDefaultRole'     => 'EmrDefaultRole',
         'existCloneConfig'   => 'ExistCloneConfig',
@@ -273,6 +279,9 @@ class clusterCloneMeta extends Model
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->deployMode) {
             $res['DeployMode'] = $this->deployMode;
@@ -381,6 +390,9 @@ class clusterCloneMeta extends Model
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['DeployMode'])) {
             $model->deployMode = $map['DeployMode'];

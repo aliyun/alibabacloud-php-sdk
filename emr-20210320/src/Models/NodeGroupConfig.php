@@ -114,6 +114,11 @@ class NodeGroupConfig extends Model
     public $paymentType;
 
     /**
+     * @var PrivatePoolOptions
+     */
+    public $privatePoolOptions;
+
+    /**
      * @description 抢占式Spot实例出价价格。参数SpotStrategy取值为SpotWithPriceLimit时生效。数组元数个数N的取值范围：0~100。
      *
      * @var SpotBidPrice[]
@@ -183,6 +188,7 @@ class NodeGroupConfig extends Model
         'nodeGroupType'              => 'NodeGroupType',
         'nodeResizeStrategy'         => 'NodeResizeStrategy',
         'paymentType'                => 'PaymentType',
+        'privatePoolOptions'         => 'PrivatePoolOptions',
         'spotBidPrices'              => 'SpotBidPrices',
         'spotInstanceRemedy'         => 'SpotInstanceRemedy',
         'spotStrategy'               => 'SpotStrategy',
@@ -243,6 +249,9 @@ class NodeGroupConfig extends Model
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+        if (null !== $this->privatePoolOptions) {
+            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
         }
         if (null !== $this->spotBidPrices) {
             $res['SpotBidPrices'] = [];
@@ -333,6 +342,9 @@ class NodeGroupConfig extends Model
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+        if (isset($map['PrivatePoolOptions'])) {
+            $model->privatePoolOptions = PrivatePoolOptions::fromMap($map['PrivatePoolOptions']);
         }
         if (isset($map['SpotBidPrices'])) {
             if (!empty($map['SpotBidPrices'])) {

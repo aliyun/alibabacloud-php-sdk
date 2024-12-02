@@ -54,6 +54,13 @@ class Cluster extends Model
     public $createTime;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @description 部署模式。
      *
      * @example HA
@@ -179,6 +186,7 @@ class Cluster extends Model
         'clusterState'       => 'ClusterState',
         'clusterType'        => 'ClusterType',
         'createTime'         => 'CreateTime',
+        'deletionProtection' => 'DeletionProtection',
         'deployMode'         => 'DeployMode',
         'description'        => 'Description',
         'emrDefaultRole'     => 'EmrDefaultRole',
@@ -217,6 +225,9 @@ class Cluster extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->deployMode) {
             $res['DeployMode'] = $this->deployMode;
@@ -295,6 +306,9 @@ class Cluster extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['DeployMode'])) {
             $model->deployMode = $map['DeployMode'];

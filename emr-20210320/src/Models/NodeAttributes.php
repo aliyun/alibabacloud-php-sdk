@@ -9,6 +9,24 @@ use AlibabaCloud\Tea\Model;
 class NodeAttributes extends Model
 {
     /**
+     * @description 是否启用云盘加密。取值范围：
+     * 默认值：false，不加密
+     * @example false
+     *
+     * @var bool
+     */
+    public $dataDiskEncrypted;
+
+    /**
+     * @description KMS加密秘钥ID。
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
+     * @var string
+     */
+    public $dataDiskKMSKeyId;
+
+    /**
      * @description ECS ssh登录秘钥。
      *
      * @example emr_login
@@ -46,6 +64,24 @@ class NodeAttributes extends Model
     public $securityGroupId;
 
     /**
+     * @description 是否启用云盘加密。取值范围：
+     * 默认值：false，不加密
+     * @example false
+     *
+     * @var bool
+     */
+    public $systemDiskEncrypted;
+
+    /**
+     * @description KMS加密秘钥ID。
+     *
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
+     *
+     * @var string
+     */
+    public $systemDiskKMSKeyId;
+
+    /**
      * @description 专有网络ID。
      *
      * This parameter is required.
@@ -65,12 +101,16 @@ class NodeAttributes extends Model
      */
     public $zoneId;
     protected $_name = [
-        'keyPairName'        => 'KeyPairName',
-        'masterRootPassword' => 'MasterRootPassword',
-        'ramRole'            => 'RamRole',
-        'securityGroupId'    => 'SecurityGroupId',
-        'vpcId'              => 'VpcId',
-        'zoneId'             => 'ZoneId',
+        'dataDiskEncrypted'   => 'DataDiskEncrypted',
+        'dataDiskKMSKeyId'    => 'DataDiskKMSKeyId',
+        'keyPairName'         => 'KeyPairName',
+        'masterRootPassword'  => 'MasterRootPassword',
+        'ramRole'             => 'RamRole',
+        'securityGroupId'     => 'SecurityGroupId',
+        'systemDiskEncrypted' => 'SystemDiskEncrypted',
+        'systemDiskKMSKeyId'  => 'SystemDiskKMSKeyId',
+        'vpcId'               => 'VpcId',
+        'zoneId'              => 'ZoneId',
     ];
 
     public function validate()
@@ -80,6 +120,12 @@ class NodeAttributes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataDiskEncrypted) {
+            $res['DataDiskEncrypted'] = $this->dataDiskEncrypted;
+        }
+        if (null !== $this->dataDiskKMSKeyId) {
+            $res['DataDiskKMSKeyId'] = $this->dataDiskKMSKeyId;
+        }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
@@ -91,6 +137,12 @@ class NodeAttributes extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->systemDiskEncrypted) {
+            $res['SystemDiskEncrypted'] = $this->systemDiskEncrypted;
+        }
+        if (null !== $this->systemDiskKMSKeyId) {
+            $res['SystemDiskKMSKeyId'] = $this->systemDiskKMSKeyId;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -110,6 +162,12 @@ class NodeAttributes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataDiskEncrypted'])) {
+            $model->dataDiskEncrypted = $map['DataDiskEncrypted'];
+        }
+        if (isset($map['DataDiskKMSKeyId'])) {
+            $model->dataDiskKMSKeyId = $map['DataDiskKMSKeyId'];
+        }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
@@ -121,6 +179,12 @@ class NodeAttributes extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SystemDiskEncrypted'])) {
+            $model->systemDiskEncrypted = $map['SystemDiskEncrypted'];
+        }
+        if (isset($map['SystemDiskKMSKeyId'])) {
+            $model->systemDiskKMSKeyId = $map['SystemDiskKMSKeyId'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

@@ -45,17 +45,23 @@ class scalingPolicies extends Model
     public $scalingPolicyId;
 
     /**
+     * @var string
+     */
+    public $scalingPolicyType;
+
+    /**
      * @description The list of auto scaling rules.
      *
      * @var scalingRules[]
      */
     public $scalingRules;
     protected $_name = [
-        'clusterId'       => 'ClusterId',
-        'constraints'     => 'Constraints',
-        'nodeGroupId'     => 'NodeGroupId',
-        'scalingPolicyId' => 'ScalingPolicyId',
-        'scalingRules'    => 'ScalingRules',
+        'clusterId'         => 'ClusterId',
+        'constraints'       => 'Constraints',
+        'nodeGroupId'       => 'NodeGroupId',
+        'scalingPolicyId'   => 'ScalingPolicyId',
+        'scalingPolicyType' => 'ScalingPolicyType',
+        'scalingRules'      => 'ScalingRules',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class scalingPolicies extends Model
         }
         if (null !== $this->scalingPolicyId) {
             $res['ScalingPolicyId'] = $this->scalingPolicyId;
+        }
+        if (null !== $this->scalingPolicyType) {
+            $res['ScalingPolicyType'] = $this->scalingPolicyType;
         }
         if (null !== $this->scalingRules) {
             $res['ScalingRules'] = [];
@@ -109,6 +118,9 @@ class scalingPolicies extends Model
         }
         if (isset($map['ScalingPolicyId'])) {
             $model->scalingPolicyId = $map['ScalingPolicyId'];
+        }
+        if (isset($map['ScalingPolicyType'])) {
+            $model->scalingPolicyType = $map['ScalingPolicyType'];
         }
         if (isset($map['ScalingRules'])) {
             if (!empty($map['ScalingRules'])) {

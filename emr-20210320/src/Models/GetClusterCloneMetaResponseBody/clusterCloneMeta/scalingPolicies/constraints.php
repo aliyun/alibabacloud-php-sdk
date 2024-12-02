@@ -18,6 +18,11 @@ class constraints extends Model
     public $maxCapacity;
 
     /**
+     * @var int
+     */
+    public $maxOnDemandCapacity;
+
+    /**
      * @description The minimum number of nodes in the node group. Default value: 0.
      *
      * @example 50
@@ -26,8 +31,9 @@ class constraints extends Model
      */
     public $minCapacity;
     protected $_name = [
-        'maxCapacity' => 'MaxCapacity',
-        'minCapacity' => 'MinCapacity',
+        'maxCapacity'         => 'MaxCapacity',
+        'maxOnDemandCapacity' => 'MaxOnDemandCapacity',
+        'minCapacity'         => 'MinCapacity',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class constraints extends Model
         $res = [];
         if (null !== $this->maxCapacity) {
             $res['MaxCapacity'] = $this->maxCapacity;
+        }
+        if (null !== $this->maxOnDemandCapacity) {
+            $res['MaxOnDemandCapacity'] = $this->maxOnDemandCapacity;
         }
         if (null !== $this->minCapacity) {
             $res['MinCapacity'] = $this->minCapacity;
@@ -57,6 +66,9 @@ class constraints extends Model
         $model = new self();
         if (isset($map['MaxCapacity'])) {
             $model->maxCapacity = $map['MaxCapacity'];
+        }
+        if (isset($map['MaxOnDemandCapacity'])) {
+            $model->maxOnDemandCapacity = $map['MaxOnDemandCapacity'];
         }
         if (isset($map['MinCapacity'])) {
             $model->minCapacity = $map['MinCapacity'];

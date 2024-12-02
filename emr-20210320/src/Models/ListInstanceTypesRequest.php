@@ -96,7 +96,7 @@ class ListInstanceTypesRequest extends Model
     /**
      * @description EMR distribution.
      *
-     * @example 线上已发布版本EMR-5.8.0
+     * @example EMR-5.8.0
      *
      * @var string
      */

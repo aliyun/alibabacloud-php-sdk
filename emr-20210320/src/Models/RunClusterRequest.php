@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RunClusterRequest extends Model
 {
     /**
-     * @description 应用配置。数组元素个数N的取值范围：1~1000。
+     * @description The service configurations. Number of elements in the array: 1 to 1,000.
      *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
 
     /**
-     * @description 应用列表。数组元素个数N的取值范围：1~100。
+     * @description The list of services. Number of elements in the array: 1 to 100.
      *
      * This parameter is required.
      * @var Application[]
@@ -24,14 +24,14 @@ class RunClusterRequest extends Model
     public $applications;
 
     /**
-     * @description 引导脚本。数组元素个数N的取值范围：1~10。
+     * @description The bootstrap actions. Number of elements in the array: 1 to 10.
      *
      * @var Script[]
      */
     public $bootstrapScripts;
 
     /**
-     * @description 幂等客户端TOKEN。同一个ClientToken多次调用的返回结果一致，同一个ClientToken最多只创建一个集群。
+     * @description The client token that is used to ensure the idempotence of the request. The same ClientToken value for multiple calls to the RunCluster operation results in identical responses. Only one cluster can be created by using the same ClientToken value.
      *
      * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
      *
@@ -40,7 +40,7 @@ class RunClusterRequest extends Model
     public $clientToken;
 
     /**
-     * @description 集群名称。长度为1~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、半角句号（.）或者短划线（-）
+     * @description The cluster name. The name must be 1 to 128 characters in length. The name must start with a letter but cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * This parameter is required.
      * @example emrtest
@@ -50,7 +50,15 @@ class RunClusterRequest extends Model
     public $clusterName;
 
     /**
-     * @description 创建的EMR集群类型。取值范围：
+     * @description The type of the cluster. Valid values:
+     *
+     *   DATALAKE
+     *   OLAP
+     *   DATAFLOW
+     *   DATASERVING
+     *   CUSTOM
+     *   HADOOP: We recommend that you set this parameter to DATALAKE rather than HADOOP.
+     *
      * This parameter is required.
      * @example DATALAKE
      *
@@ -59,8 +67,16 @@ class RunClusterRequest extends Model
     public $clusterType;
 
     /**
-     * @description 集群中的应用部署模式。取值范围：
-     * 默认值：NORMAL。
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
+     * @description The deployment mode of master nodes in the cluster. Valid values:
+     *
+     *   NORMAL: regular mode. This is the default value. A cluster that contains only one master node is created.
+     *   HA: high availability mode. A cluster that contains at least three master nodes is created.
+     *
      * @example HA
      *
      * @var string
@@ -68,6 +84,8 @@ class RunClusterRequest extends Model
     public $deployMode;
 
     /**
+     * @description The cluster description.
+     *
      * @example Emr cluster for ETL
      *
      * @var string
@@ -75,20 +93,27 @@ class RunClusterRequest extends Model
     public $description;
 
     /**
+     * @description The basic attributes of all ECS instances in the cluster.
+     *
      * @var NodeAttributes
      */
     public $nodeAttributes;
 
     /**
-     * @description 节点组。数组元素个数N的取值范围：1~100。
+     * @description The node groups. Number of elements in the array: 1 to 100.
+     *
      * This parameter is required.
      * @var NodeGroupConfig[]
      */
     public $nodeGroups;
 
     /**
-     * @description 集群的付费类型。取值范围：
-     * 默认值：PayAsYouGo。
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   PayAsYouGo
+     *   Subscription
+     *
+     * Default value: PayAsYouGo.
      * @example PayAsYouGo
      *
      * @var string
@@ -96,7 +121,7 @@ class RunClusterRequest extends Model
     public $paymentType;
 
     /**
-     * @description 区域ID。
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -106,7 +131,7 @@ class RunClusterRequest extends Model
     public $regionId;
 
     /**
-     * @description EMR发行版。
+     * @description The EMR version. You can query available EMR versions in the EMR console.
      *
      * This parameter is required.
      * @example EMR-5.16.0
@@ -116,7 +141,7 @@ class RunClusterRequest extends Model
     public $releaseVersion;
 
     /**
-     * @description 集群所在的企业资源组ID。
+     * @description The ID of the resource group.
      *
      * @example rg-acfmzabjyop****
      *
@@ -125,8 +150,11 @@ class RunClusterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description Kerberos安全模式。取值范围：
-     * 默认值：NORMAL
+     * @description The security mode of the cluster. Valid values:
+     *
+     *   NORMAL: regular mode. Kerberos authentication is disabled. This is the default value.
+     *   KERBEROS: Kerberos mode. Kerberos authentication is enabled.
+     *
      * @example NORMAL
      *
      * @var string
@@ -134,12 +162,14 @@ class RunClusterRequest extends Model
     public $securityMode;
 
     /**
+     * @description The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+     *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
-     * @description 标签。数组元数个数N的取值范围：0~20。
+     * @description The list of tags. Number of elements in the array: 0 to 20.
      *
      * @var Tag[]
      */
@@ -151,6 +181,7 @@ class RunClusterRequest extends Model
         'clientToken'        => 'ClientToken',
         'clusterName'        => 'ClusterName',
         'clusterType'        => 'ClusterType',
+        'deletionProtection' => 'DeletionProtection',
         'deployMode'         => 'DeployMode',
         'description'        => 'Description',
         'nodeAttributes'     => 'NodeAttributes',
@@ -206,6 +237,9 @@ class RunClusterRequest extends Model
         }
         if (null !== $this->clusterType) {
             $res['ClusterType'] = $this->clusterType;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->deployMode) {
             $res['DeployMode'] = $this->deployMode;
@@ -299,6 +333,9 @@ class RunClusterRequest extends Model
         }
         if (isset($map['ClusterType'])) {
             $model->clusterType = $map['ClusterType'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['DeployMode'])) {
             $model->deployMode = $map['DeployMode'];
