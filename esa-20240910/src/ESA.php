@@ -186,6 +186,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateHostnamesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateHostnamesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppRequest;
@@ -362,6 +364,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionRequest
 use AlibabaCloud\SDK\ESA\V20240910\Models\RollbackEdgeContainerAppVersionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\SetClientCertificateHostnamesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackIntelligentProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackIntelligentProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\SetHttpDDoSAttackProtectionRequest;
@@ -2048,7 +2053,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 开启源站防护
+     * @summary Enables origin protection.
      *  *
      * @param CreateOriginProtectionRequest $request CreateOriginProtectionRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2081,7 +2086,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 开启源站防护
+     * @summary Enables origin protection.
      *  *
      * @param CreateOriginProtectionRequest $request CreateOriginProtectionRequest
      *
@@ -3849,7 +3854,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 关闭源站防护功能
+     * @summary Disables origin protection.
      *  *
      * @param DeleteOriginProtectionRequest $request DeleteOriginProtectionRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3882,7 +3887,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 关闭源站防护功能
+     * @summary Disables origin protection.
      *  *
      * @param DeleteOriginProtectionRequest $request DeleteOriginProtectionRequest
      *
@@ -5466,6 +5471,50 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 获取客户端证书绑定的域名列表
+     *  *
+     * @param GetClientCertificateHostnamesRequest $request GetClientCertificateHostnamesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetClientCertificateHostnamesResponse GetClientCertificateHostnamesResponse
+     */
+    public function getClientCertificateHostnamesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClientCertificateHostnames',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClientCertificateHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取客户端证书绑定的域名列表
+     *  *
+     * @param GetClientCertificateHostnamesRequest $request GetClientCertificateHostnamesRequest
+     *
+     * @return GetClientCertificateHostnamesResponse GetClientCertificateHostnamesResponse
+     */
+    public function getClientCertificateHostnames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientCertificateHostnamesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about a containerized application, including basic application configurations and health check configurations.
      *  *
      * @param GetEdgeContainerAppRequest $request GetEdgeContainerAppRequest
@@ -6002,7 +6051,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点源站防护相关配置，查看回源IP白名单信息
+     * @summary Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
      *  *
      * @param GetOriginProtectionRequest $request GetOriginProtectionRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6032,7 +6081,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点源站防护相关配置，查看回源IP白名单信息
+     * @summary Queries the origin protection configurations of a website, including the origin protection, IP convergence, and the status and details of the IP whitelist for origin protection. The details includes the IP whitelist used by the website, the latest IP whitelist, and the differences between them.
      *  *
      * @param GetOriginProtectionRequest $request GetOriginProtectionRequest
      *
@@ -9787,6 +9836,66 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 为客户端证书绑定域名
+     *  *
+     * @param SetClientCertificateHostnamesRequest $tmpReq  SetClientCertificateHostnamesRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetClientCertificateHostnamesResponse SetClientCertificateHostnamesResponse
+     */
+    public function setClientCertificateHostnamesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetClientCertificateHostnamesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->hostnames)) {
+            $request->hostnamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hostnames, 'Hostnames', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->hostnamesShrink)) {
+            $body['Hostnames'] = $request->hostnamesShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetClientCertificateHostnames',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetClientCertificateHostnamesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 为客户端证书绑定域名
+     *  *
+     * @param SetClientCertificateHostnamesRequest $request SetClientCertificateHostnamesRequest
+     *
+     * @return SetClientCertificateHostnamesResponse SetClientCertificateHostnamesResponse
+     */
+    public function setClientCertificateHostnames($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setClientCertificateHostnamesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Configures smart HTTP DDoS protection.
      *  *
      * @param SetHttpDDoSAttackIntelligentProtectionRequest $request SetHttpDDoSAttackIntelligentProtectionRequest
@@ -10222,7 +10331,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改源站防护
+     * @summary Enables or disables IP convergence.
      *  *
      * @param UpdateOriginProtectionRequest $request UpdateOriginProtectionRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -10258,7 +10367,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 修改源站防护
+     * @summary Enables or disables IP convergence.
      *  *
      * @param UpdateOriginProtectionRequest $request UpdateOriginProtectionRequest
      *
@@ -10272,7 +10381,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 确认更新站点回源IP白名单到最新版本
+     * @summary Updates the IP whitelist for origin protection used by a website to the latest version.
      *  *
      * @param UpdateOriginProtectionIpWhiteListRequest $request UpdateOriginProtectionIpWhiteListRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -10305,7 +10414,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 确认更新站点回源IP白名单到最新版本
+     * @summary Updates the IP whitelist for origin protection used by a website to the latest version.
      *  *
      * @param UpdateOriginProtectionIpWhiteListRequest $request UpdateOriginProtectionIpWhiteListRequest
      *

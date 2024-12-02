@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateOriginProtectionResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 4C6B5E5A-42FC-5DF2-986C-4DAAE3C55086
      *
      * @var string

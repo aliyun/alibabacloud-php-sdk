@@ -12,21 +12,32 @@ use AlibabaCloud\Tea\Model;
 class GetOriginProtectionResponseBody extends Model
 {
     /**
+     * @description The IP whitelist for origin protection used by the website.
+     *
      * @var currentIPWhitelist
      */
     public $currentIPWhitelist;
 
     /**
+     * @description The IP whitelist for origin protection that has been updated.
+     *
      * @var diffIPWhitelist
      */
     public $diffIPWhitelist;
 
     /**
+     * @description The latest IP whitelist for origin protection.
+     *
      * @var latestIPWhitelist
      */
     public $latestIPWhitelist;
 
     /**
+     * @description Indicates whether the IP whitelist for origin protection needs to be updated. If the currently used IP whitelist is different from the latest IP whitelist, it needs to be updated, and the value is true.
+     *
+     *   true: The update is required.
+     *   false: No update is required.
+     *
      * @example true
      *
      * @var bool
@@ -34,6 +45,11 @@ class GetOriginProtectionResponseBody extends Model
     public $needUpdate;
 
     /**
+     * @description Indicates whether IP convergence is enabled.
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -41,6 +57,11 @@ class GetOriginProtectionResponseBody extends Model
     public $originConverge;
 
     /**
+     * @description Indicates whether origin protection is enabled.
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string
@@ -48,6 +69,8 @@ class GetOriginProtectionResponseBody extends Model
     public $originProtection;
 
     /**
+     * @description The request ID.
+     *
      * @example CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
      *
      * @var string
@@ -55,6 +78,8 @@ class GetOriginProtectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 123456****
      *
      * @var int

@@ -6,33 +6,26 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateOriginProtectionRequest extends Model
+class GetClientCertificateHostnamesRequest extends Model
 {
     /**
-     * @description The IP convergence status.
-     *
-     *   on
-     *   off
-     *
-     * This parameter is required.
-     * @example on
+     * @example baba39055622c008b90285a8838ed09a
      *
      * @var string
      */
-    public $originConverge;
+    public $id;
 
     /**
-     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example 123456****
+     * @example 1234567890123
      *
      * @var int
      */
     public $siteId;
     protected $_name = [
-        'originConverge' => 'OriginConverge',
-        'siteId'         => 'SiteId',
+        'id'     => 'Id',
+        'siteId' => 'SiteId',
     ];
 
     public function validate()
@@ -42,8 +35,8 @@ class UpdateOriginProtectionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->originConverge) {
-            $res['OriginConverge'] = $this->originConverge;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
@@ -55,13 +48,13 @@ class UpdateOriginProtectionRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateOriginProtectionRequest
+     * @return GetClientCertificateHostnamesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OriginConverge'])) {
-            $model->originConverge = $map['OriginConverge'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];

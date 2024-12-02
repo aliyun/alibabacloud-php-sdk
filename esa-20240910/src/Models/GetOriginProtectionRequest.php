@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOriginProtectionRequest extends Model
 {
     /**
+     * @description The website ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+     *
      * @example 123456789****
      *
      * @var int

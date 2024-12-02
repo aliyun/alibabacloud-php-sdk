@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class diffIPWhitelist extends Model
 {
     /**
+     * @description The new IP whitelist for origin protection.
+     *
      * @var addedIPWhitelist
      */
     public $addedIPWhitelist;
 
     /**
+     * @description The IP whitelist for origin protection that remains unchanged.
+     *
      * @var noChangeIpWhitelist
      */
     public $noChangeIpWhitelist;
 
     /**
+     * @description The IP whitelist for origin protection that has been deleted.
+     *
      * @var removedIPWhitelist
      */
     public $removedIPWhitelist;

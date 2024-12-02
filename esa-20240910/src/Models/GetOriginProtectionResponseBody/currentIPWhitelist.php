@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class currentIPWhitelist extends Model
 {
     /**
+     * @description The IP whitelist for origin protection used by the website, specified as IPv4 addresses or CIDR blocks.
+     *
      * @var string[]
      */
     public $IPv4;
 
     /**
+     * @description The IP whitelist for origin protection used by the website, specified as IPv6 addresses or CIDR blocks.
+     *
      * @var string[]
      */
     public $IPv6;
