@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @description The cluster name.
      *
      * @example test01
@@ -40,10 +45,17 @@ class clusters extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
+        'clusterId'   => 'ClusterId',
         'clusterName' => 'ClusterName',
         'createTime'  => 'CreateTime',
         'status'      => 'Status',
+        'vpcId'       => 'VpcId',
     ];
 
     public function validate()
@@ -53,6 +65,9 @@ class clusters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
@@ -61,6 +76,9 @@ class clusters extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -74,6 +92,9 @@ class clusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
@@ -82,6 +103,9 @@ class clusters extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

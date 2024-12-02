@@ -50,6 +50,10 @@ class DescribeDBProxyEndpointResponseBody extends Model
     public $DBProxyEndpointId;
 
     /**
+     * @description The minimum number of reserved instances.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $DBProxyEndpointMinSlaveCount;

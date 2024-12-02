@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyRCInstanceDescriptionRequest extends Model
 {
     /**
+     * @description The instance name.
+     *
+     * >  The name must be 2 to 255 characters in length and can contain letters, digits, `underscores (_)`, and `hyphens (-)`. It must start with a letter.
+     * @example testInstance
+     *
      * @var string
      */
     public $instanceDescription;
 
     /**
+     * @description The instance ID.
+     *
+     * @example rc-m5ei7b1w38w2l91x****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

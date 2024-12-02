@@ -66,7 +66,7 @@ class CreateRCSnapshotRequest extends Model
     public $retentionDays;
 
     /**
-     * @description The zone ID.
+     * @description This parameter has been deprecated.
      *
      * @example cn-hangzhou-b
      *

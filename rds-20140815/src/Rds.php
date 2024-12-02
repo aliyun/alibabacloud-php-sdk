@@ -15010,6 +15010,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -23327,7 +23330,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改RC实例描述
+     * @summary Modifies the name of an RDS Custom instance.
      *  *
      * @param ModifyRCInstanceDescriptionRequest $request ModifyRCInstanceDescriptionRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -23366,7 +23369,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改RC实例描述
+     * @summary Modifies the name of an RDS Custom instance.
      *  *
      * @param ModifyRCInstanceDescriptionRequest $request ModifyRCInstanceDescriptionRequest
      *

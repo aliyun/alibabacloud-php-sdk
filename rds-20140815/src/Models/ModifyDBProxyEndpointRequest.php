@@ -9,20 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBProxyEndpointRequest extends Model
 {
     /**
-     * @description The features that you want to enable for the proxy endpoint. If you specify more than one feature, separate the features with semicolons (;). Format: `Feature 1:Status;Feature 2:Status;...`. Do not add a semicolon (;) at the end of the value.
+     * @description The capabilities that you want to enable for the proxy endpoint. If you specify more than one capability, separate the capabilities with semicolons (;). Format: `Capability 1:Status;Capability 2:Status;...`. Do not add a semicolon (;) at the end of the value.
      *
-     * Valid feature values:
+     * Valid capability values:
      *
      *   **ReadWriteSpliting**: read/write splitting
      *   **ConnectionPersist**: connection pooling
      *   **TransactionReadSqlRouteOptimizeStatus**: transaction splitting
+     *   **AZProximityAccess**: nearest access
      *
      * Valid status values:
      *
      *   **1**: enabled
      *   **0**: disabled
      *
-     * >  If the instance runs PostgreSQL, you can enable only the read/write splitting feature, which is specified by **ReadWriteSpliting**.
+     * >
+     *
+     *   If the instance runs PostgreSQL, you can enable only read/write splitting, which is specified by **ReadWriteSpliting**.
+     *
+     *   Nearest access is supported only by dedicated database proxies for RDS instances that run MySQL.
+     *
      * @example ReadWriteSpliting:1;ConnectionPersist:0
      *
      * @var string
@@ -110,9 +116,9 @@ class ModifyDBProxyEndpointRequest extends Model
     public $dbEndpointType;
 
     /**
-     * @description The specified time takes effect. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
+     * @description The point in time that you want to specify. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
-     * > This parameter must be passed when EffectiveTime is SpecificTime.
+     * >  If **EffectiveTime** is set to **SpecificTime**, you must specify this parameter.
      * @example 2023-05-06T07:08:09Z
      *
      * @var string
@@ -120,15 +126,13 @@ class ModifyDBProxyEndpointRequest extends Model
     public $effectiveSpecificTime;
 
     /**
-     * @description Effective time, value:
+     * @description The effective time. Valid values:
      *
-     * - **Immediate**: effective immediately.
+     *   **Immediate**: The effective time is immediate.
+     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+     *   **SpecificTime**: The effective time is a specified point in time.
      *
-     * - **MaintainTime**: effective during the operational and maintainable time period, see ModifyDBInstanceMaintainTime.
-     *
-     * - **SpecificTime**: effective at a specified time.
-     *
-     * Default value: MaintainTime.
+     * Default value: **MaintainTime**.
      * @example MaintainTime
      *
      * @var string
@@ -143,10 +147,10 @@ class ModifyDBProxyEndpointRequest extends Model
     /**
      * @description The policy that is used to allocate read weights. Valid values:
      *
-     *   **Standard**: The system automatically allocates read weights to the instance and its read-only instances based on the specifications of the instances.
-     *   **Custom**: You must manually allocate read weights to the instance and its read-only instances.
+     *   **Standard** (default): The system automatically assigns read weights to the primary and read-only instances based on the specifications of these instances.
+     *   **Custom**: You must manually allocate read weights to the primary and read-only instances.
      *
-     * > You must specify this parameter only when the read/write splitting feature is enabled. For more information about the permission allocation policy, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html) and [Enable and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html).
+     * >  You must specify this parameter when read/write splitting is enabled. For more information about the permission allocation policy, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html) and [Enable and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html).
      * @example Standard
      *
      * @var string
@@ -201,7 +205,7 @@ class ModifyDBProxyEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies the switch ID corresponding to the availability zone of the proxy connection address. By default, it is the switch ID corresponding to the default terminal of the proxy instance. You can query the created switch by calling the DescribeVSwitches interface.
+     * @description The ID of the vSwitch in the zone in which the proxy endpoint is specified. The default value is the ID of the vSwitch that corresponds to the default terminal of the database proxy. You can call the DescribeVSwitches operation to query existing vSwitches.
      *
      * @example vsw-uf6adz52c2p****
      *

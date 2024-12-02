@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachRCDiskRequest extends Model
 {
     /**
+     * @description The reserved parameter. This parameter is not supported.
+     *
      * @example false
      *
      * @var bool
