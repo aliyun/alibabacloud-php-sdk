@@ -38,6 +38,11 @@ class QueryModifyInstancePriceShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $promotionCode;
+
+    /**
      * @description This parameter is required.
      *
      * @example cn-beijing
@@ -52,14 +57,21 @@ class QueryModifyInstancePriceShrinkRequest extends Model
      * @var string
      */
     public $resourceSpecShrink;
+
+    /**
+     * @var bool
+     */
+    public $usePromotionCode;
     protected $_name = [
         'ha'                   => 'Ha',
         'haResourceSpecShrink' => 'HaResourceSpec',
         'haVSwitchIdsShrink'   => 'HaVSwitchIds',
         'haZoneId'             => 'HaZoneId',
         'instanceId'           => 'InstanceId',
+        'promotionCode'        => 'PromotionCode',
         'region'               => 'Region',
         'resourceSpecShrink'   => 'ResourceSpec',
+        'usePromotionCode'     => 'UsePromotionCode',
     ];
 
     public function validate()
@@ -84,11 +96,17 @@ class QueryModifyInstancePriceShrinkRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->promotionCode) {
+            $res['PromotionCode'] = $this->promotionCode;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
         if (null !== $this->resourceSpecShrink) {
             $res['ResourceSpec'] = $this->resourceSpecShrink;
+        }
+        if (null !== $this->usePromotionCode) {
+            $res['UsePromotionCode'] = $this->usePromotionCode;
         }
 
         return $res;
@@ -117,11 +135,17 @@ class QueryModifyInstancePriceShrinkRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['PromotionCode'])) {
+            $model->promotionCode = $map['PromotionCode'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
         if (isset($map['ResourceSpec'])) {
             $model->resourceSpecShrink = $map['ResourceSpec'];
+        }
+        if (isset($map['UsePromotionCode'])) {
+            $model->usePromotionCode = $map['UsePromotionCode'];
         }
 
         return $model;

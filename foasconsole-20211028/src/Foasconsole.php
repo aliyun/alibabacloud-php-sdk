@@ -1061,11 +1061,17 @@ class Foasconsole extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->promotionCode)) {
+            $body['PromotionCode'] = $request->promotionCode;
+        }
         if (!Utils::isUnset($request->region)) {
             $body['Region'] = $request->region;
         }
         if (!Utils::isUnset($request->resourceSpecShrink)) {
             $body['ResourceSpec'] = $request->resourceSpecShrink;
+        }
+        if (!Utils::isUnset($request->usePromotionCode)) {
+            $body['UsePromotionCode'] = $request->usePromotionCode;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
