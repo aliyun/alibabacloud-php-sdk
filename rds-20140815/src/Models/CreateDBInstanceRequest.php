@@ -444,6 +444,11 @@ class CreateDBInstanceRequest extends Model
     public $ioAccelerationEnabled;
 
     /**
+     * @var string
+     */
+    public $optimizedWrites;
+
+    /**
      * @description The billing method of the instance. Valid values:
      *
      *   **Postpaid**: pay-as-you-go.
@@ -803,6 +808,7 @@ class CreateDBInstanceRequest extends Model
         'engineVersion'                  => 'EngineVersion',
         'instanceNetworkType'            => 'InstanceNetworkType',
         'ioAccelerationEnabled'          => 'IoAccelerationEnabled',
+        'optimizedWrites'                => 'OptimizedWrites',
         'payType'                        => 'PayType',
         'period'                         => 'Period',
         'port'                           => 'Port',
@@ -932,6 +938,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->ioAccelerationEnabled) {
             $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
+        }
+        if (null !== $this->optimizedWrites) {
+            $res['OptimizedWrites'] = $this->optimizedWrites;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -1127,6 +1136,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['IoAccelerationEnabled'])) {
             $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
+        }
+        if (isset($map['OptimizedWrites'])) {
+            $model->optimizedWrites = $map['OptimizedWrites'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

@@ -196,6 +196,11 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     /**
      * @var string
      */
+    public $optimizedWrites;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -345,6 +350,7 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         'effectiveTime'                 => 'EffectiveTime',
         'engineVersion'                 => 'EngineVersion',
         'ioAccelerationEnabled'         => 'IoAccelerationEnabled',
+        'optimizedWrites'               => 'OptimizedWrites',
         'ownerAccount'                  => 'OwnerAccount',
         'ownerId'                       => 'OwnerId',
         'payType'                       => 'PayType',
@@ -411,6 +417,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         }
         if (null !== $this->ioAccelerationEnabled) {
             $res['IoAccelerationEnabled'] = $this->ioAccelerationEnabled;
+        }
+        if (null !== $this->optimizedWrites) {
+            $res['OptimizedWrites'] = $this->optimizedWrites;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -513,6 +522,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
         }
         if (isset($map['IoAccelerationEnabled'])) {
             $model->ioAccelerationEnabled = $map['IoAccelerationEnabled'];
+        }
+        if (isset($map['OptimizedWrites'])) {
+            $model->optimizedWrites = $map['OptimizedWrites'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

@@ -567,6 +567,11 @@ class DBInstanceAttribute extends Model
     public $multipleTempUpgrade;
 
     /**
+     * @var string
+     */
+    public $optimizedWritesInfo;
+
+    /**
      * @description Indicates whether PgBouncer is enabled.
      *
      * >  This parameter is returned only for RDS instances that run PostgreSQL. If PgBouncer is enabled, the return value is **true**.
@@ -853,6 +858,7 @@ class DBInstanceAttribute extends Model
         'maxIOMBPS'                      => 'MaxIOMBPS',
         'maxIOPS'                        => 'MaxIOPS',
         'multipleTempUpgrade'            => 'MultipleTempUpgrade',
+        'optimizedWritesInfo'            => 'OptimizedWritesInfo',
         'PGBouncerEnabled'               => 'PGBouncerEnabled',
         'payType'                        => 'PayType',
         'port'                           => 'Port',
@@ -1050,6 +1056,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->multipleTempUpgrade) {
             $res['MultipleTempUpgrade'] = $this->multipleTempUpgrade;
+        }
+        if (null !== $this->optimizedWritesInfo) {
+            $res['OptimizedWritesInfo'] = $this->optimizedWritesInfo;
         }
         if (null !== $this->PGBouncerEnabled) {
             $res['PGBouncerEnabled'] = $this->PGBouncerEnabled;
@@ -1299,6 +1308,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['MultipleTempUpgrade'])) {
             $model->multipleTempUpgrade = $map['MultipleTempUpgrade'];
+        }
+        if (isset($map['OptimizedWritesInfo'])) {
+            $model->optimizedWritesInfo = $map['OptimizedWritesInfo'];
         }
         if (isset($map['PGBouncerEnabled'])) {
             $model->PGBouncerEnabled = $map['PGBouncerEnabled'];

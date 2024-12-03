@@ -2945,6 +2945,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ioAccelerationEnabled)) {
             $query['IoAccelerationEnabled'] = $request->ioAccelerationEnabled;
         }
+        if (!Utils::isUnset($request->optimizedWrites)) {
+            $query['OptimizedWrites'] = $request->optimizedWrites;
+        }
         if (!Utils::isUnset($request->payType)) {
             $query['PayType'] = $request->payType;
         }
@@ -21309,6 +21312,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ioAccelerationEnabled)) {
             $query['IoAccelerationEnabled'] = $request->ioAccelerationEnabled;
+        }
+        if (!Utils::isUnset($request->optimizedWrites)) {
+            $query['OptimizedWrites'] = $request->optimizedWrites;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
