@@ -1427,6 +1427,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->ephemeralStorage)) {
             $query['EphemeralStorage'] = $request->ephemeralStorage;
         }
+        if (!Utils::isUnset($request->gpuDriverVersion)) {
+            $query['GpuDriverVersion'] = $request->gpuDriverVersion;
+        }
         if (!Utils::isUnset($request->hostAliases)) {
             $query['HostAliases'] = $request->hostAliases;
         }
@@ -1985,6 +1988,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->azBalance)) {
             $query['AzBalance'] = $request->azBalance;
+        }
+        if (!Utils::isUnset($request->capacityOptions)) {
+            $query['CapacityOptions'] = $request->capacityOptions;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -5941,6 +5947,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->ephemeralStorage)) {
             $query['EphemeralStorage'] = $request->ephemeralStorage;
         }
+        if (!Utils::isUnset($request->gpuDriverVersion)) {
+            $query['GpuDriverVersion'] = $request->gpuDriverVersion;
+        }
         if (!Utils::isUnset($request->hostAliases)) {
             $query['HostAliases'] = $request->hostAliases;
         }
@@ -6539,6 +6548,9 @@ class Ess extends OpenApiClient
         }
         if (!Utils::isUnset($request->azBalance)) {
             $query['AzBalance'] = $request->azBalance;
+        }
+        if (!Utils::isUnset($request->capacityOptions)) {
+            $query['CapacityOptions'] = $request->capacityOptions;
         }
         if (!Utils::isUnset($request->compensateWithOnDemand)) {
             $query['CompensateWithOnDemand'] = $request->compensateWithOnDemand;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody;
 
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\albServerGroups;
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\capacityOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\DBInstances;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\launchTemplateOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsResponseBody\scalingGroups\loadBalancerConfigs;
@@ -63,6 +64,11 @@ class scalingGroups extends Model
      * @var bool
      */
     public $azBalance;
+
+    /**
+     * @var capacityOptions
+     */
+    public $capacityOptions;
 
     /**
      * @description Indicates whether Auto Scaling can create pay-as-you-go instances to supplement preemptible instances if preemptible instances cannot be created due to price-related factors or insufficient inventory when MultiAZPolicy is set to COST_OPTIMIZED. Valid values:
@@ -613,6 +619,7 @@ class scalingGroups extends Model
         'albServerGroups'                     => 'AlbServerGroups',
         'allocationStrategy'                  => 'AllocationStrategy',
         'azBalance'                           => 'AzBalance',
+        'capacityOptions'                     => 'CapacityOptions',
         'compensateWithOnDemand'              => 'CompensateWithOnDemand',
         'creationTime'                        => 'CreationTime',
         'currentHostName'                     => 'CurrentHostName',
@@ -699,6 +706,9 @@ class scalingGroups extends Model
         }
         if (null !== $this->azBalance) {
             $res['AzBalance'] = $this->azBalance;
+        }
+        if (null !== $this->capacityOptions) {
+            $res['CapacityOptions'] = null !== $this->capacityOptions ? $this->capacityOptions->toMap() : null;
         }
         if (null !== $this->compensateWithOnDemand) {
             $res['CompensateWithOnDemand'] = $this->compensateWithOnDemand;
@@ -939,6 +949,9 @@ class scalingGroups extends Model
         }
         if (isset($map['AzBalance'])) {
             $model->azBalance = $map['AzBalance'];
+        }
+        if (isset($map['CapacityOptions'])) {
+            $model->capacityOptions = capacityOptions::fromMap($map['CapacityOptions']);
         }
         if (isset($map['CompensateWithOnDemand'])) {
             $model->compensateWithOnDemand = $map['CompensateWithOnDemand'];

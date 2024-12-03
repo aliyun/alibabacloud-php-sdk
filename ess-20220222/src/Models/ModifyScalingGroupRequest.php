@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
+use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingGroupRequest\capacityOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\ModifyScalingGroupRequest\launchTemplateOverrides;
 use AlibabaCloud\Tea\Model;
 
@@ -43,6 +44,11 @@ class ModifyScalingGroupRequest extends Model
      * @var bool
      */
     public $azBalance;
+
+    /**
+     * @var capacityOptions
+     */
+    public $capacityOptions;
 
     /**
      * @description Specifies whether to automatically create pay-as-you-go instances to meet the requirements on the number of ECS instances in the scaling group when the number of preemptible instances cannot be reached due to reasons such as cost-related issues and insufficient resources. This parameter takes effect only if you set `MultiAZPolicy` in the `CreateScalingGroup` operation to `COST_OPTIMIZED`. Valid values:
@@ -359,6 +365,7 @@ class ModifyScalingGroupRequest extends Model
         'activeScalingConfigurationId'        => 'ActiveScalingConfigurationId',
         'allocationStrategy'                  => 'AllocationStrategy',
         'azBalance'                           => 'AzBalance',
+        'capacityOptions'                     => 'CapacityOptions',
         'compensateWithOnDemand'              => 'CompensateWithOnDemand',
         'customPolicyARN'                     => 'CustomPolicyARN',
         'defaultCooldown'                     => 'DefaultCooldown',
@@ -406,6 +413,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (null !== $this->azBalance) {
             $res['AzBalance'] = $this->azBalance;
+        }
+        if (null !== $this->capacityOptions) {
+            $res['CapacityOptions'] = null !== $this->capacityOptions ? $this->capacityOptions->toMap() : null;
         }
         if (null !== $this->compensateWithOnDemand) {
             $res['CompensateWithOnDemand'] = $this->compensateWithOnDemand;
@@ -523,6 +533,9 @@ class ModifyScalingGroupRequest extends Model
         }
         if (isset($map['AzBalance'])) {
             $model->azBalance = $map['AzBalance'];
+        }
+        if (isset($map['CapacityOptions'])) {
+            $model->capacityOptions = capacityOptions::fromMap($map['CapacityOptions']);
         }
         if (isset($map['CompensateWithOnDemand'])) {
             $model->compensateWithOnDemand = $map['CompensateWithOnDemand'];

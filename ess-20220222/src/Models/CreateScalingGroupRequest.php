@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\albServerGroups;
+use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\capacityOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\DBInstances;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\launchTemplateOverrides;
 use AlibabaCloud\SDK\Ess\V20220222\Models\CreateScalingGroupRequest\lifecycleHooks;
@@ -48,6 +49,11 @@ class CreateScalingGroupRequest extends Model
      * @var bool
      */
     public $azBalance;
+
+    /**
+     * @var capacityOptions
+     */
+    public $capacityOptions;
 
     /**
      * @description The client token that is used to ensure the idempotence of the request.
@@ -504,6 +510,7 @@ class CreateScalingGroupRequest extends Model
         'albServerGroups'                     => 'AlbServerGroups',
         'allocationStrategy'                  => 'AllocationStrategy',
         'azBalance'                           => 'AzBalance',
+        'capacityOptions'                     => 'CapacityOptions',
         'clientToken'                         => 'ClientToken',
         'compensateWithOnDemand'              => 'CompensateWithOnDemand',
         'containerGroupId'                    => 'ContainerGroupId',
@@ -570,6 +577,9 @@ class CreateScalingGroupRequest extends Model
         }
         if (null !== $this->azBalance) {
             $res['AzBalance'] = $this->azBalance;
+        }
+        if (null !== $this->capacityOptions) {
+            $res['CapacityOptions'] = null !== $this->capacityOptions ? $this->capacityOptions->toMap() : null;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -768,6 +778,9 @@ class CreateScalingGroupRequest extends Model
         }
         if (isset($map['AzBalance'])) {
             $model->azBalance = $map['AzBalance'];
+        }
+        if (isset($map['CapacityOptions'])) {
+            $model->capacityOptions = capacityOptions::fromMap($map['CapacityOptions']);
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

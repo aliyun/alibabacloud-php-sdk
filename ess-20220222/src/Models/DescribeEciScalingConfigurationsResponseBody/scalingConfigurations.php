@@ -229,6 +229,11 @@ class scalingConfigurations extends Model
     public $ephemeralStorage;
 
     /**
+     * @var string
+     */
+    public $gpuDriverVersion;
+
+    /**
      * @description The hostnames and IP addresses for a container that are added to the hosts file of the elastic container instance.
      *
      * @var hostAliases[]
@@ -504,6 +509,7 @@ class scalingConfigurations extends Model
         'egressBandwidth'               => 'EgressBandwidth',
         'eipBandwidth'                  => 'EipBandwidth',
         'ephemeralStorage'              => 'EphemeralStorage',
+        'gpuDriverVersion'              => 'GpuDriverVersion',
         'hostAliases'                   => 'HostAliases',
         'hostName'                      => 'HostName',
         'imageRegistryCredentials'      => 'ImageRegistryCredentials',
@@ -627,6 +633,9 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->ephemeralStorage) {
             $res['EphemeralStorage'] = $this->ephemeralStorage;
+        }
+        if (null !== $this->gpuDriverVersion) {
+            $res['GpuDriverVersion'] = $this->gpuDriverVersion;
         }
         if (null !== $this->hostAliases) {
             $res['HostAliases'] = [];
@@ -850,6 +859,9 @@ class scalingConfigurations extends Model
         }
         if (isset($map['EphemeralStorage'])) {
             $model->ephemeralStorage = $map['EphemeralStorage'];
+        }
+        if (isset($map['GpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['GpuDriverVersion'];
         }
         if (isset($map['HostAliases'])) {
             if (!empty($map['HostAliases'])) {

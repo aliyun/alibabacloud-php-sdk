@@ -237,6 +237,11 @@ class CreateEciScalingConfigurationRequest extends Model
     public $ephemeralStorage;
 
     /**
+     * @var string
+     */
+    public $gpuDriverVersion;
+
+    /**
      * @description The custom hostnames of the containers.
      *
      * @var hostAliases[]
@@ -491,6 +496,7 @@ class CreateEciScalingConfigurationRequest extends Model
         'eipBandwidth'                  => 'EipBandwidth',
         'enableSls'                     => 'EnableSls',
         'ephemeralStorage'              => 'EphemeralStorage',
+        'gpuDriverVersion'              => 'GpuDriverVersion',
         'hostAliases'                   => 'HostAliases',
         'hostName'                      => 'HostName',
         'imageRegistryCredentials'      => 'ImageRegistryCredentials',
@@ -612,6 +618,9 @@ class CreateEciScalingConfigurationRequest extends Model
         }
         if (null !== $this->ephemeralStorage) {
             $res['EphemeralStorage'] = $this->ephemeralStorage;
+        }
+        if (null !== $this->gpuDriverVersion) {
+            $res['GpuDriverVersion'] = $this->gpuDriverVersion;
         }
         if (null !== $this->hostAliases) {
             $res['HostAliases'] = [];
@@ -829,6 +838,9 @@ class CreateEciScalingConfigurationRequest extends Model
         }
         if (isset($map['EphemeralStorage'])) {
             $model->ephemeralStorage = $map['EphemeralStorage'];
+        }
+        if (isset($map['GpuDriverVersion'])) {
+            $model->gpuDriverVersion = $map['GpuDriverVersion'];
         }
         if (isset($map['HostAliases'])) {
             if (!empty($map['HostAliases'])) {
