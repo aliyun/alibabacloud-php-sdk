@@ -44,6 +44,13 @@ class CreatePersonalTodoTaskShrinkRequest extends Model
     public $participantIdsShrink;
 
     /**
+     * @example 1703750708595
+     *
+     * @var int
+     */
+    public $reminderTimeStamp;
+
+    /**
      * @description This parameter is required.
      *
      * @example 待办标题
@@ -62,6 +69,7 @@ class CreatePersonalTodoTaskShrinkRequest extends Model
         'executorIdsShrink'    => 'ExecutorIds',
         'notifyConfigsShrink'  => 'NotifyConfigs',
         'participantIdsShrink' => 'ParticipantIds',
+        'reminderTimeStamp'    => 'ReminderTimeStamp',
         'subject'              => 'Subject',
         'tenantContextShrink'  => 'TenantContext',
     ];
@@ -87,6 +95,9 @@ class CreatePersonalTodoTaskShrinkRequest extends Model
         }
         if (null !== $this->participantIdsShrink) {
             $res['ParticipantIds'] = $this->participantIdsShrink;
+        }
+        if (null !== $this->reminderTimeStamp) {
+            $res['ReminderTimeStamp'] = $this->reminderTimeStamp;
         }
         if (null !== $this->subject) {
             $res['Subject'] = $this->subject;
@@ -120,6 +131,9 @@ class CreatePersonalTodoTaskShrinkRequest extends Model
         }
         if (isset($map['ParticipantIds'])) {
             $model->participantIdsShrink = $map['ParticipantIds'];
+        }
+        if (isset($map['ReminderTimeStamp'])) {
+            $model->reminderTimeStamp = $map['ReminderTimeStamp'];
         }
         if (isset($map['Subject'])) {
             $model->subject = $map['Subject'];

@@ -3762,6 +3762,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($request->participantIdsShrink)) {
             $body['ParticipantIds'] = $request->participantIdsShrink;
         }
+        if (!Utils::isUnset($request->reminderTimeStamp)) {
+            $body['ReminderTimeStamp'] = $request->reminderTimeStamp;
+        }
         if (!Utils::isUnset($request->subject)) {
             $body['Subject'] = $request->subject;
         }
