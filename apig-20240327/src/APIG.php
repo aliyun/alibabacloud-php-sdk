@@ -181,6 +181,9 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['resourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->tlsCipherSuitesConfig)) {
+            $body['tlsCipherSuitesConfig'] = $request->tlsCipherSuitesConfig;
+        }
         if (!Utils::isUnset($request->tlsMax)) {
             $body['tlsMax'] = $request->tlsMax;
         }
@@ -1171,6 +1174,9 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->withConsumerInfoById)) {
             $query['withConsumerInfoById'] = $request->withConsumerInfoById;
         }
+        if (!Utils::isUnset($request->withPluginAttachmentByPluginId)) {
+            $query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -1243,11 +1249,20 @@ class APIG extends OpenApiClient
         if (!Utils::isUnset($request->withAuthPolicyInEnvironmentId)) {
             $query['withAuthPolicyInEnvironmentId'] = $request->withAuthPolicyInEnvironmentId;
         }
+        if (!Utils::isUnset($request->withAuthPolicyList)) {
+            $query['withAuthPolicyList'] = $request->withAuthPolicyList;
+        }
         if (!Utils::isUnset($request->withConsumerInfoById)) {
             $query['withConsumerInfoById'] = $request->withConsumerInfoById;
         }
         if (!Utils::isUnset($request->withEnvironmentInfo)) {
             $query['withEnvironmentInfo'] = $request->withEnvironmentInfo;
+        }
+        if (!Utils::isUnset($request->withEnvironmentInfoById)) {
+            $query['withEnvironmentInfoById'] = $request->withEnvironmentInfoById;
+        }
+        if (!Utils::isUnset($request->withPluginAttachmentByPluginId)) {
+            $query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1311,6 +1326,9 @@ class APIG extends OpenApiClient
         }
         if (!Utils::isUnset($request->protocol)) {
             $body['protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->tlsCipherSuitesConfig)) {
+            $body['tlsCipherSuitesConfig'] = $request->tlsCipherSuitesConfig;
         }
         if (!Utils::isUnset($request->tlsMax)) {
             $body['tlsMax'] = $request->tlsMax;

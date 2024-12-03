@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponseBody;
 
 use AlibabaCloud\SDK\APIG\V20240327\Models\GetDomainResponseBody\data\statisticsInfo;
+use AlibabaCloud\SDK\APIG\V20240327\Models\TlsCipherSuitesConfig;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -165,6 +166,11 @@ class data extends Model
     public $statisticsInfo;
 
     /**
+     * @var TlsCipherSuitesConfig
+     */
+    public $tlsCipherSuitesConfig;
+
+    /**
      * @description Maximum TLS protocol version, supports up to TLS 1.3.
      *
      * @example TLS 1.3
@@ -191,27 +197,28 @@ class data extends Model
      */
     public $updatetimestamp;
     protected $_name = [
-        'algorithm'          => 'algorithm',
-        'caCertIndentifier'  => 'caCertIndentifier',
-        'certIndentifier'    => 'certIndentifier',
-        'certName'           => 'certName',
-        'createFrom'         => 'createFrom',
-        'createTimestamp'    => 'createTimestamp',
-        'default'            => 'default',
-        'domainId'           => 'domainId',
-        'forceHttps'         => 'forceHttps',
-        'http2Option'        => 'http2Option',
-        'issuer'             => 'issuer',
-        'name'               => 'name',
-        'notAfterTimstamp'   => 'notAfterTimstamp',
-        'notBeforeTimestamp' => 'notBeforeTimestamp',
-        'protocol'           => 'protocol',
-        'resourceGroupId'    => 'resourceGroupId',
-        'sans'               => 'sans',
-        'statisticsInfo'     => 'statisticsInfo',
-        'tlsMax'             => 'tlsMax',
-        'tlsMin'             => 'tlsMin',
-        'updatetimestamp'    => 'updatetimestamp',
+        'algorithm'             => 'algorithm',
+        'caCertIndentifier'     => 'caCertIndentifier',
+        'certIndentifier'       => 'certIndentifier',
+        'certName'              => 'certName',
+        'createFrom'            => 'createFrom',
+        'createTimestamp'       => 'createTimestamp',
+        'default'               => 'default',
+        'domainId'              => 'domainId',
+        'forceHttps'            => 'forceHttps',
+        'http2Option'           => 'http2Option',
+        'issuer'                => 'issuer',
+        'name'                  => 'name',
+        'notAfterTimstamp'      => 'notAfterTimstamp',
+        'notBeforeTimestamp'    => 'notBeforeTimestamp',
+        'protocol'              => 'protocol',
+        'resourceGroupId'       => 'resourceGroupId',
+        'sans'                  => 'sans',
+        'statisticsInfo'        => 'statisticsInfo',
+        'tlsCipherSuitesConfig' => 'tlsCipherSuitesConfig',
+        'tlsMax'                => 'tlsMax',
+        'tlsMin'                => 'tlsMin',
+        'updatetimestamp'       => 'updatetimestamp',
     ];
 
     public function validate()
@@ -274,6 +281,9 @@ class data extends Model
         }
         if (null !== $this->statisticsInfo) {
             $res['statisticsInfo'] = null !== $this->statisticsInfo ? $this->statisticsInfo->toMap() : null;
+        }
+        if (null !== $this->tlsCipherSuitesConfig) {
+            $res['tlsCipherSuitesConfig'] = null !== $this->tlsCipherSuitesConfig ? $this->tlsCipherSuitesConfig->toMap() : null;
         }
         if (null !== $this->tlsMax) {
             $res['tlsMax'] = $this->tlsMax;
@@ -349,6 +359,9 @@ class data extends Model
         }
         if (isset($map['statisticsInfo'])) {
             $model->statisticsInfo = statisticsInfo::fromMap($map['statisticsInfo']);
+        }
+        if (isset($map['tlsCipherSuitesConfig'])) {
+            $model->tlsCipherSuitesConfig = TlsCipherSuitesConfig::fromMap($map['tlsCipherSuitesConfig']);
         }
         if (isset($map['tlsMax'])) {
             $model->tlsMax = $map['tlsMax'];

@@ -70,6 +70,11 @@ class CreateDomainRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var TlsCipherSuitesConfig
+     */
+    public $tlsCipherSuitesConfig;
+
+    /**
      * @description Maximum TLS protocol version, supports up to TLS 1.3.
      *
      * @example TLS1.3
@@ -87,15 +92,16 @@ class CreateDomainRequest extends Model
      */
     public $tlsMin;
     protected $_name = [
-        'caCertIdentifier' => 'caCertIdentifier',
-        'certIdentifier'   => 'certIdentifier',
-        'forceHttps'       => 'forceHttps',
-        'http2Option'      => 'http2Option',
-        'name'             => 'name',
-        'protocol'         => 'protocol',
-        'resourceGroupId'  => 'resourceGroupId',
-        'tlsMax'           => 'tlsMax',
-        'tlsMin'           => 'tlsMin',
+        'caCertIdentifier'      => 'caCertIdentifier',
+        'certIdentifier'        => 'certIdentifier',
+        'forceHttps'            => 'forceHttps',
+        'http2Option'           => 'http2Option',
+        'name'                  => 'name',
+        'protocol'              => 'protocol',
+        'resourceGroupId'       => 'resourceGroupId',
+        'tlsCipherSuitesConfig' => 'tlsCipherSuitesConfig',
+        'tlsMax'                => 'tlsMax',
+        'tlsMin'                => 'tlsMin',
     ];
 
     public function validate()
@@ -125,6 +131,9 @@ class CreateDomainRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['resourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tlsCipherSuitesConfig) {
+            $res['tlsCipherSuitesConfig'] = null !== $this->tlsCipherSuitesConfig ? $this->tlsCipherSuitesConfig->toMap() : null;
         }
         if (null !== $this->tlsMax) {
             $res['tlsMax'] = $this->tlsMax;
@@ -164,6 +173,9 @@ class CreateDomainRequest extends Model
         }
         if (isset($map['resourceGroupId'])) {
             $model->resourceGroupId = $map['resourceGroupId'];
+        }
+        if (isset($map['tlsCipherSuitesConfig'])) {
+            $model->tlsCipherSuitesConfig = TlsCipherSuitesConfig::fromMap($map['tlsCipherSuitesConfig']);
         }
         if (isset($map['tlsMax'])) {
             $model->tlsMax = $map['tlsMax'];

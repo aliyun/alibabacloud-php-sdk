@@ -88,16 +88,22 @@ class ListHttpApiOperationsRequest extends Model
      * @var string
      */
     public $withConsumerInfoById;
+
+    /**
+     * @var string
+     */
+    public $withPluginAttachmentByPluginId;
     protected $_name = [
-        'consumerAuthorizationRuleId' => 'consumerAuthorizationRuleId',
-        'method'                      => 'method',
-        'name'                        => 'name',
-        'nameLike'                    => 'nameLike',
-        'pageNumber'                  => 'pageNumber',
-        'pageSize'                    => 'pageSize',
-        'pathLike'                    => 'pathLike',
-        'withConsumerInEnvironmentId' => 'withConsumerInEnvironmentId',
-        'withConsumerInfoById'        => 'withConsumerInfoById',
+        'consumerAuthorizationRuleId'    => 'consumerAuthorizationRuleId',
+        'method'                         => 'method',
+        'name'                           => 'name',
+        'nameLike'                       => 'nameLike',
+        'pageNumber'                     => 'pageNumber',
+        'pageSize'                       => 'pageSize',
+        'pathLike'                       => 'pathLike',
+        'withConsumerInEnvironmentId'    => 'withConsumerInEnvironmentId',
+        'withConsumerInfoById'           => 'withConsumerInfoById',
+        'withPluginAttachmentByPluginId' => 'withPluginAttachmentByPluginId',
     ];
 
     public function validate()
@@ -133,6 +139,9 @@ class ListHttpApiOperationsRequest extends Model
         }
         if (null !== $this->withConsumerInfoById) {
             $res['withConsumerInfoById'] = $this->withConsumerInfoById;
+        }
+        if (null !== $this->withPluginAttachmentByPluginId) {
+            $res['withPluginAttachmentByPluginId'] = $this->withPluginAttachmentByPluginId;
         }
 
         return $res;
@@ -172,6 +181,9 @@ class ListHttpApiOperationsRequest extends Model
         }
         if (isset($map['withConsumerInfoById'])) {
             $model->withConsumerInfoById = $map['withConsumerInfoById'];
+        }
+        if (isset($map['withPluginAttachmentByPluginId'])) {
+            $model->withPluginAttachmentByPluginId = $map['withPluginAttachmentByPluginId'];
         }
 
         return $model;

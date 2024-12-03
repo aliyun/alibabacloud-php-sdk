@@ -77,6 +77,11 @@ class ListHttpApisRequest extends Model
     public $withAuthPolicyInEnvironmentId;
 
     /**
+     * @var bool
+     */
+    public $withAuthPolicyList;
+
+    /**
      * @description Each API information in the response carries a list of authorization rules for the specified consumer ID.
      *
      * @example cs-xxx
@@ -89,17 +94,30 @@ class ListHttpApisRequest extends Model
      * @var bool
      */
     public $withEnvironmentInfo;
+
+    /**
+     * @var string
+     */
+    public $withEnvironmentInfoById;
+
+    /**
+     * @var string
+     */
+    public $withPluginAttachmentByPluginId;
     protected $_name = [
-        'gatewayId'                     => 'gatewayId',
-        'keyword'                       => 'keyword',
-        'name'                          => 'name',
-        'pageNumber'                    => 'pageNumber',
-        'pageSize'                      => 'pageSize',
-        'resourceGroupId'               => 'resourceGroupId',
-        'types'                         => 'types',
-        'withAuthPolicyInEnvironmentId' => 'withAuthPolicyInEnvironmentId',
-        'withConsumerInfoById'          => 'withConsumerInfoById',
-        'withEnvironmentInfo'           => 'withEnvironmentInfo',
+        'gatewayId'                      => 'gatewayId',
+        'keyword'                        => 'keyword',
+        'name'                           => 'name',
+        'pageNumber'                     => 'pageNumber',
+        'pageSize'                       => 'pageSize',
+        'resourceGroupId'                => 'resourceGroupId',
+        'types'                          => 'types',
+        'withAuthPolicyInEnvironmentId'  => 'withAuthPolicyInEnvironmentId',
+        'withAuthPolicyList'             => 'withAuthPolicyList',
+        'withConsumerInfoById'           => 'withConsumerInfoById',
+        'withEnvironmentInfo'            => 'withEnvironmentInfo',
+        'withEnvironmentInfoById'        => 'withEnvironmentInfoById',
+        'withPluginAttachmentByPluginId' => 'withPluginAttachmentByPluginId',
     ];
 
     public function validate()
@@ -133,11 +151,20 @@ class ListHttpApisRequest extends Model
         if (null !== $this->withAuthPolicyInEnvironmentId) {
             $res['withAuthPolicyInEnvironmentId'] = $this->withAuthPolicyInEnvironmentId;
         }
+        if (null !== $this->withAuthPolicyList) {
+            $res['withAuthPolicyList'] = $this->withAuthPolicyList;
+        }
         if (null !== $this->withConsumerInfoById) {
             $res['withConsumerInfoById'] = $this->withConsumerInfoById;
         }
         if (null !== $this->withEnvironmentInfo) {
             $res['withEnvironmentInfo'] = $this->withEnvironmentInfo;
+        }
+        if (null !== $this->withEnvironmentInfoById) {
+            $res['withEnvironmentInfoById'] = $this->withEnvironmentInfoById;
+        }
+        if (null !== $this->withPluginAttachmentByPluginId) {
+            $res['withPluginAttachmentByPluginId'] = $this->withPluginAttachmentByPluginId;
         }
 
         return $res;
@@ -175,11 +202,20 @@ class ListHttpApisRequest extends Model
         if (isset($map['withAuthPolicyInEnvironmentId'])) {
             $model->withAuthPolicyInEnvironmentId = $map['withAuthPolicyInEnvironmentId'];
         }
+        if (isset($map['withAuthPolicyList'])) {
+            $model->withAuthPolicyList = $map['withAuthPolicyList'];
+        }
         if (isset($map['withConsumerInfoById'])) {
             $model->withConsumerInfoById = $map['withConsumerInfoById'];
         }
         if (isset($map['withEnvironmentInfo'])) {
             $model->withEnvironmentInfo = $map['withEnvironmentInfo'];
+        }
+        if (isset($map['withEnvironmentInfoById'])) {
+            $model->withEnvironmentInfoById = $map['withEnvironmentInfoById'];
+        }
+        if (isset($map['withPluginAttachmentByPluginId'])) {
+            $model->withPluginAttachmentByPluginId = $map['withPluginAttachmentByPluginId'];
         }
 
         return $model;

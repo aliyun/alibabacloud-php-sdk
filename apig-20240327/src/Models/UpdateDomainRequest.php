@@ -55,6 +55,11 @@ class UpdateDomainRequest extends Model
     public $protocol;
 
     /**
+     * @var TlsCipherSuitesConfig
+     */
+    public $tlsCipherSuitesConfig;
+
+    /**
      * @description Maximum TLS protocol version, supports up to TLS 1.3.
      *
      * @example TLS 1.3
@@ -72,13 +77,14 @@ class UpdateDomainRequest extends Model
      */
     public $tlsMin;
     protected $_name = [
-        'caCertIndentifier' => 'caCertIndentifier',
-        'certIndentifier'   => 'certIndentifier',
-        'forceHttps'        => 'forceHttps',
-        'http2Option'       => 'http2Option',
-        'protocol'          => 'protocol',
-        'tlsMax'            => 'tlsMax',
-        'tlsMin'            => 'tlsMin',
+        'caCertIndentifier'     => 'caCertIndentifier',
+        'certIndentifier'       => 'certIndentifier',
+        'forceHttps'            => 'forceHttps',
+        'http2Option'           => 'http2Option',
+        'protocol'              => 'protocol',
+        'tlsCipherSuitesConfig' => 'tlsCipherSuitesConfig',
+        'tlsMax'                => 'tlsMax',
+        'tlsMin'                => 'tlsMin',
     ];
 
     public function validate()
@@ -102,6 +108,9 @@ class UpdateDomainRequest extends Model
         }
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
+        }
+        if (null !== $this->tlsCipherSuitesConfig) {
+            $res['tlsCipherSuitesConfig'] = null !== $this->tlsCipherSuitesConfig ? $this->tlsCipherSuitesConfig->toMap() : null;
         }
         if (null !== $this->tlsMax) {
             $res['tlsMax'] = $this->tlsMax;
@@ -135,6 +144,9 @@ class UpdateDomainRequest extends Model
         }
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
+        }
+        if (isset($map['tlsCipherSuitesConfig'])) {
+            $model->tlsCipherSuitesConfig = TlsCipherSuitesConfig::fromMap($map['tlsCipherSuitesConfig']);
         }
         if (isset($map['tlsMax'])) {
             $model->tlsMax = $map['tlsMax'];
