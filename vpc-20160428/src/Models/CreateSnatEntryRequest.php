@@ -22,6 +22,11 @@ class CreateSnatEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description Specifies whether to enable EIP affinity. Valid values:
      *
      *   **0**: no
@@ -143,6 +148,7 @@ class CreateSnatEntryRequest extends Model
     public $sourceVSwitchId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'dryRun'               => 'DryRun',
         'eipAffinity'          => 'EipAffinity',
         'networkInterfaceId'   => 'NetworkInterfaceId',
         'ownerAccount'         => 'OwnerAccount',
@@ -166,6 +172,9 @@ class CreateSnatEntryRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->eipAffinity) {
             $res['EipAffinity'] = $this->eipAffinity;
@@ -217,6 +226,9 @@ class CreateSnatEntryRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['EipAffinity'])) {
             $model->eipAffinity = $map['EipAffinity'];

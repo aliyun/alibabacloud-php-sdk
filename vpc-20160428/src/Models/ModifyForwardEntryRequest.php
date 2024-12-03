@@ -21,6 +21,11 @@ class ModifyForwardEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description *   When you modify DNAT entries of Internet NAT gateways, this parameter specifies the elastic IP addresses (EIPs) that are used to access the Internet.
      *   When you modify DNAT entries of Virtual Private Cloud (VPC) NAT gateways, this parameter specifies the NAT IP addresses that are accessed by external networks.
      *
@@ -151,6 +156,7 @@ class ModifyForwardEntryRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'dryRun'               => 'DryRun',
         'externalIp'           => 'ExternalIp',
         'externalPort'         => 'ExternalPort',
         'forwardEntryId'       => 'ForwardEntryId',
@@ -176,6 +182,9 @@ class ModifyForwardEntryRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->externalIp) {
             $res['ExternalIp'] = $this->externalIp;
@@ -233,6 +242,9 @@ class ModifyForwardEntryRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['ExternalIp'])) {
             $model->externalIp = $map['ExternalIp'];

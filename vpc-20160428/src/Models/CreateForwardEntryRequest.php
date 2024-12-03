@@ -21,6 +21,11 @@ class CreateForwardEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description *   The EIP that can be accessed over the Internet when you configure a DNAT entry for an Internet NAT gateway.
      *   The NAT IP address that can be accessed by external networks when you configure a DNAT entry for a VPC NAT gateway.
      *
@@ -151,6 +156,7 @@ class CreateForwardEntryRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'dryRun'               => 'DryRun',
         'externalIp'           => 'ExternalIp',
         'externalPort'         => 'ExternalPort',
         'forwardEntryName'     => 'ForwardEntryName',
@@ -175,6 +181,9 @@ class CreateForwardEntryRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
         }
         if (null !== $this->externalIp) {
             $res['ExternalIp'] = $this->externalIp;
@@ -229,6 +238,9 @@ class CreateForwardEntryRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
         }
         if (isset($map['ExternalIp'])) {
             $model->externalIp = $map['ExternalIp'];
