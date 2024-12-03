@@ -15,8 +15,14 @@ class data extends Model
      * @var connectionList
      */
     public $connectionList;
+
+    /**
+     * @var string
+     */
+    public $messageModel;
     protected $_name = [
         'connectionList' => 'ConnectionList',
+        'messageModel'   => 'MessageModel',
     ];
 
     public function validate()
@@ -28,6 +34,9 @@ class data extends Model
         $res = [];
         if (null !== $this->connectionList) {
             $res['ConnectionList'] = null !== $this->connectionList ? $this->connectionList->toMap() : null;
+        }
+        if (null !== $this->messageModel) {
+            $res['MessageModel'] = $this->messageModel;
         }
 
         return $res;
@@ -43,6 +52,9 @@ class data extends Model
         $model = new self();
         if (isset($map['ConnectionList'])) {
             $model->connectionList = connectionList::fromMap($map['ConnectionList']);
+        }
+        if (isset($map['MessageModel'])) {
+            $model->messageModel = $map['MessageModel'];
         }
 
         return $model;
