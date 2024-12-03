@@ -19,14 +19,14 @@ class data extends Model
     public $hostName;
 
     /**
-     * @description The details of the order.
+     * @description The orders returned.
      *
      * @var orderList
      */
     public $orderList;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -44,7 +44,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

@@ -45,6 +45,10 @@ class resourceInstanceDtoList extends Model
     public $commodityName;
 
     /**
+     * @description The code of the service. The code is the same as that in Cost Center.
+     *
+     * @example rds
+     *
      * @var string
      */
     public $pipCode;
@@ -86,6 +90,10 @@ class resourceInstanceDtoList extends Model
     public $resourceNick;
 
     /**
+     * @description The source of the resource. Value:
+     * - MANUAL_ALLOCATE
+     * @example MANUAL_ALLOCATE
+     *
      * @var string
      */
     public $resourceSource;

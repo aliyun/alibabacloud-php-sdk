@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class billModuleConfig extends Model
 {
     /**
+     * @description The API code of the configuration item.
+     *
+     * @example datadisk
+     *
      * @var string
      */
     public $apiCode;
 
     /**
+     * @description The attributes of the configured item.
+     *
      * @var billModuleProperties
      */
     public $billModuleProperties;
 
     /**
+     * @description The code of the configuration item.
+     *
+     * @example datadisk
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The name of the configuration item.
+     *
+     * @example Data disk
+     *
      * @var string
      */
     public $name;

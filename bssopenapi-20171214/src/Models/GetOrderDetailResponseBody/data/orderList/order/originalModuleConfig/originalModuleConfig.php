@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class originalModuleConfig extends Model
 {
     /**
+     * @description The code of the configuration item.
+     *
+     * @example systemdisk
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The attributes of the configured item.
+     *
      * @var moduleProperties
      */
     public $moduleProperties;
 
     /**
+     * @description The name of the configuration item.
+     *
+     * @example System disk
+     *
      * @var string
      */
     public $name;

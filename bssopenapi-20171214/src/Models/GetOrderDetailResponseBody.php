@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetOrderDetailResponseBody extends Model
 {
     /**
-     * @description The status code.
+     * @description The response code.
      *
      * @example Success
      *
@@ -19,14 +19,14 @@ class GetOrderDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example Successful!
      *
@@ -35,7 +35,7 @@ class GetOrderDetailResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D6E068C3-25BC-455A-85FE-45F0B22ECB1F
      *

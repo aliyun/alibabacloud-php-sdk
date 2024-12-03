@@ -303,7 +303,7 @@ class BssOpenApi extends OpenApiClient
     /**
      * @summary Creates a financial relationship.
      *  *
-     * @description For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html).
+     * @description For more information about a financial relationship, see <props="intl">[Usage notes on the trusteeship]( https://www.alibabacloud.com/help/doc-detail/116383.html).
      * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
      *  *
      * @param AddAccountRelationRequest $request AddAccountRelationRequest
@@ -357,7 +357,7 @@ class BssOpenApi extends OpenApiClient
     /**
      * @summary Creates a financial relationship.
      *  *
-     * @description For more information about a financial relationship, see [Financial relationships](https://help.aliyun.com/document_detail/100376.html?spm=a2c4g.11186623.6.563.52a83908ypl4yE) or [Financial relationships](https://www.alibabacloud.com/help/en/doc-detail/116383.html).
+     * @description For more information about a financial relationship, see <props="intl">[Usage notes on the trusteeship]( https://www.alibabacloud.com/help/doc-detail/116383.html).
      * If enterprise names used by the management account and a member for real-name verification are the same, you do not need to call an API operation for confirmation. Otherwise, you must call the ConfirmRelation operation for confirmation.
      *  *
      * @param AddAccountRelationRequest $request AddAccountRelationRequest
@@ -897,6 +897,9 @@ class BssOpenApi extends OpenApiClient
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
         }
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
@@ -2425,7 +2428,7 @@ class BssOpenApi extends OpenApiClient
      *  *
      * @description *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
      * *   You can query split bills that were generated within the last 12 months by calling this operation.
-     * *   You can query split bills only after you enable the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in the User Center console.
+     * *   You can query split bills only after you enable the [Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) service in the User Center console.
      *  *
      * @param DescribeSplitItemBillRequest $request DescribeSplitItemBillRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2504,7 +2507,7 @@ class BssOpenApi extends OpenApiClient
      *  *
      * @description *   The data that you query by calling this operation is the same as the data that is queried by billing cycles in the Split Bill module of Cost Allocation.
      * *   You can query split bills that were generated within the last 12 months by calling this operation.
-     * *   You can query split bills only after you enable the [Split Bill](https://usercenter2.aliyun.com/finance/split-bill) service in the User Center console.
+     * *   You can query split bills only after you enable the [Split Bill](https://usercenter2-intl.aliyun.com/finance/split-bill) service in the User Center console.
      *  *
      * @param DescribeSplitItemBillRequest $request DescribeSplitItemBillRequest
      *

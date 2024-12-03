@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
-     * @description The after-tax amount of the order.
+     * @description The aftertaxt amount of the order.
      *
      * @example 0
      *
@@ -20,12 +20,14 @@ class order extends Model
     public $afterTaxAmount;
 
     /**
+     * @description The billing information about the configurations.
+     *
      * @var billModuleConfig
      */
     public $billModuleConfig;
 
     /**
-     * @description The service code.
+     * @description The commodity code.
      *
      * @example rds
      *
@@ -52,7 +54,7 @@ class order extends Model
     public $createTime;
 
     /**
-     * @description The currency.
+     * @description The currency. Valid values: CNY, USD, and JPY.
      *
      * @example CNY
      *
@@ -61,7 +63,7 @@ class order extends Model
     public $currency;
 
     /**
-     * @description The order extension information.
+     * @description The additional information about the order.
      *
      * @var string[]
      */
@@ -77,7 +79,7 @@ class order extends Model
     public $instanceIDs;
 
     /**
-     * @description The ID of the Resource Access Management (RAM) user who performs operations on the order. If no RAM user is involved, leave this parameter blank.
+     * @description The ID of the Resource Access Management (RAM) user that performs operations on the order. If no RAM user is involved, this parameter is empty.
      *
      * @example 23424243432
      *
@@ -86,7 +88,7 @@ class order extends Model
     public $operator;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 3453425324
      *
@@ -95,10 +97,7 @@ class order extends Model
     public $orderId;
 
     /**
-     * @description The type of the suborder. Valid values:
-     *
-     *   ProductSubOrder: the service suborder
-     *   RefundSubOrder: the refund suborder
+     * @description The type of the suborder. A value of productsuborder indicates service suborder. A value of refundsuborder indicates refund suborder.
      *
      * @example ProductSubOrder
      *
@@ -107,15 +106,7 @@ class order extends Model
     public $orderSubType;
 
     /**
-     * @description The type of the order. Valid values:
-     *
-     *   New: purchases an instance.
-     *   Renew: renews an instance.
-     *   Upgrade: upgrades the configurations of an instance.
-     *   Refund: applies for a refund.
-     *   Convert: switches the billing method.
-     *   Downgrade: downgrades the configurations of an instance.
-     *   ResizeDisk: resizes the disk.
+     * @description The type of the order. Valid values: new, renew, upgrade, and refund.
      *
      * @example New
      *
@@ -124,7 +115,7 @@ class order extends Model
     public $orderType;
 
     /**
-     * @description The module information without standardized conversion.
+     * @description The configuration information that is not formatted.
      *
      * @example DBInstanceClass:[DBInstanceClass:rds.mysql.s1.small;EngineVersion:8.0;Region:cn-qingdao;]DBFlowType:[Region:cn-qingdao;]
      *
@@ -133,12 +124,14 @@ class order extends Model
     public $originalConfig;
 
     /**
+     * @description The information about the configurations.
+     *
      * @var originalModuleConfig
      */
     public $originalModuleConfig;
 
     /**
-     * @description The currency of payment.
+     * @description The currency used for payment. Valid values: CNY, USD, and JPY.
      *
      * @example CNY
      *
@@ -147,11 +140,7 @@ class order extends Model
     public $paymentCurrency;
 
     /**
-     * @description The status of payment. Valid values:
-     *
-     *   Unpaid: The order is not paid.
-     *   Paid: The order is paid.
-     *   Cancelled: The order is canceled.
+     * @description The payment state. Valid values: unpaid, paid, and canceled.
      *
      * @example Paid
      *
@@ -223,7 +212,7 @@ class order extends Model
     public $quantity;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -250,10 +239,7 @@ class order extends Model
     public $subOrderId;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   Subscription: subscription
-     *   PayAsYouGo: pay-as-you-go
+     * @description The billing method. Valid values: Subscription and PayAsYouGo.
      *
      * @example PayAsYouGo
      *

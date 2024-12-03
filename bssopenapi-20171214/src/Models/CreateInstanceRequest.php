@@ -50,6 +50,11 @@ class CreateInstanceRequest extends Model
     public $period;
 
     /**
+     * @var int
+     */
+    public $pricingCycle;
+
+    /**
      * @description The code of the service to which the instance belongs. You can query the service code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud Services**.
      *
      * This parameter is required.
@@ -109,6 +114,7 @@ class CreateInstanceRequest extends Model
         'ownerId'          => 'OwnerId',
         'parameter'        => 'Parameter',
         'period'           => 'Period',
+        'pricingCycle'     => 'PricingCycle',
         'productCode'      => 'ProductCode',
         'productType'      => 'ProductType',
         'renewPeriod'      => 'RenewPeriod',
@@ -143,6 +149,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->pricingCycle) {
+            $res['PricingCycle'] = $this->pricingCycle;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -191,6 +200,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['PricingCycle'])) {
+            $model->pricingCycle = $map['PricingCycle'];
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];

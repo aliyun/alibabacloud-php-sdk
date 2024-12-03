@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class billModuleProperties extends Model
 {
     /**
+     * @description The attribute code of the configured item.
+     *
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $attrApiCode;
 
     /**
+     * @description The API code of the configured item.
+     *
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $moduleApiCode;
 
     /**
+     * @description The attribute value of the configuration item.
+     *
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $value;

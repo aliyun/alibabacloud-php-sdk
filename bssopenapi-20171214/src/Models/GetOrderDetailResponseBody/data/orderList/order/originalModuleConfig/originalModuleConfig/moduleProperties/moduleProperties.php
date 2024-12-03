@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class moduleProperties extends Model
 {
     /**
+     * @description The attribute code of the configured item.
+     *
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The attribute name of the configured item.
+     *
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The attribute value of the configured item.
+     *
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $value;

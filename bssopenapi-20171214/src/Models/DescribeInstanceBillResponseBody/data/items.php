@@ -159,7 +159,7 @@ class items extends Model
     /**
      * @description The configurations of the instance.
      *
-     * @example CPU：12
+     * @example CPU:12
      *
      * @var string
      */
