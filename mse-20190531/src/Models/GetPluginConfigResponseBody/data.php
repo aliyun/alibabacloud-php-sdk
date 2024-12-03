@@ -172,6 +172,11 @@ class data extends Model
     public $summary;
 
     /**
+     * @var string
+     */
+    public $summaryEn;
+
+    /**
      * @description The type.
      *
      * @example 0
@@ -223,6 +228,7 @@ class data extends Model
         'routeConfigStartIndex'   => 'RouteConfigStartIndex',
         'status'                  => 'Status',
         'summary'                 => 'Summary',
+        'summaryEn'               => 'SummaryEn',
         'type'                    => 'Type',
         'version'                 => 'Version',
         'versionJson'             => 'VersionJson',
@@ -298,6 +304,9 @@ class data extends Model
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
+        }
+        if (null !== $this->summaryEn) {
+            $res['SummaryEn'] = $this->summaryEn;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -385,6 +394,9 @@ class data extends Model
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+        if (isset($map['SummaryEn'])) {
+            $model->summaryEn = $map['SummaryEn'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

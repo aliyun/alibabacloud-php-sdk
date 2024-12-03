@@ -16,6 +16,11 @@ class UpdateGatewayServiceShrinkRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var string
+     */
+    public $dnsServerListShrink;
+
+    /**
      * @example 501
      *
      * @var int
@@ -71,15 +76,16 @@ class UpdateGatewayServiceShrinkRequest extends Model
      */
     public $tlsSetting;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
-        'gatewayId'       => 'GatewayId',
-        'gatewayUniqueId' => 'GatewayUniqueId',
-        'id'              => 'Id',
-        'ipListShrink'    => 'IpList',
-        'name'            => 'Name',
-        'servicePort'     => 'ServicePort',
-        'serviceProtocol' => 'ServiceProtocol',
-        'tlsSetting'      => 'TlsSetting',
+        'acceptLanguage'      => 'AcceptLanguage',
+        'dnsServerListShrink' => 'DnsServerList',
+        'gatewayId'           => 'GatewayId',
+        'gatewayUniqueId'     => 'GatewayUniqueId',
+        'id'                  => 'Id',
+        'ipListShrink'        => 'IpList',
+        'name'                => 'Name',
+        'servicePort'         => 'ServicePort',
+        'serviceProtocol'     => 'ServiceProtocol',
+        'tlsSetting'          => 'TlsSetting',
     ];
 
     public function validate()
@@ -91,6 +97,9 @@ class UpdateGatewayServiceShrinkRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->dnsServerListShrink) {
+            $res['DnsServerList'] = $this->dnsServerListShrink;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -130,6 +139,9 @@ class UpdateGatewayServiceShrinkRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['DnsServerList'])) {
+            $model->dnsServerListShrink = $map['DnsServerList'];
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];

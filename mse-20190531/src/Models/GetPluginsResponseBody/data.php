@@ -129,6 +129,11 @@ class data extends Model
     public $summary;
 
     /**
+     * @var string
+     */
+    public $summaryEn;
+
+    /**
      * @description The version of the plug-in.
      *
      * @example v1
@@ -172,6 +177,7 @@ class data extends Model
         'publishState'             => 'PublishState',
         'status'                   => 'Status',
         'summary'                  => 'Summary',
+        'summaryEn'                => 'SummaryEn',
         'version'                  => 'Version',
         'wasmFile'                 => 'WasmFile',
         'wasmLang'                 => 'WasmLang',
@@ -222,6 +228,9 @@ class data extends Model
         }
         if (null !== $this->summary) {
             $res['Summary'] = $this->summary;
+        }
+        if (null !== $this->summaryEn) {
+            $res['SummaryEn'] = $this->summaryEn;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -282,6 +291,9 @@ class data extends Model
         }
         if (isset($map['Summary'])) {
             $model->summary = $map['Summary'];
+        }
+        if (isset($map['SummaryEn'])) {
+            $model->summaryEn = $map['SummaryEn'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

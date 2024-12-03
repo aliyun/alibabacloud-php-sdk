@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string[]
+     */
+    public $dnsServerList;
+
+    /**
      * @description The gateway ID.
      *
      * @example 1
@@ -219,6 +224,7 @@ class result extends Model
      */
     public $versions;
     protected $_name = [
+        'dnsServerList'         => 'DnsServerList',
         'gatewayId'             => 'GatewayId',
         'gatewayTrafficPolicy'  => 'GatewayTrafficPolicy',
         'gatewayUniqueId'       => 'GatewayUniqueId',
@@ -252,6 +258,9 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dnsServerList) {
+            $res['DnsServerList'] = $this->dnsServerList;
+        }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
         }
@@ -342,6 +351,11 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DnsServerList'])) {
+            if (!empty($map['DnsServerList'])) {
+                $model->dnsServerList = $map['DnsServerList'];
+            }
+        }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];
         }

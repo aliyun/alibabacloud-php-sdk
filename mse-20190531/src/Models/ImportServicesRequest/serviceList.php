@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class serviceList extends Model
 {
     /**
+     * @var string[]
+     */
+    public $dnsServerList;
+
+    /**
      * @description The group.
      *
      * @example test
@@ -60,6 +65,7 @@ class serviceList extends Model
      */
     public $serviceProtocol;
     protected $_name = [
+        'dnsServerList'   => 'DnsServerList',
         'groupName'       => 'GroupName',
         'ips'             => 'Ips',
         'name'            => 'Name',
@@ -75,6 +81,9 @@ class serviceList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dnsServerList) {
+            $res['DnsServerList'] = $this->dnsServerList;
+        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -105,6 +114,11 @@ class serviceList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DnsServerList'])) {
+            if (!empty($map['DnsServerList'])) {
+                $model->dnsServerList = $map['DnsServerList'];
+            }
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

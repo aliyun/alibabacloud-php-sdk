@@ -16,6 +16,11 @@ class UpdateGatewayServiceRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @var string[]
+     */
+    public $dnsServerList;
+
+    /**
      * @example 501
      *
      * @var int
@@ -72,6 +77,7 @@ class UpdateGatewayServiceRequest extends Model
     public $tlsSetting;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
+        'dnsServerList'   => 'DnsServerList',
         'gatewayId'       => 'GatewayId',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
@@ -91,6 +97,9 @@ class UpdateGatewayServiceRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->dnsServerList) {
+            $res['DnsServerList'] = $this->dnsServerList;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -130,6 +139,11 @@ class UpdateGatewayServiceRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['DnsServerList'])) {
+            if (!empty($map['DnsServerList'])) {
+                $model->dnsServerList = $map['DnsServerList'];
+            }
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];

@@ -14146,12 +14146,18 @@ class Mse extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateGatewayServiceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dnsServerList)) {
+            $request->dnsServerListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dnsServerList, 'DnsServerList', 'json');
+        }
         if (!Utils::isUnset($tmpReq->ipList)) {
             $request->ipListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipList, 'IpList', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->dnsServerListShrink)) {
+            $query['DnsServerList'] = $request->dnsServerListShrink;
         }
         if (!Utils::isUnset($request->gatewayId)) {
             $query['GatewayId'] = $request->gatewayId;
