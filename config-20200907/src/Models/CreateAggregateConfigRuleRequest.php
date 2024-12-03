@@ -113,6 +113,11 @@ class CreateAggregateConfigRuleRequest extends Model
     public $excludeTagsScope;
 
     /**
+     * @var string
+     */
+    public $extendContent;
+
+    /**
      * @description The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
      *
      * >
@@ -276,6 +281,7 @@ class CreateAggregateConfigRuleRequest extends Model
         'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
         'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
         'excludeTagsScope'             => 'ExcludeTagsScope',
+        'extendContent'                => 'ExtendContent',
         'folderIdsScope'               => 'FolderIdsScope',
         'inputParameters'              => 'InputParameters',
         'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
@@ -340,6 +346,9 @@ class CreateAggregateConfigRuleRequest extends Model
                     $res['ExcludeTagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->extendContent) {
+            $res['ExtendContent'] = $this->extendContent;
         }
         if (null !== $this->folderIdsScope) {
             $res['FolderIdsScope'] = $this->folderIdsScope;
@@ -442,6 +451,9 @@ class CreateAggregateConfigRuleRequest extends Model
                     $model->excludeTagsScope[$n++] = null !== $item ? excludeTagsScope::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ExtendContent'])) {
+            $model->extendContent = $map['ExtendContent'];
         }
         if (isset($map['FolderIdsScope'])) {
             $model->folderIdsScope = $map['FolderIdsScope'];

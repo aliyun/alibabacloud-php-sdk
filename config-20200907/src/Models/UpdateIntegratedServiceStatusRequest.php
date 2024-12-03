@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateIntegratedServiceStatusRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $aggregatorDeliveryDataType;
+
+    /**
      * @description The types of the integrated events. Separate multiple event types with commas (,). Valid values:
      *
      *   ConfigurationItemChangeNotification: resource change event
@@ -47,9 +52,10 @@ class UpdateIntegratedServiceStatusRequest extends Model
      */
     public $status;
     protected $_name = [
-        'integratedTypes' => 'IntegratedTypes',
-        'serviceCode'     => 'ServiceCode',
-        'status'          => 'Status',
+        'aggregatorDeliveryDataType' => 'AggregatorDeliveryDataType',
+        'integratedTypes'            => 'IntegratedTypes',
+        'serviceCode'                => 'ServiceCode',
+        'status'                     => 'Status',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class UpdateIntegratedServiceStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregatorDeliveryDataType) {
+            $res['AggregatorDeliveryDataType'] = $this->aggregatorDeliveryDataType;
+        }
         if (null !== $this->integratedTypes) {
             $res['IntegratedTypes'] = $this->integratedTypes;
         }
@@ -80,6 +89,9 @@ class UpdateIntegratedServiceStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregatorDeliveryDataType'])) {
+            $model->aggregatorDeliveryDataType = $map['AggregatorDeliveryDataType'];
+        }
         if (isset($map['IntegratedTypes'])) {
             $model->integratedTypes = $map['IntegratedTypes'];
         }

@@ -1029,6 +1029,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->excludeTagsScope)) {
             $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
+        if (!Utils::isUnset($request->extendContent)) {
+            $body['ExtendContent'] = $request->extendContent;
+        }
         if (!Utils::isUnset($request->folderIdsScope)) {
             $body['FolderIdsScope'] = $request->folderIdsScope;
         }
@@ -1506,6 +1509,9 @@ class Config extends OpenApiClient
         $bodyFlat = [];
         if (!Utils::isUnset($request->excludeTagsScope)) {
             $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
+        }
+        if (!Utils::isUnset($request->extendContent)) {
+            $body['ExtendContent'] = $request->extendContent;
         }
         if (!Utils::isUnset($request->inputParametersShrink)) {
             $body['InputParameters'] = $request->inputParametersShrink;
@@ -6010,7 +6016,7 @@ class Config extends OpenApiClient
     /**
      * @summary Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
      *  *
-     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema]
+     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see[ Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema)
      * >
      * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
      * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -6052,7 +6058,7 @@ class Config extends OpenApiClient
     /**
      * @summary Obtains resources in a specific account group based on the fields in the resource properties by using a SELECT statement.
      *  *
-     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema]
+     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see[ Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema)
      * >
      * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
      * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -7011,7 +7017,7 @@ class Config extends OpenApiClient
     /**
      * @summary Obtains resources based on the fields in the resource properties by using a SELECT statement.
      *  *
-     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema].
+     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema).
      * >
      * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
      * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -7050,7 +7056,7 @@ class Config extends OpenApiClient
     /**
      * @summary Obtains resources based on the fields in the resource properties by using a SELECT statement.
      *  *
-     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema].
+     * @description When you write a `SELECT` statement, you must obtain the fields and the data types of the fields from the property file of the resource type. For more information about property files, see [Alibaba Cloud Config Resource Schema](https://github.com/aliyun/alibabacloud-config-resource-schema).
      * >
      * *   Each resource type supported by Cloud Config has a property file. Property files are named based on the related resource types. For example, the property file of the `ACS::ECS::Instance` resource type is named `ACS_ECS_Instance.properties.json`. Property files of different resource types are placed under the `config/properties/resource-types` path.
      * *   For more information about the examples and limits on SQL query statements, see [Examples of SQL query statements](https://help.aliyun.com/document_detail/398718.html) and [Limits on SQL query statements](https://help.aliyun.com/document_detail/398750.html).
@@ -8510,6 +8516,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->excludeTagsScope)) {
             $bodyFlat['ExcludeTagsScope'] = $request->excludeTagsScope;
         }
+        if (!Utils::isUnset($request->extendContent)) {
+            $body['ExtendContent'] = $request->extendContent;
+        }
         if (!Utils::isUnset($request->inputParametersShrink)) {
             $body['InputParameters'] = $request->inputParametersShrink;
         }
@@ -8733,6 +8742,9 @@ class Config extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->aggregatorDeliveryDataType)) {
+            $body['AggregatorDeliveryDataType'] = $request->aggregatorDeliveryDataType;
+        }
         if (!Utils::isUnset($request->integratedTypes)) {
             $body['IntegratedTypes'] = $request->integratedTypes;
         }

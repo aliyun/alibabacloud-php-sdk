@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetIntegratedServiceStatusResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $aggregatorDeliveryDataType;
+
+    /**
      * @description Indicates whether the product has been integrated. Valid values:
      *
      *   true
@@ -41,9 +46,10 @@ class GetIntegratedServiceStatusResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'data'            => 'Data',
-        'integratedTypes' => 'IntegratedTypes',
-        'requestId'       => 'RequestId',
+        'aggregatorDeliveryDataType' => 'AggregatorDeliveryDataType',
+        'data'                       => 'Data',
+        'integratedTypes'            => 'IntegratedTypes',
+        'requestId'                  => 'RequestId',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class GetIntegratedServiceStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aggregatorDeliveryDataType) {
+            $res['AggregatorDeliveryDataType'] = $this->aggregatorDeliveryDataType;
+        }
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
@@ -74,6 +83,9 @@ class GetIntegratedServiceStatusResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AggregatorDeliveryDataType'])) {
+            $model->aggregatorDeliveryDataType = $map['AggregatorDeliveryDataType'];
+        }
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }

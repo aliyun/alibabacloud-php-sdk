@@ -73,6 +73,11 @@ class CreateConfigRuleShrinkRequest extends Model
     public $excludeTagsScope;
 
     /**
+     * @var string
+     */
+    public $extendContent;
+
+    /**
      * @description The input parameter of the rule.
      *
      * @example {"tag1Key":"ECS","tag1Value":"test"}
@@ -217,6 +222,7 @@ class CreateConfigRuleShrinkRequest extends Model
         'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
         'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
         'excludeTagsScope'             => 'ExcludeTagsScope',
+        'extendContent'                => 'ExtendContent',
         'inputParametersShrink'        => 'InputParameters',
         'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
         'regionIdsScope'               => 'RegionIdsScope',
@@ -268,6 +274,9 @@ class CreateConfigRuleShrinkRequest extends Model
                     $res['ExcludeTagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->extendContent) {
+            $res['ExtendContent'] = $this->extendContent;
         }
         if (null !== $this->inputParametersShrink) {
             $res['InputParameters'] = $this->inputParametersShrink;
@@ -355,6 +364,9 @@ class CreateConfigRuleShrinkRequest extends Model
                     $model->excludeTagsScope[$n++] = null !== $item ? excludeTagsScope::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ExtendContent'])) {
+            $model->extendContent = $map['ExtendContent'];
         }
         if (isset($map['InputParameters'])) {
             $model->inputParametersShrink = $map['InputParameters'];

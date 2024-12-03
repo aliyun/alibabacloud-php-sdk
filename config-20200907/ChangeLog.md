@@ -1,3 +1,15 @@
+2024-12-03 Version: 3.0.9
+- Update API CreateAggregateConfigRule: add param ExtendContent.
+- Update API CreateConfigRule: add param ExtendContent.
+- Update API GetAggregateConfigRule: update response param.
+- Update API GetAggregator: update response param.
+- Update API GetConfigRule: update response param.
+- Update API GetIntegratedServiceStatus: update response param.
+- Update API ListIntegratedService: update response param.
+- Update API UpdateConfigRule: add param ExtendContent.
+- Update API UpdateIntegratedServiceStatus: add param AggregatorDeliveryDataType.
+
+
 2024-08-29 Version: 3.0.8
 - Update API ListAggregateDiscoveredResources: add param EndUpdateTimestamp.
 - Update API ListAggregateDiscoveredResources: add param ExcludeResourceTypes.

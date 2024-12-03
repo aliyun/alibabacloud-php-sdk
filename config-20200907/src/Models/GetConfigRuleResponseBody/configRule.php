@@ -138,6 +138,11 @@ class configRule extends Model
     public $excludeTagsScope;
 
     /**
+     * @var string
+     */
+    public $extendContent;
+
+    /**
      * @description The input parameters of the rule.
      *
      * @var mixed[]
@@ -285,6 +290,7 @@ class configRule extends Model
         'excludeResourceGroupIdsScope' => 'ExcludeResourceGroupIdsScope',
         'excludeResourceIdsScope'      => 'ExcludeResourceIdsScope',
         'excludeTagsScope'             => 'ExcludeTagsScope',
+        'extendContent'                => 'ExtendContent',
         'inputParameters'              => 'InputParameters',
         'managedRule'                  => 'ManagedRule',
         'maximumExecutionFrequency'    => 'MaximumExecutionFrequency',
@@ -359,6 +365,9 @@ class configRule extends Model
                     $res['ExcludeTagsScope'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->extendContent) {
+            $res['ExtendContent'] = $this->extendContent;
         }
         if (null !== $this->inputParameters) {
             $res['InputParameters'] = $this->inputParameters;
@@ -473,6 +482,9 @@ class configRule extends Model
                     $model->excludeTagsScope[$n++] = null !== $item ? excludeTagsScope::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ExtendContent'])) {
+            $model->extendContent = $map['ExtendContent'];
         }
         if (isset($map['InputParameters'])) {
             $model->inputParameters = $map['InputParameters'];
