@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListInstancesRequest extends Model
+class ListInstancesShrinkRequest extends Model
 {
     /**
      * @description The name of the instance. Fuzzy search is supported.
@@ -20,9 +20,9 @@ class ListInstancesRequest extends Model
     /**
      * @description The names of the instances. This parameter is used to specify multiple instances that you want to query at the same time.
      *
-     * @var string[]
+     * @var string
      */
-    public $instanceNameList;
+    public $instanceNameListShrink;
 
     /**
      * @description The maximum number of instances that you want to return. Valid values: 0 to 200. If you do not configure this parameter or set this parameter to 0, the default value of 100 is used.
@@ -64,12 +64,12 @@ class ListInstancesRequest extends Model
      */
     public $status;
     protected $_name = [
-        'instanceName'     => 'InstanceName',
-        'instanceNameList' => 'InstanceNameList',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'status'           => 'Status',
+        'instanceName'           => 'InstanceName',
+        'instanceNameListShrink' => 'InstanceNameList',
+        'maxResults'             => 'MaxResults',
+        'nextToken'              => 'NextToken',
+        'resourceGroupId'        => 'ResourceGroupId',
+        'status'                 => 'Status',
     ];
 
     public function validate()
@@ -82,8 +82,8 @@ class ListInstancesRequest extends Model
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->instanceNameList) {
-            $res['InstanceNameList'] = $this->instanceNameList;
+        if (null !== $this->instanceNameListShrink) {
+            $res['InstanceNameList'] = $this->instanceNameListShrink;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -104,7 +104,7 @@ class ListInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListInstancesRequest
+     * @return ListInstancesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -113,9 +113,7 @@ class ListInstancesRequest extends Model
             $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['InstanceNameList'])) {
-            if (!empty($map['InstanceNameList'])) {
-                $model->instanceNameList = $map['InstanceNameList'];
-            }
+            $model->instanceNameListShrink = $map['InstanceNameList'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

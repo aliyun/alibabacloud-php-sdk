@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceRequest extends Model
 {
     /**
+     * @description The alias of the instance.
+     *
+     * @example instance-test
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example the test instance
+     *
      * @var string
      */
     public $instanceDescription;
 
     /**
+     * @description The name of the instance whose information you want to update.
+     *
+     * This parameter is required.
+     * @example instance-test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description (Deprecated) The network type of the instance. Valid values: NORMAL and VPC_CONSOLE. Default value: NORMAL.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $network;
 
     /**
+     * @description The new sources of the network from which access is allowed. By default, all sources of networks are allowed. Valid value:
+     *
+     * TRUST_PROXY: the console
      * @var string[]
      */
     public $networkSourceACL;
 
     /**
+     * @description The new types of the network from which access is allowed. By default, all types of networks are allowed. Valid values:
+     *
+     *   INTERNET: the Internet
+     *   VPC: VPCs
+     *   CLASSIC: the classic network
+     *
      * @var string[]
      */
     public $networkTypeACL;

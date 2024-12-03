@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the new resource group.
+     *
+     * This parameter is required.
+     * @example rg-aek3bgek3kxhyky
+     *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
+     * @description The resource ID, which is the instance name.
+     *
+     * This parameter is required.
+     * @example first-ins
+     *
      * @var string
      */
     public $resourceId;

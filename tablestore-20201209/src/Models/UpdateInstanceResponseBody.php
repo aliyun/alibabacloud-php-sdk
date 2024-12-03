@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID, which can be used to troubleshoot issues.
+     *
+     * @example 3104C83E-6E82-57FB-BB88-8C64CCFDEF89
+     *
      * @var string
      */
     public $requestId;

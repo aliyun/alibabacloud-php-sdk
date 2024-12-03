@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateInstanceResponseBody extends Model
+class CheckInstancePolicyResponseBody extends Model
 {
     /**
      * @description The HTTP status code.
      *
-     * @example 200
+     * @example OK
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class CreateInstanceResponseBody extends Model
     /**
      * @description The response message.
      *
-     * @example success
+     * @example Verification passed.
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class CreateInstanceResponseBody extends Model
     /**
      * @description The request ID, which can be used to troubleshoot issues.
      *
-     * @example 39871ED2-62C0-578F-A32E-B88072D5582F
+     * @example 757E172A-F94B-5E78-8A23-D9068E42F2E9
      *
      * @var string
      */
@@ -63,7 +63,7 @@ class CreateInstanceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateInstanceResponseBody
+     * @return CheckInstancePolicyResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
+     * @description The instances.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The token that determines the start position of the next query. If this parameter is empty, all instances that you want to query are returned.
+     *
+     * @example CAESCG15aC1xxxxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID, which can be used to troubleshoot issues.
+     *
+     * @example E734979F-5A44-5993-9CE5-C23103576923
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of instances returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

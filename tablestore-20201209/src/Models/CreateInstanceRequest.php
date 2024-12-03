@@ -10,52 +10,104 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @example SSD vs HYBRID
+     * @description The type of the instance.
+     *
+     *   SSD: high-performance instance
+     *   HYBRID: capacity instance
+     *
+     * This parameter is required.
+     * @example SSD
      *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description (Deprecated) Specifies whether to enable disaster recovery for the instance.
+     *
+     * Valid values:
+     *
+     *   false
+     *   true
+     *
+     * @example false
+     *
      * @var bool
      */
     public $disableReplication;
 
     /**
-     * @example 实例描述
+     * @description The description of the instance. The instance description must be 3 to 256 characters in length.
+     *
+     * @example the test instance
      *
      * @var string
      */
     public $instanceDescription;
 
     /**
-     * @example first-ins
+     * @description The name of the instance. Instance naming conventions:
+     *
+     *   The name can contain only letters, digits, and hyphens (-).
+     *   The name must start with a letter.
+     *   The name cannot end with a hyphen (-).
+     *   The name is case-insensitive.
+     *   The name must be 3 to 16 characters in length.
+     *   The name cannot contain the following words: ali, ay, ots, taobao, and admin.
+     *
+     * This parameter is required.
+     * @example instance-test
      *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description (Deprecated) The network type of the instance. Valid values: NORMAL and VPC_CONSOLE. Default value: NORMAL.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $network;
 
     /**
+     * @description The types of the source from which access is allowed. By default, the following source type is allowed:
+     *
+     * TRUST_PROXY: console
      * @var string[]
      */
     public $networkSourceACL;
 
     /**
+     * @description The types of the network from which access is allowed. By default, the following network types are allowed:
+     *
+     *   INTERNET: Internet
+     *   VPC: virtual private cloud (VPC)
+     *   CLASSIC: classic network
+     *
      * @var string[]
      */
     public $networkTypeACL;
 
     /**
+     * @description The instance policy in the JSON format.
+     *
+     * @example {
+     * "Action": [
+     * "ots:*"
+     * "Resource": [
+     * "acs:ots:*:13791xxxxxxxxxxx:instance/myinstance*"
+     * "Principal": [
+     * "*"
+     * }
      * @var string
      */
     public $policy;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-acfmxh4em5jnbcd
      *
      * @var string
@@ -63,6 +115,8 @@ class CreateInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;

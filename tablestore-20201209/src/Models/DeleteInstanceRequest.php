@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
+     * @description The name of the instance.
+     *
+     * This parameter is required.
+     * @example instance-test
+     *
      * @var string
      */
     public $instanceName;

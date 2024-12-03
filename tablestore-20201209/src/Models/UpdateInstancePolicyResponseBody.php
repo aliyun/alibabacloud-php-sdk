@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateInstanceResponseBody extends Model
+class UpdateInstancePolicyResponseBody extends Model
 {
     /**
      * @description The HTTP status code.
@@ -29,7 +29,7 @@ class CreateInstanceResponseBody extends Model
     /**
      * @description The request ID, which can be used to troubleshoot issues.
      *
-     * @example 39871ED2-62C0-578F-A32E-B88072D5582F
+     * @example 31D8120C-AC52-5CA9-BE4A-E4C6316E19AD
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class CreateInstanceResponseBody extends Model
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -54,7 +54,7 @@ class CreateInstanceResponseBody extends Model
             $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,7 +63,7 @@ class CreateInstanceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateInstanceResponseBody
+     * @return UpdateInstancePolicyResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -74,8 +74,8 @@ class CreateInstanceResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

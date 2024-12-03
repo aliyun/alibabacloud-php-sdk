@@ -6,19 +6,18 @@ namespace AlibabaCloud\SDK\Tablestore\V20201209\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetInstanceRequest extends Model
+class UpdateInstanceElasticVCUUpperLimitResponseBody extends Model
 {
     /**
-     * @description The name of the instance.
+     * @description The request ID, which can be used to troubleshoot issues.
      *
-     * This parameter is required.
-     * @example instance-test
+     * @example B37BBA04-D827-55C8-B901-5264B904E8C6
      *
      * @var string
      */
-    public $instanceName;
+    public $requestId;
     protected $_name = [
-        'instanceName' => 'InstanceName',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -28,8 +27,8 @@ class GetInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceName) {
-            $res['InstanceName'] = $this->instanceName;
+        if (null !== $this->requestId) {
+            $res['requestId'] = $this->requestId;
         }
 
         return $res;
@@ -38,13 +37,13 @@ class GetInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetInstanceRequest
+     * @return UpdateInstanceElasticVCUUpperLimitResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceName'])) {
-            $model->instanceName = $map['InstanceName'];
+        if (isset($map['requestId'])) {
+            $model->requestId = $map['requestId'];
         }
 
         return $model;

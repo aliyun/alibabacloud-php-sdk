@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The resource IDs, which are instance names.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @description The type of the resource. valid value:
+     *
+     * This parameter is required.
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
+     * This parameter is required.
      * @var tags[]
      */
     public $tags;

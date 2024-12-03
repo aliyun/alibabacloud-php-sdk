@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The maximum number of tagged resources that are returned for the query.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example CAESCG15aC1xxxxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The tags.
+     *
      * @var tagResources[]
      */
     public $tagResources;
 
     /**
+     * @description The request ID, which can be used to troubleshoot issues.
+     *
+     * @example 31D8120C-AC52-5CA9-BE4A-E4C6316E19AD
+     *
      * @var string
      */
     public $requestId;

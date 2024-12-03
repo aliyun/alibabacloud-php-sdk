@@ -8,8 +8,12 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\CheckInstancePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\CreateInstanceResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstancePolicyRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstancePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\DescribeRegionsRequest;
@@ -18,6 +22,7 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\ListTagResourcesShrinkRequest;
@@ -25,6 +30,10 @@ use AlibabaCloud\SDK\Tablestore\V20201209\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceElasticVCUUpperLimitRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceElasticVCUUpperLimitResponse;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstancePolicyRequest;
+use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstancePolicyResponse;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Tablestore\V20201209\Models\UpdateInstanceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -67,11 +76,13 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @summary Changes the resource group to which an instance belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $headers, $runtime)
     {
@@ -103,9 +114,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary Changes the resource group to which an instance belongs.
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -116,11 +129,70 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Checks the validity of a Resource Access Management (RAM) policy for an instance.
+     *  *
+     * @param CheckInstancePolicyRequest $request CheckInstancePolicyRequest
+     * @param string[]                   $headers map
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceResponse
+     * @return CheckInstancePolicyResponse CheckInstancePolicyResponse
+     */
+    public function checkInstancePolicyWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckInstancePolicy',
+            'version'     => '2020-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/openapi/checkinstancepolicy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Checks the validity of a Resource Access Management (RAM) policy for an instance.
+     *  *
+     * @param CheckInstancePolicyRequest $request CheckInstancePolicyRequest
+     *
+     * @return CheckInstancePolicyResponse CheckInstancePolicyResponse
+     */
+    public function checkInstancePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkInstancePolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Creates an instance.
+     *  *
+     * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * *   Each Alibaba Cloud account can create up to 10 instances. The name of an instance must be unique within the region in which the instance resides.
+     * *   After you create an instance, you cannot change the type of the instance. Proceed with caution.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $headers, $runtime)
     {
@@ -176,9 +248,15 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @summary Creates an instance.
+     *  *
+     * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * *   Each Alibaba Cloud account can create up to 10 instances. The name of an instance must be unique within the region in which the instance resides.
+     * *   After you create an instance, you cannot change the type of the instance. Proceed with caution.
+     *  *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -189,11 +267,17 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Deletes an instance.
+     *  *
+     * @description *   Before you delete an instance, make sure that all data tables and time series tables in the instance are deleted and virtual private clouds (VPCs) are unbound from the instance.
+     * *   To prevent conflicts, do not create an instance that has the same name as the instance that is being deleted.
+     * *   After an instance is deleted, the instance becomes unavailable and the tables, table data, and related indexes in the instance cannot be recovered. Proceed with caution.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $headers, $runtime)
     {
@@ -222,9 +306,15 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
+     * @summary Deletes an instance.
+     *  *
+     * @description *   Before you delete an instance, make sure that all data tables and time series tables in the instance are deleted and virtual private clouds (VPCs) are unbound from the instance.
+     * *   To prevent conflicts, do not create an instance that has the same name as the instance that is being deleted.
+     * *   After an instance is deleted, the instance becomes unavailable and the tables, table data, and related indexes in the instance cannot be recovered. Proceed with caution.
+     *  *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -235,11 +325,72 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @summary Deletes a Resource Access Management (RAM) policy of an instance.
+     *  *
+     * @description *   You cannot recover a deleted instance policy. Proceed with caution.
+     * *   After you delete an instance policy, the access control that is specified by the instance policy becomes invalid. Make sure that your instance is in a secure environment.
+     *  *
+     * @param DeleteInstancePolicyRequest $request DeleteInstancePolicyRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DeleteInstancePolicyResponse DeleteInstancePolicyResponse
+     */
+    public function deleteInstancePolicyWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->policyVersion)) {
+            $body['PolicyVersion'] = $request->policyVersion;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstancePolicy',
+            'version'     => '2020-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/openapi/deleteinstancepolicy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a Resource Access Management (RAM) policy of an instance.
+     *  *
+     * @description *   You cannot recover a deleted instance policy. Proceed with caution.
+     * *   After you delete an instance policy, the access control that is specified by the instance policy becomes invalid. Make sure that your instance is in a secure environment.
+     *  *
+     * @param DeleteInstancePolicyRequest $request DeleteInstancePolicyRequest
+     *
+     * @return DeleteInstancePolicyResponse DeleteInstancePolicyResponse
+     */
+    public function deleteInstancePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteInstancePolicyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Queries supported regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $headers, $runtime)
     {
@@ -268,9 +419,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary Queries supported regions.
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -281,11 +434,13 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * @summary Queries instance information.
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstanceWithOptions($request, $headers, $runtime)
     {
@@ -314,9 +469,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param GetInstanceRequest $request
+     * @summary Queries instance information.
+     *  *
+     * @param GetInstanceRequest $request GetInstanceRequest
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceResponse GetInstanceResponse
      */
     public function getInstance($request)
     {
@@ -327,18 +484,28 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * @summary Queries instances.
+     *  *
+     * @param ListInstancesRequest $tmpReq  ListInstancesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
-    public function listInstancesWithOptions($request, $headers, $runtime)
+    public function listInstancesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceNameList)) {
+            $request->instanceNameListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceNameList, 'InstanceNameList', 'simple');
+        }
         $query = [];
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceNameListShrink)) {
+            $query['InstanceNameList'] = $request->instanceNameListShrink;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -372,9 +539,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @summary Queries instances.
+     *  *
+     * @param ListInstancesRequest $request ListInstancesRequest
      *
-     * @return ListInstancesResponse
+     * @return ListInstancesResponse ListInstancesResponse
      */
     public function listInstances($request)
     {
@@ -385,11 +554,13 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $tmpReq
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @summary Queries tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $tmpReq  ListTagResourcesRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
@@ -438,9 +609,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary Queries tagged resources.
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -451,11 +624,13 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @summary Adds tags to instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -490,9 +665,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary Adds tags to instances.
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -503,11 +680,15 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Removes tags from resources.
+     *  *
+     * @description Removing tags from resources helps simplify resource management, optimize system performance, and mitigate potential security vulnerabilities. After a tag is removed from a resource, the system automatically deletes the tag if the tag is not added to other resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $headers, $runtime)
     {
@@ -545,9 +726,13 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary Removes tags from resources.
+     *  *
+     * @description Removing tags from resources helps simplify resource management, optimize system performance, and mitigate potential security vulnerabilities. After a tag is removed from a resource, the system automatically deletes the tag if the tag is not added to other resources.
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -558,11 +743,13 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @summary Updates instance information.
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $headers, $runtime)
     {
@@ -606,9 +793,11 @@ class Tablestore extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
+     * @summary Updates instance information.
+     *  *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -616,5 +805,122 @@ class Tablestore extends OpenApiClient
         $headers = [];
 
         return $this->updateInstanceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
+     *  *
+     * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+     * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+     *  *
+     * @param UpdateInstanceElasticVCUUpperLimitRequest $request UpdateInstanceElasticVCUUpperLimitRequest
+     * @param string[]                                  $headers map
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateInstanceElasticVCUUpperLimitResponse UpdateInstanceElasticVCUUpperLimitResponse
+     */
+    public function updateInstanceElasticVCUUpperLimitWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->elasticVCUUpperLimit)) {
+            $body['ElasticVCUUpperLimit'] = $request->elasticVCUUpperLimit;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstanceElasticVCUUpperLimit',
+            'version'     => '2020-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/openapi/updateinstanceelasticvcuupperlimit',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateInstanceElasticVCUUpperLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the upper limit for the VCUs of an instance in VCU mode (formerly reserved mode).
+     *  *
+     * @description *   **Before you call this operation, you must understand the billing and pricing of Tablestore. For more information, see [Billing overview](https://help.aliyun.com/document_detail/27291.html).**
+     * *   After you enable scalability for an instance, the default upper limit for the VCUs of the instance is the sum of the scalability and the reserved VCUs.
+     * *   To use more computing resources when your business grows, you can modify the upper limit for the VCUs of your instance. The new upper limit for the VCUs of your instance immediately takes effect.
+     *  *
+     * @param UpdateInstanceElasticVCUUpperLimitRequest $request UpdateInstanceElasticVCUUpperLimitRequest
+     *
+     * @return UpdateInstanceElasticVCUUpperLimitResponse UpdateInstanceElasticVCUUpperLimitResponse
+     */
+    public function updateInstanceElasticVCUUpperLimit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateInstanceElasticVCUUpperLimitWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary Modifies a Resource Access Management (RAM) policy for an instance.
+     *  *
+     * @param UpdateInstancePolicyRequest $request UpdateInstancePolicyRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateInstancePolicyResponse UpdateInstancePolicyResponse
+     */
+    public function updateInstancePolicyWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->policy)) {
+            $body['Policy'] = $request->policy;
+        }
+        if (!Utils::isUnset($request->policyVersion)) {
+            $body['PolicyVersion'] = $request->policyVersion;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateInstancePolicy',
+            'version'     => '2020-12-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/openapi/updateinstancepolicy',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateInstancePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies a Resource Access Management (RAM) policy for an instance.
+     *  *
+     * @param UpdateInstancePolicyRequest $request UpdateInstancePolicyRequest
+     *
+     * @return UpdateInstancePolicyResponse UpdateInstancePolicyResponse
+     */
+    public function updateInstancePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateInstancePolicyWithOptions($request, $headers, $runtime);
     }
 }
