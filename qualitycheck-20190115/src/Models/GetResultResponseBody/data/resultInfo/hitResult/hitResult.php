@@ -54,6 +54,11 @@ class hitResult extends Model
     public $schemeVersion;
 
     /**
+     * @var int
+     */
+    public $score;
+
+    /**
      * @var string
      */
     public $type;
@@ -65,6 +70,7 @@ class hitResult extends Model
         'rid'           => 'Rid',
         'schemeId'      => 'SchemeId',
         'schemeVersion' => 'SchemeVersion',
+        'score'         => 'Score',
         'type'          => 'Type',
     ];
 
@@ -95,6 +101,9 @@ class hitResult extends Model
         }
         if (null !== $this->schemeVersion) {
             $res['SchemeVersion'] = $this->schemeVersion;
+        }
+        if (null !== $this->score) {
+            $res['Score'] = $this->score;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -131,6 +140,9 @@ class hitResult extends Model
         }
         if (isset($map['SchemeVersion'])) {
             $model->schemeVersion = $map['SchemeVersion'];
+        }
+        if (isset($map['Score'])) {
+            $model->score = $map['Score'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -180,6 +180,11 @@ class resultInfo extends Model
      * @var string
      */
     public $taskName;
+
+    /**
+     * @var string
+     */
+    public $vid;
     protected $_name = [
         'agent'             => 'Agent',
         'asrResult'         => 'AsrResult',
@@ -207,6 +212,7 @@ class resultInfo extends Model
         'status'            => 'Status',
         'taskId'            => 'TaskId',
         'taskName'          => 'TaskName',
+        'vid'               => 'Vid',
     ];
 
     public function validate()
@@ -293,6 +299,9 @@ class resultInfo extends Model
         }
         if (null !== $this->taskName) {
             $res['TaskName'] = $this->taskName;
+        }
+        if (null !== $this->vid) {
+            $res['Vid'] = $this->vid;
         }
 
         return $res;
@@ -383,6 +392,9 @@ class resultInfo extends Model
         }
         if (isset($map['TaskName'])) {
             $model->taskName = $map['TaskName'];
+        }
+        if (isset($map['Vid'])) {
+            $model->vid = $map['Vid'];
         }
 
         return $model;

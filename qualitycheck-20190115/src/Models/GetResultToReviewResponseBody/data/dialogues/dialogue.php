@@ -23,6 +23,11 @@ class dialogue extends Model
     public $beginTime;
 
     /**
+     * @var int
+     */
+    public $beginTimeMs;
+
+    /**
      * @example 7
      *
      * @var int
@@ -74,6 +79,7 @@ class dialogue extends Model
     protected $_name = [
         'begin'           => 'Begin',
         'beginTime'       => 'BeginTime',
+        'beginTimeMs'     => 'BeginTimeMs',
         'emotionValue'    => 'EmotionValue',
         'end'             => 'End',
         'hourMinSec'      => 'HourMinSec',
@@ -96,6 +102,9 @@ class dialogue extends Model
         }
         if (null !== $this->beginTime) {
             $res['BeginTime'] = $this->beginTime;
+        }
+        if (null !== $this->beginTimeMs) {
+            $res['BeginTimeMs'] = $this->beginTimeMs;
         }
         if (null !== $this->emotionValue) {
             $res['EmotionValue'] = $this->emotionValue;
@@ -138,6 +147,9 @@ class dialogue extends Model
         }
         if (isset($map['BeginTime'])) {
             $model->beginTime = $map['BeginTime'];
+        }
+        if (isset($map['BeginTimeMs'])) {
+            $model->beginTimeMs = $map['BeginTimeMs'];
         }
         if (isset($map['EmotionValue'])) {
             $model->emotionValue = $map['EmotionValue'];
