@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class jobSpec extends Model
 {
     /**
-     * @description 数组作业ID。
+     * @description The array job ID.
      *
      * @example 4
      *
@@ -19,7 +19,7 @@ class jobSpec extends Model
     public $arrayJobId;
 
     /**
-     * @description 数组子作业ID。
+     * @description The ID of the job in the array.
      *
      * @example 1
      *

@@ -38,9 +38,9 @@ class ListAvailableImagesRequest extends Model
     /**
      * @description The image source. Valid values:
      *
-     *   system: system images
-     *   self: custom images
-     *   others: shared images
+     *   system: system image.
+     *   self: custom image.
+     *   others: shared image.
      *
      * @example self
      *
@@ -49,8 +49,9 @@ class ListAvailableImagesRequest extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The instance type for which you want to query available images. If you do not specify the instance type, all available images are returned, regardless of the supported instance types.
+     * @description The instance type.
      *
+     * >  By default, if you do not specify an instance type, the list of images that are supported by all instance types are queried. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
      * @example ecs.c7.large
      *
      * @var string
@@ -60,8 +61,8 @@ class ListAvailableImagesRequest extends Model
     /**
      * @description Specifies whether to return published community images. Valid values:
      *
-     *   true: returns published community images. If you set the value of this parameter to true, the ImageOwnerAlias parameter must be set to others.
-     *   false: returns non-community images. The value of the ImageOwnerAlias parameter prevails.
+     *   true: returns published community images. If you set the value of this parameter to `true`, the `ImageOwnerAlias` parameter must be set to `others`.
+     *   false: returns non-community images. The value of the `ImageOwnerAlias` parameter prevails.
      *
      * Default value: false.
      * @example true

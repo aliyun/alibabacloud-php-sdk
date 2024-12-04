@@ -19,6 +19,11 @@ class nodes extends Model
     public $addTime;
 
     /**
+     * @var string
+     */
+    public $deploymentSetId;
+
+    /**
      * @description The time when the node expires.
      *
      * @example 2020-06-09T06:22:02.000Z
@@ -185,6 +190,7 @@ class nodes extends Model
     public $zoneId;
     protected $_name = [
         'addTime'         => 'AddTime',
+        'deploymentSetId' => 'DeploymentSetId',
         'expiredTime'     => 'ExpiredTime',
         'hostname'        => 'Hostname',
         'htEnabled'       => 'HtEnabled',
@@ -213,6 +219,9 @@ class nodes extends Model
         $res = [];
         if (null !== $this->addTime) {
             $res['AddTime'] = $this->addTime;
+        }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
@@ -279,6 +288,9 @@ class nodes extends Model
         $model = new self();
         if (isset($map['AddTime'])) {
             $model->addTime = $map['AddTime'];
+        }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];

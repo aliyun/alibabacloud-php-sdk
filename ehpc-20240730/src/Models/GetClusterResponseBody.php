@@ -188,7 +188,7 @@ class GetClusterResponseBody extends Model
     public $idleInterval;
 
     /**
-     * @description The configurations of the cluster management node.
+     * @description The management node configurations.
      *
      * @var manager
      */

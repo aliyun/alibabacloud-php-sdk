@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetJobResponseBody extends Model
 {
     /**
+     * @description The job details.
+     *
      * @var jobInfo
      */
     public $jobInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0****-1335-****-A1D7-6C044FE7****
      *
      * @var string
@@ -22,6 +26,11 @@ class GetJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The request result. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListCommonLogsResponseBody extends Model
 {
     /**
-     * @description The information about the returned logs.
+     * @description The brief information of operation logs.
      *
      * @var logs[]
      */

@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class scheduler extends Model
 {
     /**
+     * @description The scheduler type. Valid values:
+     *
+     *   SLURM
+     *   PBS
+     *   OPENGRIDSCHEDULER
+     *   LSF_PLUGIN
+     *   PBS_PLUGIN
+     *
      * @example SLURM
      *
      * @var string
@@ -16,6 +24,8 @@ class scheduler extends Model
     public $type;
 
     /**
+     * @description The scheduler version.
+     *
      * @example 22.05.8
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -18,8 +19,9 @@ class GetJobRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The job ID. You can call the ListJobs operation to query the job ID.
      *
+     * This parameter is required.
      * @example 1.manager
      *
      * @var string

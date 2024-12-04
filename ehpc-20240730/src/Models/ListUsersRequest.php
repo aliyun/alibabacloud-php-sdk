@@ -19,7 +19,7 @@ class ListUsersRequest extends Model
     public $clusterId;
 
     /**
-     * @description The page number.
+     * @description The page number of the page to return.
      *
      * Default value: 1.
      * @example 1

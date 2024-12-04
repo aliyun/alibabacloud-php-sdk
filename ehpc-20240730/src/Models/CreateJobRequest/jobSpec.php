@@ -20,7 +20,7 @@ class jobSpec extends Model
     public $arrayRequest;
 
     /**
-     * @description The command or script to run the job. If you want to use a command, you must specify the full path of the command, for example, /bin/ping.
+     * @description The command or script that is used to run the job. If you want to use a command, you must specify the full path of the command, for example, /bin/ping.
      *
      * This parameter is required.
      * @example /home/xxx/test.job

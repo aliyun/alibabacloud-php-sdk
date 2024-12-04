@@ -57,8 +57,12 @@ class ListNodesShrinkRequest extends Model
     public $queueNamesShrink;
 
     /**
-     * @description Specifies whether the results are sorted in ascending or descending order. Valid values: forward (ascending) and backward (descending).
+     * @description Specifies whether the results are sorted in ascending or descending order. Valid values:
      *
+     *   Forward: ascending
+     *   Backward: descending
+     *
+     * Default value: Forward.
      * @example Forward
      *
      * @var string
@@ -66,8 +70,12 @@ class ListNodesShrinkRequest extends Model
     public $sequence;
 
     /**
-     * @description The sorting method of the node list. Valid values: addedtime: sorted by the time when the node was added. hostname: sorted by hostname. Default value: addedtime.
+     * @description The sorting method of the node list. Valid values:
      *
+     *   AddedTime: sorts the nodes by the time that they were added.
+     *   HostName: sorts the nodes by their hostnames.
+     *
+     * Default value: addedtime.
      * @example AddedTime
      *
      * @var string

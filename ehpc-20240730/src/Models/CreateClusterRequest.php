@@ -15,16 +15,22 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
+     * @description The list of software that you want to install in the cluster. Valid values of N: 0 to 10.
+     *
      * @var additionalPackages[]
      */
     public $additionalPackages;
 
     /**
+     * @description The configurations of the custom addons in the cluster. Only one addon is supported.
+     *
      * @var addons[]
      */
     public $addons;
 
     /**
+     * @description The client version. By default, the latest version is used.
+     *
      * @example 2.1.0
      *
      * @var string
@@ -32,6 +38,11 @@ class CreateClusterRequest extends Model
     public $clientVersion;
 
     /**
+     * @description The cluster type. Valid values:
+     *
+     *   Standard
+     *   Serverless
+     *
      * @example Standard
      *
      * @var string
@@ -39,16 +50,22 @@ class CreateClusterRequest extends Model
     public $clusterCategory;
 
     /**
+     * @description The access credentials of the cluster.
+     *
      * @var clusterCredentials
      */
     public $clusterCredentials;
 
     /**
+     * @description The post-processing script of the cluster.
+     *
      * @var clusterCustomConfiguration
      */
     public $clusterCustomConfiguration;
 
     /**
+     * @description The cluster description. The description must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+     *
      * @example slurm22.05.8-cluster-20240718
      *
      * @var string
@@ -56,6 +73,12 @@ class CreateClusterRequest extends Model
     public $clusterDescription;
 
     /**
+     * @description The deployment mode of the cluster. Valid values:
+     *
+     *   Integrated
+     *   Hybrid
+     *   Custom
+     *
      * @example Integrated
      *
      * @var string
@@ -63,6 +86,8 @@ class CreateClusterRequest extends Model
     public $clusterMode;
 
     /**
+     * @description The cluster name. The name must be 1 to 128 characters in length and can contain letters, digits, hyphens (-), and underscores (_).
+     *
      * @example slurm22.05.8-cluster-20240718
      *
      * @var string
@@ -70,6 +95,9 @@ class CreateClusterRequest extends Model
     public $clusterName;
 
     /**
+     * @description The ID of the vSwitch that you want the cluster to use. The vSwitch must reside in the VPC that is specified by the `ClusterVpcId` parameter.
+     *
+     * You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html) operation to query information about the created VPCs and vSwitches.
      * @example vsw-f8za5p0mwzgdu3wgx****
      *
      * @var string
@@ -77,6 +105,8 @@ class CreateClusterRequest extends Model
     public $clusterVSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) in which the cluster resides.
+     *
      * @example vpc-m5efjevmclc0xdmys****
      *
      * @var string
@@ -84,6 +114,12 @@ class CreateClusterRequest extends Model
     public $clusterVpcId;
 
     /**
+     * @description Specifies whether to enable deletion protection for the cluster. Deletion protection decides whether the cluster can be deleted in the console or by calling the [DeleteCluster](https://help.aliyun.com/document_detail/424406.html) operation. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -91,6 +127,12 @@ class CreateClusterRequest extends Model
     public $deletionProtection;
 
     /**
+     * @description Specifies whether to use an advanced security group. Valid values:
+     *
+     *   true: automatically creates and uses an advanced security group.
+     *   false: automatically creates and uses a basic security group.
+     *
+     * For more information, see [Basic security groups and advanced security groups](https://help.aliyun.com/document_detail/605897.html).
      * @example false
      *
      * @var bool
@@ -98,11 +140,15 @@ class CreateClusterRequest extends Model
     public $isEnterpriseSecurityGroup;
 
     /**
+     * @description The configurations of the cluster management node.
+     *
      * @var manager
      */
     public $manager;
 
     /**
+     * @description The maximum number of vCPUs that can be used by compute nodes in the cluster. Valid values: 0 to 100,000.
+     *
      * @example 10000
      *
      * @var int
@@ -110,6 +156,8 @@ class CreateClusterRequest extends Model
     public $maxCoreCount;
 
     /**
+     * @description The maximum number of compute nodes that the cluster can manage. Valid values: 0 to 5,000.
+     *
      * @example 500
      *
      * @var int
@@ -117,11 +165,16 @@ class CreateClusterRequest extends Model
     public $maxCount;
 
     /**
+     * @description The configurations of the queues in the cluster. The number of queues can be 0 to 8.
+     *
      * @var QueueTemplate[]
      */
     public $queues;
 
     /**
+     * @description The ID of the resource group to which the cluster belongs.
+     *
+     * You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation to obtain the IDs of the resource groups.
      * @example rg-acfmxazb4******
      *
      * @var string
@@ -129,6 +182,9 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the security group to which the cluster belongs.
+     *
+     * You can call the [DescribeSecurityGroups](https://help.aliyun.com/document_detail/25556.html) operation to query available security groups in the current region.
      * @example sg-bp13n61xsydodfyg****
      *
      * @var string
@@ -136,11 +192,15 @@ class CreateClusterRequest extends Model
     public $securityGroupId;
 
     /**
+     * @description The configurations of shared storage in the cluster.
+     *
      * @var SharedStorageTemplate[]
      */
     public $sharedStorages;
 
     /**
+     * @description The tags of the cluster.
+     *
      * @var tags[]
      */
     public $tags;

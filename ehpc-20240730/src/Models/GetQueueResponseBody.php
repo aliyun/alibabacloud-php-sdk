@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetQueueResponseBody extends Model
 {
     /**
-     * @description The information about the queue.
+     * @description The queue configurations.
      *
      * @var queue
      */

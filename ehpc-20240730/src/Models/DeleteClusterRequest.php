@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the E-HPC cluster to be released.
      *
      * @example ehpc-hz-QKKVqO****
      *

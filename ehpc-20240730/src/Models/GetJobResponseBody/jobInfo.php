@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class jobInfo extends Model
 {
     /**
+     * @description The parent job ID. If the return value is a non-empty string, the job is an array job.
+     *
      * @example 1
      *
      * @var string
@@ -19,6 +21,8 @@ class jobInfo extends Model
     public $arrayJobId;
 
     /**
+     * @description The sub-job ID. This parameter is valid when the ArrayJobId parameter is a non-empty string.
+     *
      * @example 3
      *
      * @var string
@@ -26,6 +30,9 @@ class jobInfo extends Model
     public $arrayJobSubId;
 
     /**
+     * @description The job queue. If the job is not in a queue, the output is empty.
+     *
+     * The format is X-Y:Z. X indicates the first index, Y indicates the final index, and Z indicates the step size. For example, 2-7:2 indicates three sub-jobs numbered 2, 4, and 6.
      * @example 1-5:2
      *
      * @var string
@@ -33,6 +40,8 @@ class jobInfo extends Model
     public $arrayRequest;
 
     /**
+     * @description The command that is used to run the job.
+     *
      * @example /home/huangsf/ehpc/job_meta.pbs
      *
      * @var string
@@ -40,6 +49,8 @@ class jobInfo extends Model
     public $commandLine;
 
     /**
+     * @description The time when the job was submitted.
+     *
      * @example 2024-08-16T10:52:48
      *
      * @var string
@@ -47,6 +58,8 @@ class jobInfo extends Model
     public $createTime;
 
     /**
+     * @description The error log file of the job.
+     *
      * @example /home/xxx/STDIN.e1
      *
      * @var string
@@ -54,6 +67,8 @@ class jobInfo extends Model
     public $errorLog;
 
     /**
+     * @description Additional information.
+     *
      * @example {}
      *
      * @var string
@@ -61,6 +76,8 @@ class jobInfo extends Model
     public $extraInfo;
 
     /**
+     * @description The job ID.
+     *
      * @example 1.manager
      *
      * @var string
@@ -68,6 +85,8 @@ class jobInfo extends Model
     public $jobId;
 
     /**
+     * @description The job name.
+     *
      * @example testJob
      *
      * @var string
@@ -75,6 +94,8 @@ class jobInfo extends Model
     public $jobName;
 
     /**
+     * @description The queue to which the job belongs.
+     *
      * @example workq
      *
      * @var string
@@ -82,6 +103,8 @@ class jobInfo extends Model
     public $jobQueue;
 
     /**
+     * @description The time when the job was last modified.
+     *
      * @example 2024-08-16T10:52:48
      *
      * @var string
@@ -89,6 +112,8 @@ class jobInfo extends Model
     public $lastModifyTime;
 
     /**
+     * @description The compute nodes that are used to run the job.
+     *
      * @example compute000
      *
      * @var string
@@ -96,6 +121,8 @@ class jobInfo extends Model
     public $nodeList;
 
     /**
+     * @description The standard output log file of the job.
+     *
      * @example /home/xxx/STDIN.o1
      *
      * @var string
@@ -103,6 +130,8 @@ class jobInfo extends Model
     public $outputLog;
 
     /**
+     * @description The priority of the job.
+     *
      * @example 0
      *
      * @var string
@@ -110,16 +139,22 @@ class jobInfo extends Model
     public $priority;
 
     /**
+     * @description The resources that were requested when the job was submitted.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description The resources that are actually used by the job.
+     *
      * @var resourcesUsed
      */
     public $resourcesUsed;
 
     /**
+     * @description The user to which the job belongs or that is used to submit the job. This user is a cluster-side user.
+     *
      * @example testuser
      *
      * @var string
@@ -127,6 +162,8 @@ class jobInfo extends Model
     public $runasUser;
 
     /**
+     * @description The time when the job was started.
+     *
      * @example 2024-08-16T10:52:48
      *
      * @var string
@@ -134,6 +171,8 @@ class jobInfo extends Model
     public $startTime;
 
     /**
+     * @description The job state.
+     *
      * @example Running
      *
      * @var string
@@ -141,6 +180,8 @@ class jobInfo extends Model
     public $state;
 
     /**
+     * @description The variables of the job.
+     *
      * @var variables[]
      */
     public $variables;

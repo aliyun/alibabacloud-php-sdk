@@ -151,6 +151,11 @@ class EHPC extends OpenApiClient
     /**
      * @summary Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
      *  *
+     * @description ## [](#)Usage notes
+     * When you call this operation, take note of the following items:
+     * *   The file system that you want to attach must be created in advance in the same virtual private cloud (VPC) as the destination cluster. For more information, see [Create a file system](https://help.aliyun.com/document_detail/27530.html) and [Manage mount targets](https://help.aliyun.com/document_detail/27531.html).
+     * *   E-HPC clusters support Apsara File Storage NAS file systems.
+     *  *
      * @param AttachSharedStoragesRequest $tmpReq  AttachSharedStoragesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -192,6 +197,11 @@ class EHPC extends OpenApiClient
     /**
      * @summary Attaches shared storage to an Elastic High Performance Computing (E-HPC) cluster.
      *  *
+     * @description ## [](#)Usage notes
+     * When you call this operation, take note of the following items:
+     * *   The file system that you want to attach must be created in advance in the same virtual private cloud (VPC) as the destination cluster. For more information, see [Create a file system](https://help.aliyun.com/document_detail/27530.html) and [Manage mount targets](https://help.aliyun.com/document_detail/27531.html).
+     * *   E-HPC clusters support Apsara File Storage NAS file systems.
+     *  *
      * @param AttachSharedStoragesRequest $request AttachSharedStoragesRequest
      *
      * @return AttachSharedStoragesResponse AttachSharedStoragesResponse
@@ -204,7 +214,10 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个按量付费或者预付费（包年包月） 集群
+     * @summary Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+     *  *
+     * @description ## [](#)Usage notes
+     * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
      *  *
      * @param CreateClusterRequest $tmpReq  CreateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -323,7 +336,10 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 创建一个按量付费或者预付费（包年包月） 集群
+     * @summary Creates a pay-as-you-go or subscription Elastic High Performance Computing (E-HPC) cluster.
+     *  *
+     * @description ## [](#)Usage notes
+     * Before you call this operation, make sure that you are familiar with the billing and pricing of E-HPC. For more information, see [Overview](https://help.aliyun.com/document_detail/2842985.html).
      *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
@@ -425,6 +441,9 @@ class EHPC extends OpenApiClient
         }
         if (!Utils::isUnset($request->count)) {
             $query['Count'] = $request->count;
+        }
+        if (!Utils::isUnset($request->deploymentSetId)) {
+            $query['DeploymentSetId'] = $request->deploymentSetId;
         }
         if (!Utils::isUnset($request->HPCInterConnect)) {
             $query['HPCInterConnect'] = $request->HPCInterConnect;
@@ -594,6 +613,10 @@ class EHPC extends OpenApiClient
     /**
      * @summary Releases an Enterprise High Performance Computing (E-HPC) cluster.
      *  *
+     * @description ## [](#)Usage notes
+     * Make sure that data of the cluster to be deleted is backed up before you call this operation.
+     * > After a cluster is released, you cannot restore the data stored in the cluster. Exercise caution when you release a cluster.
+     *  *
      * @param DeleteClusterRequest $request DeleteClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -626,6 +649,10 @@ class EHPC extends OpenApiClient
 
     /**
      * @summary Releases an Enterprise High Performance Computing (E-HPC) cluster.
+     *  *
+     * @description ## [](#)Usage notes
+     * Make sure that data of the cluster to be deleted is backed up before you call this operation.
+     * > After a cluster is released, you cannot restore the data stored in the cluster. Exercise caution when you release a cluster.
      *  *
      * @param DeleteClusterRequest $request DeleteClusterRequest
      *
@@ -1080,7 +1107,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 获取作业详情
+     * @summary Obtains the details of a job.
      *  *
      * @param GetJobRequest  $request GetJobRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -1116,7 +1143,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @summary 获取作业详情
+     * @summary Obtains the details of a job.
      *  *
      * @param GetJobRequest $request GetJobRequest
      *
@@ -1247,6 +1274,13 @@ class EHPC extends OpenApiClient
     /**
      * @summary Installs an addon.
      *  *
+     * @description ## [](#)Usage notes
+     * Take note of the following items when you call this operation:
+     * *   The cluster must be in the `Running` state.
+     * *   Clusters fall into two types:
+     *     *   Regular clusters on Alibaba Cloud Public Cloud
+     *     *   Managed clusters on Alibaba Cloud Public Cloud
+     *  *
      * @param InstallAddonRequest $request InstallAddonRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -1291,6 +1325,13 @@ class EHPC extends OpenApiClient
 
     /**
      * @summary Installs an addon.
+     *  *
+     * @description ## [](#)Usage notes
+     * Take note of the following items when you call this operation:
+     * *   The cluster must be in the `Running` state.
+     * *   Clusters fall into two types:
+     *     *   Regular clusters on Alibaba Cloud Public Cloud
+     *     *   Managed clusters on Alibaba Cloud Public Cloud
      *  *
      * @param InstallAddonRequest $request InstallAddonRequest
      *
@@ -2167,6 +2208,13 @@ class EHPC extends OpenApiClient
     /**
      * @summary Uninstalls an addon.
      *  *
+     * @description ## [](#)Usage notes
+     * Take note of the following items when you call this operation:
+     * *   The cluster must be in the `Running` state.
+     * *   Clusters fall into the following types:
+     *     *   Regular clusters on Alibaba Cloud Public Cloud
+     *     *   Managed clusters on Alibaba Cloud Public Cloud
+     *  *
      * @param UnInstallAddonRequest $request UnInstallAddonRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -2202,6 +2250,13 @@ class EHPC extends OpenApiClient
 
     /**
      * @summary Uninstalls an addon.
+     *  *
+     * @description ## [](#)Usage notes
+     * Take note of the following items when you call this operation:
+     * *   The cluster must be in the `Running` state.
+     * *   Clusters fall into the following types:
+     *     *   Regular clusters on Alibaba Cloud Public Cloud
+     *     *   Managed clusters on Alibaba Cloud Public Cloud
      *  *
      * @param UnInstallAddonRequest $request UnInstallAddonRequest
      *

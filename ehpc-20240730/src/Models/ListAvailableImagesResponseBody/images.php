@@ -23,8 +23,8 @@ class images extends Model
     /**
      * @description The boot mode of the image. Valid values:
      *
-     *   BIOS: Basic Input/Output System (BIOS)
-     *   UEFI: Unified Extensible Firmware Interface (UEFI)
+     *   BIOS: Basic Input/Output System (BIOS).
+     *   UEFI: Unified Extensible Firmware Interface (UEFI).
      *
      * >  When you change the OS boot mode of an instance, you must make sure that the boot mode matches the boot mode of the associated image. Otherwise, the instance fails to be booted.
      * @example BIOS
@@ -63,9 +63,9 @@ class images extends Model
     /**
      * @description The image source. Valid values:
      *
-     *   system: system images
-     *   self: custom images
-     *   others: shared images
+     *   system: system image.
+     *   self: custom image.
+     *   others: shared image.
      *
      * @example self
      *

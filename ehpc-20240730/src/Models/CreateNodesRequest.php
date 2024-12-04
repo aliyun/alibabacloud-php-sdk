@@ -39,6 +39,11 @@ class CreateNodesRequest extends Model
     public $count;
 
     /**
+     * @var string
+     */
+    public $deploymentSetId;
+
+    /**
      * @description The type of the network between compute nodes. Valid values:
      *
      *   vpc
@@ -107,6 +112,7 @@ class CreateNodesRequest extends Model
         'clusterId'       => 'ClusterId',
         'computeNode'     => 'ComputeNode',
         'count'           => 'Count',
+        'deploymentSetId' => 'DeploymentSetId',
         'HPCInterConnect' => 'HPCInterConnect',
         'hostnamePrefix'  => 'HostnamePrefix',
         'hostnameSuffix'  => 'HostnameSuffix',
@@ -131,6 +137,9 @@ class CreateNodesRequest extends Model
         }
         if (null !== $this->count) {
             $res['Count'] = $this->count;
+        }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
         if (null !== $this->HPCInterConnect) {
             $res['HPCInterConnect'] = $this->HPCInterConnect;
@@ -173,6 +182,9 @@ class CreateNodesRequest extends Model
         }
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
+        }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
         }
         if (isset($map['HPCInterConnect'])) {
             $model->HPCInterConnect = $map['HPCInterConnect'];

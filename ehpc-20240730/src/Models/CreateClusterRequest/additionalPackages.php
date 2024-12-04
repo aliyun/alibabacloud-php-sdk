@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class additionalPackages extends Model
 {
     /**
+     * @description The name of the software that you want to install in the cluster.
+     *
      * @example mpich
      *
      * @var string
@@ -16,6 +18,8 @@ class additionalPackages extends Model
     public $name;
 
     /**
+     * @description The version of the software that you want to install in the cluster.
+     *
      * @example 4.0.3
      *
      * @var string

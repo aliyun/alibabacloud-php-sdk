@@ -44,7 +44,7 @@ class GetCommonLogDetailResponseBody extends Model
     public $logType;
 
     /**
-     * @description The ID of the user who performed the action.
+     * @description The account ID of the operator.
      *
      * @example 239***
      *

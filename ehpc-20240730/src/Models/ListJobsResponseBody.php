@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListJobsResponseBody extends Model
 {
     /**
-     * @description The returned jobs.
+     * @description The jobs.
      *
      * @var jobs[]
      */

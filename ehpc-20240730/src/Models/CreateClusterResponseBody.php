@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example ehpc-hz-FYUr******
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateClusterResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The request ID.
+     *
      * @example F6757FA4-8FED-4602-B7F5-3550C0******
      *
      * @var string
@@ -23,6 +27,11 @@ class CreateClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The request result. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +39,8 @@ class CreateClusterResponseBody extends Model
     public $success;
 
     /**
+     * @description The task ID.
+     *
      * @example F6757FA4-8FED-4602-B7F5-3550C0******
      *
      * @var string

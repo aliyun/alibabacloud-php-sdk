@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The number of vCPUs used by the job on each node.
+     *
      * @example 2
      *
      * @var string
@@ -16,6 +18,8 @@ class resources extends Model
     public $cores;
 
     /**
+     * @description The number of GPUs used by the job on each node.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class resources extends Model
     public $gpus;
 
     /**
+     * @description The memory size used by the job on each node.
+     *
      * @example 1gb
      *
      * @var string
@@ -30,6 +36,8 @@ class resources extends Model
     public $memory;
 
     /**
+     * @description The number of nodes that are used to run the job.
+     *
      * @example 1
      *
      * @var string

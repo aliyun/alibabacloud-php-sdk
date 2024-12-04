@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class variables extends Model
 {
     /**
+     * @description The name of the environment variable.
+     *
      * @example ProxyIP
      *
      * @var string
@@ -16,6 +18,8 @@ class variables extends Model
     public $name;
 
     /**
+     * @description The value of the environment variable.
+     *
      * @example 10.x.x.x
      *
      * @var string

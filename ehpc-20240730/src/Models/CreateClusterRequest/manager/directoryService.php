@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class directoryService extends Model
 {
     /**
+     * @description The type of the domain account.
+     *
+     * Valid values:
+     *
+     *   NIS: NIS.
+     *
      * @example NIS
      *
      * @var string
@@ -16,6 +22,8 @@ class directoryService extends Model
     public $type;
 
     /**
+     * @description The version of the domain account service.
+     *
      * @example 2.31
      *
      * @var string

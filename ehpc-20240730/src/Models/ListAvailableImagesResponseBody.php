@@ -17,7 +17,10 @@ class ListAvailableImagesResponseBody extends Model
     public $images;
 
     /**
-     * @description Id of the request
+     * @description The page number of the returned page.
+     *
+     *   Pages start from page 1.
+     *   Default value: 1.
      *
      * @example 1
      *
@@ -26,7 +29,7 @@ class ListAvailableImagesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description Id of the request
+     * @description The number of entries per page.
      *
      * @example 20
      *
@@ -46,8 +49,8 @@ class ListAvailableImagesResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true
-     *   false
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @example true
      *
@@ -56,7 +59,7 @@ class ListAvailableImagesResponseBody extends Model
     public $success;
 
     /**
-     * @description Id of the request
+     * @description The total number of entries returned.
      *
      * @example 1
      *

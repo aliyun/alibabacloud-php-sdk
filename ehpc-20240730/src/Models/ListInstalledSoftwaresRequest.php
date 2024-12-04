@@ -18,7 +18,7 @@ class ListInstalledSoftwaresRequest extends Model
     public $clusterId;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
+     * @description The page number of the page to return.
      *
      * @example 1
      *
