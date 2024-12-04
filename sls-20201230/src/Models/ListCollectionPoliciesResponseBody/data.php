@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The configuration for centralized storage.
+     *
      * @var centralizeConfig
      */
     public $centralizeConfig;

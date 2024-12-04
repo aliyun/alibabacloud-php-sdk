@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListMetricStoresRequest extends Model
 {
     /**
+     * @description The type of the Metricstore. For example, you can set the parameter to standard to query Standard Metricstores.
+     *
+     * @example standard
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The name of the Metricstore. Fuzzy search is supported. If you do not specify this parameter, all Metricstores are involved.
+     *
      * @example metric_store
      *
      * @var string
@@ -21,6 +27,8 @@ class ListMetricStoresRequest extends Model
     public $name;
 
     /**
+     * @description The start position of the query.
+     *
      * @example 0
      *
      * @var int
@@ -28,6 +36,8 @@ class ListMetricStoresRequest extends Model
     public $offset;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 500
      *
      * @var int

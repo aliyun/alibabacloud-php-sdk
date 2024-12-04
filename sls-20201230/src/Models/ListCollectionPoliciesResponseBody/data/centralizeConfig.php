@@ -30,6 +30,8 @@ class centralizeConfig extends Model
     public $destRegion;
 
     /**
+     * @description The data retention period for centralized storage. Unit: days.
+     *
      * @example your-sls-logstore-ttl
      *
      * @var int

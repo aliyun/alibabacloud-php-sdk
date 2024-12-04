@@ -32,10 +32,18 @@ class outputDetail extends Model
      * @var string
      */
     public $region;
+
+    /**
+     * @example logs
+     *
+     * @var string
+     */
+    public $telemetryType;
     protected $_name = [
-        'endpoint'     => 'endpoint',
-        'logstoreName' => 'logstoreName',
-        'region'       => 'region',
+        'endpoint'      => 'endpoint',
+        'logstoreName'  => 'logstoreName',
+        'region'        => 'region',
+        'telemetryType' => 'telemetryType',
     ];
 
     public function validate()
@@ -53,6 +61,9 @@ class outputDetail extends Model
         }
         if (null !== $this->region) {
             $res['region'] = $this->region;
+        }
+        if (null !== $this->telemetryType) {
+            $res['telemetryType'] = $this->telemetryType;
         }
 
         return $res;
@@ -74,6 +85,9 @@ class outputDetail extends Model
         }
         if (isset($map['region'])) {
             $model->region = $map['region'];
+        }
+        if (isset($map['telemetryType'])) {
+            $model->telemetryType = $map['telemetryType'];
         }
 
         return $model;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateMetricStoreRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic sharding.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoSplit;
 
     /**
+     * @description The maximum number of shards into which existing shards can be automatically split. This parameter is valid only when you set the autoSplit parameter to true.
+     *
      * @example 64
      *
      * @var int
@@ -21,18 +27,27 @@ class CreateMetricStoreRequest extends Model
     public $maxSplitShard;
 
     /**
+     * @description The type of the metric data. Example: prometheus.
+     *
+     * @example prometheus
+     *
      * @var string
      */
     public $metricType;
 
     /**
+     * @description The type of the Metricstore. For example, you can set the parameter to standard to query Standard Metricstores.
+     *
+     * @example standard
+     *
      * @var string
      */
     public $mode;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the Metricstore.
      *
+     * This parameter is required.
      * @example my_metric_store
      *
      * @var string
@@ -40,8 +55,9 @@ class CreateMetricStoreRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The number of shards in the Metricstore.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var int
@@ -49,8 +65,9 @@ class CreateMetricStoreRequest extends Model
     public $shardCount;
 
     /**
-     * @description This parameter is required.
+     * @description The retention period of the metric data in the Metricstore. Unit: days.
      *
+     * This parameter is required.
      * @example 7
      *
      * @var int

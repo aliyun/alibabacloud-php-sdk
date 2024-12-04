@@ -18,6 +18,8 @@ class ListCollectionPoliciesResponseBody extends Model
     public $currentCount;
 
     /**
+     * @description The data of the policies that are matched against the query conditions. The data is returned based on paginated results.
+     *
      * @var data[]
      */
     public $data;

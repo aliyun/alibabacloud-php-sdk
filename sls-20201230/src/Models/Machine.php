@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class Machine extends Model
 {
     /**
+     * @example test
+     *
+     * @var string
+     */
+    public $hostId;
+
+    /**
      * @example 192.168.x.x
      *
      * @var string
@@ -36,6 +43,7 @@ class Machine extends Model
      */
     public $userdefinedId;
     protected $_name = [
+        'hostId'            => 'host-id',
         'ip'                => 'ip',
         'lastHeartbeatTime' => 'lastHeartbeatTime',
         'machineUniqueid'   => 'machine-uniqueid',
@@ -49,6 +57,9 @@ class Machine extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostId) {
+            $res['host-id'] = $this->hostId;
+        }
         if (null !== $this->ip) {
             $res['ip'] = $this->ip;
         }
@@ -73,6 +84,9 @@ class Machine extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['host-id'])) {
+            $model->hostId = $map['host-id'];
+        }
         if (isset($map['ip'])) {
             $model->ip = $map['ip'];
         }

@@ -102,11 +102,6 @@ class UpdateLogStoreRequest extends Model
     public $mode;
 
     /**
-     * @var string
-     */
-    public $processorId;
-
-    /**
      * @description The number of shards.
      *
      * >  You cannot call the UpdateLogStore operation to change the number of shards. You can call the SplitShard or MergeShards operation to change the number of shards.
@@ -151,7 +146,6 @@ class UpdateLogStoreRequest extends Model
         'logstoreName'        => 'logstoreName',
         'maxSplitShard'       => 'maxSplitShard',
         'mode'                => 'mode',
-        'processorId'         => 'processorId',
         'shardCount'          => 'shardCount',
         'telemetryType'       => 'telemetryType',
         'ttl'                 => 'ttl',
@@ -190,9 +184,6 @@ class UpdateLogStoreRequest extends Model
         }
         if (null !== $this->mode) {
             $res['mode'] = $this->mode;
-        }
-        if (null !== $this->processorId) {
-            $res['processorId'] = $this->processorId;
         }
         if (null !== $this->shardCount) {
             $res['shardCount'] = $this->shardCount;
@@ -241,9 +232,6 @@ class UpdateLogStoreRequest extends Model
         }
         if (isset($map['mode'])) {
             $model->mode = $map['mode'];
-        }
-        if (isset($map['processorId'])) {
-            $model->processorId = $map['processorId'];
         }
         if (isset($map['shardCount'])) {
             $model->shardCount = $map['shardCount'];

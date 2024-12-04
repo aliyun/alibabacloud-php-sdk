@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateTicketResponseBody extends Model
+class PutLogsRequest extends Model
 {
     /**
-     * @description The ticket that is used for logon-free access.
+     * @description The compressed Protobuf data.
      *
-     * @example eyJ***************.eyJ******************.KUT****************
-     *
-     * @var string
+     * @var LogGroup
      */
-    public $ticket;
+    public $body;
     protected $_name = [
-        'ticket' => 'ticket',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class CreateTicketResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ticket) {
-            $res['ticket'] = $this->ticket;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class CreateTicketResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateTicketResponseBody
+     * @return PutLogsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ticket'])) {
-            $model->ticket = $map['ticket'];
+        if (isset($map['body'])) {
+            $model->body = LogGroup::fromMap($map['body']);
         }
 
         return $model;

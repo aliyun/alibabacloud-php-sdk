@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListMetricStoresResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The names of the Metricstores.
+     *
      * @var string[]
      */
     public $metricstores;
 
     /**
+     * @description The total number of queried Metricstores.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $total;

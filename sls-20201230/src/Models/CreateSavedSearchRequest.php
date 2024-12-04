@@ -39,7 +39,7 @@ class CreateSavedSearchRequest extends Model
     public $savedsearchName;
 
     /**
-     * @description The query statement of the saved search. A query statement consists of a search statement and an analytic statement in the `Search statement|Analytic statement` format. For more information about search statements and analytic statements, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
+     * @description The query statement of the saved search. A query statement consists of a search statement and an analytic statement in the `Search statement|Analytic statement` format. For more information, see [Log search overview](https://help.aliyun.com/document_detail/43772.html) and [Log analysis overview](https://help.aliyun.com/document_detail/53608.html).
      *
      * This parameter is required.
      * @example *|select date_format(__time__-__time__%60, \\"%H:%i:%s\\") as time, COUNT(*) as pv group by time
@@ -49,8 +49,9 @@ class CreateSavedSearchRequest extends Model
     public $searchQuery;
 
     /**
-     * @description The topic of the log.
+     * @description The topic of the logs.
      *
+     * This parameter is required.
      * @example theme
      *
      * @var string

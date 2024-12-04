@@ -6,17 +6,11 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetLogsV2Headers extends Model
+class PullLogsHeaders extends Model
 {
     public $commonHeaders;
 
     /**
-     * @description The compression format.
-     *
-     *   For Java, Python, and Go, only the lz4 and gzip algorithms are supported for decompression.
-     *   For PHP, JavaScript, and C#, only the gzip algorithm is supported for decompression.
-     *
-     * This parameter is required.
      * @example lz4
      *
      * @var string
@@ -46,7 +40,7 @@ class GetLogsV2Headers extends Model
     /**
      * @param array $map
      *
-     * @return GetLogsV2Headers
+     * @return PullLogsHeaders
      */
     public static function fromMap($map = [])
     {

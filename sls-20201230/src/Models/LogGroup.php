@@ -11,16 +11,14 @@ class LogGroup extends Model
     /**
      * @description This parameter is required.
      *
+     * @var LogItem[]
+     */
+    public $logItems;
+
+    /**
      * @var LogTag[]
      */
     public $logTags;
-
-    /**
-     * @description This parameter is required.
-     *
-     * @var LogItem[]
-     */
-    public $logs;
 
     /**
      * @example 192.1.1.1
@@ -30,18 +28,16 @@ class LogGroup extends Model
     public $source;
 
     /**
-     * @description This parameter is required.
-     *
      * @example topic-test
      *
      * @var string
      */
     public $topic;
     protected $_name = [
-        'logTags' => 'LogTags',
-        'logs'    => 'Logs',
-        'source'  => 'Source',
-        'topic'   => 'Topic',
+        'logItems' => 'LogItems',
+        'logTags'  => 'LogTags',
+        'source'   => 'Source',
+        'topic'    => 'Topic',
     ];
 
     public function validate()
@@ -51,21 +47,21 @@ class LogGroup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->logItems) {
+            $res['LogItems'] = [];
+            if (null !== $this->logItems && \is_array($this->logItems)) {
+                $n = 0;
+                foreach ($this->logItems as $item) {
+                    $res['LogItems'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->logTags) {
             $res['LogTags'] = [];
             if (null !== $this->logTags && \is_array($this->logTags)) {
                 $n = 0;
                 foreach ($this->logTags as $item) {
                     $res['LogTags'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->logs) {
-            $res['Logs'] = [];
-            if (null !== $this->logs && \is_array($this->logs)) {
-                $n = 0;
-                foreach ($this->logs as $item) {
-                    $res['Logs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -87,21 +83,21 @@ class LogGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LogItems'])) {
+            if (!empty($map['LogItems'])) {
+                $model->logItems = [];
+                $n               = 0;
+                foreach ($map['LogItems'] as $item) {
+                    $model->logItems[$n++] = null !== $item ? LogItem::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['LogTags'])) {
             if (!empty($map['LogTags'])) {
                 $model->logTags = [];
                 $n              = 0;
                 foreach ($map['LogTags'] as $item) {
                     $model->logTags[$n++] = null !== $item ? LogTag::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['Logs'])) {
-            if (!empty($map['Logs'])) {
-                $model->logs = [];
-                $n           = 0;
-                foreach ($map['Logs'] as $item) {
-                    $model->logs[$n++] = null !== $item ? LogItem::fromMap($item) : $item;
                 }
             }
         }

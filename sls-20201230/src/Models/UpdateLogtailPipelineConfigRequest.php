@@ -11,6 +11,7 @@ class UpdateLogtailPipelineConfigRequest extends Model
     /**
      * @description The aggregation plug-ins.
      *
+     * >  This parameter takes effect only when extended plug-ins are used. You can use only one aggregation plug-in.
      * @var mixed[][]
      */
     public $aggregators;
@@ -26,7 +27,7 @@ class UpdateLogtailPipelineConfigRequest extends Model
     public $configName;
 
     /**
-     * @description The data output plug-ins.
+     * @description The output plug-ins.
      *
      * This parameter is required.
      * @var mixed[][]
@@ -34,14 +35,15 @@ class UpdateLogtailPipelineConfigRequest extends Model
     public $flushers;
 
     /**
-     * @description The global configuration.
+     * @description The global settings.
      *
+     ****
      * @var mixed[]
      */
     public $global;
 
     /**
-     * @description The data source plug-ins.
+     * @description The input plug-ins.
      *
      * This parameter is required.
      * @var mixed[][]
@@ -49,7 +51,7 @@ class UpdateLogtailPipelineConfigRequest extends Model
     public $inputs;
 
     /**
-     * @description The sample log.
+     * @description The sample log. You can specify multiple sample logs.
      *
      * @example 2022-06-14 11:13:29.796 | DEBUG    | __main__:<module>:1 - hello world
      *
@@ -59,6 +61,17 @@ class UpdateLogtailPipelineConfigRequest extends Model
 
     /**
      * @description The processing plug-ins.
+     *
+     * >
+     *
+     *   You can use native plug-ins only to collect text logs.
+     *
+     *   You cannot add native plug-ins and extended plug-ins at the same time.
+     *
+     *   When you add native plug-ins, take note of the following items:
+     *
+     *   You must add one of the following Logtail plug-ins for data processing as the first plug-in: Data Parsing (Regex Mode), Data Parsing (Delimiter Mode), Data Parsing (JSON Mode), Data Parsing (NGINX Mode), Data Parsing (Apache Mode), and Data Parsing (IIS Mode).
+     *   After you add the first plug-in, you can add one Time Parsing plug-in, one Data Filtering plug-in, and multiple Data Masking plug-ins.
      *
      * @var mixed[][]
      */

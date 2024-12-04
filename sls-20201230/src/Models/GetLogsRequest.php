@@ -27,7 +27,7 @@ class GetLogsRequest extends Model
     public $from;
 
     /**
-     * @description The maximum number of logs to return for the request. This parameter takes effect only when the query parameter is set to a search statement. Minimum value: 0. Maximum value: 100. Default value: 100.
+     * @description The maximum number of logs to return for the request. This parameter takes effect only when the query parameter is set to a search statement. Minimum value: 0. Maximum value: 100. Default value: 100. For more information, see [Perform paged queries](https://help.aliyun.com/document_detail/89994.html).
      *
      * @example 100
      *
@@ -36,7 +36,7 @@ class GetLogsRequest extends Model
     public $line;
 
     /**
-     * @description The line from which the query starts. This parameter takes effect only when the query parameter is set to a search statement. Default value: 0.
+     * @description The line from which the query starts. This parameter takes effect only when the query parameter is set to a search statement. Default value: 0. For more information, see [Perform paged queries](https://help.aliyun.com/document_detail/89994.html).
      *
      * @example 0
      *
@@ -103,7 +103,7 @@ class GetLogsRequest extends Model
     public $to;
 
     /**
-     * @description The topic of the logs. The default value is double quotation marks (""). For more information, see [Topic](https://help.aliyun.com/document_detail/48881.html).
+     * @description The topic of the logs. The default value is an empty string. For more information, see [Topic](https://help.aliyun.com/document_detail/48881.html).
      *
      * @example topic
      *

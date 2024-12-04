@@ -32,16 +32,16 @@ class ConsumeProcessor extends Model
     /**
      * @description This parameter is required.
      *
-     * @example consume-processor-1
+     * @example 字段过滤处理
      *
      * @var string
      */
-    public $processorId;
+    public $displayName;
 
     /**
      * @description This parameter is required.
      *
-     * @example 字段过滤处理
+     * @example consume-processor-1
      *
      * @var string
      */
@@ -57,7 +57,7 @@ class ConsumeProcessor extends Model
         'configuration' => 'configuration',
         'createTime'    => 'createTime',
         'description'   => 'description',
-        'processorId'   => 'processorId',
+        'displayName'   => 'displayName',
         'processorName' => 'processorName',
         'updateTime'    => 'updateTime',
     ];
@@ -78,8 +78,8 @@ class ConsumeProcessor extends Model
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
-        if (null !== $this->processorId) {
-            $res['processorId'] = $this->processorId;
+        if (null !== $this->displayName) {
+            $res['displayName'] = $this->displayName;
         }
         if (null !== $this->processorName) {
             $res['processorName'] = $this->processorName;
@@ -108,8 +108,8 @@ class ConsumeProcessor extends Model
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
-        if (isset($map['processorId'])) {
-            $model->processorId = $map['processorId'];
+        if (isset($map['displayName'])) {
+            $model->displayName = $map['displayName'];
         }
         if (isset($map['processorName'])) {
             $model->processorName = $map['processorName'];

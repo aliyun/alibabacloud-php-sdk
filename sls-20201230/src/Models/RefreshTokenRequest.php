@@ -16,6 +16,8 @@ class RefreshTokenRequest extends Model
     public $accessTokenExpirationTime;
 
     /**
+     * @description The ticket that is used for logon-free access.
+     *
      * @example eyJ***************.eyJ******************.KUT****************
      *
      * @var string

@@ -61,6 +61,11 @@ class executionDetails extends Model
     public $logCount;
 
     /**
+     * @var string
+     */
+    public $notice;
+
+    /**
      * @description 下载进度
      *
      * @example 100
@@ -75,6 +80,7 @@ class executionDetails extends Model
         'filePath'     => 'filePath',
         'fileSize'     => 'fileSize',
         'logCount'     => 'logCount',
+        'notice'       => 'notice',
         'progress'     => 'progress',
     ];
 
@@ -102,6 +108,9 @@ class executionDetails extends Model
         }
         if (null !== $this->logCount) {
             $res['logCount'] = $this->logCount;
+        }
+        if (null !== $this->notice) {
+            $res['notice'] = $this->notice;
         }
         if (null !== $this->progress) {
             $res['progress'] = $this->progress;
@@ -135,6 +144,9 @@ class executionDetails extends Model
         }
         if (isset($map['logCount'])) {
             $model->logCount = $map['logCount'];
+        }
+        if (isset($map['notice'])) {
+            $model->notice = $map['notice'];
         }
         if (isset($map['progress'])) {
             $model->progress = $map['progress'];

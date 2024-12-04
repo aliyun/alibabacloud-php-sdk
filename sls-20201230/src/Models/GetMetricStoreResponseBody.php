@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetricStoreResponseBody extends Model
 {
     /**
+     * @description Indicates whether the automatic sharding feature is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class GetMetricStoreResponseBody extends Model
     public $autoSplit;
 
     /**
+     * @description The creation time. The value is a UNIX timestamp.
+     *
      * @example 1698933894
      *
      * @var int
@@ -23,6 +27,8 @@ class GetMetricStoreResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The last update time. The value is a UNIX timestamp.
+     *
      * @example 1712023974
      *
      * @var int
@@ -30,6 +36,8 @@ class GetMetricStoreResponseBody extends Model
     public $lastModifyTime;
 
     /**
+     * @description The maximum number of shards into which existing shards can be automatically split.
+     *
      * @example 64
      *
      * @var int
@@ -37,6 +45,8 @@ class GetMetricStoreResponseBody extends Model
     public $maxSplitShard;
 
     /**
+     * @description The metric type of the Metricstore. Example: prometheus.
+     *
      * @example prometheus
      *
      * @var string
@@ -44,6 +54,8 @@ class GetMetricStoreResponseBody extends Model
     public $metricType;
 
     /**
+     * @description The specification type of the Metricstore. Example: standard.
+     *
      * @example standard
      *
      * @var string
@@ -51,6 +63,8 @@ class GetMetricStoreResponseBody extends Model
     public $mode;
 
     /**
+     * @description The name of the Metricstore.
+     *
      * @example my_metric_store
      *
      * @var string
@@ -58,6 +72,8 @@ class GetMetricStoreResponseBody extends Model
     public $name;
 
     /**
+     * @description The number of shards.
+     *
      * @example 2
      *
      * @var int
@@ -65,6 +81,8 @@ class GetMetricStoreResponseBody extends Model
     public $shardCount;
 
     /**
+     * @description The retention period. Unit: days.
+     *
      * @example 7
      *
      * @var int

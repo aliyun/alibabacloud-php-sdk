@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateTicketRequest extends Model
 {
     /**
+     * @example 600
+     *
      * @var int
      */
     public $accessTokenExpirationTime;
 
     /**
+     * @description The validity period of the ticket that is used for logon-free access. Unit: seconds. Default value: 86400. Maximum value: 2592000. The value 86400 specifies one day.
+     *
+     * @example 86400
+     *
      * @var int
      */
     public $expirationTime;

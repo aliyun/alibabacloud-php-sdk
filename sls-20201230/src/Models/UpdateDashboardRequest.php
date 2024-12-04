@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDashboardRequest extends Model
 {
     /**
-     * @description The attributes of the dashboard.
+     * @description The attribute values of the dashboard.
      *
      * @var string[]
      */

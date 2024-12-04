@@ -47,22 +47,11 @@ class GetContextLogsRequest extends Model
      * @var string
      */
     public $packMeta;
-
-    /**
-     * @description The type of the data in the Logstore. Set the value to context_log.
-     *
-     * This parameter is required.
-     * @example context_log
-     *
-     * @var string
-     */
-    public $type;
     protected $_name = [
         'backLines'    => 'back_lines',
         'forwardLines' => 'forward_lines',
         'packId'       => 'pack_id',
         'packMeta'     => 'pack_meta',
-        'type'         => 'type',
     ];
 
     public function validate()
@@ -83,9 +72,6 @@ class GetContextLogsRequest extends Model
         }
         if (null !== $this->packMeta) {
             $res['pack_meta'] = $this->packMeta;
-        }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
         }
 
         return $res;
@@ -110,9 +96,6 @@ class GetContextLogsRequest extends Model
         }
         if (isset($map['pack_meta'])) {
             $model->packMeta = $map['pack_meta'];
-        }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
         }
 
         return $model;

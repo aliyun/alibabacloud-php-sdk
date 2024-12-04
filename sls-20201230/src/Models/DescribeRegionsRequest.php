@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateTicketResponseBody extends Model
+class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The ticket that is used for logon-free access.
-     *
-     * @example eyJ***************.eyJ******************.KUT****************
-     *
      * @var string
      */
-    public $ticket;
+    public $language;
     protected $_name = [
-        'ticket' => 'ticket',
+        'language' => 'language',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class CreateTicketResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ticket) {
-            $res['ticket'] = $this->ticket;
+        if (null !== $this->language) {
+            $res['language'] = $this->language;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class CreateTicketResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateTicketResponseBody
+     * @return DescribeRegionsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ticket'])) {
-            $model->ticket = $map['ticket'];
+        if (isset($map['language'])) {
+            $model->language = $map['language'];
         }
 
         return $model;
