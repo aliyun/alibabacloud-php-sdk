@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourceGroupWithUserRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourceGroupWithUserResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourcePoolWithUserRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\BindDBResourcePoolWithUserResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\CheckServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBClusterRequest;
@@ -28,6 +30,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourcePoolRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateDBResourcePoolResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\CreateElasticPlanResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\CreateServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DeleteBackupsRequest;
@@ -152,6 +156,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPlanResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPlanTaskRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSQLPlanTaskResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSyncAvailableDBClusterListRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSyncAvailableDBClusterListResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSyncJobListRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeSyncJobListResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableAccessCountRequest;
@@ -212,6 +218,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterSSLRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterSSLResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterVipRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBClusterVipResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyDBResourceGroupShrinkRequest;
@@ -221,6 +229,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyLogBackupPolicyRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyLogBackupPolicyResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyLogHubStatusRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyLogHubStatusResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyMaintenanceActionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyMaintenanceActionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\ModifyResubmitConfigRequest;
@@ -703,6 +713,64 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
+     */
+    public function checkServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckServiceLinkedRole',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckServiceLinkedRoleRequest $request CheckServiceLinkedRoleRequest
+     *
+     * @return CheckServiceLinkedRoleResponse CheckServiceLinkedRoleResponse
+     */
+    public function checkServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkServiceLinkedRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a database account for an AnalyticDB for MySQL cluster.
      *  *
      * @param CreateAccountRequest $request CreateAccountRequest
@@ -1164,6 +1232,64 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createElasticPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceLinkedRole',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     *
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceLinkedRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -5292,6 +5418,73 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeSyncAvailableDBClusterListRequest $request DescribeSyncAvailableDBClusterListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSyncAvailableDBClusterListResponse DescribeSyncAvailableDBClusterListResponse
+     */
+    public function describeSyncAvailableDBClusterListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceDBCluster)) {
+            $query['SourceDBCluster'] = $request->sourceDBCluster;
+        }
+        if (!Utils::isUnset($request->syncPlatform)) {
+            $query['SyncPlatform'] = $request->syncPlatform;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSyncAvailableDBClusterList',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSyncAvailableDBClusterListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSyncAvailableDBClusterListRequest $request DescribeSyncAvailableDBClusterListRequest
+     *
+     * @return DescribeSyncAvailableDBClusterListResponse DescribeSyncAvailableDBClusterListResponse
+     */
+    public function describeSyncAvailableDBClusterList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSyncAvailableDBClusterListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSyncJobListRequest $request DescribeSyncJobListRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -7299,6 +7492,77 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 修改访问VIP
+     *  *
+     * @param ModifyDBClusterVipRequest $request ModifyDBClusterVipRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBClusterVipResponse ModifyDBClusterVipResponse
+     */
+    public function modifyDBClusterVipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterVip',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterVipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改访问VIP
+     *  *
+     * @param ModifyDBClusterVipRequest $request ModifyDBClusterVipRequest
+     *
+     * @return ModifyDBClusterVipResponse ModifyDBClusterVipResponse
+     */
+    public function modifyDBClusterVip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterVipWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the number of nodes or the query execution mode for a resource group of an AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
      *  *
      * @description ## Precautions
@@ -7623,6 +7887,73 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyLogBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyLogHubStatusRequest $request ModifyLogHubStatusRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyLogHubStatusResponse ModifyLogHubStatusResponse
+     */
+    public function modifyLogHubStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->deliverName)) {
+            $query['DeliverName'] = $request->deliverName;
+        }
+        if (!Utils::isUnset($request->logStoreName)) {
+            $query['LogStoreName'] = $request->logStoreName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLogHubStatus',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyLogHubStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyLogHubStatusRequest $request ModifyLogHubStatusRequest
+     *
+     * @return ModifyLogHubStatusResponse ModifyLogHubStatusResponse
+     */
+    public function modifyLogHubStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLogHubStatusWithOptions($request, $runtime);
     }
 
     /**

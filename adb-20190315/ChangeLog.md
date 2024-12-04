@@ -1,3 +1,11 @@
+2024-12-04 Version: 4.4.0
+- Support API CheckServiceLinkedRole.
+- Support API CreateServiceLinkedRole.
+- Support API DescribeSyncAvailableDBClusterList.
+- Support API ModifyDBClusterVip.
+- Support API ModifyLogHubStatus.
+
+
 2024-11-29 Version: 4.3.0
 - Support API DescribeKmsKeys.
 - Support API DescribeRegionsMixed.
