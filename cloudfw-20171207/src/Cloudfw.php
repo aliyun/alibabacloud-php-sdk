@@ -4003,6 +4003,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->firewallType)) {
             $query['FirewallType'] = $request->firewallType;
         }
+        if (!Utils::isUnset($request->isOnlyPrivateAssoc)) {
+            $query['IsOnlyPrivateAssoc'] = $request->isOnlyPrivateAssoc;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }

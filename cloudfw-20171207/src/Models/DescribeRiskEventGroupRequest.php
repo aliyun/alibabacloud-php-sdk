@@ -139,6 +139,11 @@ class DescribeRiskEventGroupRequest extends Model
     public $firewallType;
 
     /**
+     * @var string
+     */
+    public $isOnlyPrivateAssoc;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese (default)
@@ -277,6 +282,7 @@ class DescribeRiskEventGroupRequest extends Model
         'endTime'              => 'EndTime',
         'eventName'            => 'EventName',
         'firewallType'         => 'FirewallType',
+        'isOnlyPrivateAssoc'   => 'IsOnlyPrivateAssoc',
         'lang'                 => 'Lang',
         'noLocation'           => 'NoLocation',
         'order'                => 'Order',
@@ -329,6 +335,9 @@ class DescribeRiskEventGroupRequest extends Model
         }
         if (null !== $this->firewallType) {
             $res['FirewallType'] = $this->firewallType;
+        }
+        if (null !== $this->isOnlyPrivateAssoc) {
+            $res['IsOnlyPrivateAssoc'] = $this->isOnlyPrivateAssoc;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -409,6 +418,9 @@ class DescribeRiskEventGroupRequest extends Model
         }
         if (isset($map['FirewallType'])) {
             $model->firewallType = $map['FirewallType'];
+        }
+        if (isset($map['IsOnlyPrivateAssoc'])) {
+            $model->isOnlyPrivateAssoc = $map['IsOnlyPrivateAssoc'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
