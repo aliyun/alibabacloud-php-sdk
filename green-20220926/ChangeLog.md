@@ -4,6 +4,12 @@
 - Update API GetUserBuyStatus: update response param.
 
 
+2024-12-04 Version: 1.2.1
+- Update API GetServiceConf: update response param.
+- Update API GetTextScanResult: update response param.
+- Update API GetUserBuyStatus: update response param.
+
+
 2024-11-15 Version: 1.2.0
 - Support API AddAnswerSample.
 - Support API CreateAnswerLib.
