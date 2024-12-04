@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetServiceConfResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $classify;
+
+    /**
      * @example 200
      *
      * @var int
@@ -80,6 +85,7 @@ class GetServiceConfResponseBody extends Model
      */
     public $uid;
     protected $_name = [
+        'classify'          => 'Classify',
         'code'              => 'Code',
         'customServiceConf' => 'CustomServiceConf',
         'gmtModified'       => 'GmtModified',
@@ -99,6 +105,9 @@ class GetServiceConfResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->classify) {
+            $res['Classify'] = $this->classify;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -141,6 +150,9 @@ class GetServiceConfResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Classify'])) {
+            $model->classify = $map['Classify'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

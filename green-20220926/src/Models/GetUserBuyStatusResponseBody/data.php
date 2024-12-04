@@ -30,10 +30,16 @@ class data extends Model
      * @var bool
      */
     public $indebt;
+
+    /**
+     * @var string
+     */
+    public $tag;
     protected $_name = [
         'bid'    => 'Bid',
         'buy'    => 'Buy',
         'indebt' => 'Indebt',
+        'tag'    => 'Tag',
     ];
 
     public function validate()
@@ -51,6 +57,9 @@ class data extends Model
         }
         if (null !== $this->indebt) {
             $res['Indebt'] = $this->indebt;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -72,6 +81,9 @@ class data extends Model
         }
         if (isset($map['Indebt'])) {
             $model->indebt = $map['Indebt'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

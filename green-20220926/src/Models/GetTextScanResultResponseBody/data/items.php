@@ -12,6 +12,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $bailianRequestId;
+
+    /**
+     * @var string
+     */
     public $content;
 
     /**
@@ -96,19 +101,20 @@ class items extends Model
      */
     public $taskId;
     protected $_name = [
-        'content'     => 'Content',
-        'extFeedback' => 'ExtFeedback',
-        'extra'       => 'Extra',
-        'gmtCreate'   => 'GmtCreate',
-        'labels'      => 'Labels',
-        'requestId'   => 'RequestId',
-        'requestTime' => 'RequestTime',
-        'result'      => 'Result',
-        'scanResult'  => 'ScanResult',
-        'score'       => 'Score',
-        'serviceCode' => 'ServiceCode',
-        'suggestion'  => 'Suggestion',
-        'taskId'      => 'TaskId',
+        'bailianRequestId' => 'BailianRequestId',
+        'content'          => 'Content',
+        'extFeedback'      => 'ExtFeedback',
+        'extra'            => 'Extra',
+        'gmtCreate'        => 'GmtCreate',
+        'labels'           => 'Labels',
+        'requestId'        => 'RequestId',
+        'requestTime'      => 'RequestTime',
+        'result'           => 'Result',
+        'scanResult'       => 'ScanResult',
+        'score'            => 'Score',
+        'serviceCode'      => 'ServiceCode',
+        'suggestion'       => 'Suggestion',
+        'taskId'           => 'TaskId',
     ];
 
     public function validate()
@@ -118,6 +124,9 @@ class items extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bailianRequestId) {
+            $res['BailianRequestId'] = $this->bailianRequestId;
+        }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
@@ -175,6 +184,9 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BailianRequestId'])) {
+            $model->bailianRequestId = $map['BailianRequestId'];
+        }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
