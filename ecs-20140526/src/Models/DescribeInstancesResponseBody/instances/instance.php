@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\additionalInfo;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\cpuOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\dedicatedHostAttribute;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstancesResponseBody\instances\instance\dedicatedInstanceAttribute;
@@ -25,6 +26,11 @@ use AlibabaCloud\Tea\Model;
 
 class instance extends Model
 {
+    /**
+     * @var additionalInfo
+     */
+    public $additionalInfo;
+
     /**
      * @description The automatic release time of the pay-as-you-go instance.
      *
@@ -618,6 +624,7 @@ class instance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'additionalInfo'             => 'AdditionalInfo',
         'autoReleaseTime'            => 'AutoReleaseTime',
         'clusterId'                  => 'ClusterId',
         'cpu'                        => 'Cpu',
@@ -692,6 +699,9 @@ class instance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->additionalInfo) {
+            $res['AdditionalInfo'] = null !== $this->additionalInfo ? $this->additionalInfo->toMap() : null;
+        }
         if (null !== $this->autoReleaseTime) {
             $res['AutoReleaseTime'] = $this->autoReleaseTime;
         }
@@ -899,6 +909,9 @@ class instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdditionalInfo'])) {
+            $model->additionalInfo = additionalInfo::fromMap($map['AdditionalInfo']);
+        }
         if (isset($map['AutoReleaseTime'])) {
             $model->autoReleaseTime = $map['AutoReleaseTime'];
         }

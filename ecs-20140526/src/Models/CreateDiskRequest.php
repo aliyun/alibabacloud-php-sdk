@@ -20,7 +20,7 @@ class CreateDiskRequest extends Model
     public $advancedFeatures;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
      *
      * @var arn[]
      */
@@ -32,7 +32,7 @@ class CreateDiskRequest extends Model
      *   true
      *   false
      *
-     * >  This parameter is available only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * >  This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example false
      *
      * @var bool
@@ -67,6 +67,7 @@ class CreateDiskRequest extends Model
      *   cloud_essd: ESSD
      *   cloud_auto: ESSD AutoPL disk
      *   cloud_essd_entry: ESSD Entry disk
+     *   cloud_regional_disk_auto: Regional ESSD
      *   elastic_ephemeral_disk_standard: standard elastic ephemeral disk
      *   elastic_ephemeral_disk_premium: premium elastic ephemeral disk
      *
@@ -78,7 +79,7 @@ class CreateDiskRequest extends Model
     public $diskCategory;
 
     /**
-     * @description The name of the disk. The name must be 2 to 128 characters in length and can contain letters and digits. The name can contain colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The name of the data disk. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-). The name must start with a letter.
      *
      * This parameter is left empty by default.
      * @example testDiskName
@@ -172,7 +173,7 @@ class CreateDiskRequest extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}.
      *
-     * >  This parameter is available only when DiskCategory is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+     * >  This parameter is available only if you set `DiskCategory` to `cloud_auto`. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
      * @example 40000
      *
      * @var int
@@ -209,7 +210,7 @@ class CreateDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The size of the disk. Unit: GiB. This parameter is required. Valid values:
+     * @description The size of the data disk. Unit: GiB. This parameter is required. Valid values:
      *
      *   Valid values when DiskCategory is set to cloud: 5 to 2000.
      *
@@ -228,11 +229,13 @@ class CreateDiskRequest extends Model
      *
      *   Valid values when DiskCategory is set to cloud_essd_entry: 10 to 32768.
      *
+     *   Valid values when DiskCategory is set to cloud_regional_disk_auto: 10 to 65536.
+     *
      *   Valid values when DiskCategory is set to elastic_ephemeral_disk_standard: 64 to 8192.
      *
      *   Valid values when DiskCategory is set to elastic_ephemeral_disk_premium: 64 to 8192.
      *
-     * If `SnapshotId` is specified, the following limits apply to `SnapshotId` and `Size`:
+     * If you specify `SnapshotId`, the following limits apply to `SnapshotId` and `Size`:
      *
      *   If the size of the snapshot specified by `SnapshotId` is larger than the value of `Size`, the size of the created disk is equal to the size of the snapshot.
      *   If the size of the snapshot specified by `SnapshotId` is smaller than the value of `Size`, the size of the created disk is equal to the value of `Size`.
@@ -299,8 +302,9 @@ class CreateDiskRequest extends Model
      * @description The ID of the zone in which to create the pay-as-you-go disk.
      *
      *   If you do not specify InstanceId, you must specify ZoneId.
-     *   You cannot specify both ZoneId and InstanceId in a request.
+     *   You cannot specify both ZoneId and InstanceId in the same request.
      *
+     * >  You do not need to specify this parameter if you set DiskCategory to `cloud_regional_disk_auto` to create a Regional ESSD.
      * @example cn-hangzhou-g
      *
      * @var string

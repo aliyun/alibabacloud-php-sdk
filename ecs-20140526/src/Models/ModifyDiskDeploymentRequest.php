@@ -75,10 +75,10 @@ class ModifyDiskDeploymentRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the dedicated block storage cluster.
+     * @description The ID of the dedicated block storage cluster to which data disk N belongs.
      *
-     *   When you migrate a disk to a dedicated block storage cluster, the StorageClusterId parameter must be specified.
-     *   When you migrate a disk to a public block storage cluster, the StorageClusterId parameter must be left empty.
+     *   When you migrate a disk to a dedicated block storage cluster, the`  StorageClusterId ` parameter must be specified.
+     *   When you migrate a disk to a public block storage cluster, the `StorageClusterId` parameter must be left empty.
      *
      * This parameter is empty by default, which indicates that the disk is migrated to a public block storage cluster.
      * @example dbsc-cn-c4d2uea****

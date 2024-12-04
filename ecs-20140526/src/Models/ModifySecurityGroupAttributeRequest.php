@@ -11,7 +11,7 @@ class ModifySecurityGroupAttributeRequest extends Model
     /**
      * @description The new description of the security group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
-     * By default, this parameter is left empty.
+     * By default, the parameter is empty, which indicates that the description remains unchanged.
      * @example TestDescription
      *
      * @var string
@@ -61,7 +61,7 @@ class ModifySecurityGroupAttributeRequest extends Model
     /**
      * @description The new name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
-     * This parameter is empty by default.
+     * By default, the parameter is empty, which indicates that the name remains unchanged.
      * @example SecurityGroupTestName
      *
      * @var string

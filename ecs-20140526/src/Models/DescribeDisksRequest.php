@@ -16,8 +16,9 @@ class DescribeDisksRequest extends Model
     public $filter;
 
     /**
-     * @description The attribute value. Set the value to IOPS, which indicates the maximum IOPS of the disk.
+     * @description The additional attributes. Set the value to `Placement`, which indicates the data storage locations of the disk.
      *
+     * >  This attribute is valid only for Regional Enterprise SSDs (ESSDs).
      * @example IOPS
      *
      * @var string[]

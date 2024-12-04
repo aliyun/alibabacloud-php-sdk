@@ -18,10 +18,10 @@ class ModifySecurityGroupPolicyRequest extends Model
     public $clientToken;
 
     /**
-     * @description The internal access policy of the security group. Valid values:
+     * @description The internal access control policy of the security group. Valid values:
      *
-     *   Accept: All instances in the security group can communicate with each other.
-     *   Drop: All instances in the security group are isolated from each other.
+     *   Accept: the internal interconnectivity policy
+     *   Drop: the internal isolation policy
      *
      * This parameter is required.
      * @example Drop

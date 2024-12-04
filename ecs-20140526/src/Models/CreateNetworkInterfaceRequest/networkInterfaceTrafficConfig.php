@@ -27,7 +27,7 @@ class networkInterfaceTrafficConfig extends Model
     public $queueNumber;
 
     /**
-     * @description The number of queues supported by the ERI.
+     * @description The number of queues supported by the elastic RDMA interface (ERI).
      *
      * @example 8
      *

@@ -319,6 +319,7 @@ class disk extends Model
     /**
      * @description The locations in which data is stored.
      *
+     * >  This parameter is valid only for Regional ESSDs (cloud_regional_disk_auto).
      * @var placement
      */
     public $placement;

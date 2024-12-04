@@ -140,6 +140,10 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $serviceManaged;
 
     /**
+     * @description >  This parameter is in invitational preview and is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $sourceDestCheck;

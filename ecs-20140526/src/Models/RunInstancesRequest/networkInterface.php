@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class networkInterface extends Model
 {
     /**
-     * @description Specifies whether to release ENI N when the associated instance is released. Valid values:
+     * @description Specifies whether to release ENI N when the instance is released. Valid values:
      *
-     *   true: releases the ENI when the associated instance is released.
-     *   false: retains the ENI when the associated instance is released.
+     *   true
+     *   false
      *
      * >  This parameter takes effect only for secondary ENIs.
      * @example true
@@ -41,8 +41,8 @@ class networkInterface extends Model
      *
      * Valid values:
      *
-     *   Primary: the primary ENI
-     *   Secondary: the secondary ENI
+     *   Primary
+     *   Secondary
      *
      * Default value: Secondary.
      * @example Secondary
@@ -58,7 +58,7 @@ class networkInterface extends Model
      *
      * When you specify this parameter, take note of the following items:
      *
-     *   This parameter is valid only when `NetworkInterface.N.InstanceType` is set to `Primary`. If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you cannot specify this parameter.
+     *   This parameter takes effect only when `NetworkInterface.N.InstanceType` is set to `Primary`. If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you cannot specify this parameter.
      *   If you specify this parameter, you must set `Amount` to 1 and cannot specify `Ipv6AddressCount`, `Ipv6Address.N`, or `NetworkInterface.N.Ipv6AddressCount`.
      *
      * @var string[]
@@ -70,7 +70,7 @@ class networkInterface extends Model
      *
      * When you specify this parameter, take note of the following items:
      *
-     *   This parameter is valid only when `NetworkInterface.N.InstanceType` is set to `Primary`. If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you cannot specify this parameter.
+     *   This parameter takes effect only when `NetworkInterface.N.InstanceType` is set to `Primary`. If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you cannot specify this parameter.
      *   If you specify this parameter, you cannot specify `Ipv6AddressCount`, `Ipv6Address.N`, or `NetworkInterface.N.Ipv6Address.N`.
      *
      * @example 1
@@ -84,9 +84,9 @@ class networkInterface extends Model
      *
      * When you specify this parameter, take note of the following items:
      *
-     *   You can specify NIC indexes only for instances of specific instance types.
+     *   You can specify network card indexes only for instances of specific instance types.
      *   If you set NetworkInterface.N.InstanceType to Primary, you can set NetworkInterface.N.NetworkCardIndex only to 0 for instance types that support network cards.
-     *   If you set NetworkInterface.N.InstanceType to Secondary or leave NetworkInterface.N.InstanceType empty, you can specify NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     *   If you set NetworkInterface.N.InstanceType to Secondary or leave the parameter empty, you can specify NetworkInterface.N.NetworkCardIndex based on instance types if the instance types support network cards. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example 0
      *
@@ -200,7 +200,7 @@ class networkInterface extends Model
      * When you specify this parameter, take note of the following items:
      *
      *   The value of N cannot exceed the maximum number of ENIs per instance that the instance type supports. For the maximum number of ENIs per instance that an instance type supports, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html) or call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/2679699.html) operation.
-     *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `SecurityGroupId` and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
+     *   If you set `NetworkInterface.N.InstanceType` to `Primary`, you must specify this parameter. In this case, this parameter is equivalent to `SecurityGroupId`, and you cannot specify `SecurityGroupId`, `SecurityGroupIds.N`, or `NetworkInterface.N.SecurityGroupIds.N`.
      *   If you set `NetworkInterface.N.InstanceType` to `Secondary` or leave NetworkInterface.N.InstanceType empty, you do not need to specify this parameter. The default value is the ID of the security group to which to assign the instance.
      *
      * @example sg-bp67acfmxazb4p****
