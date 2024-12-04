@@ -24,6 +24,7 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateBackupRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBInstanceShrinkRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateDBResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\CreateSuperAccountRequest;
@@ -80,6 +81,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListReques
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParameterTemplatesRequest;
@@ -741,14 +744,19 @@ class Polardbx extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param CreateDBInstanceRequest $tmpReq  CreateDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
-    public function createDBInstanceWithOptions($request, $runtime)
+    public function createDBInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDBInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->extraParams)) {
+            $request->extraParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extraParams, 'ExtraParams', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
@@ -779,6 +787,9 @@ class Polardbx extends OpenApiClient
         }
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->extraParamsShrink)) {
+            $query['ExtraParams'] = $request->extraParamsShrink;
         }
         if (!Utils::isUnset($request->isColumnarReadDBInstance)) {
             $query['IsColumnarReadDBInstance'] = $request->isColumnarReadDBInstance;
@@ -1863,6 +1874,9 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->minuteSimple)) {
+            $query['MinuteSimple'] = $request->minuteSimple;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1959,6 +1973,9 @@ class Polardbx extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dbVersion)) {
+            $query['DbVersion'] = $request->dbVersion;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -2220,6 +2237,59 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @summary 开放商业备份集
+     *  *
+     * @param DescribeOpenBackupSetRequest $request DescribeOpenBackupSetRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeOpenBackupSetResponse DescribeOpenBackupSetResponse
+     */
+    public function describeOpenBackupSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->restoreTime)) {
+            $query['RestoreTime'] = $request->restoreTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOpenBackupSet',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOpenBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开放商业备份集
+     *  *
+     * @param DescribeOpenBackupSetRequest $request DescribeOpenBackupSetRequest
+     *
+     * @return DescribeOpenBackupSetResponse DescribeOpenBackupSetResponse
+     */
+    public function describeOpenBackupSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOpenBackupSetWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -2231,6 +2301,9 @@ class Polardbx extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
         }
         if (!Utils::isUnset($request->paramLevel)) {
             $query['ParamLevel'] = $request->paramLevel;
@@ -3320,6 +3393,9 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->paramLevel)) {
             $query['ParamLevel'] = $request->paramLevel;
         }
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
+        }
         if (!Utils::isUnset($request->parameters)) {
             $query['Parameters'] = $request->parameters;
         }
@@ -3477,20 +3553,8 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceName)) {
             $query['DBInstanceName'] = $request->DBInstanceName;
         }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

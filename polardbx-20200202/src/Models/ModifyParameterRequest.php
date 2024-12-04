@@ -32,8 +32,11 @@ class ModifyParameterRequest extends Model
     public $paramLevel;
 
     /**
-     * @description This parameter is required.
-     *
+     * @var string
+     */
+    public $parameterGroupId;
+
+    /**
      * @example {"CONN_POOL_BLOCK_TIMEOUT":6000}
      *
      * @var string
@@ -49,11 +52,12 @@ class ModifyParameterRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'DBInstanceId' => 'DBInstanceId',
-        'paramLevel'   => 'ParamLevel',
-        'parameters'   => 'Parameters',
-        'regionId'     => 'RegionId',
+        'clientToken'      => 'ClientToken',
+        'DBInstanceId'     => 'DBInstanceId',
+        'paramLevel'       => 'ParamLevel',
+        'parameterGroupId' => 'ParameterGroupId',
+        'parameters'       => 'Parameters',
+        'regionId'         => 'RegionId',
     ];
 
     public function validate()
@@ -71,6 +75,9 @@ class ModifyParameterRequest extends Model
         }
         if (null !== $this->paramLevel) {
             $res['ParamLevel'] = $this->paramLevel;
+        }
+        if (null !== $this->parameterGroupId) {
+            $res['ParameterGroupId'] = $this->parameterGroupId;
         }
         if (null !== $this->parameters) {
             $res['Parameters'] = $this->parameters;
@@ -98,6 +105,9 @@ class ModifyParameterRequest extends Model
         }
         if (isset($map['ParamLevel'])) {
             $model->paramLevel = $map['ParamLevel'];
+        }
+        if (isset($map['ParameterGroupId'])) {
+            $model->parameterGroupId = $map['ParameterGroupId'];
         }
         if (isset($map['Parameters'])) {
             $model->parameters = $map['Parameters'];

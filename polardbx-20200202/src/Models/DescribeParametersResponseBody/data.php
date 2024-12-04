@@ -16,6 +16,11 @@ class data extends Model
     public $configParameters;
 
     /**
+     * @var string
+     */
+    public $DBInstanceId;
+
+    /**
      * @example polarx
      *
      * @var string
@@ -35,6 +40,7 @@ class data extends Model
     public $runningParameters;
     protected $_name = [
         'configParameters'  => 'ConfigParameters',
+        'DBInstanceId'      => 'DBInstanceId',
         'engine'            => 'Engine',
         'engineVersion'     => 'EngineVersion',
         'runningParameters' => 'RunningParameters',
@@ -55,6 +61,9 @@ class data extends Model
                     $res['ConfigParameters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->DBInstanceId) {
+            $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -91,6 +100,9 @@ class data extends Model
                     $model->configParameters[$n++] = null !== $item ? configParameters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DBInstanceId'])) {
+            $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

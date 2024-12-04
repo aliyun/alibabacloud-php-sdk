@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttribute
 
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\connAddrs;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\DBNodes;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\gdnMemberList;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceAttributeResponseBody\DBInstance\tagSet;
 use AlibabaCloud\Tea\Model;
 
@@ -150,6 +151,21 @@ class DBInstance extends Model
      * @var string
      */
     public $expired;
+
+    /**
+     * @var string
+     */
+    public $gdnInstanceName;
+
+    /**
+     * @var gdnMemberList[]
+     */
+    public $gdnMemberList;
+
+    /**
+     * @var string
+     */
+    public $gdnRole;
 
     /**
      * @example pxc-zkralxpc5d****
@@ -375,6 +391,9 @@ class DBInstance extends Model
         'engine'                  => 'Engine',
         'expireDate'              => 'ExpireDate',
         'expired'                 => 'Expired',
+        'gdnInstanceName'         => 'GdnInstanceName',
+        'gdnMemberList'           => 'GdnMemberList',
+        'gdnRole'                 => 'GdnRole',
         'id'                      => 'Id',
         'kindCode'                => 'KindCode',
         'LTSVersions'             => 'LTSVersions',
@@ -490,6 +509,21 @@ class DBInstance extends Model
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->gdnInstanceName) {
+            $res['GdnInstanceName'] = $this->gdnInstanceName;
+        }
+        if (null !== $this->gdnMemberList) {
+            $res['GdnMemberList'] = [];
+            if (null !== $this->gdnMemberList && \is_array($this->gdnMemberList)) {
+                $n = 0;
+                foreach ($this->gdnMemberList as $item) {
+                    $res['GdnMemberList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->gdnRole) {
+            $res['GdnRole'] = $this->gdnRole;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -675,6 +709,21 @@ class DBInstance extends Model
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
+        }
+        if (isset($map['GdnInstanceName'])) {
+            $model->gdnInstanceName = $map['GdnInstanceName'];
+        }
+        if (isset($map['GdnMemberList'])) {
+            if (!empty($map['GdnMemberList'])) {
+                $model->gdnMemberList = [];
+                $n                    = 0;
+                foreach ($map['GdnMemberList'] as $item) {
+                    $model->gdnMemberList[$n++] = null !== $item ? gdnMemberList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['GdnRole'])) {
+            $model->gdnRole = $map['GdnRole'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

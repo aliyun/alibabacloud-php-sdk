@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterTemplatesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @example pxc-********
      *
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $engineVersion;
 
     /**
      * @example compute
@@ -33,9 +36,10 @@ class DescribeParameterTemplatesRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
-        'paramLevel'   => 'ParamLevel',
-        'regionId'     => 'RegionId',
+        'DBInstanceId'  => 'DBInstanceId',
+        'engineVersion' => 'EngineVersion',
+        'paramLevel'    => 'ParamLevel',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -47,6 +51,9 @@ class DescribeParameterTemplatesRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->engineVersion) {
+            $res['EngineVersion'] = $this->engineVersion;
         }
         if (null !== $this->paramLevel) {
             $res['ParamLevel'] = $this->paramLevel;
@@ -68,6 +75,9 @@ class DescribeParameterTemplatesRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['EngineVersion'])) {
+            $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['ParamLevel'])) {
             $model->paramLevel = $map['ParamLevel'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDBInstanceRequest extends Model
+class CreateDBInstanceShrinkRequest extends Model
 {
     /**
      * @example true
@@ -71,9 +71,9 @@ class CreateDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $extraParams;
+    public $extraParamsShrink;
 
     /**
      * @var bool
@@ -208,7 +208,7 @@ class CreateDBInstanceRequest extends Model
         'dnClass'                  => 'DnClass',
         'dnStorageSpace'           => 'DnStorageSpace',
         'engineVersion'            => 'EngineVersion',
-        'extraParams'              => 'ExtraParams',
+        'extraParamsShrink'        => 'ExtraParams',
         'isColumnarReadDBInstance' => 'IsColumnarReadDBInstance',
         'isReadDBInstance'         => 'IsReadDBInstance',
         'networkType'              => 'NetworkType',
@@ -265,8 +265,8 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
         }
-        if (null !== $this->extraParams) {
-            $res['ExtraParams'] = $this->extraParams;
+        if (null !== $this->extraParamsShrink) {
+            $res['ExtraParams'] = $this->extraParamsShrink;
         }
         if (null !== $this->isColumnarReadDBInstance) {
             $res['IsColumnarReadDBInstance'] = $this->isColumnarReadDBInstance;
@@ -326,7 +326,7 @@ class CreateDBInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateDBInstanceRequest
+     * @return CreateDBInstanceShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -362,7 +362,7 @@ class CreateDBInstanceRequest extends Model
             $model->engineVersion = $map['EngineVersion'];
         }
         if (isset($map['ExtraParams'])) {
-            $model->extraParams = $map['ExtraParams'];
+            $model->extraParamsShrink = $map['ExtraParams'];
         }
         if (isset($map['IsColumnarReadDBInstance'])) {
             $model->isColumnarReadDBInstance = $map['IsColumnarReadDBInstance'];

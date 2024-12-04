@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstanceTopologyRequest extends Model
+class DescribeOpenBackupSetRequest extends Model
 {
     /**
      * @description This parameter is required.
@@ -18,18 +18,6 @@ class DescribeDBInstanceTopologyRequest extends Model
     public $DBInstanceName;
 
     /**
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @var bool
-     */
-    public $minuteSimple;
-
-    /**
-     * @description This parameter is required.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,15 +25,15 @@ class DescribeDBInstanceTopologyRequest extends Model
     public $regionId;
 
     /**
+     * @example 2024-10-14T00:00:00Z
+     *
      * @var string
      */
-    public $startTime;
+    public $restoreTime;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'endTime'        => 'EndTime',
-        'minuteSimple'   => 'MinuteSimple',
         'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'restoreTime'    => 'RestoreTime',
     ];
 
     public function validate()
@@ -58,17 +46,11 @@ class DescribeDBInstanceTopologyRequest extends Model
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->minuteSimple) {
-            $res['MinuteSimple'] = $this->minuteSimple;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
+        if (null !== $this->restoreTime) {
+            $res['RestoreTime'] = $this->restoreTime;
         }
 
         return $res;
@@ -77,7 +59,7 @@ class DescribeDBInstanceTopologyRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstanceTopologyRequest
+     * @return DescribeOpenBackupSetRequest
      */
     public static function fromMap($map = [])
     {
@@ -85,17 +67,11 @@ class DescribeDBInstanceTopologyRequest extends Model
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['MinuteSimple'])) {
-            $model->minuteSimple = $map['MinuteSimple'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
+        if (isset($map['RestoreTime'])) {
+            $model->restoreTime = $map['RestoreTime'];
         }
 
         return $model;

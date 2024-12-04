@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dbVersion;
+
+    /**
      * @example dinga93c84f4d***
      *
      * @var string
@@ -64,6 +69,7 @@ class DescribeDBInstancesRequest extends Model
      */
     public $tags;
     protected $_name = [
+        'dbVersion'       => 'DbVersion',
         'instanceId'      => 'InstanceId',
         'mustHasCdc'      => 'MustHasCdc',
         'pageNumber'      => 'PageNumber',
@@ -81,6 +87,9 @@ class DescribeDBInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dbVersion) {
+            $res['DbVersion'] = $this->dbVersion;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -117,6 +126,9 @@ class DescribeDBInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DbVersion'])) {
+            $model->dbVersion = $map['DbVersion'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
