@@ -158,6 +158,10 @@ class VpcPeer extends OpenApiClient
     public function createVpcPeerConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->linkType)) {
+            $query['LinkType'] = $request->linkType;
+        }
         $body = [];
         if (!Utils::isUnset($request->acceptingAliUid)) {
             $body['AcceptingAliUid'] = $request->acceptingAliUid;
@@ -193,7 +197,8 @@ class VpcPeer extends OpenApiClient
             $body['VpcId'] = $request->vpcId;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateVpcPeerConnection',
@@ -517,6 +522,10 @@ class VpcPeer extends OpenApiClient
     public function modifyVpcPeerConnectionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->linkType)) {
+            $query['LinkType'] = $request->linkType;
+        }
         $body = [];
         if (!Utils::isUnset($request->bandwidth)) {
             $body['Bandwidth'] = $request->bandwidth;
@@ -537,7 +546,8 @@ class VpcPeer extends OpenApiClient
             $body['Name'] = $request->name;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyVpcPeerConnection',

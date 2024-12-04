@@ -90,6 +90,11 @@ class CreateVpcPeerConnectionRequest extends Model
     public $dryRun;
 
     /**
+     * @var string
+     */
+    public $linkType;
+
+    /**
      * @description The name of the VPC peering connection.
      *
      * The name must be 2 to 128 characters in length, and can contain digits, underscores (_), and hyphens (-). It must start with a letter.
@@ -136,6 +141,7 @@ class CreateVpcPeerConnectionRequest extends Model
         'clientToken'       => 'ClientToken',
         'description'       => 'Description',
         'dryRun'            => 'DryRun',
+        'linkType'          => 'LinkType',
         'name'              => 'Name',
         'regionId'          => 'RegionId',
         'resourceGroupId'   => 'ResourceGroupId',
@@ -169,6 +175,9 @@ class CreateVpcPeerConnectionRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->linkType) {
+            $res['LinkType'] = $this->linkType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -214,6 +223,9 @@ class CreateVpcPeerConnectionRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['LinkType'])) {
+            $model->linkType = $map['LinkType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

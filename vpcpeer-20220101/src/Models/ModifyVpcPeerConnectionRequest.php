@@ -62,6 +62,11 @@ class ModifyVpcPeerConnectionRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $linkType;
+
+    /**
      * @description The new name of the VPC peering connection.
      *
      * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
@@ -76,6 +81,7 @@ class ModifyVpcPeerConnectionRequest extends Model
         'description' => 'Description',
         'dryRun'      => 'DryRun',
         'instanceId'  => 'InstanceId',
+        'linkType'    => 'LinkType',
         'name'        => 'Name',
     ];
 
@@ -100,6 +106,9 @@ class ModifyVpcPeerConnectionRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->linkType) {
+            $res['LinkType'] = $this->linkType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -130,6 +139,9 @@ class ModifyVpcPeerConnectionRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['LinkType'])) {
+            $model->linkType = $map['LinkType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -109,6 +109,11 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $linkType;
+
+    /**
      * @description The name of the VPC peering connection.
      *
      * @example vpcpeer
@@ -196,6 +201,7 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
         'gmtExpired'        => 'GmtExpired',
         'gmtModified'       => 'GmtModified',
         'instanceId'        => 'InstanceId',
+        'linkType'          => 'LinkType',
         'name'              => 'Name',
         'ownerId'           => 'OwnerId',
         'regionId'          => 'RegionId',
@@ -242,6 +248,9 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->linkType) {
+            $res['LinkType'] = $this->linkType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -314,6 +323,9 @@ class GetVpcPeerConnectionAttributeResponseBody extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['LinkType'])) {
+            $model->linkType = $map['LinkType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
