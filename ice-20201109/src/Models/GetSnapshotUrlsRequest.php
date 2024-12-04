@@ -20,7 +20,7 @@ class GetSnapshotUrlsRequest extends Model
     /**
      * @description The order that you use to sort the query results. Valid values: Asc and Desc.
      *
-     *
+     * - Desc
      * @example Asc
      *
      * @var string

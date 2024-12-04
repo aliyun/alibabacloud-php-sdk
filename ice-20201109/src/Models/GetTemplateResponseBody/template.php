@@ -11,8 +11,8 @@ class template extends Model
     /**
      * @description The clip parameters for submitting a video production job. You can replace mediaId and text with real values to submit a job. References:
      *
-     *   [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html)
-     *   [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html)
+     *   [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html)
+     *   [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html)
      *
      * @example {"Media1":"mediaId","Text1":"text"}
      *
@@ -23,8 +23,8 @@ class template extends Model
     /**
      * @description The template configurations.
      *
-     *   For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/277430.html).
-     *   For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html#title-3tf-skt-eoi).
+     *   For more information about the configurations of a regular template, see [Config object of a regular template](https://help.aliyun.com/document_detail/456193.html).
+     *   For more information about the configurations of an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      *
      * @example 参考Timeline模板配置详解
      *

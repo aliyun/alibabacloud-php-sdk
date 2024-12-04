@@ -19,6 +19,11 @@ class occurrencesInfos extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $expression;
+
+    /**
      * @description The start time of the clip. Unit: seconds. The value is of the Float type.
      *
      * @example 61.066353
@@ -34,9 +39,10 @@ class occurrencesInfos extends Model
      */
     public $trackData;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'startTime' => 'StartTime',
-        'trackData' => 'TrackData',
+        'endTime'    => 'EndTime',
+        'expression' => 'Expression',
+        'startTime'  => 'StartTime',
+        'trackData'  => 'TrackData',
     ];
 
     public function validate()
@@ -48,6 +54,9 @@ class occurrencesInfos extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->expression) {
+            $res['Expression'] = $this->expression;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -75,6 +84,9 @@ class occurrencesInfos extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Expression'])) {
+            $model->expression = $map['Expression'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

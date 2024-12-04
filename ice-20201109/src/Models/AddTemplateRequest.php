@@ -58,7 +58,7 @@ class AddTemplateRequest extends Model
      *   AliyunConsole
      *   WebSDK
      *
-     *
+     * <!---->
      * @example OpenAPI
      *
      * @var string
@@ -75,7 +75,7 @@ class AddTemplateRequest extends Model
      *   UploadFailed: Failed to upload the video.
      *   ProcessFailed: Failed to process the advanced template.
      *
-     *
+     * <!---->
      * @example Available
      *
      * @var string
@@ -88,7 +88,7 @@ class AddTemplateRequest extends Model
      *   Timeline: a regular template created based on the timeline of a video editing project, in which multiple materials are arranged in sequence across multiple layers. It can be used to convert text and images into videos, create photo albums, add opening and closing parts, and apply the default watermark.
      *   VETemplate: an advanced template created using effects of Adobe After Effects (AE). It can be used to produce complex animations and advanced media effects.
      *
-     *
+     * <!---->
      * @example Timeline
      *
      * @var string

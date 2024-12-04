@@ -14,6 +14,8 @@ class timeSpan extends Model
      *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
      *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
      *
+     * @example 01:59:59.999 or 32000.23
+     *
      * @var string
      */
     public $duration;
@@ -24,6 +26,8 @@ class timeSpan extends Model
      *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
      *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
      *
+     * @example 01:59:59.999 or 32000.23
+     *
      * @var string
      */
     public $end;
@@ -33,6 +37,8 @@ class timeSpan extends Model
      *
      *   Format: `hh:mm:ss[.SSS]` or `sssss[.SSS]`.
      *   Valid values: `[00:00:00.000,23:59:59.999]` or `[0.000,86399.999]`.
+     *
+     * @example 01:59:59.999 or 32000.23
      *
      * @var string
      */

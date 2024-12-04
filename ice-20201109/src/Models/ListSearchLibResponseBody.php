@@ -34,11 +34,17 @@ class ListSearchLibResponseBody extends Model
      * @var string
      */
     public $success;
+
+    /**
+     * @var int
+     */
+    public $total;
     protected $_name = [
         'code'              => 'Code',
         'requestId'         => 'RequestId',
         'searchLibInfoList' => 'SearchLibInfoList',
         'success'           => 'Success',
+        'total'             => 'Total',
     ];
 
     public function validate()
@@ -65,6 +71,9 @@ class ListSearchLibResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->total) {
+            $res['Total'] = $this->total;
         }
 
         return $res;
@@ -95,6 +104,9 @@ class ListSearchLibResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Total'])) {
+            $model->total = $map['Total'];
         }
 
         return $model;
