@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTaskInstanceOperationLogsRequest extends Model
 {
     /**
+     * @description The operation date, accurate to the day. The default value is the current day. You can query only the operation logs generated within the previous 31 days.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -16,8 +18,9 @@ class ListTaskInstanceOperationLogsRequest extends Model
     public $date;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -25,6 +28,8 @@ class ListTaskInstanceOperationLogsRequest extends Model
     public $id;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -32,6 +37,8 @@ class ListTaskInstanceOperationLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int

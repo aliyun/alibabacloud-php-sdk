@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertRuleShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Indicates whether the rule is enabled.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -18,8 +19,9 @@ class CreateAlertRuleShrinkRequest extends Model
     public $enabled;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the rule.
      *
+     * This parameter is required.
      * @example xm_create_test
      *
      * @var string
@@ -27,13 +29,16 @@ class CreateAlertRuleShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The configuration for the alert notification.
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Alibaba Cloud account used by the creator of the rule.
      *
+     * This parameter is required.
      * @example 279114181716147735
      *
      * @var string
@@ -41,8 +46,9 @@ class CreateAlertRuleShrinkRequest extends Model
     public $owner;
 
     /**
-     * @description This parameter is required.
+     * @description The conditions for triggering the alert.
      *
+     * This parameter is required.
      * @var string
      */
     public $triggerConditionShrink;

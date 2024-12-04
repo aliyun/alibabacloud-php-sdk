@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class expected extends Model
 {
     /**
+     * @example 波动率类型规则使用，通过表达式来表示波动阈值。如：波动上升大于0.01： $checkValue > 0.01  波动下降大于0.01：$checkValue < -0.01   波动率绝对值：abs($checkValue) > 0.01
+     *
+     * @var string
+     */
+    public $expression;
+
+    /**
      * @example >
      *
      * @var string
@@ -22,8 +29,9 @@ class expected extends Model
      */
     public $value;
     protected $_name = [
-        'operator' => 'Operator',
-        'value'    => 'Value',
+        'expression' => 'Expression',
+        'operator'   => 'Operator',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -33,6 +41,9 @@ class expected extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->expression) {
+            $res['Expression'] = $this->expression;
+        }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
@@ -51,6 +62,9 @@ class expected extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Expression'])) {
+            $model->expression = $map['Expression'];
+        }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }

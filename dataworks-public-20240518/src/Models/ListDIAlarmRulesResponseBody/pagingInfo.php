@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The alert rules returned.
+     *
      * @var DIJobAlarmRules[]
      */
     public $DIJobAlarmRules;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class pagingInfo extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class pagingInfo extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 90
      *
      * @var int

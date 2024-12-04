@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud resource group to which the workspaces belong. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
+     *
      * @example rg-acfmzbn7pti3zff
      *
      * @var string
@@ -17,11 +19,18 @@ class ListProjectsRequest extends Model
     public $aliyunResourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var aliyunResourceTags[]
      */
     public $aliyunResourceTags;
 
     /**
+     * @description Specifies whether the development environment is enabled. Valid values:
+     *
+     *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in a workspace.
+     *   false: The development environment is disabled. In this case, only the production environment is used in a workspace.
+     *
      * @example true
      *
      * @var bool
@@ -29,6 +38,11 @@ class ListProjectsRequest extends Model
     public $devEnvironmentEnabled;
 
     /**
+     * @description Specifies whether the Develop role is disabled. Valid values:
+     *
+     *   false (default)
+     *   true
+     *
      * @example false
      *
      * @var bool
@@ -36,16 +50,22 @@ class ListProjectsRequest extends Model
     public $devRoleDisabled;
 
     /**
+     * @description The IDs of the DataWorks workspaces.
+     *
      * @var int[]
      */
     public $ids;
 
     /**
+     * @description The names of the DataWorks workspaces.
+     *
      * @var string[]
      */
     public $names;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -53,6 +73,8 @@ class ListProjectsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -60,6 +82,11 @@ class ListProjectsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether scheduling of Platform for AI (PAI) tasks is enabled. Valid values:
+     *
+     *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+     *   false: Scheduling of PAI tasks is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -67,6 +94,19 @@ class ListProjectsRequest extends Model
     public $paiTaskEnabled;
 
     /**
+     * @description The status of the workspaces. Valid values:
+     *
+     *   Available
+     *   Initializing
+     *   InitFailed
+     *   Forbidden
+     *   Deleting
+     *   DeleteFailed
+     *   Frozen
+     *   Updating
+     *   UpdateFailed
+     *
+     *
      * @example Available
      *
      * @var string

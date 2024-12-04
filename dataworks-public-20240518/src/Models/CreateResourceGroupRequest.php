@@ -64,6 +64,8 @@ class CreateResourceGroupRequest extends Model
     public $remark;
 
     /**
+     * @description The specifications of the resource group. Unit: compute unit (CU). This parameter is required only when you set the PaymentType parameter to PrePaid.
+     *
      * @example 2
      *
      * @var int

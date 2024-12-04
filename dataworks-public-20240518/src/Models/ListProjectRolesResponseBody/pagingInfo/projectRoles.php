@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projectRoles extends Model
 {
     /**
+     * @description The code of the role in the DataWorks workspace.
+     *
      * @example role_project_guest
      *
      * @var string
@@ -16,11 +18,15 @@ class projectRoles extends Model
     public $code;
 
     /**
+     * @description The name of the role in the DataWorks workspace.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 21229
      *
      * @var int
@@ -28,6 +34,8 @@ class projectRoles extends Model
     public $projectId;
 
     /**
+     * @description The type of the role in the DataWorks workspace.
+     *
      * @example System
      *
      * @var string

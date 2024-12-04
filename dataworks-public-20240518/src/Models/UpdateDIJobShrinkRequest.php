@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIJobShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the synchronization task.
      *
+     * This parameter is required.
      * @example 11588
      *
      * @var int
@@ -18,31 +19,45 @@ class UpdateDIJobShrinkRequest extends Model
     public $DIJobId;
 
     /**
+     * @description The description of the synchronization task.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+     *
      * @var string
      */
     public $jobSettingsShrink;
 
     /**
+     * @description DataWorks工作空间ID。您可以通过[ListProjects](https://help.aliyun.com/document_detail/178393.html)接口获取工作空间ID。
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @description The resource settings.
+     *
      * @var string
      */
     public $resourceSettingsShrink;
 
     /**
+     * @description The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+     *
      * @var string
      */
     public $tableMappingsShrink;
 
     /**
+     * @description The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+     *
      * @var string
      */
     public $transformationRulesShrink;

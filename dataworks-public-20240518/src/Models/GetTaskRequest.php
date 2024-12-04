@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The task ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -18,6 +19,13 @@ class GetTaskRequest extends Model
     public $id;
 
     /**
+     * @description The environment of the workspace.
+     *
+     * Valid values:
+     *
+     *   Prod: production environment
+     *   Dev: development environment
+     *
      * @example Prod
      *
      * @var string

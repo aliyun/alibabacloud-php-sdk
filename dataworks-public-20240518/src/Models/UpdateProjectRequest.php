@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectRequest extends Model
 {
     /**
+     * @description The description of the workspace.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to enable the development environment. Valid values:
+     *
+     *   true: enables the development environment. In this case, the development environment is isolated from the production environment in the workspace.
+     *   false: disables the development environment. In this case, only the production environment is used in the workspace.
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +28,12 @@ class UpdateProjectRequest extends Model
     public $devEnvironmentEnabled;
 
     /**
+     * @description Specifies whether to disable the Develop role. Valid values:
+     *
+     *   false (default)
+     *   true
+     *
+     * Note: If you disable the Develop role, you cannot assume the Develop role to develop nodes in workflows and edit node code. The Develop role cannot be enabled again after it is disabled.
      * @example true
      *
      * @var bool
@@ -28,6 +41,8 @@ class UpdateProjectRequest extends Model
     public $devRoleDisabled;
 
     /**
+     * @description The display name of the workspace.
+     *
      * @var string
      */
     public $displayName;
@@ -42,6 +57,11 @@ class UpdateProjectRequest extends Model
     public $id;
 
     /**
+     * @description Specifies whether to enable scheduling of Platform for AI (PAI) tasks. Valid values:
+     *
+     *   true: enables scheduling of PAI tasks. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+     *   false: disables scheduling of PAI tasks.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 8754EE08-4AA2-5F77-ADD7-754DBBDA9F75
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteAlertRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

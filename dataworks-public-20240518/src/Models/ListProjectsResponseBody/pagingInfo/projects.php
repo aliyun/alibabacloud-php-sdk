@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class projects extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud resource group to which the workspace belongs.
+     *
      * @example rg-acfmzbn7pti3zfa
      *
      * @var string
@@ -17,16 +19,25 @@ class projects extends Model
     public $aliyunResourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var aliyunResourceTags[]
      */
     public $aliyunResourceTags;
 
     /**
+     * @description The description of the workspace.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the development environment is enabled. Valid values:
+     *
+     *   true: The development environment is enabled. In this case, the development environment is isolated from the production environment in the workspace.
+     *   false: The development environment is disabled. In this case, only the production environment is used in the workspace.
+     *
      * @example true
      *
      * @var bool
@@ -34,6 +45,11 @@ class projects extends Model
     public $devEnvironmentEnabled;
 
     /**
+     * @description Indicates whether the Develop role is disabled. Valid values:
+     *
+     *   false (default)
+     *   true
+     *
      * @example false
      *
      * @var bool
@@ -41,11 +57,15 @@ class projects extends Model
     public $devRoleDisabled;
 
     /**
+     * @description The display name of the workspace.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 123456
      *
      * @var int
@@ -53,6 +73,8 @@ class projects extends Model
     public $id;
 
     /**
+     * @description The name of the workspace.
+     *
      * @example sora_finance
      *
      * @var string
@@ -60,6 +82,8 @@ class projects extends Model
     public $name;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the workspace belongs.
+     *
      * @example 123532153125
      *
      * @var string
@@ -67,6 +91,11 @@ class projects extends Model
     public $owner;
 
     /**
+     * @description Indicates whether scheduling of PAI tasks is enabled. Valid values:
+     *
+     *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+     *   false: Scheduling of PAI tasks is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -74,6 +103,18 @@ class projects extends Model
     public $paiTaskEnabled;
 
     /**
+     * @description The status of the workspace. Valid values:
+     *
+     *   Available
+     *   Initializing
+     *   InitFailed
+     *   Forbidden
+     *   Deleting
+     *   DeleteFailed
+     *   Frozen
+     *   Updating
+     *   UpdateFailed
+     *
      * @example Available
      *
      * @var string

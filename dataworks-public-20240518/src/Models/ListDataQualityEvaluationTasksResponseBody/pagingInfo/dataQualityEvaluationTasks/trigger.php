@@ -16,9 +16,9 @@ class trigger extends Model
     public $taskIds;
 
     /**
-     * @description The trigger condition of the task.
+     * @description The trigger condition of the task. Valid values:
      *
-     *   Valid values: ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+     *   ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
      *
      * @example ByScheduledTaskInstance
      *

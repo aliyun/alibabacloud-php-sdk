@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveTaskInstanceDependenciesShrinkRequest extends Model
 {
     /**
+     * @description The remarks.
+     *
      * @example this is a comment
      *
      * @var string
@@ -16,8 +18,9 @@ class RemoveTaskInstanceDependenciesShrinkRequest extends Model
     public $comment;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -25,6 +28,8 @@ class RemoveTaskInstanceDependenciesShrinkRequest extends Model
     public $id;
 
     /**
+     * @description The IDs of ancestor instances of the instance
+     *
      * @var string
      */
     public $upstreamTaskInstanceIdsShrink;

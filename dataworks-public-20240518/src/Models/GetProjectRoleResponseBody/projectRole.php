@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class projectRole extends Model
 {
     /**
+     * @description The code of the role in the DataWorks workspace.
+     *
+     * Valid values:
+     *
+     *   role_project_admin: workspace administrator
+     *   role_project_dev: developer
+     *   role_project_dg_admin: data governance administrator
+     *   role_project_guest: visitor
+     *   role_project_security: security administrator
+     *   role_project_deploy: deployer
+     *   role_project_owner: workspace owner
+     *   role_project_data_analyst: data analyst
+     *   role_project_pe: O\\&M engineer
+     *   role_project_erd: model designer
+     *
      * @example role_project_guest
      *
      * @var string
@@ -16,11 +31,15 @@ class projectRole extends Model
     public $code;
 
     /**
+     * @description The name of the role in the DataWorks workspace.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 10002
      *
      * @var int
@@ -28,6 +47,13 @@ class projectRole extends Model
     public $projectId;
 
     /**
+     * @description The type of the role in the DataWorks workspace.
+     *
+     * Valid values:
+     *
+     *   UserCustom: user-defined role
+     *   System: system role
+     *
      * @example System
      *
      * @var string

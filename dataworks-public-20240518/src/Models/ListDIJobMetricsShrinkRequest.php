@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDIJobMetricsShrinkRequest extends Model
 {
     /**
+     * @description The ID of the synchronization task.
+     *
      * @example 11265
      *
      * @var int
@@ -16,8 +18,9 @@ class ListDIJobMetricsShrinkRequest extends Model
     public $DIJobId;
 
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query.
      *
+     * This parameter is required.
      * @example 1712205941
      *
      * @var int
@@ -25,15 +28,17 @@ class ListDIJobMetricsShrinkRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The metrics that you want to query.
      *
+     * This parameter is required.
      * @var string
      */
     public $metricNameShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query.
      *
+     * This parameter is required.
      * @example 1586509407
      *
      * @var int

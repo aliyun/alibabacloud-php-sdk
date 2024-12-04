@@ -16,36 +16,50 @@ use AlibabaCloud\Tea\Model;
 class extension extends Model
 {
     /**
+     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to CycleUnfinished.
+     *
      * @var cycleUnfinished
      */
     public $cycleUnfinished;
 
     /**
+     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to Error.
+     *
      * @var error
      */
     public $error;
 
     /**
+     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceErrorCount.
+     *
      * @var instanceErrorCount
      */
     public $instanceErrorCount;
 
     /**
+     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceErrorPercentage.
+     *
      * @var instanceErrorPercentage
      */
     public $instanceErrorPercentage;
 
     /**
+     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceTransferFluctuate.
+     *
      * @var instanceTransferFluctuate
      */
     public $instanceTransferFluctuate;
 
     /**
+     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to Timeout.
+     *
      * @var timeout
      */
     public $timeout;
 
     /**
+     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to UnFinished.
+     *
      * @var unFinished
      */
     public $unFinished;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ImportWorkflowDefinitionResponseBody extends Model
 {
     /**
+     * @description The status information of the asynchronous task.
+     *
      * @var asyncJob
      */
     public $asyncJob;
 
     /**
+     * @description The request ID.
+     *
      * @example 7C352CB7-CD88-50CF-9D0D-E81BDF020E7F
      *
      * @var string

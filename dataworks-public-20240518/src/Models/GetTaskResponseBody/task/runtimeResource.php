@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class runtimeResource extends Model
 {
     /**
+     * @description The default number of compute units (CUs) configured for task running.
+     *
      * @example 0.25
      *
      * @var string
@@ -16,6 +18,8 @@ class runtimeResource extends Model
     public $cu;
 
     /**
+     * @description The ID of the image configured for task running.
+     *
      * @example i-xxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class runtimeResource extends Model
     public $image;
 
     /**
+     * @description The ID of the resource group for scheduling configured for task running.
+     *
      * @example S_res_group_524258031846018_1684XXXXXXXXX
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTaskInstancesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The data timestamp.
      *
+     * This parameter is required.
      * @example 1710239005403
      *
      * @var int
@@ -18,6 +19,8 @@ class ListTaskInstancesRequest extends Model
     public $bizdate;
 
     /**
+     * @description The ID of the instance. The instance may be rerun. If the instance is rerun and you configure this parameter, the system returns the historical information of the instance, including the rerun information. You can use the RunNumber parameter to distinguish each entry in the historical information.
+     *
      * @example 1234
      *
      * @var int
@@ -25,11 +28,15 @@ class ListTaskInstancesRequest extends Model
     public $id;
 
     /**
+     * @description The IDs of the instances. You can query multiple instances at a time by instance ID.
+     *
      * @var int[]
      */
     public $ids;
 
     /**
+     * @description The account ID of the task owner.
+     *
      * @example 1000
      *
      * @var string
@@ -37,6 +44,8 @@ class ListTaskInstancesRequest extends Model
     public $owner;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +53,8 @@ class ListTaskInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +62,13 @@ class ListTaskInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The environment of the workspace.
+     *
+     * Valid values:
+     *
+     *   Prod: production environment
+     *   Dev: development environment
+     *
      * @example Prod
      *
      * @var string
@@ -58,8 +76,9 @@ class ListTaskInstancesRequest extends Model
     public $projectEnv;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -67,6 +86,8 @@ class ListTaskInstancesRequest extends Model
     public $projectId;
 
     /**
+     * @description The information about the resource group. Set this parameter to the identifier of a resource group for scheduling.
+     *
      * @example S_res_group_524258031846018_1684XXXXXXXXX
      *
      * @var string
@@ -74,6 +95,19 @@ class ListTaskInstancesRequest extends Model
     public $runtimeResource;
 
     /**
+     * @description The field used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+     *
+     *   `TriggerTime (Desc/Asc)`
+     *
+     *   `StartedTime (Desc/Asc)`
+     *
+     *   `FinishedTime (Desc/Asc)`
+     *
+     *   `CreateTime (Desc/Asc)`
+     *
+     *   `Id (Desc/Asc)`
+     *
+     * Default value: `Id Desc`.
      * @example Id Desc
      *
      * @var string
@@ -81,6 +115,8 @@ class ListTaskInstancesRequest extends Model
     public $sortBy;
 
     /**
+     * @description The ID of the task for which the instance is generated.
+     *
      * @example 1234
      *
      * @var int
@@ -88,16 +124,22 @@ class ListTaskInstancesRequest extends Model
     public $taskId;
 
     /**
+     * @description The IDs of the tasks. You can query multiple instances at a time by task ID.
+     *
      * @var int[]
      */
     public $taskIds;
 
     /**
+     * @description The name of the task. Fuzzy match is supported.
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The type of the task for which the instance is generated.
+     *
      * @example ODPS_SQL
      *
      * @var string
@@ -105,16 +147,22 @@ class ListTaskInstancesRequest extends Model
     public $taskType;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $triggerRecurrence;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $triggerType;
 
     /**
+     * @description The ID of the workflow to which the instance belongs.
+     *
      * @example 1234
      *
      * @var int
@@ -122,6 +170,8 @@ class ListTaskInstancesRequest extends Model
     public $workflowId;
 
     /**
+     * @description The workflow instance ID.
+     *
      * @example 1234
      *
      * @var int
@@ -129,6 +179,16 @@ class ListTaskInstancesRequest extends Model
     public $workflowInstanceId;
 
     /**
+     * @description The type of the workflow instance.
+     *
+     * Valid values:
+     *
+     *   SmokeTest
+     *   Manual
+     *   SupplementData
+     *   ManualWorkflow
+     *   Normal
+     *
      * @example Normal
      *
      * @var string

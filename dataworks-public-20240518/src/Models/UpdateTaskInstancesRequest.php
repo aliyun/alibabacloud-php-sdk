@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskInstancesRequest extends Model
 {
     /**
+     * @description The remarks.
+     *
      * @example this is a comment
      *
      * @var string
@@ -17,6 +19,8 @@ class UpdateTaskInstancesRequest extends Model
     public $comment;
 
     /**
+     * @description The instances.
+     *
      * @var taskInstances[]
      */
     public $taskInstances;

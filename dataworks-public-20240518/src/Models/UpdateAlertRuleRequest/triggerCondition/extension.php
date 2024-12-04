@@ -16,36 +16,50 @@ use AlibabaCloud\Tea\Model;
 class extension extends Model
 {
     /**
+     * @description The configuration for an alert of the CycleUnfinished type.
+     *
      * @var cycleUnfinished
      */
     public $cycleUnfinished;
 
     /**
+     * @description The configuration for an alert of the Error type.
+     *
      * @var error
      */
     public $error;
 
     /**
+     * @description The configuration for an alert of the InstanceErrorCount type.
+     *
      * @var instanceErrorCount
      */
     public $instanceErrorCount;
 
     /**
+     * @description The configuration for an alert of the InstanceErrorPercentage type.
+     *
      * @var instanceErrorPercentage
      */
     public $instanceErrorPercentage;
 
     /**
+     * @description The configuration for an alert of the InstanceTransferFluctuate type.
+     *
      * @var instanceTransferFluctuate
      */
     public $instanceTransferFluctuate;
 
     /**
+     * @description The configuration for an alert of the Timeout type.
+     *
      * @var timeout
      */
     public $timeout;
 
     /**
+     * @description The configuration for an alert of the UnFinished type.
+     *
      * @var unFinished
      */
     public $unFinished;

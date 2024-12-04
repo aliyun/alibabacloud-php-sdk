@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertRuleRequest extends Model
 {
     /**
+     * @description The rule ID.
+     *
      * @example 105412
      *
      * @var int

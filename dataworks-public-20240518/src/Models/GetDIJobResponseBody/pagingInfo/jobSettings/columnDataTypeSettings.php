@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columnDataTypeSettings extends Model
 {
     /**
+     * @description The data type of the destination field.
+     *
      * @example text
      *
      * @var string
@@ -16,6 +18,8 @@ class columnDataTypeSettings extends Model
     public $destinationDataType;
 
     /**
+     * @description The data type of the source field.
+     *
      * @example bigint
      *
      * @var string

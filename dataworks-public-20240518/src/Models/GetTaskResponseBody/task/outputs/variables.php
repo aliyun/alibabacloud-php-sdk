@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class variables extends Model
 {
     /**
+     * @description The name of the variable.
+     *
      * @example key1
      *
      * @var string
@@ -16,6 +18,15 @@ class variables extends Model
     public $name;
 
     /**
+     * @description The type.
+     *
+     * Valid values:
+     *
+     *   Constant: constant
+     *   PassThrough: parameter pass-through
+     *   System: system variable
+     *   NodeOutput: script output
+     *
      * @example Constant
      *
      * @var string
@@ -23,6 +34,8 @@ class variables extends Model
     public $type;
 
     /**
+     * @description The value of the variable.
+     *
      * @example value1
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class warned extends Model
 {
     /**
+     * @var string
+     */
+    public $expression;
+
+    /**
      * @description The comparison operator. Valid values:
      *
      *   \\>
@@ -33,8 +38,9 @@ class warned extends Model
      */
     public $value;
     protected $_name = [
-        'operator' => 'Operator',
-        'value'    => 'Value',
+        'expression' => 'Expression',
+        'operator'   => 'Operator',
+        'value'      => 'Value',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class warned extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->expression) {
+            $res['Expression'] = $this->expression;
+        }
         if (null !== $this->operator) {
             $res['Operator'] = $this->operator;
         }
@@ -62,6 +71,9 @@ class warned extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Expression'])) {
+            $model->expression = $map['Expression'];
+        }
         if (isset($map['Operator'])) {
             $model->operator = $map['Operator'];
         }

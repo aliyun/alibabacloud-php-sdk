@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class cycleUnfinished extends Model
 {
     /**
+     * @description The configurations of the scheduling cycle and timeout period of the instance.
+     *
      * @var cycleAndTime[]
      */
     public $cycleAndTime;

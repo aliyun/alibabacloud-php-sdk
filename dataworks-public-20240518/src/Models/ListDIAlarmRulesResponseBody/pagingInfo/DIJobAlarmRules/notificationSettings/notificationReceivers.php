@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class notificationReceivers extends Model
 {
     /**
+     * @description The recipient type. Valid values: AliyunUid, DingToken, FeishuToken, and WebHookUrl.
+     *
      * @example DingToken
      *
      * @var string
@@ -16,6 +18,11 @@ class notificationReceivers extends Model
     public $receiverType;
 
     /**
+     * @description The recipient.
+     *
+     *   If the value of the ReceiverType parameter is AliyunUid, the value of this parameter is the Alibaba Cloud account ID of a user.
+     *   If the value of the ReceiverType parameter is DingToken, the value of this parameter is the token of a DingTalk chatbot.
+     *
      * @var string[]
      */
     public $receiverValues;

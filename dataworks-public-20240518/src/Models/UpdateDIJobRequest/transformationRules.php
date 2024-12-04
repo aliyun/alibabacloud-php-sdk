@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class transformationRules extends Model
 {
     /**
+     * @description The action type. Valid values:
+     *
+     *   DefinePrimaryKey
+     *   Rename
+     *   AddColumn
+     *   HandleDml
+     *
      * @example Rename
      *
      * @var string
@@ -16,6 +23,9 @@ class transformationRules extends Model
     public $ruleActionType;
 
     /**
+     * @description The expression of the rule. The expression must be a JSON string.
+     *
+     * If you do not configure such a rule, the default processing policy for messages generated for insert, update, and delete operations is Normal. dmlType: the DML operation. Valid values: Insert, Update, and Delete. dmlAction: the processing policy for DML messages. Valid values: Normal, Ignore, Filter, and LogicalDelete. Filter indicates conditional processing. You can set the dmlAction parameter to Filter only when the dmlType parameter is set to Update or Delete. filterCondition: the condition used to filter DML messages. This parameter is required only when the dmlAction parameter is set to Filter.
      * @example {"expression":"${srcDatasoureName}_${srcDatabaseName}"}
      *
      * @var string
@@ -23,6 +33,8 @@ class transformationRules extends Model
     public $ruleExpression;
 
     /**
+     * @description The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+     *
      * @example rename_rule_1
      *
      * @var string
@@ -30,6 +42,11 @@ class transformationRules extends Model
     public $ruleName;
 
     /**
+     * @description The type of the object on which you want to perform the action. Valid values:
+     *
+     *   Table
+     *   Schema
+     *
      * @example Table
      *
      * @var string

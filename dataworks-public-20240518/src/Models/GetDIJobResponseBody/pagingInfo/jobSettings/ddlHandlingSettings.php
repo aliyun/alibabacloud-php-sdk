@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ddlHandlingSettings extends Model
 {
     /**
+     * @description The processing policy for a specific type of DDL message. Valid values:
+     *
+     *   Ignore: ignores a DDL message.
+     *   Critical: reports an error for a DDL message.
+     *   Normal: normally processes a DDL message.
+     *
      * @example Ignore
      *
      * @var string
@@ -16,6 +22,14 @@ class ddlHandlingSettings extends Model
     public $action;
 
     /**
+     * @description The DDL operation type. Valid values:
+     *
+     *   RenameColumn
+     *   ModifyColumn
+     *   CreateTable
+     *   TruncateTable
+     *   DropTable
+     *
      * @example CreateTable
      *
      * @var string

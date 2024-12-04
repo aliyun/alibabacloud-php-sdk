@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDIAlarmRuleResponseBody extends Model
 {
     /**
-     * @description 代表资源一级ID的资源属性字段
+     * @description The ID of the alert rule.
      *
      * @example 1
      *
@@ -18,6 +18,8 @@ class CreateDIAlarmRuleResponseBody extends Model
     public $DIAlarmRuleId;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example C636A747-7E4E-594D-94CD-2B4F8A9A9A63
      *
      * @var string

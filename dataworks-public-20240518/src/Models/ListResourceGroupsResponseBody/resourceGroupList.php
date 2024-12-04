@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceGroupList extends Model
 {
     /**
+     * @description The time when the resource group was created. The value is a 64-bit timestamp.
+     *
      * @example 1727055811000
      *
      * @var int
@@ -17,6 +19,8 @@ class resourceGroupList extends Model
     public $createTime;
 
     /**
+     * @description The ID of the account that is used to create the resource group.
+     *
      * @example 11075500042XXXXX
      *
      * @var string
@@ -24,6 +28,8 @@ class resourceGroupList extends Model
     public $createUser;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) with which the resource group is associated by default.
+     *
      * @example vpc-m2et4f3oc8msfbccXXXXX
      *
      * @var string
@@ -31,6 +37,8 @@ class resourceGroupList extends Model
     public $defaultVpcId;
 
     /**
+     * @description The ID of the vSwitch with which the resource group is associated by default.
+     *
      * @example vsw-uf8usrhs7hjd9amsXXXXX
      *
      * @var string
@@ -38,6 +46,8 @@ class resourceGroupList extends Model
     public $defaultVswicthId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example Serverless_res_group_524257424564736_6831777003XXXXX
      *
      * @var string
@@ -45,6 +55,8 @@ class resourceGroupList extends Model
     public $id;
 
     /**
+     * @description The name of the resource group.
+     *
      * @example common_resource_group
      *
      * @var string
@@ -52,6 +64,8 @@ class resourceGroupList extends Model
     public $name;
 
     /**
+     * @description The instance ID of the order that is used to create the resource group.
+     *
      * @example c442b330-3b10-4584-959e-736e4edXXXXX
      *
      * @var string
@@ -59,6 +73,8 @@ class resourceGroupList extends Model
     public $orderInstanceId;
 
     /**
+     * @description The billing method of the resource group. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+     *
      * @example PrePaid
      *
      * @var string
@@ -66,6 +82,8 @@ class resourceGroupList extends Model
     public $paymentType;
 
     /**
+     * @description The description of the resource group.
+     *
      * @example 创建用于普通任务的通用资源组
      *
      * @var string
@@ -73,6 +91,13 @@ class resourceGroupList extends Model
     public $remark;
 
     /**
+     * @description The type the resource group. Valid values:
+     *
+     *   CommonV2: serverless resource group
+     *   ExclusiveDataIntegration: exclusive resource group for Data Integration
+     *   ExclusiveScheduler: exclusive resource group for scheduling
+     *   ExclusiveDataService: exclusive resource group for DataService Studio
+     *
      * @example CommonV2
      *
      * @var string
@@ -80,11 +105,26 @@ class resourceGroupList extends Model
     public $resourceGroupType;
 
     /**
+     * @description The specifications of the resource group.
+     *
      * @var spec
      */
     public $spec;
 
     /**
+     * @description The status of the resource group. Valid values:
+     *
+     *   Normal: The resource group is running or in use.
+     *   Stop: The resource group is expired.
+     *   Deleted: The resource group is released or destroyed.
+     *   Creating: The resource group is being started.
+     *   CreateFailed: The resource group fails to be started.
+     *   Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
+     *   UpdateFailed: The resource group fails to be scaled out or upgraded.
+     *   Deleting: The resource group is being released or destroyed.
+     *   DeleteFailed: The resource group fails to be released or destroyed.
+     *   Timeout: The operations that are performed on the resource group time out.
+     *
      * @example Normal
      *
      * @var string

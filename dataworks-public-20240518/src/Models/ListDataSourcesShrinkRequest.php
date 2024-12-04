@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourcesShrinkRequest extends Model
 {
     /**
+     * @description The environment in which the data sources are used. Valid values:
+     *
+     *   Dev: development environment
+     *   Prod: production environment
+     *
      * @example Prod
      *
      * @var string
@@ -16,6 +21,8 @@ class ListDataSourcesShrinkRequest extends Model
     public $envType;
 
     /**
+     * @description The name of the data source. Fuzzy match by data source name is supported.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +30,12 @@ class ListDataSourcesShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The order in which you want to sort the data sources. Valid values:
+     *
+     *   Desc: descending order
+     *   Asc: ascending order
+     *
+     * Default value: Asc
      * @example Asc
      *
      * @var string
@@ -30,6 +43,8 @@ class ListDataSourcesShrinkRequest extends Model
     public $order;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +52,8 @@ class ListDataSourcesShrinkRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -44,8 +61,9 @@ class ListDataSourcesShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 17820
      *
      * @var int
@@ -53,6 +71,13 @@ class ListDataSourcesShrinkRequest extends Model
     public $projectId;
 
     /**
+     * @description The field that you want to use to sort the data sources. Valid values:
+     *
+     *   CreateTime
+     *   Id
+     *   Name
+     *
+     * Default value: Id
      * @example Id
      *
      * @var string
@@ -67,6 +92,8 @@ class ListDataSourcesShrinkRequest extends Model
     public $tags;
 
     /**
+     * @description The data source types. This parameter specifies a filter condition. You can specify multiple data source types.
+     *
      * @var string
      */
     public $typesShrink;

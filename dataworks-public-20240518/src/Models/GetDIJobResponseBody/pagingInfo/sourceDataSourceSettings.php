@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class sourceDataSourceSettings extends Model
 {
     /**
+     * @description The name of the data source.
+     *
      * @example dw_mysql
      *
      * @var string
@@ -17,6 +19,8 @@ class sourceDataSourceSettings extends Model
     public $dataSourceName;
 
     /**
+     * @description The properties of the data source.
+     *
      * @var dataSourceProperties
      */
     public $dataSourceProperties;

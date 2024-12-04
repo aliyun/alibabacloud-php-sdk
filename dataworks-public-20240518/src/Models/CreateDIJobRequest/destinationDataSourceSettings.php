@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class destinationDataSourceSettings extends Model
 {
     /**
+     * @description The name of the data source.
+     *
      * @example holo_datasource_1
      *
      * @var string

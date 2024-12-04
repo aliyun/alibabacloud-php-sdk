@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
      *
+     *   Dev: development environment
+     *   Prod: production environment
+     *
+     * This parameter is required.
      * @example {
      * }
      * @var string
@@ -18,8 +22,12 @@ class CreateDataSourceRequest extends Model
     public $connectionProperties;
 
     /**
-     * @description This parameter is required.
+     * @description The mode in which you want to add the data source. The mode varies based on the data source type. Valid values for MySQL data sources:
      *
+     *   InstanceMode: instance mode
+     *   UrlMode: connection string mode
+     *
+     * This parameter is required.
      * @example UrlMode
      *
      * @var string
@@ -27,6 +35,8 @@ class CreateDataSourceRequest extends Model
     public $connectionPropertiesMode;
 
     /**
+     * @description The description of the data source. The description cannot exceed 3,000 characters in length.
+     *
      * @example this is a holo datasource
      *
      * @var string
@@ -34,8 +44,9 @@ class CreateDataSourceRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the data source. The name can be up to 255 characters in length and can contain letters, digits, and underscores (_). The name must start with a letter.
      *
+     * This parameter is required.
      * @example demo_holo_datasource
      *
      * @var string
@@ -52,8 +63,9 @@ class CreateDataSourceRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the data source. More than 70 types of data sources are supported in DataWorks.
      *
+     * This parameter is required.
      * @example hologres
      *
      * @var string

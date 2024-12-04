@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAlertRuleRequest extends Model
 {
     /**
+     * @description The rule ID.
+     *
      * @example 28547072
      *
      * @var string

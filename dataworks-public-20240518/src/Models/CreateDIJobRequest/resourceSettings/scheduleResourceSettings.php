@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scheduleResourceSettings extends Model
 {
     /**
+     * @description The number of CUs in the resource group for scheduling that are used for batch synchronization.
+     *
      * @example 2.0
      *
      * @var float
@@ -16,6 +18,8 @@ class scheduleResourceSettings extends Model
     public $requestedCu;
 
     /**
+     * @description The identifier of the resource group for scheduling used for batch synchronization.
+     *
      * @example S_res_group_235454102432001_1579085295030
      *
      * @var string

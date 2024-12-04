@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskInstancesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateTaskInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+     *
      * @var SuccessInfoValue[]
      */
     public $successInfo;

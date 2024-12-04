@@ -17,6 +17,8 @@ class GetResourceGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details about the resource group.
+     *
      * @var resourceGroup
      */
     public $resourceGroup;

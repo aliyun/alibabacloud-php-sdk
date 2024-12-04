@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDIJobRunDetailsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the synchronization task.
      *
+     * This parameter is required.
      * @example 11265
      *
      * @var int
@@ -18,6 +19,8 @@ class ListDIJobRunDetailsRequest extends Model
     public $DIJobId;
 
     /**
+     * @description The instance ID.
+     *
      * @example 1234
      *
      * @var int
@@ -25,6 +28,8 @@ class ListDIJobRunDetailsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -32,6 +37,8 @@ class ListDIJobRunDetailsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -39,6 +46,8 @@ class ListDIJobRunDetailsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the source.
+     *
      * @example ds_name
      *
      * @var string
@@ -46,6 +55,8 @@ class ListDIJobRunDetailsRequest extends Model
     public $sourceDataSourceName;
 
     /**
+     * @description The name of the database in the source.
+     *
      * @example db_name
      *
      * @var string
@@ -53,6 +64,8 @@ class ListDIJobRunDetailsRequest extends Model
     public $sourceDatabaseName;
 
     /**
+     * @description The name of the schema of the source.
+     *
      * @example schema_name
      *
      * @var string
@@ -60,6 +73,8 @@ class ListDIJobRunDetailsRequest extends Model
     public $sourceSchemaName;
 
     /**
+     * @description The name of the table in the source.
+     *
      * @example table_name
      *
      * @var string

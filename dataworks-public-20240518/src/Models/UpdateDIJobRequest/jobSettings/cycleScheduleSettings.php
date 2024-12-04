@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cycleScheduleSettings extends Model
 {
     /**
+     * @description The scheduling parameters.
+     *
      * @example bizdate=$bizdate
      *
      * @var string

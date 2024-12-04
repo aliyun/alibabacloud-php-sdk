@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class notificationChannels extends Model
 {
     /**
+     * @description The alert notification methods. Valid values:
+     *
+     *   Mail
+     *   Phone
+     *   Sms
+     *   Ding
+     *
      * @var string[]
      */
     public $channels;
 
     /**
+     * @description The severity level. Valid values:
+     *
+     *   Warning
+     *   Critical
+     *
      * @example Warning
      *
      * @var string

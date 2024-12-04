@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetProjectRoleResponseBody extends Model
 {
     /**
+     * @description The role in the DataWorks workspace.
+     *
      * @var projectRole
      */
     public $projectRole;
 
     /**
+     * @description The request ID.
+     *
      * @example 82F28E60-CF48-5EDF-AB25-D806847B97D1
      *
      * @var string

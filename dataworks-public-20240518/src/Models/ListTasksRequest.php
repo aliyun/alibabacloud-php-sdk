@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTasksRequest extends Model
 {
     /**
+     * @description The name of the task. Fuzzy match is supported.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The account ID of the task owner.
+     *
      * @example 1000
      *
      * @var string
@@ -21,6 +25,8 @@ class ListTasksRequest extends Model
     public $owner;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +34,8 @@ class ListTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +43,13 @@ class ListTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The environment of the workspace.
+     *
+     * Valid values:
+     *
+     *   Prod: production environment
+     *   Dev: development environment
+     *
      * @example Prod
      *
      * @var string
@@ -42,8 +57,9 @@ class ListTasksRequest extends Model
     public $projectEnv;
 
     /**
-     * @description This parameter is required.
+     * @description The workspace ID.
      *
+     * This parameter is required.
      * @example 100
      *
      * @var int
@@ -51,6 +67,8 @@ class ListTasksRequest extends Model
     public $projectId;
 
     /**
+     * @description The information about the resource group. Set this parameter to the ID of a resource group for scheduling.
+     *
      * @example S_res_group_524258031846018_1684XXXXXXXXX
      *
      * @var string
@@ -58,6 +76,15 @@ class ListTasksRequest extends Model
     public $runtimeResource;
 
     /**
+     * @description The field that is used to sort tasks. This parameter is configured in the format of "Sorting field Sorting order". You can set the sorting order to Desc or Asc. If you do not specify the sorting order, Asc is used by default. Valid values:
+     *
+     *   `ModifyTime (Desc/Asc)`
+     *
+     *   `CreateTime (Desc/Asc)`
+     *
+     *   `Id (Desc/Asc)`
+     *
+     * Default value: `Id Desc`.
      * @example Id Desc
      *
      * @var string
@@ -65,6 +92,8 @@ class ListTasksRequest extends Model
     public $sortBy;
 
     /**
+     * @description The type of the task.
+     *
      * @example ODPS_SQL
      *
      * @var string
@@ -72,6 +101,14 @@ class ListTasksRequest extends Model
     public $taskType;
 
     /**
+     * @description The running mode of the task after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+     *
+     * Valid values:
+     *
+     *   Pause
+     *   Skip
+     *   Normal
+     *
      * @example Normal
      *
      * @var string
@@ -79,6 +116,13 @@ class ListTasksRequest extends Model
     public $triggerRecurrence;
 
     /**
+     * @description The trigger type.
+     *
+     * Valid values:
+     *
+     *   Scheduler: scheduling cycle-based trigger
+     *   Manual: manual trigger
+     *
      * @example Scheduler
      *
      * @var string
@@ -86,6 +130,8 @@ class ListTasksRequest extends Model
     public $triggerType;
 
     /**
+     * @description The ID of the workflow to which the task belongs.
+     *
      * @example 1234
      *
      * @var int

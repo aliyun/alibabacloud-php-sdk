@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class subTasks extends Model
 {
     /**
+     * @description The subtasks.
+     *
      * @var \AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetTaskResponseBody\task\subTasks\subTasks[]
      */
     public $subTasks;
 
     /**
+     * @description The type of the subtask.
+     *
+     * Valid values:
+     *
+     *   DoWhile: do-while node
+     *   Combined: node group
+     *   ForEach: for-each node
+     *
      * @example Combined
      *
      * @var string

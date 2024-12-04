@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceResponseBody extends Model
 {
     /**
+     * @description The information about the data source.
+     *
      * @var dataSource
      */
     public $dataSource;

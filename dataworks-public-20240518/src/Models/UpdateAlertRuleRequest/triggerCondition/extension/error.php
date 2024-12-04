@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class error extends Model
 {
     /**
+     * @description Specifies whether to trigger an alert if a batch synchronization task is automatically rerun upon a failure.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class error extends Model
     public $autoRerunAlert;
 
     /**
+     * @description The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
+     *
      * @var int[]
      */
     public $streamTaskIds;

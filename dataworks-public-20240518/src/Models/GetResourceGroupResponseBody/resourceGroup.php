@@ -73,6 +73,13 @@ class resourceGroup extends Model
     public $remark;
 
     /**
+     * @description The type the resource group. Valid values:
+     *
+     *   CommonV2: serverless resource group
+     *   ExclusiveDataIntegration: exclusive resource group for Data Integration
+     *   ExclusiveScheduler: exclusive resource group for scheduling
+     *   ExclusiveDataService: exclusive resource group for DataService Studio
+     *
      * @example CommonV2
      *
      * @var string
@@ -80,11 +87,26 @@ class resourceGroup extends Model
     public $resourceGroupType;
 
     /**
+     * @description The specifications of the resource group.
+     *
      * @var spec
      */
     public $spec;
 
     /**
+     * @description The status of the resource group. Valid values:
+     *
+     *   Normal: The resource group is running or in use.
+     *   Stop: The resource group is expired.
+     *   Deleted: The resource group is released or destroyed.
+     *   Creating: The resource group is being started.
+     *   CreateFailed: The resource group fails to be started.
+     *   Updating: The resource group is being scaled in or out, or the configurations of the resource group are being changed.
+     *   UpdateFailed: The resource group fails to be scaled out or upgraded.
+     *   Deleting: The resource group is being released or destroyed.
+     *   DeleteFailed: The resource group fails to be released or destroyed.
+     *   Timeout: The operations that are performed on the resource group time out.
+     *
      * @example Normal
      *
      * @var string

@@ -10,11 +10,26 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AbolishDeploymentResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AssociateProjectToResourceGroupResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\AttachDataQualityRulesToEvaluationTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CloneDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateAlertRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskInstanceShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityEvaluationTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleTemplateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataQualityRuleTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDataSourceSharedRuleRequest;
@@ -50,6 +65,12 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionRe
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateWorkflowDefinitionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityEvaluationTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityEvaluationTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityRuleTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataQualityRuleTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteDataSourceSharedRuleRequest;
@@ -78,12 +99,23 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteTaskResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DeleteWorkflowDefinitionResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DetachDataQualityRulesFromEvaluationTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DissociateProjectFromResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ExecDeploymentStageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetAlertRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskInstanceResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityRuleTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDeploymentRequest;
@@ -136,6 +168,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityResultsRequ
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityResultsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRulesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRuleTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRuleTemplateResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourceSharedRulesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataSourcesRequest;
@@ -244,6 +278,15 @@ use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\TriggerSchedulerTaskInstan
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateAlertRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityEvaluationTaskRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityEvaluationTaskResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityEvaluationTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleTemplateRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleTemplateResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataQualityRuleTemplateShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDataSourceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\UpdateDIAlarmRuleRequest;
@@ -387,6 +430,10 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Associates a resource group with a workspace.
      *  *
+     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  Your account must be assigned one of the following roles of the desired workspace:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
+     *  *
      * @param AssociateProjectToResourceGroupRequest $request AssociateProjectToResourceGroupRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -423,6 +470,10 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Associates a resource group with a workspace.
      *  *
+     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  Your account must be assigned one of the following roles of the desired workspace:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
+     *  *
      * @param AssociateProjectToResourceGroupRequest $request AssociateProjectToResourceGroupRequest
      *
      * @return AssociateProjectToResourceGroupResponse AssociateProjectToResourceGroupResponse
@@ -435,7 +486,69 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary 把数据质量规则关联到数据质量校验任务上
+     *  *
+     * @param AttachDataQualityRulesToEvaluationTaskRequest $tmpReq  AttachDataQualityRulesToEvaluationTaskRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AttachDataQualityRulesToEvaluationTaskResponse AttachDataQualityRulesToEvaluationTaskResponse
+     */
+    public function attachDataQualityRulesToEvaluationTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AttachDataQualityRulesToEvaluationTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataQualityRuleIds)) {
+            $request->dataQualityRuleIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRuleIds, 'DataQualityRuleIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataQualityEvaluationTaskId)) {
+            $body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
+        }
+        if (!Utils::isUnset($request->dataQualityRuleIdsShrink)) {
+            $body['DataQualityRuleIds'] = $request->dataQualityRuleIdsShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachDataQualityRulesToEvaluationTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachDataQualityRulesToEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 把数据质量规则关联到数据质量校验任务上
+     *  *
+     * @param AttachDataQualityRulesToEvaluationTaskRequest $request AttachDataQualityRulesToEvaluationTaskRequest
+     *
+     * @return AttachDataQualityRulesToEvaluationTaskResponse AttachDataQualityRulesToEvaluationTaskResponse
+     */
+    public function attachDataQualityRulesToEvaluationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachDataQualityRulesToEvaluationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Clones an existing data source.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param CloneDataSourceRequest $request CloneDataSourceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -471,7 +584,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Clones an existing data source.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param CloneDataSourceRequest $request CloneDataSourceRequest
      *
@@ -485,7 +602,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义监控报警规则
+     * @summary Creates a custom monitoring alert rule.
      *  *
      * @param CreateAlertRuleRequest $tmpReq  CreateAlertRuleRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -538,7 +655,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义监控报警规则
+     * @summary Creates a custom monitoring alert rule.
      *  *
      * @param CreateAlertRuleRequest $request CreateAlertRuleRequest
      *
@@ -552,7 +669,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据集成报警规则
+     * @summary Creates an alert rule for a synchronization task.
      *  *
      * @param CreateDIAlarmRuleRequest $tmpReq  CreateDIAlarmRuleRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -590,7 +707,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据集成报警规则
+     * @summary Creates an alert rule for a synchronization task.
      *  *
      * @param CreateDIAlarmRuleRequest $request CreateDIAlarmRuleRequest
      *
@@ -604,7 +721,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据集成任务
+     * @summary Creates a new-version synchronization task.
      *  *
      * @param CreateDIJobRequest $tmpReq  CreateDIJobRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -654,7 +771,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建数据集成任务
+     * @summary Creates a new-version synchronization task.
      *  *
      * @param CreateDIJobRequest $request CreateDIJobRequest
      *
@@ -668,7 +785,321 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary 创建DataWorks数据质量监控
+     *  *
+     * @param CreateDataQualityEvaluationTaskRequest $tmpReq  CreateDataQualityEvaluationTaskRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataQualityEvaluationTaskResponse CreateDataQualityEvaluationTaskResponse
+     */
+    public function createDataQualityEvaluationTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataQualityEvaluationTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataQualityRules)) {
+            $request->dataQualityRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRules, 'DataQualityRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->hooks)) {
+            $request->hooksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hooks, 'Hooks', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notifications)) {
+            $request->notificationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notifications, 'Notifications', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->target)) {
+            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->trigger)) {
+            $request->triggerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataQualityRulesShrink)) {
+            $body['DataQualityRules'] = $request->dataQualityRulesShrink;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->hooksShrink)) {
+            $body['Hooks'] = $request->hooksShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notificationsShrink)) {
+            $body['Notifications'] = $request->notificationsShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->runtimeConf)) {
+            $body['RuntimeConf'] = $request->runtimeConf;
+        }
+        if (!Utils::isUnset($request->targetShrink)) {
+            $body['Target'] = $request->targetShrink;
+        }
+        if (!Utils::isUnset($request->triggerShrink)) {
+            $body['Trigger'] = $request->triggerShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataQualityEvaluationTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建DataWorks数据质量监控
+     *  *
+     * @param CreateDataQualityEvaluationTaskRequest $request CreateDataQualityEvaluationTaskRequest
+     *
+     * @return CreateDataQualityEvaluationTaskResponse CreateDataQualityEvaluationTaskResponse
+     */
+    public function createDataQualityEvaluationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataQualityEvaluationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据质量校验任务实例
+     *  *
+     * @param CreateDataQualityEvaluationTaskInstanceRequest $tmpReq  CreateDataQualityEvaluationTaskInstanceRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataQualityEvaluationTaskInstanceResponse CreateDataQualityEvaluationTaskInstanceResponse
+     */
+    public function createDataQualityEvaluationTaskInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataQualityEvaluationTaskInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->runtimeResource)) {
+            $request->runtimeResourceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->runtimeResource, 'RuntimeResource', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataQualityEvaluationTaskId)) {
+            $body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $body['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->runtimeResourceShrink)) {
+            $body['RuntimeResource'] = $request->runtimeResourceShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataQualityEvaluationTaskInstance',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据质量校验任务实例
+     *  *
+     * @param CreateDataQualityEvaluationTaskInstanceRequest $request CreateDataQualityEvaluationTaskInstanceRequest
+     *
+     * @return CreateDataQualityEvaluationTaskInstanceResponse CreateDataQualityEvaluationTaskInstanceResponse
+     */
+    public function createDataQualityEvaluationTaskInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataQualityEvaluationTaskInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a data quality monitoring rule.
+     *  *
+     * @param CreateDataQualityRuleRequest $tmpReq  CreateDataQualityRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataQualityRuleResponse CreateDataQualityRuleResponse
+     */
+    public function createDataQualityRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataQualityRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->checkingConfig)) {
+            $request->checkingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->errorHandlers)) {
+            $request->errorHandlersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->errorHandlers, 'ErrorHandlers', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->samplingConfig)) {
+            $request->samplingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->target)) {
+            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->checkingConfigShrink)) {
+            $body['CheckingConfig'] = $request->checkingConfigShrink;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $body['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->errorHandlersShrink)) {
+            $body['ErrorHandlers'] = $request->errorHandlersShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->samplingConfigShrink)) {
+            $body['SamplingConfig'] = $request->samplingConfigShrink;
+        }
+        if (!Utils::isUnset($request->severity)) {
+            $body['Severity'] = $request->severity;
+        }
+        if (!Utils::isUnset($request->targetShrink)) {
+            $body['Target'] = $request->targetShrink;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $body['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataQualityRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a data quality monitoring rule.
+     *  *
+     * @param CreateDataQualityRuleRequest $request CreateDataQualityRuleRequest
+     *
+     * @return CreateDataQualityRuleResponse CreateDataQualityRuleResponse
+     */
+    public function createDataQualityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataQualityRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Creates a data quality monitoring rule template.
+     *  *
+     * @param CreateDataQualityRuleTemplateRequest $tmpReq  CreateDataQualityRuleTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataQualityRuleTemplateResponse CreateDataQualityRuleTemplateResponse
+     */
+    public function createDataQualityRuleTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataQualityRuleTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->checkingConfig)) {
+            $request->checkingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->samplingConfig)) {
+            $request->samplingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->checkingConfigShrink)) {
+            $body['CheckingConfig'] = $request->checkingConfigShrink;
+        }
+        if (!Utils::isUnset($request->directoryPath)) {
+            $body['DirectoryPath'] = $request->directoryPath;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->samplingConfigShrink)) {
+            $body['SamplingConfig'] = $request->samplingConfigShrink;
+        }
+        if (!Utils::isUnset($request->visibleScope)) {
+            $body['VisibleScope'] = $request->visibleScope;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataQualityRuleTemplate',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Creates a data quality monitoring rule template.
+     *  *
+     * @param CreateDataQualityRuleTemplateRequest $request CreateDataQualityRuleTemplateRequest
+     *
+     * @return CreateDataQualityRuleTemplateResponse CreateDataQualityRuleTemplateResponse
+     */
+    public function createDataQualityRuleTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Adds a data source to the development environment or production environment of a workspace.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param CreateDataSourceRequest $request CreateDataSourceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -716,7 +1147,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Adds a data source to the development environment or production environment of a workspace.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param CreateDataSourceRequest $request CreateDataSourceRequest
      *
@@ -730,7 +1165,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Creates a rule for sharing a data source to other workspaces or RAM users.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  If you want to share a data source from Workspace A to Workspace B, you must have the permissions to share the data source in both workspaces. You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
      *  *
      * @param CreateDataSourceSharedRuleRequest $request CreateDataSourceSharedRuleRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -772,7 +1211,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Creates a rule for sharing a data source to other workspaces or RAM users.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  If you want to share a data source from Workspace A to Workspace B, you must have the permissions to share the data source in both workspaces. You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
      *  *
      * @param CreateDataSourceSharedRuleRequest $request CreateDataSourceSharedRuleRequest
      *
@@ -905,7 +1348,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建并绑定通用资源组网络资源。
+     * @summary Creates a network and associates the network with a general resource group.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param CreateNetworkRequest $request CreateNetworkRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -947,7 +1392,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建并绑定通用资源组网络资源。
+     * @summary Creates a network and associates the network with a general resource group.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param CreateNetworkRequest $request CreateNetworkRequest
      *
@@ -1021,7 +1468,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建工作空间
+     * @summary Creates a workspace.
      *  *
      * @param CreateProjectRequest $tmpReq  CreateProjectRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1080,7 +1527,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建工作空间
+     * @summary Creates a workspace.
      *  *
      * @param CreateProjectRequest $request CreateProjectRequest
      *
@@ -1094,7 +1541,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 添加工作空间成员
+     * @summary Adds a member to a workspace.
      *  *
      * @param CreateProjectMemberRequest $tmpReq  CreateProjectMemberRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1138,7 +1585,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 添加工作空间成员
+     * @summary Adds a member to a workspace.
      *  *
      * @param CreateProjectMemberRequest $request CreateProjectMemberRequest
      *
@@ -1206,7 +1653,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建通用资源组。
+     * @summary Creates a serverless resource group.
+     *  *
+     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/zh/dataworks/product-overview/new-resource-group-overview?spm=a2c4g.11186623.0.i1) of serverless resource groups.
      *  *
      * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1266,7 +1716,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建通用资源组。
+     * @summary Creates a serverless resource group.
+     *  *
+     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/zh/dataworks/product-overview/new-resource-group-overview?spm=a2c4g.11186623.0.i1) of serverless resource groups.
      *  *
      * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
      *
@@ -1280,7 +1733,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建网络资源的路由。
+     * @summary Creates a route for a network.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param CreateRouteRequest $request CreateRouteRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1316,7 +1771,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建网络资源的路由。
+     * @summary Creates a route for a network.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param CreateRouteRequest $request CreateRouteRequest
      *
@@ -1384,7 +1841,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义监控报警规则
+     * @summary Deletes a custom alert monitoring rule.
      *  *
      * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1417,7 +1874,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义监控报警规则
+     * @summary Deletes a custom alert monitoring rule.
      *  *
      * @param DeleteAlertRuleRequest $request DeleteAlertRuleRequest
      *
@@ -1475,7 +1932,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据集成任务
+     * @summary Deletes a new-version synchronization task.
      *  *
      * @param DeleteDIJobRequest $request DeleteDIJobRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1505,7 +1962,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除数据集成任务
+     * @summary Deletes a new-version synchronization task.
      *  *
      * @param DeleteDIJobRequest $request DeleteDIJobRequest
      *
@@ -1519,7 +1976,161 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary 删除数据质量校验任务
+     *  *
+     * @param DeleteDataQualityEvaluationTaskRequest $request DeleteDataQualityEvaluationTaskRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataQualityEvaluationTaskResponse DeleteDataQualityEvaluationTaskResponse
+     */
+    public function deleteDataQualityEvaluationTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataQualityEvaluationTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据质量校验任务
+     *  *
+     * @param DeleteDataQualityEvaluationTaskRequest $request DeleteDataQualityEvaluationTaskRequest
+     *
+     * @return DeleteDataQualityEvaluationTaskResponse DeleteDataQualityEvaluationTaskResponse
+     */
+    public function deleteDataQualityEvaluationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataQualityEvaluationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a data quality monitoring rule.
+     *  *
+     * @param DeleteDataQualityRuleRequest $request DeleteDataQualityRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataQualityRuleResponse DeleteDataQualityRuleResponse
+     */
+    public function deleteDataQualityRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataQualityRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a data quality monitoring rule.
+     *  *
+     * @param DeleteDataQualityRuleRequest $request DeleteDataQualityRuleRequest
+     *
+     * @return DeleteDataQualityRuleResponse DeleteDataQualityRuleResponse
+     */
+    public function deleteDataQualityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataQualityRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a data quality monitoring rule template.
+     *  *
+     * @param DeleteDataQualityRuleTemplateRequest $request DeleteDataQualityRuleTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataQualityRuleTemplateResponse DeleteDataQualityRuleTemplateResponse
+     */
+    public function deleteDataQualityRuleTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataQualityRuleTemplate',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a data quality monitoring rule template.
+     *  *
+     * @param DeleteDataQualityRuleTemplateRequest $request DeleteDataQualityRuleTemplateRequest
+     *
+     * @return DeleteDataQualityRuleTemplateResponse DeleteDataQualityRuleTemplateResponse
+     */
+    public function deleteDataQualityRuleTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Removes a data source by ID.
+     *  *
+     * @description 1.  This API operation is available for all Dataworks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1549,7 +2160,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Removes a data source by ID.
+     *  *
+     * @description 1.  This API operation is available for all Dataworks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param DeleteDataSourceRequest $request DeleteDataSourceRequest
      *
@@ -1563,7 +2178,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Deletes a sharing rule of a data source by ID.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  If you want to delete a sharing rule of a data source from Workspace A to Workspace B, you must have the permissions to share the data source in Workspace A or Workspace B. You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
      *  *
      * @param DeleteDataSourceSharedRuleRequest $request DeleteDataSourceSharedRuleRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1596,7 +2215,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Deletes a sharing rule of a data source by ID.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  If you want to delete a sharing rule of a data source from Workspace A to Workspace B, you must have the permissions to share the data source in Workspace A or Workspace B. You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
      *  *
      * @param DeleteDataSourceSharedRuleRequest $request DeleteDataSourceSharedRuleRequest
      *
@@ -1664,7 +2287,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 解绑并删除通用资源组网络资源。
+     * @summary Disassociates and deletes a network from a general resource group.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param DeleteNetworkRequest $request DeleteNetworkRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1697,7 +2322,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 解绑并删除通用资源组网络资源。
+     * @summary Disassociates and deletes a network from a general resource group.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param DeleteNetworkRequest $request DeleteNetworkRequest
      *
@@ -1765,7 +2392,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 销毁工作空间
+     * @summary Deletes a DataWorks workspace.
      *  *
      * @param DeleteProjectRequest $request DeleteProjectRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1798,7 +2425,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 销毁工作空间
+     * @summary Deletes a DataWorks workspace.
      *  *
      * @param DeleteProjectRequest $request DeleteProjectRequest
      *
@@ -1918,6 +2545,9 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Deletes a serverless resource group.
      *  *
+     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/zh/dataworks/product-overview/new-resource-group-overview?spm=a2c4g.11186623.0.i1) of serverless resource groups.
+     *  *
      * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1951,6 +2581,9 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Deletes a serverless resource group.
      *  *
+     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  **Before you call this API operation, you must make sure that you have a good command of the billing details and [pricing](https://help.aliyun.com/zh/dataworks/product-overview/new-resource-group-overview?spm=a2c4g.11186623.0.i1) of serverless resource groups.
+     *  *
      * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
      *
      * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
@@ -1963,7 +2596,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除网络资源的路由。
+     * @summary Deletes a route from a network resource.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param DeleteRouteRequest $request DeleteRouteRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1996,7 +2631,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 删除网络资源的路由。
+     * @summary Deletes a route from a network resource.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param DeleteRouteRequest $request DeleteRouteRequest
      *
@@ -2010,6 +2647,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a task.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param DeleteTaskRequest $request DeleteTaskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -2044,6 +2685,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Deletes a task.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param DeleteTaskRequest $request DeleteTaskRequest
      *
      * @return DeleteTaskResponse DeleteTaskResponse
@@ -2110,7 +2755,69 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 取消数据质量规则和数据质量校验任务的关联
+     *  *
+     * @param DetachDataQualityRulesFromEvaluationTaskRequest $tmpReq  DetachDataQualityRulesFromEvaluationTaskRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DetachDataQualityRulesFromEvaluationTaskResponse DetachDataQualityRulesFromEvaluationTaskResponse
+     */
+    public function detachDataQualityRulesFromEvaluationTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DetachDataQualityRulesFromEvaluationTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataQualityRuleIds)) {
+            $request->dataQualityRuleIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRuleIds, 'DataQualityRuleIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataQualityEvaluationTaskId)) {
+            $body['DataQualityEvaluationTaskId'] = $request->dataQualityEvaluationTaskId;
+        }
+        if (!Utils::isUnset($request->dataQualityRuleIdsShrink)) {
+            $body['DataQualityRuleIds'] = $request->dataQualityRuleIdsShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachDataQualityRulesFromEvaluationTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachDataQualityRulesFromEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 取消数据质量规则和数据质量校验任务的关联
+     *  *
+     * @param DetachDataQualityRulesFromEvaluationTaskRequest $request DetachDataQualityRulesFromEvaluationTaskRequest
+     *
+     * @return DetachDataQualityRulesFromEvaluationTaskResponse DetachDataQualityRulesFromEvaluationTaskResponse
+     */
+    public function detachDataQualityRulesFromEvaluationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachDataQualityRulesFromEvaluationTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Disassociates a resource group from a workspace.
+     *  *
+     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  Your account must be assigned one of the following roles of the desired workspace:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param DissociateProjectFromResourceGroupRequest $request DissociateProjectFromResourceGroupRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -2147,6 +2854,10 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * @summary Disassociates a resource group from a workspace.
+     *  *
+     * @description 1.  You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     * 2.  Your account must be assigned one of the following roles of the desired workspace:
+     * *   Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param DissociateProjectFromResourceGroupRequest $request DissociateProjectFromResourceGroupRequest
      *
@@ -2221,7 +2932,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义监控报警规则
+     * @summary Queries a list of custom alert monitoring rules.
      *  *
      * @param GetAlertRuleRequest $request GetAlertRuleRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2251,7 +2962,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取自定义监控报警规则
+     * @summary Queries a list of custom alert monitoring rules.
      *  *
      * @param GetAlertRuleRequest $request GetAlertRuleRequest
      *
@@ -2265,7 +2976,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查看数据集成任务
+     * @summary Queries the information about a synchronization task.
      *  *
      * @param GetDIJobRequest $request GetDIJobRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -2295,7 +3006,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查看数据集成任务
+     * @summary Queries the information about a synchronization task.
      *  *
      * @param GetDIJobRequest $request GetDIJobRequest
      *
@@ -2353,9 +3064,194 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary 查询数据质量校验任务详情
+     *  *
+     * @param GetDataQualityEvaluationTaskRequest $request GetDataQualityEvaluationTaskRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityEvaluationTaskResponse GetDataQualityEvaluationTaskResponse
+     */
+    public function getDataQualityEvaluationTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataQualityEvaluationTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询数据质量校验任务详情
+     *  *
+     * @param GetDataQualityEvaluationTaskRequest $request GetDataQualityEvaluationTaskRequest
+     *
+     * @return GetDataQualityEvaluationTaskResponse GetDataQualityEvaluationTaskResponse
+     */
+    public function getDataQualityEvaluationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityEvaluationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据质量校验任务实例详情
+     *  *
+     * @param GetDataQualityEvaluationTaskInstanceRequest $request GetDataQualityEvaluationTaskInstanceRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityEvaluationTaskInstanceResponse GetDataQualityEvaluationTaskInstanceResponse
+     */
+    public function getDataQualityEvaluationTaskInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataQualityEvaluationTaskInstance',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataQualityEvaluationTaskInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据质量校验任务实例详情
+     *  *
+     * @param GetDataQualityEvaluationTaskInstanceRequest $request GetDataQualityEvaluationTaskInstanceRequest
+     *
+     * @return GetDataQualityEvaluationTaskInstanceResponse GetDataQualityEvaluationTaskInstanceResponse
+     */
+    public function getDataQualityEvaluationTaskInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityEvaluationTaskInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询质量规则详情
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
+     * @param GetDataQualityRuleRequest $request GetDataQualityRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityRuleResponse GetDataQualityRuleResponse
+     */
+    public function getDataQualityRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataQualityRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询质量规则详情
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
+     * @param GetDataQualityRuleRequest $request GetDataQualityRuleRequest
+     *
+     * @return GetDataQualityRuleResponse GetDataQualityRuleResponse
+     */
+    public function getDataQualityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取质量规则模版详情
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
+     * @param GetDataQualityRuleTemplateRequest $request GetDataQualityRuleTemplateRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataQualityRuleTemplateResponse GetDataQualityRuleTemplateResponse
+     */
+    public function getDataQualityRuleTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataQualityRuleTemplate',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取质量规则模版详情
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
+     * @param GetDataQualityRuleTemplateRequest $request GetDataQualityRuleTemplateRequest
+     *
+     * @return GetDataQualityRuleTemplateResponse GetDataQualityRuleTemplateResponse
+     */
+    public function getDataQualityRuleTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a data source by ID.
      *  *
-     * @description You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
      *  *
      * @param GetDataSourceRequest $request GetDataSourceRequest
@@ -2388,7 +3284,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Queries a data source by ID.
      *  *
-     * @description You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
      * *   Tenant Owner, Workspace Administrator, Deployment, Development, Project Owner, and O\\&M
      *  *
      * @param GetDataSourceRequest $request GetDataSourceRequest
@@ -2491,7 +3388,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 返回异步任务的状态信息
+     * @summary Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
      *  *
      * @param GetJobStatusRequest $request GetJobStatusRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2521,7 +3418,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 返回异步任务的状态信息
+     * @summary Queries the status information of an asynchronous task. After you call an asynchronous operation, an asynchronous task is generated. You can call the GetJobStatus operation to query the status of the asynchronous task.
      *  *
      * @param GetJobStatusRequest $request GetJobStatusRequest
      *
@@ -2535,7 +3432,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取某个网络资源详细信息。
+     * @summary Queries the information about a network resource.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param GetNetworkRequest $request GetNetworkRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -2565,7 +3464,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取某个网络资源详细信息。
+     * @summary Queries the information about a network resource.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param GetNetworkRequest $request GetNetworkRequest
      *
@@ -2717,7 +3618,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作空间角色详情
+     * @summary Queries the information about a role in a DataWorks workspace.
      *  *
      * @param GetProjectRoleRequest $request GetProjectRoleRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2753,7 +3654,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作空间角色详情
+     * @summary Queries the information about a role in a DataWorks workspace.
      *  *
      * @param GetProjectRoleRequest $request GetProjectRoleRequest
      *
@@ -2813,6 +3714,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary 根据id获取指定资源组。
      *  *
+     * @description You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     *  *
      * @param GetResourceGroupRequest $request GetResourceGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -2843,6 +3746,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary 根据id获取指定资源组。
      *  *
+     * @description You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     *  *
      * @param GetResourceGroupRequest $request GetResourceGroupRequest
      *
      * @return GetResourceGroupResponse GetResourceGroupResponse
@@ -2855,7 +3760,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据id获取指定路由。
+     * @summary Queries the information about a route based on its ID.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param GetRouteRequest $request GetRouteRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -2885,7 +3792,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 根据id获取指定路由。
+     * @summary Queries the information about a route based on its ID.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param GetRouteRequest $request GetRouteRequest
      *
@@ -2899,6 +3808,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a task.
+     *  *
      * @param GetTaskRequest $request GetTaskRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2927,6 +3838,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the information about a task.
+     *  *
      * @param GetTaskRequest $request GetTaskRequest
      *
      * @return GetTaskResponse GetTaskResponse
@@ -2983,6 +3896,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the run log generated during a specific run of an instance.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param GetTaskInstanceLogRequest $request GetTaskInstanceLogRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3011,6 +3928,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries the run log generated during a specific run of an instance.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param GetTaskInstanceLogRequest $request GetTaskInstanceLogRequest
      *
      * @return GetTaskInstanceLogResponse GetTaskInstanceLogResponse
@@ -3125,7 +4046,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 调用此接口，可以将通过FlowSpec定义的工作流节点和其内部的子节点都导入到数据开发中
+     * @summary Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
+     *  *
+     * @description > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
+     * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
      *  *
      * @param ImportWorkflowDefinitionRequest $request ImportWorkflowDefinitionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3161,7 +4085,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 调用此接口，可以将通过FlowSpec定义的工作流节点和其内部的子节点都导入到数据开发中
+     * @summary Imports a workflow and its child nodes that are specified by the FlowSpec field to DataStudio.
+     *  *
+     * @description > You cannot use this API operation to import multiple workflows at a time. If you specify multiple workflows by using FlowSpec, the system imports only the first specified workflow.
+     * >  ImportWorkflowDefinition is an asynchronous operation. After you send a request, an asynchronous task is generated, and the system returns the ID of the asynchronous task. You can call the GetJobStatus operation to query the status of the asynchronous task.
      *  *
      * @param ImportWorkflowDefinitionRequest $request ImportWorkflowDefinitionRequest
      *
@@ -3175,7 +4102,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取自定义监控报警规则
+     * @summary Queries a list of custom monitoring alert rule by page.
      *  *
      * @param ListAlertRulesRequest $tmpReq  ListAlertRulesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -3234,7 +4161,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页获取自定义监控报警规则
+     * @summary Queries a list of custom monitoring alert rule by page.
      *  *
      * @param ListAlertRulesRequest $request ListAlertRulesRequest
      *
@@ -3248,7 +4175,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查看数据集成报警规则
+     * @summary Views alert rules configured for a synchronization task.
      *  *
      * @param ListDIAlarmRulesRequest $request ListDIAlarmRulesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3278,7 +4205,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 查看数据集成报警规则
+     * @summary Views alert rules configured for a synchronization task.
      *  *
      * @param ListDIAlarmRulesRequest $request ListDIAlarmRulesRequest
      *
@@ -3292,7 +4219,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据集成任务事件
+     * @summary Queries events for a synchronization task.
      *  *
      * @param ListDIJobEventsRequest $request ListDIJobEventsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -3322,7 +4249,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据集成任务事件
+     * @summary Queries events for a synchronization task.
      *  *
      * @param ListDIJobEventsRequest $request ListDIJobEventsRequest
      *
@@ -3336,7 +4263,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据集成任务指标
+     * @summary Queries metrics for a synchronization task.
      *  *
      * @param ListDIJobMetricsRequest $tmpReq  ListDIJobMetricsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3371,7 +4298,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据集成任务指标
+     * @summary Queries metrics for a synchronization task.
      *  *
      * @param ListDIJobMetricsRequest $request ListDIJobMetricsRequest
      *
@@ -3385,7 +4312,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据集成运行信息
+     * @summary Queries the running information about a synchronization task.
      *  *
      * @param ListDIJobRunDetailsRequest $request ListDIJobRunDetailsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -3415,7 +4342,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据集成运行信息
+     * @summary Queries the running information about a synchronization task.
      *  *
      * @param ListDIJobRunDetailsRequest $request ListDIJobRunDetailsRequest
      *
@@ -3475,6 +4402,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Queries a list of instances generated by a data quality monitoring task by page.
      *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ListDataQualityEvaluationTaskInstancesRequest $request ListDataQualityEvaluationTaskInstancesRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
      *
@@ -3505,6 +4434,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Queries a list of instances generated by a data quality monitoring task by page.
      *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ListDataQualityEvaluationTaskInstancesRequest $request ListDataQualityEvaluationTaskInstancesRequest
      *
      * @return ListDataQualityEvaluationTaskInstancesResponse ListDataQualityEvaluationTaskInstancesResponse
@@ -3518,6 +4449,8 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * @summary Queries a list of data quality monitoring tasks by page.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param ListDataQualityEvaluationTasksRequest $request ListDataQualityEvaluationTasksRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -3549,6 +4482,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Queries a list of data quality monitoring tasks by page.
      *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ListDataQualityEvaluationTasksRequest $request ListDataQualityEvaluationTasksRequest
      *
      * @return ListDataQualityEvaluationTasksResponse ListDataQualityEvaluationTasksResponse
@@ -3561,6 +4496,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ListDataQualityResultsRequest $request ListDataQualityResultsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3589,6 +4526,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ListDataQualityResultsRequest $request ListDataQualityResultsRequest
      *
      * @return ListDataQualityResultsResponse ListDataQualityResultsResponse
@@ -3601,7 +4540,53 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of data quality monitoring rule templates.
+     *  *
+     * @param ListDataQualityRuleTemplateRequest $request ListDataQualityRuleTemplateRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataQualityRuleTemplateResponse ListDataQualityRuleTemplateResponse
+     */
+    public function listDataQualityRuleTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataQualityRuleTemplate',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries a list of data quality monitoring rule templates.
+     *  *
+     * @param ListDataQualityRuleTemplateRequest $request ListDataQualityRuleTemplateRequest
+     *
+     * @return ListDataQualityRuleTemplateResponse ListDataQualityRuleTemplateResponse
+     */
+    public function listDataQualityRuleTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of data quality monitoring rules by page.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param ListDataQualityRulesRequest $request ListDataQualityRulesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3633,6 +4618,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Queries a list of data quality monitoring rules by page.
      *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ListDataQualityRulesRequest $request ListDataQualityRulesRequest
      *
      * @return ListDataQualityRulesResponse ListDataQualityRulesResponse
@@ -3645,7 +4632,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Queries a list of sharing rules of a data source.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  If you want to query the sharing rules of a data source that is associated with Workspace A, you must have the permissions to share the data source in Workspace A. You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
      *  *
      * @param ListDataSourceSharedRulesRequest $request ListDataSourceSharedRulesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3675,7 +4666,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Queries a list of sharing rules of a data source.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  If you want to query the sharing rules of a data source that is associated with Workspace A, you must have the permissions to share the data source in Workspace A. You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
      *  *
      * @param ListDataSourceSharedRulesRequest $request ListDataSourceSharedRulesRequest
      *
@@ -3689,7 +4684,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Queries a list of data sources based on the business information of data sources.
+     *  *
+     * @description You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
      *  *
      * @param ListDataSourcesRequest $tmpReq  ListDataSourcesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -3724,7 +4722,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Queries a list of data sources based on the business information of data sources.
+     *  *
+     * @description You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
      *  *
      * @param ListDataSourcesRequest $request ListDataSourcesRequest
      *
@@ -3782,6 +4783,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of descendant instances of an instance by page.
+     *  *
      * @param ListDownstreamTaskInstancesRequest $request ListDownstreamTaskInstancesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -3810,6 +4813,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of descendant instances of an instance by page.
+     *  *
      * @param ListDownstreamTaskInstancesRequest $request ListDownstreamTaskInstancesRequest
      *
      * @return ListDownstreamTaskInstancesResponse ListDownstreamTaskInstancesResponse
@@ -3822,6 +4827,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of descendant tasks of a task by page.
+     *  *
      * @param ListDownstreamTasksRequest $request ListDownstreamTasksRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3850,6 +4857,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of descendant tasks of a task by page.
+     *  *
      * @param ListDownstreamTasksRequest $request ListDownstreamTasksRequest
      *
      * @return ListDownstreamTasksResponse ListDownstreamTasksResponse
@@ -3906,7 +4915,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取通用资源组网络资源列表。
+     * @summary Queries a list of network resources of a serverless resource group.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param ListNetworksRequest $request ListNetworksRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -3936,7 +4947,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取通用资源组网络资源列表。
+     * @summary Queries a list of network resources of a serverless resource group.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param ListNetworksRequest $request ListNetworksRequest
      *
@@ -4105,7 +5118,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询工作空间角色详情
+     * @summary Queries the information about roles in a DataWorks workspace by page.
      *  *
      * @param ListProjectRolesRequest $tmpReq  ListProjectRolesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4161,7 +5174,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询工作空间角色详情
+     * @summary Queries the information about roles in a DataWorks workspace by page.
      *  *
      * @param ListProjectRolesRequest $request ListProjectRolesRequest
      *
@@ -4175,7 +5188,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询工作空间详情
+     * @summary Queries a list of DataWorks workspaces of the tenant to which your account belongs.
      *  *
      * @param ListProjectsRequest $tmpReq  ListProjectsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -4246,7 +5259,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询工作空间详情
+     * @summary Queries a list of DataWorks workspaces of the tenant to which your account belongs.
      *  *
      * @param ListProjectsRequest $request ListProjectsRequest
      *
@@ -4260,7 +5273,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源组列表。
+     * @summary Queries a list of resource groups.
      *  *
      * @param ListResourceGroupsRequest $tmpReq  ListResourceGroupsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4298,7 +5311,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 获取资源组列表。
+     * @summary Queries a list of resource groups.
      *  *
      * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
      *
@@ -4358,6 +5371,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary 获取网络资源的路由列表。
      *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ListRoutesRequest $request ListRoutesRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
@@ -4388,6 +5403,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary 获取网络资源的路由列表。
      *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ListRoutesRequest $request ListRoutesRequest
      *
      * @return ListRoutesResponse ListRoutesResponse
@@ -4400,6 +5417,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of operation logs of an instance by page.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     * You can call this operation to query only the operation logs generated within the previous 31 days.
+     *  *
      * @param ListTaskInstanceOperationLogsRequest $request ListTaskInstanceOperationLogsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -4428,6 +5450,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of operation logs of an instance by page.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     * You can call this operation to query only the operation logs generated within the previous 31 days.
+     *  *
      * @param ListTaskInstanceOperationLogsRequest $request ListTaskInstanceOperationLogsRequest
      *
      * @return ListTaskInstanceOperationLogsResponse ListTaskInstanceOperationLogsResponse
@@ -4440,6 +5467,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of instances. You can also specify filter conditions to query specific instances.
+     *  *
      * @param ListTaskInstancesRequest $tmpReq  ListTaskInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -4533,6 +5562,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of instances. You can also specify filter conditions to query specific instances.
+     *  *
      * @param ListTaskInstancesRequest $request ListTaskInstancesRequest
      *
      * @return ListTaskInstancesResponse ListTaskInstancesResponse
@@ -4545,6 +5576,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of operation logs of a task by page.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     * You can call this operation to query only the operation logs generated within the previous 31 days.
+     *  *
      * @param ListTaskOperationLogsRequest $request ListTaskOperationLogsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -4573,6 +5609,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of operation logs of a task by page.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     * You can call this operation to query only the operation logs generated within the previous 31 days.
+     *  *
      * @param ListTaskOperationLogsRequest $request ListTaskOperationLogsRequest
      *
      * @return ListTaskOperationLogsResponse ListTaskOperationLogsResponse
@@ -4585,6 +5626,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of tasks by page. You can also specify filter conditions to query tasks.
+     *  *
      * @param ListTasksRequest $request ListTasksRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -4649,6 +5692,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of tasks by page. You can also specify filter conditions to query tasks.
+     *  *
      * @param ListTasksRequest $request ListTasksRequest
      *
      * @return ListTasksResponse ListTasksResponse
@@ -4661,6 +5706,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of ancestor instances of an instance by page.
+     *  *
      * @param ListUpstreamTaskInstancesRequest $request ListUpstreamTaskInstancesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -4689,6 +5736,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of ancestor instances of an instance by page.
+     *  *
      * @param ListUpstreamTaskInstancesRequest $request ListUpstreamTaskInstancesRequest
      *
      * @return ListUpstreamTaskInstancesResponse ListUpstreamTaskInstancesResponse
@@ -4701,6 +5750,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of ancestor tasks of a task by page.
+     *  *
      * @param ListUpstreamTasksRequest $request ListUpstreamTasksRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -4729,6 +5780,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Queries a list of ancestor tasks of a task by page.
+     *  *
      * @param ListUpstreamTasksRequest $request ListUpstreamTasksRequest
      *
      * @return ListUpstreamTasksResponse ListUpstreamTasksResponse
@@ -4997,6 +6050,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Removes multiple upstream dependencies of an instance at a time.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param RemoveTaskInstanceDependenciesRequest $tmpReq  RemoveTaskInstanceDependenciesRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
@@ -5041,6 +6098,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Removes multiple upstream dependencies of an instance at a time.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param RemoveTaskInstanceDependenciesRequest $request RemoveTaskInstanceDependenciesRequest
      *
      * @return RemoveTaskInstanceDependenciesResponse RemoveTaskInstanceDependenciesResponse
@@ -5265,6 +6326,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param RerunTaskInstancesRequest $tmpReq  RerunTaskInstancesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -5304,6 +6367,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param RerunTaskInstancesRequest $request RerunTaskInstancesRequest
      *
      * @return RerunTaskInstancesResponse RerunTaskInstancesResponse
@@ -5316,6 +6381,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ResumeTaskInstancesRequest $tmpReq  ResumeTaskInstancesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -5355,6 +6422,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param ResumeTaskInstancesRequest $request ResumeTaskInstancesRequest
      *
      * @return ResumeTaskInstancesResponse ResumeTaskInstancesResponse
@@ -5425,6 +6494,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param SetSuccessTaskInstancesRequest $tmpReq  SetSuccessTaskInstancesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -5464,6 +6535,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param SetSuccessTaskInstancesRequest $request SetSuccessTaskInstancesRequest
      *
      * @return SetSuccessTaskInstancesResponse SetSuccessTaskInstancesResponse
@@ -5476,7 +6549,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 启动数据集成任务
+     * @summary Starts a new-version synchronization task.
      *  *
      * @param StartDIJobRequest $tmpReq  StartDIJobRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -5511,7 +6584,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 启动数据集成任务
+     * @summary Starts a new-version synchronization task.
      *  *
      * @param StartDIJobRequest $request StartDIJobRequest
      *
@@ -5569,6 +6642,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param StopTaskInstancesRequest $tmpReq  StopTaskInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -5608,6 +6683,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param StopTaskInstancesRequest $request StopTaskInstancesRequest
      *
      * @return StopTaskInstancesResponse StopTaskInstancesResponse
@@ -5620,6 +6697,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param SuspendTaskInstancesRequest $tmpReq  SuspendTaskInstancesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5659,6 +6738,8 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param SuspendTaskInstancesRequest $request SuspendTaskInstancesRequest
      *
      * @return SuspendTaskInstancesResponse SuspendTaskInstancesResponse
@@ -5671,6 +6752,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Triggers a task to run by using an HTTP Trigger node at a specified time.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param TriggerSchedulerTaskInstanceRequest $request TriggerSchedulerTaskInstanceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -5705,6 +6790,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Triggers a task to run by using an HTTP Trigger node at a specified time.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param TriggerSchedulerTaskInstanceRequest $request TriggerSchedulerTaskInstanceRequest
      *
      * @return TriggerSchedulerTaskInstanceResponse TriggerSchedulerTaskInstanceResponse
@@ -5717,7 +6806,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义监控报警规则
+     * @summary Updates a custom alert monitoring rule.
      *  *
      * @param UpdateAlertRuleRequest $tmpReq  UpdateAlertRuleRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -5773,7 +6862,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 创建自定义监控报警规则
+     * @summary Updates a custom alert monitoring rule.
      *  *
      * @param UpdateAlertRuleRequest $request UpdateAlertRuleRequest
      *
@@ -5787,7 +6876,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据集成报警规则
+     * @summary Updates an alert rule configured for a synchronization task.
      *  *
      * @param UpdateDIAlarmRuleRequest $tmpReq  UpdateDIAlarmRuleRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -5825,7 +6914,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据集成报警规则
+     * @summary Updates an alert rule configured for a synchronization task.
      *  *
      * @param UpdateDIAlarmRuleRequest $request UpdateDIAlarmRuleRequest
      *
@@ -5839,7 +6928,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据集成任务
+     * @summary Updates a synchronization task.
      *  *
      * @param UpdateDIJobRequest $tmpReq  UpdateDIJobRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -5883,7 +6972,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新数据集成任务
+     * @summary Updates a synchronization task.
      *  *
      * @param UpdateDIJobRequest $request UpdateDIJobRequest
      *
@@ -5897,7 +6986,270 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary 更新数据质量校验任务
+     *  *
+     * @param UpdateDataQualityEvaluationTaskRequest $tmpReq  UpdateDataQualityEvaluationTaskRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataQualityEvaluationTaskResponse UpdateDataQualityEvaluationTaskResponse
+     */
+    public function updateDataQualityEvaluationTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataQualityEvaluationTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataQualityRules)) {
+            $request->dataQualityRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataQualityRules, 'DataQualityRules', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->hooks)) {
+            $request->hooksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hooks, 'Hooks', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notifications)) {
+            $request->notificationsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notifications, 'Notifications', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->target)) {
+            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->trigger)) {
+            $request->triggerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->trigger, 'Trigger', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dataQualityRulesShrink)) {
+            $body['DataQualityRules'] = $request->dataQualityRulesShrink;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $body['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->hooksShrink)) {
+            $body['Hooks'] = $request->hooksShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->notificationsShrink)) {
+            $body['Notifications'] = $request->notificationsShrink;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->runtimeConf)) {
+            $body['RuntimeConf'] = $request->runtimeConf;
+        }
+        if (!Utils::isUnset($request->targetShrink)) {
+            $body['Target'] = $request->targetShrink;
+        }
+        if (!Utils::isUnset($request->triggerShrink)) {
+            $body['Trigger'] = $request->triggerShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataQualityEvaluationTask',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDataQualityEvaluationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新数据质量校验任务
+     *  *
+     * @param UpdateDataQualityEvaluationTaskRequest $request UpdateDataQualityEvaluationTaskRequest
+     *
+     * @return UpdateDataQualityEvaluationTaskResponse UpdateDataQualityEvaluationTaskResponse
+     */
+    public function updateDataQualityEvaluationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataQualityEvaluationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Updates a data quality monitoring rule.
+     *  *
+     * @param UpdateDataQualityRuleRequest $tmpReq  UpdateDataQualityRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataQualityRuleResponse UpdateDataQualityRuleResponse
+     */
+    public function updateDataQualityRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataQualityRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->checkingConfig)) {
+            $request->checkingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->errorHandlers)) {
+            $request->errorHandlersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->errorHandlers, 'ErrorHandlers', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->samplingConfig)) {
+            $request->samplingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->target)) {
+            $request->targetShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->target, 'Target', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->checkingConfigShrink)) {
+            $body['CheckingConfig'] = $request->checkingConfigShrink;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enabled)) {
+            $body['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->errorHandlersShrink)) {
+            $body['ErrorHandlers'] = $request->errorHandlersShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->samplingConfigShrink)) {
+            $body['SamplingConfig'] = $request->samplingConfigShrink;
+        }
+        if (!Utils::isUnset($request->severity)) {
+            $body['Severity'] = $request->severity;
+        }
+        if (!Utils::isUnset($request->targetShrink)) {
+            $body['Target'] = $request->targetShrink;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $body['TemplateCode'] = $request->templateCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataQualityRule',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDataQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Updates a data quality monitoring rule.
+     *  *
+     * @param UpdateDataQualityRuleRequest $request UpdateDataQualityRuleRequest
+     *
+     * @return UpdateDataQualityRuleResponse UpdateDataQualityRuleResponse
+     */
+    public function updateDataQualityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataQualityRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Updates a data quality monitoring rule template.
+     *  *
+     * @param UpdateDataQualityRuleTemplateRequest $tmpReq  UpdateDataQualityRuleTemplateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataQualityRuleTemplateResponse UpdateDataQualityRuleTemplateResponse
+     */
+    public function updateDataQualityRuleTemplateWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataQualityRuleTemplateShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->checkingConfig)) {
+            $request->checkingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->checkingConfig, 'CheckingConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->samplingConfig)) {
+            $request->samplingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->samplingConfig, 'SamplingConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->checkingConfigShrink)) {
+            $body['CheckingConfig'] = $request->checkingConfigShrink;
+        }
+        if (!Utils::isUnset($request->code)) {
+            $body['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->directoryPath)) {
+            $body['DirectoryPath'] = $request->directoryPath;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->samplingConfigShrink)) {
+            $body['SamplingConfig'] = $request->samplingConfigShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataQualityRuleTemplate',
+            'version'     => '2024-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDataQualityRuleTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Updates a data quality monitoring rule template.
+     *  *
+     * @param UpdateDataQualityRuleTemplateRequest $request UpdateDataQualityRuleTemplateRequest
+     *
+     * @return UpdateDataQualityRuleTemplateResponse UpdateDataQualityRuleTemplateResponse
+     */
+    public function updateDataQualityRuleTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataQualityRuleTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies a data source by ID.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Tenant Administrator, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -5942,7 +7294,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 验证用
+     * @summary Modifies a data source by ID.
+     *  *
+     * @description 1.  This API operation is available for all DataWorks editions.
+     * 2.  You can call this operation only if you are assigned one of the following roles in DataWorks:
+     * *   Tenant Owner, Tenant Administrator, Workspace Administrator, Workspace Owner, and O\\&M
      *  *
      * @param UpdateDataSourceRequest $request UpdateDataSourceRequest
      *
@@ -6062,7 +7418,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新工作空间
+     * @summary Updates a DataWorks workspace.
      *  *
      * @param UpdateProjectRequest $request UpdateProjectRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -6113,7 +7469,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新工作空间
+     * @summary Updates a DataWorks workspace.
      *  *
      * @param UpdateProjectRequest $request UpdateProjectRequest
      *
@@ -6182,6 +7538,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Updates basic information about a resource group.
      *  *
+     * @description You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     *  *
      * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6221,6 +7579,8 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @summary Updates basic information about a resource group.
      *  *
+     * @description You can use this API operation only in DataWorks Basic Edition or an advanced edition.
+     *  *
      * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
      *
      * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
@@ -6233,7 +7593,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新网络资源的路由。
+     * @summary Updates the information about a route.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param UpdateRouteRequest $request UpdateRouteRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -6269,7 +7631,9 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新网络资源的路由。
+     * @summary Updates the information about a route.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
      *  *
      * @param UpdateRouteRequest $request UpdateRouteRequest
      *
@@ -6283,6 +7647,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Modifies properties configured for multiple instances at a time. The properties include the priority, resource group for scheduling, and data source.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param UpdateTaskInstancesRequest $tmpReq  UpdateTaskInstancesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -6322,6 +7690,10 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @summary Modifies properties configured for multiple instances at a time. The properties include the priority, resource group for scheduling, and data source.
+     *  *
+     * @description This API operation is available for all DataWorks editions.
+     *  *
      * @param UpdateTaskInstancesRequest $request UpdateTaskInstancesRequest
      *
      * @return UpdateTaskInstancesResponse UpdateTaskInstancesResponse

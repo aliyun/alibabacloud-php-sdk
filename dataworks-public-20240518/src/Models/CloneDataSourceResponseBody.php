@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloneDataSourceResponseBody extends Model
 {
     /**
+     * @description The ID of the cloned data source.
+     *
      * @example 19715
      *
      * @var int

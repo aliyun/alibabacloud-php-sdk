@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSourceSharedRules extends Model
 {
     /**
+     * @description The time when the rule was created. This value is a UNIX timestamp.
+     *
      * @example 1724379762000
      *
      * @var int
@@ -16,6 +18,8 @@ class dataSourceSharedRules extends Model
     public $createTime;
 
     /**
+     * @description The ID of the user who creates the rule.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class dataSourceSharedRules extends Model
     public $createUser;
 
     /**
+     * @description The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +43,8 @@ class dataSourceSharedRules extends Model
     public $envType;
 
     /**
+     * @description The rule ID.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +52,8 @@ class dataSourceSharedRules extends Model
     public $id;
 
     /**
+     * @description The name of the data source in the destination workspace.
+     *
      * @example targetProject.datasource
      *
      * @var string
@@ -51,6 +61,8 @@ class dataSourceSharedRules extends Model
     public $sharedDataSourceName;
 
     /**
+     * @description The user in the workspace to which the data source is shared. If the data source is shared to the entire workspace, this parameter is left empty.
+     *
      * @example 1
      *
      * @var string
@@ -58,6 +70,8 @@ class dataSourceSharedRules extends Model
     public $sharedUser;
 
     /**
+     * @description The ID of the workspace with which the data source is associated.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +79,8 @@ class dataSourceSharedRules extends Model
     public $sourceProjectId;
 
     /**
+     * @description The ID of the workspace to which the data source is shared.
+     *
      * @example 1
      *
      * @var int

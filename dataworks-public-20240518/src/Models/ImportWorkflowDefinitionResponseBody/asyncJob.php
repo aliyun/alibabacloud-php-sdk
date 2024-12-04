@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class asyncJob extends Model
 {
     /**
+     * @description Indicates whether the asynchronous task is complete.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class asyncJob extends Model
     public $completed;
 
     /**
+     * @description The time when the asynchronous task was created. This value is a UNIX timestamp.
+     *
      * @example 1706581425000
      *
      * @var int
@@ -23,6 +27,8 @@ class asyncJob extends Model
     public $createTime;
 
     /**
+     * @description The error message returned if the asynchronous task fails.
+     *
      * @example target folder already exists: XXXX
      *
      * @var string
@@ -30,6 +36,8 @@ class asyncJob extends Model
     public $error;
 
     /**
+     * @description The ID of the asynchronous task.
+     *
      * @example 1234567691239009XXXX
      *
      * @var string
@@ -37,6 +45,8 @@ class asyncJob extends Model
     public $id;
 
     /**
+     * @description The progress of the asynchronous task. Valid values: 0 to 100.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,9 @@ class asyncJob extends Model
     public $progress;
 
     /**
+     * @description The response.
+     *
+     * >  The workflow ID is returned.
      * @example 632647691239009XXXX
      *
      * @var string
@@ -51,6 +64,15 @@ class asyncJob extends Model
     public $response;
 
     /**
+     * @description The status of the asynchronous task.
+     *
+     * Valid values:
+     *
+     *   Running: The asynchronous task is running.
+     *   Success: The asynchronous task is complete.
+     *   Fail: The asynchronous task fails.
+     *   Cancel: The asynchronous task is canceled.
+     *
      * @example Running
      *
      * @var string
@@ -58,6 +80,13 @@ class asyncJob extends Model
     public $status;
 
     /**
+     * @description The type of the asynchronous task.
+     *
+     * Valid values:
+     *
+     *   Create: The asynchronous task is used to create an object.
+     *   Cancel: The asynchronous task is used to cancel an operation.
+     *
      * @example Create
      *
      * @var string

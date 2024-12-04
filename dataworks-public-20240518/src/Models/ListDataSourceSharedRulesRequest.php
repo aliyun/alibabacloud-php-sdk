@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceSharedRulesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The data source ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,6 +19,8 @@ class ListDataSourceSharedRulesRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description The ID of the workspace to which the data source is shared. You cannot share the data source to the workspace with which the data source is associated.
+     *
      * @example 1
      *
      * @var int

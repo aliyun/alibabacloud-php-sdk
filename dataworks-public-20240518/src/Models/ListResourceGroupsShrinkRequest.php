@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsShrinkRequest extends Model
 {
     /**
+     * @description The name of a resource group, which is used for fuzzy match.
+     *
      * @example Resource
      *
      * @var string
@@ -16,6 +18,8 @@ class ListResourceGroupsShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The billing method of resource groups. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+     *
      * @example PrePaid
      *
      * @var string
@@ -23,6 +27,8 @@ class ListResourceGroupsShrinkRequest extends Model
     public $paymentType;
 
     /**
+     * @description The ID of the DataWorks workspace.
+     *
      * @example 1000
      *
      * @var int
@@ -30,11 +36,15 @@ class ListResourceGroupsShrinkRequest extends Model
     public $projectId;
 
     /**
+     * @description The types of resource groups to query. If you do not configure this parameter, only serverless resource groups are returned by default.
+     *
      * @var string
      */
     public $resourceGroupTypesShrink;
 
     /**
+     * @description The statuses of resource groups.
+     *
      * @var string
      */
     public $statusesShrink;

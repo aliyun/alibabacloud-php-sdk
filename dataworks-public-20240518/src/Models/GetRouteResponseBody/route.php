@@ -30,6 +30,8 @@ class route extends Model
     public $id;
 
     /**
+     * @description The network ID.
+     *
      * @example 1000
      *
      * @var int

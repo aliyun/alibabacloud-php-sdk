@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDIJobRequest extends Model
 {
     /**
+     * @description The ID of the synchronization task.
+     *
      * @example 11588
      *
      * @var int
@@ -16,11 +18,17 @@ class GetDIJobRequest extends Model
     public $DIJobId;
 
     /**
+     * @description DataWorks工作空间ID。您可以通过ListProjects接口获取工作空间ID。
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @description Specifies whether to return detailed configuration information, including TransformationRules, TableMappings, and JobSettings. Valid values: true and false. Default value: true.
+     *
      * @example true
      *
      * @var bool

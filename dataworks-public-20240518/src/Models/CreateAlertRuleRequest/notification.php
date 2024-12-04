@@ -10,13 +10,16 @@ use AlibabaCloud\Tea\Model;
 class notification extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The alert channels.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $channels;
 
     /**
+     * @description The interval at which an alert notification is sent. Unit: minutes. Valid values: 5 to 10,000.
+     *
      * @example 30
      *
      * @var int
@@ -24,6 +27,8 @@ class notification extends Model
     public $intervalInMinutes;
 
     /**
+     * @description The maximum number of times an alert notification is sent within one calendar day. Valid values: 1 to 10,000.
+     *
      * @example 3
      *
      * @var int
@@ -31,13 +36,16 @@ class notification extends Model
     public $maximum;
 
     /**
-     * @description This parameter is required.
+     * @description The alert recipient.
      *
+     * This parameter is required.
      * @var receivers[]
      */
     public $receivers;
 
     /**
+     * @description The end of the time range for silence. The time is in the HH:mm:ss format.
+     *
      * @example 00:00:00
      *
      * @var string
@@ -45,6 +53,8 @@ class notification extends Model
     public $silenceEndTime;
 
     /**
+     * @description The beginning of the time range for silence. The time is in the HH:mm:ss format.
+     *
      * @example 00:00:00
      *
      * @var string

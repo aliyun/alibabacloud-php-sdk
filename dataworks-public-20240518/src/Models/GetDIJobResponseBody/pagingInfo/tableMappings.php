@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class tableMappings extends Model
 {
     /**
+     * @description The list of rules used to select synchronization objects in the source. The objects can be databases or tables.
+     *
      * @var sourceObjectSelectionRules[]
      */
     public $sourceObjectSelectionRules;
 
     /**
+     * @description The list of transformation rules that are applied to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+     *
      * @var transformationRules[]
      */
     public $transformationRules;

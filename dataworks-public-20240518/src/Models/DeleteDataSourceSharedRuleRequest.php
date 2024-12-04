@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataSourceSharedRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The sharing rule ID.
      *
+     * This parameter is required.
      * @example 22127
      *
      * @var int

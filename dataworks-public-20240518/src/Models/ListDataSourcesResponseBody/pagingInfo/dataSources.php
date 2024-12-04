@@ -15,6 +15,8 @@ class dataSources extends Model
     public $dataSource;
 
     /**
+     * @description The name of the data source.
+     *
      * @example test
      *
      * @var string
@@ -22,6 +24,8 @@ class dataSources extends Model
     public $name;
 
     /**
+     * @description The type of the data source.
+     *
      * @example mysql
      *
      * @var string

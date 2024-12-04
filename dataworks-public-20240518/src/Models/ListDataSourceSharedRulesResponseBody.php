@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceSharedRulesResponseBody extends Model
 {
     /**
+     * @description The sharing rules of the data source.
+     *
      * @var dataSourceSharedRules[]
      */
     public $dataSourceSharedRules;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 0000-ABCD-EFG****
      *

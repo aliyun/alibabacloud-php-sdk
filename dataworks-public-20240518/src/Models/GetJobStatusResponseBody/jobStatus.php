@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobStatus extends Model
 {
     /**
+     * @description Indicates whether the asynchronous task is complete. Valid values: True False
+     *
      * @example False
      *
      * @var string
@@ -16,6 +18,8 @@ class jobStatus extends Model
     public $completed;
 
     /**
+     * @description The time when the asynchronous task was created.
+     *
      * @example 1729063449802
      *
      * @var string
@@ -23,6 +27,8 @@ class jobStatus extends Model
     public $createTime;
 
     /**
+     * @description The error message returned if the asynchronous task fails.
+     *
      * @example Not Found
      *
      * @var string
@@ -30,6 +36,8 @@ class jobStatus extends Model
     public $error;
 
     /**
+     * @description The ID of the asynchronous task.
+     *
      * @example C664CDE3-9C0B-5792-B17F-6C543783BBBC
      *
      * @var string
@@ -37,6 +45,12 @@ class jobStatus extends Model
     public $jobId;
 
     /**
+     * @description The type of the asynchronous task. Valid values:
+     *
+     *   **Create**: The asynchronous task is used to create an object.
+     *   **Update**: The asynchronous task is used to update an object.
+     *   **Cancel**: The asynchronous task is used to cancel an operation.
+     *
      * @example Create
      *
      * @var string
@@ -44,6 +58,13 @@ class jobStatus extends Model
     public $jobType;
 
     /**
+     * @description The status of the asynchronous task. Valid values:
+     *
+     *   **Success**
+     *   **Fail**
+     *   **Cancel**
+     *   **Running**
+     *
      * @example Success
      *
      * @var string

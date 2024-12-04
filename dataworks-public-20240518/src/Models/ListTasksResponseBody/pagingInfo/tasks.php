@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The baseline ID.
+     *
      * @example 1234
      *
      * @var int
@@ -19,6 +21,8 @@ class tasks extends Model
     public $baselineId;
 
     /**
+     * @description The creation time.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -26,6 +30,8 @@ class tasks extends Model
     public $createTime;
 
     /**
+     * @description The account ID of the creator.
+     *
      * @example 1000
      *
      * @var string
@@ -33,11 +39,15 @@ class tasks extends Model
     public $createUser;
 
     /**
+     * @description The information about the associated data source.
+     *
      * @var dataSource
      */
     public $dataSource;
 
     /**
+     * @description The description of the task.
+     *
      * @example test
      *
      * @var string
@@ -45,6 +55,8 @@ class tasks extends Model
     public $description;
 
     /**
+     * @description The task ID.
+     *
      * @example 1234
      *
      * @var int
@@ -52,11 +64,18 @@ class tasks extends Model
     public $id;
 
     /**
+     * @description 实例生成模式。
+     *
+     * Immediately（立即生成）
+     * @example T+1
+     *
      * @var string
      */
     public $instanceMode;
 
     /**
+     * @description The modification time.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -64,6 +83,8 @@ class tasks extends Model
     public $modifyTime;
 
     /**
+     * @description The account ID of the modifier.
+     *
      * @example 1000
      *
      * @var string
@@ -71,11 +92,15 @@ class tasks extends Model
     public $modifyUser;
 
     /**
+     * @description The name of the task.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The account ID of the task owner.
+     *
      * @example 1000
      *
      * @var string
@@ -83,6 +108,8 @@ class tasks extends Model
     public $owner;
 
     /**
+     * @description The priority of the task. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -90,6 +117,13 @@ class tasks extends Model
     public $priority;
 
     /**
+     * @description The environment of the workspace.
+     *
+     * Valid values:
+     *
+     *   Prod: production environment
+     *   Dev: development environment
+     *
      * @example Prod
      *
      * @var string
@@ -97,6 +131,8 @@ class tasks extends Model
     public $projectEnv;
 
     /**
+     * @description The workspace ID.
+     *
      * @example 100
      *
      * @var int
@@ -104,6 +140,8 @@ class tasks extends Model
     public $projectId;
 
     /**
+     * @description The rerun interval. Unit: seconds.
+     *
      * @example 60
      *
      * @var int
@@ -111,6 +149,14 @@ class tasks extends Model
     public $rerunInterval;
 
     /**
+     * @description The rerun mode.
+     *
+     * Valid values:
+     *
+     *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+     *   FailureAllowed: The task can be rerun only after it fails to run.
+     *   AllAllowed: The task can be rerun regardless of whether it is successfully run or fails to run.
+     *
      * @example AllAllowed
      *
      * @var string
@@ -118,6 +164,8 @@ class tasks extends Model
     public $rerunMode;
 
     /**
+     * @description The number of times that the task is rerun. This parameter takes effect only if the RerunMode parameter is set to AllAllowed or FailureAllowed.
+     *
      * @example 3
      *
      * @var int
@@ -125,11 +173,15 @@ class tasks extends Model
     public $rerunTimes;
 
     /**
+     * @description The configurations of the runtime environment, such as the resource group information.
+     *
      * @var runtimeResource
      */
     public $runtimeResource;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 1
      *
      * @var int
@@ -137,6 +189,8 @@ class tasks extends Model
     public $tenantId;
 
     /**
+     * @description The timeout period of task running. Unit: seconds.
+     *
      * @example 3600
      *
      * @var int
@@ -144,11 +198,15 @@ class tasks extends Model
     public $timeout;
 
     /**
+     * @description The method to trigger task scheduling.
+     *
      * @var trigger
      */
     public $trigger;
 
     /**
+     * @description The type of the task.
+     *
      * @example ODPS_SQL
      *
      * @var string
@@ -156,6 +214,8 @@ class tasks extends Model
     public $type;
 
     /**
+     * @description The ID of the workflow to which the task belongs.
+     *
      * @example 1234
      *
      * @var int

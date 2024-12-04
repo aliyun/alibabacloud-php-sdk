@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceErrorPercentage extends Model
 {
     /**
+     * @description The maximum percentage of instances on which an error occurs in the workspace to the total number of instances. Valid values: [1-100].
+     *
      * @example 10
      *
      * @var int

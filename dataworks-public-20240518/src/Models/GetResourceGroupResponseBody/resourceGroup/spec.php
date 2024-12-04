@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class spec extends Model
 {
     /**
+     * @description The number of resources in the resource group.
+     *
      * @example 1
      *
      * @var int

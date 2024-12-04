@@ -15,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The ID of the synchronization task.
+     *
      * @example 32601
      *
      * @var string
@@ -22,6 +24,8 @@ class pagingInfo extends Model
     public $DIJobId;
 
     /**
+     * @description The description of the synchronization task.
+     *
      * @example description
      *
      * @var string
@@ -29,11 +33,15 @@ class pagingInfo extends Model
     public $description;
 
     /**
+     * @description The properties of the destination.
+     *
      * @var destinationDataSourceSettings[]
      */
     public $destinationDataSourceSettings;
 
     /**
+     * @description The destination type. The value Hologres is returned.
+     *
      * @example Hologres
      *
      * @var string
@@ -41,6 +49,8 @@ class pagingInfo extends Model
     public $destinationDataSourceType;
 
     /**
+     * @description The name of the synchronization task.
+     *
      * @example imp_ods_dms_det_dealer_info_df
      *
      * @var string
@@ -48,16 +58,30 @@ class pagingInfo extends Model
     public $jobName;
 
     /**
+     * @description The runtime settings.
+     *
      * @var jobSettings
      */
     public $jobSettings;
 
     /**
+     * @description 任务状态。
+     * - Stop：停止
+     * @example Running
+     *
      * @var string
      */
     public $jobStatus;
 
     /**
+     * @description The synchronization type. Valid values:
+     *
+     *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+     *   RealtimeIncremental: real-time incremental synchronization
+     *   Full: full synchronization
+     *   OfflineIncremental: batch incremental synchronization
+     *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+     *
      * @example FullAndRealtimeIncremental
      *
      * @var string
@@ -65,6 +89,9 @@ class pagingInfo extends Model
     public $migrationType;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+     *
+     * This parameter indicates the DataWorks workspace to which the API operation is applied.
      * @example 98330
      *
      * @var int
@@ -72,16 +99,22 @@ class pagingInfo extends Model
     public $projectId;
 
     /**
+     * @description The resource settings.
+     *
      * @var resourceSettings
      */
     public $resourceSettings;
 
     /**
+     * @description The settings of the source. Only a single source is supported.
+     *
      * @var sourceDataSourceSettings[]
      */
     public $sourceDataSourceSettings;
 
     /**
+     * @description The source type. The value MySQL is returned.
+     *
      * @example Mysql
      *
      * @var string
@@ -89,11 +122,15 @@ class pagingInfo extends Model
     public $sourceDataSourceType;
 
     /**
+     * @description The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
+     *
      * @var tableMappings[]
      */
     public $tableMappings;
 
     /**
+     * @description The list of transformation rules that are applied to the synchronization objects selected from the source. Each entry in the list defines a transformation rule.
+     *
      * @var transformationRules[]
      */
     public $transformationRules;

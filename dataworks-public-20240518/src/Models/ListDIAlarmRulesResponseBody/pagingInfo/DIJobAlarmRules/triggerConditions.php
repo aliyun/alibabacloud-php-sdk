@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class triggerConditions extends Model
 {
     /**
+     * @description The types of DDL operations for which the alert rule takes effect.
+     *
      * @var string[]
      */
     public $ddlReportTags;
 
     /**
+     * @description The time interval for alert calculation. Unit: minutes.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,11 @@ class triggerConditions extends Model
     public $duration;
 
     /**
+     * @description The severity level. Valid values:
+     *
+     *   Warning
+     *   Critical
+     *
      * @example Critical
      *
      * @var string
@@ -28,6 +37,12 @@ class triggerConditions extends Model
     public $severity;
 
     /**
+     * @description The alert threshold.
+     *
+     *   If the alert rule is for task status, no threshold is used.
+     *   If the alert rule is for failovers, the threshold is the number of failovers.
+     *   If the alert rule is for latency, the threshold is the latency duration, in seconds.
+     *
      * @example 5
      *
      * @var int

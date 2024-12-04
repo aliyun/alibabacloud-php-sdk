@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @description The connection properties of the data source.
+     *
      * @example {
      * }
      * @var mixed
@@ -16,6 +18,8 @@ class dataSource extends Model
     public $connectionProperties;
 
     /**
+     * @description The mode in which the data source is added. The mode varies based on the data source type. Valid values: InstanceMode, UrlMode, and CdhMode. The value InstanceMode indicates the instance mode. The value UrlMode indicates the connection string mode. The value CdhMode indicates the CDH cluster mode.
+     *
      * @example UrlMode
      *
      * @var string
@@ -23,6 +27,8 @@ class dataSource extends Model
     public $connectionPropertiesMode;
 
     /**
+     * @description The time when the data source was added. This value is a UNIX timestamp.
+     *
      * @example 1648711113000
      *
      * @var int
@@ -30,6 +36,8 @@ class dataSource extends Model
     public $createTime;
 
     /**
+     * @description The ID of the user who adds the data source.
+     *
      * @example 1624387842781448
      *
      * @var string
@@ -37,6 +45,8 @@ class dataSource extends Model
     public $createUser;
 
     /**
+     * @description The description of the data source.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +54,8 @@ class dataSource extends Model
     public $description;
 
     /**
+     * @description The ID of the data source.
+     *
      * @example 16035
      *
      * @var int
@@ -51,6 +63,8 @@ class dataSource extends Model
     public $id;
 
     /**
+     * @description The time when the data source was last modified. This value is a UNIX timestamp.
+     *
      * @example 1648711113000
      *
      * @var int
@@ -58,6 +72,8 @@ class dataSource extends Model
     public $modifyTime;
 
     /**
+     * @description The ID of the user who modifies the data source.
+     *
      * @example 1624387842781448
      *
      * @var string
@@ -65,6 +81,8 @@ class dataSource extends Model
     public $modifyUser;
 
     /**
+     * @description The unique business key of the data source. For example, the unique business key of a Hologres data source is in the ${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database} format.
+     *
      * @example 1648711121000:cn-beijing:odps:yongxunQA_beijing_standard
      *
      * @var string

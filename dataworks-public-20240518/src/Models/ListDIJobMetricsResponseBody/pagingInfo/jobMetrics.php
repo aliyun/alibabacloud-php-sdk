@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class jobMetrics extends Model
 {
     /**
+     * @description The name of the metric.
+     *
      * @example JobDelay
      *
      * @var string
@@ -17,6 +19,8 @@ class jobMetrics extends Model
     public $name;
 
     /**
+     * @description The metric data.
+     *
      * @var seriesList[]
      */
     public $seriesList;

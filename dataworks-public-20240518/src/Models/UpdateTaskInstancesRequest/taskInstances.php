@@ -10,13 +10,16 @@ use AlibabaCloud\Tea\Model;
 class taskInstances extends Model
 {
     /**
+     * @description The information about the associated data source.
+     *
      * @var dataSource
      */
     public $dataSource;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -24,6 +27,9 @@ class taskInstances extends Model
     public $id;
 
     /**
+     * @description The priority of the instance. Valid values: 1, 3, 5, 7, and 8.
+     *
+     * A larger value indicates a higher priority. Default value: 1.
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class taskInstances extends Model
     public $priority;
 
     /**
+     * @description The resource group information. Set this parameter to the ID of a resource group for scheduling.
+     *
      * @example S_res_group_524258031846018_1684XXXXXXXXX
      *
      * @var string

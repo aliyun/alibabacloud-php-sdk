@@ -86,6 +86,8 @@ class rule extends Model
     public $target;
 
     /**
+     * @description The code of the template that is referenced when you create a rule.
+     *
      * @example system::user_defined
      *
      * @var string

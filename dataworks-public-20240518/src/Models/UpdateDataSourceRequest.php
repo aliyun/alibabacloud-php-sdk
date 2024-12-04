@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
      *
+     *   Dev: development environment
+     *   Prod: production environment
+     *
+     * This parameter is required.
      * @example {
      * }
      * @var string
@@ -18,6 +22,12 @@ class UpdateDataSourceRequest extends Model
     public $connectionProperties;
 
     /**
+     * @description The mode in which the data source is added. The mode varies based on the data source type. Valid values:
+     *
+     *   InstanceMode: instance mode
+     *   UrlMode: connection string mode
+     *   CdhMode: CDH cluster mode
+     *
      * @example UrlMode
      *
      * @var string
@@ -25,6 +35,8 @@ class UpdateDataSourceRequest extends Model
     public $connectionPropertiesMode;
 
     /**
+     * @description The description of the data source. The description cannot exceed 3,000 characters in length.
+     *
      * @example test
      *
      * @var string
@@ -32,8 +44,9 @@ class UpdateDataSourceRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The data source ID.
      *
+     * This parameter is required.
      * @example 16033
      *
      * @var int
@@ -41,8 +54,9 @@ class UpdateDataSourceRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID.
      *
+     * This parameter is required.
      * @example 5678
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDIJobResponseBody extends Model
 {
     /**
+     * @description The ID of the synchronization task.
+     *
      * @example 11792
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateDIJobResponseBody extends Model
     public $DIJobId;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 4F6AB6B3-41FB-5EBB-AFB2-0C98D49DA2BB
      *
      * @var string

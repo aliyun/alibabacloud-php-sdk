@@ -17,6 +17,8 @@ class GetRouteResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the route.
+     *
      * @var route
      */
     public $route;

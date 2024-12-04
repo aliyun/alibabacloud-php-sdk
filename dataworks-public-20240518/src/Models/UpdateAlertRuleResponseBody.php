@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D85FEE2B-6174-5817-AF9E-FDD02FEDA5BC
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateAlertRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

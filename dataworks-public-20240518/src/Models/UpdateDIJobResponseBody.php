@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIJobResponseBody extends Model
 {
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example AAC30B35-820D-5F3E-A42C-E96BB6379325
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateDIJobResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

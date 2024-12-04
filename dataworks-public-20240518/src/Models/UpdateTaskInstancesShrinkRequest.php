@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskInstancesShrinkRequest extends Model
 {
     /**
+     * @description The remarks.
+     *
      * @example this is a comment
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateTaskInstancesShrinkRequest extends Model
     public $comment;
 
     /**
+     * @description The instances.
+     *
      * @var string
      */
     public $taskInstancesShrink;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDownstreamTasksRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The task ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -18,6 +19,8 @@ class ListDownstreamTasksRequest extends Model
     public $id;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class ListDownstreamTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -32,6 +37,13 @@ class ListDownstreamTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The environment of the workspace.
+     *
+     * Valid values:
+     *
+     *   Prod: production environment
+     *   Dev: development environment
+     *
      * @example Prod
      *
      * @var string

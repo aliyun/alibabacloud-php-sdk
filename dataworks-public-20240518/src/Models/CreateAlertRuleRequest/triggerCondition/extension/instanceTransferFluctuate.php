@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceTransferFluctuate extends Model
 {
     /**
+     * @description The percentage of fluctuation in the number of auto triggered node instances that are generated in your workspace. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,12 @@ class instanceTransferFluctuate extends Model
     public $percentage;
 
     /**
+     * @description The way in which the number of auto triggered node instances that are generated in your workspace significantly fluctuates. Valid values:
+     *
+     *   abs: The number of instances increases or decreases.
+     *   increase: The number of instances increases.
+     *   decrease: The number of instances decreases.
+     *
      * @example abs
      *
      * @var string

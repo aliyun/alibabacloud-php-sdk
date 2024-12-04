@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectResponseBody extends Model
 {
     /**
+     * @description The workspace ID.
+     *
      * @example 123456
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateProjectResponseBody extends Model
     public $projectId;
 
     /**
+     * @description The request ID.
+     *
      * @example AFBB799F-8578-51C5-A766-E922EDB8XXXX
      *
      * @var string

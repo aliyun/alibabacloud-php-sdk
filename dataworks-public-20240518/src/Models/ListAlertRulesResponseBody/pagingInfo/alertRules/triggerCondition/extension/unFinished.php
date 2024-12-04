@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class unFinished extends Model
 {
     /**
+     * @description The latest completion time of the instance. The period is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+     *
      * @example 12:00
      *
      * @var string

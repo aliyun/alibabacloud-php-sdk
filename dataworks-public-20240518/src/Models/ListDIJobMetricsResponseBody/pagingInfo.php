@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The metrics returned.
+     *
      * @var jobMetrics[]
      */
     public $jobMetrics;

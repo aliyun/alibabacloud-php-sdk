@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class operationLogs extends Model
 {
     /**
+     * @description The time when the operation log was generated.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -16,11 +18,15 @@ class operationLogs extends Model
     public $createTime;
 
     /**
+     * @description The operation content.
+     *
      * @var string
      */
     public $operationContent;
 
     /**
+     * @description The serial number of the operation.
+     *
      * @example 1111
      *
      * @var int
@@ -28,6 +34,8 @@ class operationLogs extends Model
     public $operationSeq;
 
     /**
+     * @description The ID of the instance on which the operation was performed.
+     *
      * @example 1234
      *
      * @var int
@@ -35,6 +43,8 @@ class operationLogs extends Model
     public $taskInstanceId;
 
     /**
+     * @description The account ID of the operator.
+     *
      * @example 1000
      *
      * @var string

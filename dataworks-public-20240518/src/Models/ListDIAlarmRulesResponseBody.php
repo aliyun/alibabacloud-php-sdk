@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDIAlarmRulesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pagingInfo
      */
     public $pagingInfo;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 74C2FECD-5B3A-554A-BCF5-351A36DE9815
      *
      * @var string

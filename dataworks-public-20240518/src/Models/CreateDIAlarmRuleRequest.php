@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDIAlarmRuleRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example ABFUOEUOTRTRJKE
      *
      * @var string
@@ -18,7 +20,7 @@ class CreateDIAlarmRuleRequest extends Model
     public $clientToken;
 
     /**
-     * @description 任务ID，是告警规则关联的任务ID。
+     * @description The ID of the synchronization task with which the alert rule is associated.
      *
      * This parameter is required.
      * @example 1
@@ -28,14 +30,14 @@ class CreateDIAlarmRuleRequest extends Model
     public $DIJobId;
 
     /**
-     * @description 描述。
+     * @description The description of the alert rule.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 告警规则是否启用，默认不开启。
+     * @description Specifies whether to enable the alert rule. By default, the alert rule is disabled.
      *
      * @example true
      *
@@ -44,7 +46,14 @@ class CreateDIAlarmRuleRequest extends Model
     public $enabled;
 
     /**
-     * @description 告警指标类型，可选的枚举值：
+     * @description The metric type in the alert rule. Valid values:
+     *
+     *   Heartbeat
+     *   FailoverCount
+     *   Delay
+     *   DdlReport
+     *   ResourceUtilization
+     *
      * This parameter is required.
      * @example Heartbeat
      *
@@ -53,8 +62,9 @@ class CreateDIAlarmRuleRequest extends Model
     public $metricType;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the alert rule.
      *
+     * This parameter is required.
      * @example alartRule
      *
      * @var string
@@ -62,15 +72,17 @@ class CreateDIAlarmRuleRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The alert notification settings.
      *
+     * This parameter is required.
      * @var notificationSettings
      */
     public $notificationSettings;
 
     /**
-     * @description This parameter is required.
+     * @description The conditions that can trigger the alert rule.
      *
+     * This parameter is required.
      * @var triggerConditions[]
      */
     public $triggerConditions;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataSourceProperties extends Model
 {
     /**
+     * @description The encoding format of the database.
+     *
      * @example UTF-8
      *
      * @var string
@@ -16,6 +18,8 @@ class dataSourceProperties extends Model
     public $encoding;
 
     /**
+     * @description The time zone.
+     *
      * @example GMT+8
      *
      * @var string

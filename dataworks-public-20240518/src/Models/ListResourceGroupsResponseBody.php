@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsResponseBody extends Model
 {
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
      *
      * @var string
@@ -17,11 +19,15 @@ class ListResourceGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource groups returned.
+     *
      * @var resourceGroupList[]
      */
     public $resourceGroupList;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

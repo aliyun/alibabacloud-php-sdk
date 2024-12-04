@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class spec extends Model
 {
     /**
+     * @description The number of resources in the resource group.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class spec extends Model
     public $amount;
 
     /**
+     * @description The details about the specifications.
+     *
      * @example 2CU
      *
      * @var string

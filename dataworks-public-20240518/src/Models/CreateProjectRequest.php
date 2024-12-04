@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud resource group to which the workspace belongs. You can log on to the [Resource Management console](https://resourcemanager.console.aliyun.com/resource-groups) and go to the Resource Group page to query the ID.
+     *
+     * You can configure this parameter to specify an Alibaba Cloud resource group that you want to use to manage the workspace.
      * @example rg-acfmzbn7pti3zff
      *
      * @var string
@@ -17,16 +20,25 @@ class CreateProjectRequest extends Model
     public $aliyunResourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var aliyunResourceTags[]
      */
     public $aliyunResourceTags;
 
     /**
+     * @description The description of the workspace.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to enable the development environment. Valid values:
+     *
+     *   true : enables the development environment. In this case, the development environment is isolated from the production environment in the workspace.
+     *   false: disables the development environment. In this case, only the production environment is used in the workspace.
+     *
      * @example false
      *
      * @var bool
@@ -34,6 +46,11 @@ class CreateProjectRequest extends Model
     public $devEnvironmentEnabled;
 
     /**
+     * @description Specifies whether to disable the Develop role. Valid values:
+     *
+     *   false (default)
+     *   true
+     *
      * @example true
      *
      * @var bool
@@ -41,15 +58,17 @@ class CreateProjectRequest extends Model
     public $devRoleDisabled;
 
     /**
-     * @description This parameter is required.
+     * @description The display name of the workspace.
      *
+     * This parameter is required.
      * @var string
      */
     public $displayName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the workspace.
      *
+     * This parameter is required.
      * @example sora_finance
      *
      * @var string
@@ -57,6 +76,11 @@ class CreateProjectRequest extends Model
     public $name;
 
     /**
+     * @description Specifies whether to enable scheduling of Platform for AI (PAI) tasks. Valid values:
+     *
+     *   true: enables scheduling of PAI tasks. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
+     *   false: disables scheduling of PAI tasks.
+     *
      * @example true
      *
      * @var bool

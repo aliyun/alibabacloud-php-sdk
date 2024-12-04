@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class receivers extends Model
 {
     /**
+     * @description The additional configuration of the alert recipient. If the ReceiverType parameter is set to DingdingUrl, you can set this parameter to {"atAll":true} to remind all members in a DingTalk group.
+     *
      * @example {"atAll":true}
      *
      * @var string
@@ -16,6 +18,17 @@ class receivers extends Model
     public $extension;
 
     /**
+     * @description The type of the alert recipient. Valid valves:
+     *
+     *   AliUid: Alibaba Cloud account ID.
+     *   Shift Schedules: The personnel in a shift schedule.
+     *   TaskOwner: The node owner. This parameter is available for custom alerts and event alerts.
+     *   Owner: The baseline owner. This parameter is available for baseline alerts.
+     *   WebhookUrl: URL of a custom webhook.
+     *   DingdingUrl: DingTalk chatbot URL.
+     *   FeishuUrl: Lark chatbot URL.
+     *   WeixinUrl: WeCom chatbot URL.
+     *
      * @example TaskOwner
      *
      * @var string
@@ -23,6 +36,8 @@ class receivers extends Model
     public $receiverType;
 
     /**
+     * @description The IDs of the alert recipients.
+     *
      * @var string[]
      */
     public $receiverValues;

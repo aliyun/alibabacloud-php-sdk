@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDIJobEventsRequest extends Model
 {
     /**
+     * @description The ID of the synchronization task.
+     *
      * @example 11588
      *
      * @var int
@@ -16,8 +18,9 @@ class ListDIJobEventsRequest extends Model
     public $DIJobId;
 
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query.
      *
+     * This parameter is required.
      * @example 1717971005
      *
      * @var int
@@ -25,8 +28,9 @@ class ListDIJobEventsRequest extends Model
     public $endTime;
 
     /**
-     * @description This parameter is required.
+     * @description The type of event that you want to query. Valid values: Failover, Alarm, and DDL.
      *
+     * This parameter is required.
      * @example Alarm
      *
      * @var string
@@ -34,6 +38,8 @@ class ListDIJobEventsRequest extends Model
     public $eventType;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +47,8 @@ class ListDIJobEventsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -48,8 +56,9 @@ class ListDIJobEventsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query.
      *
+     * This parameter is required.
      * @example 1716971005
      *
      * @var int

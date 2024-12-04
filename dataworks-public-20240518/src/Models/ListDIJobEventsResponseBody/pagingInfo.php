@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The events returned. The value of this parameter is an array.
+     *
      * @var DIJobEvent[]
      */
     public $DIJobEvent;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class pagingInfo extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class pagingInfo extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2524
      *
      * @var int

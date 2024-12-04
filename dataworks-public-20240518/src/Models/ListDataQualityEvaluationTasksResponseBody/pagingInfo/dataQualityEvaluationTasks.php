@@ -61,7 +61,7 @@ class dataQualityEvaluationTasks extends Model
     public $projectId;
 
     /**
-     * @description The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field is SPARK-SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks, and the value SPARK-SQL indicates the SQL engine that is used to collect EMR data.
+     * @description The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be set to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
      *
      * @example { "queue": "default", "sqlEngine": "SPARK-SQL" }
      *

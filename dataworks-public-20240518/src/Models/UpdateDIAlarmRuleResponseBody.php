@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIAlarmRuleResponseBody extends Model
 {
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example A6C6B486-E3A2-5D52-9E76-D9380485D946
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateDIAlarmRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

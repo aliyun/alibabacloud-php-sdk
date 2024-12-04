@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var string
@@ -17,6 +19,8 @@ class pagingInfo extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -24,11 +28,15 @@ class pagingInfo extends Model
     public $pageSize;
 
     /**
+     * @description The roles in the DataWorks workspace.
+     *
      * @var projectRoles[]
      */
     public $projectRoles;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 42
      *
      * @var string

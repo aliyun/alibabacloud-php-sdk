@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class alertRule extends Model
 {
     /**
+     * @description Indicates whether the rule is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -18,6 +20,8 @@ class alertRule extends Model
     public $enabled;
 
     /**
+     * @description The rule ID.
+     *
      * @example 16035
      *
      * @var int
@@ -25,6 +29,8 @@ class alertRule extends Model
     public $id;
 
     /**
+     * @description The name of the rule.
+     *
      * @example error_rule
      *
      * @var string
@@ -32,11 +38,15 @@ class alertRule extends Model
     public $name;
 
     /**
+     * @description The configuration for the alert notification.
+     *
      * @var notification
      */
     public $notification;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the owner of the rule.
+     *
      * @example 279961421580845157
      *
      * @var string
@@ -44,6 +54,8 @@ class alertRule extends Model
     public $owner;
 
     /**
+     * @description The alert triggering condition.
+     *
      * @var triggerCondition
      */
     public $triggerCondition;

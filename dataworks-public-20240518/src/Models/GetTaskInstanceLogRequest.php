@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetTaskInstanceLogRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -18,6 +19,8 @@ class GetTaskInstanceLogRequest extends Model
     public $id;
 
     /**
+     * @description The sequence number of an instance run. Minimum value: 1. By default, the latest run is used.
+     *
      * @example 1
      *
      * @var int

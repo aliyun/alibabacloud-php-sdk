@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDIJobEventsResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pagingInfo
      */
     public $pagingInfo;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 645F6D68-9C29-5961-80B1-BDD4B794C22D
      *
      * @var string

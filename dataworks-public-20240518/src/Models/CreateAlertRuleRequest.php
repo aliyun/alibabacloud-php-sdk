@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertRuleRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Indicates whether the rule is enabled.
      *
+     * This parameter is required.
      * @example true
      *
      * @var bool
@@ -20,8 +21,9 @@ class CreateAlertRuleRequest extends Model
     public $enabled;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the rule.
      *
+     * This parameter is required.
      * @example xm_create_test
      *
      * @var string
@@ -29,13 +31,16 @@ class CreateAlertRuleRequest extends Model
     public $name;
 
     /**
+     * @description The configuration for the alert notification.
+     *
      * @var notification
      */
     public $notification;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Alibaba Cloud account used by the creator of the rule.
      *
+     * This parameter is required.
      * @example 279114181716147735
      *
      * @var string
@@ -43,8 +48,9 @@ class CreateAlertRuleRequest extends Model
     public $owner;
 
     /**
-     * @description This parameter is required.
+     * @description The conditions for triggering the alert.
      *
+     * This parameter is required.
      * @var triggerCondition
      */
     public $triggerCondition;

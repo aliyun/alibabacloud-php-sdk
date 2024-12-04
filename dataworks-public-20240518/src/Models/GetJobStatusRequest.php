@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetJobStatusRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the asynchronous task that is generated after you call an asynchronous operation.
      *
+     * This parameter is required.
      * @example 70ecdaec-bf21-4c11-8ecb-4f77453ceea8
      *
      * @var string

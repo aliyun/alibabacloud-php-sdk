@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TriggerSchedulerTaskInstanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The task ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int
@@ -18,8 +19,9 @@ class TriggerSchedulerTaskInstanceRequest extends Model
     public $taskId;
 
     /**
-     * @description This parameter is required.
+     * @description The time defined by the HTTP Trigger node.
      *
+     * This parameter is required.
      * @example 1710239005403
      *
      * @var int

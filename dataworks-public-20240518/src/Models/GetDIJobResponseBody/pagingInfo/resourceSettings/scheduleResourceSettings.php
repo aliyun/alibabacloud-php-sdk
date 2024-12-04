@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scheduleResourceSettings extends Model
 {
     /**
+     * @description The number of CUs in the resource group for Data Integration that are used for scheduling.
+     *
      * @example 2.0
      *
      * @var float
@@ -16,6 +18,8 @@ class scheduleResourceSettings extends Model
     public $requestedCu;
 
     /**
+     * @description The identifier of the resource group for scheduling used by the synchronization task.
+     *
      * @example S_res_group_235454102432001_1718359176885
      *
      * @var string

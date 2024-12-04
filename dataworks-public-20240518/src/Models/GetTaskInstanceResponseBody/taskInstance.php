@@ -127,6 +127,8 @@ class taskInstance extends Model
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $periodNumber;

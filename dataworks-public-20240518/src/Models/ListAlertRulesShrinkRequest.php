@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAlertRulesShrinkRequest extends Model
 {
     /**
+     * @description The name of the rule.
+     *
      * @example error_rule
      *
      * @var string
@@ -16,6 +18,8 @@ class ListAlertRulesShrinkRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the owner of the rule.
+     *
      * @example 1933790683****
      *
      * @var string
@@ -23,8 +27,9 @@ class ListAlertRulesShrinkRequest extends Model
     public $owner;
 
     /**
-     * @description This parameter is required.
+     * @description The page number. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -32,8 +37,9 @@ class ListAlertRulesShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Maximum value: 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -41,6 +47,8 @@ class ListAlertRulesShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the Alibaba Cloud account used by the alert recipient.
+     *
      * @example 1933790683****
      *
      * @var string
@@ -48,11 +56,15 @@ class ListAlertRulesShrinkRequest extends Model
     public $receiver;
 
     /**
+     * @description The IDs of the scheduling tasks.
+     *
      * @var string
      */
     public $taskIdsShrink;
 
     /**
+     * @description The alert triggering condition.
+     *
      * @var string
      */
     public $typesShrink;

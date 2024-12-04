@@ -9,20 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateDIJobShrinkRequest extends Model
 {
     /**
+     * @description The description of the synchronization task.
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The settings of the destination. Only a single destination is supported.
      *
+     * This parameter is required.
      * @var string
      */
     public $destinationDataSourceSettingsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The destination type. Valid values: Hologres and Hive.
      *
+     * This parameter is required.
      * @example Hologres
      *
      * @var string
@@ -30,8 +34,9 @@ class CreateDIJobShrinkRequest extends Model
     public $destinationDataSourceType;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the synchronization task.
      *
+     * This parameter is required.
      * @example mysql_to_holo_sync_8772
      *
      * @var string
@@ -39,13 +44,22 @@ class CreateDIJobShrinkRequest extends Model
     public $jobName;
 
     /**
+     * @description The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
+     *
      * @var string
      */
     public $jobSettingsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The synchronization type. Valid values:
      *
+     *   FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
+     *   RealtimeIncremental: real-time incremental synchronization
+     *   Full: full synchronization
+     *   OfflineIncremental: batch incremental synchronization
+     *   FullAndOfflineIncremental: one-time full synchronization and batch incremental synchronization
+     *
+     * This parameter is required.
      * @example FullAndRealtimeIncremental
      *
      * @var string
@@ -53,6 +67,9 @@ class CreateDIJobShrinkRequest extends Model
     public $migrationType;
 
     /**
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
+     *
+     * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
      * @example 10000
      *
      * @var int
@@ -60,22 +77,25 @@ class CreateDIJobShrinkRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource settings.
      *
+     * This parameter is required.
      * @var string
      */
     public $resourceSettingsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The settings of the source. Only a single source is supported.
      *
+     * This parameter is required.
      * @var string
      */
     public $sourceDataSourceSettingsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The source type. Set this parameter to MySQL.
      *
+     * This parameter is required.
      * @example MySQL
      *
      * @var string
@@ -83,13 +103,16 @@ class CreateDIJobShrinkRequest extends Model
     public $sourceDataSourceType;
 
     /**
-     * @description This parameter is required.
+     * @description The list of mappings between rules used to select synchronization objects in the source and transformation rules applied to the selected synchronization objects. Each entry in the list displays a mapping between a rule used to select synchronization objects and a transformation rule applied to the selected synchronization objects.
      *
+     * This parameter is required.
      * @var string
      */
     public $tableMappingsShrink;
 
     /**
+     * @description The list of transformation rules for objects involved in the synchronization task. Each entry in the list defines a transformation rule.
+     *
      * @var string
      */
     public $transformationRulesShrink;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sourceObjectSelectionRules extends Model
 {
     /**
+     * @description The operation that is performed to select objects. Valid values: Include and Exclude.
+     *
      * @example Include
      *
      * @var string
@@ -16,6 +18,8 @@ class sourceObjectSelectionRules extends Model
     public $action;
 
     /**
+     * @description The expression.
+     *
      * @example mysql_table_1
      *
      * @var string
@@ -23,6 +27,8 @@ class sourceObjectSelectionRules extends Model
     public $expression;
 
     /**
+     * @description The expression type. Valid values: Exact and Regex.
+     *
      * @example Exact
      *
      * @var string
@@ -30,6 +36,11 @@ class sourceObjectSelectionRules extends Model
     public $expressionType;
 
     /**
+     * @description The object type. Valid values:
+     *
+     *   Table
+     *   Database
+     *
      * @example Table
      *
      * @var string

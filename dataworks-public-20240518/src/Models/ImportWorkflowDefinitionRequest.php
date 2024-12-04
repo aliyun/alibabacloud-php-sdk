@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ImportWorkflowDefinitionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
      *
+     * This parameter is required.
      * @example 123456
      *
      * @var string
@@ -18,8 +19,9 @@ class ImportWorkflowDefinitionRequest extends Model
     public $projectId;
 
     /**
-     * @description This parameter is required.
+     * @description The FlowSpec field information about the workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
      *
+     * This parameter is required.
      * @var string
      */
     public $spec;

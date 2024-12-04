@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class transformationRules extends Model
 {
     /**
+     * @description The action type. Valid values:
+     *
+     *   DefinePrimaryKey
+     *   Rename
+     *   AddColumn
+     *   HandleDml
+     *
      * @example Rename
      *
      * @var string
@@ -16,6 +23,8 @@ class transformationRules extends Model
     public $ruleActionType;
 
     /**
+     * @description The name of the rule. If the values of the RuleActionType parameter and the RuleTargetType parameter are the same for multiple transformation rules, you must make sure that the transformation rule names are unique.
+     *
      * @example rename_rule_1
      *
      * @var string
@@ -23,6 +32,11 @@ class transformationRules extends Model
     public $ruleName;
 
     /**
+     * @description The type of the object on which you want to perform the action. Valid values:
+     *
+     *   Table
+     *   Schema
+     *
      * @example Table
      *
      * @var string

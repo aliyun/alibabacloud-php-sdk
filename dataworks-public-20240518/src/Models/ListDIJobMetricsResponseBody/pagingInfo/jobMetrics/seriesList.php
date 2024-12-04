@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class seriesList extends Model
 {
     /**
+     * @description The point in time at which data is sampled based on the metric.
+     *
      * @example 1716881141
      *
      * @var int
@@ -16,6 +18,8 @@ class seriesList extends Model
     public $time;
 
     /**
+     * @description The sample value.
+     *
      * @example 10
      *
      * @var float

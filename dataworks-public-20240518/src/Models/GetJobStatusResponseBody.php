@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetJobStatusResponseBody extends Model
 {
     /**
+     * @description The real-time status information of the asynchronous task.
+     *
      * @var jobStatus
      */
     public $jobStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example 5E2BFE96-C0E0-5A98-85C8-633EC803198D
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobRunInfos extends Model
 {
     /**
+     * @description The name of the database in the destination.
+     *
      * @example dst_db
      *
      * @var string
@@ -16,6 +18,8 @@ class jobRunInfos extends Model
     public $destinationDatabaseName;
 
     /**
+     * @description The name of the destination.
+     *
      * @example dst_name
      *
      * @var string
@@ -23,6 +27,8 @@ class jobRunInfos extends Model
     public $destinationDatasourceName;
 
     /**
+     * @description The name of the schema of the destination.
+     *
      * @example dst_schema
      *
      * @var string
@@ -30,6 +36,8 @@ class jobRunInfos extends Model
     public $destinationSchemaName;
 
     /**
+     * @description The name of the table in the destination.
+     *
      * @example dst_name
      *
      * @var string
@@ -37,6 +45,8 @@ class jobRunInfos extends Model
     public $destinationTableName;
 
     /**
+     * @description The error message that is returned if an error occurs during full batch synchronization. If no error occurs, no value is returned for this parameter.
+     *
      * @example sync table t1 fail.
      *
      * @var string
@@ -44,6 +54,8 @@ class jobRunInfos extends Model
     public $fullMigrationErrorMessage;
 
     /**
+     * @description The status of full batch synchronization.
+     *
      * @example Finished
      *
      * @var string
@@ -51,6 +63,8 @@ class jobRunInfos extends Model
     public $fullMigrationStatus;
 
     /**
+     * @description The total number of errors that occur during full synchronization.
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +72,8 @@ class jobRunInfos extends Model
     public $offlineErrorRecords;
 
     /**
+     * @description The total number of bytes that are synchronized during full synchronization.
+     *
      * @example 100
      *
      * @var int
@@ -65,6 +81,8 @@ class jobRunInfos extends Model
     public $offlineTotalBytes;
 
     /**
+     * @description The total number of data records that are synchronized during full synchronization.
+     *
      * @example 10
      *
      * @var int
@@ -72,6 +90,8 @@ class jobRunInfos extends Model
     public $offlineTotalRecords;
 
     /**
+     * @description The error message that is returned if an error occurs during real-time synchronization. If no error occurs, no value is returned for this parameter.
+     *
      * @example sync table t1 fail.
      *
      * @var string
@@ -79,6 +99,8 @@ class jobRunInfos extends Model
     public $realtimeMigrationErrorMessage;
 
     /**
+     * @description The status of real-time synchronization.
+     *
      * @example Running
      *
      * @var string
@@ -86,6 +108,8 @@ class jobRunInfos extends Model
     public $realtimeMigrationStatus;
 
     /**
+     * @description The name of the database in the source.
+     *
      * @example db_name
      *
      * @var string
@@ -93,6 +117,8 @@ class jobRunInfos extends Model
     public $sourceDatabaseName;
 
     /**
+     * @description The name of the source.
+     *
      * @example ds_name
      *
      * @var string
@@ -100,6 +126,8 @@ class jobRunInfos extends Model
     public $sourceDatasourceName;
 
     /**
+     * @description The name of the schema of the source.
+     *
      * @example schema_name
      *
      * @var string
@@ -107,6 +135,8 @@ class jobRunInfos extends Model
     public $sourceSchemaName;
 
     /**
+     * @description The name of the table in the source.
+     *
      * @example table_name
      *
      * @var string
@@ -114,6 +144,8 @@ class jobRunInfos extends Model
     public $sourceTableName;
 
     /**
+     * @description The error message that is returned if an error occurs during schema synchronization. If no error occurs, no value is returned for this parameter.
+     *
      * @example create table t1 fail.
      *
      * @var string
@@ -121,6 +153,8 @@ class jobRunInfos extends Model
     public $structureMigrationErrorMessage;
 
     /**
+     * @description The synchronization status of the schema.
+     *
      * @example Finished
      *
      * @var string

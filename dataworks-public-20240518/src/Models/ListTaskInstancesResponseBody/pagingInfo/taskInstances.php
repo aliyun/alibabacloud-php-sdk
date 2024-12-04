@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class taskInstances extends Model
 {
     /**
+     * @description The baseline ID.
+     *
      * @example 1234
      *
      * @var int
@@ -19,6 +21,8 @@ class taskInstances extends Model
     public $baselineId;
 
     /**
+     * @description The data timestamp.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -26,6 +30,8 @@ class taskInstances extends Model
     public $bizdate;
 
     /**
+     * @description The creation time.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -33,6 +39,8 @@ class taskInstances extends Model
     public $createTime;
 
     /**
+     * @description The account ID of the user who creates the instance.
+     *
      * @example 1000
      *
      * @var string
@@ -40,11 +48,15 @@ class taskInstances extends Model
     public $createUser;
 
     /**
+     * @description The information about the associated data source.
+     *
      * @var dataSource
      */
     public $dataSource;
 
     /**
+     * @description The description.
+     *
      * @example test
      *
      * @var string
@@ -52,6 +64,8 @@ class taskInstances extends Model
     public $description;
 
     /**
+     * @description The time when the instance finished running.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -59,6 +73,8 @@ class taskInstances extends Model
     public $finishedTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example 1234
      *
      * @var int
@@ -66,6 +82,8 @@ class taskInstances extends Model
     public $id;
 
     /**
+     * @description The modification time.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -73,6 +91,8 @@ class taskInstances extends Model
     public $modifyTime;
 
     /**
+     * @description The account ID of the user who modifies the instance.
+     *
      * @example 1000
      *
      * @var string
@@ -80,6 +100,8 @@ class taskInstances extends Model
     public $modifyUser;
 
     /**
+     * @description The account ID of the task owner.
+     *
      * @example 1000
      *
      * @var string
@@ -87,11 +109,15 @@ class taskInstances extends Model
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $periodNumber;
 
     /**
+     * @description The priority of the task. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -99,6 +125,13 @@ class taskInstances extends Model
     public $priority;
 
     /**
+     * @description The environment of the workspace.
+     *
+     * Valid values:
+     *
+     *   Prod: production environment
+     *   Dev: development environment
+     *
      * @example Prod
      *
      * @var string
@@ -106,6 +139,8 @@ class taskInstances extends Model
     public $projectEnv;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 100
      *
      * @var int
@@ -113,6 +148,14 @@ class taskInstances extends Model
     public $projectId;
 
     /**
+     * @description The rerun mode
+     *
+     * Valid values:
+     *
+     *   AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
+     *   FailureAllowed: The task can be rerun only after it fails to run.
+     *   AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
+     *
      * @example AllAllowed
      *
      * @var string
@@ -120,6 +163,8 @@ class taskInstances extends Model
     public $rerunMode;
 
     /**
+     * @description The number of times the task is run. By default, the value starts from 1.
+     *
      * @example 1
      *
      * @var int
@@ -127,16 +172,22 @@ class taskInstances extends Model
     public $runNumber;
 
     /**
+     * @description The runtime information about the instance.
+     *
      * @var runtime
      */
     public $runtime;
 
     /**
+     * @description The information about the resource group with which the instance is associated.
+     *
      * @var runtimeResource
      */
     public $runtimeResource;
 
     /**
+     * @description The time when the instance started to run.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -144,6 +195,19 @@ class taskInstances extends Model
     public $startedTime;
 
     /**
+     * @description The status of the instance.
+     *
+     * Valid values:
+     *
+     *   NotRun: The instance is not run.
+     *   Running: The instance is running.
+     *   WaitTime: The instance is waiting for the scheduling time to arrive.
+     *   CheckingCondition: Branch conditions are being checked for the instance.
+     *   WaitResource: The instance is waiting for resources.
+     *   Failure: The instance fails to be run.
+     *   Success: The instance is successfully run.
+     *   Checking: Data quality is being checked for the instance.
+     *
      * @example Success
      *
      * @var string
@@ -151,6 +215,8 @@ class taskInstances extends Model
     public $status;
 
     /**
+     * @description The ID of the task for which the instance is generated.
+     *
      * @example 1234
      *
      * @var int
@@ -158,11 +224,15 @@ class taskInstances extends Model
     public $taskId;
 
     /**
+     * @description The name of the task for which the instance is generated.
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The type of the task for which the instance is generated.
+     *
      * @example ODPS_SQL
      *
      * @var string
@@ -170,6 +240,8 @@ class taskInstances extends Model
     public $taskType;
 
     /**
+     * @description The tenant ID.
+     *
      * @example 1
      *
      * @var int
@@ -177,6 +249,8 @@ class taskInstances extends Model
     public $tenantId;
 
     /**
+     * @description The timeout period of task running. Unit: seconds.
+     *
      * @example 1
      *
      * @var int
@@ -184,6 +258,14 @@ class taskInstances extends Model
     public $timeout;
 
     /**
+     * @description The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+     *
+     * Valid values:
+     *
+     *   Pause
+     *   Skip
+     *   Normal
+     *
      * @example Normal
      *
      * @var string
@@ -191,6 +273,8 @@ class taskInstances extends Model
     public $triggerRecurrence;
 
     /**
+     * @description The scheduling time.
+     *
      * @example 1710239005403
      *
      * @var int
@@ -198,6 +282,13 @@ class taskInstances extends Model
     public $triggerTime;
 
     /**
+     * @description The trigger type.
+     *
+     * Valid values:
+     *
+     *   Scheduler: scheduling cycle-based trigger
+     *   Manual: manual trigger
+     *
      * @example Scheduler
      *
      * @var string
@@ -205,6 +296,8 @@ class taskInstances extends Model
     public $triggerType;
 
     /**
+     * @description The ID of the workflow to which the instance belongs.
+     *
      * @example 1234
      *
      * @var int
@@ -212,6 +305,8 @@ class taskInstances extends Model
     public $workflowId;
 
     /**
+     * @description The workflow instance ID.
+     *
      * @example 1234
      *
      * @var int
@@ -219,6 +314,17 @@ class taskInstances extends Model
     public $workflowInstanceId;
 
     /**
+     * @description The type of the workflow instance.
+     *
+     * Valid values:
+     *
+     *   SmokeTest
+     *   SupplementData
+     *   Manual
+     *   ManualWorkflow
+     *   Normal
+     *   ManualFlow
+     *
      * @example Normal
      *
      * @var string
@@ -226,6 +332,8 @@ class taskInstances extends Model
     public $workflowInstanceType;
 
     /**
+     * @description The name of the workflow to which the instance belongs.
+     *
      * @var string
      */
     public $workflowName;

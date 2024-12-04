@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAlertRulesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pagingInfo
      */
     public $pagingInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example A6C6B486-E3A2-5D52-9E76-D9380485D946
      *
      * @var string

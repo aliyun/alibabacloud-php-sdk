@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class resourceSettings extends Model
 {
     /**
+     * @description The resource used for batch synchronization.
+     *
      * @var offlineResourceSettings
      */
     public $offlineResourceSettings;
 
     /**
+     * @description The resource used for real-time synchronization.
+     *
      * @var realtimeResourceSettings
      */
     public $realtimeResourceSettings;
 
     /**
+     * @description The resource used for scheduling.
+     *
      * @var scheduleResourceSettings
      */
     public $scheduleResourceSettings;

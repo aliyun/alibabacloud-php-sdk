@@ -18,9 +18,9 @@ class hooks extends Model
     public $condition;
 
     /**
-     * @description The type of the callback event.
+     * @description The type of the callback event. Valid values:
      *
-     *   Valid values: BlockTaskInstance. The value indicates that an auto triggered node is blocked.
+     *   BlockTaskInstance. The value indicates that an auto triggered node is blocked.
      *
      * @example BlockTaskInstance
      *

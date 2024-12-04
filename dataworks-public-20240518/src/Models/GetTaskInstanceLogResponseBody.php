@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTaskInstanceLogResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTaskInstanceLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The run log of the instance.
+     *
      * @example This is running log
      *
      * @var string

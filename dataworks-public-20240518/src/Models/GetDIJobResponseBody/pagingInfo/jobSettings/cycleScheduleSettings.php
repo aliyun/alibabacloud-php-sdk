@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class cycleScheduleSettings extends Model
 {
     /**
+     * @description The synchronization type that requires periodic scheduling. Valid values:
+     *
+     *   Full: full synchronization
+     *   OfflineIncremental: batch incremental synchronization
+     *
      * @example Full
      *
      * @var string
@@ -16,6 +21,8 @@ class cycleScheduleSettings extends Model
     public $cycleMigrationType;
 
     /**
+     * @description The scheduling parameters.
+     *
      * @example bizdate=$bizdate
      *
      * @var string

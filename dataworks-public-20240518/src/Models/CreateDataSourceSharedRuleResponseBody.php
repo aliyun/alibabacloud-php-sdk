@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataSourceSharedRuleResponseBody extends Model
 {
     /**
+     * @description The sharing rule ID.
+     *
      * @example 105412
      *
      * @var int

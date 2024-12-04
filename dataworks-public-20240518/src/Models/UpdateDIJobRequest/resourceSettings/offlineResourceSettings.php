@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class offlineResourceSettings extends Model
 {
     /**
+     * @description The number of compute units (CUs) in the resource group for Data Integration that are used for batch synchronization.
+     *
      * @example 2.0
      *
      * @var int
@@ -16,6 +18,8 @@ class offlineResourceSettings extends Model
     public $requestedCu;
 
     /**
+     * @description The identifier of the resource group for Data Integration used for batch synchronization.
+     *
      * @example S_res_group_111_222
      *
      * @var string

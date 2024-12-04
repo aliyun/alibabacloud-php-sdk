@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class aliyunResourceTags extends Model
 {
     /**
+     * @description The tag key.
+     *
      * @example batch
      *
      * @var string
@@ -16,6 +18,8 @@ class aliyunResourceTags extends Model
     public $key;
 
     /**
+     * @description The tag value.
+     *
      * @example blue
      *
      * @var string

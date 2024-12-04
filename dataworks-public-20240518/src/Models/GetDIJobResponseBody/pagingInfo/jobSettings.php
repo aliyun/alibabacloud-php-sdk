@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class jobSettings extends Model
 {
     /**
+     * @description The channel control settings for the synchronization task. The value of this parameter is a JSON string.
+     *
      * @example {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
      *
      * @var string
@@ -20,21 +22,37 @@ class jobSettings extends Model
     public $channelSettings;
 
     /**
+     * @description The data type mappings between source fields and destination fields.
+     *
      * @var columnDataTypeSettings[]
      */
     public $columnDataTypeSettings;
 
     /**
+     * @description The settings for periodic scheduling.
+     *
      * @var cycleScheduleSettings
      */
     public $cycleScheduleSettings;
 
     /**
+     * @description The DDL operation types. Valid values:
+     *
+     *   RenameColumn
+     *   ModifyColumn
+     *   CreateTable
+     *   TruncateTable
+     *   DropTable
+     *   DropColumn
+     *   AddColumn
+     *
      * @var ddlHandlingSettings[]
      */
     public $ddlHandlingSettings;
 
     /**
+     * @description The runtime settings.
+     *
      * @var runtimeSettings[]
      */
     public $runtimeSettings;

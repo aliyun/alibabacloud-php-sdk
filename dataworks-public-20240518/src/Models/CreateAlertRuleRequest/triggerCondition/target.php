@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
+     * @description The whitelists of the monitoring tasks.
+     *
      * @var int[]
      */
     public $allowTasks;
 
     /**
+     * @description The IDs of monitored objects.
+     *
      * @var int[]
      */
     public $ids;
 
     /**
+     * @description The type of the monitored object. Valid values:
+     *
+     *   Task: node
+     *   Baseline: baseline
+     *   Project: workspace
+     *   BizProcess: workflow
+     *
      * @example Task
      *
      * @var string

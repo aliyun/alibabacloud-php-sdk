@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 22C97E95-F023-56B5-8852-B1A77A17XXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

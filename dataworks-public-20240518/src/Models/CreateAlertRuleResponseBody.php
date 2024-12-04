@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertRuleResponseBody extends Model
 {
     /**
+     * @description The rule ID.
+     *
      * @example 123123
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateAlertRuleResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example A6C6B486-E3A2-5D52-9E76-D9380485D946
      *
      * @var string

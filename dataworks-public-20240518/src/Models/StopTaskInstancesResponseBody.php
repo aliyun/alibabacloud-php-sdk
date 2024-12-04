@@ -16,6 +16,8 @@ class StopTaskInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+     *
      * @var SuccessInfoValue[]
      */
     public $successInfo;
