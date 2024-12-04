@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\FindIdpListByLoginIdentifi
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetLoginTokenShrinkRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetStsTokenRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\GetStsTokenResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\RefreshLoginTokenRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210220\Models\RefreshLoginTokenResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -281,6 +283,68 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getLoginTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取无影StsToken
+     *  *
+     * @param GetStsTokenRequest $request GetStsTokenRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetStsTokenResponse GetStsTokenResponse
+     */
+    public function getStsTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authCode)) {
+            $body['AuthCode'] = $request->authCode;
+        }
+        if (!Utils::isUnset($request->clientId)) {
+            $body['ClientId'] = $request->clientId;
+        }
+        if (!Utils::isUnset($request->clientIp)) {
+            $body['ClientIp'] = $request->clientIp;
+        }
+        if (!Utils::isUnset($request->clientOS)) {
+            $body['ClientOS'] = $request->clientOS;
+        }
+        if (!Utils::isUnset($request->clientVersion)) {
+            $body['ClientVersion'] = $request->clientVersion;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $body['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStsToken',
+            'version'     => '2021-02-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStsTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取无影StsToken
+     *  *
+     * @param GetStsTokenRequest $request GetStsTokenRequest
+     *
+     * @return GetStsTokenResponse GetStsTokenResponse
+     */
+    public function getStsToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getStsTokenWithOptions($request, $runtime);
     }
 
     /**

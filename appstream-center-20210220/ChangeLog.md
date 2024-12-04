@@ -1,3 +1,7 @@
+2024-12-04 Version: 1.2.0
+- Support API GetStsToken.
+
+
 2024-11-03 Version: 1.1.2
 - Update API FindIdpListByLoginIdentifier: add param AvailableFeatures.
 - Update API FindIdpListByLoginIdentifier: update response param.
