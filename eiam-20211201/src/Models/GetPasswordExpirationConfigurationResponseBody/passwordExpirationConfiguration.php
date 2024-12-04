@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class passwordExpirationConfiguration extends Model
 {
     /**
+     * @description The list of valid authentication IDs. The default is all ["ia_all"]
+     *
+     * idp_xxx: Specific identity provider authentication method
      * @var string[]
      */
     public $effectiveAuthenticationSourceIds;

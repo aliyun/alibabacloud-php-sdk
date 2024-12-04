@@ -5285,6 +5285,9 @@ class Eiam extends OpenApiClient
         if (!Utils::isUnset($request->applicationId)) {
             $query['ApplicationId'] = $request->applicationId;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->initLoginType)) {
             $query['InitLoginType'] = $request->initLoginType;
         }

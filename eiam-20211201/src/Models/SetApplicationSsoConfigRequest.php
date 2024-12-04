@@ -21,6 +21,11 @@ class SetApplicationSsoConfigRequest extends Model
     public $applicationId;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The initial SSO method. Valid values:
      *
      *   only_app_init_sso: Only application-initiated SSO is allowed. This method is selected by default when the SSO protocol of the application is an OIDC protocol. If this method is selected when the SSO protocol of the application is SAML, the InitLoginUrl parameter is required.
@@ -66,6 +71,7 @@ class SetApplicationSsoConfigRequest extends Model
     public $samlSsoConfig;
     protected $_name = [
         'applicationId' => 'ApplicationId',
+        'clientToken'   => 'ClientToken',
         'initLoginType' => 'InitLoginType',
         'initLoginUrl'  => 'InitLoginUrl',
         'instanceId'    => 'InstanceId',
@@ -82,6 +88,9 @@ class SetApplicationSsoConfigRequest extends Model
         $res = [];
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->initLoginType) {
             $res['InitLoginType'] = $this->initLoginType;
@@ -112,6 +121,9 @@ class SetApplicationSsoConfigRequest extends Model
         $model = new self();
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['InitLoginType'])) {
             $model->initLoginType = $map['InitLoginType'];

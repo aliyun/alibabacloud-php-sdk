@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponseBody\applicationSsoConfig;
 
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponseBody\applicationSsoConfig\samlSsoConfig\attributeStatements;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponseBody\applicationSsoConfig\samlSsoConfig\optionalRelayStates;
 use AlibabaCloud\Tea\Model;
 
 class samlSsoConfig extends Model
@@ -63,6 +64,11 @@ class samlSsoConfig extends Model
     public $nameIdValueExpression;
 
     /**
+     * @var optionalRelayStates[]
+     */
+    public $optionalRelayStates;
+
+    /**
      * @description response是否签名
      *
      * @example true
@@ -104,6 +110,7 @@ class samlSsoConfig extends Model
         'idPEntityId'           => 'IdPEntityId',
         'nameIdFormat'          => 'NameIdFormat',
         'nameIdValueExpression' => 'NameIdValueExpression',
+        'optionalRelayStates'   => 'OptionalRelayStates',
         'responseSigned'        => 'ResponseSigned',
         'signatureAlgorithm'    => 'SignatureAlgorithm',
         'spEntityId'            => 'SpEntityId',
@@ -140,6 +147,15 @@ class samlSsoConfig extends Model
         }
         if (null !== $this->nameIdValueExpression) {
             $res['NameIdValueExpression'] = $this->nameIdValueExpression;
+        }
+        if (null !== $this->optionalRelayStates) {
+            $res['OptionalRelayStates'] = [];
+            if (null !== $this->optionalRelayStates && \is_array($this->optionalRelayStates)) {
+                $n = 0;
+                foreach ($this->optionalRelayStates as $item) {
+                    $res['OptionalRelayStates'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->responseSigned) {
             $res['ResponseSigned'] = $this->responseSigned;
@@ -188,6 +204,15 @@ class samlSsoConfig extends Model
         }
         if (isset($map['NameIdValueExpression'])) {
             $model->nameIdValueExpression = $map['NameIdValueExpression'];
+        }
+        if (isset($map['OptionalRelayStates'])) {
+            if (!empty($map['OptionalRelayStates'])) {
+                $model->optionalRelayStates = [];
+                $n                          = 0;
+                foreach ($map['OptionalRelayStates'] as $item) {
+                    $model->optionalRelayStates[$n++] = null !== $item ? optionalRelayStates::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ResponseSigned'])) {
             $model->responseSigned = $map['ResponseSigned'];

@@ -1,3 +1,9 @@
+2024-12-04 Version: 1.5.4
+- Update API GetApplicationSsoConfig: update response param.
+- Update API SetApplicationSsoConfig: add param ClientToken.
+- Update API SetApplicationSsoConfig: update param SamlSsoConfig.
+
+
 2024-11-06 Version: 1.5.3
 - Update API GetPasswordExpirationConfiguration: update response param.
 - Update API SetPasswordExpirationConfiguration: add param EffectiveAuthenticationSourceIds.
