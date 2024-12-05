@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateClusterRequest\clusterCustomConfiguration;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateClusterRequest\monitorSpec;
 use AlibabaCloud\Tea\Model;
 
 class UpdateClusterRequest extends Model
@@ -125,6 +126,11 @@ class UpdateClusterRequest extends Model
      * @var int
      */
     public $maxCount;
+
+    /**
+     * @var monitorSpec
+     */
+    public $monitorSpec;
     protected $_name = [
         'clientVersion'              => 'ClientVersion',
         'clusterCustomConfiguration' => 'ClusterCustomConfiguration',
@@ -138,6 +144,7 @@ class UpdateClusterRequest extends Model
         'idleInterval'               => 'IdleInterval',
         'maxCoreCount'               => 'MaxCoreCount',
         'maxCount'                   => 'MaxCount',
+        'monitorSpec'                => 'MonitorSpec',
     ];
 
     public function validate()
@@ -182,6 +189,9 @@ class UpdateClusterRequest extends Model
         }
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
+        }
+        if (null !== $this->monitorSpec) {
+            $res['MonitorSpec'] = null !== $this->monitorSpec ? $this->monitorSpec->toMap() : null;
         }
 
         return $res;
@@ -230,6 +240,9 @@ class UpdateClusterRequest extends Model
         }
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];
+        }
+        if (isset($map['MonitorSpec'])) {
+            $model->monitorSpec = monitorSpec::fromMap($map['MonitorSpec']);
         }
 
         return $model;

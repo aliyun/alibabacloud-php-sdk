@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\clusterCustomConfiguration;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\manager;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\monitorSpec;
 use AlibabaCloud\Tea\Model;
 
 class GetClusterResponseBody extends Model
@@ -213,6 +214,11 @@ class GetClusterResponseBody extends Model
     public $maxCount;
 
     /**
+     * @var monitorSpec
+     */
+    public $monitorSpec;
+
+    /**
      * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
@@ -259,6 +265,7 @@ class GetClusterResponseBody extends Model
         'manager'                    => 'Manager',
         'maxCoreCount'               => 'MaxCoreCount',
         'maxCount'                   => 'MaxCount',
+        'monitorSpec'                => 'MonitorSpec',
         'requestId'                  => 'RequestId',
         'resourceGroupId'            => 'ResourceGroupId',
         'securityGroupId'            => 'SecurityGroupId',
@@ -330,6 +337,9 @@ class GetClusterResponseBody extends Model
         }
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
+        }
+        if (null !== $this->monitorSpec) {
+            $res['MonitorSpec'] = null !== $this->monitorSpec ? $this->monitorSpec->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -411,6 +421,9 @@ class GetClusterResponseBody extends Model
         }
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];
+        }
+        if (isset($map['MonitorSpec'])) {
+            $model->monitorSpec = monitorSpec::fromMap($map['MonitorSpec']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

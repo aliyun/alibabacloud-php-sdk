@@ -2334,6 +2334,9 @@ class EHPC extends OpenApiClient
         if (!Utils::isUnset($tmpReq->clusterCustomConfiguration)) {
             $request->clusterCustomConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->clusterCustomConfiguration, 'ClusterCustomConfiguration', 'json');
         }
+        if (!Utils::isUnset($tmpReq->monitorSpec)) {
+            $request->monitorSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorSpec, 'MonitorSpec', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clientVersion)) {
             $query['ClientVersion'] = $request->clientVersion;
@@ -2370,6 +2373,9 @@ class EHPC extends OpenApiClient
         }
         if (!Utils::isUnset($request->maxCount)) {
             $query['MaxCount'] = $request->maxCount;
+        }
+        if (!Utils::isUnset($request->monitorSpecShrink)) {
+            $query['MonitorSpec'] = $request->monitorSpecShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -1,3 +1,8 @@
+2024-12-05 Version: 2.0.2
+- Update API GetCluster: update response param.
+- Update API UpdateCluster: add param MonitorSpec.
+
+
 2024-12-04 Version: 2.0.1
 - Update API CreateNodes: add param DeploymentSetId.
 - Update API ListNodes: update response param.

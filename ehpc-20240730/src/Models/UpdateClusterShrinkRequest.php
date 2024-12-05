@@ -124,6 +124,11 @@ class UpdateClusterShrinkRequest extends Model
      * @var int
      */
     public $maxCount;
+
+    /**
+     * @var string
+     */
+    public $monitorSpecShrink;
     protected $_name = [
         'clientVersion'                    => 'ClientVersion',
         'clusterCustomConfigurationShrink' => 'ClusterCustomConfiguration',
@@ -137,6 +142,7 @@ class UpdateClusterShrinkRequest extends Model
         'idleInterval'                     => 'IdleInterval',
         'maxCoreCount'                     => 'MaxCoreCount',
         'maxCount'                         => 'MaxCount',
+        'monitorSpecShrink'                => 'MonitorSpec',
     ];
 
     public function validate()
@@ -181,6 +187,9 @@ class UpdateClusterShrinkRequest extends Model
         }
         if (null !== $this->maxCount) {
             $res['MaxCount'] = $this->maxCount;
+        }
+        if (null !== $this->monitorSpecShrink) {
+            $res['MonitorSpec'] = $this->monitorSpecShrink;
         }
 
         return $res;
@@ -229,6 +238,9 @@ class UpdateClusterShrinkRequest extends Model
         }
         if (isset($map['MaxCount'])) {
             $model->maxCount = $map['MaxCount'];
+        }
+        if (isset($map['MonitorSpec'])) {
+            $model->monitorSpecShrink = $map['MonitorSpec'];
         }
 
         return $model;
