@@ -14,6 +14,7 @@ use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultResponse;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\GetTaskResultShrinkRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageRequest;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionMessageResponse;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest;
@@ -95,6 +96,9 @@ class ContactCenterAI extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceInspection)) {
             $body['serviceInspection'] = $request->serviceInspection;
+        }
+        if (!Utils::isUnset($request->sourceCallerUid)) {
+            $body['sourceCallerUid'] = $request->sourceCallerUid;
         }
         if (!Utils::isUnset($request->stream)) {
             $body['stream'] = $request->stream;
@@ -282,16 +286,24 @@ class ContactCenterAI extends OpenApiClient
     /**
      * @summary 语音文件调用大模型获取结果
      *  *
-     * @param GetTaskResultRequest $request GetTaskResultRequest
+     * @param GetTaskResultRequest $tmpReq  GetTaskResultRequest
      * @param string[]             $headers map
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return GetTaskResultResponse GetTaskResultResponse
      */
-    public function getTaskResultWithOptions($request, $headers, $runtime)
+    public function getTaskResultWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetTaskResultShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->requiredFieldList)) {
+            $request->requiredFieldListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->requiredFieldList, 'requiredFieldList', 'simple');
+        }
         $query = [];
+        if (!Utils::isUnset($request->requiredFieldListShrink)) {
+            $query['requiredFieldList'] = $request->requiredFieldListShrink;
+        }
         if (!Utils::isUnset($request->taskId)) {
             $query['taskId'] = $request->taskId;
         }

@@ -61,6 +61,11 @@ class AnalyzeConversationRequest extends Model
     public $serviceInspection;
 
     /**
+     * @var string
+     */
+    public $sourceCallerUid;
+
+    /**
      * @description This parameter is required.
      *
      * @example false
@@ -87,6 +92,7 @@ class AnalyzeConversationRequest extends Model
         'resultTypes'        => 'resultTypes',
         'sceneName'          => 'sceneName',
         'serviceInspection'  => 'serviceInspection',
+        'sourceCallerUid'    => 'sourceCallerUid',
         'stream'             => 'stream',
         'timeConstraintList' => 'timeConstraintList',
         'userProfiles'       => 'userProfiles',
@@ -140,6 +146,9 @@ class AnalyzeConversationRequest extends Model
         }
         if (null !== $this->serviceInspection) {
             $res['serviceInspection'] = null !== $this->serviceInspection ? $this->serviceInspection->toMap() : null;
+        }
+        if (null !== $this->sourceCallerUid) {
+            $res['sourceCallerUid'] = $this->sourceCallerUid;
         }
         if (null !== $this->stream) {
             $res['stream'] = $this->stream;
@@ -211,6 +220,9 @@ class AnalyzeConversationRequest extends Model
         }
         if (isset($map['serviceInspection'])) {
             $model->serviceInspection = serviceInspection::fromMap($map['serviceInspection']);
+        }
+        if (isset($map['sourceCallerUid'])) {
+            $model->sourceCallerUid = $map['sourceCallerUid'];
         }
         if (isset($map['stream'])) {
             $model->stream = $map['stream'];
