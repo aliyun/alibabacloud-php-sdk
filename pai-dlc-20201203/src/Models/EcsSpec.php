@@ -37,6 +37,13 @@ class EcsSpec extends Model
     public $gpu;
 
     /**
+     * @example 80
+     *
+     * @var int
+     */
+    public $gpuMemory;
+
+    /**
      * @example NVIDIA v100
      *
      * @var string
@@ -99,6 +106,7 @@ class EcsSpec extends Model
         'cpu'                    => 'Cpu',
         'defaultGPUDriver'       => 'DefaultGPUDriver',
         'gpu'                    => 'Gpu',
+        'gpuMemory'              => 'GpuMemory',
         'gpuType'                => 'GpuType',
         'instanceType'           => 'InstanceType',
         'isAvailable'            => 'IsAvailable',
@@ -128,6 +136,9 @@ class EcsSpec extends Model
         }
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
+        }
+        if (null !== $this->gpuMemory) {
+            $res['GpuMemory'] = $this->gpuMemory;
         }
         if (null !== $this->gpuType) {
             $res['GpuType'] = $this->gpuType;
@@ -179,6 +190,9 @@ class EcsSpec extends Model
         }
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
+        }
+        if (isset($map['GpuMemory'])) {
+            $model->gpuMemory = $map['GpuMemory'];
         }
         if (isset($map['GpuType'])) {
             $model->gpuType = $map['GpuType'];
