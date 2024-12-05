@@ -30,6 +30,8 @@ class data extends Model
     public $appType;
 
     /**
+     * @description The region where the backend is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,7 +39,7 @@ class data extends Model
     public $backendServiceTraceRegion;
 
     /**
-     * @description The mobile collection configurations.
+     * @description The collection configurations.
      *
      * @var bonreeSDKConfig
      */

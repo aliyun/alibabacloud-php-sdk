@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
-     * @description Metric description.
+     * @description The description of the metric.
      *
      * @example The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
      *
@@ -19,14 +19,14 @@ class metrics extends Model
     public $description;
 
     /**
-     * @description Metric label collection.
+     * @description The tags.
      *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description Metric name.
+     * @description The metric name.
      *
      * @example mysql_exporter_collector_duration_seconds
      *
@@ -35,7 +35,7 @@ class metrics extends Model
     public $metric;
 
     /**
-     * @description Metric type.
+     * @description The type of the metric.
      *
      * @example GAUGE
      *
@@ -44,7 +44,7 @@ class metrics extends Model
     public $type;
 
     /**
-     * @description Metric unit.
+     * @description The unit of the metric.
      *
      * @example bytes
      *

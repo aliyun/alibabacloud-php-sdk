@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateGrafanaWorkspaceShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $accountNumber;
+
+    /**
      * @description The language. Default value: zh. Valid values:
      *
      *   zh
@@ -21,6 +26,16 @@ class CreateGrafanaWorkspaceShrinkRequest extends Model
     public $aliyunLang;
 
     /**
+     * @var string
+     */
+    public $autoRenew;
+
+    /**
+     * @var string
+     */
+    public $customAccountNumber;
+
+    /**
      * @description The description of the workspace
      *
      * @example test
@@ -28,6 +43,11 @@ class CreateGrafanaWorkspaceShrinkRequest extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $duration;
 
     /**
      * @description This parameter is required.
@@ -100,8 +120,12 @@ class CreateGrafanaWorkspaceShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
+        'accountNumber'           => 'AccountNumber',
         'aliyunLang'              => 'AliyunLang',
+        'autoRenew'               => 'AutoRenew',
+        'customAccountNumber'     => 'CustomAccountNumber',
         'description'             => 'Description',
+        'duration'                => 'Duration',
         'grafanaVersion'          => 'GrafanaVersion',
         'grafanaWorkspaceEdition' => 'GrafanaWorkspaceEdition',
         'grafanaWorkspaceName'    => 'GrafanaWorkspaceName',
@@ -118,11 +142,23 @@ class CreateGrafanaWorkspaceShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountNumber) {
+            $res['AccountNumber'] = $this->accountNumber;
+        }
         if (null !== $this->aliyunLang) {
             $res['AliyunLang'] = $this->aliyunLang;
         }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->customAccountNumber) {
+            $res['CustomAccountNumber'] = $this->customAccountNumber;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->grafanaVersion) {
             $res['GrafanaVersion'] = $this->grafanaVersion;
@@ -157,11 +193,23 @@ class CreateGrafanaWorkspaceShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountNumber'])) {
+            $model->accountNumber = $map['AccountNumber'];
+        }
         if (isset($map['AliyunLang'])) {
             $model->aliyunLang = $map['AliyunLang'];
         }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['CustomAccountNumber'])) {
+            $model->customAccountNumber = $map['CustomAccountNumber'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['GrafanaVersion'])) {
             $model->grafanaVersion = $map['GrafanaVersion'];

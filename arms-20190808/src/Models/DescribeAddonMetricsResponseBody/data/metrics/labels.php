@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description Label description.
+     * @description The description of the tag.
      *
      * @example PAGE_SIZE
      *
@@ -18,7 +18,7 @@ class labels extends Model
     public $description;
 
     /**
-     * @description Label key.
+     * @description The tag key.
      *
      * @example page_size
      *
@@ -27,7 +27,7 @@ class labels extends Model
     public $key;
 
     /**
-     * @description Metric source.
+     * @description The source of the tag.
      *
      * @example db
      *

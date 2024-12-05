@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description Metric label description.
+     * @description The description of the tag.
      *
      * @example The number of times a B-tree page of size PAGE_SIZE was successfully compressed.
      *
@@ -18,7 +18,7 @@ class labels extends Model
     public $description;
 
     /**
-     * @description Metric label key.
+     * @description The tag key.
      *
      * @example page_size
      *
@@ -27,7 +27,7 @@ class labels extends Model
     public $key;
 
     /**
-     * @description Metric label value.
+     * @description The source of the tag.
      *
      * @example db
      *

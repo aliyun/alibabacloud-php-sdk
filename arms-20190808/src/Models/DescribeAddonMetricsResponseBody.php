@@ -19,14 +19,14 @@ class DescribeAddonMetricsResponseBody extends Model
     public $code;
 
     /**
-     * @description Metric information list.
+     * @description The metric details.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The error message.
+     * @description The returned message.
      *
      * @example success
      *
@@ -44,7 +44,7 @@ class DescribeAddonMetricsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values: true and false.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

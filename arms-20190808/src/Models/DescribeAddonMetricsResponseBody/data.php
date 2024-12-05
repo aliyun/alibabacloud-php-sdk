@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Metric Group.
+     * @description The metric group.
      *
      * @example Common
      *
@@ -20,14 +20,14 @@ class data extends Model
     public $group;
 
     /**
-     * @description Metric Labels.
+     * @description The tags.
      *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description Metric list.
+     * @description The metrics.
      *
      * @var metrics[]
      */

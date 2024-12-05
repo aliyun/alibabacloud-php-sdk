@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class samplingConfig extends Model
 {
     /**
+     * @example 500
+     *
      * @var int
      */
     public $samplingRate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $samplingType;

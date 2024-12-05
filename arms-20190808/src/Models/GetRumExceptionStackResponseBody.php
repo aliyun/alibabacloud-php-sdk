@@ -19,7 +19,7 @@ class GetRumExceptionStackResponseBody extends Model
     public $code;
 
     /**
-     * @description The response parameters.
+     * @description The returned message.
      *
      * @var data
      */

@@ -2205,11 +2205,23 @@ class ARMS extends OpenApiClient
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->accountNumber)) {
+            $query['AccountNumber'] = $request->accountNumber;
+        }
         if (!Utils::isUnset($request->aliyunLang)) {
             $query['AliyunLang'] = $request->aliyunLang;
         }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->customAccountNumber)) {
+            $query['CustomAccountNumber'] = $request->customAccountNumber;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
         }
         if (!Utils::isUnset($request->grafanaVersion)) {
             $query['GrafanaVersion'] = $request->grafanaVersion;
@@ -5630,7 +5642,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Example Query metric details about an Addon.
+     * @summary Queries the metric details of a component.
      *  *
      * @param DescribeAddonMetricsRequest $request DescribeAddonMetricsRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5675,7 +5687,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary Example Query metric details about an Addon.
+     * @summary Queries the metric details of a component.
      *  *
      * @param DescribeAddonMetricsRequest $request DescribeAddonMetricsRequest
      *

@@ -19,6 +19,8 @@ class stackInfo extends Model
     public $api;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $callCount;

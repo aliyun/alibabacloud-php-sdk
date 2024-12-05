@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAddonMetricsRequest extends Model
 {
     /**
-     * @description Version of Addon.
+     * @description The version of the component.
      *
      * @example 0.0.1
      *
@@ -27,7 +27,7 @@ class DescribeAddonMetricsRequest extends Model
     public $aliyunLang;
 
     /**
-     * @description The environment type. Valid values: CS, ECS, and Cloud.
+     * @description The environment.
      *
      * @example CS
      *
@@ -36,7 +36,7 @@ class DescribeAddonMetricsRequest extends Model
     public $environmentType;
 
     /**
-     * @description Name fo Addon.
+     * @description The name of the component.
      *
      * This parameter is required.
      * @example mysql
@@ -46,7 +46,7 @@ class DescribeAddonMetricsRequest extends Model
     public $name;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

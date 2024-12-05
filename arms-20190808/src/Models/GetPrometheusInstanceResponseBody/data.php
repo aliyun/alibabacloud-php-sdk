@@ -318,6 +318,11 @@ class data extends Model
     public $vSwitchId;
 
     /**
+     * @var string
+     */
+    public $version;
+
+    /**
      * @description The VPC ID. This parameter is returned only for Prometheus instances for ECS.
      *
      * @example vpc-8vb02uk57qbcktqcvqqqj
@@ -360,6 +365,7 @@ class data extends Model
         'tags'                => 'Tags',
         'userId'              => 'UserId',
         'vSwitchId'           => 'VSwitchId',
+        'version'             => 'Version',
         'vpcId'               => 'VpcId',
     ];
 
@@ -477,6 +483,9 @@ class data extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -602,6 +611,9 @@ class data extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

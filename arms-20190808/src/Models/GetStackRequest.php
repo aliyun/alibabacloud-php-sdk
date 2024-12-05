@@ -47,6 +47,8 @@ class GetStackRequest extends Model
     public $rpcID;
 
     /**
+     * @example 88c32dfa4b******
+     *
      * @var string
      */
     public $spanID;
