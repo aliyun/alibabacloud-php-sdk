@@ -429,6 +429,9 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->messageId)) {
             $query['MessageId'] = $request->messageId;
         }
+        if (!Utils::isUnset($request->to)) {
+            $query['To'] = $request->to;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

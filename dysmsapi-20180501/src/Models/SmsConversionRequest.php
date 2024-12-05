@@ -33,16 +33,21 @@ class SmsConversionRequest extends Model
     /**
      * @description The ID of the OTP message.
      *
-     * This parameter is required.
      * @example 1008030300****
      *
      * @var string
      */
     public $messageId;
+
+    /**
+     * @var string
+     */
+    public $to;
     protected $_name = [
         'conversionTime' => 'ConversionTime',
         'delivered'      => 'Delivered',
         'messageId'      => 'MessageId',
+        'to'             => 'To',
     ];
 
     public function validate()
@@ -60,6 +65,9 @@ class SmsConversionRequest extends Model
         }
         if (null !== $this->messageId) {
             $res['MessageId'] = $this->messageId;
+        }
+        if (null !== $this->to) {
+            $res['To'] = $this->to;
         }
 
         return $res;
@@ -81,6 +89,9 @@ class SmsConversionRequest extends Model
         }
         if (isset($map['MessageId'])) {
             $model->messageId = $map['MessageId'];
+        }
+        if (isset($map['To'])) {
+            $model->to = $map['To'];
         }
 
         return $model;
