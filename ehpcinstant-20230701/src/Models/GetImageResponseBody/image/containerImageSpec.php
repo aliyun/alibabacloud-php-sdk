@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class containerImageSpec extends Model
 {
     /**
+     * @var string
+     */
+    public $architecture;
+
+    /**
      * @example True
      *
      * @var bool
@@ -22,6 +27,16 @@ class containerImageSpec extends Model
      * @var bool
      */
     public $isACRRegistry;
+
+    /**
+     * @var string
+     */
+    public $osTag;
+
+    /**
+     * @var string
+     */
+    public $platform;
 
     /**
      * @var registryCredential
@@ -42,8 +57,11 @@ class containerImageSpec extends Model
      */
     public $registryUrl;
     protected $_name = [
+        'architecture'       => 'Architecture',
         'isACREnterprise'    => 'IsACREnterprise',
         'isACRRegistry'      => 'IsACRRegistry',
+        'osTag'              => 'OsTag',
+        'platform'           => 'Platform',
         'registryCredential' => 'RegistryCredential',
         'registryCriId'      => 'RegistryCriId',
         'registryUrl'        => 'RegistryUrl',
@@ -56,11 +74,20 @@ class containerImageSpec extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->architecture) {
+            $res['Architecture'] = $this->architecture;
+        }
         if (null !== $this->isACREnterprise) {
             $res['IsACREnterprise'] = $this->isACREnterprise;
         }
         if (null !== $this->isACRRegistry) {
             $res['IsACRRegistry'] = $this->isACRRegistry;
+        }
+        if (null !== $this->osTag) {
+            $res['OsTag'] = $this->osTag;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->registryCredential) {
             $res['RegistryCredential'] = null !== $this->registryCredential ? $this->registryCredential->toMap() : null;
@@ -83,11 +110,20 @@ class containerImageSpec extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Architecture'])) {
+            $model->architecture = $map['Architecture'];
+        }
         if (isset($map['IsACREnterprise'])) {
             $model->isACREnterprise = $map['IsACREnterprise'];
         }
         if (isset($map['IsACRRegistry'])) {
             $model->isACRRegistry = $map['IsACRRegistry'];
+        }
+        if (isset($map['OsTag'])) {
+            $model->osTag = $map['OsTag'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['RegistryCredential'])) {
             $model->registryCredential = registryCredential::fromMap($map['RegistryCredential']);

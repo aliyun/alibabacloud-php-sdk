@@ -28,6 +28,11 @@ class images extends Model
     public $description;
 
     /**
+     * @var int
+     */
+    public $documentId;
+
+    /**
      * @description This parameter is required.
      *
      * @example m-bp181x855551ww5yq****
@@ -58,6 +63,11 @@ class images extends Model
     public $osTag;
 
     /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
      * @example v1.0
      *
      * @var string
@@ -67,10 +77,12 @@ class images extends Model
         'appId'       => 'AppId',
         'createTime'  => 'CreateTime',
         'description' => 'Description',
+        'documentId'  => 'DocumentId',
         'imageId'     => 'ImageId',
         'imageType'   => 'ImageType',
         'name'        => 'Name',
         'osTag'       => 'OsTag',
+        'updateTime'  => 'UpdateTime',
         'version'     => 'Version',
     ];
 
@@ -90,6 +102,9 @@ class images extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->documentId) {
+            $res['DocumentId'] = $this->documentId;
+        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
@@ -101,6 +116,9 @@ class images extends Model
         }
         if (null !== $this->osTag) {
             $res['OsTag'] = $this->osTag;
+        }
+        if (null !== $this->updateTime) {
+            $res['UpdateTime'] = $this->updateTime;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -126,6 +144,9 @@ class images extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DocumentId'])) {
+            $model->documentId = $map['DocumentId'];
+        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
@@ -137,6 +158,9 @@ class images extends Model
         }
         if (isset($map['OsTag'])) {
             $model->osTag = $map['OsTag'];
+        }
+        if (isset($map['UpdateTime'])) {
+            $model->updateTime = $map['UpdateTime'];
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

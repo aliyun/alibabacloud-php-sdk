@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody;
 
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image\containerImageSpec;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image\documentInfo;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponseBody\image\VMImageSpec;
 use AlibabaCloud\Tea\Model;
 
@@ -31,6 +32,11 @@ class image extends Model
      * @var string
      */
     public $description;
+
+    /**
+     * @var documentInfo
+     */
+    public $documentInfo;
 
     /**
      * @description This parameter is required.
@@ -76,6 +82,7 @@ class image extends Model
         'containerImageSpec' => 'ContainerImageSpec',
         'createTime'         => 'CreateTime',
         'description'        => 'Description',
+        'documentInfo'       => 'DocumentInfo',
         'imageType'          => 'ImageType',
         'name'               => 'Name',
         'size'               => 'Size',
@@ -102,6 +109,9 @@ class image extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->documentInfo) {
+            $res['DocumentInfo'] = null !== $this->documentInfo ? $this->documentInfo->toMap() : null;
         }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
@@ -144,6 +154,9 @@ class image extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DocumentInfo'])) {
+            $model->documentInfo = documentInfo::fromMap($map['DocumentInfo']);
         }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];

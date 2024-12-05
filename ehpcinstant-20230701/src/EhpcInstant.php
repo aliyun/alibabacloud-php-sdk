@@ -587,6 +587,9 @@ class EhpcInstant extends OpenApiClient
         if (!Utils::isUnset($request->imageType)) {
             $query['ImageType'] = $request->imageType;
         }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }

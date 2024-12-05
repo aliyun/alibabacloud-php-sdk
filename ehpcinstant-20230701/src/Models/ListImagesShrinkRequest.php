@@ -29,6 +29,11 @@ class ListImagesShrinkRequest extends Model
     public $imageType;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @example 1
      *
      * @var int
@@ -46,6 +51,7 @@ class ListImagesShrinkRequest extends Model
         'imageIdsShrink'   => 'ImageIds',
         'imageNamesShrink' => 'ImageNames',
         'imageType'        => 'ImageType',
+        'mode'             => 'Mode',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
     ];
@@ -68,6 +74,9 @@ class ListImagesShrinkRequest extends Model
         }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -98,6 +107,9 @@ class ListImagesShrinkRequest extends Model
         }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

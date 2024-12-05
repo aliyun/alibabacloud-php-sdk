@@ -29,6 +29,11 @@ class ListImagesRequest extends Model
     public $imageType;
 
     /**
+     * @var string
+     */
+    public $mode;
+
+    /**
      * @example 1
      *
      * @var int
@@ -46,6 +51,7 @@ class ListImagesRequest extends Model
         'imageIds'      => 'ImageIds',
         'imageNames'    => 'ImageNames',
         'imageType'     => 'ImageType',
+        'mode'          => 'Mode',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
     ];
@@ -68,6 +74,9 @@ class ListImagesRequest extends Model
         }
         if (null !== $this->imageType) {
             $res['ImageType'] = $this->imageType;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -102,6 +111,9 @@ class ListImagesRequest extends Model
         }
         if (isset($map['ImageType'])) {
             $model->imageType = $map['ImageType'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
