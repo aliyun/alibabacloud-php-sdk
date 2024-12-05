@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetFileResponseBody extends Model
 {
     /**
-     * @description id of request
+     * @description The request ID.
      *
      * @example 2AE63638-5420-56DC-BF59-37D8174039A0
      *

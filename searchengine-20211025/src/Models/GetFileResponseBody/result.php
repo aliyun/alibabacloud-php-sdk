@@ -27,6 +27,8 @@ class result extends Model
     public $dataSource;
 
     /**
+     * @description Extended information
+     *
      * @var string[][]
      */
     public $extend;

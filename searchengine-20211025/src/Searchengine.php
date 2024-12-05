@@ -2381,10 +2381,10 @@ class Searchengine extends OpenApiClient
     /**
      * @summary Queries the details of an index table version.
      *  *
-     * @description ## Method
+     * @description ## [](#)Method
      *     GET
-     * ## URI
-     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+     * ## [](#uri)URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
      *  *
      * @param string         $instanceId
      * @param string         $indexName
@@ -2424,10 +2424,10 @@ class Searchengine extends OpenApiClient
     /**
      * @summary Queries the details of an index table version.
      *  *
-     * @description ## Method
+     * @description ## [](#)Method
      *     GET
-     * ## URI
-     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file?fileName=/root/test.txt
+     * ## [](#uri)URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}/versions/{versionName}/file
      *  *
      * @param string         $instanceId
      * @param string         $indexName
@@ -2446,6 +2446,11 @@ class Searchengine extends OpenApiClient
 
     /**
      * @summary Queries the information about an index version.
+     *  *
+     * @description ## [](#)Method
+     *     GET
+     * ## [](#uri)URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
      *  *
      * @param string         $instanceId
      * @param string         $indexName
@@ -2476,6 +2481,11 @@ class Searchengine extends OpenApiClient
 
     /**
      * @summary Queries the information about an index version.
+     *  *
+     * @description ## [](#)Method
+     *     GET
+     * ## [](#uri)URI
+     *     /openapi/ha3/instances/{instanceId}/indexes/{indexName}
      *  *
      * @param string $instanceId
      * @param string $indexName
@@ -2599,10 +2609,14 @@ class Searchengine extends OpenApiClient
     /**
      * @summary Queries the details of an instance based on the instance ID.
      *  *
-     * @description ### Method
-     * `GET`
-     * ### URI
-     * `/openapi/ha3/instances/{instanceId}`
+     * @description ### [](#)Method
+     * ```java
+     * GET
+     * ```
+     * ### [](#uri)URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}
+     * ```
      *  *
      * @param string         $instanceId
      * @param string[]       $headers    map
@@ -2633,10 +2647,14 @@ class Searchengine extends OpenApiClient
     /**
      * @summary Queries the details of an instance based on the instance ID.
      *  *
-     * @description ### Method
-     * `GET`
-     * ### URI
-     * `/openapi/ha3/instances/{instanceId}`
+     * @description ### [](#)Method
+     * ```java
+     * GET
+     * ```
+     * ### [](#uri)URI
+     * ```java
+     * /openapi/ha3/instances/{instanceId}
+     * ```
      *  *
      * @param string $instanceId
      *

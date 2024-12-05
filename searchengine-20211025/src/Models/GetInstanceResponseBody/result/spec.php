@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class spec extends Model
 {
     /**
+     * @description The QRS worker specifications.
+     *
      * @var qrsResource
      */
     public $qrsResource;
 
     /**
+     * @description The searcher worker specifications.
+     *
      * @var searchResource
      */
     public $searchResource;

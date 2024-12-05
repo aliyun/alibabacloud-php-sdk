@@ -42,6 +42,11 @@ class result extends Model
     public $content;
 
     /**
+     * @var string
+     */
+    public $createTime;
+
+    /**
      * @description The name of the data source.
      *
      * @example ha-cn-tl32nd2nq01_00
@@ -76,6 +81,8 @@ class result extends Model
     public $domain;
 
     /**
+     * @description Extended information
+     *
      * @var string[][]
      */
     public $extend;
@@ -152,6 +159,11 @@ class result extends Model
     public $partition;
 
     /**
+     * @var string
+     */
+    public $updateTime;
+
+    /**
      * @description The information about the versions.
      *
      * @var versions[]
@@ -162,6 +174,7 @@ class result extends Model
         'config'          => 'config',
         'configWhenBuild' => 'configWhenBuild',
         'content'         => 'content',
+        'createTime'      => 'createTime',
         'dataSource'      => 'dataSource',
         'dataSourceInfo'  => 'dataSourceInfo',
         'description'     => 'description',
@@ -174,6 +187,7 @@ class result extends Model
         'indexStatus'     => 'indexStatus',
         'name'            => 'name',
         'partition'       => 'partition',
+        'updateTime'      => 'updateTime',
         'versions'        => 'versions',
     ];
 
@@ -200,6 +214,9 @@ class result extends Model
         }
         if (null !== $this->content) {
             $res['content'] = $this->content;
+        }
+        if (null !== $this->createTime) {
+            $res['createTime'] = $this->createTime;
         }
         if (null !== $this->dataSource) {
             $res['dataSource'] = $this->dataSource;
@@ -237,6 +254,9 @@ class result extends Model
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
         }
+        if (null !== $this->updateTime) {
+            $res['updateTime'] = $this->updateTime;
+        }
         if (null !== $this->versions) {
             $res['versions'] = [];
             if (null !== $this->versions && \is_array($this->versions)) {
@@ -269,6 +289,9 @@ class result extends Model
         }
         if (isset($map['content'])) {
             $model->content = $map['content'];
+        }
+        if (isset($map['createTime'])) {
+            $model->createTime = $map['createTime'];
         }
         if (isset($map['dataSource'])) {
             $model->dataSource = $map['dataSource'];
@@ -305,6 +328,9 @@ class result extends Model
         }
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
+        }
+        if (isset($map['updateTime'])) {
+            $model->updateTime = $map['updateTime'];
         }
         if (isset($map['versions'])) {
             if (!empty($map['versions'])) {

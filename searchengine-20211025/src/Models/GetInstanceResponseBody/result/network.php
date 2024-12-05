@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
+     * @description The public domain name whitelist.
+     *
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $allow;
 
     /**
+     * @description The instance endpoint.
+     *
+     * @example ha-cn-35t3r****.ha.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The public endpoint.
+     *
+     * @example ha-cn-35t3ni****.public.ha.aliyuncs.com
+     *
      * @var string
      */
     public $publicEndpoint;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-bp11ldcf59q2n****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-wz9axk41d9vff****
+     *
      * @var string
      */
     public $vpcId;

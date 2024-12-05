@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetIndexResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4FB0325E-8C37-5525-96AC-0333523170A3
      *

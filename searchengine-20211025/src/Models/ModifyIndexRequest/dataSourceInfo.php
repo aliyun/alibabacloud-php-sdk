@@ -72,6 +72,16 @@ class dataSourceInfo extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $ossDataPath;
+
+    /**
+     * @var string
+     */
+    public $partition;
+
+    /**
      * @description The maximum number of full indexes that can be concurrently processed.
      *
      * @example 2
@@ -112,6 +122,8 @@ class dataSourceInfo extends Model
         'domain'                => 'domain',
         'generation'            => 'generation',
         'name'                  => 'name',
+        'ossDataPath'           => 'ossDataPath',
+        'partition'             => 'partition',
         'processParallelNum'    => 'processParallelNum',
         'processPartitionCount' => 'processPartitionCount',
         'saroConfig'            => 'saroConfig',
@@ -145,6 +157,12 @@ class dataSourceInfo extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->ossDataPath) {
+            $res['ossDataPath'] = $this->ossDataPath;
+        }
+        if (null !== $this->partition) {
+            $res['partition'] = $this->partition;
         }
         if (null !== $this->processParallelNum) {
             $res['processParallelNum'] = $this->processParallelNum;
@@ -190,6 +208,12 @@ class dataSourceInfo extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['ossDataPath'])) {
+            $model->ossDataPath = $map['ossDataPath'];
+        }
+        if (isset($map['partition'])) {
+            $model->partition = $map['partition'];
         }
         if (isset($map['processParallelNum'])) {
             $model->processParallelNum = $map['processParallelNum'];

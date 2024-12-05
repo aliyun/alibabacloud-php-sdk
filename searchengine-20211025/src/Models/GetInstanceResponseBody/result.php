@@ -48,6 +48,10 @@ class result extends Model
     public $description;
 
     /**
+     * @description The edition of the instance. Valid values: vector and engine.
+     *
+     * @example vector
+     *
      * @var string
      */
     public $edition;
@@ -89,16 +93,26 @@ class result extends Model
     public $lockMode;
 
     /**
+     * @description The network information of the instance.
+     *
      * @var network
      */
     public $network;
 
     /**
+     * @description Specifies whether the instance is of the new version.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $newMode;
 
     /**
+     * @description Specifies whether the instance has only one node.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $noQrs;
@@ -113,6 +127,8 @@ class result extends Model
     public $resourceGroupId;
 
     /**
+     * @description The node specifications.
+     *
      * @var spec
      */
     public $spec;
@@ -148,11 +164,19 @@ class result extends Model
     public $updateTime;
 
     /**
+     * @description The username.
+     *
+     * @example admin
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The version of the engine.
+     *
+     * @example ha3_3.10.0
+     *
      * @var string
      */
     public $version;

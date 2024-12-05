@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class qrsResource extends Model
 {
     /**
+     * @description The category. Valid values: local_ssd, SSD, and cloud.
+     *
+     * @example local_ssd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The storage capacity. Unit: GB.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $disk;
 
     /**
+     * @description The memory of the instance. Unit: GB.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $mem;
 
     /**
+     * @description The number of nodes.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nodeCount;

@@ -55,6 +55,11 @@ class config extends Model
     public $endpoint;
 
     /**
+     * @var string
+     */
+    public $format;
+
+    /**
      * @description The namespace. This parameter is applicable to the SARO data source used in the intranet of Alibaba Group.
      *
      * @example TEST_dump_demo_sj_na61hunbu2_share_holo
@@ -119,6 +124,7 @@ class config extends Model
         'catalog'      => 'catalog',
         'database'     => 'database',
         'endpoint'     => 'endpoint',
+        'format'       => 'format',
         'namespace'    => 'namespace',
         'ossPath'      => 'ossPath',
         'partition'    => 'partition',
@@ -152,6 +158,9 @@ class config extends Model
         }
         if (null !== $this->endpoint) {
             $res['endpoint'] = $this->endpoint;
+        }
+        if (null !== $this->format) {
+            $res['format'] = $this->format;
         }
         if (null !== $this->namespace) {
             $res['namespace'] = $this->namespace;
@@ -203,6 +212,9 @@ class config extends Model
         }
         if (isset($map['endpoint'])) {
             $model->endpoint = $map['endpoint'];
+        }
+        if (isset($map['format'])) {
+            $model->format = $map['format'];
         }
         if (isset($map['namespace'])) {
             $model->namespace = $map['namespace'];
