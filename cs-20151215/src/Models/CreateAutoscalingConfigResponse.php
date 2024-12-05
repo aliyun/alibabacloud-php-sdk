@@ -17,9 +17,15 @@ class CreateAutoscalingConfigResponse extends Model
      * @var int
      */
     public $statusCode;
+
+    /**
+     * @var CreateAutoscalingConfigResponseBody
+     */
+    public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
@@ -34,6 +40,9 @@ class CreateAutoscalingConfigResponse extends Model
         }
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -52,6 +61,9 @@ class CreateAutoscalingConfigResponse extends Model
         }
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = CreateAutoscalingConfigResponseBody::fromMap($map['body']);
         }
 
         return $model;

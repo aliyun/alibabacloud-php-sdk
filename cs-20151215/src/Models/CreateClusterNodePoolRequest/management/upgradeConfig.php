@@ -29,7 +29,7 @@ class upgradeConfig extends Model
     /**
      * @description The maximum number of nodes that can be in the Unavailable state. Valid values: 1 to 1000.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int

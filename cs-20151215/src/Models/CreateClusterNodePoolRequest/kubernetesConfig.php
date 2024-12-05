@@ -16,7 +16,7 @@ class kubernetesConfig extends Model
      *   `true`: installs the CloudMonitor agent on ECS nodes.
      *   `false`: does not install the CloudMonitor agent on ECS nodes.
      *
-     * Default value: `false`.
+     * Default value: `false`
      * @example true
      *
      * @var bool

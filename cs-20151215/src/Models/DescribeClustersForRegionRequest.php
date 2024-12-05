@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersForRegionRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example c8155823d057948c69a****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeClustersForRegionRequest extends Model
     public $clusterId;
 
     /**
+     * @description The specification of the cluster.
+     *
      * @example ack.standard
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeClustersForRegionRequest extends Model
     public $clusterSpec;
 
     /**
+     * @description The type of the cluster.
+     *
      * @example Kubernetes
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeClustersForRegionRequest extends Model
     public $clusterType;
 
     /**
+     * @description Perform a fuzzy search by using the cluster name.
+     *
      * @example test-cluster
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeClustersForRegionRequest extends Model
     public $name;
 
     /**
+     * @description The number of pages.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeClustersForRegionRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of records on each page.
+     *
      * @example 3
      *
      * @var int
@@ -51,6 +63,8 @@ class DescribeClustersForRegionRequest extends Model
     public $pageSize;
 
     /**
+     * @description The identifier of the cluster.
+     *
      * @example Serverless
      *
      * @var string

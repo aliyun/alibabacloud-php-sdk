@@ -19,7 +19,7 @@ class scalingGroup extends Model
      *   `true`: enables auto-renewal.
      *   `false`: disables auto-renewal.
      *
-     * Default value: `false`.
+     * Default value: `false`
      * @example true
      *
      * @var bool
@@ -32,7 +32,7 @@ class scalingGroup extends Model
      *   Valid values when PeriodUnit is set to Week: 1, 2, and 3
      *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int

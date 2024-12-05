@@ -36,6 +36,11 @@ class CreateClusterNodePoolRequest extends Model
     public $count;
 
     /**
+     * @description Specifies whether set the network type of the pod to host network.
+     *
+     *   `true`: sets to host network.
+     *   `false`: sets to container network.
+     *
      * @example true
      *
      * @var bool
@@ -55,8 +60,8 @@ class CreateClusterNodePoolRequest extends Model
     /**
      * @description The network type of the edge node pool. This parameter takes effect only when the `type` of the node pool is set to `edge`. Valid values:
      *
-     *   `basic`: basic.
-     *   `private`: dedicated. Only clusters that run Kubernetes 1.22 and later support this value.
+     *   `basic`: Internet.
+     *   `private`: private network.
      *
      * @example basic
      *
@@ -65,6 +70,11 @@ class CreateClusterNodePoolRequest extends Model
     public $interconnectMode;
 
     /**
+     * @description Specifies whether all nodes in the edge node pool can communicate with each other at Layer 3.
+     *
+     *   `true`: The nodes in the edge node pool can communicate with each other at Layer 3.
+     *   `false`: The nodes in the edge node pool cannot communicate with each other at Layer 3.
+     *
      * @example true
      *
      * @var bool
@@ -86,11 +96,9 @@ class CreateClusterNodePoolRequest extends Model
     public $management;
 
     /**
-     * @description The maximum number of nodes that can be contained in the edge node pool. The value of this parameter must be greater than or equal to 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster.
+     * @description This parameter is deprecated.
      *
-     *   In most cases, this parameter is set to a value greater than 0 for edge node pools.
-     *   This parameter is set to 0 for node pools whose types are ess or default edge node pools.
-     *
+     * The maximum number of nodes that can be contained in the edge node pool.
      * @example 10
      *
      * @deprecated

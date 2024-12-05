@@ -107,6 +107,13 @@ class CreateAutoscalingConfigRequest extends Model
     public $scaleUpFromZero;
 
     /**
+     * @example cluster-autoscaler
+     *
+     * @var string
+     */
+    public $scalerType;
+
+    /**
      * @description The interval at which the system scans for events that trigger scaling activities. Unit: seconds. Default value: 60.
      *
      * @example 30s
@@ -167,6 +174,7 @@ class CreateAutoscalingConfigRequest extends Model
         'recycleNodeDeletionEnabled' => 'recycle_node_deletion_enabled',
         'scaleDownEnabled'           => 'scale_down_enabled',
         'scaleUpFromZero'            => 'scale_up_from_zero',
+        'scalerType'                 => 'scaler_type',
         'scanInterval'               => 'scan_interval',
         'skipNodesWithLocalStorage'  => 'skip_nodes_with_local_storage',
         'skipNodesWithSystemPods'    => 'skip_nodes_with_system_pods',
@@ -207,6 +215,9 @@ class CreateAutoscalingConfigRequest extends Model
         }
         if (null !== $this->scaleUpFromZero) {
             $res['scale_up_from_zero'] = $this->scaleUpFromZero;
+        }
+        if (null !== $this->scalerType) {
+            $res['scaler_type'] = $this->scalerType;
         }
         if (null !== $this->scanInterval) {
             $res['scan_interval'] = $this->scanInterval;
@@ -261,6 +272,9 @@ class CreateAutoscalingConfigRequest extends Model
         }
         if (isset($map['scale_up_from_zero'])) {
             $model->scaleUpFromZero = $map['scale_up_from_zero'];
+        }
+        if (isset($map['scaler_type'])) {
+            $model->scalerType = $map['scaler_type'];
         }
         if (isset($map['scan_interval'])) {
             $model->scanInterval = $map['scan_interval'];

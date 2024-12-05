@@ -66,6 +66,8 @@ class CreateClusterRequest extends Model
      * This parameter was changed on October 15, 2024. For more information, see [Announcement on changes to the parameter behavior of the CreateCluster operation](https://help.aliyun.com/document_detail/2849194.html).
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $autoRenew;
@@ -76,6 +78,8 @@ class CreateClusterRequest extends Model
      * This parameter was changed on October 15, 2024. For more information, see [Announcement on changes to the parameter behavior of the CreateCluster operation](https://help.aliyun.com/document_detail/2849194.html).
      * @example 1
      *
+     * @deprecated
+     *
      * @var int
      */
     public $autoRenewPeriod;
@@ -85,6 +89,8 @@ class CreateClusterRequest extends Model
      *
      * This parameter was changed on October 15, 2024. For more information, see [Announcement on changes to the parameter behavior of the CreateCluster operation](https://help.aliyun.com/document_detail/2849194.html).
      * @example 1
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -701,6 +707,8 @@ class CreateClusterRequest extends Model
      * This parameter was changed on October 15, 2024. For more information, see [Announcement on changes to the parameter behavior of the CreateCluster operation](https://help.aliyun.com/document_detail/2849194.html).
      * @example FY2023
      *
+     * @deprecated
+     *
      * @var int
      */
     public $period;
@@ -710,6 +718,8 @@ class CreateClusterRequest extends Model
      *
      * This parameter was changed on October 15, 2024. For more information, see [Announcement on changes to the parameter behavior of the CreateCluster operation](https://help.aliyun.com/document_detail/2849194.html).
      * @example Month
+     *
+     * @deprecated
      *
      * @var string
      */
