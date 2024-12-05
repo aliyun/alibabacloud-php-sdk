@@ -24,6 +24,11 @@ class instanceGroupModel extends Model
     public $architectureType;
 
     /**
+     * @var int
+     */
+    public $availableInstanceAmount;
+
+    /**
      * @example PrePaid
      *
      * @var string
@@ -190,6 +195,7 @@ class instanceGroupModel extends Model
     protected $_name = [
         'appInstanceGroupId'        => 'AppInstanceGroupId',
         'architectureType'          => 'ArchitectureType',
+        'availableInstanceAmount'   => 'AvailableInstanceAmount',
         'chargeType'                => 'ChargeType',
         'cpu'                       => 'Cpu',
         'disks'                     => 'Disks',
@@ -229,6 +235,9 @@ class instanceGroupModel extends Model
         }
         if (null !== $this->architectureType) {
             $res['ArchitectureType'] = $this->architectureType;
+        }
+        if (null !== $this->availableInstanceAmount) {
+            $res['AvailableInstanceAmount'] = $this->availableInstanceAmount;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -328,6 +337,9 @@ class instanceGroupModel extends Model
         }
         if (isset($map['ArchitectureType'])) {
             $model->architectureType = $map['ArchitectureType'];
+        }
+        if (isset($map['AvailableInstanceAmount'])) {
+            $model->availableInstanceAmount = $map['AvailableInstanceAmount'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
