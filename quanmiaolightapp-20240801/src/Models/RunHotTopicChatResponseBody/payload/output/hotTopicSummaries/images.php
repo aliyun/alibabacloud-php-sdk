@@ -2,18 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunCommentGenerationResponseBody\payload;
+namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponseBody\payload\output\hotTopicSummaries;
 
 use AlibabaCloud\Tea\Model;
 
-class output extends Model
+class images extends Model
 {
     /**
+     * @example http://xxx
+     *
      * @var string
      */
-    public $text;
+    public $url;
     protected $_name = [
-        'text' => 'text',
+        'url' => 'url',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class output extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->text) {
-            $res['text'] = $this->text;
+        if (null !== $this->url) {
+            $res['url'] = $this->url;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class output extends Model
     /**
      * @param array $map
      *
-     * @return output
+     * @return images
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['text'])) {
-            $model->text = $map['text'];
+        if (isset($map['url'])) {
+            $model->url = $map['url'];
         }
 
         return $model;

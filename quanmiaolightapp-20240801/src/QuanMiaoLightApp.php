@@ -10,9 +10,6 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsRequ
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponse;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunCommentGenerationRequest;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunCommentGenerationResponse;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunCommentGenerationShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatShrinkRequest;
@@ -187,96 +184,6 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->listHotTopicSummariesWithOptions($workspaceId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 评论生成服务
-     *  *
-     * @param string                      $workspaceId
-     * @param RunCommentGenerationRequest $tmpReq      RunCommentGenerationRequest
-     * @param string[]                    $headers     map
-     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
-     *
-     * @return RunCommentGenerationResponse RunCommentGenerationResponse
-     */
-    public function runCommentGenerationWithOptions($workspaceId, $tmpReq, $headers, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new RunCommentGenerationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->lengthRange)) {
-            $request->lengthRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lengthRange, 'lengthRange', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->sentiment)) {
-            $request->sentimentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sentiment, 'sentiment', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->type)) {
-            $request->typeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->type, 'type', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->allowEmoji)) {
-            $body['allowEmoji'] = $request->allowEmoji;
-        }
-        if (!Utils::isUnset($request->extraInfo)) {
-            $body['extraInfo'] = $request->extraInfo;
-        }
-        if (!Utils::isUnset($request->length)) {
-            $body['length'] = $request->length;
-        }
-        if (!Utils::isUnset($request->lengthRangeShrink)) {
-            $body['lengthRange'] = $request->lengthRangeShrink;
-        }
-        if (!Utils::isUnset($request->modelId)) {
-            $body['modelId'] = $request->modelId;
-        }
-        if (!Utils::isUnset($request->numComments)) {
-            $body['numComments'] = $request->numComments;
-        }
-        if (!Utils::isUnset($request->sentimentShrink)) {
-            $body['sentiment'] = $request->sentimentShrink;
-        }
-        if (!Utils::isUnset($request->sourceMaterial)) {
-            $body['sourceMaterial'] = $request->sourceMaterial;
-        }
-        if (!Utils::isUnset($request->style)) {
-            $body['style'] = $request->style;
-        }
-        if (!Utils::isUnset($request->typeShrink)) {
-            $body['type'] = $request->typeShrink;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RunCommentGeneration',
-            'version'     => '2024-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runCommentGeneration',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RunCommentGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 评论生成服务
-     *  *
-     * @param string                      $workspaceId
-     * @param RunCommentGenerationRequest $request     RunCommentGenerationRequest
-     *
-     * @return RunCommentGenerationResponse RunCommentGenerationResponse
-     */
-    public function runCommentGeneration($workspaceId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->runCommentGenerationWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
