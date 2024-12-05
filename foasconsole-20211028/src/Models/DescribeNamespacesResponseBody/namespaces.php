@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesResponseBody;
 
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesResponseBody\namespaces\elasticResourceSpec;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesResponseBody\namespaces\guaranteedResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesResponseBody\namespaces\resourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesResponseBody\namespaces\resourceUsed;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeNamespacesResponseBody\namespaces\tags;
@@ -11,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 
 class namespaces extends Model
 {
+    /**
+     * @var elasticResourceSpec
+     */
+    public $elasticResourceSpec;
+
     /**
      * @example 1629879567394
      *
@@ -24,6 +31,11 @@ class namespaces extends Model
      * @var int
      */
     public $gmtModified;
+
+    /**
+     * @var guaranteedResourceSpec
+     */
+    public $guaranteedResourceSpec;
 
     /**
      * @var bool
@@ -59,14 +71,16 @@ class namespaces extends Model
      */
     public $tags;
     protected $_name = [
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'ha'           => 'Ha',
-        'namespace'    => 'Namespace',
-        'resourceSpec' => 'ResourceSpec',
-        'resourceUsed' => 'ResourceUsed',
-        'status'       => 'Status',
-        'tags'         => 'Tags',
+        'elasticResourceSpec'    => 'ElasticResourceSpec',
+        'gmtCreate'              => 'GmtCreate',
+        'gmtModified'            => 'GmtModified',
+        'guaranteedResourceSpec' => 'GuaranteedResourceSpec',
+        'ha'                     => 'Ha',
+        'namespace'              => 'Namespace',
+        'resourceSpec'           => 'ResourceSpec',
+        'resourceUsed'           => 'ResourceUsed',
+        'status'                 => 'Status',
+        'tags'                   => 'Tags',
     ];
 
     public function validate()
@@ -76,11 +90,17 @@ class namespaces extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->elasticResourceSpec) {
+            $res['ElasticResourceSpec'] = null !== $this->elasticResourceSpec ? $this->elasticResourceSpec->toMap() : null;
+        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->guaranteedResourceSpec) {
+            $res['GuaranteedResourceSpec'] = null !== $this->guaranteedResourceSpec ? $this->guaranteedResourceSpec->toMap() : null;
         }
         if (null !== $this->ha) {
             $res['Ha'] = $this->ha;
@@ -118,11 +138,17 @@ class namespaces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ElasticResourceSpec'])) {
+            $model->elasticResourceSpec = elasticResourceSpec::fromMap($map['ElasticResourceSpec']);
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['GuaranteedResourceSpec'])) {
+            $model->guaranteedResourceSpec = guaranteedResourceSpec::fromMap($map['GuaranteedResourceSpec']);
         }
         if (isset($map['Ha'])) {
             $model->ha = $map['Ha'];

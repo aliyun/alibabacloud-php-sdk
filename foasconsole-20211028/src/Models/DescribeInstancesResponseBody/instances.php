@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesRespons
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterState;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterUsedResources;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\clusterUsedStorage;
+use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\elasticResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\haResourceSpec;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\haVSwitchInfo;
 use AlibabaCloud\SDK\Foasconsole\V20211028\Models\DescribeInstancesResponseBody\instances\hostAliases;
@@ -58,6 +59,21 @@ class instances extends Model
      * @var clusterUsedStorage
      */
     public $clusterUsedStorage;
+
+    /**
+     * @var bool
+     */
+    public $elastic;
+
+    /**
+     * @var string
+     */
+    public $elasticOrderState;
+
+    /**
+     * @var elasticResourceSpec
+     */
+    public $elasticResourceSpec;
 
     /**
      * @var bool
@@ -213,6 +229,9 @@ class instances extends Model
         'clusterStatus'        => 'ClusterStatus',
         'clusterUsedResources' => 'ClusterUsedResources',
         'clusterUsedStorage'   => 'ClusterUsedStorage',
+        'elastic'              => 'Elastic',
+        'elasticOrderState'    => 'ElasticOrderState',
+        'elasticResourceSpec'  => 'ElasticResourceSpec',
         'ha'                   => 'Ha',
         'haResourceSpec'       => 'HaResourceSpec',
         'haVSwitchIds'         => 'HaVSwitchIds',
@@ -273,6 +292,15 @@ class instances extends Model
         }
         if (null !== $this->clusterUsedStorage) {
             $res['ClusterUsedStorage'] = null !== $this->clusterUsedStorage ? $this->clusterUsedStorage->toMap() : null;
+        }
+        if (null !== $this->elastic) {
+            $res['Elastic'] = $this->elastic;
+        }
+        if (null !== $this->elasticOrderState) {
+            $res['ElasticOrderState'] = $this->elasticOrderState;
+        }
+        if (null !== $this->elasticResourceSpec) {
+            $res['ElasticResourceSpec'] = null !== $this->elasticResourceSpec ? $this->elasticResourceSpec->toMap() : null;
         }
         if (null !== $this->ha) {
             $res['Ha'] = $this->ha;
@@ -411,6 +439,15 @@ class instances extends Model
         }
         if (isset($map['ClusterUsedStorage'])) {
             $model->clusterUsedStorage = clusterUsedStorage::fromMap($map['ClusterUsedStorage']);
+        }
+        if (isset($map['Elastic'])) {
+            $model->elastic = $map['Elastic'];
+        }
+        if (isset($map['ElasticOrderState'])) {
+            $model->elasticOrderState = $map['ElasticOrderState'];
+        }
+        if (isset($map['ElasticResourceSpec'])) {
+            $model->elasticResourceSpec = elasticResourceSpec::fromMap($map['ElasticResourceSpec']);
         }
         if (isset($map['Ha'])) {
             $model->ha = $map['Ha'];

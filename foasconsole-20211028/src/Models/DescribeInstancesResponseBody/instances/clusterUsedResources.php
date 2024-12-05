@@ -14,6 +14,36 @@ class clusterUsedResources extends Model
     public $clusterId;
 
     /**
+     * @var float
+     */
+    public $elasticUsedCpu;
+
+    /**
+     * @var string
+     */
+    public $elasticUsedMemory;
+
+    /**
+     * @var string
+     */
+    public $elasticUsedResource;
+
+    /**
+     * @var float
+     */
+    public $guaranteedUsedCpu;
+
+    /**
+     * @var string
+     */
+    public $guaranteedUsedMemory;
+
+    /**
+     * @var float
+     */
+    public $guaranteedUsedResource;
+
+    /**
      * @var bool
      */
     public $ha;
@@ -48,14 +78,20 @@ class clusterUsedResources extends Model
      */
     public $usedResource;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'ha'             => 'Ha',
-        'haUsedCpu'      => 'HaUsedCpu',
-        'haUsedMemory'   => 'HaUsedMemory',
-        'haUsedResource' => 'HaUsedResource',
-        'usedCpu'        => 'UsedCpu',
-        'usedMemory'     => 'UsedMemory',
-        'usedResource'   => 'UsedResource',
+        'clusterId'              => 'ClusterId',
+        'elasticUsedCpu'         => 'ElasticUsedCpu',
+        'elasticUsedMemory'      => 'ElasticUsedMemory',
+        'elasticUsedResource'    => 'ElasticUsedResource',
+        'guaranteedUsedCpu'      => 'GuaranteedUsedCpu',
+        'guaranteedUsedMemory'   => 'GuaranteedUsedMemory',
+        'guaranteedUsedResource' => 'GuaranteedUsedResource',
+        'ha'                     => 'Ha',
+        'haUsedCpu'              => 'HaUsedCpu',
+        'haUsedMemory'           => 'HaUsedMemory',
+        'haUsedResource'         => 'HaUsedResource',
+        'usedCpu'                => 'UsedCpu',
+        'usedMemory'             => 'UsedMemory',
+        'usedResource'           => 'UsedResource',
     ];
 
     public function validate()
@@ -67,6 +103,24 @@ class clusterUsedResources extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->elasticUsedCpu) {
+            $res['ElasticUsedCpu'] = $this->elasticUsedCpu;
+        }
+        if (null !== $this->elasticUsedMemory) {
+            $res['ElasticUsedMemory'] = $this->elasticUsedMemory;
+        }
+        if (null !== $this->elasticUsedResource) {
+            $res['ElasticUsedResource'] = $this->elasticUsedResource;
+        }
+        if (null !== $this->guaranteedUsedCpu) {
+            $res['GuaranteedUsedCpu'] = $this->guaranteedUsedCpu;
+        }
+        if (null !== $this->guaranteedUsedMemory) {
+            $res['GuaranteedUsedMemory'] = $this->guaranteedUsedMemory;
+        }
+        if (null !== $this->guaranteedUsedResource) {
+            $res['GuaranteedUsedResource'] = $this->guaranteedUsedResource;
         }
         if (null !== $this->ha) {
             $res['Ha'] = $this->ha;
@@ -103,6 +157,24 @@ class clusterUsedResources extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ElasticUsedCpu'])) {
+            $model->elasticUsedCpu = $map['ElasticUsedCpu'];
+        }
+        if (isset($map['ElasticUsedMemory'])) {
+            $model->elasticUsedMemory = $map['ElasticUsedMemory'];
+        }
+        if (isset($map['ElasticUsedResource'])) {
+            $model->elasticUsedResource = $map['ElasticUsedResource'];
+        }
+        if (isset($map['GuaranteedUsedCpu'])) {
+            $model->guaranteedUsedCpu = $map['GuaranteedUsedCpu'];
+        }
+        if (isset($map['GuaranteedUsedMemory'])) {
+            $model->guaranteedUsedMemory = $map['GuaranteedUsedMemory'];
+        }
+        if (isset($map['GuaranteedUsedResource'])) {
+            $model->guaranteedUsedResource = $map['GuaranteedUsedResource'];
         }
         if (isset($map['Ha'])) {
             $model->ha = $map['Ha'];
