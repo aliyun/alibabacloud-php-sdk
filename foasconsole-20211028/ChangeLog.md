@@ -3,6 +3,11 @@
 - Update API DescribeNamespaces: update response param.
 
 
+2024-12-05 Version: 1.0.7
+- Update API DescribeInstances: update response param.
+- Update API DescribeNamespaces: update response param.
+
+
 2024-12-02 Version: 1.0.6
 - Update API QueryModifyInstancePrice: add param PromotionCode.
 - Update API QueryModifyInstancePrice: add param UsePromotionCode.
