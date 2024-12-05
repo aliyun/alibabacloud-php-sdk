@@ -84,6 +84,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetMaterialByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetPropertiesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartClipTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetSmartClipTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetTopicSelectionPerspectiveAnalysisTaskRequest;
@@ -213,6 +215,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitDocClusterTaskShrinkRequest
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitEnterpriseVocAnalysisTaskShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitSmartClipTaskShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\SubmitTopicSelectionPerspectiveAnalysisTaskShrinkRequest;
@@ -2196,6 +2201,56 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPropertiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询一键成片剪辑任务
+     *  *
+     * @param GetSmartClipTaskRequest $request GetSmartClipTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSmartClipTaskResponse GetSmartClipTaskResponse
+     */
+    public function getSmartClipTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSmartClipTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSmartClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询一键成片剪辑任务
+     *  *
+     * @param GetSmartClipTaskRequest $request GetSmartClipTaskRequest
+     *
+     * @return GetSmartClipTaskResponse GetSmartClipTaskResponse
+     */
+    public function getSmartClipTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSmartClipTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -5547,6 +5602,73 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitEnterpriseVocAnalysisTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交一键成片剪辑任务
+     *  *
+     * @param SubmitSmartClipTaskRequest $tmpReq  SubmitSmartClipTaskRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitSmartClipTaskResponse SubmitSmartClipTaskResponse
+     */
+    public function submitSmartClipTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitSmartClipTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->editingConfig)) {
+            $request->editingConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->editingConfig, 'EditingConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->inputConfig)) {
+            $request->inputConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->inputConfig, 'InputConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->outputConfig)) {
+            $request->outputConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outputConfig, 'OutputConfig', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->editingConfigShrink)) {
+            $body['EditingConfig'] = $request->editingConfigShrink;
+        }
+        if (!Utils::isUnset($request->inputConfigShrink)) {
+            $body['InputConfig'] = $request->inputConfigShrink;
+        }
+        if (!Utils::isUnset($request->outputConfigShrink)) {
+            $body['OutputConfig'] = $request->outputConfigShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitSmartClipTask',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitSmartClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交一键成片剪辑任务
+     *  *
+     * @param SubmitSmartClipTaskRequest $request SubmitSmartClipTaskRequest
+     *
+     * @return SubmitSmartClipTaskResponse SubmitSmartClipTaskResponse
+     */
+    public function submitSmartClipTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitSmartClipTaskWithOptions($request, $runtime);
     }
 
     /**
