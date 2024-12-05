@@ -26,9 +26,15 @@ class DeleteArtifactRequest extends Model
      * @var string
      */
     public $artifactVersion;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
         'artifactId'      => 'ArtifactId',
         'artifactVersion' => 'ArtifactVersion',
+        'clientToken'     => 'ClientToken',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DeleteArtifactRequest extends Model
         }
         if (null !== $this->artifactVersion) {
             $res['ArtifactVersion'] = $this->artifactVersion;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -61,6 +70,9 @@ class DeleteArtifactRequest extends Model
         }
         if (isset($map['ArtifactVersion'])) {
             $model->artifactVersion = $map['ArtifactVersion'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;

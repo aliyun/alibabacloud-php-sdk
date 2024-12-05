@@ -11,11 +11,17 @@ use AlibabaCloud\Tea\Model;
 class artifactBuildProperty extends Model
 {
     /**
+     * @description The build arguments used during the image build process.
+     *
+     * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
      * @var buildArgs[]
      */
     public $buildArgs;
 
     /**
+     * @description The address of the code repository.
+     *
+     * >  This parameter is available only if the ArtifactBuildType is Dockerfile or Buildpacks type.
      * @var codeRepo
      */
     public $codeRepo;
@@ -45,6 +51,11 @@ class artifactBuildProperty extends Model
     public $commandType;
 
     /**
+     * @description The relative path to the Dockerfile within the code repository.
+     *
+     * >  This parameter is available only if the ArtifactBuildType is Dockerfile type.
+     * @example ./file/Dockerfile
+     *
      * @var string
      */
     public $dockerfilePath;
@@ -60,6 +71,11 @@ class artifactBuildProperty extends Model
     public $regionId;
 
     /**
+     * @description The pull location of the source container image. This is used for the command docker pull ${SourceContainerImage}.
+     *
+     * >  This parameter is available only if the ArtifactBuildType is ContainerImage type.
+     * @example pytorch/pytorch:2.5.1-cuda12.4-cudnn9-devel
+     *
      * @var string
      */
     public $sourceContainerImage;

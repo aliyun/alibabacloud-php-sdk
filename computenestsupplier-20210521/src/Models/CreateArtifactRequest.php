@@ -19,6 +19,11 @@ class CreateArtifactRequest extends Model
     public $artifactBuildProperty;
 
     /**
+     * @description The type of the artifact build task. Valid values:
+     *
+     * - ContainerImage: Rebuild container image by renaming an existing container image.
+     * @example Dockerfile
+     *
      * @var string
      */
     public $artifactBuildType;
@@ -53,6 +58,11 @@ class CreateArtifactRequest extends Model
      * @var string
      */
     public $artifactType;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
 
     /**
      * @description The description of the deployment package.
@@ -111,6 +121,7 @@ class CreateArtifactRequest extends Model
         'artifactId'            => 'ArtifactId',
         'artifactProperty'      => 'ArtifactProperty',
         'artifactType'          => 'ArtifactType',
+        'clientToken'           => 'ClientToken',
         'description'           => 'Description',
         'name'                  => 'Name',
         'resourceGroupId'       => 'ResourceGroupId',
@@ -140,6 +151,9 @@ class CreateArtifactRequest extends Model
         }
         if (null !== $this->artifactType) {
             $res['ArtifactType'] = $this->artifactType;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -191,6 +205,9 @@ class CreateArtifactRequest extends Model
         }
         if (isset($map['ArtifactType'])) {
             $model->artifactType = $map['ArtifactType'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

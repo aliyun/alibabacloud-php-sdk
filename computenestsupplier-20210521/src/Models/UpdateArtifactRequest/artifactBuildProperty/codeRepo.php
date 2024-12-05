@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class codeRepo extends Model
 {
     /**
+     * @description The name of the branch in the code repository.
+     *
+     * @example main
+     *
      * @var string
      */
     public $branch;
 
     /**
+     * @description The owner of the code repository.
+     *
+     * >  This parameter is available only if the git repository is private.
+     * @example aliyun-computenest
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The platform where the code repository is hosted.
+     *
+     * @example github
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example aliyun-computenest/quickstart-Lobexxx
+     *
      * @var string
      */
     public $repoName;

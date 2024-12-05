@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class buildArgs extends Model
 {
     /**
+     * @description The name of a specific build argument.
+     *
+     * @example ENV
+     *
      * @var string
      */
     public $argumentName;
 
     /**
+     * @description The value of a specific build argument.
+     *
+     * @example nginx:latest
+     *
      * @var string
      */
     public $argumentValue;

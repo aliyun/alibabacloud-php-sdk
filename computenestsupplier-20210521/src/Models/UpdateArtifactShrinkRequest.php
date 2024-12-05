@@ -34,6 +34,11 @@ class UpdateArtifactShrinkRequest extends Model
     public $artifactPropertyShrink;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The description of the deployment package.
      *
      * @example Description
@@ -62,6 +67,7 @@ class UpdateArtifactShrinkRequest extends Model
         'artifactBuildPropertyShrink' => 'ArtifactBuildProperty',
         'artifactId'                  => 'ArtifactId',
         'artifactPropertyShrink'      => 'ArtifactProperty',
+        'clientToken'                 => 'ClientToken',
         'description'                 => 'Description',
         'supportRegionIds'            => 'SupportRegionIds',
         'versionName'                 => 'VersionName',
@@ -82,6 +88,9 @@ class UpdateArtifactShrinkRequest extends Model
         }
         if (null !== $this->artifactPropertyShrink) {
             $res['ArtifactProperty'] = $this->artifactPropertyShrink;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -112,6 +121,9 @@ class UpdateArtifactShrinkRequest extends Model
         }
         if (isset($map['ArtifactProperty'])) {
             $model->artifactPropertyShrink = $map['ArtifactProperty'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

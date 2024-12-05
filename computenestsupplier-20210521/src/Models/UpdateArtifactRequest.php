@@ -36,6 +36,11 @@ class UpdateArtifactRequest extends Model
     public $artifactProperty;
 
     /**
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The description of the deployment package.
      *
      * @example Description
@@ -64,6 +69,7 @@ class UpdateArtifactRequest extends Model
         'artifactBuildProperty' => 'ArtifactBuildProperty',
         'artifactId'            => 'ArtifactId',
         'artifactProperty'      => 'ArtifactProperty',
+        'clientToken'           => 'ClientToken',
         'description'           => 'Description',
         'supportRegionIds'      => 'SupportRegionIds',
         'versionName'           => 'VersionName',
@@ -84,6 +90,9 @@ class UpdateArtifactRequest extends Model
         }
         if (null !== $this->artifactProperty) {
             $res['ArtifactProperty'] = null !== $this->artifactProperty ? $this->artifactProperty->toMap() : null;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -114,6 +123,9 @@ class UpdateArtifactRequest extends Model
         }
         if (isset($map['ArtifactProperty'])) {
             $model->artifactProperty = artifactProperty::fromMap($map['ArtifactProperty']);
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

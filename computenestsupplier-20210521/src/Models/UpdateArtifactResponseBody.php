@@ -18,6 +18,10 @@ class UpdateArtifactResponseBody extends Model
     public $artifactBuildProperty;
 
     /**
+     * @description The type of the deployment package to be built.
+     *
+     * @example Dockerfile
+     *
      * @var string
      */
     public $artifactBuildType;
@@ -102,6 +106,10 @@ class UpdateArtifactResponseBody extends Model
     public $status;
 
     /**
+     * @description The status of the deployment package.
+     *
+     * @example "/usr/local/share/aliyun-assist/work/script/t-hz04zm90y6og0sg.sh: line 1: pip: command not found"
+     *
      * @var string
      */
     public $statusDetail;

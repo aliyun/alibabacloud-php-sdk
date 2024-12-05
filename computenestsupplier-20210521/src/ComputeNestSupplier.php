@@ -356,6 +356,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->artifactType)) {
             $query['ArtifactType'] = $request->artifactType;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -697,6 +700,9 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->artifactVersion)) {
             $query['ArtifactVersion'] = $request->artifactVersion;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2130,6 +2136,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->artifactId)) {
             $query['ArtifactId'] = $request->artifactId;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2461,6 +2470,9 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->artifactPropertyShrink)) {
             $query['ArtifactProperty'] = $request->artifactPropertyShrink;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;

@@ -19,6 +19,10 @@ class GetArtifactResponseBody extends Model
     public $artifactBuildProperty;
 
     /**
+     * @description The type of the deployment package to be built.
+     *
+     * @example Dockerfile
+     *
      * @var string
      */
     public $artifactBuildType;

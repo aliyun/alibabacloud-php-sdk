@@ -17,8 +17,14 @@ class ReleaseArtifactRequest extends Model
      * @var string
      */
     public $artifactId;
+
+    /**
+     * @var string
+     */
+    public $clientToken;
     protected $_name = [
-        'artifactId' => 'ArtifactId',
+        'artifactId'  => 'ArtifactId',
+        'clientToken' => 'ClientToken',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class ReleaseArtifactRequest extends Model
         $res = [];
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
 
         return $res;
@@ -45,6 +54,9 @@ class ReleaseArtifactRequest extends Model
         $model = new self();
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
 
         return $model;
