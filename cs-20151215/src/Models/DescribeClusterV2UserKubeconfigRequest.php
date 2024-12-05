@@ -12,8 +12,14 @@ class DescribeClusterV2UserKubeconfigRequest extends Model
      * @var bool
      */
     public $privateIpAddress;
+
+    /**
+     * @var int
+     */
+    public $temporaryDurationMinutes;
     protected $_name = [
-        'privateIpAddress' => 'PrivateIpAddress',
+        'privateIpAddress'         => 'PrivateIpAddress',
+        'temporaryDurationMinutes' => 'TemporaryDurationMinutes',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class DescribeClusterV2UserKubeconfigRequest extends Model
         $res = [];
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->temporaryDurationMinutes) {
+            $res['TemporaryDurationMinutes'] = $this->temporaryDurationMinutes;
         }
 
         return $res;
@@ -40,6 +49,9 @@ class DescribeClusterV2UserKubeconfigRequest extends Model
         $model = new self();
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['TemporaryDurationMinutes'])) {
+            $model->temporaryDurationMinutes = $map['TemporaryDurationMinutes'];
         }
 
         return $model;
