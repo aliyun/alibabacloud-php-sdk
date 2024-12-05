@@ -38,6 +38,11 @@ class metadata extends Model
     public $phone;
 
     /**
+     * @var string
+     */
+    public $score;
+
+    /**
      * @example [{\\"value\\":\\"nttd\\",\\"key\\":\\"owner\\"}]
      *
      * @var string
@@ -54,6 +59,7 @@ class metadata extends Model
         'dailyOpeningHours' => 'dailyOpeningHours',
         'mainTag'           => 'mainTag',
         'phone'             => 'phone',
+        'score'             => 'score',
         'tag'               => 'tag',
         'weeklyOpeningDays' => 'weeklyOpeningDays',
     ];
@@ -79,6 +85,9 @@ class metadata extends Model
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
+        }
+        if (null !== $this->score) {
+            $res['score'] = $this->score;
         }
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
@@ -112,6 +121,9 @@ class metadata extends Model
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
+        }
+        if (isset($map['score'])) {
+            $model->score = $map['score'];
         }
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
