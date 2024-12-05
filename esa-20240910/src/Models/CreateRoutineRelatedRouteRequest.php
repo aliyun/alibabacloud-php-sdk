@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class CreateRoutineRelatedRouteRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $byPass;
+
+    /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example CreateRoutineRelatedRoute
      *
      * @var string
@@ -20,6 +26,7 @@ class CreateRoutineRelatedRouteRequest extends Model
     /**
      * @description The route.
      *
+     * This parameter is required.
      * @example *.example.com/path1*
      *
      * @var string
@@ -29,12 +36,14 @@ class CreateRoutineRelatedRouteRequest extends Model
     /**
      * @description The website ID.
      *
+     * This parameter is required.
      * @example 54362329990032
      *
      * @var int
      */
     public $siteId;
     protected $_name = [
+        'byPass' => 'ByPass',
         'name'   => 'Name',
         'route'  => 'Route',
         'siteId' => 'SiteId',
@@ -47,6 +56,9 @@ class CreateRoutineRelatedRouteRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->byPass) {
+            $res['ByPass'] = $this->byPass;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -68,6 +80,9 @@ class CreateRoutineRelatedRouteRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ByPass'])) {
+            $model->byPass = $map['ByPass'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

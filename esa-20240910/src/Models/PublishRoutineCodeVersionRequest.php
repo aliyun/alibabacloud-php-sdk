@@ -36,6 +36,7 @@ class PublishRoutineCodeVersionRequest extends Model
     /**
      * @description The environment name.
      *
+     * This parameter is required.
      * @example production
      *
      * @var string
@@ -45,6 +46,7 @@ class PublishRoutineCodeVersionRequest extends Model
     /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example PublishRoutineCodeVersion
      *
      * @var string

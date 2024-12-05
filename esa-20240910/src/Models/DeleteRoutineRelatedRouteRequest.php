@@ -11,6 +11,7 @@ class DeleteRoutineRelatedRouteRequest extends Model
     /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example DeleteRoutineRelatedRoute
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteRoutineRelatedRouteRequest extends Model
     /**
      * @description The route URL.
      *
+     * This parameter is required.
      * @example *.example.com/path1*
      *
      * @var string
@@ -29,6 +31,7 @@ class DeleteRoutineRelatedRouteRequest extends Model
     /**
      * @description The route ID.
      *
+     * This parameter is required.
      * @example 0c3b82a3d1524e9f750da11d0cc0be0a
      *
      * @var string
@@ -38,6 +41,7 @@ class DeleteRoutineRelatedRouteRequest extends Model
     /**
      * @description The website ID.
      *
+     * This parameter is required.
      * @example 54362329990032
      *
      * @var int

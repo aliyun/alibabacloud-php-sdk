@@ -85,9 +85,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteCustomLogShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskShrinkRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteFunctionRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteFunctionResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteFunctionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
@@ -143,8 +140,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadJobRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteScheduledPreloadJobResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteDeliveryTaskResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteFunctionRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteFunctionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskRequest;
@@ -302,8 +297,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListScheduledPreloadJobsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteDeliveryTasksResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListSiteFunctionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesShrinkRequest;
@@ -406,9 +399,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteDeliveryTaskStatusResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteFunctionRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteFunctionResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteFunctionShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateSiteVanityNSResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskRequest;
@@ -2358,6 +2348,9 @@ class ESA extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->byPass)) {
+            $body['ByPass'] = $request->byPass;
+        }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
@@ -2750,200 +2743,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSiteDeliveryTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Configures one or more feature settings for a website.
-     *  *
-     * @description This API operation is used the first time you configure feature settings for your website. To modify existing feature settings, call the UpdateSiteFunction operation.
-     *  *
-     * @param CreateSiteFunctionRequest $tmpReq  CreateSiteFunctionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateSiteFunctionResponse CreateSiteFunctionResponse
-     */
-    public function createSiteFunctionWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateSiteFunctionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cacheReserve)) {
-            $request->cacheReserveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheReserve, 'CacheReserve', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->cacheRules)) {
-            $request->cacheRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheRules, 'CacheRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->cacheTags)) {
-            $request->cacheTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheTags, 'CacheTags', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->cnameFlattening)) {
-            $request->cnameFlatteningShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cnameFlattening, 'CnameFlattening', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->compressionRules)) {
-            $request->compressionRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->compressionRules, 'CompressionRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->crossBorderOptimization)) {
-            $request->crossBorderOptimizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->crossBorderOptimization, 'CrossBorderOptimization', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->developmentMode)) {
-            $request->developmentModeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->developmentMode, 'DevelopmentMode', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->httpRequestHeaderModificationRules)) {
-            $request->httpRequestHeaderModificationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpRequestHeaderModificationRules, 'HttpRequestHeaderModificationRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->httpResponseHeaderModificationRules)) {
-            $request->httpResponseHeaderModificationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpResponseHeaderModificationRules, 'HttpResponseHeaderModificationRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->httpsApplicationConfiguration)) {
-            $request->httpsApplicationConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpsApplicationConfiguration, 'HttpsApplicationConfiguration', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->httpsBasicConfiguration)) {
-            $request->httpsBasicConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpsBasicConfiguration, 'HttpsBasicConfiguration', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->imageTransform)) {
-            $request->imageTransformShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageTransform, 'ImageTransform', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->ipv6)) {
-            $request->ipv6Shrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipv6, 'Ipv6', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->managedTransforms)) {
-            $request->managedTransformsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managedTransforms, 'ManagedTransforms', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->networkOptimization)) {
-            $request->networkOptimizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkOptimization, 'NetworkOptimization', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->originProtection)) {
-            $request->originProtectionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->originProtection, 'OriginProtection', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->originRules)) {
-            $request->originRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->originRules, 'OriginRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->redirectRules)) {
-            $request->redirectRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirectRules, 'RedirectRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->rewriteUrlRules)) {
-            $request->rewriteUrlRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rewriteUrlRules, 'RewriteUrlRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->seoBypass)) {
-            $request->seoBypassShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->seoBypass, 'SeoBypass', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->siteNameExclusive)) {
-            $request->siteNameExclusiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->siteNameExclusive, 'SiteNameExclusive', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->sitePause)) {
-            $request->sitePauseShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sitePause, 'SitePause', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tieredCache)) {
-            $request->tieredCacheShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tieredCache, 'TieredCache', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->cacheReserveShrink)) {
-            $query['CacheReserve'] = $request->cacheReserveShrink;
-        }
-        if (!Utils::isUnset($request->cacheRulesShrink)) {
-            $query['CacheRules'] = $request->cacheRulesShrink;
-        }
-        if (!Utils::isUnset($request->cacheTagsShrink)) {
-            $query['CacheTags'] = $request->cacheTagsShrink;
-        }
-        if (!Utils::isUnset($request->cnameFlatteningShrink)) {
-            $query['CnameFlattening'] = $request->cnameFlatteningShrink;
-        }
-        if (!Utils::isUnset($request->compressionRulesShrink)) {
-            $query['CompressionRules'] = $request->compressionRulesShrink;
-        }
-        if (!Utils::isUnset($request->crossBorderOptimizationShrink)) {
-            $query['CrossBorderOptimization'] = $request->crossBorderOptimizationShrink;
-        }
-        if (!Utils::isUnset($request->developmentModeShrink)) {
-            $query['DevelopmentMode'] = $request->developmentModeShrink;
-        }
-        if (!Utils::isUnset($request->httpRequestHeaderModificationRulesShrink)) {
-            $query['HttpRequestHeaderModificationRules'] = $request->httpRequestHeaderModificationRulesShrink;
-        }
-        if (!Utils::isUnset($request->httpResponseHeaderModificationRulesShrink)) {
-            $query['HttpResponseHeaderModificationRules'] = $request->httpResponseHeaderModificationRulesShrink;
-        }
-        if (!Utils::isUnset($request->httpsApplicationConfigurationShrink)) {
-            $query['HttpsApplicationConfiguration'] = $request->httpsApplicationConfigurationShrink;
-        }
-        if (!Utils::isUnset($request->httpsBasicConfigurationShrink)) {
-            $query['HttpsBasicConfiguration'] = $request->httpsBasicConfigurationShrink;
-        }
-        if (!Utils::isUnset($request->imageTransformShrink)) {
-            $query['ImageTransform'] = $request->imageTransformShrink;
-        }
-        if (!Utils::isUnset($request->ipv6Shrink)) {
-            $query['Ipv6'] = $request->ipv6Shrink;
-        }
-        if (!Utils::isUnset($request->managedTransformsShrink)) {
-            $query['ManagedTransforms'] = $request->managedTransformsShrink;
-        }
-        if (!Utils::isUnset($request->networkOptimizationShrink)) {
-            $query['NetworkOptimization'] = $request->networkOptimizationShrink;
-        }
-        if (!Utils::isUnset($request->originProtectionShrink)) {
-            $query['OriginProtection'] = $request->originProtectionShrink;
-        }
-        if (!Utils::isUnset($request->originRulesShrink)) {
-            $query['OriginRules'] = $request->originRulesShrink;
-        }
-        if (!Utils::isUnset($request->redirectRulesShrink)) {
-            $query['RedirectRules'] = $request->redirectRulesShrink;
-        }
-        if (!Utils::isUnset($request->rewriteUrlRulesShrink)) {
-            $query['RewriteUrlRules'] = $request->rewriteUrlRulesShrink;
-        }
-        if (!Utils::isUnset($request->seoBypassShrink)) {
-            $query['SeoBypass'] = $request->seoBypassShrink;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteNameExclusiveShrink)) {
-            $query['SiteNameExclusive'] = $request->siteNameExclusiveShrink;
-        }
-        if (!Utils::isUnset($request->sitePauseShrink)) {
-            $query['SitePause'] = $request->sitePauseShrink;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        if (!Utils::isUnset($request->tieredCacheShrink)) {
-            $query['TieredCache'] = $request->tieredCacheShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSiteFunction',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateSiteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Configures one or more feature settings for a website.
-     *  *
-     * @description This API operation is used the first time you configure feature settings for your website. To modify existing feature settings, call the UpdateSiteFunction operation.
-     *  *
-     * @param CreateSiteFunctionRequest $request CreateSiteFunctionRequest
-     *
-     * @return CreateSiteFunctionResponse CreateSiteFunctionResponse
-     */
-    public function createSiteFunction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createSiteFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -4400,56 +4199,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSiteDeliveryTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 删除站点配置
-     *  *
-     * @param DeleteSiteFunctionRequest $request DeleteSiteFunctionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteSiteFunctionResponse DeleteSiteFunctionResponse
-     */
-    public function deleteSiteFunctionWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configIds)) {
-            $query['ConfigIds'] = $request->configIds;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSiteFunction',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteSiteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 删除站点配置
-     *  *
-     * @param DeleteSiteFunctionRequest $request DeleteSiteFunctionRequest
-     *
-     * @return DeleteSiteFunctionResponse DeleteSiteFunctionResponse
-     */
-    public function deleteSiteFunction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteSiteFunctionWithOptions($request, $runtime);
     }
 
     /**
@@ -8225,50 +7974,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点配置
-     *  *
-     * @param ListSiteFunctionsRequest $request ListSiteFunctionsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListSiteFunctionsResponse ListSiteFunctionsResponse
-     */
-    public function listSiteFunctionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListSiteFunctions',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListSiteFunctionsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询站点配置
-     *  *
-     * @param ListSiteFunctionsRequest $request ListSiteFunctionsRequest
-     *
-     * @return ListSiteFunctionsResponse ListSiteFunctionsResponse
-     */
-    public function listSiteFunctions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listSiteFunctionsWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Queries the information about websites in your account, such as the name, status, and configuration of each website.
      *  *
      * @param ListSitesRequest $tmpReq  ListSitesRequest
@@ -10918,187 +10623,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSiteDeliveryTaskStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary 修改站点配置
-     *  *
-     * @param UpdateSiteFunctionRequest $tmpReq  UpdateSiteFunctionRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdateSiteFunctionResponse UpdateSiteFunctionResponse
-     */
-    public function updateSiteFunctionWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateSiteFunctionShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->cacheReserve)) {
-            $request->cacheReserveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheReserve, 'CacheReserve', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->cacheRules)) {
-            $request->cacheRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheRules, 'CacheRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->cacheTags)) {
-            $request->cacheTagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cacheTags, 'CacheTags', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->cnameFlattening)) {
-            $request->cnameFlatteningShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cnameFlattening, 'CnameFlattening', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->compressionRules)) {
-            $request->compressionRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->compressionRules, 'CompressionRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->crossBorderOptimization)) {
-            $request->crossBorderOptimizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->crossBorderOptimization, 'CrossBorderOptimization', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->developmentMode)) {
-            $request->developmentModeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->developmentMode, 'DevelopmentMode', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->httpRequestHeaderModificationRules)) {
-            $request->httpRequestHeaderModificationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpRequestHeaderModificationRules, 'HttpRequestHeaderModificationRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->httpResponseHeaderModificationRules)) {
-            $request->httpResponseHeaderModificationRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpResponseHeaderModificationRules, 'HttpResponseHeaderModificationRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->httpsApplicationConfiguration)) {
-            $request->httpsApplicationConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpsApplicationConfiguration, 'HttpsApplicationConfiguration', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->httpsBasicConfiguration)) {
-            $request->httpsBasicConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->httpsBasicConfiguration, 'HttpsBasicConfiguration', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->imageTransform)) {
-            $request->imageTransformShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imageTransform, 'ImageTransform', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->ipv6)) {
-            $request->ipv6Shrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ipv6, 'Ipv6', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->managedTransforms)) {
-            $request->managedTransformsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->managedTransforms, 'ManagedTransforms', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->networkOptimization)) {
-            $request->networkOptimizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networkOptimization, 'NetworkOptimization', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->originRules)) {
-            $request->originRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->originRules, 'OriginRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->redirectRules)) {
-            $request->redirectRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->redirectRules, 'RedirectRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->rewriteUrlRules)) {
-            $request->rewriteUrlRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rewriteUrlRules, 'RewriteUrlRules', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->seoBypass)) {
-            $request->seoBypassShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->seoBypass, 'SeoBypass', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->siteNameExclusive)) {
-            $request->siteNameExclusiveShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->siteNameExclusive, 'SiteNameExclusive', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->sitePause)) {
-            $request->sitePauseShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sitePause, 'SitePause', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tieredCache)) {
-            $request->tieredCacheShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tieredCache, 'TieredCache', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->cacheReserveShrink)) {
-            $query['CacheReserve'] = $request->cacheReserveShrink;
-        }
-        if (!Utils::isUnset($request->cacheRulesShrink)) {
-            $query['CacheRules'] = $request->cacheRulesShrink;
-        }
-        if (!Utils::isUnset($request->cacheTagsShrink)) {
-            $query['CacheTags'] = $request->cacheTagsShrink;
-        }
-        if (!Utils::isUnset($request->cnameFlatteningShrink)) {
-            $query['CnameFlattening'] = $request->cnameFlatteningShrink;
-        }
-        if (!Utils::isUnset($request->compressionRulesShrink)) {
-            $query['CompressionRules'] = $request->compressionRulesShrink;
-        }
-        if (!Utils::isUnset($request->crossBorderOptimizationShrink)) {
-            $query['CrossBorderOptimization'] = $request->crossBorderOptimizationShrink;
-        }
-        if (!Utils::isUnset($request->developmentModeShrink)) {
-            $query['DevelopmentMode'] = $request->developmentModeShrink;
-        }
-        if (!Utils::isUnset($request->httpRequestHeaderModificationRulesShrink)) {
-            $query['HttpRequestHeaderModificationRules'] = $request->httpRequestHeaderModificationRulesShrink;
-        }
-        if (!Utils::isUnset($request->httpResponseHeaderModificationRulesShrink)) {
-            $query['HttpResponseHeaderModificationRules'] = $request->httpResponseHeaderModificationRulesShrink;
-        }
-        if (!Utils::isUnset($request->httpsApplicationConfigurationShrink)) {
-            $query['HttpsApplicationConfiguration'] = $request->httpsApplicationConfigurationShrink;
-        }
-        if (!Utils::isUnset($request->httpsBasicConfigurationShrink)) {
-            $query['HttpsBasicConfiguration'] = $request->httpsBasicConfigurationShrink;
-        }
-        if (!Utils::isUnset($request->imageTransformShrink)) {
-            $query['ImageTransform'] = $request->imageTransformShrink;
-        }
-        if (!Utils::isUnset($request->ipv6Shrink)) {
-            $query['Ipv6'] = $request->ipv6Shrink;
-        }
-        if (!Utils::isUnset($request->managedTransformsShrink)) {
-            $query['ManagedTransforms'] = $request->managedTransformsShrink;
-        }
-        if (!Utils::isUnset($request->networkOptimizationShrink)) {
-            $query['NetworkOptimization'] = $request->networkOptimizationShrink;
-        }
-        if (!Utils::isUnset($request->originRulesShrink)) {
-            $query['OriginRules'] = $request->originRulesShrink;
-        }
-        if (!Utils::isUnset($request->redirectRulesShrink)) {
-            $query['RedirectRules'] = $request->redirectRulesShrink;
-        }
-        if (!Utils::isUnset($request->rewriteUrlRulesShrink)) {
-            $query['RewriteUrlRules'] = $request->rewriteUrlRulesShrink;
-        }
-        if (!Utils::isUnset($request->seoBypassShrink)) {
-            $query['SeoBypass'] = $request->seoBypassShrink;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteNameExclusiveShrink)) {
-            $query['SiteNameExclusive'] = $request->siteNameExclusiveShrink;
-        }
-        if (!Utils::isUnset($request->sitePauseShrink)) {
-            $query['SitePause'] = $request->sitePauseShrink;
-        }
-        if (!Utils::isUnset($request->tieredCacheShrink)) {
-            $query['TieredCache'] = $request->tieredCacheShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSiteFunction',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateSiteFunctionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 修改站点配置
-     *  *
-     * @param UpdateSiteFunctionRequest $request UpdateSiteFunctionRequest
-     *
-     * @return UpdateSiteFunctionResponse UpdateSiteFunctionResponse
-     */
-    public function updateSiteFunction($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateSiteFunctionWithOptions($request, $runtime);
     }
 
     /**

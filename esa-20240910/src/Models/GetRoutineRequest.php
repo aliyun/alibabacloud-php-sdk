@@ -11,6 +11,7 @@ class GetRoutineRequest extends Model
     /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example GetRoutine
      *
      * @var string

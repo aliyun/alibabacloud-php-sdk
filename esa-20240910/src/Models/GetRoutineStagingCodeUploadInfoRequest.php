@@ -20,6 +20,7 @@ class GetRoutineStagingCodeUploadInfoRequest extends Model
     /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example GetRoutineStagingCodeUploadInfo
      *
      * @var string

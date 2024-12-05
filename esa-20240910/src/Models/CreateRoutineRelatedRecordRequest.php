@@ -11,6 +11,7 @@ class CreateRoutineRelatedRecordRequest extends Model
     /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example CreateRoutineRelatedRecord
      *
      * @var string
@@ -20,6 +21,7 @@ class CreateRoutineRelatedRecordRequest extends Model
     /**
      * @description The record name.
      *
+     * This parameter is required.
      * @example test-record-1.example.com
      *
      * @var string
@@ -29,6 +31,7 @@ class CreateRoutineRelatedRecordRequest extends Model
     /**
      * @description The website ID.
      *
+     * This parameter is required.
      * @example 54362329990032
      *
      * @var int

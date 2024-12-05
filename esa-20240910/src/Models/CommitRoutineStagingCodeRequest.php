@@ -20,6 +20,7 @@ class CommitRoutineStagingCodeRequest extends Model
     /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example CommitRoutineStagingCode
      *
      * @var string

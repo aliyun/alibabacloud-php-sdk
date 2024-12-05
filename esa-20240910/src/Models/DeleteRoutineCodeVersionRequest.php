@@ -11,6 +11,7 @@ class DeleteRoutineCodeVersionRequest extends Model
     /**
      * @description The code version.
      *
+     * This parameter is required.
      * @example 1710120201067203242
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteRoutineCodeVersionRequest extends Model
     /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example test-routine1
      *
      * @var string

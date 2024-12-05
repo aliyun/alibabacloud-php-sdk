@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class relatedRoutes extends Model
 {
     /**
+     * @var string
+     */
+    public $byPass;
+
+    /**
      * @description The route.
      *
      * @example *.example.com/path1*
@@ -44,6 +49,7 @@ class relatedRoutes extends Model
      */
     public $siteName;
     protected $_name = [
+        'byPass'   => 'ByPass',
         'route'    => 'Route',
         'routeId'  => 'RouteId',
         'siteId'   => 'SiteId',
@@ -57,6 +63,9 @@ class relatedRoutes extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->byPass) {
+            $res['ByPass'] = $this->byPass;
+        }
         if (null !== $this->route) {
             $res['Route'] = $this->route;
         }
@@ -81,6 +90,9 @@ class relatedRoutes extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ByPass'])) {
+            $model->byPass = $map['ByPass'];
+        }
         if (isset($map['Route'])) {
             $model->route = $map['Route'];
         }

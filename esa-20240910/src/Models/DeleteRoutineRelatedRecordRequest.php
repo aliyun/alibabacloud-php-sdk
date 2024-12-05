@@ -11,6 +11,7 @@ class DeleteRoutineRelatedRecordRequest extends Model
     /**
      * @description The routine name.
      *
+     * This parameter is required.
      * @example DeleteRoutineRelatedRecord
      *
      * @var string
@@ -20,6 +21,7 @@ class DeleteRoutineRelatedRecordRequest extends Model
     /**
      * @description The record ID.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int
@@ -29,6 +31,7 @@ class DeleteRoutineRelatedRecordRequest extends Model
     /**
      * @description The record name.
      *
+     * This parameter is required.
      * @example test-xxx.example.com
      *
      * @var string
@@ -38,6 +41,7 @@ class DeleteRoutineRelatedRecordRequest extends Model
     /**
      * @description The website ID.
      *
+     * This parameter is required.
      * @example 12345
      *
      * @var int

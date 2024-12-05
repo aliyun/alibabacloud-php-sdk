@@ -20,6 +20,7 @@ class CreateRoutineRequest extends Model
     /**
      * @description The routine name, which must be unique in the same account.
      *
+     * This parameter is required.
      * @example test-routine1
      *
      * @var string
@@ -29,6 +30,7 @@ class CreateRoutineRequest extends Model
     /**
      * @description The specification of the routine.
      *
+     * This parameter is required.
      * @example 5ms
      *
      * @var string
