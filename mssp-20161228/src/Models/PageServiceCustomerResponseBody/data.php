@@ -9,56 +9,100 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Customer UID.
+     *
+     * @example 1667751131382856
+     *
      * @var string
      */
     public $aliuid;
 
     /**
+     * @description Authorization status.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $authStatus;
 
     /**
+     * @description Cloud Monitoring - Alert authorization status.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cmAuthStatus;
 
     /**
+     * @description End time. The format is a Unix timestamp, which is the number of milliseconds since January 1, 1970.
+     *
+     * @example 1710123149222
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description Customer level.
+     *
+     * @example GC1
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description Cloud Security - Alert authorization status.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $monitorAuthStatus;
 
     /**
+     * @description Customer name.
+     *
+     * @example 中国工程院
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Owner name.
+     *
+     * @example 常温
+     *
      * @var string
      */
     public $ownId;
 
     /**
+     * @description Start time. The format is a Unix timestamp, which is the number of milliseconds since January 1, 1970.
+     *
+     * @example 1710123149000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description Customer ID.
+     *
+     * @example 1667751131382856
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description Version information.
+     *
+     * @example 企业版
+     *
      * @var string
      */
     public $version;

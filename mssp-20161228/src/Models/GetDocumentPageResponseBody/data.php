@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Delivered by.
+     *
+     * @example 张三
+     *
      * @var string
      */
     public $deliveredBy;
 
     /**
+     * @description Report name.
+     *
+     * @example 季度报告
+     *
      * @var string
      */
     public $documentName;
 
     /**
+     * @description Service report type.
+     *
      * @example 3
      *
      * @var string
@@ -26,6 +36,8 @@ class data extends Model
     public $documentType;
 
     /**
+     * @description Document primary key ID.
+     *
      * @example 346409
      *
      * @var int
@@ -33,6 +45,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description Report generation time.
+     *
      * @example 2023-03-21 17:26:34
      *
      * @var string

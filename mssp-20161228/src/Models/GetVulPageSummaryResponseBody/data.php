@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Number of completed items.
+     *
      * @example 1990
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $completedCount;
 
     /**
+     * @description Number of items being handled.
+     *
      * @example 6
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $handingCount;
 
     /**
+     * @description Number of high-risk items.
+     *
      * @example 500
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $highCount;
 
     /**
+     * @description Number of low-risk items.
+     *
      * @example 1000
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $lowCount;
 
     /**
+     * @description Number of medium-risk items.
+     *
      * @example 500
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $mediumCount;
 
     /**
+     * @description Total number of items.
+     *
      * @example 2000
      *
      * @var int
@@ -51,6 +63,8 @@ class data extends Model
     public $totalCount;
 
     /**
+     * @description Number of unhandled items.
+     *
      * @example 4
      *
      * @var int

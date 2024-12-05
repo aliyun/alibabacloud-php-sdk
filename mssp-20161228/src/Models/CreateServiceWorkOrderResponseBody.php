@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceWorkOrderResponseBody extends Model
 {
     /**
+     * @description Interface status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateServiceWorkOrderResponseBody extends Model
     public $code;
 
     /**
+     * @description Data returned by the interface.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class CreateServiceWorkOrderResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The prompt message of the returned result.
+     *
      * @example successful
      *
      * @var string
@@ -36,8 +44,9 @@ class CreateServiceWorkOrderResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 7DC44321-7AAE-51CD-8E5F-CEB968569042
      *
      * @var string
@@ -45,6 +54,8 @@ class CreateServiceWorkOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful.
+     * - **true**: The call was successful. - **false**: The call failed.
      * @example true
      *
      * @var bool

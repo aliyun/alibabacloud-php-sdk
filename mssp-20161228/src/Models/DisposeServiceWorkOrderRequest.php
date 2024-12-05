@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DisposeServiceWorkOrderRequest extends Model
 {
     /**
+     * @description Attachment name.
+     *
+     * @example bbaa133c-0ac2-489f-9fc8-39f91c2e770c_20230301-20240403-服务工单列表.xlsx
+     *
      * @var string
      */
     public $attachmentName;
 
     /**
+     * @description End time.
+     *
      * @example 2024-04-14 00:00:00
      *
      * @var int
@@ -21,6 +27,8 @@ class DisposeServiceWorkOrderRequest extends Model
     public $endTime;
 
     /**
+     * @description Forward to owner.
+     *
      * @example 405639
      *
      * @var string
@@ -28,8 +36,9 @@ class DisposeServiceWorkOrderRequest extends Model
     public $forwardOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description Work order ID.
      *
+     * This parameter is required.
      * @example 23172
      *
      * @var int
@@ -37,6 +46,8 @@ class DisposeServiceWorkOrderRequest extends Model
     public $id;
 
     /**
+     * @description Attachment requirement.
+     *
      * @example Y
      *
      * @var string
@@ -44,6 +55,8 @@ class DisposeServiceWorkOrderRequest extends Model
     public $isAttachment;
 
     /**
+     * @description Work order notification.
+     *
      * @example Y
      *
      * @var string
@@ -51,6 +64,8 @@ class DisposeServiceWorkOrderRequest extends Model
     public $isWorkOrderNotify;
 
     /**
+     * @description Notification ID.
+     *
      * @example 10
      *
      * @var int
@@ -58,15 +73,19 @@ class DisposeServiceWorkOrderRequest extends Model
     public $notifyId;
 
     /**
-     * @description This parameter is required.
+     * @description Operation remarks.
+     *
+     * This parameter is required.
+     * @example 处理完成
      *
      * @var string
      */
     public $operateRemark;
 
     /**
-     * @description This parameter is required.
+     * @description Processing type.
      *
+     * This parameter is required.
      * @example PROCESSED
      *
      * @var string
@@ -74,8 +93,9 @@ class DisposeServiceWorkOrderRequest extends Model
     public $operateType;
 
     /**
-     * @description This parameter is required.
+     * @description Operator.
      *
+     * This parameter is required.
      * @example 396120
      *
      * @var string
@@ -83,6 +103,8 @@ class DisposeServiceWorkOrderRequest extends Model
     public $operator;
 
     /**
+     * @description Start time.
+     *
      * @example 2024-04-02 00:00:00
      *
      * @var int
@@ -90,6 +112,8 @@ class DisposeServiceWorkOrderRequest extends Model
     public $startTime;
 
     /**
+     * @description Upgrade owner.
+     *
      * @example 336333
      *
      * @var string
@@ -97,18 +121,27 @@ class DisposeServiceWorkOrderRequest extends Model
     public $upgradeOwnerId;
 
     /**
+     * @description Work order details.
+     *
+     * @example {"questionDetail":"测试工单","answerDetail":""}
+     *
      * @var string
      */
     public $workOrderDetail;
 
     /**
-     * @description This parameter is required.
+     * @description Work order name.
+     *
+     * This parameter is required.
+     * @example 安全产品配置问题与超量提醒
      *
      * @var string
      */
     public $workOrderName;
 
     /**
+     * @description Work order status.
+     *
      * @example PROCESSED
      *
      * @var string

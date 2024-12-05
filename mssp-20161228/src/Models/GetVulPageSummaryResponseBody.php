@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetVulPageSummaryResponseBody extends Model
 {
     /**
+     * @description Interface return code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetVulPageSummaryResponseBody extends Model
     public $code;
 
     /**
+     * @description Data query result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetVulPageSummaryResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Return message.
+     *
      * @example operation success
      *
      * @var string
@@ -36,8 +44,9 @@ class GetVulPageSummaryResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example A3A575C8-80F9-5F04-AA24-CCAC246884A3
      *
      * @var string
@@ -45,6 +54,8 @@ class GetVulPageSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

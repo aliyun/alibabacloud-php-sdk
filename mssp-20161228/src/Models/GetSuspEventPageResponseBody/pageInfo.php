@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The current page number in pagination queries.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
+     * @description The number of items displayed per page in the returned data.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
+     * @description Total number of query results.
+     *
      * @example 100
      *
      * @var int

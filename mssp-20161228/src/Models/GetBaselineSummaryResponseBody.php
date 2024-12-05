@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineSummaryResponseBody extends Model
 {
     /**
+     * @description Interface response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetBaselineSummaryResponseBody extends Model
     public $code;
 
     /**
+     * @description Data returned by the interface.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetBaselineSummaryResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Prompt message for the returned result.
+     *
      * @example successful
      *
      * @var string
@@ -36,8 +44,9 @@ class GetBaselineSummaryResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 67D61738-5E38-5164-947A-34E3850D493A
      *
      * @var string
@@ -45,6 +54,8 @@ class GetBaselineSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful. Values: true: success; false: failure.
+     *
      * @example true
      *
      * @var bool

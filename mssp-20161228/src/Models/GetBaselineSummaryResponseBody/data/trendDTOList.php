@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class trendDTOList extends Model
 {
     /**
+     * @description Date point.
+     *
+     * @example 202408或者20240801
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description Number of processed items.
+     *
      * @example 10
      *
      * @var int
@@ -21,6 +27,8 @@ class trendDTOList extends Model
     public $dealCount;
 
     /**
+     * @description Number of discovered items.
+     *
      * @example 12
      *
      * @var int

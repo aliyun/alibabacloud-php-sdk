@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Number of documents.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $documentCount;
 
     /**
+     * @description Number of services or days.
+     *
      * @example 10
      *
      * @var int

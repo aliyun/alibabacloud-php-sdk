@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Network attack trend.
+     *
      * @var networkAttackTrendDTO
      */
     public $networkAttackTrendDTO;
 
     /**
+     * @description Overview of alert handling.
+     *
      * @var suspEventDealSummaryDTO
      */
     public $suspEventDealSummaryDTO;
 
     /**
+     * @description Top 10 alerts before handling.
+     *
      * @var suspEventTopDTO
      */
     public $suspEventTopDTO;
 
     /**
+     * @description Trend of alert responses.
+     *
      * @var suspEventTrendDTO
      */
     public $suspEventTrendDTO;

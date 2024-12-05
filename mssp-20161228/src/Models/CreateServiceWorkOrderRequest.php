@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceWorkOrderRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Creator.
      *
+     * This parameter is required.
      * @example 426556
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateServiceWorkOrderRequest extends Model
     public $creator;
 
     /**
-     * @description This parameter is required.
+     * @description Customer ID.
      *
+     * This parameter is required.
      * @example 1477832102462645
      *
      * @var string
@@ -27,8 +29,9 @@ class CreateServiceWorkOrderRequest extends Model
     public $customerId;
 
     /**
-     * @description This parameter is required.
+     * @description Duration in days.
      *
+     * This parameter is required.
      * @example 5
      *
      * @var string
@@ -36,8 +39,9 @@ class CreateServiceWorkOrderRequest extends Model
     public $durationDay;
 
     /**
-     * @description This parameter is required.
+     * @description Attachment requirement.
      *
+     * This parameter is required.
      * @example Y
      *
      * @var string
@@ -45,8 +49,9 @@ class CreateServiceWorkOrderRequest extends Model
     public $isAttachment;
 
     /**
-     * @description This parameter is required.
+     * @description Whether a reminder is needed.
      *
+     * This parameter is required.
      * @example Y
      *
      * @var string
@@ -54,6 +59,8 @@ class CreateServiceWorkOrderRequest extends Model
     public $isWorkOrderNotify;
 
     /**
+     * @description Number of days for advance notification.
+     *
      * @example 5
      *
      * @var string
@@ -61,6 +68,8 @@ class CreateServiceWorkOrderRequest extends Model
     public $notifyDay;
 
     /**
+     * @description Notification ID.
+     *
      * @example 10
      *
      * @var int
@@ -68,15 +77,19 @@ class CreateServiceWorkOrderRequest extends Model
     public $notifyId;
 
     /**
-     * @description This parameter is required.
+     * @description Operation remarks.
+     *
+     * This parameter is required.
+     * @example 新建
      *
      * @var string
      */
     public $operateRemark;
 
     /**
-     * @description This parameter is required.
+     * @description Operation type.
      *
+     * This parameter is required.
      * @example CREATE
      *
      * @var string
@@ -84,8 +97,9 @@ class CreateServiceWorkOrderRequest extends Model
     public $operateType;
 
     /**
-     * @description This parameter is required.
+     * @description Operator.
      *
+     * This parameter is required.
      * @example 426556
      *
      * @var string
@@ -100,8 +114,9 @@ class CreateServiceWorkOrderRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description Start time.
      *
+     * This parameter is required.
      * @example 2021-01-21 15:25:25
      *
      * @var int
@@ -109,29 +124,39 @@ class CreateServiceWorkOrderRequest extends Model
     public $startTime;
 
     /**
-     * @description This parameter is required.
+     * @description Work order details.
+     *
+     * This parameter is required.
+     * @example {"questionDetail":"测试工单","answerDetail":""}
      *
      * @var string
      */
     public $workOrderDetail;
 
     /**
-     * @description This parameter is required.
+     * @description Work order name.
+     *
+     * This parameter is required.
+     * @example 安全月报交付任务
      *
      * @var string
      */
     public $workOrderName;
 
     /**
-     * @description This parameter is required.
+     * @description Work order source.
+     *
+     * This parameter is required.
+     * @example 工单迁移
      *
      * @var string
      */
     public $workOrderSource;
 
     /**
-     * @description This parameter is required.
+     * @description Work order status.
      *
+     * This parameter is required.
      * @example UNPROCESSED
      *
      * @var string
@@ -139,8 +164,9 @@ class CreateServiceWorkOrderRequest extends Model
     public $workOrderStatus;
 
     /**
-     * @description This parameter is required.
+     * @description Work order type.
      *
+     * This parameter is required.
      * @example MONTH_REPORT
      *
      * @var string

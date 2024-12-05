@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SendCustomEventResponseBody extends Model
 {
     /**
+     * @description Interface response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class SendCustomEventResponseBody extends Model
     public $code;
 
     /**
+     * @description Interface return data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class SendCustomEventResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Return message. When the request is successful, it returns a success message; when the request fails, it returns the reason for the failure.
+     *
      * @example successful
      *
      * @var string
@@ -36,8 +44,9 @@ class SendCustomEventResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 606EB377-155D-5AEB-AC4F-F013444A4C45
      *
      * @var string
@@ -45,6 +54,9 @@ class SendCustomEventResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful.
+     *
+     * - false: Call failed.
      * @example true
      *
      * @var bool

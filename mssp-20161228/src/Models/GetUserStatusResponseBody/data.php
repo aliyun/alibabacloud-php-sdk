@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Customer type.
+     *
      * @example official
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $customerType;
 
     /**
+     * @description End date.
+     *
      * @example 2023-09-28 00:00:00
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $endDate;
 
     /**
+     * @description Instance ID.
+     *
      * @example 726cec3c-4887-4354-8c21-c0ad12e10fc2
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description Start date.
+     *
      * @example 2023-09-20 00:00:00
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $startDate;
 
     /**
+     * @description Status.
+     *
      * @example FirstLogin
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description Version.
+     *
      * @example mdrjichu
      *
      * @var string

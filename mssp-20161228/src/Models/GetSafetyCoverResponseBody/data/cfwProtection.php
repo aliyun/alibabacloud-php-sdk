@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cfwProtection extends Model
 {
     /**
+     * @description Number of unprotected items.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class cfwProtection extends Model
     public $noProtectionCount;
 
     /**
+     * @description Number of protected items.
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +27,8 @@ class cfwProtection extends Model
     public $protectionCount;
 
     /**
+     * @description Year-over-year protection rate.
+     *
      * @example 35.00
      *
      * @var string
@@ -30,6 +36,8 @@ class cfwProtection extends Model
     public $protectionGrowthRate;
 
     /**
+     * @description Protection rate.
+     *
      * @example 50.00
      *
      * @var string
@@ -37,6 +45,8 @@ class cfwProtection extends Model
     public $protectionRate;
 
     /**
+     * @description Total quantity.
+     *
      * @example 10
      *
      * @var int

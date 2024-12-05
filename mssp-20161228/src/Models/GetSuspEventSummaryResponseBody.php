@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSuspEventSummaryResponseBody extends Model
 {
     /**
+     * @description API response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetSuspEventSummaryResponseBody extends Model
     public $code;
 
     /**
+     * @description Data returned by the interface.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetSuspEventSummaryResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Prompt message for the returned result.
+     *
      * @example Successful!
      *
      * @var string
@@ -36,8 +44,9 @@ class GetSuspEventSummaryResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 9B2DAE9B-B901-5818-AFEF-E5637D938280
      *
      * @var string
@@ -45,6 +54,8 @@ class GetSuspEventSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful.
+     * - false: Call failed.
      * @example true
      *
      * @var bool

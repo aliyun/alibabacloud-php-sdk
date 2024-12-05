@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetVulItemPageRequest extends Model
 {
     /**
+     * @description Vulnerability alias.
+     *
      * @example RHSA-2018:3665-Important: NetworkManager security update
      *
      * @var string
@@ -16,8 +18,9 @@ class GetVulItemPageRequest extends Model
     public $aliasName;
 
     /**
-     * @description This parameter is required.
+     * @description Current page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class GetVulItemPageRequest extends Model
     public $currentPage;
 
     /**
+     * @description Processing status. y: processed; n: unprocessed; h: processing.
+     *
      * @example n
      *
      * @var string
@@ -32,6 +37,8 @@ class GetVulItemPageRequest extends Model
     public $dealed;
 
     /**
+     * @description Risk level.
+     *
      * @example later
      *
      * @var string
@@ -39,6 +46,8 @@ class GetVulItemPageRequest extends Model
     public $level;
 
     /**
+     * @description Vulnerability name.
+     *
      * @example oval:com.redhat.rhsa:def:20183665
      *
      * @var string
@@ -46,8 +55,9 @@ class GetVulItemPageRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description Number of items to display per page in the returned data.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -55,6 +65,8 @@ class GetVulItemPageRequest extends Model
     public $pageSize;
 
     /**
+     * @description Vulnerability type.
+     *
      * @example sca
      *
      * @var string

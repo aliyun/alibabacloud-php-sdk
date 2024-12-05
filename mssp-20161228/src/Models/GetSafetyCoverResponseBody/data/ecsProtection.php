@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ecsProtection extends Model
 {
     /**
+     * @description Number of unprotected items.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class ecsProtection extends Model
     public $noProtectionCount;
 
     /**
+     * @description Number of protected items.
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +27,8 @@ class ecsProtection extends Model
     public $protectionCount;
 
     /**
+     * @description Year-over-year growth in protection rate.
+     *
      * @example 35.00
      *
      * @var string
@@ -30,6 +36,8 @@ class ecsProtection extends Model
     public $protectionGrowthRate;
 
     /**
+     * @description Protection rate.
+     *
      * @example 50.00
      *
      * @var string
@@ -37,6 +45,8 @@ class ecsProtection extends Model
     public $protectionRate;
 
     /**
+     * @description Total number of items.
+     *
      * @example 10
      *
      * @var int

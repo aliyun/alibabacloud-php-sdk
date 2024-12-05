@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeServiceWorkOrderRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeServiceWorkOrderResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeWorkTaskRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeWorkTaskResponse;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAlarmDetailByIdRequest;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAlarmDetailByIdResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAttackedAssetDealRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAttackedAssetDealResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetBaselineSummaryRequest;
@@ -28,6 +30,8 @@ use AlibabaCloud\SDK\Mssp\V20161228\Models\GetRecentDocumentRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetRecentDocumentResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSafetyCoverRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSafetyCoverResponse;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSowListRequest;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSowListResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSuspEventPageRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSuspEventPageResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSuspEventSummaryRequest;
@@ -36,6 +40,8 @@ use AlibabaCloud\SDK\Mssp\V20161228\Models\GetSuspPageSummaryResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetUserStatusResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetVulItemPageRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetVulItemPageResponse;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\GetVulListByIdRequest;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\GetVulListByIdResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetVulPageSummaryResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetVulSummaryRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetVulSummaryResponse;
@@ -85,7 +91,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 创建服务工单
+     * @summary Create Service Work Order
      *  *
      * @param CreateServiceWorkOrderRequest $request CreateServiceWorkOrderRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -166,7 +172,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 创建服务工单
+     * @summary Create Service Work Order
      *  *
      * @param CreateServiceWorkOrderRequest $request CreateServiceWorkOrderRequest
      *
@@ -180,7 +186,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 处理服务工单
+     * @summary Process Service Work Order
      *  *
      * @param DisposeServiceWorkOrderRequest $request DisposeServiceWorkOrderRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -255,7 +261,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 处理服务工单
+     * @summary Process Service Work Order
      *  *
      * @param DisposeServiceWorkOrderRequest $request DisposeServiceWorkOrderRequest
      *
@@ -269,7 +275,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 处理告警工单
+     * @summary Handle Alert Work Order
      *  *
      * @param DisposeWorkTaskRequest $request DisposeWorkTaskRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -311,7 +317,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 处理告警工单
+     * @summary Handle Alert Work Order
      *  *
      * @param DisposeWorkTaskRequest $request DisposeWorkTaskRequest
      *
@@ -325,7 +331,54 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 被攻击资产收敛趋势
+     * @summary 告警详情查询
+     *  *
+     * @param GetAlarmDetailByIdRequest $request GetAlarmDetailByIdRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAlarmDetailByIdResponse GetAlarmDetailByIdResponse
+     */
+    public function getAlarmDetailByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAlarmDetailById',
+            'version'     => '2016-12-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAlarmDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 告警详情查询
+     *  *
+     * @param GetAlarmDetailByIdRequest $request GetAlarmDetailByIdRequest
+     *
+     * @return GetAlarmDetailByIdResponse GetAlarmDetailByIdResponse
+     */
+    public function getAlarmDetailById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAlarmDetailByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Trend of Attacked Asset Convergence
      *  *
      * @param GetAttackedAssetDealRequest $request GetAttackedAssetDealRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -367,7 +420,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 被攻击资产收敛趋势
+     * @summary Trend of Attacked Asset Convergence
      *  *
      * @param GetAttackedAssetDealRequest $request GetAttackedAssetDealRequest
      *
@@ -381,7 +434,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 合规风险收敛趋势
+     * @summary Compliance Risk Convergence Trend
      *  *
      * @param GetBaselineSummaryRequest $request GetBaselineSummaryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -423,7 +476,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 合规风险收敛趋势
+     * @summary Compliance Risk Convergence Trend
      *  *
      * @param GetBaselineSummaryRequest $request GetBaselineSummaryRequest
      *
@@ -437,7 +490,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 查询风险详情
+     * @summary Query Risk Details
      *  *
      * @param GetDetailByIdRequest $request GetDetailByIdRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -470,7 +523,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 查询风险详情
+     * @summary Query Risk Details
      *  *
      * @param GetDetailByIdRequest $request GetDetailByIdRequest
      *
@@ -484,7 +537,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 服务报告单个下载
+     * @summary Single Service Report Download
      *  *
      * @param GetDocumentDownloadUrlRequest $request GetDocumentDownloadUrlRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -517,7 +570,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 服务报告单个下载
+     * @summary Single Service Report Download
      *  *
      * @param GetDocumentDownloadUrlRequest $request GetDocumentDownloadUrlRequest
      *
@@ -531,7 +584,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 服务报告查询
+     * @summary Service Report Query
      *  *
      * @param GetDocumentPageRequest $request GetDocumentPageRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -579,7 +632,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 服务报告查询
+     * @summary Service Report Query
      *  *
      * @param GetDocumentPageRequest $request GetDocumentPageRequest
      *
@@ -593,7 +646,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 服务报告首页统计项获取
+     * @summary Service Report Home Page Statistics Acquisition
      *  *
      * @param GetDocumentSummaryRequest $request GetDocumentSummaryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -626,7 +679,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 服务报告首页统计项获取
+     * @summary Service Report Home Page Statistics Acquisition
      *  *
      * @param GetDocumentSummaryRequest $request GetDocumentSummaryRequest
      *
@@ -640,7 +693,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到最近上传的服务报告
+     * @summary Get Recently Uploaded Service Reports
      *  *
      * @param GetRecentDocumentRequest $request GetRecentDocumentRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -682,7 +735,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到最近上传的服务报告
+     * @summary Get Recently Uploaded Service Reports
      *  *
      * @param GetRecentDocumentRequest $request GetRecentDocumentRequest
      *
@@ -696,7 +749,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到安全防护覆盖度
+     * @summary Get Safety Coverage
      *  *
      * @param GetSafetyCoverRequest $request GetSafetyCoverRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -738,7 +791,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到安全防护覆盖度
+     * @summary Get Safety Coverage
      *  *
      * @param GetSafetyCoverRequest $request GetSafetyCoverRequest
      *
@@ -752,7 +805,63 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 告警处置查询
+     * @summary Get SOW List
+     *  *
+     * @param GetSowListRequest $request GetSowListRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSowListResponse GetSowListResponse
+     */
+    public function getSowListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dateType)) {
+            $body['DateType'] = $request->dateType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->suspEventSource)) {
+            $body['SuspEventSource'] = $request->suspEventSource;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSowList',
+            'version'     => '2016-12-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSowListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Get SOW List
+     *  *
+     * @param GetSowListRequest $request GetSowListRequest
+     *
+     * @return GetSowListResponse GetSowListResponse
+     */
+    public function getSowList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSowListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Alarm Disposal Query
      *  *
      * @param GetSuspEventPageRequest $request GetSuspEventPageRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -800,7 +909,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 告警处置查询
+     * @summary Alarm Disposal Query
      *  *
      * @param GetSuspEventPageRequest $request GetSuspEventPageRequest
      *
@@ -814,7 +923,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到告警的统计项
+     * @summary Get Alert Statistics
      *  *
      * @param GetSuspEventSummaryRequest $request GetSuspEventSummaryRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -856,7 +965,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到告警的统计项
+     * @summary Get Alert Statistics
      *  *
      * @param GetSuspEventSummaryRequest $request GetSuspEventSummaryRequest
      *
@@ -870,7 +979,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 告警页统计
+     * @summary Alarm Page Statistics
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -895,7 +1004,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 告警页统计
+     * @summary Alarm Page Statistics
      *  *
      * @return GetSuspPageSummaryResponse GetSuspPageSummaryResponse
      */
@@ -907,7 +1016,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户开通状态
+     * @summary Query User Activation Status
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -932,7 +1041,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户开通状态
+     * @summary Query User Activation Status
      *  *
      * @return GetUserStatusResponse GetUserStatusResponse
      */
@@ -944,7 +1053,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 风险查询
+     * @summary Risk Query
      *  *
      * @param GetVulItemPageRequest $request GetVulItemPageRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -995,7 +1104,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 风险查询
+     * @summary Risk Query
      *  *
      * @param GetVulItemPageRequest $request GetVulItemPageRequest
      *
@@ -1009,7 +1118,72 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 风险页统计
+     * @summary Query processed details
+     *  *
+     * @param GetVulListByIdRequest $request GetVulListByIdRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetVulListByIdResponse GetVulListByIdResponse
+     */
+    public function getVulListByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $body['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->dealed)) {
+            $body['Dealed'] = $request->dealed;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->necessity)) {
+            $body['Necessity'] = $request->necessity;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $body['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->uuids)) {
+            $body['Uuids'] = $request->uuids;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVulListById',
+            'version'     => '2016-12-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVulListByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Query processed details
+     *  *
+     * @param GetVulListByIdRequest $request GetVulListByIdRequest
+     *
+     * @return GetVulListByIdResponse GetVulListByIdResponse
+     */
+    public function getVulListById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVulListByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Risk Page Statistics
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -1034,7 +1208,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 风险页统计
+     * @summary Risk Page Statistics
      *  *
      * @return GetVulPageSummaryResponse GetVulPageSummaryResponse
      */
@@ -1046,7 +1220,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到风险的统计项
+     * @summary Get Risk Statistics
      *  *
      * @param GetVulSummaryRequest $request GetVulSummaryRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1088,7 +1262,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到风险的统计项
+     * @summary Get Risk Statistics
      *  *
      * @param GetVulSummaryRequest $request GetVulSummaryRequest
      *
@@ -1102,7 +1276,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到首行工单的统计项
+     * @summary Get the First Line Work Order Statistics
      *  *
      * @param GetWorkTaskSummaryRequest $request GetWorkTaskSummaryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1144,7 +1318,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 得到首行工单的统计项
+     * @summary Get the First Line Work Order Statistics
      *  *
      * @param GetWorkTaskSummaryRequest $request GetWorkTaskSummaryRequest
      *
@@ -1158,7 +1332,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 服务客户信息查询
+     * @summary Service Customer Information Query
      *  *
      * @param PageServiceCustomerRequest $request PageServiceCustomerRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1209,7 +1383,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 服务客户信息查询
+     * @summary Service Customer Information Query
      *  *
      * @param PageServiceCustomerRequest $request PageServiceCustomerRequest
      *
@@ -1223,7 +1397,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 发送自定义告警事件
+     * @summary Send Custom Alert Event
      *  *
      * @param SendCustomEventRequest $request SendCustomEventRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1301,7 +1475,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 发送自定义告警事件
+     * @summary Send Custom Alert Event
      *  *
      * @param SendCustomEventRequest $request SendCustomEventRequest
      *

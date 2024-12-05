@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class trendList extends Model
 {
     /**
+     * @description Time point.
+     *
+     * @example 202407或者20240701
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description Number of handled items.
+     *
      * @example 10
      *
      * @var int
@@ -21,6 +27,8 @@ class trendList extends Model
     public $dealCount;
 
     /**
+     * @description Number of discovered items.
+     *
      * @example 15
      *
      * @var int

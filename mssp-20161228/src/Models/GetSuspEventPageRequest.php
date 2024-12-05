@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSuspEventPageRequest extends Model
 {
     /**
+     * @description Alarm end time.
+     *
      * @example 1732515522000
      *
      * @var int
@@ -16,6 +18,8 @@ class GetSuspEventPageRequest extends Model
     public $alarmEndTime;
 
     /**
+     * @description Alarm start time.
+     *
      * @example 1722515522000
      *
      * @var int
@@ -23,8 +27,9 @@ class GetSuspEventPageRequest extends Model
     public $alarmStartTime;
 
     /**
-     * @description This parameter is required.
+     * @description Current page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -32,8 +37,9 @@ class GetSuspEventPageRequest extends Model
     public $currentPage;
 
     /**
-     * @description This parameter is required.
+     * @description Number of items per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -41,6 +47,8 @@ class GetSuspEventPageRequest extends Model
     public $pageSize;
 
     /**
+     * @description Alarm source.
+     *
      * @example SUSP_EVENT
      *
      * @var string
@@ -48,6 +56,8 @@ class GetSuspEventPageRequest extends Model
     public $source;
 
     /**
+     * @description Disposal status.
+     *
      * @example 1
      *
      * @var int

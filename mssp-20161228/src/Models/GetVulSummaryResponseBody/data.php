@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Number of completed items.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $completedCount;
 
     /**
+     * @description Risk convergence rate.
+     *
      * @example 50
      *
      * @var string
@@ -24,11 +28,15 @@ class data extends Model
     public $dealRate;
 
     /**
+     * @description Collection of vulnerability trend nodes.
+     *
      * @var trendList[]
      */
     public $trendList;
 
     /**
+     * @description Number of unhandled items.
+     *
      * @example 5
      *
      * @var int

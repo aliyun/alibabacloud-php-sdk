@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Collection of attacked asset convergence trends.
+     *
      * @var ecsTrendList[]
      */
     public $ecsTrendList;

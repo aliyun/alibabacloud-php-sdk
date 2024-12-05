@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class suspEventDealSummaryDTO extends Model
 {
     /**
+     * @description Completed.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class suspEventDealSummaryDTO extends Model
     public $completedCount;
 
     /**
+     * @description In progress.
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +27,8 @@ class suspEventDealSummaryDTO extends Model
     public $handingCount;
 
     /**
+     * @description Alert handling rate.
+     *
      * @example 90
      *
      * @var string
@@ -30,6 +36,8 @@ class suspEventDealSummaryDTO extends Model
     public $handingRate;
 
     /**
+     * @description Total number of alerts.
+     *
      * @example 35
      *
      * @var int
@@ -37,6 +45,8 @@ class suspEventDealSummaryDTO extends Model
     public $totalCount;
 
     /**
+     * @description Year-over-year comparison of alerts.
+     *
      * @example 10
      *
      * @var string
@@ -44,6 +54,8 @@ class suspEventDealSummaryDTO extends Model
     public $totalGrowthRate;
 
     /**
+     * @description Number of unhandled alerts.
+     *
      * @example 10
      *
      * @var int

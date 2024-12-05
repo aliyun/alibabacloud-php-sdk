@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetAttackedAssetDealResponseBody extends Model
 {
     /**
+     * @description Interface return code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetAttackedAssetDealResponseBody extends Model
     public $code;
 
     /**
+     * @description Data query result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetAttackedAssetDealResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Return message.
+     *
      * @example successful
      *
      * @var string
@@ -36,8 +44,9 @@ class GetAttackedAssetDealResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 1E74F11C-B4A8-5774-962C-02003BA8504E
      *
      * @var string
@@ -45,6 +54,11 @@ class GetAttackedAssetDealResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the query was successful.<br />
+     **Enum values:**
+     * true: Success.
+     * false: Failure.
+     *
      * @example true
      *
      * @var bool

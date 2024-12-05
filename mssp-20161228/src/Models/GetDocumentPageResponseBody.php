@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetDocumentPageResponseBody extends Model
 {
     /**
+     * @description Interface response code.
+     *
      * @example 200
      *
      * @var string
@@ -18,11 +20,15 @@ class GetDocumentPageResponseBody extends Model
     public $code;
 
     /**
+     * @description Response data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class GetDocumentPageResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Prompt message for the response result.
+     *
      * @example successful
      *
      * @var string
@@ -37,13 +45,16 @@ class GetDocumentPageResponseBody extends Model
     public $message;
 
     /**
+     * @description Pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 04DAD7B4-E1DA-5C2C-8E5C-A1EDC880CF60
      *
      * @var string
@@ -51,6 +62,8 @@ class GetDocumentPageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

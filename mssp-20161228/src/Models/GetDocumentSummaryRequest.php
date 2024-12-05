@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDocumentSummaryRequest extends Model
 {
     /**
+     * @description Type of service report.
+     *
      * @example 1
      *
      * @var string

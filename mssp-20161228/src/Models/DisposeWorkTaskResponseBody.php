@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisposeWorkTaskResponseBody extends Model
 {
     /**
+     * @description Interface response code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DisposeWorkTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class DisposeWorkTaskResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Prompt message of the returned result.
+     *
      * @example Success.
      *
      * @var string
@@ -30,8 +36,9 @@ class DisposeWorkTaskResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 86786E4C-6416-55CF-9AB6-5E275B68801D
      *
      * @var string
@@ -39,6 +46,8 @@ class DisposeWorkTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

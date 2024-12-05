@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class suspEventTopDTO extends Model
 {
     /**
+     * @description Top 10 before handling alarms
+     *
      * @var suspEventList[]
      */
     public $suspEventList;

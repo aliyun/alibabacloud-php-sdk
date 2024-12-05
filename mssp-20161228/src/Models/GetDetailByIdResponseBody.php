@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDetailByIdResponseBody extends Model
 {
     /**
+     * @description Interface return code.
+     *
      * @example 404
      *
      * @var string
@@ -17,11 +19,15 @@ class GetDetailByIdResponseBody extends Model
     public $code;
 
     /**
+     * @description Data query result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetDetailByIdResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Return message.
+     *
      * @example success
      *
      * @var string
@@ -36,8 +44,9 @@ class GetDetailByIdResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example DAB46EC5-3746-59C4-B6D2-469F442EC73F
      *
      * @var string
@@ -45,6 +54,8 @@ class GetDetailByIdResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Values: - **true**: indicates a successful call. - **false**: indicates a failed call.
+     *
      * @example true
      *
      * @var bool

@@ -10,34 +10,55 @@ use AlibabaCloud\Tea\Model;
 class GetSuspPageSummaryResponseBody extends Model
 {
     /**
+     * @description Interface response code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Data returned by the interface.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description Prompt message for the result returned.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @description Request ID.
      *
      * This parameter is required.
+     * @example EF801DD1-D934-51B3-92D4-776CE17B184F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     * - **true**: Call succeeded.
+     * - **false**: Call failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;

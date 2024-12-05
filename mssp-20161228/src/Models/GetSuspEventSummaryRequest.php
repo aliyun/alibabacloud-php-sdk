@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetSuspEventSummaryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Filter time type. Supports filtering by the last 7 days, the last 30 days, the last half year, or custom time ranges.
      *
+     * This parameter is required.
      * @example month
      *
      * @var string
@@ -18,8 +19,9 @@ class GetSuspEventSummaryRequest extends Model
     public $dateType;
 
     /**
-     * @description This parameter is required.
+     * @description End time.
      *
+     * This parameter is required.
      * @example 1732156885986
      *
      * @var int
@@ -27,8 +29,9 @@ class GetSuspEventSummaryRequest extends Model
     public $endDate;
 
     /**
-     * @description This parameter is required.
+     * @description Start time.
      *
+     * This parameter is required.
      * @example 1729478485000
      *
      * @var int
@@ -36,6 +39,8 @@ class GetSuspEventSummaryRequest extends Model
     public $startDate;
 
     /**
+     * @description Alert event source.
+     *
      * @example SUSP_EVENT
      *
      * @var string

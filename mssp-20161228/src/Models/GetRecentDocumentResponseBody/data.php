@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Primary key ID.
+     *
      * @example 360491
      *
      * @var int
@@ -16,11 +18,17 @@ class data extends Model
     public $id;
 
     /**
+     * @description Document name
+     *
+     * @example 文档名称测试
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Upload time.
+     *
      * @example 2023-03-20 14:30:38
      *
      * @var string

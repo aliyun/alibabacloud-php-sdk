@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Vulnerability details.
+     *
      * @var vulDetails[]
      */
     public $vulDetails;

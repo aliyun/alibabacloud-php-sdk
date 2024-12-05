@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class suspEventTrendDTO extends Model
 {
     /**
+     * @description Trend of alerts.
+     *
      * @var trendList[]
      */
     public $trendList;

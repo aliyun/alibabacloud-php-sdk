@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetRecentDocumentResponseBody extends Model
 {
     /**
+     * @description Interface response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetRecentDocumentResponseBody extends Model
     public $code;
 
     /**
+     * @description Data returned by the interface.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetRecentDocumentResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Response message.
+     *
      * @example successful
      *
      * @var string
@@ -36,8 +44,9 @@ class GetRecentDocumentResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 4916FA8D-F294-518D-B373-8B59D63CAB19
      *
      * @var string
@@ -45,6 +54,8 @@ class GetRecentDocumentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful. - **true**: The call was successful. - **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDetailByIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Primary key ID.
      *
+     * This parameter is required.
      * @example 22
      *
      * @var int

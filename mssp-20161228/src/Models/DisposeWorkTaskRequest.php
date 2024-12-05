@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DisposeWorkTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Operator.
      *
+     * This parameter is required.
      * @example WB01089929
      *
      * @var string
@@ -18,15 +19,19 @@ class DisposeWorkTaskRequest extends Model
     public $operator;
 
     /**
-     * @description This parameter is required.
+     * @description Operation remarks.
+     *
+     * This parameter is required.
+     * @example 处理完成
      *
      * @var string
      */
     public $optRemark;
 
     /**
-     * @description This parameter is required.
+     * @description Work order status.
      *
+     * This parameter is required.
      * @example 8
      *
      * @var int
@@ -34,8 +39,9 @@ class DisposeWorkTaskRequest extends Model
     public $status;
 
     /**
-     * @description This parameter is required.
+     * @description Work order ID, multiple IDs separated by commas.
      *
+     * This parameter is required.
      * @example 10310
      *
      * @var string

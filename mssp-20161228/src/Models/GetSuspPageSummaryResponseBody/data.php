@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Number of completed items.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $completedCount;
 
     /**
+     * @description Number of items being processed.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $handingCount;
 
     /**
+     * @description Number of high-risk items.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $highCount;
 
     /**
+     * @description Number of low-risk items.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $lowCount;
 
     /**
+     * @description Number of medium-risk items.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $mediumCount;
 
     /**
+     * @description Total number of items.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description Number of unhandled items.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $waitHandleCount;

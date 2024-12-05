@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Collection of baseline statistical data.
+     *
      * @var trendDTOList[]
      */
     public $trendDTOList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vulDetails extends Model
 {
     /**
+     * @description CVE ID.
+     *
      * @example CVE-2022-21291
      *
      * @var string
@@ -16,6 +18,8 @@ class vulDetails extends Model
     public $cveId;
 
     /**
+     * @description The CVSS score of the vulnerability in the Alibaba Cloud vulnerability database.
+     *
      * @example 10.0
      *
      * @var string
@@ -23,6 +27,8 @@ class vulDetails extends Model
     public $cvssScore;
 
     /**
+     * @description Fix suggestion.
+     *
      * @example https://avd.aliyun.com/detail/CVE-2022-21291
      *
      * @var string
@@ -30,6 +36,8 @@ class vulDetails extends Model
     public $fixSuggestion;
 
     /**
+     * @description Title of the vulnerability announcement.
+     *
      * @example Chanjet T-Plus SetupAccount/Upload. Aspx file upload vulnerability(CNVD-2022-60632)
      *
      * @var string

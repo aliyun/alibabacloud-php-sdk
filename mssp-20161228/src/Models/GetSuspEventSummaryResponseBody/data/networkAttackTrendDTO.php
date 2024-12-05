@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class networkAttackTrendDTO extends Model
 {
     /**
+     * @description Collection of trend nodes for each attack item.
+     *
      * @var trendList[]
      */
     public $trendList;

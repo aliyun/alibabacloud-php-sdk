@@ -9,40 +9,66 @@ use AlibabaCloud\Tea\Model;
 class PageServiceCustomerRequest extends Model
 {
     /**
+     * @description Authorization status.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $authStatus;
 
     /**
+     * @description Cloud Monitoring - Alert authorization status.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cmAuthStatus;
 
     /**
-     * @description This parameter is required.
+     * @description The page number of the query result, default is 1.
+     *
+     * This parameter is required.
+     * @example 1
      *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description End time. The format is a Unix timestamp, which is the number of milliseconds since January 1, 1970.
+     *
+     * @example 1710641101123
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description Cloud Security - Alert authorization status.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $monitorAuthStatus;
 
     /**
-     * @description This parameter is required.
+     * @description Number of records per page.
+     *
+     * This parameter is required.
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Start time. The format is a Unix timestamp, which is the number of milliseconds since January 1, 1970.
+     *
+     * @example 1710641101000
+     *
      * @var int
      */
     public $startTime;

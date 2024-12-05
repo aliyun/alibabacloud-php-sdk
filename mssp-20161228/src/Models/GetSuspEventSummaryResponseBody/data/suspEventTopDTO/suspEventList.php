@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class suspEventList extends Model
 {
     /**
+     * @description Alert name.
+     *
+     * @example 主动外连风险 IP
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description Count.
+     *
      * @example 7
      *
      * @var int

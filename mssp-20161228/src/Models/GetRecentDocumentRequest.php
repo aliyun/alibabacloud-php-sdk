@@ -9,27 +9,40 @@ use AlibabaCloud\Tea\Model;
 class GetRecentDocumentRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Filter time type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time ranges.
+     *
+     * This parameter is required.
+     * @example 该字段暂未使用，有问题请联系管理员
      *
      * @var string
      */
     public $dateType;
 
     /**
-     * @description This parameter is required.
+     * @description End time.
+     *
+     * This parameter is required.
+     * @example 该字段暂未使用，有问题请联系管理员
      *
      * @var int
      */
     public $endDate;
 
     /**
-     * @description This parameter is required.
+     * @description Start time.
+     *
+     * This parameter is required.
+     * @example 该字段暂未使用，有问题请联系管理员
      *
      * @var int
      */
     public $startDate;
 
     /**
+     * @description Alert event source.
+     *
+     * @example 该字段暂未使用，有问题请联系管理员
+     *
      * @var string
      */
     public $suspEventSource;

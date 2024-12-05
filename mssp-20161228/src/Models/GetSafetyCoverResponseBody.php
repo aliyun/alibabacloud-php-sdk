@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSafetyCoverResponseBody extends Model
 {
     /**
+     * @description API return code.
+     *
      * @example 404
      *
      * @var string
@@ -17,11 +19,15 @@ class GetSafetyCoverResponseBody extends Model
     public $code;
 
     /**
+     * @description Data query result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetSafetyCoverResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Message of the response result.
+     *
      * @example system error
      *
      * @var string
@@ -36,8 +44,9 @@ class GetSafetyCoverResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 564f8bb9-df3c-42a0-877a-b35d48f66603
      *
      * @var string
@@ -45,6 +54,9 @@ class GetSafetyCoverResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful:
+     * - **true**: Call succeeded.
+     * - **false**: Call failed.
      * @example True
      *
      * @var bool

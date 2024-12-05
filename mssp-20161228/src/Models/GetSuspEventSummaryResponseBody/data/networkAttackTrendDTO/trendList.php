@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class trendList extends Model
 {
     /**
+     * @description Date.
+     *
+     * @example 202409或20240901
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description DDoS count.
+     *
      * @example 10
      *
      * @var int
@@ -21,6 +27,8 @@ class trendList extends Model
     public $ddosCount;
 
     /**
+     * @description EIP count.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +36,8 @@ class trendList extends Model
     public $eipCount;
 
     /**
+     * @description WAF count.
+     *
      * @example 10
      *
      * @var int

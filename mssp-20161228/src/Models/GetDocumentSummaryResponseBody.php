@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDocumentSummaryResponseBody extends Model
 {
     /**
+     * @description Interface return code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetDocumentSummaryResponseBody extends Model
     public $code;
 
     /**
+     * @description Data query result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class GetDocumentSummaryResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Prompt message for the returned result.
+     *
      * @example successful
      *
      * @var string
@@ -36,8 +44,9 @@ class GetDocumentSummaryResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example 7903F2DE-D9EE-5D16-8A08-E9223E54B281
      *
      * @var string
@@ -45,6 +54,9 @@ class GetDocumentSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful. Values:
+     * - **true**: Yes.
+     * - **false**: No.
      * @example True
      *
      * @var bool

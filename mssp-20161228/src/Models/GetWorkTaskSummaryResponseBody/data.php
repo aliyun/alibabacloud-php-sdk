@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Average response time (in minutes).
+     *
      * @example 60
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $dealAverageDuration;
 
     /**
+     * @description Year-over-year growth rate of average response time.
+     *
      * @example 20
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $dealAverageDurationGrowthRate;
 
     /**
+     * @description Number of work orders responded to.
+     *
      * @example 100
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $dealWorkTaskCount;
 
     /**
+     * @description Year-over-year growth rate of the number of work orders responded to.
+     *
      * @example 20
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $dealWorkTaskCountRate;
 
     /**
+     * @description Number of service responses.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $workTaskCount;
 
     /**
+     * @description Problem closure rate.
+     *
      * @example 90
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $workTaskDealRate;
 
     /**
+     * @description Year-over-year growth rate of problem closure rate.
+     *
      * @example 20
      *
      * @var string
@@ -58,6 +72,8 @@ class data extends Model
     public $workTaskDealRateGrowthRate;
 
     /**
+     * @description Year-over-year growth rate of service responses.
+     *
      * @example 20
      *
      * @var string

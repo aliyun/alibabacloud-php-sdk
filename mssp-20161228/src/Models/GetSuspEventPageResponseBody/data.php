@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Alarm event type.
+     *
+     * @example 精准防御
+     *
      * @var string
      */
     public $alarmEventType;
 
     /**
+     * @description Alarm ID.
+     *
      * @example 5b1eeebe4f22daa2b177298234214fa3
      *
      * @var int
@@ -21,11 +27,17 @@ class data extends Model
     public $alarmId;
 
     /**
+     * @description Alarm name.
+     *
+     * @example Web服务漏洞利用
+     *
      * @var string
      */
     public $alarmName;
 
     /**
+     * @description Alarm source.
+     *
      * @example SUSP_EVENT
      *
      * @var string
@@ -33,6 +45,8 @@ class data extends Model
     public $alarmSource;
 
     /**
+     * @description Latest alarm time.
+     *
      * @example 1722515522000
      *
      * @var string
@@ -40,11 +54,17 @@ class data extends Model
     public $alarmTime;
 
     /**
+     * @description Analysis process.
+     *
+     * @example [{"value":"服务器可能已被黑客攻击，存在恶意进程在运行。 分析过程：告警显示，服务端存在一个名为”dns.exe”的进程在访问”polling.burpcollaborator.net”，这是一个被黑名单列出的恶意域名。在正常情况下,”dns.exe”不应该单独存在于系统的路径下，并且也不应该访问这类恶意域名。因此，这个进程可能是黑客留下的恶意进程。","key":"结论"},{"value":"尽快对服务器进行全面扫描，清除恶意进程。同时，联系网络安全专家进行深入调查，以确定是否有其他潜在的安全威胁。","key":"处置建议"}]
+     *
      * @var string
      */
     public $analysisResult;
 
     /**
+     * @description Alarm handling time.
+     *
      * @example 1732515522000
      *
      * @var string
@@ -52,6 +72,8 @@ class data extends Model
     public $dealTime;
 
     /**
+     * @description Alarm level.
+     *
      * @example suspicious
      *
      * @var string
@@ -59,6 +81,8 @@ class data extends Model
     public $eventLevel;
 
     /**
+     * @description Ticket primary key id.
+     *
      * @example 9947
      *
      * @var int
@@ -66,6 +90,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description Affected asset.
+     *
      * @example shells-azhou
      *
      * @var string
@@ -73,6 +99,8 @@ class data extends Model
     public $instanceName;
 
     /**
+     * @description Public IP address.
+     *
      * @example 47.99.188.31
      *
      * @var string
@@ -80,6 +108,8 @@ class data extends Model
     public $internetIp;
 
     /**
+     * @description Private IP address.
+     *
      * @example 172.16.109.130
      *
      * @var string
@@ -87,21 +117,37 @@ class data extends Model
     public $intranetIp;
 
     /**
+     * @description First occurrence time.
+     *
+     * @example 该字段暂未使用，有问题请联系管理员
+     *
      * @var string
      */
     public $occurrenceTime;
 
     /**
+     * @description Owner ID.
+     *
+     * @example 张三
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description Disposal method.
+     *
+     * @example 处理完成
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description Handling status.
+     *
+     * @example 未处理
+     *
      * @var string
      */
     public $status;

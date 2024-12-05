@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description CFW protection coverage.
+     *
      * @var cfwProtection
      */
     public $cfwProtection;
 
     /**
+     * @description ECS protection coverage.
+     *
      * @var ecsProtection
      */
     public $ecsProtection;
 
     /**
+     * @description WAF protection coverage.
+     *
      * @var wafProtection
      */
     public $wafProtection;

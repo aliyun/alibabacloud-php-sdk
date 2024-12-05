@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Vulnerability alias.
+     *
+     * @example RHSA-2024:4620: libndp 安全更新
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description Number of high-priority vulnerabilities to be fixed.
+     *
      * @example 74
      *
      * @var int
@@ -21,6 +27,8 @@ class data extends Model
     public $asapCount;
 
     /**
+     * @description User ID.
+     *
      * @example 1940494487193744
      *
      * @var string
@@ -28,6 +36,8 @@ class data extends Model
     public $customerId;
 
     /**
+     * @description Prefix for the CVE remediation advice URL.
+     *
      * @example https://avd.aliyun.com/detail/
      *
      * @var string
@@ -35,6 +45,8 @@ class data extends Model
     public $cveUrlPrefix;
 
     /**
+     * @description Processing status.
+     *
      * @example y
      *
      * @var string
@@ -42,6 +54,8 @@ class data extends Model
     public $dealed;
 
     /**
+     * @description Timestamp of the last discovery of the vulnerability.
+     *
      * @example 2023-04-23 14:47:34
      *
      * @var string
@@ -49,6 +63,8 @@ class data extends Model
     public $findTime;
 
     /**
+     * @description Number of processed vulnerabilities.
+     *
      * @example 20
      *
      * @var int
@@ -56,6 +72,8 @@ class data extends Model
     public $handledCount;
 
     /**
+     * @description Primary key ID.
+     *
      * @example 353845
      *
      * @var int
@@ -63,6 +81,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description Number of medium-priority vulnerabilities to be fixed.
+     *
      * @example 10
      *
      * @var int
@@ -70,6 +90,8 @@ class data extends Model
     public $laterCount;
 
     /**
+     * @description Risk level
+     *
      * @example later
      *
      * @var string
@@ -77,6 +99,8 @@ class data extends Model
     public $level;
 
     /**
+     * @description Vulnerability name.
+     *
      * @example oval:com.redhat.rhsa:def:20205002
      *
      * @var string
@@ -84,6 +108,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description Number of low-priority vulnerabilities to be fixed.
+     *
      * @example 8
      *
      * @var int
@@ -91,6 +117,8 @@ class data extends Model
     public $nntfCount;
 
     /**
+     * @description CVE number.
+     *
      * @example CVE-2019-20907
      *
      * @var string
@@ -98,6 +126,8 @@ class data extends Model
     public $related;
 
     /**
+     * @description Number of related CVE numbers.
+     *
      * @example 20
      *
      * @var int
@@ -105,6 +135,8 @@ class data extends Model
     public $relatedCveCount;
 
     /**
+     * @description Vulnerability type.
+     *
      * @example sca
      *
      * @var string
@@ -112,6 +144,8 @@ class data extends Model
     public $scanType;
 
     /**
+     * @description Tags.
+     *
      * @example Elevation of Privilege
      *
      * @var string
@@ -119,6 +153,8 @@ class data extends Model
     public $tags;
 
     /**
+     * @description Total number of fixed vulnerabilities.
+     *
      * @example 50
      *
      * @var int

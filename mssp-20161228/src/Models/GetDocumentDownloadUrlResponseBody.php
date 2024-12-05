@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDocumentDownloadUrlResponseBody extends Model
 {
     /**
+     * @description API status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDocumentDownloadUrlResponseBody extends Model
     public $code;
 
     /**
+     * @description OSS file access URL.
+     *
      * @example https://oos-cn.ctyunapi.cn/example-bucket/test/1.jpg
      *
      * @var string
@@ -23,6 +27,8 @@ class GetDocumentDownloadUrlResponseBody extends Model
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class GetDocumentDownloadUrlResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Message of the returned result.
+     *
      * @example successful
      *
      * @var string
@@ -37,8 +45,9 @@ class GetDocumentDownloadUrlResponseBody extends Model
     public $message;
 
     /**
-     * @description This parameter is required.
+     * @description Request ID.
      *
+     * This parameter is required.
      * @example C7BE80B4-7692-54FA-AB22-2A7DF08C4754
      *
      * @var string
@@ -46,6 +55,8 @@ class GetDocumentDownloadUrlResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful: - **true**: The call was successful. - **false**: The call failed.
+     *
      * @example true
      *
      * @var bool

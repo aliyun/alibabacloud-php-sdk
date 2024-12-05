@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Service UID.
+     *
      * @example 1601097845544644
      *
      * @var string
@@ -16,11 +18,17 @@ class data extends Model
     public $customerId;
 
     /**
+     * @description Customer name.
+     *
+     * @example 天津瑞鹏昇科技发展有限公司
+     *
      * @var string
      */
     public $customerName;
 
     /**
+     * @description Alert ID.
+     *
      * @example c0dc71d1-8a1d-4043-9767-f6c420e34901-81bd
      *
      * @var string
@@ -28,6 +36,8 @@ class data extends Model
     public $eventId;
 
     /**
+     * @description Alert type.
+     *
      * @example SUSP_CUSTOM_WAF
      *
      * @var string
@@ -35,6 +45,8 @@ class data extends Model
     public $eventType;
 
     /**
+     * @description Work order ID.
+     *
      * @example 1914348
      *
      * @var int
@@ -42,6 +54,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description Owner ID.
+     *
      * @example 352675
      *
      * @var string
@@ -49,11 +63,19 @@ class data extends Model
     public $ownerId;
 
     /**
+     * @description Owner name.
+     *
+     * @example 乐牙
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description Work order name.
+     *
+     * @example 22端口禁止任意IP访问
+     *
      * @var string
      */
     public $workTaskName;

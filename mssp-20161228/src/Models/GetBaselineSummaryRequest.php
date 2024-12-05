@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineSummaryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Time filter type, supports filtering by the last 7 days, the last 30 days, the last half year, or custom time periods.
      *
+     * This parameter is required.
      * @example month
      *
      * @var string
@@ -18,8 +19,9 @@ class GetBaselineSummaryRequest extends Model
     public $dateType;
 
     /**
-     * @description This parameter is required.
+     * @description End time.
      *
+     * This parameter is required.
      * @example 1732156885986
      *
      * @var int
@@ -27,8 +29,9 @@ class GetBaselineSummaryRequest extends Model
     public $endDate;
 
     /**
-     * @description This parameter is required.
+     * @description Start time.
      *
+     * This parameter is required.
      * @example 1729478485000
      *
      * @var int
@@ -36,6 +39,10 @@ class GetBaselineSummaryRequest extends Model
     public $startDate;
 
     /**
+     * @description Alert event source.
+     *
+     * @example 该字段暂未使用，有问题请联系管理员
+     *
      * @var string
      */
     public $suspEventSource;

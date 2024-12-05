@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDocumentDownloadUrlRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Document management ID.
      *
+     * This parameter is required.
      * @example 175815
      *
      * @var int

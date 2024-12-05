@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ecsTrendList extends Model
 {
     /**
+     * @description Date point.
+     *
+     * @example 202312或20231205
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description Number of processed items.
+     *
      * @example 2
      *
      * @var int
@@ -21,6 +27,10 @@ class ecsTrendList extends Model
     public $dealCount;
 
     /**
+     * @description Number of discovered items.
+     *
+     * @example 暂时无值，有疑问请联系管理员
+     *
      * @var int
      */
     public $findCount;

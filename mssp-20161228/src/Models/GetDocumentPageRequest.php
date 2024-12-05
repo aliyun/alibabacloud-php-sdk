@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDocumentPageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Current page.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,16 +19,26 @@ class GetDocumentPageRequest extends Model
     public $currentPage;
 
     /**
+     * @description Delivered by.
+     *
+     * @example 张三
+     *
      * @var string
      */
     public $deliveredBy;
 
     /**
+     * @description Document name.
+     *
+     * @example 季度报告
+     *
      * @var string
      */
     public $documentName;
 
     /**
+     * @description Document type.
+     *
      * @example 0
      *
      * @var string
@@ -35,8 +46,9 @@ class GetDocumentPageRequest extends Model
     public $documentType;
 
     /**
-     * @description This parameter is required.
+     * @description Page size.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -44,8 +56,9 @@ class GetDocumentPageRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description Report type.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

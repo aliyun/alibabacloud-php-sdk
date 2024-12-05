@@ -11,39 +11,61 @@ use AlibabaCloud\Tea\Model;
 class PageServiceCustomerResponseBody extends Model
 {
     /**
+     * @description Interface return code.
+     *
+     * @example System error or openapi error
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Data query results.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description Return message. When the request is successful, it returns a success message; when the request fails, it returns the reason for the failure.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description Id of the request
+     * @description Request ID.
      *
      * This parameter is required.
+     * @example 808A307F-9513-5099-AAA5-98D4EF199140
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Request return status.
+     * - false: Failure.
+     * @example true
+     *
      * @var bool
      */
     public $success;

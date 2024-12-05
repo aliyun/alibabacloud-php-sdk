@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class GetVulItemPageResponseBody extends Model
 {
     /**
+     * @description API response code.
+     *
      * @example 200
      *
      * @var string
@@ -18,11 +20,15 @@ class GetVulItemPageResponseBody extends Model
     public $code;
 
     /**
+     * @description Data returned by the interface.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class GetVulItemPageResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Prompt message for the returned result.
+     *
      * @example successful
      *
      * @var string
@@ -37,13 +45,16 @@ class GetVulItemPageResponseBody extends Model
     public $message;
 
     /**
+     * @description Pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description This parameter is required.
+     * @description Request response.
      *
+     * This parameter is required.
      * @example 02F8BBF3-2D61-5982-8911-EEB387BE3AF8
      *
      * @var string
@@ -51,6 +62,8 @@ class GetVulItemPageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the call was successful.
+     * true: Call succeeded. false: Call failed.
      * @example true
      *
      * @var bool
