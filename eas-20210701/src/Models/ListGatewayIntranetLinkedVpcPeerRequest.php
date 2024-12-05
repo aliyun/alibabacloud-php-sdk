@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayIntranetLinkedVpcPeerRequest extends Model
 {
     /**
+     * @description The ID of the associated VPC. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+     *
+     *   If you specify a VPC ID, only VPC peers corresponding to the ID are queried.
+     *   Otherwise, all VPC peers are queried.
+     *
      * @example vpc-2zetuli9ws0qgjd******
      *
      * @var string

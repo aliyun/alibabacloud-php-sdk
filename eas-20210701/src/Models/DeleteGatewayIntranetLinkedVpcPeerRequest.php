@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayIntranetLinkedVpcPeerRequest extends Model
 {
     /**
+     * @description The VPC peer.
+     *
      * @var peerVpcs[]
      */
     public $peerVpcs;
 
     /**
+     * @description The ID of the associated VPC. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+     *
      * @example vpc-2zetuli9ws0qgjd******
      *
      * @var string

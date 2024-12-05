@@ -102,6 +102,13 @@ class gateways extends Model
     public $replicas;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $SSLRedirectionEnabled;
+
+    /**
      * @description The state of the private gateway.
      *
      * Valid values:
@@ -129,18 +136,19 @@ class gateways extends Model
      */
     public $updateTime;
     protected $_name = [
-        'chargeType'      => 'ChargeType',
-        'createTime'      => 'CreateTime',
-        'gatewayId'       => 'GatewayId',
-        'gatewayName'     => 'GatewayName',
-        'instanceType'    => 'InstanceType',
-        'internetDomain'  => 'InternetDomain',
-        'internetEnabled' => 'InternetEnabled',
-        'intranetDomain'  => 'IntranetDomain',
-        'isDefault'       => 'IsDefault',
-        'replicas'        => 'Replicas',
-        'status'          => 'Status',
-        'updateTime'      => 'UpdateTime',
+        'chargeType'            => 'ChargeType',
+        'createTime'            => 'CreateTime',
+        'gatewayId'             => 'GatewayId',
+        'gatewayName'           => 'GatewayName',
+        'instanceType'          => 'InstanceType',
+        'internetDomain'        => 'InternetDomain',
+        'internetEnabled'       => 'InternetEnabled',
+        'intranetDomain'        => 'IntranetDomain',
+        'isDefault'             => 'IsDefault',
+        'replicas'              => 'Replicas',
+        'SSLRedirectionEnabled' => 'SSLRedirectionEnabled',
+        'status'                => 'Status',
+        'updateTime'            => 'UpdateTime',
     ];
 
     public function validate()
@@ -179,6 +187,9 @@ class gateways extends Model
         }
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
+        }
+        if (null !== $this->SSLRedirectionEnabled) {
+            $res['SSLRedirectionEnabled'] = $this->SSLRedirectionEnabled;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -227,6 +238,9 @@ class gateways extends Model
         }
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
+        }
+        if (isset($map['SSLRedirectionEnabled'])) {
+            $model->SSLRedirectionEnabled = $map['SSLRedirectionEnabled'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

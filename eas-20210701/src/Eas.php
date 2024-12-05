@@ -103,6 +103,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayDomainsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcPeerRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcPeerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetLinkedVpcResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayIntranetSupportedZoneResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGatewayResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListGroupsRequest;
@@ -697,7 +698,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关内网访问端点跨VPC连接
+     * @summary Creates a VPC peering connection on an internal endpoint of a gateway.
      *  *
      * @param string                                    $ClusterId
      * @param string                                    $GatewayId
@@ -742,7 +743,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 创建网关内网访问端点跨VPC连接
+     * @summary Creates a VPC peering connection on an internal endpoint of a gateway.
      *  *
      * @param string                                    $ClusterId
      * @param string                                    $GatewayId
@@ -1470,7 +1471,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 删除网关内网访问端点跨VPC连接
+     * @summary Deletes a VPC peering connection from an internal endpoint of a gateway.
      *  *
      * @param string                                    $ClusterId
      * @param string                                    $GatewayId
@@ -1515,7 +1516,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 删除网关内网访问端点跨VPC连接
+     * @summary Deletes a VPC peering connection from an internal endpoint of a gateway.
      *  *
      * @param string                                    $ClusterId
      * @param string                                    $GatewayId
@@ -3310,7 +3311,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关内网访问端点跨VPC连接列表
+     * @summary Obtains a list of all VPC peering connections on internal endpoint of a gateway.
      *  *
      * @param string                                  $ClusterId
      * @param string                                  $GatewayId
@@ -3347,7 +3348,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关内网访问端点跨VPC连接列表
+     * @summary Obtains a list of all VPC peering connections on internal endpoint of a gateway.
      *  *
      * @param string                                  $ClusterId
      * @param string                                  $GatewayId
@@ -3361,6 +3362,52 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->listGatewayIntranetLinkedVpcPeerWithOptions($ClusterId, $GatewayId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取网关内网支持的可用区
+     *  *
+     * @param string         $GatewayId
+     * @param string         $ClusterId
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ListGatewayIntranetSupportedZoneResponse ListGatewayIntranetSupportedZoneResponse
+     */
+    public function listGatewayIntranetSupportedZoneWithOptions($GatewayId, $ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListGatewayIntranetSupportedZone',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/gateways/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GatewayId) . '/intranet_supported_zone',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListGatewayIntranetSupportedZoneResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取网关内网支持的可用区
+     *  *
+     * @param string $GatewayId
+     * @param string $ClusterId
+     *
+     * @return ListGatewayIntranetSupportedZoneResponse ListGatewayIntranetSupportedZoneResponse
+     */
+    public function listGatewayIntranetSupportedZone($GatewayId, $ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listGatewayIntranetSupportedZoneWithOptions($GatewayId, $ClusterId, $headers, $runtime);
     }
 
     /**
@@ -4564,6 +4611,9 @@ class Eas extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableIntranet)) {
             $body['EnableIntranet'] = $request->enableIntranet;
+        }
+        if (!Utils::isUnset($request->enableSSLRedirection)) {
+            $body['EnableSSLRedirection'] = $request->enableSSLRedirection;
         }
         if (!Utils::isUnset($request->instanceType)) {
             $body['InstanceType'] = $request->instanceType;

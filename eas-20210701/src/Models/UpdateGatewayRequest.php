@@ -36,6 +36,11 @@ class UpdateGatewayRequest extends Model
     public $enableIntranet;
 
     /**
+     * @var bool
+     */
+    public $enableSSLRedirection;
+
+    /**
      * @description The instance type used for the private gateway.
      *
      * @example ecs.c6.4xlarge
@@ -71,12 +76,13 @@ class UpdateGatewayRequest extends Model
      */
     public $replicas;
     protected $_name = [
-        'enableInternet' => 'EnableInternet',
-        'enableIntranet' => 'EnableIntranet',
-        'instanceType'   => 'InstanceType',
-        'isDefault'      => 'IsDefault',
-        'name'           => 'Name',
-        'replicas'       => 'Replicas',
+        'enableInternet'       => 'EnableInternet',
+        'enableIntranet'       => 'EnableIntranet',
+        'enableSSLRedirection' => 'EnableSSLRedirection',
+        'instanceType'         => 'InstanceType',
+        'isDefault'            => 'IsDefault',
+        'name'                 => 'Name',
+        'replicas'             => 'Replicas',
     ];
 
     public function validate()
@@ -91,6 +97,9 @@ class UpdateGatewayRequest extends Model
         }
         if (null !== $this->enableIntranet) {
             $res['EnableIntranet'] = $this->enableIntranet;
+        }
+        if (null !== $this->enableSSLRedirection) {
+            $res['EnableSSLRedirection'] = $this->enableSSLRedirection;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -121,6 +130,9 @@ class UpdateGatewayRequest extends Model
         }
         if (isset($map['EnableIntranet'])) {
             $model->enableIntranet = $map['EnableIntranet'];
+        }
+        if (isset($map['EnableSSLRedirection'])) {
+            $model->enableSSLRedirection = $map['EnableSSLRedirection'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];

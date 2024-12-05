@@ -132,6 +132,11 @@ class DescribeGatewayResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $SSLRedirectionEnabled;
+
+    /**
      * @description The status of the private gateway.
      *
      * Valid values:
@@ -159,20 +164,21 @@ class DescribeGatewayResponseBody extends Model
      */
     public $updateTime;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'externalClusterId' => 'ExternalClusterId',
-        'gatewayId'         => 'GatewayId',
-        'gatewayName'       => 'GatewayName',
-        'instanceType'      => 'InstanceType',
-        'internetDomain'    => 'InternetDomain',
-        'internetEnabled'   => 'InternetEnabled',
-        'internetStatus'    => 'InternetStatus',
-        'intranetDomain'    => 'IntranetDomain',
-        'isDefault'         => 'IsDefault',
-        'replicas'          => 'Replicas',
-        'requestId'         => 'RequestId',
-        'status'            => 'Status',
-        'updateTime'        => 'UpdateTime',
+        'createTime'            => 'CreateTime',
+        'externalClusterId'     => 'ExternalClusterId',
+        'gatewayId'             => 'GatewayId',
+        'gatewayName'           => 'GatewayName',
+        'instanceType'          => 'InstanceType',
+        'internetDomain'        => 'InternetDomain',
+        'internetEnabled'       => 'InternetEnabled',
+        'internetStatus'        => 'InternetStatus',
+        'intranetDomain'        => 'IntranetDomain',
+        'isDefault'             => 'IsDefault',
+        'replicas'              => 'Replicas',
+        'requestId'             => 'RequestId',
+        'SSLRedirectionEnabled' => 'SSLRedirectionEnabled',
+        'status'                => 'Status',
+        'updateTime'            => 'UpdateTime',
     ];
 
     public function validate()
@@ -217,6 +223,9 @@ class DescribeGatewayResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->SSLRedirectionEnabled) {
+            $res['SSLRedirectionEnabled'] = $this->SSLRedirectionEnabled;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -271,6 +280,9 @@ class DescribeGatewayResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SSLRedirectionEnabled'])) {
+            $model->SSLRedirectionEnabled = $map['SSLRedirectionEnabled'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

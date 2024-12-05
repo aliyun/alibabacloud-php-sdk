@@ -1,3 +1,10 @@
+2024-12-05 Version: 6.2.0
+- Support API ListGatewayIntranetSupportedZone.
+- Update API DescribeGateway: update response param.
+- Update API ListGateway: update response param.
+- Update API UpdateGateway: update param body.
+
+
 2024-11-04 Version: 6.1.0
 - Support API AttachGatewayDomain.
 - Support API CreateGatewayIntranetLinkedVpcPeer.

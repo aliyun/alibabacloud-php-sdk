@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayIntranetLinkedVpcPeerResponseBody extends Model
 {
     /**
+     * @description The ID of the private gateway.
+     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -17,11 +19,15 @@ class ListGatewayIntranetLinkedVpcPeerResponseBody extends Model
     public $gatewayId;
 
     /**
+     * @description The list of VPC peers.
+     *
      * @var peerVpcList[]
      */
     public $peerVpcList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

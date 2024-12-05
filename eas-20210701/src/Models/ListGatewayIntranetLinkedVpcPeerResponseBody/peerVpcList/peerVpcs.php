@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class peerVpcs extends Model
 {
     /**
+     * @description The region where the VPC peer resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -16,6 +18,8 @@ class peerVpcs extends Model
     public $region;
 
     /**
+     * @description The ID of the VPC peer.
+     *
      * @example vpc-uf66uio7md****
      *
      * @var string

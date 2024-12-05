@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGatewayIntranetLinkedVpcPeerResponseBody extends Model
 {
     /**
+     * @description The ID of the private gateway.
+     *
      * @example gw-1uhcqmsc7x22******
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateGatewayIntranetLinkedVpcPeerResponseBody extends Model
     public $gatewayId;
 
     /**
+     * @description The message that is returned.
+     *
      * @example Successfully add intranet linked vpc Peer for gateway
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateGatewayIntranetLinkedVpcPeerResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string

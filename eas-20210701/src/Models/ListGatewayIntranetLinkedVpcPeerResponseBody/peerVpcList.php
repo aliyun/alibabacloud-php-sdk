@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class peerVpcList extends Model
 {
     /**
+     * @description The ID of the VPC peers.
+     *
      * @var peerVpcs[]
      */
     public $peerVpcs;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-2zetuli9ws0qgjd******
      *
      * @var string
