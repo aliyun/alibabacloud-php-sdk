@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckJobsResponseBody extends Model
 {
     /**
+     * @description Item information check.
+     *
      * @var checkJobs[]
      */
     public $checkJobs;
 
     /**
+     * @description Dynamic error code, this parameter will be deprecated soon.
+     *
      * @example 403
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description Dynamic error message, used to replace the **%s** in the **errmessage** return parameter. If **errmessage** returns **thevalueofinputparameter%sisnotvalid**, and **dynamicmessage** returns *[1,2,3]*, it indicates that the request parameter **dtsjobid** is invalid.
+     *
      * @example present environment is not support,so skip.
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description Error code returned when the call fails.
+     *
      * @example InternalError
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $errCode;
 
     /**
+     * @description Error message returned when the call fails.
+     *
      * @example The request processing has failed due to some unknown error.
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description Status code.
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +62,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Current page number.
+     *
      * @example 1
      *
      * @var int
@@ -57,6 +71,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The maximum number of records that can be displayed on the current page.
+     *
      * @example 20
      *
      * @var int
@@ -64,6 +80,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @description Request ID.
+     *
      * @example FC1D920B-AB89-52A9-AA5F-AA724C4205E8
      *
      * @var string
@@ -71,6 +89,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the request was successful.
+     *
      * @example True
      *
      * @var bool
@@ -78,6 +98,8 @@ class DescribeCheckJobsResponseBody extends Model
     public $success;
 
     /**
+     * @description Total number of records.
+     *
      * @example 100
      *
      * @var int

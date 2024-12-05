@@ -21,6 +21,7 @@ class ConfigureSynchronizationJobAlertRequest extends Model
      * @description The mobile phone numbers that receive latency-related alerts. Separate mobile phone numbers with commas (,).
      *
      * >
+     *
      *   This parameter is available only for China site (aliyun.com) users. Only mobile phone numbers in the Chinese mainland are supported. Up to 10 mobile phone numbers can be specified.
      *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the Cloud Monitor console](https://help.aliyun.com/document_detail/175876.html).
      *
@@ -37,6 +38,7 @@ class ConfigureSynchronizationJobAlertRequest extends Model
      *   **disable**: no
      *
      * >
+     *
      *   The default value is **enable**.
      *   You must specify at least one of the DelayAlertStatus and **ErrorAlertStatus** parameters.
      *
@@ -60,6 +62,7 @@ class ConfigureSynchronizationJobAlertRequest extends Model
      * @description The mobile phone numbers that receive status-related alerts. Separate mobile phone numbers with commas (,).
      *
      * >
+     *
      *   This parameter is available only for China site (aliyun.com) users. Only mobile phone numbers in the Chinese mainland are supported. Up to 10 mobile phone numbers can be specified.
      *   International site (alibabacloud.com) users cannot receive alerts by using mobile phones, but can [set alert rules for DTS tasks in the Cloud Monitor console](https://help.aliyun.com/document_detail/175876.html).
      *
@@ -76,6 +79,7 @@ class ConfigureSynchronizationJobAlertRequest extends Model
      *   **disable**: no
      *
      * >
+     *
      *   The default value is **enable**.
      *   You must specify at least one of the **DelayAlertStatus** and ErrorAlertStatus parameters.
      *   If the task that you monitor enters an abnormal state, an alert is triggered.
@@ -92,11 +96,19 @@ class ConfigureSynchronizationJobAlertRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the data synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Resource GroupId
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;

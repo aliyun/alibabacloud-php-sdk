@@ -1,3 +1,7 @@
+2024-12-05 Version: 1.6.5
+- Update API TransferPayType: add param InstanceClass.
+
+
 2024-11-12 Version: 1.6.4
 - Update API ConfigureDtsJob: add param DestPrimaryVswId.
 - Update API ConfigureDtsJob: add param DestSecondaryVswId.

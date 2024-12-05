@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class checkJobs extends Model
 {
     /**
+     * @description Billing type, return values: - **POSTPAY**: Pay-as-you-go (postpaid). - **PREPAY**: Subscription (prepaid).
+     *
      * @example POSTPAY
      *
      * @var string
@@ -16,6 +18,8 @@ class checkJobs extends Model
     public $chargeType;
 
     /**
+     * @description checkpoint
+     *
      * @example 1111****
      *
      * @var int
@@ -23,6 +27,8 @@ class checkJobs extends Model
     public $checkPoint;
 
     /**
+     * @description Data validation method, with values:
+     * - **1**: Full validation. - **2**: Incremental validation.
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class checkJobs extends Model
     public $checkType;
 
     /**
+     * @description Number of rows with data inconsistency
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class checkJobs extends Model
     public $diffCount;
 
     /**
+     * @description Synchronization initialization progress, in percentage.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class checkJobs extends Model
     public $diffSum;
 
     /**
+     * @description Migration, synchronization, or subscription instance ID.
+     *
      * @example dtsz8tc99sy2158b36
      *
      * @var string
@@ -51,6 +63,8 @@ class checkJobs extends Model
     public $dtsInstanceID;
 
     /**
+     * @description Migration, synchronization, or subscription task ID.
+     *
      * @example n08o6si4q338b1x
      *
      * @var string
@@ -58,6 +72,8 @@ class checkJobs extends Model
     public $dtsJobId;
 
     /**
+     * @description The number of data rows in the table that have completed validation.
+     *
      * @example 15094
      *
      * @var int
@@ -65,6 +81,8 @@ class checkJobs extends Model
     public $finishCount;
 
     /**
+     * @description DTS task ID. In most cases, there is no need to set this parameter.
+     *
      * @example c3d12dii27t632g
      *
      * @var string
@@ -72,6 +90,8 @@ class checkJobs extends Model
     public $groupId;
 
     /**
+     * @description Instance specification.
+     *
      * @example SMALL
      *
      * @var string
@@ -79,6 +99,8 @@ class checkJobs extends Model
     public $instanceClass;
 
     /**
+     * @description Check the name of the task.
+     *
      * @example dtstest
      *
      * @var string
@@ -86,6 +108,8 @@ class checkJobs extends Model
     public $jobName;
 
     /**
+     * @description Task ID.
+     *
      * @example as0e1ks426bq3z0
      *
      * @var string
@@ -93,6 +117,8 @@ class checkJobs extends Model
     public $jobStepId;
 
     /**
+     * @description This parameter will be deprecated.
+     *
      * @example ****
      *
      * @var string
@@ -100,6 +126,8 @@ class checkJobs extends Model
     public $parentJobType;
 
     /**
+     * @description Region ID to which it belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -107,6 +135,8 @@ class checkJobs extends Model
     public $regionId;
 
     /**
+     * @description Check result, return values: -**0**: Check passed -**1**: Check failed
+     *
      * @example 0
      *
      * @var int
@@ -114,6 +144,8 @@ class checkJobs extends Model
     public $status;
 
     /**
+     * @description Verify the total number of rows in the data.
+     *
      * @example 159
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigureDtsJobResponseBody extends Model
 {
     /**
-     * @description The error message returned if the call failed.
+     * @description The ID of the data migration or synchronization instance.
      *
      * @example dtsk2gm967v16f****
      *
@@ -18,7 +18,7 @@ class ConfigureDtsJobResponseBody extends Model
     public $dtsInstanceId;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The ID of the data migration or synchronization task.
      *
      * @example k2gm967v16f****
      *
@@ -27,7 +27,7 @@ class ConfigureDtsJobResponseBody extends Model
     public $dtsJobId;
 
     /**
-     * @description The ID of the data migration or synchronization instance.
+     * @description The error code returned if the request failed.
      *
      * @example InternalError
      *
@@ -36,7 +36,7 @@ class ConfigureDtsJobResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The error message returned if the request failed.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -45,7 +45,7 @@ class ConfigureDtsJobResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The error code returned if the call failed.
+     * @description The returned HTTP status codes.
      *
      * @example 200
      *
@@ -54,7 +54,7 @@ class ConfigureDtsJobResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the data migration or synchronization task.
+     * @description The request ID.
      *
      * @example 224DB9F7-3100-4899-AB9C-C938BCCB****
      *
@@ -63,7 +63,7 @@ class ConfigureDtsJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *

@@ -57,6 +57,11 @@ class TransferPayTypeRequest extends Model
     public $dtsJobId;
 
     /**
+     * @var string
+     */
+    public $instanceClass;
+
+    /**
      * @description The maximum number of DUs in a serverless instance. Valid values: 2, 4, 8, and 16.
      *
      * >  This feature is not supported. Do not specify this parameter.
@@ -111,6 +116,7 @@ class TransferPayTypeRequest extends Model
         'buyCount'        => 'BuyCount',
         'chargeType'      => 'ChargeType',
         'dtsJobId'        => 'DtsJobId',
+        'instanceClass'   => 'InstanceClass',
         'maxDu'           => 'MaxDu',
         'minDu'           => 'MinDu',
         'period'          => 'Period',
@@ -136,6 +142,9 @@ class TransferPayTypeRequest extends Model
         }
         if (null !== $this->dtsJobId) {
             $res['DtsJobId'] = $this->dtsJobId;
+        }
+        if (null !== $this->instanceClass) {
+            $res['InstanceClass'] = $this->instanceClass;
         }
         if (null !== $this->maxDu) {
             $res['MaxDu'] = $this->maxDu;
@@ -175,6 +184,9 @@ class TransferPayTypeRequest extends Model
         }
         if (isset($map['DtsJobId'])) {
             $model->dtsJobId = $map['DtsJobId'];
+        }
+        if (isset($map['InstanceClass'])) {
+            $model->instanceClass = $map['InstanceClass'];
         }
         if (isset($map['MaxDu'])) {
             $model->maxDu = $map['MaxDu'];

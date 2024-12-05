@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckJobsRequest extends Model
 {
     /**
+     * @description Check the task job ID.
+     *
      * @example z9p104ib23***
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeCheckJobsRequest extends Model
     public $checkJobId;
 
     /**
+     * @description The type of the check
+     * >>1 full quantity, 2 incremental, 3 all
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeCheckJobsRequest extends Model
     public $checkType;
 
     /**
+     * @description Data migration instance ID, which can be queried by calling the **describemigrationjobs** API.
+     *
      * @example dtsz9p104ib23e972e
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeCheckJobsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the data migration or synchronization job.
+     *
      * @example zwy_test
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeCheckJobsRequest extends Model
     public $jobName;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeCheckJobsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 30
      *
      * @var int
@@ -51,6 +63,8 @@ class DescribeCheckJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Resource group ID.
+     *
      * @example rg-acfmzawhxxc****
      *
      * @var string

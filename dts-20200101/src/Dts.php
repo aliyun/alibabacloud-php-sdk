@@ -345,9 +345,6 @@ class Dts extends OpenApiClient
     /**
      * @summary Configures a data migration or synchronization task.
      *  *
-     * @description *   You can preview related API operation parameters when you configure a data migration or synchronization task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
-     * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. In addition, DTS dedicated clusters do not support DTS tasks that are configured to migrate or synchronize data across regions.
-     *  *
      * @param ConfigureDtsJobRequest $request ConfigureDtsJobRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -575,9 +572,6 @@ class Dts extends OpenApiClient
     /**
      * @summary Configures a data migration or synchronization task.
      *  *
-     * @description *   You can preview related API operation parameters when you configure a data migration or synchronization task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
-     * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. In addition, DTS dedicated clusters do not support DTS tasks that are configured to migrate or synchronize data across regions.
-     *  *
      * @param ConfigureDtsJobRequest $request ConfigureDtsJobRequest
      *
      * @return ConfigureDtsJobResponse ConfigureDtsJobResponse
@@ -751,6 +745,8 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @summary Configures alert settings to monitor a data migration instance.
+     *  *
      * @param ConfigureMigrationJobAlertRequest $request ConfigureMigrationJobAlertRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -809,6 +805,8 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @summary Configures alert settings to monitor a data migration instance.
+     *  *
      * @param ConfigureMigrationJobAlertRequest $request ConfigureMigrationJobAlertRequest
      *
      * @return ConfigureMigrationJobAlertResponse ConfigureMigrationJobAlertResponse
@@ -1244,6 +1242,8 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @summary Configures alert settings to monitor a data synchronization instance.
+     *  *
      * @param ConfigureSynchronizationJobAlertRequest $request ConfigureSynchronizationJobAlertRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
@@ -1305,6 +1305,8 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @summary Configures alert settings to monitor a data synchronization instance.
+     *  *
      * @param ConfigureSynchronizationJobAlertRequest $request ConfigureSynchronizationJobAlertRequest
      *
      * @return ConfigureSynchronizationJobAlertResponse ConfigureSynchronizationJobAlertResponse
@@ -8200,6 +8202,8 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @summary Upgrades or downgrades a Data Transmission Service (DTS) instance.
+     *  *
      * @param TransferInstanceClassRequest $request TransferInstanceClassRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -8243,6 +8247,8 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @summary Upgrades or downgrades a Data Transmission Service (DTS) instance.
+     *  *
      * @param TransferInstanceClassRequest $request TransferInstanceClassRequest
      *
      * @return TransferInstanceClassResponse TransferInstanceClassResponse
@@ -8281,6 +8287,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
         }
         if (!Utils::isUnset($request->maxDu)) {
             $query['MaxDu'] = $request->maxDu;
@@ -8470,8 +8479,8 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @summary If the \\*\\*source or destination instance\\*\\* is a \\*\\*self-managed database\\*\\* or a \\*\\*third-party cloud database\\*\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see [Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\(~~176627~~).
-     * \\>  If the \\*\\*source or destination database\\*\\* is an \\*\\*ApsaraDB database instance\\*\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\*\\*self-managed database hosted on Elastic Compute Service (ECS)\\*\\*, you do not need to add the CIDR blocks. When you click \\*\\*Set Whitelist and Next\\*\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+     * @summary If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
+     * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
      *  *
      * @description The operation that you want to perform. Set the value to **WhiteIpList**.
      *  *
@@ -8551,8 +8560,8 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @summary If the \\*\\*source or destination instance\\*\\* is a \\*\\*self-managed database\\*\\* or a \\*\\*third-party cloud database\\*\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see [Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\(~~176627~~).
-     * \\>  If the \\*\\*source or destination database\\*\\* is an \\*\\*ApsaraDB database instance\\*\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\*\\*self-managed database hosted on Elastic Compute Service (ECS)\\*\\*, you do not need to add the CIDR blocks. When you click \\*\\*Set Whitelist and Next\\*\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+     * @summary If the \\\\*\\\\*source or destination instance\\\\*\\\\* is a \\\\*\\\\*self-managed database\\\\*\\\\* or a \\\\*\\\\*third-party cloud database\\\\*\\\\*, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see \\[Add the CIDR blocks of DTS servers to the security settings of on-premises databases]\\\\(~~176627~~).
+     * \\\\>  If the \\\\*\\\\*source or destination database\\\\*\\\\* is an \\\\*\\\\*ApsaraDB database instance\\\\*\\\\* (such as RDS instance and ApsaraDB for MongoDB instance) or a \\\\*\\\\*self-managed database hosted on Elastic Compute Service (ECS)\\\\*\\\\*, you do not need to add the CIDR blocks. When you click \\\\*\\\\*Set Whitelist and Next\\\\*\\\\* in the DTS console, DTS automatically adds the CIDR blocks of DTS servers to the security settings of the source or destination instance.
      *  *
      * @description The operation that you want to perform. Set the value to **WhiteIpList**.
      *  *

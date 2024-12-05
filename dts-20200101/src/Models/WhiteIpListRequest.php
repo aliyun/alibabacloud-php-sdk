@@ -9,33 +9,53 @@ use AlibabaCloud\Tea\Model;
 class WhiteIpListRequest extends Model
 {
     /**
+     * @description destination aliyun uid
+     *
+     * @example ****
+     *
      * @var string
      */
     public $destAliyunUid;
 
     /**
+     * @description VPCNAT destination main VSW
+     *
+     * @example ****
+     *
      * @var string
      */
     public $destPrimaryVswId;
 
     /**
+     * @description destination role name
+     *
+     * @example ram-for-dts-sq
+     *
      * @var string
      */
     public $destRoleName;
 
     /**
+     * @description VPCNAT destination backup VSW
+     *
+     * @example ****
+     *
      * @var string
      */
     public $destSecondaryVswId;
 
     /**
+     * @description source vpc id
+     *
+     * @example ****
+     *
      * @var string
      */
     public $destVpcId;
 
     /**
-     * @description The HTTP status code.
-     *
+     * @description The region ID to which the target instance belongs, please refer to the supported region list for details.
+     * - When the DTS task is migration or synchronization, this parameter must be passed in.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,11 +63,7 @@ class WhiteIpListRequest extends Model
     public $destinationRegion;
 
     /**
-     * @description The ID of the region where the destination instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-     *
-     * >
-     *   If the destination instance is a self-managed database with a public IP address or a third-party cloud database, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
-     *   If the DTS task is a data migration or data synchronization task, you must specify this parameter.
+     * @description The region ID of the change tracking instance. The region ID is the same as that of the source instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -57,7 +73,7 @@ class WhiteIpListRequest extends Model
     public $region;
 
     /**
-     * @description The region to which the DTS instance belongs. For more information, see [List of Supported Regions](https://help.aliyun.com/document_detail/141033.html).
+     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
      *
      * @example cn-hangzhou
      *
@@ -75,35 +91,52 @@ class WhiteIpListRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description source aliyun uid
+     *
+     * @example 1971721963139419
+     *
      * @var string
      */
     public $srcAliyunUid;
 
     /**
+     * @description VPCNAT source end main VSW
+     *
+     * @example ****
+     *
      * @var string
      */
     public $srcPrimaryVswId;
 
     /**
+     * @description source role Name
+     *
+     * @example ram-for-dts
+     *
      * @var string
      */
     public $srcRoleName;
 
     /**
+     * @description VPCNAT source backup VSW
+     *
+     * @example ****
+     *
      * @var string
      */
     public $srcSecondaryVswId;
 
     /**
+     * @description source vpc id
+     *
+     * @example ****
+     *
      * @var string
      */
     public $srcVpcId;
 
     /**
-     * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
-     *
-     * >  If the source instance is a self-managed database with a public IP address or a third-party cloud database, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
-     *
+     * @description The access method for self built databases or third-party cloud databases, with a value of
      * This parameter is required.
      * @example vpc
      *

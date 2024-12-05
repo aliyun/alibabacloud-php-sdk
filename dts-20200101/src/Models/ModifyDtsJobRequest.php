@@ -130,6 +130,10 @@ class ModifyDtsJobRequest extends Model
     public $reserved;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmzawhxxc****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -163,6 +167,10 @@ class ModifyDtsJobRequest extends Model
     public $synchronizationDirection;
 
     /**
+     * @description Whether it is a seamless integration (Zero-ETL) task, the value can be:
+     * - **false**: No. - **true**: Yes.
+     * @example false
+     *
      * @var bool
      */
     public $zeroEtlJob;

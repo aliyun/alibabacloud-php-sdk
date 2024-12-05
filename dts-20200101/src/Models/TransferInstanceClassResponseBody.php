@@ -11,8 +11,8 @@ class TransferInstanceClassResponseBody extends Model
     /**
      * @description The billing method of the DTS instance. Valid values:
      *
-     *   **POSTPAY**: pay-as-you-go
-     *   **PREPAY**: subscription
+     *   **POSTPAY**: pay-as-you-go.
+     *   **PREPAY**: subscription.
      *
      * @example POSTPAY
      *
@@ -21,7 +21,7 @@ class TransferInstanceClassResponseBody extends Model
     public $chargeType;
 
     /**
-     * @description The error code.
+     * @description The error code that is returned.
      *
      * @example 200
      *
@@ -39,9 +39,9 @@ class TransferInstanceClassResponseBody extends Model
     public $dtsJobId;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the value of the **ErrMessage** parameter.
      *
-     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+     * > For example, if the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified value of the **DtsJobId** parameter is invalid.
      * @example DtsJobId
      *
      * @var string
@@ -51,7 +51,7 @@ class TransferInstanceClassResponseBody extends Model
     /**
      * @description The expiration time of the DTS instance.
      *
-     * >  This parameter is returned only if the ChargeType parameter is set to **PREPAY**.
+     * > This parameter is returned only if the value of the ChargeType parameter is **PREPAY**.
      * @example 2021-08-04T16:00:00.000+00:00
      *
      * @var string
@@ -59,7 +59,7 @@ class TransferInstanceClassResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The error code returned if the call failed.
+     * @description The error code returned if the request failed.
      *
      * @example InternalError
      *
@@ -68,7 +68,7 @@ class TransferInstanceClassResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description The error message returned if the request failed.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -86,7 +86,7 @@ class TransferInstanceClassResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of DTS instance.
+     * @description The ID of the DTS instance.
      *
      * @example dtsr4yr723m199****
      *
@@ -95,7 +95,7 @@ class TransferInstanceClassResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 716DB03E-2D0B-4DC3-BC4C-F7A9EE21****
      *
@@ -104,10 +104,10 @@ class TransferInstanceClassResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The call was successful.
-     *   **false**:The call failed.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class WhiteIpListResponseBody extends Model
 {
     /**
+     * @description Target end adaptation to VPCNAT IP whitelist
+     *
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $destIpList;
@@ -32,10 +36,7 @@ class WhiteIpListResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   **true**: The call was successful.
-     *   **false**: The call failed.
+     * @description The error code returned if the call failed.
      *
      * @example InternalError
      *
@@ -44,7 +45,7 @@ class WhiteIpListResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The CIDR blocks of DTS servers. Multiple CIDR blocks are separated by commas (,).
+     * @description The error message returned if the call failed.
      *
      * @example The Value of Input Parameter %s is not valid.
      *
@@ -53,7 +54,7 @@ class WhiteIpListResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -62,7 +63,7 @@ class WhiteIpListResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace **%s** in the **ErrMessage** parameter.
+     * @description IP address.
      *
      * @example 10.151.12.0/24,47.102.181.0/24,47.101.109.0/24,120.55.129.0/24,11.115.103.0/24,47.102.234.0/24
      *
@@ -71,7 +72,7 @@ class WhiteIpListResponseBody extends Model
     public $ipList;
 
     /**
-     * @description The error code returned if the call failed.
+     * @description The ID of the request.
      *
      * @example AD823BD3-1BA6-4117-A536-165CB280****
      *
@@ -80,12 +81,16 @@ class WhiteIpListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Source adaptation to VPC NAT IP whitelist
+     *
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $srcIpList;
 
     /**
-     * @description The error message returned if the call failed.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *
