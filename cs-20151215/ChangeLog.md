@@ -2,6 +2,10 @@
 - Update API DescribeClusterV2UserKubeconfig: add param TemporaryDurationMinutes.
 
 
+2024-12-05 Version: 4.8.3
+- Update API DescribeClusterV2UserKubeconfig: add param TemporaryDurationMinutes.
+
+
 2024-12-05 Version: 4.8.2
 - Update API CreateAutoscalingConfig: update param body.
 - Update API CreateAutoscalingConfig: update response param.
