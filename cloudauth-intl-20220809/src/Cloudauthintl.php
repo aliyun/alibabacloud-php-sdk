@@ -274,6 +274,9 @@ class Cloudauthintl extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cardSide)) {
+            $query['CardSide'] = $request->cardSide;
+        }
         if (!Utils::isUnset($request->docType)) {
             $query['DocType'] = $request->docType;
         }

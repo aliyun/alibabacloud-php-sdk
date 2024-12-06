@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DocOcrRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $cardSide;
+
+    /**
      * @example 00000006
      *
      * @var string
@@ -72,6 +77,7 @@ class DocOcrRequest extends Model
      */
     public $spoof;
     protected $_name = [
+        'cardSide'           => 'CardSide',
         'docType'            => 'DocType',
         'idFaceQuality'      => 'IdFaceQuality',
         'idOcrPictureBase64' => 'IdOcrPictureBase64',
@@ -91,6 +97,9 @@ class DocOcrRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cardSide) {
+            $res['CardSide'] = $this->cardSide;
+        }
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
         }
@@ -133,6 +142,9 @@ class DocOcrRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CardSide'])) {
+            $model->cardSide = $map['CardSide'];
+        }
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
         }
