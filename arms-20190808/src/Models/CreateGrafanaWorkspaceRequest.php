@@ -96,6 +96,11 @@ class CreateGrafanaWorkspaceRequest extends Model
     public $password;
 
     /**
+     * @var string
+     */
+    public $pricingCycle;
+
+    /**
      * @description The region ID.
      *
      * This parameter is required.
@@ -131,6 +136,7 @@ class CreateGrafanaWorkspaceRequest extends Model
         'grafanaWorkspaceEdition' => 'GrafanaWorkspaceEdition',
         'grafanaWorkspaceName'    => 'GrafanaWorkspaceName',
         'password'                => 'Password',
+        'pricingCycle'            => 'PricingCycle',
         'regionId'                => 'RegionId',
         'resourceGroupId'         => 'ResourceGroupId',
         'tags'                    => 'Tags',
@@ -172,6 +178,9 @@ class CreateGrafanaWorkspaceRequest extends Model
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->pricingCycle) {
+            $res['PricingCycle'] = $this->pricingCycle;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -229,6 +238,9 @@ class CreateGrafanaWorkspaceRequest extends Model
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['PricingCycle'])) {
+            $model->pricingCycle = $map['PricingCycle'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

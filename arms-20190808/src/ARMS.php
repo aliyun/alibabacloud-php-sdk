@@ -2235,6 +2235,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
         }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }

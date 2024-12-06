@@ -1,3 +1,14 @@
+2024-12-06 Version: 7.3.2
+- Update API CreateGrafanaWorkspace: add param AccountNumber.
+- Update API CreateGrafanaWorkspace: add param AutoRenew.
+- Update API CreateGrafanaWorkspace: add param CustomAccountNumber.
+- Update API CreateGrafanaWorkspace: add param Duration.
+- Update API CreateGrafanaWorkspace: add param PricingCycle.
+- Update API CreatePrometheusInstance: update param ArchiveDuration.
+- Update API GetPrometheusInstance: update response param.
+- Update API UpdatePrometheusInstance: update param ArchiveDuration.
+
+
 2024-12-05 Version: 7.3.2
 - Update API CreateGrafanaWorkspace: add param AccountNumber.
 - Update API CreateGrafanaWorkspace: add param AutoRenew.
