@@ -85,6 +85,11 @@ class result extends Model
     public $kibanaNodeProperties;
 
     /**
+     * @var string[]
+     */
+    public $logstashZones;
+
+    /**
      * @var masterDiskList[]
      */
     public $masterDiskList;
@@ -138,6 +143,7 @@ class result extends Model
         'instanceSupportNodes'  => 'instanceSupportNodes',
         'jvmConfine'            => 'jvmConfine',
         'kibanaNodeProperties'  => 'kibanaNodeProperties',
+        'logstashZones'         => 'logstashZones',
         'masterDiskList'        => 'masterDiskList',
         'masterSpec'            => 'masterSpec',
         'node'                  => 'node',
@@ -208,6 +214,9 @@ class result extends Model
         }
         if (null !== $this->kibanaNodeProperties) {
             $res['kibanaNodeProperties'] = null !== $this->kibanaNodeProperties ? $this->kibanaNodeProperties->toMap() : null;
+        }
+        if (null !== $this->logstashZones) {
+            $res['logstashZones'] = $this->logstashZones;
         }
         if (null !== $this->masterDiskList) {
             $res['masterDiskList'] = [];
@@ -322,6 +331,11 @@ class result extends Model
         }
         if (isset($map['kibanaNodeProperties'])) {
             $model->kibanaNodeProperties = kibanaNodeProperties::fromMap($map['kibanaNodeProperties']);
+        }
+        if (isset($map['logstashZones'])) {
+            if (!empty($map['logstashZones'])) {
+                $model->logstashZones = $map['logstashZones'];
+            }
         }
         if (isset($map['masterDiskList'])) {
             if (!empty($map['masterDiskList'])) {
