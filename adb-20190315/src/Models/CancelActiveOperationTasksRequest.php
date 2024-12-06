@@ -6,22 +6,14 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AttachUserENIRequest extends Model
+class CancelActiveOperationTasksRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $accessKeyIdCopy;
-
-    /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
-     *
-     * This parameter is required.
-     * @example am-bp11q28kvl688****
+     * @example am-xxxxxxxx
      *
      * @var string
      */
-    public $DBClusterId;
+    public $ids;
 
     /**
      * @var string
@@ -34,6 +26,13 @@ class AttachUserENIRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-beijing
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -42,13 +41,19 @@ class AttachUserENIRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
     protected $_name = [
-        'accessKeyIdCopy'      => 'AccessKeyId-copy',
-        'DBClusterId'          => 'DBClusterId',
+        'ids'                  => 'Ids',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityToken'        => 'SecurityToken',
     ];
 
     public function validate()
@@ -58,11 +63,8 @@ class AttachUserENIRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessKeyIdCopy) {
-            $res['AccessKeyId-copy'] = $this->accessKeyIdCopy;
-        }
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -70,11 +72,17 @@ class AttachUserENIRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
         }
 
         return $res;
@@ -83,16 +91,13 @@ class AttachUserENIRequest extends Model
     /**
      * @param array $map
      *
-     * @return AttachUserENIRequest
+     * @return CancelActiveOperationTasksRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AccessKeyId-copy'])) {
-            $model->accessKeyIdCopy = $map['AccessKeyId-copy'];
-        }
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -100,11 +105,17 @@ class AttachUserENIRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
         }
 
         return $model;

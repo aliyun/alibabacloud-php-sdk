@@ -1,3 +1,11 @@
+2024-12-06 Version: 4.5.0
+- Support API CancelActiveOperationTasks.
+- Support API DescribeActiveOperationMaintainConf.
+- Support API DescribeLoghubDetail.
+- Update API AttachUserENI: add param AccessKeyId-copy.
+- Update API AttachUserENI: update param AccessKeyId.
+
+
 2024-12-04 Version: 4.4.0
 - Support API CheckServiceLinkedRole.
 - Support API CreateServiceLinkedRole.
