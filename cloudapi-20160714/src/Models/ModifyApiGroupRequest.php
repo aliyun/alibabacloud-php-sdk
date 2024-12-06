@@ -28,6 +28,15 @@ class ModifyApiGroupRequest extends Model
     public $compatibleFlags;
 
     /**
+     * @description The custom appcode configuration.
+     *
+     * @example {"location":"HEADER","name":"myAppCodeHeader"}
+     *
+     * @var string
+     */
+    public $customAppCodeConfig;
+
+    /**
      * @description The custom trace configuration.
      *
      * @example {\\"parameterLocation\\":\\"HEADER\\",\\"parameterName\\":\\"traceId\\"}
@@ -64,6 +73,10 @@ class ModifyApiGroupRequest extends Model
     public $description;
 
     /**
+     * @description If filter AppCode for backend.
+     *
+     * @example false
+     *
      * @var string
      */
     public $filterAppCodeForBackend;
@@ -99,6 +112,8 @@ class ModifyApiGroupRequest extends Model
     /**
      * @description The RPC mode.
      *
+     * @example {}
+     *
      * @var string
      */
     public $rpcPattern;
@@ -109,6 +124,10 @@ class ModifyApiGroupRequest extends Model
     public $securityToken;
 
     /**
+     * @description If support SSE.
+     *
+     * @example true
+     *
      * @var string
      */
     public $supportSSE;
@@ -133,6 +152,7 @@ class ModifyApiGroupRequest extends Model
     protected $_name = [
         'basePath'                => 'BasePath',
         'compatibleFlags'         => 'CompatibleFlags',
+        'customAppCodeConfig'     => 'CustomAppCodeConfig',
         'customTraceConfig'       => 'CustomTraceConfig',
         'customerConfigs'         => 'CustomerConfigs',
         'defaultDomain'           => 'DefaultDomain',
@@ -160,6 +180,9 @@ class ModifyApiGroupRequest extends Model
         }
         if (null !== $this->compatibleFlags) {
             $res['CompatibleFlags'] = $this->compatibleFlags;
+        }
+        if (null !== $this->customAppCodeConfig) {
+            $res['CustomAppCodeConfig'] = $this->customAppCodeConfig;
         }
         if (null !== $this->customTraceConfig) {
             $res['CustomTraceConfig'] = $this->customTraceConfig;
@@ -223,6 +246,9 @@ class ModifyApiGroupRequest extends Model
         }
         if (isset($map['CompatibleFlags'])) {
             $model->compatibleFlags = $map['CompatibleFlags'];
+        }
+        if (isset($map['CustomAppCodeConfig'])) {
+            $model->customAppCodeConfig = $map['CustomAppCodeConfig'];
         }
         if (isset($map['CustomTraceConfig'])) {
             $model->customTraceConfig = $map['CustomTraceConfig'];

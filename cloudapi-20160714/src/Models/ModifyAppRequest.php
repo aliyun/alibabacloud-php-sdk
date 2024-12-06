@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppRequest extends Model
 {
     /**
-     * @description The ID of the application.
+     * @description The ID of the app.
      *
      * This parameter is required.
      * @example 20112314518278
@@ -20,9 +20,9 @@ class ModifyAppRequest extends Model
     public $appId;
 
     /**
-     * @description The ID must be 4 to 26 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
+     * @description The value must be 4 to 26 characters in length and can contain letters, digits, and underscores (_). It must start with a letter.
      *
-     * If you do not want to modify the existing value, do not specify this parameter.
+     * This parameter is required only when you want to modify the value.
      * @example jiedian_pord
      *
      * @var string
@@ -30,9 +30,9 @@ class ModifyAppRequest extends Model
     public $appName;
 
     /**
-     * @description The description of the application. The description can be up to 180 characters in length.
+     * @description The description of the app. The description can contain a maximum of 180 characters in length.
      *
-     * If you do not want to modify the existing value, do not specify this parameter.
+     * This parameter is required only when you want to modify the value.
      * @example modidyTest
      *
      * @var string
@@ -40,6 +40,10 @@ class ModifyAppRequest extends Model
     public $description;
 
     /**
+     * @description 扩展信息
+     *
+     * @example 110461946884
+     *
      * @var string
      */
     public $extend;

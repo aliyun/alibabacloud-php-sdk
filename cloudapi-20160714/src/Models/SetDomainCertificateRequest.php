@@ -46,6 +46,15 @@ class SetDomainCertificateRequest extends Model
     public $certificatePrivateKey;
 
     /**
+     * @description If pass ssl_client_s_dn of the cert to backend header \\"X-Client-S-Dn\\".
+     *
+     * @example True
+     *
+     * @var bool
+     */
+    public $clientCertSDnPassThrough;
+
+    /**
      * @description The custom domain name.
      *
      * This parameter is required.
@@ -71,6 +80,15 @@ class SetDomainCertificateRequest extends Model
     public $securityToken;
 
     /**
+     * @description If enable ssl OCSP.
+     *
+     * @example True
+     *
+     * @var bool
+     */
+    public $sslOcspEnable;
+
+    /**
      * @description The certificate verification depth.
      *
      * @example 2
@@ -79,14 +97,16 @@ class SetDomainCertificateRequest extends Model
      */
     public $sslVerifyDepth;
     protected $_name = [
-        'caCertificateBody'     => 'CaCertificateBody',
-        'certificateBody'       => 'CertificateBody',
-        'certificateName'       => 'CertificateName',
-        'certificatePrivateKey' => 'CertificatePrivateKey',
-        'domainName'            => 'DomainName',
-        'groupId'               => 'GroupId',
-        'securityToken'         => 'SecurityToken',
-        'sslVerifyDepth'        => 'SslVerifyDepth',
+        'caCertificateBody'        => 'CaCertificateBody',
+        'certificateBody'          => 'CertificateBody',
+        'certificateName'          => 'CertificateName',
+        'certificatePrivateKey'    => 'CertificatePrivateKey',
+        'clientCertSDnPassThrough' => 'ClientCertSDnPassThrough',
+        'domainName'               => 'DomainName',
+        'groupId'                  => 'GroupId',
+        'securityToken'            => 'SecurityToken',
+        'sslOcspEnable'            => 'SslOcspEnable',
+        'sslVerifyDepth'           => 'SslVerifyDepth',
     ];
 
     public function validate()
@@ -108,6 +128,9 @@ class SetDomainCertificateRequest extends Model
         if (null !== $this->certificatePrivateKey) {
             $res['CertificatePrivateKey'] = $this->certificatePrivateKey;
         }
+        if (null !== $this->clientCertSDnPassThrough) {
+            $res['ClientCertSDnPassThrough'] = $this->clientCertSDnPassThrough;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -116,6 +139,9 @@ class SetDomainCertificateRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->sslOcspEnable) {
+            $res['SslOcspEnable'] = $this->sslOcspEnable;
         }
         if (null !== $this->sslVerifyDepth) {
             $res['SslVerifyDepth'] = $this->sslVerifyDepth;
@@ -144,6 +170,9 @@ class SetDomainCertificateRequest extends Model
         if (isset($map['CertificatePrivateKey'])) {
             $model->certificatePrivateKey = $map['CertificatePrivateKey'];
         }
+        if (isset($map['ClientCertSDnPassThrough'])) {
+            $model->clientCertSDnPassThrough = $map['ClientCertSDnPassThrough'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -152,6 +181,9 @@ class SetDomainCertificateRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['SslOcspEnable'])) {
+            $model->sslOcspEnable = $map['SslOcspEnable'];
         }
         if (isset($map['SslVerifyDepth'])) {
             $model->sslVerifyDepth = $map['SslVerifyDepth'];

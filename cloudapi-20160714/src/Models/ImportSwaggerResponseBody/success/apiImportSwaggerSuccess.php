@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiImportSwaggerSuccess extends Model
 {
     /**
-     * @description Specifies that the operation is CREATE or MODIFY.
+     * @description Specifies whether the operation is CREATE or MODIFY.
      *
      * @example CREATE
      *
@@ -18,7 +18,7 @@ class apiImportSwaggerSuccess extends Model
     public $apiOperation;
 
     /**
-     * @description The UID of the imported API.
+     * @description The UID of the successfully imported API.
      *
      * @example 8e274ec61cf6468e83b68371956831cb
      *
@@ -27,7 +27,7 @@ class apiImportSwaggerSuccess extends Model
     public $apiUid;
 
     /**
-     * @description The HTTP method of the API.
+     * @description The HTTP method configured when the API is created.
      *
      * @example get
      *
@@ -36,7 +36,7 @@ class apiImportSwaggerSuccess extends Model
     public $httpMethod;
 
     /**
-     * @description The request path of the API.
+     * @description The request path configured when the API is created.
      *
      * @example /http/get/mapping
      *

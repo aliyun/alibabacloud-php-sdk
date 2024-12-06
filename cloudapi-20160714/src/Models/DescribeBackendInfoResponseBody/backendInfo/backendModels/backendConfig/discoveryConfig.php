@@ -27,6 +27,8 @@ class discoveryConfig extends Model
     public $rcType;
 
     /**
+     * @description The ZooKeeper configuration.
+     *
      * @var zookeeperConfig
      */
     public $zookeeperConfig;

@@ -17,6 +17,8 @@ class DescribeApisByAppResponseBody extends Model
     public $appApiRelationInfos;
 
     /**
+     * @description The number of pages to return the results on.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +26,8 @@ class DescribeApisByAppResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -31,6 +35,8 @@ class DescribeApisByAppResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
      *
      * @var string
@@ -38,6 +44,8 @@ class DescribeApisByAppResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 2
      *
      * @var int

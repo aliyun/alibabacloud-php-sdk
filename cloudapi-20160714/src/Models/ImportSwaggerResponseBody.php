@@ -20,14 +20,14 @@ class ImportSwaggerResponseBody extends Model
     public $failed;
 
     /**
-     * @description The models that failed to be imported based on the Swagger-compliant data imported this time.
+     * @description The models that failed to be imported through the Swagger-compliant data this time.
      *
      * @var modelFailed
      */
     public $modelFailed;
 
     /**
-     * @description The models that were imported based on the Swagger-compliant data imported this time.
+     * @description The models that were imported through the Swagger-compliant data this time.
      *
      * @var modelSuccess
      */
@@ -43,7 +43,7 @@ class ImportSwaggerResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The APIs that were created based on the Swagger-compliant data imported this time.
+     * @description The APIs that are created based on the Swagger-compliant data imported this time.
      *
      * @var success
      */

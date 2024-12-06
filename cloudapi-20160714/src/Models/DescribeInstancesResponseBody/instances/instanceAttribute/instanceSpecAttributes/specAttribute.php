@@ -11,6 +11,8 @@ class specAttribute extends Model
     /**
      * @description The variable name.
      *
+     * @example SLA
+     *
      * @var string
      */
     public $localName;
@@ -18,7 +20,7 @@ class specAttribute extends Model
     /**
      * @description The variable value.
      *
-     * @example 2500
+     * @example 99.95%
      *
      * @var string
      */

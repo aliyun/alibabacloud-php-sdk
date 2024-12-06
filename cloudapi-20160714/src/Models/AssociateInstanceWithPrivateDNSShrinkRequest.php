@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AssociateInstanceWithPrivateDNSShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example apigateway-hz-ead4f4b0bac8
      *
      * @var string
@@ -18,8 +19,9 @@ class AssociateInstanceWithPrivateDNSShrinkRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The internal domain names included in the resolution.
      *
+     * This parameter is required.
      * @var string
      */
     public $intranetDomainsShrink;

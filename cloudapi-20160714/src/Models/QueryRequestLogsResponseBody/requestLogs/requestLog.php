@@ -38,12 +38,16 @@ class requestLog extends Model
     /**
      * @description The time when API Gateway finished forwarding the request to the backend service.
      *
+     * @example 1731487224969
+     *
      * @var int
      */
     public $backendRequestEnd;
 
     /**
      * @description The time when API Gateway started to forward the request to the backend service.
+     *
+     * @example 1731487224969
      *
      * @var int
      */
@@ -52,12 +56,16 @@ class requestLog extends Model
     /**
      * @description The time when API Gateway finished receiving the response from the backend service.
      *
+     * @example 1731487224989
+     *
      * @var int
      */
     public $backendResponseEnd;
 
     /**
      * @description The time when API Gateway started to receive the response from the backend service.
+     *
+     * @example 1731487224989
      *
      * @var int
      */
@@ -147,12 +155,16 @@ class requestLog extends Model
     /**
      * @description The time when API Gateway finished receiving the request.
      *
+     * @example 1731487224968
+     *
      * @var int
      */
     public $frontRequestEnd;
 
     /**
      * @description The time when API Gateway started to receive the request.
+     *
+     * @example 1731487224968
      *
      * @var int
      */
@@ -161,12 +173,16 @@ class requestLog extends Model
     /**
      * @description The time when API Gateway finished forwarding the response to the client.
      *
+     * @example 1731487224989
+     *
      * @var int
      */
     public $frontResponseEnd;
 
     /**
      * @description The time when API Gateway started to forward the response to the client.
+     *
+     * @example 1731487224989
      *
      * @var int
      */

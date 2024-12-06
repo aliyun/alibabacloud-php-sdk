@@ -793,7 +793,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 专享实例关联内网域名解析记录
+     * @summary Associates an internal domain name resolution with a dedicated instance.
+     *  *
+     * @description An internal domain name resolution can be associated only with a dedicated instance, not with a shared instance or shared instance cluster.
      *  *
      * @param AssociateInstanceWithPrivateDNSRequest $tmpReq  AssociateInstanceWithPrivateDNSRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -839,7 +841,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 专享实例关联内网域名解析记录
+     * @summary Associates an internal domain name resolution with a dedicated instance.
+     *  *
+     * @description An internal domain name resolution can be associated only with a dedicated instance, not with a shared instance or shared instance cluster.
      *  *
      * @param AssociateInstanceWithPrivateDNSRequest $request AssociateInstanceWithPrivateDNSRequest
      *
@@ -1277,6 +1281,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 创建API分组
+     *  *
      * @param CreateApiGroupRequest $request CreateApiGroupRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
@@ -1323,6 +1329,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 创建API分组
+     *  *
      * @param CreateApiGroupRequest $request CreateApiGroupRequest
      *
      * @return CreateApiGroupResponse CreateApiGroupResponse
@@ -1917,6 +1925,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 创建内网域名
+     *  *
      * @param CreateIntranetDomainRequest $request CreateIntranetDomainRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -1951,6 +1961,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 创建内网域名
+     *  *
      * @param CreateIntranetDomainRequest $request CreateIntranetDomainRequest
      *
      * @return CreateIntranetDomainResponse CreateIntranetDomainResponse
@@ -2032,6 +2044,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary Creates a Simple Log Service configuration for an API.
+     *  *
      * @param CreateLogConfigRequest $request CreateLogConfigRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2041,6 +2055,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->createSlr)) {
+            $query['CreateSlr'] = $request->createSlr;
+        }
         if (!Utils::isUnset($request->logType)) {
             $query['LogType'] = $request->logType;
         }
@@ -2072,6 +2089,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary Creates a Simple Log Service configuration for an API.
+     *  *
      * @param CreateLogConfigRequest $request CreateLogConfigRequest
      *
      * @return CreateLogConfigResponse CreateLogConfigResponse
@@ -2277,7 +2296,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建内网域名解析
+     * @summary Creates an internal domain name resolution and adds a resolution record.
+     *  *
+     * @description An internal domain name resolution of the virtual private cloud (VPC) type can be bound only to traditional dedicated instances. An internal domain name resolution of the A type can be bound only to VPC integration dedicated instances.
      *  *
      * @param CreatePrivateDNSRequest $tmpReq  CreatePrivateDNSRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2326,7 +2347,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 创建内网域名解析
+     * @summary Creates an internal domain name resolution and adds a resolution record.
+     *  *
+     * @description An internal domain name resolution of the virtual private cloud (VPC) type can be bound only to traditional dedicated instances. An internal domain name resolution of the A type can be bound only to VPC integration dedicated instances.
      *  *
      * @param CreatePrivateDNSRequest $request CreatePrivateDNSRequest
      *
@@ -3626,7 +3649,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 删除内网域名解析
+     * @summary Deletes an internal domain name resolution.
      *  *
      * @param DeletePrivateDNSRequest $request DeletePrivateDNSRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -3668,7 +3691,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 删除内网域名解析
+     * @summary Deletes an internal domain name resolution.
      *  *
      * @param DeletePrivateDNSRequest $request DeletePrivateDNSRequest
      *
@@ -3929,6 +3952,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询批量下线API任务
+     *  *
      * @param DescribeAbolishApiTaskRequest $request DescribeAbolishApiTaskRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -3963,6 +3988,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询批量下线API任务
+     *  *
      * @param DescribeAbolishApiTaskRequest $request DescribeAbolishApiTaskRequest
      *
      * @return DescribeAbolishApiTaskResponse DescribeAbolishApiTaskResponse
@@ -7850,6 +7877,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询日志配置
+     *  *
      * @param DescribeLogConfigRequest $request DescribeLogConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
@@ -7884,6 +7913,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询日志配置
+     *  *
      * @param DescribeLogConfigRequest $request DescribeLogConfigRequest
      *
      * @return DescribeLogConfigResponse DescribeLogConfigResponse
@@ -8086,6 +8117,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询插件列表
+     *  *
      * @param DescribePluginSchemasRequest $request DescribePluginSchemasRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -8120,6 +8153,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询插件列表
+     *  *
      * @param DescribePluginSchemasRequest $request DescribePluginSchemasRequest
      *
      * @return DescribePluginSchemasResponse DescribePluginSchemasResponse
@@ -8132,6 +8167,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询插件模板
+     *  *
      * @param DescribePluginTemplatesRequest $request DescribePluginTemplatesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
@@ -8169,6 +8206,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询插件模板
+     *  *
      * @param DescribePluginTemplatesRequest $request DescribePluginTemplatesRequest
      *
      * @return DescribePluginTemplatesResponse DescribePluginTemplatesResponse
@@ -8962,6 +9001,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询更新VPC授权的任务
+     *  *
      * @param DescribeUpdateVpcInfoTaskRequest $request DescribeUpdateVpcInfoTaskRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -8996,6 +9037,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 查询更新VPC授权的任务
+     *  *
      * @param DescribeUpdateVpcInfoTaskRequest $request DescribeUpdateVpcInfoTaskRequest
      *
      * @return DescribeUpdateVpcInfoTaskResponse DescribeUpdateVpcInfoTaskResponse
@@ -9300,7 +9343,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 专享实例解除的关联内网域名解析记录
+     * @summary Disassociates an internal domain name resolution from a dedicated instance.
      *  *
      * @param DissociateInstanceWithPrivateDNSRequest $tmpReq  DissociateInstanceWithPrivateDNSRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -9346,7 +9389,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 专享实例解除的关联内网域名解析记录
+     * @summary Disassociates an internal domain name resolution from a dedicated instance.
      *  *
      * @param DissociateInstanceWithPrivateDNSRequest $request DissociateInstanceWithPrivateDNSRequest
      *
@@ -9429,7 +9472,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 开启实例的访问控制
+     * @summary This feature provides instance-level access control capabilities for dedicated API Gateway instances. Specifies the access control policy of an instance.
      *  *
      * @param EnableInstanceAccessControlRequest $request EnableInstanceAccessControlRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -9474,7 +9517,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 开启实例的访问控制
+     * @summary This feature provides instance-level access control capabilities for dedicated API Gateway instances. Specifies the access control policy of an instance.
      *  *
      * @param EnableInstanceAccessControlRequest $request EnableInstanceAccessControlRequest
      *
@@ -9715,7 +9758,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询内网域名解析
+     * @summary Queries internal domain name resolutions by domain name or resolution type.
      *  *
      * @param ListPrivateDNSRequest $request ListPrivateDNSRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -9754,7 +9797,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 查询内网域名解析
+     * @summary Queries internal domain name resolutions by domain name or resolution type.
      *  *
      * @param ListPrivateDNSRequest $request ListPrivateDNSRequest
      *
@@ -10158,6 +10201,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->compatibleFlags)) {
             $query['CompatibleFlags'] = $request->compatibleFlags;
         }
+        if (!Utils::isUnset($request->customAppCodeConfig)) {
+            $query['CustomAppCodeConfig'] = $request->customAppCodeConfig;
+        }
         if (!Utils::isUnset($request->customTraceConfig)) {
             $query['CustomTraceConfig'] = $request->customTraceConfig;
         }
@@ -10233,6 +10279,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 变更分组实例
+     *  *
      * @param ModifyApiGroupInstanceRequest $request ModifyApiGroupInstanceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -10276,6 +10324,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 变更分组实例
+     *  *
      * @param ModifyApiGroupInstanceRequest $request ModifyApiGroupInstanceRequest
      *
      * @return ModifyApiGroupInstanceResponse ModifyApiGroupInstanceResponse
@@ -10409,11 +10459,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a specified application.
+     * @summary Modifies a specified app.
      *  *
      * @description *   This operation is intended for API callers.
-     * *   **AppName** or **Description** can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a success response.
-     * *   You can call this operation up to 50 times per second per account.
+     * *   AppName or Description can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a successful response.********
+     * *   The QPS limit on this operation is 50 per user.
      *  *
      * @param ModifyAppRequest $request ModifyAppRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -10461,11 +10511,11 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a specified application.
+     * @summary Modifies a specified app.
      *  *
      * @description *   This operation is intended for API callers.
-     * *   **AppName** or **Description** can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a success response.
-     * *   You can call this operation up to 50 times per second per account.
+     * *   AppName or Description can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a successful response.********
+     * *   The QPS limit on this operation is 50 per user.
      *  *
      * @param ModifyAppRequest $request ModifyAppRequest
      *
@@ -10715,7 +10765,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 修改API网关实例属性
+     * @summary Modifies the properties of an API Gateway instance.
      *  *
      * @param ModifyInstanceAttributeRequest $tmpReq  ModifyInstanceAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -10786,7 +10836,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 修改API网关实例属性
+     * @summary Modifies the properties of an API Gateway instance.
      *  *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
@@ -11044,6 +11094,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 修改日志配置
+     *  *
      * @param ModifyLogConfigRequest $request ModifyLogConfigRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -11084,6 +11136,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 修改日志配置
+     *  *
      * @param ModifyLogConfigRequest $request ModifyLogConfigRequest
      *
      * @return ModifyLogConfigResponse ModifyLogConfigResponse
@@ -11439,6 +11493,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 开通API网关服务
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return OpenApiGatewayServiceResponse OpenApiGatewayServiceResponse
@@ -11462,6 +11518,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 开通API网关服务
+     *  *
      * @return OpenApiGatewayServiceResponse OpenApiGatewayServiceResponse
      */
     public function openApiGatewayService()
@@ -12148,6 +12206,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 删除VPC授权并下线关联API
+     *  *
      * @param RemoveVpcAccessAndAbolishApisRequest $request RemoveVpcAccessAndAbolishApisRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
@@ -12191,6 +12251,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 删除VPC授权并下线关联API
+     *  *
      * @param RemoveVpcAccessAndAbolishApisRequest $request RemoveVpcAccessAndAbolishApisRequest
      *
      * @return RemoveVpcAccessAndAbolishApisResponse RemoveVpcAccessAndAbolishApisResponse
@@ -12320,6 +12382,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 根据APP生成SDK
+     *  *
      * @param SdkGenerateByAppRequest $request SdkGenerateByAppRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -12357,6 +12421,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 根据APP生成SDK
+     *  *
      * @param SdkGenerateByAppRequest $request SdkGenerateByAppRequest
      *
      * @return SdkGenerateByAppResponse SdkGenerateByAppResponse
@@ -12422,6 +12488,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 根据分组生成SDK
+     *  *
      * @param SdkGenerateByGroupRequest $request SdkGenerateByGroupRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -12459,6 +12527,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 根据分组生成SDK
+     *  *
      * @param SdkGenerateByGroupRequest $request SdkGenerateByGroupRequest
      *
      * @return SdkGenerateByGroupResponse SdkGenerateByGroupResponse
@@ -12524,7 +12594,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 给多个API产品添加APP授权
+     * @summary Grants permissions on API products to an application.
      *  *
      * @param SetApiProductsAuthoritiesRequest $tmpReq  SetApiProductsAuthoritiesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -12574,7 +12644,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 给多个API产品添加APP授权
+     * @summary Grants permissions on API products to an application.
      *  *
      * @param SetApiProductsAuthoritiesRequest $request SetApiProductsAuthoritiesRequest
      *
@@ -12661,7 +12731,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 将多个APP授权给API产品
+     * @summary Authorizes multiple applications to call APIs in an API product.
      *  *
      * @param SetAppsAuthToApiProductRequest $request SetAppsAuthToApiProductRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -12706,7 +12776,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 将多个APP授权给API产品
+     * @summary Authorizes multiple applications to call APIs in an API product.
      *  *
      * @param SetAppsAuthToApiProductRequest $request SetAppsAuthToApiProductRequest
      *
@@ -12882,6 +12952,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->certificatePrivateKey)) {
             $query['CertificatePrivateKey'] = $request->certificatePrivateKey;
         }
+        if (!Utils::isUnset($request->clientCertSDnPassThrough)) {
+            $query['ClientCertSDnPassThrough'] = $request->clientCertSDnPassThrough;
+        }
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
@@ -12890,6 +12963,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sslOcspEnable)) {
+            $query['SslOcspEnable'] = $request->sslOcspEnable;
         }
         if (!Utils::isUnset($request->sslVerifyDepth)) {
             $query['SslVerifyDepth'] = $request->sslVerifyDepth;
@@ -12990,6 +13066,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 设置分组授权AppCode
+     *  *
      * @param SetGroupAuthAppCodeRequest $request SetGroupAuthAppCodeRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -13027,6 +13105,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
+     * @summary 设置分组授权AppCode
+     *  *
      * @param SetGroupAuthAppCodeRequest $request SetGroupAuthAppCodeRequest
      *
      * @return SetGroupAuthAppCodeResponse SetGroupAuthAppCodeResponse
@@ -13559,7 +13639,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 更新内网域名解析
+     * @summary Modifies an internal domain name resolution.
      *  *
      * @param UpdatePrivateDNSRequest $tmpReq  UpdatePrivateDNSRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -13608,7 +13688,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * @summary 更新内网域名解析
+     * @summary Modifies an internal domain name resolution.
      *  *
      * @param UpdatePrivateDNSRequest $request UpdatePrivateDNSRequest
      *

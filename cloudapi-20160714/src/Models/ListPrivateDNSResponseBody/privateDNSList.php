@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class privateDNSList extends Model
 {
     /**
+     * @description The instances that are associated with the resolution.
+     *
      * @var string[]
      */
     public $bindInstances;
 
     /**
+     * @description The time when the resolution was created. The time is displayed in UTC.
+     *
      * @example 2023-05-10T08:17:00Z
      *
      * @var string
@@ -22,6 +26,8 @@ class privateDNSList extends Model
     public $createdTime;
 
     /**
+     * @description The internal domain name.
+     *
      * @example api.demo.com
      *
      * @var string
@@ -29,11 +35,18 @@ class privateDNSList extends Model
     public $intranetDomain;
 
     /**
+     * @description The resolution records.
+     *
      * @var records[]
      */
     public $records;
 
     /**
+     * @description The internal domain name resolution type. Valid values:
+     *
+     *   VPC: resolution for VPC access authorizations. A resolution of this type can be bound only to traditional dedicated instances.
+     *   A: resolution that supports A records. A resolution of this type can be bound only to VPC integration dedicated instances.
+     *
      * @example A
      *
      * @var string

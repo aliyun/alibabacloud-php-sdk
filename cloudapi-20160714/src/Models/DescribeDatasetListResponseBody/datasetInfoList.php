@@ -59,8 +59,6 @@ class datasetInfoList extends Model
     public $modifiedTime;
 
     /**
-     * @description 标签
-     *
      * @var tags[]
      */
     public $tags;

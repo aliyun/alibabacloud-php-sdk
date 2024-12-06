@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @description The resolution record.
+     *
      * @example 192.168.0.1
      *
      * @var string
@@ -16,6 +18,8 @@ class records extends Model
     public $record;
 
     /**
+     * @description The weight of the record.
+     *
      * @example 100
      *
      * @var int

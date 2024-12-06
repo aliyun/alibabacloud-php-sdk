@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByAppRequest extends Model
 {
     /**
+     * @description The name of the API. The name is used for fuzzy match.
+     *
      * @example getPersonInfo
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeApisByAppRequest extends Model
     public $apiName;
 
     /**
+     * @description The API ID.
+     *
      * @example b19240592b1b4e74961fb8438ed7550c
      *
      * @var string
@@ -23,8 +27,9 @@ class DescribeApisByAppRequest extends Model
     public $apiUid;
 
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example 333486644
      *
      * @var int
@@ -32,6 +37,8 @@ class DescribeApisByAppRequest extends Model
     public $appId;
 
     /**
+     * @description The description of the API.
+     *
      * @example test
      *
      * @var string
@@ -39,6 +46,8 @@ class DescribeApisByAppRequest extends Model
     public $description;
 
     /**
+     * @description The request HTTP method of the API.
+     *
      * @example POST
      *
      * @var string
@@ -46,6 +55,8 @@ class DescribeApisByAppRequest extends Model
     public $method;
 
     /**
+     * @description The number of the current page.
+     *
      * @example 1
      *
      * @var int
@@ -53,6 +64,8 @@ class DescribeApisByAppRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -60,6 +73,8 @@ class DescribeApisByAppRequest extends Model
     public $pageSize;
 
     /**
+     * @description The request path of the API.
+     *
      * @example /tt
      *
      * @var string

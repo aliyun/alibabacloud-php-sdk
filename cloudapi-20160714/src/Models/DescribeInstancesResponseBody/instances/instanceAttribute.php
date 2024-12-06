@@ -303,6 +303,17 @@ class instanceAttribute extends Model
     public $networkInterfaceAttributes;
 
     /**
+     * @description The new VPC egress CIDR block.
+     *
+     * @example 100.104.253.0/26
+     *
+     * @var string
+     */
+    public $newVpcEgressAddress;
+
+    /**
+     * @description The private DNS list.
+     *
      * @var privateDnsList
      */
     public $privateDnsList;
@@ -335,6 +346,8 @@ class instanceAttribute extends Model
     public $supportIpv6;
 
     /**
+     * @description The tags of the instance.
+     *
      * @var tags
      */
     public $tags;
@@ -405,6 +418,8 @@ class instanceAttribute extends Model
     /**
      * @description The zone.
      *
+     * @example Multi-Availability Zone 3(b,c,a)
+     *
      * @var string
      */
     public $zoneLocalName;
@@ -439,6 +454,7 @@ class instanceAttribute extends Model
         'maintainEndTime'            => 'MaintainEndTime',
         'maintainStartTime'          => 'MaintainStartTime',
         'networkInterfaceAttributes' => 'NetworkInterfaceAttributes',
+        'newVpcEgressAddress'        => 'NewVpcEgressAddress',
         'privateDnsList'             => 'PrivateDnsList',
         'regionId'                   => 'RegionId',
         'status'                     => 'Status',
@@ -550,6 +566,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->networkInterfaceAttributes) {
             $res['NetworkInterfaceAttributes'] = null !== $this->networkInterfaceAttributes ? $this->networkInterfaceAttributes->toMap() : null;
+        }
+        if (null !== $this->newVpcEgressAddress) {
+            $res['NewVpcEgressAddress'] = $this->newVpcEgressAddress;
         }
         if (null !== $this->privateDnsList) {
             $res['PrivateDnsList'] = null !== $this->privateDnsList ? $this->privateDnsList->toMap() : null;
@@ -691,6 +710,9 @@ class instanceAttribute extends Model
         }
         if (isset($map['NetworkInterfaceAttributes'])) {
             $model->networkInterfaceAttributes = networkInterfaceAttributes::fromMap($map['NetworkInterfaceAttributes']);
+        }
+        if (isset($map['NewVpcEgressAddress'])) {
+            $model->newVpcEgressAddress = $map['NewVpcEgressAddress'];
         }
         if (isset($map['PrivateDnsList'])) {
             $model->privateDnsList = privateDnsList::fromMap($map['PrivateDnsList']);

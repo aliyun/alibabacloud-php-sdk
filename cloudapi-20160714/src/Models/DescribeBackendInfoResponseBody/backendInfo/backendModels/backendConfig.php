@@ -16,13 +16,15 @@ use AlibabaCloud\Tea\Model;
 class backendConfig extends Model
 {
     /**
-     * @description The information about the backend service whose type is Service Discovery.
+     * @description The information about the backend service when the backend service is of the Service Discovery type.
      *
      * @var discoveryConfig
      */
     public $discoveryConfig;
 
     /**
+     * @description The EDAS configuration.
+     *
      * @var edasConfig
      */
     public $edasConfig;
@@ -42,7 +44,7 @@ class backendConfig extends Model
     public $functionComputeConfig;
 
     /**
-     * @description The host of the backend service.
+     * @description The host of the HTTP backend service.
      *
      * @example www.host.com
      *
@@ -51,7 +53,7 @@ class backendConfig extends Model
     public $httpTargetHostName;
 
     /**
-     * @description The information about the backend service whose type is Mock.
+     * @description The information about the backend service when the backend service is of the Mock type.
      *
      * @var mockConfig
      */
@@ -74,6 +76,8 @@ class backendConfig extends Model
     public $serviceAddress;
 
     /**
+     * @description The timeout period of the backend service, in millisecond.
+     *
      * @example 10000
      *
      * @var int
@@ -90,7 +94,7 @@ class backendConfig extends Model
     public $type;
 
     /**
-     * @description The information about the virtual private cloud (VPC). This parameter is available only for backend services whose type is VPC.
+     * @description The information about the backend service when the backend service is of the VPC type.
      *
      * @var vpcConfig
      */

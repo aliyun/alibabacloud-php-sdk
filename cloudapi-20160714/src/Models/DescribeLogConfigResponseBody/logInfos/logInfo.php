@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logInfo extends Model
 {
     /**
+     * @description The log type.
+     *
      * @example PROVIDER
      *
      * @var string
@@ -16,6 +18,8 @@ class logInfo extends Model
     public $logType;
 
     /**
+     * @description The region ID of the Logstore.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class logInfo extends Model
     public $regionId;
 
     /**
+     * @description The name of the Logstore in Log Service.
+     *
      * @example slsstore
      *
      * @var string
@@ -30,6 +36,8 @@ class logInfo extends Model
     public $slsLogStore;
 
     /**
+     * @description The name of the Log Service project.
+     *
      * @example slsproject
      *
      * @var string

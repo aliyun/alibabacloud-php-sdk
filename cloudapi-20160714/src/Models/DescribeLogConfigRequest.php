@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogConfigRequest extends Model
 {
     /**
+     * @description The log type.
+     *
+     * Valid values:
+     *
+     *   PROVIDER
+     *
      * @example PROVIDER
      *
      * @var string

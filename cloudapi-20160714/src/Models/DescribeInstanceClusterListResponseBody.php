@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceClusterListResponseBody extends Model
 {
     /**
+     * @description The instance cluster list.
+     *
      * @var instanceClusters
      */
     public $instanceClusters;

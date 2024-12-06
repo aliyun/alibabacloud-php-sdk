@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class edasConfig extends Model
 {
     /**
+     * @description The EDAS application ID.
+     *
      * @example 6cd0c599-dxxx-496d-b3d5-6a71c657xxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class edasConfig extends Model
     public $edasAppId;
 
     /**
+     * @description The ID of the microservices namespace in EDAS.
+     *
      * @example cn-hangzhou:edasNacos
      *
      * @var string
@@ -23,6 +27,8 @@ class edasConfig extends Model
     public $microserviceNamespace;
 
     /**
+     * @description The ID of the microservices namespace in EDAS.
+     *
      * @example cn-hangzhou:edasNacos
      *
      * @var string
@@ -30,6 +36,8 @@ class edasConfig extends Model
     public $microserviceNamespaceId;
 
     /**
+     * @description The name of the microservices namespace in EDAS.
+     *
      * @example Edas-Nacos
      *
      * @var string
@@ -37,6 +45,8 @@ class edasConfig extends Model
     public $microserviceNamespaceName;
 
     /**
+     * @description The MSE instance ID.
+     *
      * @example mse-cn-jia3n1rxxxx
      *
      * @var string
@@ -44,6 +54,8 @@ class edasConfig extends Model
     public $mseInstanceId;
 
     /**
+     * @description The registration type.
+     *
      * @example EDAS
      *
      * @var string
@@ -51,6 +63,8 @@ class edasConfig extends Model
     public $registryType;
 
     /**
+     * @description The service name.
+     *
      * @example service
      *
      * @var string

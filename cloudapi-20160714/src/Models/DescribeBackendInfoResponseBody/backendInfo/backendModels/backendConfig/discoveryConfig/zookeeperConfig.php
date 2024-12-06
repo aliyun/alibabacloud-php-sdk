@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class zookeeperConfig extends Model
 {
     /**
+     * @description The connection URL of the ZooKeeper server.
+     *
      * @example http://192.168.1.xxx:2181
      *
      * @var string
@@ -16,6 +18,8 @@ class zookeeperConfig extends Model
     public $connectString;
 
     /**
+     * @description The namespace.
+     *
      * @example provider
      *
      * @var string
@@ -23,6 +27,8 @@ class zookeeperConfig extends Model
     public $namespace;
 
     /**
+     * @description Service name
+     *
      * @example service
      *
      * @var string

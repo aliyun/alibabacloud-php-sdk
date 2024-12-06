@@ -68,6 +68,15 @@ class DescribeApiGroupResponseBody extends Model
     public $createdTime;
 
     /**
+     * @description The custom appcode configuration.
+     *
+     * @example {"location":"HEADER","name":"myAppCodeHeader"}
+     *
+     * @var string
+     */
+    public $customAppCodeConfig;
+
+    /**
      * @description The details about the custom domain name.
      *
      * @var customDomains
@@ -327,6 +336,7 @@ class DescribeApiGroupResponseBody extends Model
         'cmsMonitorGroup'       => 'CmsMonitorGroup',
         'compatibleFlags'       => 'CompatibleFlags',
         'createdTime'           => 'CreatedTime',
+        'customAppCodeConfig'   => 'CustomAppCodeConfig',
         'customDomains'         => 'CustomDomains',
         'customTraceConfig'     => 'CustomTraceConfig',
         'customerConfigs'       => 'CustomerConfigs',
@@ -380,6 +390,9 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
+        }
+        if (null !== $this->customAppCodeConfig) {
+            $res['CustomAppCodeConfig'] = $this->customAppCodeConfig;
         }
         if (null !== $this->customDomains) {
             $res['CustomDomains'] = null !== $this->customDomains ? $this->customDomains->toMap() : null;
@@ -491,6 +504,9 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
+        }
+        if (isset($map['CustomAppCodeConfig'])) {
+            $model->customAppCodeConfig = $map['CustomAppCodeConfig'];
         }
         if (isset($map['CustomDomains'])) {
             $model->customDomains = customDomains::fromMap($map['CustomDomains']);

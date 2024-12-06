@@ -47,6 +47,8 @@ class authorizedApp extends Model
     /**
      * @description The authorization description.
      *
+     * @example Test share with nsc qiming
+     *
      * @var string
      */
     public $description;

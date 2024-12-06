@@ -44,6 +44,10 @@ class SetDomainWebSocketStatusRequest extends Model
     public $securityToken;
 
     /**
+     * @description If enable WSS.
+     *
+     * @example false
+     *
      * @var string
      */
     public $WSSEnable;

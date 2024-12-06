@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogConfigRequest extends Model
 {
     /**
+     * @description The log type. Valid values:
+     *
+     *   **log**: other logs
+     *   **survey**: inspection logs
+     *
+     * Enumeration value:
+     *
+     *   PROVIDER
+     *
      * @example PROVIDER
      *
      * @var string
@@ -21,8 +30,9 @@ class ModifyLogConfigRequest extends Model
     public $securityToken;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the Logstore.
      *
+     * This parameter is required.
      * @example logs-gateway
      *
      * @var string
@@ -30,8 +40,9 @@ class ModifyLogConfigRequest extends Model
     public $slsLogStore;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the Log Service project.
      *
+     * This parameter is required.
      * @example ford-api-gateway-log
      *
      * @var string

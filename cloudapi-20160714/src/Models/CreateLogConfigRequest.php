@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateLogConfigRequest extends Model
 {
     /**
+     * @description Specifies to create a service-linked role.
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $createSlr;
+
+    /**
+     * @description The log type.
+     *
+     * Valid values:
+     *
+     *   PROVIDER
+     *
      * @example PROVIDER
      *
      * @var string
@@ -31,14 +46,16 @@ class CreateLogConfigRequest extends Model
     public $slsLogStore;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the Log Service project.
      *
+     * This parameter is required.
      * @example rec-lq-sls
      *
      * @var string
      */
     public $slsProject;
     protected $_name = [
+        'createSlr'     => 'CreateSlr',
         'logType'       => 'LogType',
         'securityToken' => 'SecurityToken',
         'slsLogStore'   => 'SlsLogStore',
@@ -52,6 +69,9 @@ class CreateLogConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createSlr) {
+            $res['CreateSlr'] = $this->createSlr;
+        }
         if (null !== $this->logType) {
             $res['LogType'] = $this->logType;
         }
@@ -76,6 +96,9 @@ class CreateLogConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateSlr'])) {
+            $model->createSlr = $map['CreateSlr'];
+        }
         if (isset($map['LogType'])) {
             $model->logType = $map['LogType'];
         }

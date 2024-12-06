@@ -9,15 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SetApiProductsAuthoritiesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The API products.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $apiProductIds;
 
     /**
-     * @description This parameter is required.
+     * @description The application ID.
      *
+     * This parameter is required.
      * @example 111385984
      *
      * @var int
@@ -25,11 +27,19 @@ class SetApiProductsAuthoritiesRequest extends Model
     public $appId;
 
     /**
+     * @description 授权有效时间的截止时间，请设置格林尼治标准时间(GMT), 如果为空，即为授权永久有效。
+     *
+     * @example 2023-06-12T03:07:37Z
+     *
      * @var string
      */
     public $authValidTime;
 
     /**
+     * @description The authorization description.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;

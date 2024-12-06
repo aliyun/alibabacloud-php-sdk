@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetAppsAuthToApiProductRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the API product.
      *
+     * This parameter is required.
      * @example 117b7a64a8b3f064eaa4a47ac62aac5e
      *
      * @var string
@@ -18,13 +19,16 @@ class SetAppsAuthToApiProductRequest extends Model
     public $apiProductId;
 
     /**
-     * @description This parameter is required.
+     * @description The IDs of the applications that you want to authorize.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $appIds;
 
     /**
+     * @description The time (UTC) when the authorization expires. If this parameter is empty, the authorization does not expire.
+     *
      * @example 2023-05-31T08:15:39Z
      *
      * @var string
@@ -32,6 +36,10 @@ class SetAppsAuthToApiProductRequest extends Model
     public $authValidTime;
 
     /**
+     * @description The description of the authorization.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;

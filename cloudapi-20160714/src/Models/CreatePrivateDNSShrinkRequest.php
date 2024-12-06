@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePrivateDNSShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The internal domain name.
      *
+     * This parameter is required.
      * @example api.demo.com
      *
      * @var string
@@ -18,6 +19,8 @@ class CreatePrivateDNSShrinkRequest extends Model
     public $intranetDomain;
 
     /**
+     * @description The resolution records. This parameter is valid only when Type is set to A.
+     *
      * @var string
      */
     public $recordsShrink;
@@ -28,8 +31,12 @@ class CreatePrivateDNSShrinkRequest extends Model
     public $securityToken;
 
     /**
-     * @description This parameter is required.
+     * @description The internal domain name resolution type. Valid values:
      *
+     *   VPC: resolution for VPC access authorizations. A resolution of this type can be bound only to traditional dedicated instances.
+     *   A: resolution that supports A records. A resolution of this type can be bound only to VPC integration dedicated instances.
+     *
+     * This parameter is required.
      * @example A
      *
      * @var string

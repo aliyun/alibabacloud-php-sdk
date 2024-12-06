@@ -27,7 +27,9 @@ class apiImportModelSuccess extends Model
     public $modelName;
 
     /**
-     * @description The model operation.
+     * @description The model operation
+     *
+     * @example CREATE
      *
      * @var string
      */

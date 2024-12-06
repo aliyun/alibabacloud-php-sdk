@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeletePrivateDNSRequest extends Model
 {
     /**
+     * @description Specifies whether to force delete the resolution.
+     *
+     *   true: force deletes the resolution if the resolution is associated with an instance.
+     *   false: does not force delete the resolution if the resolution is associated with an instance.
+     *
      * @example false
      *
      * @var bool
@@ -16,8 +21,9 @@ class DeletePrivateDNSRequest extends Model
     public $force;
 
     /**
-     * @description This parameter is required.
+     * @description The internal domain name.
      *
+     * This parameter is required.
      * @example api.demo.com
      *
      * @var string
@@ -30,8 +36,12 @@ class DeletePrivateDNSRequest extends Model
     public $securityToken;
 
     /**
-     * @description This parameter is required.
+     * @description The internal domain name resolution type. Valid values:
      *
+     *   VPC: resolution for virtual private cloud (VPC) access authorizations. A resolution of this type can be bound only to traditional dedicated instances.
+     *   A: resolution that supports A records. A resolution of this type can be bound only to VPC integration dedicated instances.
+     *
+     * This parameter is required.
      * @example A
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatasetInfoResponseBody extends Model
 {
     /**
+     * @description The dataset info.
+     *
      * @var datasetInfo
      */
     public $datasetInfo;

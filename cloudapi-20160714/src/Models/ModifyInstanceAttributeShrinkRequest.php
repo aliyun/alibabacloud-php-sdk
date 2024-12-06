@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAttributeShrinkRequest extends Model
 {
     /**
+     * @description If delete VPC Ip block.
+     *
      * @example true
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $deleteVpcIpBlock;
 
     /**
+     * @description If enable outbound IPv6 Traffic.
+     *
      * @example true
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $egressIpv6Enable;
 
     /**
+     * @description The HTTPS policy.
+     *
      * @example HTTPS2_TLS1_0
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $httpsPolicy;
 
     /**
+     * @description If enable inbound IPv6 Traffic.
+     *
      * @example true
      *
      * @var string
@@ -37,8 +45,9 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $IPV6Enabled;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example apigateway-ht-8xxxxxxxxx
      *
      * @var string
@@ -46,6 +55,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description Instance Name
+     *
      * @example apigatewayInstance
      *
      * @var string
@@ -53,6 +64,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $instanceName;
 
     /**
+     * @description Custom private CIDR block.
+     *
      * @example 172.0.0.1/24
      *
      * @var string
@@ -60,6 +73,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $intranetSegments;
 
     /**
+     * @description Maintainable end time.
+     *
      * @example 23:00Z
      *
      * @var string
@@ -67,6 +82,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $maintainEndTime;
 
     /**
+     * @description Maintainable start time.
+     *
      * @example 18:00Z
      *
      * @var string
@@ -81,6 +98,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $toConnectVpcIpBlockShrink;
 
     /**
+     * @description The token of the request.
+     *
      * @example c20d86c4-1eb3-4d0b-afe9-c586df1e2136
      *
      * @var string
@@ -88,6 +107,8 @@ class ModifyInstanceAttributeShrinkRequest extends Model
     public $token;
 
     /**
+     * @description Specifies whether to enable the self-calling domain name.
+     *
      * @example false
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetApiProductsAuthoritiesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 2603F41E-77FC-59A3-840E-296578A9BDE0
      *
      * @var string

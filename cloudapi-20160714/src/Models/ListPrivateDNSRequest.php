@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateDNSRequest extends Model
 {
     /**
+     * @description The internal domain name.
+     *
      * @example api.demo.com
      *
      * @var string
@@ -21,6 +23,11 @@ class ListPrivateDNSRequest extends Model
     public $securityToken;
 
     /**
+     * @description The internal domain name resolution type. Valid values:
+     *
+     *   VPC: resolution for virtual private cloud (VPC) access authorizations. A resolution of this type can be bound only to traditional dedicated instances.
+     *   A: resolution that supports A records. A resolution of this type can be bound only to VPC integration dedicated instances.
+     *
      * @example A
      *
      * @var string
