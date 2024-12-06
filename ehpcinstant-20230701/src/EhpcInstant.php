@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricDataShrinkReq
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricLastShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetAppVersionsRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetAppVersionsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRequest;
@@ -395,6 +397,65 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeJobMetricLastWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看应用版本列表
+     *  *
+     * @param GetAppVersionsRequest $request GetAppVersionsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAppVersionsResponse GetAppVersionsResponse
+     */
+    public function getAppVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->imageCategory)) {
+            $query['ImageCategory'] = $request->imageCategory;
+        }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAppVersions',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看应用版本列表
+     *  *
+     * @param GetAppVersionsRequest $request GetAppVersionsRequest
+     *
+     * @return GetAppVersionsResponse GetAppVersionsResponse
+     */
+    public function getAppVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAppVersionsWithOptions($request, $runtime);
     }
 
     /**
