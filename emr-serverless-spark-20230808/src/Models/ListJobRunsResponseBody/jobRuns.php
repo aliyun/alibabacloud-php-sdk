@@ -40,6 +40,11 @@ class jobRuns extends Model
     public $creator;
 
     /**
+     * @var int
+     */
+    public $cuHours;
+
+    /**
      * @var string
      */
     public $displayReleaseVersion;
@@ -89,6 +94,11 @@ class jobRuns extends Model
      * @var RunLog
      */
     public $log;
+
+    /**
+     * @var int
+     */
+    public $mbSeconds;
 
     /**
      * @description The job name.
@@ -141,6 +151,11 @@ class jobRuns extends Model
     public $tags;
 
     /**
+     * @var int
+     */
+    public $vcoreSeconds;
+
+    /**
      * @description The web UI of the job.
      *
      * @example http://spark-ui
@@ -161,6 +176,7 @@ class jobRuns extends Model
         'codeType'                => 'codeType',
         'configurationOverrides'  => 'configurationOverrides',
         'creator'                 => 'creator',
+        'cuHours'                 => 'cuHours',
         'displayReleaseVersion'   => 'displayReleaseVersion',
         'endTime'                 => 'endTime',
         'executionTimeoutSeconds' => 'executionTimeoutSeconds',
@@ -168,12 +184,14 @@ class jobRuns extends Model
         'jobDriver'               => 'jobDriver',
         'jobRunId'                => 'jobRunId',
         'log'                     => 'log',
+        'mbSeconds'               => 'mbSeconds',
         'name'                    => 'name',
         'releaseVersion'          => 'releaseVersion',
         'state'                   => 'state',
         'stateChangeReason'       => 'stateChangeReason',
         'submitTime'              => 'submitTime',
         'tags'                    => 'tags',
+        'vcoreSeconds'            => 'vcoreSeconds',
         'webUI'                   => 'webUI',
         'workspaceId'             => 'workspaceId',
     ];
@@ -193,6 +211,9 @@ class jobRuns extends Model
         }
         if (null !== $this->creator) {
             $res['creator'] = $this->creator;
+        }
+        if (null !== $this->cuHours) {
+            $res['cuHours'] = $this->cuHours;
         }
         if (null !== $this->displayReleaseVersion) {
             $res['displayReleaseVersion'] = $this->displayReleaseVersion;
@@ -214,6 +235,9 @@ class jobRuns extends Model
         }
         if (null !== $this->log) {
             $res['log'] = null !== $this->log ? $this->log->toMap() : null;
+        }
+        if (null !== $this->mbSeconds) {
+            $res['mbSeconds'] = $this->mbSeconds;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -238,6 +262,9 @@ class jobRuns extends Model
                     $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->vcoreSeconds) {
+            $res['vcoreSeconds'] = $this->vcoreSeconds;
         }
         if (null !== $this->webUI) {
             $res['webUI'] = $this->webUI;
@@ -266,6 +293,9 @@ class jobRuns extends Model
         if (isset($map['creator'])) {
             $model->creator = $map['creator'];
         }
+        if (isset($map['cuHours'])) {
+            $model->cuHours = $map['cuHours'];
+        }
         if (isset($map['displayReleaseVersion'])) {
             $model->displayReleaseVersion = $map['displayReleaseVersion'];
         }
@@ -286,6 +316,9 @@ class jobRuns extends Model
         }
         if (isset($map['log'])) {
             $model->log = RunLog::fromMap($map['log']);
+        }
+        if (isset($map['mbSeconds'])) {
+            $model->mbSeconds = $map['mbSeconds'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
@@ -310,6 +343,9 @@ class jobRuns extends Model
                     $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['vcoreSeconds'])) {
+            $model->vcoreSeconds = $map['vcoreSeconds'];
         }
         if (isset($map['webUI'])) {
             $model->webUI = $map['webUI'];
