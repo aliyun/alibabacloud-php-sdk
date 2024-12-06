@@ -16,6 +16,11 @@ class BackupFileRequest extends Model
     public $androidInstanceIdList;
 
     /**
+     * @var string
+     */
+    public $backupFileName;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -52,6 +57,7 @@ class BackupFileRequest extends Model
     public $uploadType;
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
+        'backupFileName'        => 'BackupFileName',
         'backupFilePath'        => 'BackupFilePath',
         'description'           => 'Description',
         'sourceAppList'         => 'SourceAppList',
@@ -69,6 +75,9 @@ class BackupFileRequest extends Model
         $res = [];
         if (null !== $this->androidInstanceIdList) {
             $res['AndroidInstanceIdList'] = $this->androidInstanceIdList;
+        }
+        if (null !== $this->backupFileName) {
+            $res['BackupFileName'] = $this->backupFileName;
         }
         if (null !== $this->backupFilePath) {
             $res['BackupFilePath'] = $this->backupFilePath;
@@ -104,6 +113,9 @@ class BackupFileRequest extends Model
             if (!empty($map['AndroidInstanceIdList'])) {
                 $model->androidInstanceIdList = $map['AndroidInstanceIdList'];
             }
+        }
+        if (isset($map['BackupFileName'])) {
+            $model->backupFileName = $map['BackupFileName'];
         }
         if (isset($map['BackupFilePath'])) {
             $model->backupFilePath = $map['BackupFilePath'];

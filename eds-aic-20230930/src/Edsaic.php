@@ -263,6 +263,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->androidInstanceIdList)) {
             $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
         }
+        if (!Utils::isUnset($request->backupFileName)) {
+            $query['BackupFileName'] = $request->backupFileName;
+        }
         if (!Utils::isUnset($request->backupFilePath)) {
             $query['BackupFilePath'] = $request->backupFilePath;
         }

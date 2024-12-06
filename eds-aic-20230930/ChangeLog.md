@@ -1,3 +1,7 @@
+2024-12-06 Version: 3.0.3
+- Update API BackupFile: add param BackupFileName.
+
+
 2024-12-05 Version: 3.0.2
 - Update API DescribeAndroidInstanceGroups: update response param.
 
