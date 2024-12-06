@@ -1784,6 +1784,9 @@ class Ebs extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->eventLevel)) {
+            $query['EventLevel'] = $request->eventLevel;
+        }
         if (!Utils::isUnset($request->eventName)) {
             $query['EventName'] = $request->eventName;
         }

@@ -1,3 +1,8 @@
+2024-12-06 Version: 3.0.1
+- Update API DescribeEvents: add param EventLevel.
+- Update API DescribeEvents: update response param.
+
+
 2024-11-14 Version: 3.0.0
 - Support API GetReport.
 - Support API ListReports.

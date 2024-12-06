@@ -69,6 +69,11 @@ class resourceEvents extends Model
     public $eventType;
 
     /**
+     * @var string
+     */
+    public $extraAttributes;
+
+    /**
      * @description The recommended action after the event occurred. Valid values:
      *
      *   ModifyDiskSpec
@@ -134,6 +139,7 @@ class resourceEvents extends Model
         'eventLevel'      => 'EventLevel',
         'eventName'       => 'EventName',
         'eventType'       => 'EventType',
+        'extraAttributes' => 'ExtraAttributes',
         'recommendAction' => 'RecommendAction',
         'recommendParams' => 'RecommendParams',
         'resourceId'      => 'ResourceId',
@@ -163,6 +169,9 @@ class resourceEvents extends Model
         }
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
+        }
+        if (null !== $this->extraAttributes) {
+            $res['ExtraAttributes'] = $this->extraAttributes;
         }
         if (null !== $this->recommendAction) {
             $res['RecommendAction'] = $this->recommendAction;
@@ -208,6 +217,9 @@ class resourceEvents extends Model
         }
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
+        }
+        if (isset($map['ExtraAttributes'])) {
+            $model->extraAttributes = $map['ExtraAttributes'];
         }
         if (isset($map['RecommendAction'])) {
             $model->recommendAction = $map['RecommendAction'];

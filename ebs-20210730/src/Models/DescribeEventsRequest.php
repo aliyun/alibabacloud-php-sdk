@@ -18,6 +18,11 @@ class DescribeEventsRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $eventLevel;
+
+    /**
      * @description The name of the event. Valid values:
      *
      *   NoSnapshot: indicates the event that is triggered because no snapshot is created for a disk to protect data on the disk.
@@ -109,6 +114,7 @@ class DescribeEventsRequest extends Model
     public $status;
     protected $_name = [
         'endTime'      => 'EndTime',
+        'eventLevel'   => 'EventLevel',
         'eventName'    => 'EventName',
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
@@ -128,6 +134,9 @@ class DescribeEventsRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->eventLevel) {
+            $res['EventLevel'] = $this->eventLevel;
         }
         if (null !== $this->eventName) {
             $res['EventName'] = $this->eventName;
@@ -167,6 +176,9 @@ class DescribeEventsRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EventLevel'])) {
+            $model->eventLevel = $map['EventLevel'];
         }
         if (isset($map['EventName'])) {
             $model->eventName = $map['EventName'];
