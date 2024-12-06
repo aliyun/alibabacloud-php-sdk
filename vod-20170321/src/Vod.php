@@ -196,6 +196,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetImageInfosResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\GetJobDetailResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditAudioResultDetailRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditAudioResultDetailResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\GetMediaAuditResultDetailRequest;
@@ -250,6 +252,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\ListAuditSecurityIpRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListAuditSecurityIpResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListDynamicImageRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListDynamicImageResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\ListJobInfoRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\ListJobInfoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListLiveRecordVideoRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListLiveRecordVideoResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\ListSnapshotsRequest;
@@ -6561,6 +6565,56 @@ class Vod extends OpenApiClient
     }
 
     /**
+     * @summary 异步任务管理能力建设
+     *  *
+     * @param GetJobDetailRequest $request GetJobDetailRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetJobDetailResponse GetJobDetailResponse
+     */
+    public function getJobDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetJobDetail',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 异步任务管理能力建设
+     *  *
+     * @param GetJobDetailRequest $request GetJobDetailRequest
+     *
+     * @return GetJobDetailResponse GetJobDetailResponse
+     */
+    public function getJobDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getJobDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the details of audio review results.
      *  *
      * @description If notifications for the [CreateAuditComplete](https://help.aliyun.com/document_detail/89576.html) event are configured, event notifications are sent to the callback URL after automated review is complete. You can call this operation to query the details of audio review results.
@@ -7172,6 +7226,9 @@ class Vod extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
         if (!Utils::isUnset($request->transcodeTaskId)) {
             $query['TranscodeTaskId'] = $request->transcodeTaskId;
         }
@@ -8101,6 +8158,56 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDynamicImageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 异步任务管理能力建设
+     *  *
+     * @param ListJobInfoRequest $request ListJobInfoRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListJobInfoResponse ListJobInfoResponse
+     */
+    public function listJobInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
+        if (!Utils::isUnset($request->mediaId)) {
+            $query['MediaId'] = $request->mediaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListJobInfo',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 异步任务管理能力建设
+     *  *
+     * @param ListJobInfoRequest $request ListJobInfoRequest
+     *
+     * @return ListJobInfoResponse ListJobInfoResponse
+     */
+    public function listJobInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listJobInfoWithOptions($request, $runtime);
     }
 
     /**
