@@ -269,6 +269,11 @@ class instanceVO extends Model
     public $saslDomainEndpoint;
 
     /**
+     * @var string
+     */
+    public $saslEndPoint;
+
+    /**
      * @description The security group to which the instance belongs.
      *
      *   If the instance is deployed in the ApsaraMQ for Kafka console or by calling the [StartInstance](https://help.aliyun.com/document_detail/157786.html) operation without a security group configured, no value is returned.
@@ -462,6 +467,16 @@ class instanceVO extends Model
     public $vpcId;
 
     /**
+     * @var string
+     */
+    public $vpcSaslDomainEndpoint;
+
+    /**
+     * @var string
+     */
+    public $vpcSaslEndPoint;
+
+    /**
      * @description The zone ID.
      *
      * @example zonei
@@ -498,6 +513,7 @@ class instanceVO extends Model
         'reservedSubscribeCapacity' => 'ReservedSubscribeCapacity',
         'resourceGroupId'           => 'ResourceGroupId',
         'saslDomainEndpoint'        => 'SaslDomainEndpoint',
+        'saslEndPoint'              => 'SaslEndPoint',
         'securityGroup'             => 'SecurityGroup',
         'series'                    => 'Series',
         'serviceStatus'             => 'ServiceStatus',
@@ -515,6 +531,8 @@ class instanceVO extends Model
         'vSwitchIds'                => 'VSwitchIds',
         'viewInstanceStatusCode'    => 'ViewInstanceStatusCode',
         'vpcId'                     => 'VpcId',
+        'vpcSaslDomainEndpoint'     => 'VpcSaslDomainEndpoint',
+        'vpcSaslEndPoint'           => 'VpcSaslEndPoint',
         'zoneId'                    => 'ZoneId',
     ];
 
@@ -609,6 +627,9 @@ class instanceVO extends Model
         if (null !== $this->saslDomainEndpoint) {
             $res['SaslDomainEndpoint'] = $this->saslDomainEndpoint;
         }
+        if (null !== $this->saslEndPoint) {
+            $res['SaslEndPoint'] = $this->saslEndPoint;
+        }
         if (null !== $this->securityGroup) {
             $res['SecurityGroup'] = $this->securityGroup;
         }
@@ -659,6 +680,12 @@ class instanceVO extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vpcSaslDomainEndpoint) {
+            $res['VpcSaslDomainEndpoint'] = $this->vpcSaslDomainEndpoint;
+        }
+        if (null !== $this->vpcSaslEndPoint) {
+            $res['VpcSaslEndPoint'] = $this->vpcSaslEndPoint;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -759,6 +786,9 @@ class instanceVO extends Model
         if (isset($map['SaslDomainEndpoint'])) {
             $model->saslDomainEndpoint = $map['SaslDomainEndpoint'];
         }
+        if (isset($map['SaslEndPoint'])) {
+            $model->saslEndPoint = $map['SaslEndPoint'];
+        }
         if (isset($map['SecurityGroup'])) {
             $model->securityGroup = $map['SecurityGroup'];
         }
@@ -809,6 +839,12 @@ class instanceVO extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VpcSaslDomainEndpoint'])) {
+            $model->vpcSaslDomainEndpoint = $map['VpcSaslDomainEndpoint'];
+        }
+        if (isset($map['VpcSaslEndPoint'])) {
+            $model->vpcSaslEndPoint = $map['VpcSaslEndPoint'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

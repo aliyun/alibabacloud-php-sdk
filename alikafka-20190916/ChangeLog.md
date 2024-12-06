@@ -1,3 +1,9 @@
+2024-12-06 Version: 2.7.2
+- Update API GetConsumerList: update response param.
+- Update API GetConsumerProgress: update response param.
+- Update API GetInstanceList: update response param.
+
+
 2024-11-25 Version: 2.7.1
 - Update API GetInstanceList: update response param.
 

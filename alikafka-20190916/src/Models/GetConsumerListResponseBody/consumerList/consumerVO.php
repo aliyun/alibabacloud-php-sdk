@@ -26,6 +26,11 @@ class consumerVO extends Model
     public $consumerId;
 
     /**
+     * @var int
+     */
+    public $createTime;
+
+    /**
      * @description The instance ID.
      *
      * @example alikafka_post-cn-v0h18sav****
@@ -61,6 +66,7 @@ class consumerVO extends Model
     protected $_name = [
         'automaticallyCreatedGroup' => 'AutomaticallyCreatedGroup',
         'consumerId'                => 'ConsumerId',
+        'createTime'                => 'CreateTime',
         'instanceId'                => 'InstanceId',
         'regionId'                  => 'RegionId',
         'remark'                    => 'Remark',
@@ -79,6 +85,9 @@ class consumerVO extends Model
         }
         if (null !== $this->consumerId) {
             $res['ConsumerId'] = $this->consumerId;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -109,6 +118,9 @@ class consumerVO extends Model
         }
         if (isset($map['ConsumerId'])) {
             $model->consumerId = $map['ConsumerId'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

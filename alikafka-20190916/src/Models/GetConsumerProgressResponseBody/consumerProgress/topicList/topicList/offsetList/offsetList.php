@@ -18,6 +18,16 @@ class offsetList extends Model
     public $brokerOffset;
 
     /**
+     * @var string
+     */
+    public $clientId;
+
+    /**
+     * @var string
+     */
+    public $clientIp;
+
+    /**
      * @description The consumer offset in the partition of the topic.
      *
      * @example 9
@@ -36,6 +46,11 @@ class offsetList extends Model
     public $lastTimestamp;
 
     /**
+     * @var string
+     */
+    public $memberId;
+
+    /**
      * @description The partition ID.
      *
      * @example 0
@@ -45,8 +60,11 @@ class offsetList extends Model
     public $partition;
     protected $_name = [
         'brokerOffset'   => 'BrokerOffset',
+        'clientId'       => 'ClientId',
+        'clientIp'       => 'ClientIp',
         'consumerOffset' => 'ConsumerOffset',
         'lastTimestamp'  => 'LastTimestamp',
+        'memberId'       => 'MemberId',
         'partition'      => 'Partition',
     ];
 
@@ -60,11 +78,20 @@ class offsetList extends Model
         if (null !== $this->brokerOffset) {
             $res['BrokerOffset'] = $this->brokerOffset;
         }
+        if (null !== $this->clientId) {
+            $res['ClientId'] = $this->clientId;
+        }
+        if (null !== $this->clientIp) {
+            $res['ClientIp'] = $this->clientIp;
+        }
         if (null !== $this->consumerOffset) {
             $res['ConsumerOffset'] = $this->consumerOffset;
         }
         if (null !== $this->lastTimestamp) {
             $res['LastTimestamp'] = $this->lastTimestamp;
+        }
+        if (null !== $this->memberId) {
+            $res['MemberId'] = $this->memberId;
         }
         if (null !== $this->partition) {
             $res['Partition'] = $this->partition;
@@ -84,11 +111,20 @@ class offsetList extends Model
         if (isset($map['BrokerOffset'])) {
             $model->brokerOffset = $map['BrokerOffset'];
         }
+        if (isset($map['ClientId'])) {
+            $model->clientId = $map['ClientId'];
+        }
+        if (isset($map['ClientIp'])) {
+            $model->clientIp = $map['ClientIp'];
+        }
         if (isset($map['ConsumerOffset'])) {
             $model->consumerOffset = $map['ConsumerOffset'];
         }
         if (isset($map['LastTimestamp'])) {
             $model->lastTimestamp = $map['LastTimestamp'];
+        }
+        if (isset($map['MemberId'])) {
+            $model->memberId = $map['MemberId'];
         }
         if (isset($map['Partition'])) {
             $model->partition = $map['Partition'];
