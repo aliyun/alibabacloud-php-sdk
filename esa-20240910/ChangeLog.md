@@ -1,3 +1,6 @@
+2024-12-07 Version: 2.7.3
+- Generated php 2024-09-10 for ESA.
+
 2024-12-06 Version: 2.7.2
 - Update API PurgeCaches: update param SiteId.
 - Update API PurgeCaches: update param Type.
