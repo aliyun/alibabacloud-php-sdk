@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class cssMetadata extends Model
 {
     /**
+     * @description The mapping information about the billing items.
+     *
      * @var componentsMappings[]
      */
     public $componentsMappings;

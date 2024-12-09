@@ -2,15 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\GetServiceResponseBody;
+namespace AlibabaCloud\SDK\ComputeNest\V20210601\Models\ListTagResourcesRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class tag extends Model
 {
     /**
-     * @description The tag key.
-     *
      * @example key1
      *
      * @var string
@@ -18,8 +16,6 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The tag value.
-     *
      * @example value1
      *
      * @var string
@@ -50,7 +46,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return tag
      */
     public static function fromMap($map = [])
     {

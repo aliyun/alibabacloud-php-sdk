@@ -1,3 +1,11 @@
+2024-12-09 Version: 2.6.0
+- Support API CheckServiceDeployable.
+- Support API GetUserInformation.
+- Support API ListTagResources.
+- Support API UpdateUserInformation.
+- Update API ListServices: update response param.
+
+
 2024-11-29 Version: 2.5.0
 - Support API GetService.
 - Support API ListServices.

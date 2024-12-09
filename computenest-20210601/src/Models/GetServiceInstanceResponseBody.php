@@ -194,7 +194,7 @@ class GetServiceInstanceResponseBody extends Model
     /**
      * @description The package name.
      *
-     * @example 套餐一
+     * @example Package one
      *
      * @var string
      */
@@ -308,7 +308,7 @@ class GetServiceInstanceResponseBody extends Model
     /**
      * @description The template name.
      *
-     * @example 模板1
+     * @example Template one
      *
      * @var string
      */

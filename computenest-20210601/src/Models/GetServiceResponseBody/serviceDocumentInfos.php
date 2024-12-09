@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class serviceDocumentInfos extends Model
 {
     /**
+     * @description The URL that is used to access the document.
+     *
+     * @example https://help.aliyun.com/zh/compute-nest/use-cases/deploy-an-sd-painting-service-instance?spm=a2c4g.11186623.0.i2
+     *
      * @var string
      */
     public $documentUrl;
 
     /**
+     * @description The language that you use for the query. Valid values: zh-CN and en-US.
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $locale;
 
     /**
+     * @description The template name.
+     *
+     * @example Template one.
+     *
      * @var string
      */
     public $templateName;

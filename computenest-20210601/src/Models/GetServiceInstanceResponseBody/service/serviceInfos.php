@@ -29,7 +29,7 @@ class serviceInfos extends Model
     /**
      * @description The name of the service.
      *
-     * @example B数据库
+     * @example Docker Community Edition
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class serviceInfos extends Model
     /**
      * @description The description of the service.
      *
-     * @example B是A公司自主设计并研发的开源分布式的关系型数据库
+     * @example Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
      *
      * @var string
      */

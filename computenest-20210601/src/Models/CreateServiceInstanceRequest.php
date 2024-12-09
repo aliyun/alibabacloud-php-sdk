@@ -30,6 +30,8 @@ class CreateServiceInstanceRequest extends Model
     /**
      * @description The alert contact group.
      *
+     * @example Default Group
+     *
      * @var string
      */
     public $contactGroup;
@@ -161,6 +163,8 @@ class CreateServiceInstanceRequest extends Model
     /**
      * @description The package name.
      *
+     * @example Default Ppackage
+     *
      * @var string
      */
     public $specificationName;
@@ -174,6 +178,8 @@ class CreateServiceInstanceRequest extends Model
 
     /**
      * @description The name of the template.
+     *
+     * @example ECS Template
      *
      * @var string
      */

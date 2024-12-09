@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The parameter name of the filter. You can specify one or more parameter names to query services. Valid values:
+     * @description The parameter name of the filter. You can specify one or more filters. Valid values:
      *
-     * - ApplicationGroupName: Query by the name of the application group with the ActionTrail event.
+     *   StartTime: the start time of the log event.
+     *   EndTime: the end time of the ActionTrail event.
+     *   EventName: the name of the ActionTrail event.
+     *   ResourceName: the name of the ActionTrail resource.
+     *   ApplicationGroupName: the name of the application group.
+     *
      * @example - StartTime
      * - ApplicationGroupName
      * @var string

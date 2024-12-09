@@ -14,26 +14,44 @@ use AlibabaCloud\Tea\Model;
 class GetServiceResponseBody extends Model
 {
     /**
+     * @description The alert configurations of the service.
+     *
+     * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
+     * @example { "TemplateUrl": "http://template.file.url", // 应用分组级别告警元数据 "ApplicationGroups": [ { "Name": "applicationGroup1", "TemplateUrl": "url1" }, { "Name": "applicationGroup2", "TemplateUrl": "url2" } ] }
+     *
      * @var string
      */
     public $alarmMetadata;
 
     /**
+     * @description The categories of the Flow.
+     *
+     * @example AI
+     *
      * @var string
      */
     public $categories;
 
     /**
+     * @description The information about the order placed in Alibaba Cloud Marketplace.
+     *
      * @var commodity
      */
     public $commodity;
 
     /**
+     * @description Service deployment approach, Valid values：
+     *
+     * - ComputeNest
+     * @example Marketplace
+     *
      * @var string
      */
     public $deployFrom;
 
     /**
+     * @description The storage configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
+     *
      * @example {\\"TemplateUrl\\": \\"http://tidbRosFile\\"}
      *
      * @var string
@@ -41,6 +59,11 @@ class GetServiceResponseBody extends Model
     public $deployMetadata;
 
     /**
+     * @description The deployment type of the service. Valid values:
+     *
+     *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+     *   terraform: The service is deployed by using Terraform.
+     *
      * @example ros
      *
      * @var string
@@ -48,6 +71,8 @@ class GetServiceResponseBody extends Model
     public $deployType;
 
     /**
+     * @description The duration for which hosted O\\&M is implemented. Unit: seconds.
+     *
      * @example 259200
      *
      * @var int
@@ -55,11 +80,19 @@ class GetServiceResponseBody extends Model
     public $duration;
 
     /**
+     * @description Information about the ram role created in the service template.
+     *
      * @var instanceRoleInfos[]
      */
     public $instanceRoleInfos;
 
     /**
+     * @description Indicates whether the hosted O\\&M feature is enabled for the service. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >  This parameter is returned if you set **ServiceType** to **private**.
      * @example false
      *
      * @var bool
@@ -67,16 +100,26 @@ class GetServiceResponseBody extends Model
     public $isSupportOperated;
 
     /**
+     * @description The license metadata.
+     *
+     * @example {\\"PayType\\":\\"CustomFixTime\\",\\"DefaultLicenseDays\\":7,\\"CustomMetadata\\":[{\\"TemplateName\\":\\"模板1\\",\\"SpecificationName\\":\\"bandwith-0\\",\\"CustomData\\":\\"1\\"}]}
+     *
      * @var string
      */
     public $licenseMetadata;
 
     /**
+     * @description The logging configurations.
+     *
+     * @example {\\"Logstores\\":[]}
+     *
      * @var string
      */
     public $logMetadata;
 
     /**
+     * @description The operation metadata.
+     *
      * @example {\\"PrometheusConfigMap\\":{\\"New_Vpc_Ack_And_Jumpserver\\":{}}}
      *
      * @var string
@@ -84,6 +127,11 @@ class GetServiceResponseBody extends Model
     public $operationMetadata;
 
     /**
+     * @description The permissions on the service. Valid values:
+     *
+     *   Deployable: Permissions to deploy the service.
+     *   Accessible: Permissions to access the service.
+     *
      * @example Deployable
      *
      * @var string
@@ -91,6 +139,8 @@ class GetServiceResponseBody extends Model
     public $permission;
 
     /**
+     * @description The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+     *
      * @example policyName1, policyName2
      *
      * @var string
@@ -98,6 +148,8 @@ class GetServiceResponseBody extends Model
     public $policyNames;
 
     /**
+     * @description The time when the service was published.
+     *
      * @example 2021-05-21T00:00:00Z
      *
      * @var string
@@ -105,6 +157,8 @@ class GetServiceResponseBody extends Model
     public $publishTime;
 
     /**
+     * @description The request ID.
+     *
      * @example 06BF8F22-02DC-4750-83DF-3FFC11C065EA
      *
      * @var string
@@ -112,11 +166,15 @@ class GetServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Service document information.
+     *
      * @var serviceDocumentInfos[]
      */
     public $serviceDocumentInfos;
 
     /**
+     * @description The service ID.
+     *
      * @example service-0e6fca6a51a544xxxxxx
      *
      * @var string
@@ -124,11 +182,15 @@ class GetServiceResponseBody extends Model
     public $serviceId;
 
     /**
+     * @description The information about the service.
+     *
      * @var serviceInfos[]
      */
     public $serviceInfos;
 
     /**
+     * @description The URL of the service page.
+     *
      * @example http://example1.com
      *
      * @var string
@@ -136,6 +198,9 @@ class GetServiceResponseBody extends Model
     public $serviceProductUrl;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     * - operation: The service is a hosted O&M service.
      * @example private
      *
      * @var string
@@ -143,6 +208,14 @@ class GetServiceResponseBody extends Model
     public $serviceType;
 
     /**
+     * @description The permission type of the deployment URL. Valid values:
+     *
+     *   Public: All users can go to the URL to create a service instance or a trial service instance.
+     *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
+     *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
+     *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
+     *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+     *
      * @example Public
      *
      * @var string
@@ -150,6 +223,8 @@ class GetServiceResponseBody extends Model
     public $shareType;
 
     /**
+     * @description The deploy status of the service. Valid values:
+     * - Creating
      * @example Online
      *
      * @var string
@@ -157,26 +232,44 @@ class GetServiceResponseBody extends Model
     public $status;
 
     /**
+     * @description The description of service provider.
+     *
+     * @example Computing Nest Community service
+     *
      * @var string
      */
     public $supplierDesc;
 
     /**
+     * @description The Logo of service provider.
+     *
+     * @example https://service-info-public.oss-cn-hangzhou.aliyuncs.com/xxx/service-image/xxx.png
+     *
      * @var string
      */
     public $supplierLogo;
 
     /**
+     * @description The name of the service provider.
+     *
+     * @example Alibaba Cloud
+     *
      * @var string
      */
     public $supplierName;
 
     /**
+     * @description The Alibaba Cloud account ID of the service provider.
+     *
+     * @example 158927391332*****
+     *
      * @var int
      */
     public $supplierUid;
 
     /**
+     * @description The URL of the service provider.
+     *
      * @example http://example.com
      *
      * @var string
@@ -184,11 +277,18 @@ class GetServiceResponseBody extends Model
     public $supplierUrl;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The type of the tenant. Valid values:
+     *
+     *   SingleTenant
+     *   MultiTenant
+     *
      * @example SingleTenant
      *
      * @var string
@@ -196,6 +296,8 @@ class GetServiceResponseBody extends Model
     public $tenantType;
 
     /**
+     * @description The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+     *
      * @example 7
      *
      * @var int
@@ -203,6 +305,11 @@ class GetServiceResponseBody extends Model
     public $trialDuration;
 
     /**
+     * @description The trial policy. Valid values:
+     *
+     *   Trial: Trials are supported.
+     *   NotTrial: Trials are not supported.
+     *
      * @example Trial
      *
      * @var string
@@ -210,6 +317,8 @@ class GetServiceResponseBody extends Model
     public $trialType;
 
     /**
+     * @description The service version.
+     *
      * @example 1.0
      *
      * @var string
@@ -217,6 +326,8 @@ class GetServiceResponseBody extends Model
     public $version;
 
     /**
+     * @description The version name.
+     *
      * @example v1
      *
      * @var string

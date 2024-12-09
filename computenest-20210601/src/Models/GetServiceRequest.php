@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetServiceRequest extends Model
 {
     /**
+     * @description Region Id.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class GetServiceRequest extends Model
     public $regionId;
 
     /**
+     * @description The service ID.
+     *
      * @example service-0e6fca6a51a544xxxxxx
      *
      * @var string
@@ -23,16 +27,26 @@ class GetServiceRequest extends Model
     public $serviceId;
 
     /**
+     * @description The service instance id.
+     *
+     * @example si-b58c874912fc4294****
+     *
      * @var string
      */
     public $serviceInstanceId;
 
     /**
+     * @description The service name.
+     *
+     * @example Wordpress
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The service version.
+     *
      * @example 1.0
      *
      * @var string
@@ -40,6 +54,8 @@ class GetServiceRequest extends Model
     public $serviceVersion;
 
     /**
+     * @description Whether to disclose service details.
+     *
      * @var string[]
      */
     public $showDetails;

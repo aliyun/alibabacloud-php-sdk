@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serviceInfos extends Model
 {
     /**
+     * @description The URL of the service icon.
+     *
      * @example http://img.tidb.oss.url
      *
      * @var string
@@ -16,6 +18,11 @@ class serviceInfos extends Model
     public $image;
 
     /**
+     * @description The language of the service. Valid values:
+     *
+     *   zh-CN: Chinese.
+     *   en-US: English.
+     *
      * @example zh-CN
      *
      * @var string
@@ -23,11 +30,19 @@ class serviceInfos extends Model
     public $locale;
 
     /**
+     * @description The name of the service.
+     *
+     * @example Docker Community Edition
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The description of the service.
+     *
+     * @example Docker Community Edition (CE) is a free version of the Docker project, aimed at developers, enthusiasts, and individuals and organizations who want to use container technology.
+     *
      * @var string
      */
     public $shortDescription;

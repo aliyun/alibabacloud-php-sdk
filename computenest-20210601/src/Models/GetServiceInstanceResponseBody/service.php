@@ -109,7 +109,7 @@ class service extends Model
     /**
      * @description The name of the service provider.
      *
-     * @example A公司
+     * @example Alibaba Cloud
      *
      * @var string
      */
@@ -125,6 +125,8 @@ class service extends Model
     public $supplierUrl;
 
     /**
+     * @description The upgradable service version.
+     *
      * @var upgradableServiceInfos[]
      */
     public $upgradableServiceInfos;
@@ -139,8 +141,8 @@ class service extends Model
     /**
      * @description The metadata about the upgrade.
      *
-     * @example {\\"Description\\":\\"开启服务升级\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\",\\"Resource\\"]}
-     *
+     * @example {
+     * }
      * @var string
      */
     public $upgradeMetadata;

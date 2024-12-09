@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
+     * @description The commodity code.
+     *
+     * @example cmjj00****
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description Deploy Page.
+     *
+     * @example Order： Order Page
+     * Detail： Detail Page
      * @var string
      */
     public $deployPage;

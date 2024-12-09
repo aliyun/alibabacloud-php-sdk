@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
+     * @description The filter.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description Keyword fuzzy query.
+     *
      * @example name
      *
      * @var string
@@ -23,6 +27,11 @@ class ListServicesRequest extends Model
     public $fuzzyKeyword;
 
     /**
+     * @description Whether it is used. Optional values:
+     *
+     *
+     *
+     * - true: already in use.
      * @example false
      *
      * @var bool
@@ -30,6 +39,8 @@ class ListServicesRequest extends Model
     public $inUsed;
 
     /**
+     * @description The number of entries page. Valid values: 1 to 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -37,6 +48,8 @@ class ListServicesRequest extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example BBBAAfu+XtuBE55iRLHEYYuojI4=
      *
      * @var string
@@ -44,13 +57,18 @@ class ListServicesRequest extends Model
     public $nextToken;
 
     /**
+     * @description Service ordering type.
+     *
+     * @example UpdateTime
+     *
      * @var string
      */
     public $orderByType;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,11 +76,17 @@ class ListServicesRequest extends Model
     public $regionId;
 
     /**
+     * @description Service access type.
+     *
+     * @example All
+     *
      * @var string
      */
     public $serviceAccessType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

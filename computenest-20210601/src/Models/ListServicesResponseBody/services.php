@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @description The category of the service.
+     *
      * @example cloud_ssd
      *
      * @var string
@@ -19,11 +21,15 @@ class services extends Model
     public $categories;
 
     /**
+     * @description The commodity details.
+     *
      * @var commodity
      */
     public $commodity;
 
     /**
+     * @description The commodity code of the service in Alibaba Cloud Marketplace.
+     *
      * @example cmjj00xxxx
      *
      * @var string
@@ -31,6 +37,8 @@ class services extends Model
     public $commodityCode;
 
     /**
+     * @description Service deployment approach. Valid values:
+     * - ComputeNest
      * @example ComputeNest
      *
      * @var string
@@ -38,6 +46,11 @@ class services extends Model
     public $deployFrom;
 
     /**
+     * @description The deployment type of the service. Valid values:
+     *
+     *   ros: The service is deployed by using Resource Orchestration Service (ROS).
+     *   terraform: The service is deployed by using Terraform.
+     *
      * @example ros
      *
      * @var string
@@ -45,6 +58,8 @@ class services extends Model
     public $deployType;
 
     /**
+     * @description The time when the service was published.
+     *
      * @example 2022-01-21T10:35:44Z
      *
      * @var string
@@ -52,6 +67,8 @@ class services extends Model
     public $publishTime;
 
     /**
+     * @description Service recommendation score.
+     *
      * @example 5
      *
      * @var int
@@ -59,6 +76,8 @@ class services extends Model
     public $score;
 
     /**
+     * @description The service ID.
+     *
      * @example service-6b5d632edd394dxxxxxx
      *
      * @var string
@@ -66,11 +85,15 @@ class services extends Model
     public $serviceId;
 
     /**
+     * @description The information about the service.
+     *
      * @var serviceInfos[]
      */
     public $serviceInfos;
 
     /**
+     * @description The URL of the service page.
+     *
      * @example http://example1.com
      *
      * @var string
@@ -78,6 +101,9 @@ class services extends Model
     public $serviceProductUrl;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     * - operation: The service is a hosted O&M service.
      * @example private
      *
      * @var string
@@ -85,6 +111,15 @@ class services extends Model
     public $serviceType;
 
     /**
+     * @description The state of the service. Valid values:
+     *
+     *   Draft: The service is a draft.
+     *   Submitted: The service is submitted for review. You cannot modify services in this state.
+     *   Approved: The service is approved. You cannot modify services in this state. You can publish services in this state.
+     *   Launching: The service is being published.
+     *   Online: The service is published.
+     *   Offline: The service is unpublished.
+     *
      * @example Online
      *
      * @var string
@@ -92,16 +127,35 @@ class services extends Model
     public $status;
 
     /**
+     * @description The name of the service provider.
+     *
+     * @example Alibaba Cloud
+     *
      * @var string
      */
     public $supplierName;
 
     /**
+     * @description The name of service provider.
+     *
+     * @example Alibaba Cloud
+     *
+     * @var string
+     */
+    public $supplierNameEng;
+
+    /**
+     * @description The Alibaba Cloud account ID of the service provider.
+     *
+     * @example 1436322xxxxx
+     *
      * @var int
      */
     public $supplierUid;
 
     /**
+     * @description The URL of the service provider.
+     *
      * @example http://example.com
      *
      * @var string
@@ -109,11 +163,18 @@ class services extends Model
     public $supplierUrl;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The tenant type of the managed service. Valid values:
+     *
+     *   SingleTenant
+     *   MultiTenant
+     *
      * @example SingleTenant
      *
      * @var string
@@ -121,6 +182,8 @@ class services extends Model
     public $tenantType;
 
     /**
+     * @description The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+     *
      * @example 7
      *
      * @var string
@@ -128,6 +191,11 @@ class services extends Model
     public $trialDuration;
 
     /**
+     * @description The trial policy. Valid values:
+     *
+     *   Trial: Trials are supported.
+     *   NotTrial: Trials are not supported.
+     *
      * @example Trial
      *
      * @var string
@@ -135,6 +203,8 @@ class services extends Model
     public $trialType;
 
     /**
+     * @description The version of the service.
+     *
      * @example 4
      *
      * @var string
@@ -142,6 +212,8 @@ class services extends Model
     public $version;
 
     /**
+     * @description The custom version name defined by the service provider.
+     *
      * @example v2.0.0
      *
      * @var string
@@ -149,6 +221,13 @@ class services extends Model
     public $versionName;
 
     /**
+     * @description Indicates whether the service is a virtual Internet service. Valid values:
+     *
+     *   false
+     *   true
+     *
+     * @example false
+     *
      * @var string
      */
     public $virtualInternetService;
@@ -166,6 +245,7 @@ class services extends Model
         'serviceType'            => 'ServiceType',
         'status'                 => 'Status',
         'supplierName'           => 'SupplierName',
+        'supplierNameEng'        => 'SupplierNameEng',
         'supplierUid'            => 'SupplierUid',
         'supplierUrl'            => 'SupplierUrl',
         'tags'                   => 'Tags',
@@ -228,6 +308,9 @@ class services extends Model
         }
         if (null !== $this->supplierName) {
             $res['SupplierName'] = $this->supplierName;
+        }
+        if (null !== $this->supplierNameEng) {
+            $res['SupplierNameEng'] = $this->supplierNameEng;
         }
         if (null !== $this->supplierUid) {
             $res['SupplierUid'] = $this->supplierUid;
@@ -318,6 +401,9 @@ class services extends Model
         }
         if (isset($map['SupplierName'])) {
             $model->supplierName = $map['SupplierName'];
+        }
+        if (isset($map['SupplierNameEng'])) {
+            $model->supplierNameEng = $map['SupplierNameEng'];
         }
         if (isset($map['SupplierUid'])) {
             $model->supplierUid = $map['SupplierUid'];
