@@ -3,6 +3,11 @@
 - Update API ListJobs: update response param.
 
 
+2024-12-09 Version: 2.0.3
+- Update API ListJobs: update param JobFilter.
+- Update API ListJobs: update response param.
+
+
 2024-12-05 Version: 2.0.2
 - Update API GetCluster: update response param.
 - Update API UpdateCluster: add param MonitorSpec.
