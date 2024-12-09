@@ -16,6 +16,8 @@ class MaxComputeExportConfigurationSink extends Model
     public $fields;
 
     /**
+     * @example asdfghjk
+     *
      * @deprecated
      *
      * @var string
@@ -23,6 +25,8 @@ class MaxComputeExportConfigurationSink extends Model
     public $odpsAccessKeyId;
 
     /**
+     * @example esasdfghjkl
+     *
      * @deprecated
      *
      * @var string
@@ -32,7 +36,7 @@ class MaxComputeExportConfigurationSink extends Model
     /**
      * @description This parameter is required.
      *
-     * @example http://xxxxxxxx
+     * @example http://service.cn-hangzhou.maxcompute.aliyun-inc.com/api
      *
      * @var string
      */
@@ -48,7 +52,9 @@ class MaxComputeExportConfigurationSink extends Model
     public $odpsProject;
 
     /**
-     * @example acs:ram::xxxxxxx
+     * @description This parameter is required.
+     *
+     * @example acs:ram::123456789:role/aliyunlogdefaultrole
      *
      * @var string
      */
@@ -65,6 +71,8 @@ class MaxComputeExportConfigurationSink extends Model
 
     /**
      * @description This parameter is required.
+     *
+     * @example http://dt.cn-hangzhou.maxcompute.aliyun-inc.com
      *
      * @var string
      */

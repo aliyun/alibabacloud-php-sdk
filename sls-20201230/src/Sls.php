@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupUpdateCheckPointRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupUpdateCheckPointResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAgentInstanceConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAgentInstanceConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAlertRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationDataSetRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateStoreViewRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateStoreViewResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateTicketResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAgentInstanceConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAgentInstanceConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataSetResponse;
@@ -97,6 +101,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DisableAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DisableScheduledSQLResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\EnableAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\EnableScheduledSQLResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAgentInstanceConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataSetResponse;
@@ -148,6 +153,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetSlsServiceResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSqlInstanceResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetStoreViewResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAgentInstanceConfigsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAgentInstanceConfigsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAlertsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataRequest;
@@ -230,6 +237,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAgentInstanceConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAgentInstanceConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAlertRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAlertResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationDataSetRequest;
@@ -585,6 +594,65 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->consumerGroupUpdateCheckPointWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary CreateAgentInstanceConfig
+     *  *
+     * @param CreateAgentInstanceConfigRequest $request CreateAgentInstanceConfigRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAgentInstanceConfigResponse CreateAgentInstanceConfigResponse
+     */
+    public function createAgentInstanceConfigWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->config)) {
+            $body['config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->configMatcher)) {
+            $body['configMatcher'] = $request->configMatcher;
+        }
+        if (!Utils::isUnset($request->configName)) {
+            $body['configName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->isGray)) {
+            $body['isGray'] = $request->isGray;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAgentInstanceConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/agentinstanceconfigs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateAgentInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary CreateAgentInstanceConfig
+     *  *
+     * @param CreateAgentInstanceConfigRequest $request CreateAgentInstanceConfigRequest
+     *
+     * @return CreateAgentInstanceConfigResponse CreateAgentInstanceConfigResponse
+     */
+    public function createAgentInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAgentInstanceConfigWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2335,6 +2403,58 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @summary DeleteAgentInstanceConfig
+     *  *
+     * @param string                           $configName
+     * @param DeleteAgentInstanceConfigRequest $request    DeleteAgentInstanceConfigRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAgentInstanceConfigResponse DeleteAgentInstanceConfigResponse
+     */
+    public function deleteAgentInstanceConfigWithOptions($configName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isGray)) {
+            $query['isGray'] = $request->isGray;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAgentInstanceConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/agentinstanceconfigs/' . $configName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAgentInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DeleteAgentInstanceConfig
+     *  *
+     * @param string                           $configName
+     * @param DeleteAgentInstanceConfigRequest $request    DeleteAgentInstanceConfigRequest
+     *
+     * @return DeleteAgentInstanceConfigResponse DeleteAgentInstanceConfigResponse
+     */
+    public function deleteAgentInstanceConfig($configName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAgentInstanceConfigWithOptions($configName, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Deletes an alert rule.
      *  *
      * @param string         $project
@@ -4011,6 +4131,50 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->enableScheduledSQLWithOptions($project, $scheduledSQLName, $headers, $runtime);
+    }
+
+    /**
+     * @summary GetAgentInstanceConfig
+     *  *
+     * @param string         $configName
+     * @param string[]       $headers    map
+     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return GetAgentInstanceConfigResponse GetAgentInstanceConfigResponse
+     */
+    public function getAgentInstanceConfigWithOptions($configName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAgentInstanceConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/agentinstanceconfigs/' . $configName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAgentInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary GetAgentInstanceConfig
+     *  *
+     * @param string $configName
+     *
+     * @return GetAgentInstanceConfigResponse GetAgentInstanceConfigResponse
+     */
+    public function getAgentInstanceConfig($configName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAgentInstanceConfigWithOptions($configName, $headers, $runtime);
     }
 
     /**
@@ -6374,6 +6538,59 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->getStoreViewIndexWithOptions($project, $name, $headers, $runtime);
+    }
+
+    /**
+     * @summary ListAgentInstanceConfigs
+     *  *
+     * @param ListAgentInstanceConfigsRequest $request ListAgentInstanceConfigsRequest
+     * @param string[]                        $headers map
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAgentInstanceConfigsResponse ListAgentInstanceConfigsResponse
+     */
+    public function listAgentInstanceConfigsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAgentInstanceConfigs',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/agentinstanceconfigs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAgentInstanceConfigsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ListAgentInstanceConfigs
+     *  *
+     * @param ListAgentInstanceConfigsRequest $request ListAgentInstanceConfigsRequest
+     *
+     * @return ListAgentInstanceConfigsResponse ListAgentInstanceConfigsResponse
+     */
+    public function listAgentInstanceConfigs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAgentInstanceConfigsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -9238,6 +9455,64 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->untagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary UpdateAgentInstanceConfig
+     *  *
+     * @param string                           $configName
+     * @param UpdateAgentInstanceConfigRequest $request    UpdateAgentInstanceConfigRequest
+     * @param string[]                         $headers    map
+     * @param RuntimeOptions                   $runtime    runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAgentInstanceConfigResponse UpdateAgentInstanceConfigResponse
+     */
+    public function updateAgentInstanceConfigWithOptions($configName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->config)) {
+            $body['config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->configMatcher)) {
+            $body['configMatcher'] = $request->configMatcher;
+        }
+        if (!Utils::isUnset($request->isGray)) {
+            $body['isGray'] = $request->isGray;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAgentInstanceConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/agentinstanceconfigs/' . $configName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateAgentInstanceConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary UpdateAgentInstanceConfig
+     *  *
+     * @param string                           $configName
+     * @param UpdateAgentInstanceConfigRequest $request    UpdateAgentInstanceConfigRequest
+     *
+     * @return UpdateAgentInstanceConfigResponse UpdateAgentInstanceConfigResponse
+     */
+    public function updateAgentInstanceConfig($configName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAgentInstanceConfigWithOptions($configName, $request, $headers, $runtime);
     }
 
     /**

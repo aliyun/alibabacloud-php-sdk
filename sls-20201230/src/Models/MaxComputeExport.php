@@ -16,12 +16,14 @@ class MaxComputeExport extends Model
     public $configuration;
 
     /**
+     * @example 1714284115
+     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @example MaxComputeExport
+     * @example odpsexport-demo
      *
      * @var string
      */
@@ -30,13 +32,15 @@ class MaxComputeExport extends Model
     /**
      * @description This parameter is required.
      *
-     * @example MaxComputeExport
+     * @example odpsexport-test
      *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 1714284589
+     *
      * @var int
      */
     public $lastModifiedTime;
@@ -44,11 +48,18 @@ class MaxComputeExport extends Model
     /**
      * @description This parameter is required.
      *
-     * @example MaxComputeExport
+     * @example export-general-1714033191-584993-hcl
      *
      * @var string
      */
     public $name;
+
+    /**
+     * @example c7f01719d9feb105fc9d8df92af62010
+     *
+     * @var string
+     */
+    public $scheduleId;
 
     /**
      * @example RUNNING
@@ -63,6 +74,7 @@ class MaxComputeExport extends Model
         'displayName'      => 'displayName',
         'lastModifiedTime' => 'lastModifiedTime',
         'name'             => 'name',
+        'scheduleId'       => 'scheduleId',
         'status'           => 'status',
     ];
 
@@ -90,6 +102,9 @@ class MaxComputeExport extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->scheduleId) {
+            $res['scheduleId'] = $this->scheduleId;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -123,6 +138,9 @@ class MaxComputeExport extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['scheduleId'])) {
+            $model->scheduleId = $map['scheduleId'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

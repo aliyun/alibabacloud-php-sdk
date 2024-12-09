@@ -11,6 +11,8 @@ class MaxComputeExportConfiguration extends Model
     /**
      * @description This parameter is required.
      *
+     * @example 1
+     *
      * @var int
      */
     public $fromTime;
@@ -18,12 +20,16 @@ class MaxComputeExportConfiguration extends Model
     /**
      * @description This parameter is required.
      *
+     * @example sls-logstore-demo
+     *
      * @var string
      */
     public $logstore;
 
     /**
      * @description This parameter is required.
+     *
+     * @example acs:ram::123456789:role/aliyunlogdefaultrole
      *
      * @var string
      */
@@ -38,6 +44,8 @@ class MaxComputeExportConfiguration extends Model
 
     /**
      * @description This parameter is required.
+     *
+     * @example 0
      *
      * @var int
      */
