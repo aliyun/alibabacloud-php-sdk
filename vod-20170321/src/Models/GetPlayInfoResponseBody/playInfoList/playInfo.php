@@ -27,6 +27,11 @@ class playInfo extends Model
     public $bitrate;
 
     /**
+     * @var string
+     */
+    public $codecName;
+
+    /**
      * @description The time when the audio or video stream was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-04-18T07:37:15Z
@@ -265,6 +270,7 @@ class playInfo extends Model
     protected $_name = [
         'bitDepth'         => 'BitDepth',
         'bitrate'          => 'Bitrate',
+        'codecName'        => 'CodecName',
         'creationTime'     => 'CreationTime',
         'definition'       => 'Definition',
         'duration'         => 'Duration',
@@ -301,6 +307,9 @@ class playInfo extends Model
         }
         if (null !== $this->bitrate) {
             $res['Bitrate'] = $this->bitrate;
+        }
+        if (null !== $this->codecName) {
+            $res['CodecName'] = $this->codecName;
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
@@ -385,6 +394,9 @@ class playInfo extends Model
         }
         if (isset($map['Bitrate'])) {
             $model->bitrate = $map['Bitrate'];
+        }
+        if (isset($map['CodecName'])) {
+            $model->codecName = $map['CodecName'];
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
