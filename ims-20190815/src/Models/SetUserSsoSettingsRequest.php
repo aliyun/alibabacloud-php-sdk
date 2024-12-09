@@ -38,10 +38,16 @@ class SetUserSsoSettingsRequest extends Model
      * @var bool
      */
     public $ssoEnabled;
+
+    /**
+     * @var bool
+     */
+    public $ssoLoginWithDomain;
     protected $_name = [
-        'auxiliaryDomain'  => 'AuxiliaryDomain',
-        'metadataDocument' => 'MetadataDocument',
-        'ssoEnabled'       => 'SsoEnabled',
+        'auxiliaryDomain'    => 'AuxiliaryDomain',
+        'metadataDocument'   => 'MetadataDocument',
+        'ssoEnabled'         => 'SsoEnabled',
+        'ssoLoginWithDomain' => 'SsoLoginWithDomain',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class SetUserSsoSettingsRequest extends Model
         }
         if (null !== $this->ssoEnabled) {
             $res['SsoEnabled'] = $this->ssoEnabled;
+        }
+        if (null !== $this->ssoLoginWithDomain) {
+            $res['SsoLoginWithDomain'] = $this->ssoLoginWithDomain;
         }
 
         return $res;
@@ -80,6 +89,9 @@ class SetUserSsoSettingsRequest extends Model
         }
         if (isset($map['SsoEnabled'])) {
             $model->ssoEnabled = $map['SsoEnabled'];
+        }
+        if (isset($map['SsoLoginWithDomain'])) {
+            $model->ssoLoginWithDomain = $map['SsoLoginWithDomain'];
         }
 
         return $model;

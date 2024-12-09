@@ -1898,7 +1898,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @summary Queries the console logon settings of a RAM user.
+     * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
      *  *
      * @param GetLoginProfileRequest $request GetLoginProfileRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1931,7 +1931,7 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @summary Queries the console logon settings of a RAM user.
+     * @summary Queries the logon configurations of a Resource Access Management (RAM) user.
      *  *
      * @param GetLoginProfileRequest $request GetLoginProfileRequest
      *
@@ -3370,8 +3370,6 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @summary 设置用户SSO身份提供商信息
-     *  *
      * @param SetUserSsoSettingsRequest $request SetUserSsoSettingsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -3389,6 +3387,9 @@ class Ims extends OpenApiClient
         }
         if (!Utils::isUnset($request->ssoEnabled)) {
             $query['SsoEnabled'] = $request->ssoEnabled;
+        }
+        if (!Utils::isUnset($request->ssoLoginWithDomain)) {
+            $query['SsoLoginWithDomain'] = $request->ssoLoginWithDomain;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3409,8 +3410,6 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @summary 设置用户SSO身份提供商信息
-     *  *
      * @param SetUserSsoSettingsRequest $request SetUserSsoSettingsRequest
      *
      * @return SetUserSsoSettingsResponse SetUserSsoSettingsResponse

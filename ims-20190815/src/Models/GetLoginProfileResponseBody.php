@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetLoginProfileResponseBody extends Model
 {
     /**
-     * @description The logon information.
+     * @description The console logon configurations.
      *
      * @var loginProfile
      */
