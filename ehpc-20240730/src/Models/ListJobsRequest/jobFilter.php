@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest;
 
+use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest\jobFilter\diagnosis;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsRequest\jobFilter\sortBy;
 use AlibabaCloud\Tea\Model;
 
@@ -26,6 +27,11 @@ class jobFilter extends Model
      * @var string
      */
     public $createTimeStart;
+
+    /**
+     * @var diagnosis[]
+     */
+    public $diagnosis;
 
     /**
      * @description The job name. Fuzzy match is supported.
@@ -80,6 +86,7 @@ class jobFilter extends Model
     protected $_name = [
         'createTimeEnd'   => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
+        'diagnosis'       => 'Diagnosis',
         'jobName'         => 'JobName',
         'jobStatus'       => 'JobStatus',
         'nodes'           => 'Nodes',
@@ -100,6 +107,15 @@ class jobFilter extends Model
         }
         if (null !== $this->createTimeStart) {
             $res['CreateTimeStart'] = $this->createTimeStart;
+        }
+        if (null !== $this->diagnosis) {
+            $res['Diagnosis'] = [];
+            if (null !== $this->diagnosis && \is_array($this->diagnosis)) {
+                $n = 0;
+                foreach ($this->diagnosis as $item) {
+                    $res['Diagnosis'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
@@ -136,6 +152,15 @@ class jobFilter extends Model
         }
         if (isset($map['CreateTimeStart'])) {
             $model->createTimeStart = $map['CreateTimeStart'];
+        }
+        if (isset($map['Diagnosis'])) {
+            if (!empty($map['Diagnosis'])) {
+                $model->diagnosis = [];
+                $n                = 0;
+                foreach ($map['Diagnosis'] as $item) {
+                    $model->diagnosis[$n++] = null !== $item ? diagnosis::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];

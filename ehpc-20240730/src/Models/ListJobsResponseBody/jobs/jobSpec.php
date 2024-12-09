@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsResponseBody\jobs;
 
 use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsResponseBody\jobs\jobSpec\resources;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\ListJobsResponseBody\jobs\jobSpec\resourcesActualOccupied;
 use AlibabaCloud\Tea\Model;
 
 class jobSpec extends Model
@@ -101,6 +102,11 @@ class jobSpec extends Model
     public $resources;
 
     /**
+     * @var resourcesActualOccupied
+     */
+    public $resourcesActualOccupied;
+
+    /**
      * @description The user that ran the job.
      *
      * @example testuser1
@@ -108,6 +114,11 @@ class jobSpec extends Model
      * @var string
      */
     public $runasUser;
+
+    /**
+     * @var string
+     */
+    public $startTime;
 
     /**
      * @description The job state. Valid values: (PBS cluster and Slurm cluster)
@@ -159,22 +170,24 @@ class jobSpec extends Model
      */
     public $variables;
     protected $_name = [
-        'arrayJobId'     => 'ArrayJobId',
-        'arrayJobSubId'  => 'ArrayJobSubId',
-        'arrayRequest'   => 'ArrayRequest',
-        'comment'        => 'Comment',
-        'id'             => 'Id',
-        'jobQueue'       => 'JobQueue',
-        'lastModifyTime' => 'LastModifyTime',
-        'nodeList'       => 'NodeList',
-        'priority'       => 'Priority',
-        'resources'      => 'Resources',
-        'runasUser'      => 'RunasUser',
-        'state'          => 'State',
-        'stderrPath'     => 'StderrPath',
-        'stdoutPath'     => 'StdoutPath',
-        'submitTime'     => 'SubmitTime',
-        'variables'      => 'Variables',
+        'arrayJobId'              => 'ArrayJobId',
+        'arrayJobSubId'           => 'ArrayJobSubId',
+        'arrayRequest'            => 'ArrayRequest',
+        'comment'                 => 'Comment',
+        'id'                      => 'Id',
+        'jobQueue'                => 'JobQueue',
+        'lastModifyTime'          => 'LastModifyTime',
+        'nodeList'                => 'NodeList',
+        'priority'                => 'Priority',
+        'resources'               => 'Resources',
+        'resourcesActualOccupied' => 'ResourcesActualOccupied',
+        'runasUser'               => 'RunasUser',
+        'startTime'               => 'StartTime',
+        'state'                   => 'State',
+        'stderrPath'              => 'StderrPath',
+        'stdoutPath'              => 'StdoutPath',
+        'submitTime'              => 'SubmitTime',
+        'variables'               => 'Variables',
     ];
 
     public function validate()
@@ -214,8 +227,14 @@ class jobSpec extends Model
         if (null !== $this->resources) {
             $res['Resources'] = null !== $this->resources ? $this->resources->toMap() : null;
         }
+        if (null !== $this->resourcesActualOccupied) {
+            $res['ResourcesActualOccupied'] = null !== $this->resourcesActualOccupied ? $this->resourcesActualOccupied->toMap() : null;
+        }
         if (null !== $this->runasUser) {
             $res['RunasUser'] = $this->runasUser;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -274,8 +293,14 @@ class jobSpec extends Model
         if (isset($map['Resources'])) {
             $model->resources = resources::fromMap($map['Resources']);
         }
+        if (isset($map['ResourcesActualOccupied'])) {
+            $model->resourcesActualOccupied = resourcesActualOccupied::fromMap($map['ResourcesActualOccupied']);
+        }
         if (isset($map['RunasUser'])) {
             $model->runasUser = $map['RunasUser'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
