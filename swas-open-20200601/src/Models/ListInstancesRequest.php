@@ -30,7 +30,7 @@ class ListInstancesRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The name of the simple application servers, which supports fuzzy search using wildcard *.
+     * @description The name of the simple application server. Fuzzy search with the asterisk (\\*) wildcard is supported.
      *
      * @example test
      *
@@ -62,7 +62,7 @@ class ListInstancesRequest extends Model
      * @description The public IP addresses of the simple application servers. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
      *
      * > If you specify both `InstanceIds` and `PublicIpAddresses`, make sure that the specified IDs and the specified public IP addresses belong to the same simple application servers. Otherwise, an empty result is returned.
-     * @example ["42.1.\*\*.**", "42.2.\*\*.**"]
+     * @example ["``42.1.**.**``", "``42.2.**.**``"]
      *
      * @var string
      */

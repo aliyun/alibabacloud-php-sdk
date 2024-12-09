@@ -41,7 +41,7 @@ class UpdateInstanceAttributeRequest extends Model
      *
      * ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
      *
-     * >  For security reasons, we recommend that you use HTTPS to send requests if the `Password parameter` is specified.
+     * >  For security reasons, we recommend that you use HTTPS to send requests if `Password` is specified.
      * @example Test123!
      *
      * @var string

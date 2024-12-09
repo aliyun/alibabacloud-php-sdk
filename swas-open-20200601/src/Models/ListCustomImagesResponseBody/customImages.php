@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class customImages extends Model
 {
     /**
-     * @description The Information about instances created using the image.
+     * @description The simple application servers created from the image.
      *
      * @var string[]
      */
@@ -71,7 +71,7 @@ class customImages extends Model
     public $inShare;
 
     /**
-     * @description Whether the custom image is cross-account shared.
+     * @description Indicates whether the custom image is shared across accounts.
      *
      * @example False
      *
@@ -80,7 +80,7 @@ class customImages extends Model
     public $inShareUser;
 
     /**
-     * @description The ID of the simple application server.
+     * @description The ID of the simple application server from which the image is derived.
      *
      * @example 2d06ee0520b44de1ae88d4be****
      *
@@ -107,17 +107,8 @@ class customImages extends Model
     public $name;
 
     /**
-     * @description The type of the operating system.
+     * @description The operating system type of the image.
      *
-     * Valid values:
-     *
-     *   Linux
-     *
-     * <!-- -->
-     *
-     *   Windows
-     *
-     * <!-- -->
      * @example Linux
      *
      * @var string
@@ -134,11 +125,15 @@ class customImages extends Model
     public $regionId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $requiredDataDiskSize;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $requiredSystemDiskSize;
@@ -153,17 +148,27 @@ class customImages extends Model
     public $resourceGroupId;
 
     /**
+     * @example CentOS
+     *
      * @var string
      */
     public $sourceImageName;
 
     /**
+     * @example 8.0
+     *
      * @var string
      */
     public $sourceImageVersion;
 
     /**
-     * @description The status of the custom image.
+     * @description The status of the custom image. Valid values:
+     *
+     *   0: copying
+     *   1: available
+     *   2: unavailable
+     *   3: creation failed
+     *   4: creating
      *
      * @example 1
      *
@@ -197,7 +202,7 @@ class customImages extends Model
     public $tags;
 
     /**
-     * @description The Primary Alibaba Cloud account ID of the image owner.
+     * @description The ID of the Alibaba Cloud account to which the image belongs.
      *
      * @example 180185828710****
      *

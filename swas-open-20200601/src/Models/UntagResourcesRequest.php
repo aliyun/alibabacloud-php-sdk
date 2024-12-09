@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags. This parameter takes effect only when TagKey.N is not specified. Valid values: true and false. Default value: false.
+     * @description Specifies whether to remove all tags from the specified one or more resources. This parameter takes effect only if the TagKey.N parameter is not set. Valid values:
      *
+     *   true: deletes all tags that are added to the specific lightweight resource. If no tags are added to the specific lightweight resource, the deletion operation is ignored.
+     *   false: does not delete the tags that are added to the specific lightweight resource.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool

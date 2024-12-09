@@ -97,6 +97,11 @@ class plans extends Model
     public $planId;
 
     /**
+     * @var string
+     */
+    public $planType;
+
+    /**
      * @description The operating system types supported by the plan.
      *
      * @example ["Linux","Windows"]
@@ -114,6 +119,7 @@ class plans extends Model
         'memory'          => 'Memory',
         'originPrice'     => 'OriginPrice',
         'planId'          => 'PlanId',
+        'planType'        => 'PlanType',
         'supportPlatform' => 'SupportPlatform',
     ];
 
@@ -150,6 +156,9 @@ class plans extends Model
         }
         if (null !== $this->planId) {
             $res['PlanId'] = $this->planId;
+        }
+        if (null !== $this->planType) {
+            $res['PlanType'] = $this->planType;
         }
         if (null !== $this->supportPlatform) {
             $res['SupportPlatform'] = $this->supportPlatform;
@@ -192,6 +201,9 @@ class plans extends Model
         }
         if (isset($map['PlanId'])) {
             $model->planId = $map['PlanId'];
+        }
+        if (isset($map['PlanType'])) {
+            $model->planType = $map['PlanType'];
         }
         if (isset($map['SupportPlatform'])) {
             $model->supportPlatform = $map['SupportPlatform'];

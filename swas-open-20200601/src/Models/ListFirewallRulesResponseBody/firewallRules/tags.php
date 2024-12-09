@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of tag N to be added to the firewall rule. Valid values of N: 1 to 20.
+     * @description The tag key.
      *
      * @example TestKey
      *
@@ -18,7 +18,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The value of tag N to be added to the firewall rule. Valid values of N: 1 to 20.
+     * @description The tag value.
      *
      * @example TestValue
      *
