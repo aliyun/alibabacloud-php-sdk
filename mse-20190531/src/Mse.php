@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosInstanceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosInstanceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosServiceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNamespaceRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneGroupShrinkRequest;
@@ -318,6 +320,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosConfigsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNacosHistoryConfigsResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamingTrackRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListNamingTrackResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListSecurityGroupRequest;
@@ -3207,6 +3211,59 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNacosServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary CreateNamespace
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateNamespaceResponse CreateNamespaceResponse
+     */
+    public function createNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->describe)) {
+            $query['Describe'] = $request->describe;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNamespace',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary CreateNamespace
+     *  *
+     * @param CreateNamespaceRequest $request CreateNamespaceRequest
+     *
+     * @return CreateNamespaceResponse CreateNamespaceResponse
+     */
+    public function createNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNamespaceWithOptions($request, $runtime);
     }
 
     /**
@@ -9988,6 +10045,65 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listNacosHistoryConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 展示命名空间列表
+     *  *
+     * @param ListNamespacesRequest $request ListNamespacesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListNamespacesResponse ListNamespacesResponse
+     */
+    public function listNamespacesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNamespaces',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 展示命名空间列表
+     *  *
+     * @param ListNamespacesRequest $request ListNamespacesRequest
+     *
+     * @return ListNamespacesResponse ListNamespacesResponse
+     */
+    public function listNamespaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNamespacesWithOptions($request, $runtime);
     }
 
     /**
