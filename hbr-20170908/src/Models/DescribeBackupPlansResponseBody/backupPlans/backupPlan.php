@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans;
 
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan\hitTags;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan\otsDetail;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan\paths;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan\resources;
@@ -75,6 +76,11 @@ class backupPlan extends Model
      * @var int
      */
     public $createTime;
+
+    /**
+     * @var bool
+     */
+    public $createdByTag;
 
     /**
      * @description The time when the backup plan was created. This value is a UNIX timestamp. Unit: seconds.
@@ -189,6 +195,11 @@ class backupPlan extends Model
      * @var string
      */
     public $fileSystemId;
+
+    /**
+     * @var hitTags
+     */
+    public $hitTags;
 
     /**
      * @description This parameter is valid only when **SourceType** is set to **ECS_FILE**. This parameter indicates the paths to the files that are backed up.
@@ -392,6 +403,7 @@ class backupPlan extends Model
         'clientId'             => 'ClientId',
         'clusterId'            => 'ClusterId',
         'createTime'           => 'CreateTime',
+        'createdByTag'         => 'CreatedByTag',
         'createdTime'          => 'CreatedTime',
         'crossAccountRoleName' => 'CrossAccountRoleName',
         'crossAccountType'     => 'CrossAccountType',
@@ -404,6 +416,7 @@ class backupPlan extends Model
         'disabled'             => 'Disabled',
         'exclude'              => 'Exclude',
         'fileSystemId'         => 'FileSystemId',
+        'hitTags'              => 'HitTags',
         'include'              => 'Include',
         'instanceGroupId'      => 'InstanceGroupId',
         'instanceId'           => 'InstanceId',
@@ -455,6 +468,9 @@ class backupPlan extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->createdByTag) {
+            $res['CreatedByTag'] = $this->createdByTag;
+        }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
@@ -490,6 +506,9 @@ class backupPlan extends Model
         }
         if (null !== $this->fileSystemId) {
             $res['FileSystemId'] = $this->fileSystemId;
+        }
+        if (null !== $this->hitTags) {
+            $res['HitTags'] = null !== $this->hitTags ? $this->hitTags->toMap() : null;
         }
         if (null !== $this->include) {
             $res['Include'] = $this->include;
@@ -587,6 +606,9 @@ class backupPlan extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['CreatedByTag'])) {
+            $model->createdByTag = $map['CreatedByTag'];
+        }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
@@ -622,6 +644,9 @@ class backupPlan extends Model
         }
         if (isset($map['FileSystemId'])) {
             $model->fileSystemId = $map['FileSystemId'];
+        }
+        if (isset($map['HitTags'])) {
+            $model->hitTags = hitTags::fromMap($map['HitTags']);
         }
         if (isset($map['Include'])) {
             $model->include = $map['Include'];

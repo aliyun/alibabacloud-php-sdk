@@ -2,38 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribePolicyBindingsResponseBody\policyBindings;
+namespace AlibabaCloud\SDK\Hbr\V20170908\Models\DescribeBackupPlansResponseBody\backupPlans\backupPlan\hitTags;
 
 use AlibabaCloud\Tea\Model;
 
-class hitTags extends Model
+class hitTag extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * @example env
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag-based matching rule.
-     *
-     *   **EQUAL**: Both the tag key and tag value are matched.
-     *   **NOT**: The tag key is matched and the tag value is not matched.
-     *
-     * @example EQUAL
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description The tag value.
-     *
-     * @example prod
-     *
      * @var string
      */
     public $value;
@@ -66,7 +51,7 @@ class hitTags extends Model
     /**
      * @param array $map
      *
-     * @return hitTags
+     * @return hitTag
      */
     public static function fromMap($map = [])
     {

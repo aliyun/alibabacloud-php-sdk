@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ossDetail extends Model
 {
     /**
+     * @description 不在任务统计和失败文件列表中提示归档型对象
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ignoreArchiveObject;

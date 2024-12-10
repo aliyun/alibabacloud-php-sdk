@@ -18,6 +18,8 @@ class policyBindings extends Model
     public $advancedOptions;
 
     /**
+     * @description Indicates whether the resource is automatically associated with the related resource tag in the backup policy.
+     *
      * @example false
      *
      * @var bool
@@ -94,6 +96,8 @@ class policyBindings extends Model
     public $exclude;
 
     /**
+     * @description The matched tag rules.
+     *
      * @var hitTags[]
      */
     public $hitTags;
