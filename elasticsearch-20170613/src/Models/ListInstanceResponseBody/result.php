@@ -71,6 +71,11 @@ class result extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $domain;
+
+    /**
      * @description The configuration of Kibana nodes.
      *
      * @var elasticDataNodeConfiguration
@@ -247,6 +252,7 @@ class result extends Model
         'createdAt'                    => 'createdAt',
         'dedicateMaster'               => 'dedicateMaster',
         'description'                  => 'description',
+        'domain'                       => 'domain',
         'elasticDataNodeConfiguration' => 'elasticDataNodeConfiguration',
         'endTime'                      => 'endTime',
         'esVersion'                    => 'esVersion',
@@ -296,6 +302,9 @@ class result extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
+        }
+        if (null !== $this->domain) {
+            $res['domain'] = $this->domain;
         }
         if (null !== $this->elasticDataNodeConfiguration) {
             $res['elasticDataNodeConfiguration'] = null !== $this->elasticDataNodeConfiguration ? $this->elasticDataNodeConfiguration->toMap() : null;
@@ -401,6 +410,9 @@ class result extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
+        }
+        if (isset($map['domain'])) {
+            $model->domain = $map['domain'];
         }
         if (isset($map['elasticDataNodeConfiguration'])) {
             $model->elasticDataNodeConfiguration = elasticDataNodeConfiguration::fromMap($map['elasticDataNodeConfiguration']);
