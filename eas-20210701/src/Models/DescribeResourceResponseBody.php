@@ -27,6 +27,11 @@ class DescribeResourceResponseBody extends Model
     public $cpuCount;
 
     /**
+     * @var int
+     */
+    public $cpuUsed;
+
+    /**
      * @description The time when the resource group was created.
      *
      * @example 2020-05-19T14:19:42Z
@@ -54,6 +59,11 @@ class DescribeResourceResponseBody extends Model
     public $gpuCount;
 
     /**
+     * @var float
+     */
+    public $gpuUsed;
+
+    /**
      * @description The total number of instances in the resource group.
      *
      * @example 4
@@ -61,6 +71,16 @@ class DescribeResourceResponseBody extends Model
      * @var int
      */
     public $instanceCount;
+
+    /**
+     * @var int
+     */
+    public $memory;
+
+    /**
+     * @var int
+     */
+    public $memoryUsed;
 
     /**
      * @description The returned message.
@@ -157,10 +177,14 @@ class DescribeResourceResponseBody extends Model
     protected $_name = [
         'clusterId'             => 'ClusterId',
         'cpuCount'              => 'CpuCount',
+        'cpuUsed'               => 'CpuUsed',
         'createTime'            => 'CreateTime',
         'extraData'             => 'ExtraData',
         'gpuCount'              => 'GpuCount',
+        'gpuUsed'               => 'GpuUsed',
         'instanceCount'         => 'InstanceCount',
+        'memory'                => 'Memory',
+        'memoryUsed'            => 'MemoryUsed',
         'message'               => 'Message',
         'ownerUid'              => 'OwnerUid',
         'postPaidInstanceCount' => 'PostPaidInstanceCount',
@@ -186,6 +210,9 @@ class DescribeResourceResponseBody extends Model
         if (null !== $this->cpuCount) {
             $res['CpuCount'] = $this->cpuCount;
         }
+        if (null !== $this->cpuUsed) {
+            $res['CpuUsed'] = $this->cpuUsed;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -195,8 +222,17 @@ class DescribeResourceResponseBody extends Model
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
         }
+        if (null !== $this->gpuUsed) {
+            $res['GpuUsed'] = $this->gpuUsed;
+        }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->memory) {
+            $res['Memory'] = $this->memory;
+        }
+        if (null !== $this->memoryUsed) {
+            $res['MemoryUsed'] = $this->memoryUsed;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -246,6 +282,9 @@ class DescribeResourceResponseBody extends Model
         if (isset($map['CpuCount'])) {
             $model->cpuCount = $map['CpuCount'];
         }
+        if (isset($map['CpuUsed'])) {
+            $model->cpuUsed = $map['CpuUsed'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -255,8 +294,17 @@ class DescribeResourceResponseBody extends Model
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
         }
+        if (isset($map['GpuUsed'])) {
+            $model->gpuUsed = $map['GpuUsed'];
+        }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['Memory'])) {
+            $model->memory = $map['Memory'];
+        }
+        if (isset($map['MemoryUsed'])) {
+            $model->memoryUsed = $map['MemoryUsed'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
