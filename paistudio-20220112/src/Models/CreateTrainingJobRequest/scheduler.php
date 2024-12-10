@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class scheduler extends Model
 {
     /**
+     * @var int
+     */
+    public $maxRunningTimeInMinutes;
+
+    /**
      * @example 0
      *
      * @var int
      */
     public $maxRunningTimeInSeconds;
     protected $_name = [
+        'maxRunningTimeInMinutes' => 'MaxRunningTimeInMinutes',
         'maxRunningTimeInSeconds' => 'MaxRunningTimeInSeconds',
     ];
 
@@ -25,6 +31,9 @@ class scheduler extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxRunningTimeInMinutes) {
+            $res['MaxRunningTimeInMinutes'] = $this->maxRunningTimeInMinutes;
+        }
         if (null !== $this->maxRunningTimeInSeconds) {
             $res['MaxRunningTimeInSeconds'] = $this->maxRunningTimeInSeconds;
         }
@@ -40,6 +49,9 @@ class scheduler extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['MaxRunningTimeInMinutes'])) {
+            $model->maxRunningTimeInMinutes = $map['MaxRunningTimeInMinutes'];
+        }
         if (isset($map['MaxRunningTimeInSeconds'])) {
             $model->maxRunningTimeInSeconds = $map['MaxRunningTimeInSeconds'];
         }

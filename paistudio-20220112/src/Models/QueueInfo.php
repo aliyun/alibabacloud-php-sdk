@@ -103,13 +103,6 @@ class QueueInfo extends Model
     public $status;
 
     /**
-     * @example PreAllocation
-     *
-     * @var string
-     */
-    public $subStatus;
-
-    /**
      * @var string
      */
     public $userId;
@@ -130,6 +123,13 @@ class QueueInfo extends Model
      * @var string
      */
     public $workloadName;
+
+    /**
+     * @example PreAllocation
+     *
+     * @var string
+     */
+    public $workloadStatus;
 
     /**
      * @example dlc
@@ -159,11 +159,11 @@ class QueueInfo extends Model
         'reason'                  => 'Reason',
         'resource'                => 'Resource',
         'status'                  => 'Status',
-        'subStatus'               => 'SubStatus',
         'userId'                  => 'UserId',
         'userName'                => 'UserName',
         'workloadId'              => 'WorkloadId',
         'workloadName'            => 'WorkloadName',
+        'workloadStatus'          => 'WorkloadStatus',
         'workloadType'            => 'WorkloadType',
         'workspaceId'             => 'WorkspaceId',
     ];
@@ -217,9 +217,6 @@ class QueueInfo extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
-        if (null !== $this->subStatus) {
-            $res['SubStatus'] = $this->subStatus;
-        }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
@@ -231,6 +228,9 @@ class QueueInfo extends Model
         }
         if (null !== $this->workloadName) {
             $res['WorkloadName'] = $this->workloadName;
+        }
+        if (null !== $this->workloadStatus) {
+            $res['WorkloadStatus'] = $this->workloadStatus;
         }
         if (null !== $this->workloadType) {
             $res['WorkloadType'] = $this->workloadType;
@@ -292,9 +292,6 @@ class QueueInfo extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
-        if (isset($map['SubStatus'])) {
-            $model->subStatus = $map['SubStatus'];
-        }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
         }
@@ -306,6 +303,9 @@ class QueueInfo extends Model
         }
         if (isset($map['WorkloadName'])) {
             $model->workloadName = $map['WorkloadName'];
+        }
+        if (isset($map['WorkloadStatus'])) {
+            $model->workloadStatus = $map['WorkloadStatus'];
         }
         if (isset($map['WorkloadType'])) {
             $model->workloadType = $map['WorkloadType'];

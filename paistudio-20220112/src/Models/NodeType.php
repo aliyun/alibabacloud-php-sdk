@@ -30,6 +30,13 @@ class NodeType extends Model
     public $GPU;
 
     /**
+     * @example 80G
+     *
+     * @var string
+     */
+    public $GPUMemory;
+
+    /**
      * @var string
      */
     public $GPUType;
@@ -51,6 +58,7 @@ class NodeType extends Model
         'acceleratorType' => 'AcceleratorType',
         'CPU'             => 'CPU',
         'GPU'             => 'GPU',
+        'GPUMemory'       => 'GPUMemory',
         'GPUType'         => 'GPUType',
         'memory'          => 'Memory',
         'nodeType'        => 'NodeType',
@@ -71,6 +79,9 @@ class NodeType extends Model
         }
         if (null !== $this->GPU) {
             $res['GPU'] = $this->GPU;
+        }
+        if (null !== $this->GPUMemory) {
+            $res['GPUMemory'] = $this->GPUMemory;
         }
         if (null !== $this->GPUType) {
             $res['GPUType'] = $this->GPUType;
@@ -101,6 +112,9 @@ class NodeType extends Model
         }
         if (isset($map['GPU'])) {
             $model->GPU = $map['GPU'];
+        }
+        if (isset($map['GPUMemory'])) {
+            $model->GPUMemory = $map['GPUMemory'];
         }
         if (isset($map['GPUType'])) {
             $model->GPUType = $map['GPUType'];

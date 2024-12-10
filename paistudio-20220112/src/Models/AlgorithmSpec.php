@@ -78,8 +78,6 @@ class AlgorithmSpec extends Model
     public $resourceRequirements;
 
     /**
-     * @deprecated
-     *
      * @var string[]
      */
     public $supportedInstanceTypes;

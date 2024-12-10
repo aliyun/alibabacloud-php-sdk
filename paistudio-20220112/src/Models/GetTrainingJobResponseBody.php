@@ -15,7 +15,6 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\lates
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\outputChannels;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\outputModel;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\scheduler;
-use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\settings;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\statusTransitions;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobResponseBody\userVpc;
 use AlibabaCloud\Tea\Model;
@@ -139,6 +138,11 @@ class GetTrainingJobResponseBody extends Model
     public $outputModel;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var string[]
      */
     public $pythonRequirements;
@@ -177,7 +181,7 @@ class GetTrainingJobResponseBody extends Model
     public $scheduler;
 
     /**
-     * @var settings
+     * @var JobSettings
      */
     public $settings;
 
@@ -258,6 +262,7 @@ class GetTrainingJobResponseBody extends Model
         'latestProgress'         => 'LatestProgress',
         'outputChannels'         => 'OutputChannels',
         'outputModel'            => 'OutputModel',
+        'priority'               => 'Priority',
         'pythonRequirements'     => 'PythonRequirements',
         'reasonCode'             => 'ReasonCode',
         'reasonMessage'          => 'ReasonMessage',
@@ -378,6 +383,9 @@ class GetTrainingJobResponseBody extends Model
         }
         if (null !== $this->outputModel) {
             $res['OutputModel'] = null !== $this->outputModel ? $this->outputModel->toMap() : null;
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->pythonRequirements) {
             $res['PythonRequirements'] = $this->pythonRequirements;
@@ -541,6 +549,9 @@ class GetTrainingJobResponseBody extends Model
         if (isset($map['OutputModel'])) {
             $model->outputModel = outputModel::fromMap($map['OutputModel']);
         }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
         if (isset($map['PythonRequirements'])) {
             if (!empty($map['PythonRequirements'])) {
                 $model->pythonRequirements = $map['PythonRequirements'];
@@ -562,7 +573,7 @@ class GetTrainingJobResponseBody extends Model
             $model->scheduler = scheduler::fromMap($map['Scheduler']);
         }
         if (isset($map['Settings'])) {
-            $model->settings = settings::fromMap($map['Settings']);
+            $model->settings = JobSettings::fromMap($map['Settings']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

@@ -36,6 +36,11 @@ class Node extends Model
     /**
      * @var string
      */
+    public $GPUMemory;
+
+    /**
+     * @var string
+     */
     public $GPUType;
 
     /**
@@ -158,6 +163,7 @@ class Node extends Model
         'CPU'               => 'CPU',
         'creatorId'         => 'CreatorId',
         'GPU'               => 'GPU',
+        'GPUMemory'         => 'GPUMemory',
         'GPUType'           => 'GPUType',
         'gmtCreateTime'     => 'GmtCreateTime',
         'gmtExpiredTime'    => 'GmtExpiredTime',
@@ -211,6 +217,9 @@ class Node extends Model
         }
         if (null !== $this->GPU) {
             $res['GPU'] = $this->GPU;
+        }
+        if (null !== $this->GPUMemory) {
+            $res['GPUMemory'] = $this->GPUMemory;
         }
         if (null !== $this->GPUType) {
             $res['GPUType'] = $this->GPUType;
@@ -322,6 +331,9 @@ class Node extends Model
         }
         if (isset($map['GPU'])) {
             $model->GPU = $map['GPU'];
+        }
+        if (isset($map['GPUMemory'])) {
+            $model->GPUMemory = $map['GPUMemory'];
         }
         if (isset($map['GPUType'])) {
             $model->GPUType = $map['GPUType'];

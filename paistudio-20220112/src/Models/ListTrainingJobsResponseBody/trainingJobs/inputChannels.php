@@ -28,10 +28,16 @@ class inputChannels extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $versionName;
     protected $_name = [
-        'datasetId' => 'DatasetId',
-        'inputUri'  => 'InputUri',
-        'name'      => 'Name',
+        'datasetId'   => 'DatasetId',
+        'inputUri'    => 'InputUri',
+        'name'        => 'Name',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class inputChannels extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->versionName) {
+            $res['VersionName'] = $this->versionName;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class inputChannels extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['VersionName'])) {
+            $model->versionName = $map['VersionName'];
         }
 
         return $model;

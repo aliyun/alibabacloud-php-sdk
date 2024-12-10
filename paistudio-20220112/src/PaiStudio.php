@@ -62,6 +62,8 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListNodesResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotasResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotaWorkloadsRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListQuotaWorkloadsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListResourceGroupMachineGroupsRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListResourceGroupMachineGroupsResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\ListResourceGroupsRequest;
@@ -559,6 +561,9 @@ class PaiStudio extends OpenApiClient
         }
         if (!Utils::isUnset($request->outputChannels)) {
             $body['OutputChannels'] = $request->outputChannels;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
         }
         if (!Utils::isUnset($request->pythonRequirements)) {
             $body['PythonRequirements'] = $request->pythonRequirements;
@@ -1141,8 +1146,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetNodeMetrics is deprecated
+     *  *
      * @summary get resource group node metrics
      *  *
+     * Deprecated
+     *
      * @param string                $ResourceGroupID
      * @param string                $MetricType
      * @param GetNodeMetricsRequest $request         GetNodeMetricsRequest
@@ -1190,8 +1199,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetNodeMetrics is deprecated
+     *  *
      * @summary get resource group node metrics
      *  *
+     * Deprecated
+     *
      * @param string                $ResourceGroupID
      * @param string                $MetricType
      * @param GetNodeMetricsRequest $request         GetNodeMetricsRequest
@@ -1378,8 +1391,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetResourceGroupRequest is deprecated
+     *  *
      * @summary get resource group requested resource by resource group id
      *  *
+     * Deprecated
+     *
      * @param GetResourceGroupRequestRequest $request GetResourceGroupRequestRequest
      * @param string[]                       $headers map
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1416,8 +1433,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetResourceGroupRequest is deprecated
+     *  *
      * @summary get resource group requested resource by resource group id
      *  *
+     * Deprecated
+     *
      * @param GetResourceGroupRequestRequest $request GetResourceGroupRequestRequest
      *
      * @return GetResourceGroupRequestResponse GetResourceGroupRequestResponse
@@ -1674,8 +1695,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetUserViewMetrics is deprecated
+     *  *
      * @summary get user view  metrics
      *  *
+     * Deprecated
+     *
      * @param string                    $ResourceGroupID
      * @param GetUserViewMetricsRequest $request         GetUserViewMetricsRequest
      * @param string[]                  $headers         map
@@ -1728,8 +1753,12 @@ class PaiStudio extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetUserViewMetrics is deprecated
+     *  *
      * @summary get user view  metrics
      *  *
+     * Deprecated
+     *
      * @param string                    $ResourceGroupID
      * @param GetUserViewMetricsRequest $request         GetUserViewMetricsRequest
      *
@@ -1953,6 +1982,109 @@ class PaiStudio extends OpenApiClient
         $headers = [];
 
         return $this->listNodesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 您可以通过此API获取Quota上的任务信息列表
+     *  *
+     * @param string                    $QuotaId
+     * @param ListQuotaWorkloadsRequest $request ListQuotaWorkloadsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListQuotaWorkloadsResponse ListQuotaWorkloadsResponse
+     */
+    public function listQuotaWorkloadsWithOptions($QuotaId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->beforeWorkloadId)) {
+            $query['BeforeWorkloadId'] = $request->beforeWorkloadId;
+        }
+        if (!Utils::isUnset($request->gmtDequeuedTimeRange)) {
+            $query['GmtDequeuedTimeRange'] = $request->gmtDequeuedTimeRange;
+        }
+        if (!Utils::isUnset($request->gmtEnqueuedTimeRange)) {
+            $query['GmtEnqueuedTimeRange'] = $request->gmtEnqueuedTimeRange;
+        }
+        if (!Utils::isUnset($request->gmtPositionModifiedTimeRange)) {
+            $query['GmtPositionModifiedTimeRange'] = $request->gmtPositionModifiedTimeRange;
+        }
+        if (!Utils::isUnset($request->nodeName)) {
+            $query['NodeName'] = $request->nodeName;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->showOwn)) {
+            $query['ShowOwn'] = $request->showOwn;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->subQuotaIds)) {
+            $query['SubQuotaIds'] = $request->subQuotaIds;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
+        }
+        if (!Utils::isUnset($request->workloadCreatedTimeRange)) {
+            $query['WorkloadCreatedTimeRange'] = $request->workloadCreatedTimeRange;
+        }
+        if (!Utils::isUnset($request->workloadIds)) {
+            $query['WorkloadIds'] = $request->workloadIds;
+        }
+        if (!Utils::isUnset($request->workloadStatuses)) {
+            $query['WorkloadStatuses'] = $request->workloadStatuses;
+        }
+        if (!Utils::isUnset($request->workloadType)) {
+            $query['WorkloadType'] = $request->workloadType;
+        }
+        if (!Utils::isUnset($request->workspaceIds)) {
+            $query['WorkspaceIds'] = $request->workspaceIds;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListQuotaWorkloads',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/quotas/' . OpenApiUtilClient::getEncodeParam($QuotaId) . '/workloads',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListQuotaWorkloadsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 您可以通过此API获取Quota上的任务信息列表
+     *  *
+     * @param string                    $QuotaId
+     * @param ListQuotaWorkloadsRequest $request ListQuotaWorkloadsRequest
+     *
+     * @return ListQuotaWorkloadsResponse ListQuotaWorkloadsResponse
+     */
+    public function listQuotaWorkloads($QuotaId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listQuotaWorkloadsWithOptions($QuotaId, $request, $headers, $runtime);
     }
 
     /**

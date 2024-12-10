@@ -11,7 +11,6 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\inputCh
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\labels;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\outputChannels;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\scheduler;
-use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\settings;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\CreateTrainingJobRequest\userVpc;
 use AlibabaCloud\Tea\Model;
 
@@ -84,6 +83,11 @@ class CreateTrainingJobRequest extends Model
     public $outputChannels;
 
     /**
+     * @var int
+     */
+    public $priority;
+
+    /**
      * @var string[]
      */
     public $pythonRequirements;
@@ -101,7 +105,7 @@ class CreateTrainingJobRequest extends Model
     public $scheduler;
 
     /**
-     * @var settings
+     * @var JobSettings
      */
     public $settings;
 
@@ -147,6 +151,7 @@ class CreateTrainingJobRequest extends Model
         'inputChannels'          => 'InputChannels',
         'labels'                 => 'Labels',
         'outputChannels'         => 'OutputChannels',
+        'priority'               => 'Priority',
         'pythonRequirements'     => 'PythonRequirements',
         'roleArn'                => 'RoleArn',
         'scheduler'              => 'Scheduler',
@@ -223,6 +228,9 @@ class CreateTrainingJobRequest extends Model
                     $res['OutputChannels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->priority) {
+            $res['Priority'] = $this->priority;
         }
         if (null !== $this->pythonRequirements) {
             $res['PythonRequirements'] = $this->pythonRequirements;
@@ -320,6 +328,9 @@ class CreateTrainingJobRequest extends Model
                 }
             }
         }
+        if (isset($map['Priority'])) {
+            $model->priority = $map['Priority'];
+        }
         if (isset($map['PythonRequirements'])) {
             if (!empty($map['PythonRequirements'])) {
                 $model->pythonRequirements = $map['PythonRequirements'];
@@ -332,7 +343,7 @@ class CreateTrainingJobRequest extends Model
             $model->scheduler = scheduler::fromMap($map['Scheduler']);
         }
         if (isset($map['Settings'])) {
-            $model->settings = settings::fromMap($map['Settings']);
+            $model->settings = JobSettings::fromMap($map['Settings']);
         }
         if (isset($map['TrainingJobDescription'])) {
             $model->trainingJobDescription = $map['TrainingJobDescription'];
