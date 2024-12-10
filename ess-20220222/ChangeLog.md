@@ -3,6 +3,11 @@
 - Update API StartInstanceRefresh: add param SkipMatching.
 
 
+2024-12-10 Version: 1.8.4
+- Update API DescribeInstanceRefreshes: update response param.
+- Update API StartInstanceRefresh: add param SkipMatching.
+
+
 2024-12-03 Version: 1.8.3
 - Update API CreateEciScalingConfiguration: add param GpuDriverVersion.
 - Update API CreateScalingGroup: add param CapacityOptions.
