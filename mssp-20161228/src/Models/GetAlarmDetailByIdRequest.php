@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAlarmDetailByIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Primary key ID.
+     *
+     * This parameter is required.
+     * @example 20077761
      *
      * @var int
      */

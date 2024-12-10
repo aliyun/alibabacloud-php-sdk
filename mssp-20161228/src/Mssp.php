@@ -18,6 +18,8 @@ use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAttackedAssetDealRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAttackedAssetDealResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetBaselineSummaryRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetBaselineSummaryResponse;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\GetConsoleScoreRequest;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\GetConsoleScoreResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetDetailByIdRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetDetailByIdResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\GetDocumentDownloadUrlRequest;
@@ -331,7 +333,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 告警详情查询
+     * @summary Query Alarm Details
      *  *
      * @param GetAlarmDetailByIdRequest $request GetAlarmDetailByIdRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -364,7 +366,7 @@ class Mssp extends OpenApiClient
     }
 
     /**
-     * @summary 告警详情查询
+     * @summary Query Alarm Details
      *  *
      * @param GetAlarmDetailByIdRequest $request GetAlarmDetailByIdRequest
      *
@@ -487,6 +489,62 @@ class Mssp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getBaselineSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Get Console Score
+     *  *
+     * @param GetConsoleScoreRequest $request GetConsoleScoreRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetConsoleScoreResponse GetConsoleScoreResponse
+     */
+    public function getConsoleScoreWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dateType)) {
+            $body['DateType'] = $request->dateType;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $body['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $body['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->suspEventSource)) {
+            $body['SuspEventSource'] = $request->suspEventSource;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetConsoleScore',
+            'version'     => '2016-12-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetConsoleScoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Get Console Score
+     *  *
+     * @param GetConsoleScoreRequest $request GetConsoleScoreRequest
+     *
+     * @return GetConsoleScoreResponse GetConsoleScoreResponse
+     */
+    public function getConsoleScore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getConsoleScoreWithOptions($request, $runtime);
     }
 
     /**

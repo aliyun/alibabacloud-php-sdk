@@ -10,106 +10,189 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Alarm event type.
+     *
+     * @example Unusual Logon
+     *
      * @var string
      */
     public $alarmEventType;
 
     /**
+     * @description Alarm event type.
+     *
+     * @example Login with unusual location
+     *
      * @var string
      */
     public $alarmEventTypeDisplay;
 
     /**
+     * @description Alarm ID.
+     *
+     * @example 202427220
+     *
      * @var int
      */
     public $alarmId;
 
     /**
+     * @description Alarm name.
+     *
+     * @example 负载均衡可挂载服务器数量告警
+     *
      * @var string
      */
     public $alarmName;
 
     /**
+     * @description Alarm source.
+     *
+     * @example SUSP_EVENT
+     *
      * @var string
      */
     public $alarmSource;
 
     /**
+     * @description Latest alarm time.
+     *
+     * @example 2018-09-26 01:51:01
+     *
      * @var string
      */
     public $alarmTime;
 
     /**
+     * @description Analysis process.
+     *
+     * @example [{"value":"服务器可能已被黑客攻击，存在恶意进程在运行。 分析过程：告警显示，服务端存在一个名为”dns.exe”的进程在访问”polling.burpcollaborator.net”，这是一个被黑名单列出的恶意域名。在正常情况下,”dns.exe”不应该单独存在于系统的路径下，并且也不应该访问这类恶意域名。因此，这个进程可能是黑客留下的恶意进程。","key":"结论"},{"value":"尽快对服务器进行全面扫描，清除恶意进程。同时，联系网络安全专家进行深入调查，以确定是否有其他潜在的安全威胁。","key":"处置建议"}]
+     *
      * @var string
      */
     public $analysisResult;
 
     /**
+     * @description Whether high-protection mode is enabled. true means enabled, false means not enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $containHwMode;
 
     /**
+     * @description Alarm handling time.
+     *
+     * @example 2018-09-26 01:51:01
+     *
      * @var string
      */
     public $dealTime;
 
     /**
+     * @description Description.
+     *
+     * @example webshell
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description Event details information.
+     *
      * @var eventDetails[]
      */
     public $eventDetails;
 
     /**
+     * @description Alarm level.
+     *
+     * @example suspicious
+     *
      * @var string
      */
     public $eventLevel;
 
     /**
+     * @description Primary key ID of the work order.
+     *
+     * @example 9772
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Affected asset.
+     *
+     * @example nginx
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description Public IP.
+     *
+     * @example 47.116.126.79
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description Private IP.
+     *
+     * @example 172.19.195.176
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description First occurrence time
+     *
+     * @example 2018-09-26 01:51:01
+     *
      * @var string
      */
     public $occurrenceTime;
 
     /**
+     * @description Owner.
+     *
+     * @example 324546
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description Disposal method.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description Handling status.
+     *
+     * @example 要查询的告警事件状态。取值：
+     *
+     * 513：自动拦截完毕
      * @var string
      */
     public $status;
 
     /**
+     * @description ATT&CK tactic name.
+     *
+     * @example Malicious scripts-Malicious script code execution
+     *
      * @var string
      */
     public $tacticDisplayName;

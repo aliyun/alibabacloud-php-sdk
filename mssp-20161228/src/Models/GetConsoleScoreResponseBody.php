@@ -4,15 +4,14 @@
 
 namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
-use AlibabaCloud\SDK\Mssp\V20161228\Models\GetAlarmDetailByIdResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetAlarmDetailByIdResponseBody extends Model
+class GetConsoleScoreResponseBody extends Model
 {
     /**
-     * @description API response code.
+     * @description Interface response code.
      *
-     * @example 200
+     * @example Success
      *
      * @var string
      */
@@ -21,7 +20,9 @@ class GetAlarmDetailByIdResponseBody extends Model
     /**
      * @description Data returned by the interface.
      *
-     * @var data
+     * @example {
+     * }
+     * @var mixed
      */
     public $data;
 
@@ -35,7 +36,7 @@ class GetAlarmDetailByIdResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Return message.
+     * @description Prompt message for the result returned.
      *
      * @example successful
      *
@@ -47,14 +48,14 @@ class GetAlarmDetailByIdResponseBody extends Model
      * @description Request ID.
      *
      * This parameter is required.
-     * @example 5C1B0668-442C-57AE-9668-D894B0B012EB
+     * @example D0937B0F-9180-5F70-B6ED-0BA22591627F
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Whether the operation was successful: - true: Success. - false: Failure.
+     * @description Indicates whether the operation was successful. true means success, false means failure.
      *
      * @example true
      *
@@ -81,7 +82,7 @@ class GetAlarmDetailByIdResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -102,7 +103,7 @@ class GetAlarmDetailByIdResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetAlarmDetailByIdResponseBody
+     * @return GetConsoleScoreResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -111,7 +112,7 @@ class GetAlarmDetailByIdResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
