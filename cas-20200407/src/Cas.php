@@ -322,6 +322,9 @@ class Cas extends OpenApiClient
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->username)) {
             $query['Username'] = $request->username;
         }
@@ -392,6 +395,9 @@ class Cas extends OpenApiClient
         }
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->username)) {
             $query['Username'] = $request->username;
@@ -464,6 +470,9 @@ class Cas extends OpenApiClient
         }
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->username)) {
             $query['Username'] = $request->username;
@@ -2179,6 +2188,9 @@ class Cas extends OpenApiClient
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2583,6 +2595,9 @@ class Cas extends OpenApiClient
         }
         if (!Utils::isUnset($request->signPrivateKey)) {
             $query['SignPrivateKey'] = $request->signPrivateKey;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

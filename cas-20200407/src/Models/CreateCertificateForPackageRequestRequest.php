@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateForPackageRequestRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateCertificateForPackageRequestRequest extends Model
@@ -92,6 +93,11 @@ class CreateCertificateForPackageRequestRequest extends Model
     public $productCode;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The name of the applicant.
      *
      * If you do not specify this parameter, the information about the most recent contact that is added to the **Information Management** module is used. For more information about how to add a contact to the **Information Management** module, see [Manage contacts](https://help.aliyun.com/document_detail/198262.html).
@@ -120,6 +126,7 @@ class CreateCertificateForPackageRequestRequest extends Model
         'email'        => 'Email',
         'phone'        => 'Phone',
         'productCode'  => 'ProductCode',
+        'tags'         => 'Tags',
         'username'     => 'Username',
         'validateType' => 'ValidateType',
     ];
@@ -148,6 +155,15 @@ class CreateCertificateForPackageRequestRequest extends Model
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -184,6 +200,15 @@ class CreateCertificateForPackageRequestRequest extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

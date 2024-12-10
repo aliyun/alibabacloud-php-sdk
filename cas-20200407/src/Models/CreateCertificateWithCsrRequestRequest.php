@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
+use AlibabaCloud\SDK\Cas\V20200407\Models\CreateCertificateWithCsrRequestRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateCertificateWithCsrRequestRequest extends Model
@@ -59,6 +60,11 @@ class CreateCertificateWithCsrRequestRequest extends Model
     public $productCode;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The name of the applicant.
      *
      * This parameter is required.
@@ -85,6 +91,7 @@ class CreateCertificateWithCsrRequestRequest extends Model
         'email'        => 'Email',
         'phone'        => 'Phone',
         'productCode'  => 'ProductCode',
+        'tags'         => 'Tags',
         'username'     => 'Username',
         'validateType' => 'ValidateType',
     ];
@@ -107,6 +114,15 @@ class CreateCertificateWithCsrRequestRequest extends Model
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -137,6 +153,15 @@ class CreateCertificateWithCsrRequestRequest extends Model
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cas\V20200407\Models;
 
+use AlibabaCloud\SDK\Cas\V20200407\Models\UploadUserCertificateRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class UploadUserCertificateRequest extends Model
@@ -85,6 +86,11 @@ class UploadUserCertificateRequest extends Model
      * @var string
      */
     public $signPrivateKey;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'cert'              => 'Cert',
         'encryptCert'       => 'EncryptCert',
@@ -94,6 +100,7 @@ class UploadUserCertificateRequest extends Model
         'resourceGroupId'   => 'ResourceGroupId',
         'signCert'          => 'SignCert',
         'signPrivateKey'    => 'SignPrivateKey',
+        'tags'              => 'Tags',
     ];
 
     public function validate()
@@ -126,6 +133,15 @@ class UploadUserCertificateRequest extends Model
         }
         if (null !== $this->signPrivateKey) {
             $res['SignPrivateKey'] = $this->signPrivateKey;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -162,6 +178,15 @@ class UploadUserCertificateRequest extends Model
         }
         if (isset($map['SignPrivateKey'])) {
             $model->signPrivateKey = $map['SignPrivateKey'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
