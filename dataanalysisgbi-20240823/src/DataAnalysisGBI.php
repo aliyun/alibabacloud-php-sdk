@@ -203,6 +203,9 @@ class DataAnalysisGBI extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $body['name'] = $request->name;
         }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -553,6 +556,9 @@ class DataAnalysisGBI extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
         }
         if (!Utils::isUnset($request->vdbId)) {
             $body['vdbId'] = $request->vdbId;

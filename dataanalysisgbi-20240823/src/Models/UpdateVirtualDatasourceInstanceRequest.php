@@ -19,6 +19,11 @@ class UpdateVirtualDatasourceInstanceRequest extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $type;
+
+    /**
      * @description This parameter is required.
      *
      * @example vdb-E0F693C8-9F72-5830-B81A-696C9D8EBBD1
@@ -36,6 +41,7 @@ class UpdateVirtualDatasourceInstanceRequest extends Model
     protected $_name = [
         'description' => 'description',
         'name'        => 'name',
+        'type'        => 'type',
         'vdbId'       => 'vdbId',
         'workspaceId' => 'workspaceId',
     ];
@@ -52,6 +58,9 @@ class UpdateVirtualDatasourceInstanceRequest extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
         if (null !== $this->vdbId) {
             $res['vdbId'] = $this->vdbId;
@@ -76,6 +85,9 @@ class UpdateVirtualDatasourceInstanceRequest extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
         if (isset($map['vdbId'])) {
             $model->vdbId = $map['vdbId'];

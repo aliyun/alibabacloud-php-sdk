@@ -21,6 +21,11 @@ class CreateVirtualDatasourceInstanceRequest extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $type;
+
+    /**
      * @description This parameter is required.
      *
      * @example llm-2v3934xtp49esw64
@@ -31,6 +36,7 @@ class CreateVirtualDatasourceInstanceRequest extends Model
     protected $_name = [
         'description' => 'description',
         'name'        => 'name',
+        'type'        => 'type',
         'workspaceId' => 'workspaceId',
     ];
 
@@ -46,6 +52,9 @@ class CreateVirtualDatasourceInstanceRequest extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->type) {
+            $res['type'] = $this->type;
         }
         if (null !== $this->workspaceId) {
             $res['workspaceId'] = $this->workspaceId;
@@ -67,6 +76,9 @@ class CreateVirtualDatasourceInstanceRequest extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['type'])) {
+            $model->type = $map['type'];
         }
         if (isset($map['workspaceId'])) {
             $model->workspaceId = $map['workspaceId'];
