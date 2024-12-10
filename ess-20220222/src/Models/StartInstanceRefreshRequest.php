@@ -79,6 +79,11 @@ class StartInstanceRefreshRequest extends Model
      * @var string
      */
     public $scalingGroupId;
+
+    /**
+     * @var bool
+     */
+    public $skipMatching;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'desiredConfiguration' => 'DesiredConfiguration',
@@ -88,6 +93,7 @@ class StartInstanceRefreshRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'scalingGroupId'       => 'ScalingGroupId',
+        'skipMatching'         => 'SkipMatching',
     ];
 
     public function validate()
@@ -120,6 +126,9 @@ class StartInstanceRefreshRequest extends Model
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
+        }
+        if (null !== $this->skipMatching) {
+            $res['SkipMatching'] = $this->skipMatching;
         }
 
         return $res;
@@ -156,6 +165,9 @@ class StartInstanceRefreshRequest extends Model
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['SkipMatching'])) {
+            $model->skipMatching = $map['SkipMatching'];
         }
 
         return $model;

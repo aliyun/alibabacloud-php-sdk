@@ -89,6 +89,11 @@ class instanceRefreshTasks extends Model
     public $scalingGroupId;
 
     /**
+     * @var bool
+     */
+    public $skipMatching;
+
+    /**
      * @description The start time of the instance refresh task.
      *
      * @example 2024-08-22T01:09:00Z
@@ -135,6 +140,7 @@ class instanceRefreshTasks extends Model
         'minHealthyPercentage'    => 'MinHealthyPercentage',
         'regionId'                => 'RegionId',
         'scalingGroupId'          => 'ScalingGroupId',
+        'skipMatching'            => 'SkipMatching',
         'startTime'               => 'StartTime',
         'status'                  => 'Status',
         'totalNeedUpdateCapacity' => 'TotalNeedUpdateCapacity',
@@ -173,6 +179,9 @@ class instanceRefreshTasks extends Model
         }
         if (null !== $this->scalingGroupId) {
             $res['ScalingGroupId'] = $this->scalingGroupId;
+        }
+        if (null !== $this->skipMatching) {
+            $res['SkipMatching'] = $this->skipMatching;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -221,6 +230,9 @@ class instanceRefreshTasks extends Model
         }
         if (isset($map['ScalingGroupId'])) {
             $model->scalingGroupId = $map['ScalingGroupId'];
+        }
+        if (isset($map['SkipMatching'])) {
+            $model->skipMatching = $map['SkipMatching'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

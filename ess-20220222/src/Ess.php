@@ -7675,6 +7675,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->scalingGroupId)) {
             $query['ScalingGroupId'] = $request->scalingGroupId;
         }
+        if (!Utils::isUnset($request->skipMatching)) {
+            $query['SkipMatching'] = $request->skipMatching;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
