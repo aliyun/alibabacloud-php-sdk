@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSparkDefinitionsResponse extends Model
+class ModifyCompactionServiceSwitchResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetSparkDefinitionsResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetSparkDefinitionsResponseBody
+     * @var ModifyCompactionServiceSwitchResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class GetSparkDefinitionsResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetSparkDefinitionsResponse
+     * @return ModifyCompactionServiceSwitchResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class GetSparkDefinitionsResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetSparkDefinitionsResponseBody::fromMap($map['body']);
+            $model->body = ModifyCompactionServiceSwitchResponseBody::fromMap($map['body']);
         }
 
         return $model;

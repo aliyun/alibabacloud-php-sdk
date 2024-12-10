@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
-use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSparkTemplateFileResponseBody\data;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEssdCacheConfigResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class RenameSparkTemplateFileResponseBody extends Model
+class DescribeEssdCacheConfigResponseBody extends Model
 {
     /**
-     * @description The data returned.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The request ID.
-     *
-     * @example 16D332C4-ACEB-526A-9B53-2B708FED594A
+     * @example C7EDB8E4-9769-4233-88C7-DCA4C9******
      *
      * @var string
      */
@@ -49,7 +45,7 @@ class RenameSparkTemplateFileResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RenameSparkTemplateFileResponseBody
+     * @return DescribeEssdCacheConfigResponseBody
      */
     public static function fromMap($map = [])
     {

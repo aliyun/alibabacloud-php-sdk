@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSparkDefinitionsRequest extends Model
+class DescribeLakeCacheSizeRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Lakehouse Edition cluster.
+     * @description This parameter is required.
      *
-     * @example amv-clusterxxx
+     * @example amv-bp10b6646l07akdt
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class GetSparkDefinitionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSparkDefinitionsRequest
+     * @return DescribeLakeCacheSizeRequest
      */
     public static function fromMap($map = [])
     {

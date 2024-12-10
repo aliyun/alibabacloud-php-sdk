@@ -1,0 +1,51 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Adb\V20211201\Models;
+
+use AlibabaCloud\Tea\Model;
+
+class ModifyDBClusterVipResponseBody extends Model
+{
+    /**
+     * @description The request ID.
+     *
+     * @example 1AD222E9-****-4A42-BF6D-8A4442913CEF
+     *
+     * @var string
+     */
+    public $requestId;
+    protected $_name = [
+        'requestId' => 'RequestId',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return ModifyDBClusterVipResponseBody
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        return $model;
+    }
+}

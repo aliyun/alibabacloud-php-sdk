@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterAttributeResponseBody\items;
 
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterAttributeResponseBody\items\DBCluster\tags;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterAttributeResponseBody\items\DBCluster\taskInfo;
 use AlibabaCloud\Tea\Model;
 
 class DBCluster extends Model
@@ -362,6 +363,11 @@ class DBCluster extends Model
     public $tags;
 
     /**
+     * @var taskInfo
+     */
+    public $taskInfo;
+
+    /**
      * @description Indicates whether Elastic Network Interface (ENI) is enabled. Valid values:
      *
      *   **true**
@@ -435,6 +441,7 @@ class DBCluster extends Model
         'storageResourceTotal'      => 'StorageResourceTotal',
         'supportedFeatures'         => 'SupportedFeatures',
         'tags'                      => 'Tags',
+        'taskInfo'                  => 'TaskInfo',
         'userENIStatus'             => 'UserENIStatus',
         'VPCId'                     => 'VPCId',
         'vSwitchId'                 => 'VSwitchId',
@@ -552,6 +559,9 @@ class DBCluster extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+        }
+        if (null !== $this->taskInfo) {
+            $res['TaskInfo'] = null !== $this->taskInfo ? $this->taskInfo->toMap() : null;
         }
         if (null !== $this->userENIStatus) {
             $res['UserENIStatus'] = $this->userENIStatus;
@@ -681,6 +691,9 @@ class DBCluster extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TaskInfo'])) {
+            $model->taskInfo = taskInfo::fromMap($map['TaskInfo']);
         }
         if (isset($map['UserENIStatus'])) {
             $model->userENIStatus = $map['UserENIStatus'];

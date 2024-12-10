@@ -74,6 +74,11 @@ class querys extends Model
     public $outputRows;
 
     /**
+     * @var string
+     */
+    public $patternId;
+
+    /**
      * @description The peak memory. Unit: bytes.
      *
      * @example 16648
@@ -238,6 +243,7 @@ class querys extends Model
         'executionTime'         => 'ExecutionTime',
         'outputDataSize'        => 'OutputDataSize',
         'outputRows'            => 'OutputRows',
+        'patternId'             => 'PatternId',
         'peakMemory'            => 'PeakMemory',
         'processId'             => 'ProcessId',
         'queryProperties'       => 'QueryProperties',
@@ -284,6 +290,9 @@ class querys extends Model
         }
         if (null !== $this->outputRows) {
             $res['OutputRows'] = $this->outputRows;
+        }
+        if (null !== $this->patternId) {
+            $res['PatternId'] = $this->patternId;
         }
         if (null !== $this->peakMemory) {
             $res['PeakMemory'] = $this->peakMemory;
@@ -374,6 +383,9 @@ class querys extends Model
         }
         if (isset($map['OutputRows'])) {
             $model->outputRows = $map['OutputRows'];
+        }
+        if (isset($map['PatternId'])) {
+            $model->patternId = $map['PatternId'];
         }
         if (isset($map['PeakMemory'])) {
             $model->peakMemory = $map['PeakMemory'];

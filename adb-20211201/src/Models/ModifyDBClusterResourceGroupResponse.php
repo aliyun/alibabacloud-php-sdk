@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RenameSparkTemplateFileResponse extends Model
+class ModifyDBClusterResourceGroupResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class RenameSparkTemplateFileResponse extends Model
     public $statusCode;
 
     /**
-     * @var RenameSparkTemplateFileResponseBody
+     * @var ModifyDBClusterResourceGroupResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class RenameSparkTemplateFileResponse extends Model
     /**
      * @param array $map
      *
-     * @return RenameSparkTemplateFileResponse
+     * @return ModifyDBClusterResourceGroupResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class RenameSparkTemplateFileResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = RenameSparkTemplateFileResponseBody::fromMap($map['body']);
+            $model->body = ModifyDBClusterResourceGroupResponseBody::fromMap($map['body']);
         }
 
         return $model;

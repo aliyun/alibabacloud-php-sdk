@@ -36,6 +36,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSparkTemplateRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSparkTemplateResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteBackupsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteBackupsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteDBClusterResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteDBResourceGroupRequest;
@@ -86,6 +88,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterResourceUsageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeColumnsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeColumnsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeCompactionServiceSwitchRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeCompactionServiceSwitchResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeComputeResourceUsageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeComputeResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterAttributeRequest;
@@ -120,10 +124,18 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeElasticPlansRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeElasticPlansResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEnabledPrivilegesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEnabledPrivilegesResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEssdCacheConfigRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEssdCacheConfigResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExcessivePrimaryKeysRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExcessivePrimaryKeysResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeKernelVersionRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeKernelVersionResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLakeCacheSizeRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeLakeCacheSizeResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeOperatorPermissionRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribePatternPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribePatternPerformanceResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribePerformanceViewAttributeRequest;
@@ -178,8 +190,6 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkAppWebUiAddressRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkAppWebUiAddressResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkConfigLogPathRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkConfigLogPathResponse;
-use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkDefinitionsRequest;
-use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkDefinitionsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkLogAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkLogAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkSQLEngineStateRequest;
@@ -202,6 +212,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\GetViewDDLRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetViewDDLResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetViewObjectsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetViewObjectsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GrantOperatorPermissionRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GrantOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkAppRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkAppResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkLogAnalyzeTaskRequest;
@@ -216,6 +228,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkLogAnalyzeTasksRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkLogAnalyzeTasksResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkTemplateFileIdsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkTemplateFileIdsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\LoadSampleDataSetRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\LoadSampleDataSetResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountDescriptionRequest;
@@ -231,17 +245,27 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyClusterAccessWhiteListRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyClusterAccessWhiteListResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyClusterConnectionStringRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyClusterConnectionStringResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyCompactionServiceSwitchRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyCompactionServiceSwitchResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterDescriptionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterDescriptionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterMaintainTimeRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterMaintainTimeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterResourceGroupRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterVipRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBClusterVipResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyElasticPlanResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyEssdCacheConfigRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyEssdCacheConfigResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyLakeCacheSizeRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyLakeCacheSizeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewShrinkRequest;
@@ -249,10 +273,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionResponse;
-use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSparkTemplateFileRequest;
-use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSparkTemplateFileResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ResetAccountPasswordResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\RevokeOperatorPermissionRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\RevokeOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SetSparkAppLogRootPathRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SetSparkAppLogRootPathResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkSQLEngineRequest;
@@ -1314,6 +1338,77 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Manually deletes backup sets.
+     *  *
+     * @description *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+     * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
+     *  *
+     * @param DeleteBackupsRequest $request DeleteBackupsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteBackupsResponse DeleteBackupsResponse
+     */
+    public function deleteBackupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupIds)) {
+            $query['BackupIds'] = $request->backupIds;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackups',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Manually deletes backup sets.
+     *  *
+     * @description *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+     * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
+     *  *
+     * @param DeleteBackupsRequest $request DeleteBackupsRequest
+     *
+     * @return DeleteBackupsResponse DeleteBackupsResponse
+     */
+    public function deleteBackups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupsWithOptions($request, $runtime);
     }
 
     /**
@@ -2889,6 +2984,53 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 查询CompactionService开关
+     *  *
+     * @param DescribeCompactionServiceSwitchRequest $request DescribeCompactionServiceSwitchRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCompactionServiceSwitchResponse DescribeCompactionServiceSwitchResponse
+     */
+    public function describeCompactionServiceSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCompactionServiceSwitch',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCompactionServiceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询CompactionService开关
+     *  *
+     * @param DescribeCompactionServiceSwitchRequest $request DescribeCompactionServiceSwitchRequest
+     *
+     * @return DescribeCompactionServiceSwitchResponse DescribeCompactionServiceSwitchResponse
+     */
+    public function describeCompactionServiceSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCompactionServiceSwitchWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取实例计算资源使用统计
      *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
@@ -3947,6 +4089,53 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 查询EssdCache配置
+     *  *
+     * @param DescribeEssdCacheConfigRequest $request DescribeEssdCacheConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeEssdCacheConfigResponse DescribeEssdCacheConfigResponse
+     */
+    public function describeEssdCacheConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEssdCacheConfig',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEssdCacheConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询EssdCache配置
+     *  *
+     * @param DescribeEssdCacheConfigRequest $request DescribeEssdCacheConfigRequest
+     *
+     * @return DescribeEssdCacheConfigResponse DescribeEssdCacheConfigResponse
+     */
+    public function describeEssdCacheConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEssdCacheConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about tables that have excessive primary key fields in an AnalyticDB for MySQL Data Lakehouse Edition (V5.0) cluster.
      *  *
      * @param DescribeExcessivePrimaryKeysRequest $request DescribeExcessivePrimaryKeysRequest
@@ -4081,6 +4270,170 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeJobResourceUsageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 枚举实例版本信息
+     *  *
+     * @param DescribeKernelVersionRequest $request DescribeKernelVersionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeKernelVersionResponse DescribeKernelVersionResponse
+     */
+    public function describeKernelVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeKernelVersion',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 枚举实例版本信息
+     *  *
+     * @param DescribeKernelVersionRequest $request DescribeKernelVersionRequest
+     *
+     * @return DescribeKernelVersionResponse DescribeKernelVersionResponse
+     */
+    public function describeKernelVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeKernelVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取实例LakeCache容量
+     *  *
+     * @param DescribeLakeCacheSizeRequest $request DescribeLakeCacheSizeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeLakeCacheSizeResponse DescribeLakeCacheSizeResponse
+     */
+    public function describeLakeCacheSizeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLakeCacheSize',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLakeCacheSizeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取实例LakeCache容量
+     *  *
+     * @param DescribeLakeCacheSizeRequest $request DescribeLakeCacheSizeRequest
+     *
+     * @return DescribeLakeCacheSizeResponse DescribeLakeCacheSizeResponse
+     */
+    public function describeLakeCacheSize($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLakeCacheSizeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOperatorPermissionRequest $request DescribeOperatorPermissionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeOperatorPermissionResponse DescribeOperatorPermissionResponse
+     */
+    public function describeOperatorPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOperatorPermission',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOperatorPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOperatorPermissionRequest $request DescribeOperatorPermissionRequest
+     *
+     * @return DescribeOperatorPermissionResponse DescribeOperatorPermissionResponse
+     */
+    public function describeOperatorPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOperatorPermissionWithOptions($request, $runtime);
     }
 
     /**
@@ -5768,61 +6121,6 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the common definitions of Spark applications.
-     *  *
-     * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
-     *  *
-     * @param GetSparkDefinitionsRequest $request GetSparkDefinitionsRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetSparkDefinitionsResponse GetSparkDefinitionsResponse
-     */
-    public function getSparkDefinitionsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $body['DBClusterId'] = $request->DBClusterId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSparkDefinitions',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetSparkDefinitionsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the common definitions of Spark applications.
-     *  *
-     * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
-     *  *
-     * @param GetSparkDefinitionsRequest $request GetSparkDefinitionsRequest
-     *
-     * @return GetSparkDefinitionsResponse GetSparkDefinitionsResponse
-     */
-    public function getSparkDefinitions($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getSparkDefinitionsWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Queries the results of a Spark log analysis task.
      *  *
      * @description *   General endpoint: `adb.aliyuncs.com`.
@@ -6506,6 +6804,67 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param GrantOperatorPermissionRequest $request GrantOperatorPermissionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GrantOperatorPermissionResponse GrantOperatorPermissionResponse
+     */
+    public function grantOperatorPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->expiredTime)) {
+            $query['ExpiredTime'] = $request->expiredTime;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->privileges)) {
+            $query['Privileges'] = $request->privileges;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantOperatorPermission',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantOperatorPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GrantOperatorPermissionRequest $request GrantOperatorPermissionRequest
+     *
+     * @return GrantOperatorPermissionResponse GrantOperatorPermissionResponse
+     */
+    public function grantOperatorPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantOperatorPermissionWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Terminates a Spark application.
      *  *
      * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -6912,6 +7271,73 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSparkTemplateFileIdsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -7364,6 +7790,56 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 修改CompactionService开关
+     *  *
+     * @param ModifyCompactionServiceSwitchRequest $request ModifyCompactionServiceSwitchRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyCompactionServiceSwitchResponse ModifyCompactionServiceSwitchResponse
+     */
+    public function modifyCompactionServiceSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->enableCompactionService)) {
+            $query['EnableCompactionService'] = $request->enableCompactionService;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCompactionServiceSwitch',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCompactionServiceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改CompactionService开关
+     *  *
+     * @param ModifyCompactionServiceSwitchRequest $request ModifyCompactionServiceSwitchRequest
+     *
+     * @return ModifyCompactionServiceSwitchResponse ModifyCompactionServiceSwitchResponse
+     */
+    public function modifyCompactionServiceSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCompactionServiceSwitchWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Changes the configurations of an AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *  *
      * @description ### [](#)
@@ -7565,6 +8041,124 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 修改资源组
+     *  *
+     * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBClusterResourceGroupResponse ModifyDBClusterResourceGroupResponse
+     */
+    public function modifyDBClusterResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterResourceGroup',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改资源组
+     *  *
+     * @param ModifyDBClusterResourceGroupRequest $request ModifyDBClusterResourceGroupRequest
+     *
+     * @return ModifyDBClusterResourceGroupResponse ModifyDBClusterResourceGroupResponse
+     */
+    public function modifyDBClusterResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Changes the virtual private cloud (VPC) and vSwitch for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *  *
+     * @param ModifyDBClusterVipRequest $request ModifyDBClusterVipRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBClusterVipResponse ModifyDBClusterVipResponse
+     */
+    public function modifyDBClusterVipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->connectString)) {
+            $query['ConnectString'] = $request->connectString;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterVip',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterVipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Changes the virtual private cloud (VPC) and vSwitch for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
+     *  *
+     * @param ModifyDBClusterVipRequest $request ModifyDBClusterVipRequest
+     *
+     * @return ModifyDBClusterVipResponse ModifyDBClusterVipResponse
+     */
+    public function modifyDBClusterVip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterVipWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the amount of reserved computing resources for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -7741,6 +8335,112 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyElasticPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改Essd Cache开关
+     *  *
+     * @param ModifyEssdCacheConfigRequest $request ModifyEssdCacheConfigRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyEssdCacheConfigResponse ModifyEssdCacheConfigResponse
+     */
+    public function modifyEssdCacheConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->enableEssdCache)) {
+            $query['EnableEssdCache'] = $request->enableEssdCache;
+        }
+        if (!Utils::isUnset($request->essdCacheSize)) {
+            $query['EssdCacheSize'] = $request->essdCacheSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyEssdCacheConfig',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyEssdCacheConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改Essd Cache开关
+     *  *
+     * @param ModifyEssdCacheConfigRequest $request ModifyEssdCacheConfigRequest
+     *
+     * @return ModifyEssdCacheConfigResponse ModifyEssdCacheConfigResponse
+     */
+    public function modifyEssdCacheConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyEssdCacheConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改实例LakeCache容量
+     *  *
+     * @param ModifyLakeCacheSizeRequest $request ModifyLakeCacheSizeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyLakeCacheSizeResponse ModifyLakeCacheSizeResponse
+     */
+    public function modifyLakeCacheSizeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->capacity)) {
+            $query['Capacity'] = $request->capacity;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->enableLakeCache)) {
+            $query['EnableLakeCache'] = $request->enableLakeCache;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyLakeCacheSize',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyLakeCacheSizeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改实例LakeCache容量
+     *  *
+     * @param ModifyLakeCacheSizeRequest $request ModifyLakeCacheSizeRequest
+     *
+     * @return ModifyLakeCacheSizeResponse ModifyLakeCacheSizeResponse
+     */
+    public function modifyLakeCacheSize($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyLakeCacheSizeWithOptions($request, $runtime);
     }
 
     /**
@@ -7931,67 +8631,6 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary Renames a Spark template file.
-     *  *
-     * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
-     *  *
-     * @param RenameSparkTemplateFileRequest $request RenameSparkTemplateFileRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
-     *
-     * @return RenameSparkTemplateFileResponse RenameSparkTemplateFileResponse
-     */
-    public function renameSparkTemplateFileWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RenameSparkTemplateFile',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RenameSparkTemplateFileResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Renames a Spark template file.
-     *  *
-     * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
-     * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
-     * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
-     *  *
-     * @param RenameSparkTemplateFileRequest $request RenameSparkTemplateFileRequest
-     *
-     * @return RenameSparkTemplateFileResponse RenameSparkTemplateFileResponse
-     */
-    public function renameSparkTemplateFile($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->renameSparkTemplateFileWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Resets the password of a database account for an AnalyticDB for MySQL cluster.
      *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -8052,6 +8691,61 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resetAccountPasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RevokeOperatorPermissionRequest $request RevokeOperatorPermissionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RevokeOperatorPermissionResponse RevokeOperatorPermissionResponse
+     */
+    public function revokeOperatorPermissionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeOperatorPermission',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeOperatorPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RevokeOperatorPermissionRequest $request RevokeOperatorPermissionRequest
+     *
+     * @return RevokeOperatorPermissionResponse RevokeOperatorPermissionResponse
+     */
+    public function revokeOperatorPermission($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeOperatorPermissionWithOptions($request, $runtime);
     }
 
     /**

@@ -2,25 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Adb\V20211201\Models\RenameSparkTemplateFileResponseBody;
+namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeCompactionServiceSwitchResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   True
-     *   False
-     *
-     * @example True
+     * @example true
      *
      * @var bool
      */
-    public $succeeded;
+    public $enableCompactionService;
     protected $_name = [
-        'succeeded' => 'Succeeded',
+        'enableCompactionService' => 'EnableCompactionService',
     ];
 
     public function validate()
@@ -30,8 +25,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->succeeded) {
-            $res['Succeeded'] = $this->succeeded;
+        if (null !== $this->enableCompactionService) {
+            $res['EnableCompactionService'] = $this->enableCompactionService;
         }
 
         return $res;
@@ -45,8 +40,8 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Succeeded'])) {
-            $model->succeeded = $map['Succeeded'];
+        if (isset($map['EnableCompactionService'])) {
+            $model->enableCompactionService = $map['EnableCompactionService'];
         }
 
         return $model;
