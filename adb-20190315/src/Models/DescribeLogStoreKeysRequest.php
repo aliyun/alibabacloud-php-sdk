@@ -4,20 +4,18 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
-use AlibabaCloud\SDK\Adb\V20190315\Models\ModifySyncJobRequest\sourceDBCluster;
 use AlibabaCloud\Tea\Model;
 
-class ModifySyncJobRequest extends Model
+class DescribeLogStoreKeysRequest extends Model
 {
     /**
-     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition cluster.
+     * @description This parameter is required.
      *
-     * This parameter is required.
-     * @example am-bp12bh6z59nh8497f
+     * @example test-hcl2
      *
      * @var string
      */
-    public $DBClusterId;
+    public $logStoreName;
 
     /**
      * @var string
@@ -30,9 +28,17 @@ class ModifySyncJobRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
+     * @description This parameter is required.
      *
-     * This parameter is required.
+     * @example nbgame-point
+     *
+     * @var string
+     */
+    public $projectName;
+
+    /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -48,31 +54,14 @@ class ModifySyncJobRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @description The source instances or clusters.
-     *
-     * @var sourceDBCluster[]
-     */
-    public $sourceDBCluster;
-
-    /**
-     * @description The synchronization platform.
-     *
-     * @example ADB-CDC
-     *
-     * @var string
-     */
-    public $syncPlatform;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
+        'logStoreName'         => 'LogStoreName',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'projectName'          => 'ProjectName',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'sourceDBCluster'      => 'SourceDBCluster',
-        'syncPlatform'         => 'SyncPlatform',
     ];
 
     public function validate()
@@ -82,14 +71,17 @@ class ModifySyncJobRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterId) {
-            $res['DBClusterId'] = $this->DBClusterId;
+        if (null !== $this->logStoreName) {
+            $res['LogStoreName'] = $this->logStoreName;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->projectName) {
+            $res['ProjectName'] = $this->projectName;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -100,18 +92,6 @@ class ModifySyncJobRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->sourceDBCluster) {
-            $res['SourceDBCluster'] = [];
-            if (null !== $this->sourceDBCluster && \is_array($this->sourceDBCluster)) {
-                $n = 0;
-                foreach ($this->sourceDBCluster as $item) {
-                    $res['SourceDBCluster'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->syncPlatform) {
-            $res['SyncPlatform'] = $this->syncPlatform;
-        }
 
         return $res;
     }
@@ -119,19 +99,22 @@ class ModifySyncJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifySyncJobRequest
+     * @return DescribeLogStoreKeysRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterId'])) {
-            $model->DBClusterId = $map['DBClusterId'];
+        if (isset($map['LogStoreName'])) {
+            $model->logStoreName = $map['LogStoreName'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProjectName'])) {
+            $model->projectName = $map['ProjectName'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
@@ -141,18 +124,6 @@ class ModifySyncJobRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['SourceDBCluster'])) {
-            if (!empty($map['SourceDBCluster'])) {
-                $model->sourceDBCluster = [];
-                $n                      = 0;
-                foreach ($map['SourceDBCluster'] as $item) {
-                    $model->sourceDBCluster[$n++] = null !== $item ? sourceDBCluster::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['SyncPlatform'])) {
-            $model->syncPlatform = $map['SyncPlatform'];
         }
 
         return $model;

@@ -4,20 +4,25 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLogStoreKeysResponseBody\logStoreKeys;
 use AlibabaCloud\Tea\Model;
 
-class ModifySyncJobResponseBody extends Model
+class DescribeLogStoreKeysResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 5AD3D9DF-614F-5B97-9522-A2406A432012
+     * @var logStoreKeys
+     */
+    public $logStoreKeys;
+
+    /**
+     * @example 3BB185E9-BB54-1727-B876-13243E4C0EB5
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'logStoreKeys' => 'LogStoreKeys',
+        'requestId'    => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +32,9 @@ class ModifySyncJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->logStoreKeys) {
+            $res['LogStoreKeys'] = null !== $this->logStoreKeys ? $this->logStoreKeys->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +45,14 @@ class ModifySyncJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifySyncJobResponseBody
+     * @return DescribeLogStoreKeysResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LogStoreKeys'])) {
+            $model->logStoreKeys = logStoreKeys::fromMap($map['LogStoreKeys']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

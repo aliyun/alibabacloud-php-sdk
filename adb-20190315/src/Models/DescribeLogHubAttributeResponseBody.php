@@ -4,20 +4,25 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLogHubAttributeResponseBody\loghubInfo;
 use AlibabaCloud\Tea\Model;
 
-class ModifySyncJobResponseBody extends Model
+class DescribeLogHubAttributeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 5AD3D9DF-614F-5B97-9522-A2406A432012
+     * @var loghubInfo
+     */
+    public $loghubInfo;
+
+    /**
+     * @example 8A564B7F-8C00-43C0-8EC5-919FBB70573
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'loghubInfo' => 'LoghubInfo',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +32,9 @@ class ModifySyncJobResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->loghubInfo) {
+            $res['LoghubInfo'] = null !== $this->loghubInfo ? $this->loghubInfo->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +45,14 @@ class ModifySyncJobResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifySyncJobResponseBody
+     * @return DescribeLogHubAttributeResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['LoghubInfo'])) {
+            $model->loghubInfo = loghubInfo::fromMap($map['LoghubInfo']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

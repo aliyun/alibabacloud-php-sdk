@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class sourceDBCluster extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the source instance or cluster. Separate multiple IDs with commas (,).
      *
+     * This parameter is required.
      * @example rm-2zepqn129i9s3l2z3,rm-2zea4dj583129ksp6
      *
      * @var string
@@ -18,6 +19,8 @@ class sourceDBCluster extends Model
     public $clusterIds;
 
     /**
+     * @description The ID of the synchronization job.
+     *
      * @example dts-xxxxxx
      *
      * @var string
@@ -25,8 +28,14 @@ class sourceDBCluster extends Model
     public $jobId;
 
     /**
-     * @description This parameter is required.
+     * @description The operation type.
      *
+     * Valid values:
+     *
+     *   Create
+     *   Modify
+     *
+     * This parameter is required.
      * @example Create
      *
      * @var string
@@ -34,8 +43,9 @@ class sourceDBCluster extends Model
     public $operateType;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,8 +53,15 @@ class sourceDBCluster extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The source database type.
      *
+     * Valid values:
+     *
+     *   rds: ApsaraDB RDS.
+     *   sls: Simple Log Service.
+     *   polardb: PolarDB.
+     *
+     * This parameter is required.
      * @example sls
      *
      * @var string

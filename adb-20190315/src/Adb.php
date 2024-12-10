@@ -136,8 +136,12 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeKmsKeysRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeKmsKeysResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLoadTasksRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLoadTasksRecordsResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLogHubAttributeRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLogHubAttributeResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLoghubDetailRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLoghubDetailResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLogStoreKeysRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeLogStoreKeysResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeMaintenanceActionRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeMaintenanceActionResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeOperatorPermissionRequest;
@@ -146,6 +150,8 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribePatternPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribePatternPerformanceResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeProcessListRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeProcessListResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRdsAnalysisResourceQuotasResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRegionsMixedRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRegionsMixedResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeRegionsRequest;
@@ -358,6 +364,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 申请公网链接
+     *  *
      * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
@@ -404,6 +412,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 申请公网链接
+     *  *
      * @param AllocateClusterPublicConnectionRequest $request AllocateClusterPublicConnectionRequest
      *
      * @return AllocateClusterPublicConnectionResponse AllocateClusterPublicConnectionResponse
@@ -4824,6 +4834,134 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeLogHubAttributeRequest $request DescribeLogHubAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeLogHubAttributeResponse DescribeLogHubAttributeResponse
+     */
+    public function describeLogHubAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->deliverName)) {
+            $query['DeliverName'] = $request->deliverName;
+        }
+        if (!Utils::isUnset($request->logStoreName)) {
+            $query['LogStoreName'] = $request->logStoreName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogHubAttribute',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLogHubAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLogHubAttributeRequest $request DescribeLogHubAttributeRequest
+     *
+     * @return DescribeLogHubAttributeResponse DescribeLogHubAttributeResponse
+     */
+    public function describeLogHubAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLogHubAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeLogStoreKeysRequest $request DescribeLogStoreKeysRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeLogStoreKeysResponse DescribeLogStoreKeysResponse
+     */
+    public function describeLogStoreKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->logStoreName)) {
+            $query['LogStoreName'] = $request->logStoreName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeLogStoreKeys',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeLogStoreKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeLogStoreKeysRequest $request DescribeLogStoreKeysRequest
+     *
+     * @return DescribeLogStoreKeysResponse DescribeLogStoreKeysResponse
+     */
+    public function describeLogStoreKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeLogStoreKeysWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeLoghubDetailRequest $request DescribeLoghubDetailRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
@@ -5153,6 +5291,82 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeProcessListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRdsAnalysisResourceQuotasRequest $request DescribeRdsAnalysisResourceQuotasRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRdsAnalysisResourceQuotasResponse DescribeRdsAnalysisResourceQuotasResponse
+     */
+    public function describeRdsAnalysisResourceQuotasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterCategory)) {
+            $query['ClusterCategory'] = $request->clusterCategory;
+        }
+        if (!Utils::isUnset($request->clusterMode)) {
+            $query['ClusterMode'] = $request->clusterMode;
+        }
+        if (!Utils::isUnset($request->nodeClass)) {
+            $query['NodeClass'] = $request->nodeClass;
+        }
+        if (!Utils::isUnset($request->nodeCount)) {
+            $query['NodeCount'] = $request->nodeCount;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->rdsInstanceId)) {
+            $query['RdsInstanceId'] = $request->rdsInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRdsAnalysisResourceQuotas',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRdsAnalysisResourceQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRdsAnalysisResourceQuotasRequest $request DescribeRdsAnalysisResourceQuotasRequest
+     *
+     * @return DescribeRdsAnalysisResourceQuotasResponse DescribeRdsAnalysisResourceQuotasResponse
+     */
+    public function describeRdsAnalysisResourceQuotas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRdsAnalysisResourceQuotasWithOptions($request, $runtime);
     }
 
     /**
@@ -8698,6 +8912,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the synchronization jobs for an AnalyticDB for MySQL cluster.
+     *  *
      * @param ModifySyncJobRequest $request ModifySyncJobRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -8750,6 +8966,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the synchronization jobs for an AnalyticDB for MySQL cluster.
+     *  *
      * @param ModifySyncJobRequest $request ModifySyncJobRequest
      *
      * @return ModifySyncJobResponse ModifySyncJobResponse
