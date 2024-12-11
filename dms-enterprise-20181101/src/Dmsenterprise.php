@@ -9204,6 +9204,12 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->dataRegion)) {
             $query['DataRegion'] = $request->dataRegion;
         }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
         if (!Utils::isUnset($request->searchKey)) {
             $query['SearchKey'] = $request->searchKey;
         }

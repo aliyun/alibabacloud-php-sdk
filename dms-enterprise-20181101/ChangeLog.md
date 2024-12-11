@@ -1,3 +1,10 @@
+2024-12-11 Version: 1.64.1
+- Update API ListDataLakeDatabase: add param MaxResults.
+- Update API ListDataLakeDatabase: add param NextToken.
+- Update API ListDataLakeDatabase: update param Tid.
+- Update API ListDataLakeDatabase: update response param.
+
+
 2024-11-28 Version: 1.64.0
 - Support API AddAuthorityTemplateItems.
 - Support API GetDataLakeCatalog.

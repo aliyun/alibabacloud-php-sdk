@@ -27,6 +27,16 @@ class ListDataLakeDatabaseRequest extends Model
     public $dataRegion;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @example default
      *
      * @var string
@@ -42,6 +52,8 @@ class ListDataLakeDatabaseRequest extends Model
     protected $_name = [
         'catalogName' => 'CatalogName',
         'dataRegion'  => 'DataRegion',
+        'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
         'searchKey'   => 'SearchKey',
         'tid'         => 'Tid',
     ];
@@ -58,6 +70,12 @@ class ListDataLakeDatabaseRequest extends Model
         }
         if (null !== $this->dataRegion) {
             $res['DataRegion'] = $this->dataRegion;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
@@ -82,6 +100,12 @@ class ListDataLakeDatabaseRequest extends Model
         }
         if (isset($map['DataRegion'])) {
             $model->dataRegion = $map['DataRegion'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];
