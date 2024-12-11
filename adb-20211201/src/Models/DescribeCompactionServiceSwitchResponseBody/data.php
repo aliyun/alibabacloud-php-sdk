@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the remote build feature is enabled.
+     *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCompactionServiceSwitchRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example amv-bp149vz49b36t****
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyCompactionServiceSwitchRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example amv-bp14t95lun0w****
      *
      * @var string
@@ -18,8 +19,14 @@ class ModifyCompactionServiceSwitchRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the remote build feature.
      *
+     * Valid values:
+     *
+     *   true
+     *   false
+     *
+     * This parameter is required.
      * @example true
      *
      * @var bool

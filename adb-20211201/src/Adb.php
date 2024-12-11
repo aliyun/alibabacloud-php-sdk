@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\BindAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\BindAccountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\BindDBResourceGroupWithUserRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\BindDBResourceGroupWithUserResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CancelSparkReplStatementRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CancelSparkReplStatementResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckBindRamUserRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckBindRamUserResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetRequest;
@@ -172,6 +174,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DownloadDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\EnableElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\EnableElasticPlanResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkReplStatementRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkReplStatementResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetDatabaseObjectsRequest;
@@ -192,6 +196,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkConfigLogPathRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkConfigLogPathResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkLogAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkLogAnalyzeTaskResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkReplSessionRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkReplSessionResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkReplStatementRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkReplStatementResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkSQLEngineStateRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkSQLEngineStateResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkTemplateFileContentRequest;
@@ -279,6 +287,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\RevokeOperatorPermissionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\RevokeOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SetSparkAppLogRootPathRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SetSparkAppLogRootPathResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkReplSessionRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkReplSessionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkSQLEngineResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitSparkAppRequest;
@@ -596,6 +606,59 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->bindDBResourceGroupWithUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 终止一段代码
+     *  *
+     * @param CancelSparkReplStatementRequest $request CancelSparkReplStatementRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelSparkReplStatementResponse CancelSparkReplStatementResponse
+     */
+    public function cancelSparkReplStatementWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->statementId)) {
+            $body['StatementId'] = $request->statementId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelSparkReplStatement',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelSparkReplStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 终止一段代码
+     *  *
+     * @param CancelSparkReplStatementRequest $request CancelSparkReplStatementRequest
+     *
+     * @return CancelSparkReplStatementResponse CancelSparkReplStatementResponse
+     */
+    public function cancelSparkReplStatement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelSparkReplStatementWithOptions($request, $runtime);
     }
 
     /**
@@ -2984,7 +3047,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary 查询CompactionService开关
+     * @summary Queries whether the remote build feature is enabled in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *  *
      * @param DescribeCompactionServiceSwitchRequest $request DescribeCompactionServiceSwitchRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -3017,7 +3080,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary 查询CompactionService开关
+     * @summary Queries whether the remote build feature is enabled in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *  *
      * @param DescribeCompactionServiceSwitchRequest $request DescribeCompactionServiceSwitchRequest
      *
@@ -5562,6 +5625,62 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 执行一段代码
+     *  *
+     * @param ExecuteSparkReplStatementRequest $request ExecuteSparkReplStatementRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteSparkReplStatementResponse ExecuteSparkReplStatementResponse
+     */
+    public function executeSparkReplStatementWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->code)) {
+            $body['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->codeType)) {
+            $body['CodeType'] = $request->codeType;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteSparkReplStatement',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteSparkReplStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行一段代码
+     *  *
+     * @param ExecuteSparkReplStatementRequest $request ExecuteSparkReplStatementRequest
+     *
+     * @return ExecuteSparkReplStatementResponse ExecuteSparkReplStatementResponse
+     */
+    public function executeSparkReplStatement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeSparkReplStatementWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries whether a running SQL engine exists.
      *  *
      * @description *   General endpoint: `adb.aliyuncs.com`.
@@ -6173,6 +6292,109 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSparkLogAnalyzeTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取一个可交互Session
+     *  *
+     * @param GetSparkReplSessionRequest $request GetSparkReplSessionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSparkReplSessionResponse GetSparkReplSessionResponse
+     */
+    public function getSparkReplSessionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSparkReplSession',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSparkReplSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取一个可交互Session
+     *  *
+     * @param GetSparkReplSessionRequest $request GetSparkReplSessionRequest
+     *
+     * @return GetSparkReplSessionResponse GetSparkReplSessionResponse
+     */
+    public function getSparkReplSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSparkReplSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取一段代码的执行结果
+     *  *
+     * @param GetSparkReplStatementRequest $request GetSparkReplStatementRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetSparkReplStatementResponse GetSparkReplStatementResponse
+     */
+    public function getSparkReplStatementWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->statementId)) {
+            $body['StatementId'] = $request->statementId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSparkReplStatement',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSparkReplStatementResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取一段代码的执行结果
+     *  *
+     * @param GetSparkReplStatementRequest $request GetSparkReplStatementRequest
+     *
+     * @return GetSparkReplStatementResponse GetSparkReplStatementResponse
+     */
+    public function getSparkReplStatement($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSparkReplStatementWithOptions($request, $runtime);
     }
 
     /**
@@ -7790,7 +8012,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary 修改CompactionService开关
+     * @summary Modifies the status of the remote build feature in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *  *
      * @param ModifyCompactionServiceSwitchRequest $request ModifyCompactionServiceSwitchRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -7826,7 +8048,7 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * @summary 修改CompactionService开关
+     * @summary Modifies the status of the remote build feature in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *  *
      * @param ModifyCompactionServiceSwitchRequest $request ModifyCompactionServiceSwitchRequest
      *
@@ -8807,6 +9029,59 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setSparkAppLogRootPathWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 启动一个可交互Session
+     *  *
+     * @param StartSparkReplSessionRequest $request StartSparkReplSessionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartSparkReplSessionResponse StartSparkReplSessionResponse
+     */
+    public function startSparkReplSessionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->config)) {
+            $body['Config'] = $request->config;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $body['ResourceGroupName'] = $request->resourceGroupName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartSparkReplSession',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartSparkReplSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动一个可交互Session
+     *  *
+     * @param StartSparkReplSessionRequest $request StartSparkReplSessionRequest
+     *
+     * @return StartSparkReplSessionResponse StartSparkReplSessionResponse
+     */
+    public function startSparkReplSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startSparkReplSessionWithOptions($request, $runtime);
     }
 
     /**

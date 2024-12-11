@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCompactionServiceSwitchResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example D761DA51-12F8-5457-AAA9-F52B9F436D2D
      *
      * @var string
