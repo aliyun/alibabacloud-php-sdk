@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RefreshObjectCacheByCacheTagRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The tags of Cache. If multiple tags are returned, the tags are separated by commas (,).
      *
+     * This parameter is required.
      * @example tag1,tag2
      *
      * @var string

@@ -9171,8 +9171,6 @@ class Cdn extends OpenApiClient
     /**
      * @summary Queries all real-time log delivery tasks within your Alibaba Cloud account.
      *  *
-     * @description \\*\\* \\*\\*
-     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return ListRealtimeLogDeliveryResponse ListRealtimeLogDeliveryResponse
@@ -9197,8 +9195,6 @@ class Cdn extends OpenApiClient
 
     /**
      * @summary Queries all real-time log delivery tasks within your Alibaba Cloud account.
-     *  *
-     * @description \\*\\* \\*\\*
      *  *
      * @return ListRealtimeLogDeliveryResponse ListRealtimeLogDeliveryResponse
      */
