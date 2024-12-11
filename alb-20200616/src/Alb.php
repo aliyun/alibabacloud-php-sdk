@@ -171,6 +171,7 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupServersAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupServersAttributeResponse;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -1218,11 +1219,15 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->listenerId)) {
             $query['ListenerId'] = $request->listenerId;
         }
+        $body     = [];
+        $bodyFlat = [];
         if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+            $bodyFlat['Rules'] = $request->rules;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateRules',
@@ -1349,6 +1354,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->connectionDrainConfig)) {
             $query['ConnectionDrainConfig'] = $request->connectionDrainConfig;
+        }
+        if (!Utils::isUnset($request->crossZoneEnabled)) {
+            $query['CrossZoneEnabled'] = $request->crossZoneEnabled;
         }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
@@ -5328,11 +5336,15 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
         }
+        $body     = [];
+        $bodyFlat = [];
         if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+            $bodyFlat['Rules'] = $request->rules;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateRulesAttribute',
@@ -5464,6 +5476,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->connectionDrainConfig)) {
             $query['ConnectionDrainConfig'] = $request->connectionDrainConfig;
+        }
+        if (!Utils::isUnset($request->crossZoneEnabled)) {
+            $query['CrossZoneEnabled'] = $request->crossZoneEnabled;
         }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;

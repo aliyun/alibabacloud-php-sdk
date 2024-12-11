@@ -44,6 +44,15 @@ class serverGroups extends Model
     public $createTime;
 
     /**
+     * @description 是否开启跨可用区转发。（默认开启）
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $crossZoneEnabled;
+
+    /**
      * @description The health check configurations.
      *
      * @var healthCheckConfig
@@ -219,6 +228,7 @@ class serverGroups extends Model
         'configManagedEnabled'     => 'ConfigManagedEnabled',
         'connectionDrainConfig'    => 'ConnectionDrainConfig',
         'createTime'               => 'CreateTime',
+        'crossZoneEnabled'         => 'CrossZoneEnabled',
         'healthCheckConfig'        => 'HealthCheckConfig',
         'ipv6Enabled'              => 'Ipv6Enabled',
         'protocol'                 => 'Protocol',
@@ -254,6 +264,9 @@ class serverGroups extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->crossZoneEnabled) {
+            $res['CrossZoneEnabled'] = $this->crossZoneEnabled;
         }
         if (null !== $this->healthCheckConfig) {
             $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
@@ -335,6 +348,9 @@ class serverGroups extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['CrossZoneEnabled'])) {
+            $model->crossZoneEnabled = $map['CrossZoneEnabled'];
         }
         if (isset($map['HealthCheckConfig'])) {
             $model->healthCheckConfig = healthCheckConfig::fromMap($map['HealthCheckConfig']);

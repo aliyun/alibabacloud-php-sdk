@@ -38,7 +38,11 @@ class healthCheckConfig extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The domain name that is used for health checks. The domain name meets the following requirements:
+     * @description The domain name that is used for health checks.
+     *
+     *   **Backend Server Internal IP** (default): Use the internal IP address of backend servers as the health check domain name.
+     *
+     *   **Custom Domain Name**: Enter a domain name.
      *
      *   The domain name is 1 to 80 characters in length.
      *   The domain name contains lowercase letters, digits, hyphens (-), and periods (.).
@@ -46,7 +50,7 @@ class healthCheckConfig extends Model
      *   The rightmost domain label of the domain name contains only letters, and does not contain digits or hyphens (-).
      *   The domain name does not start or end with a hyphen (-).
      *
-     * >  This parameter takes effect only if you set **HealthCheckProtocol** to **HTTP** or **HTTPS**.
+     * >  This parameter takes effect only if HealthCheckProtocol is set to HTTP, HTTPS, or gRPC.
      * @example www.example.com
      *
      * @var string

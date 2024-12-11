@@ -9,22 +9,11 @@ use AlibabaCloud\Tea\Model;
 class serverGroupStickySession extends Model
 {
     /**
-     * @description Specifies whether to enable session persistence. Valid values:
-     *
-     *   **true**: enables session persistence.
-     *   **false** (default): disables session persistence.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description The timeout period of sessions. Unit: seconds Valid values: **1 to 86400**.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $timeout;

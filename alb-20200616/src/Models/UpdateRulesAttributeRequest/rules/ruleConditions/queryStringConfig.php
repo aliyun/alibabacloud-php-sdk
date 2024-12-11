@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class queryStringConfig extends Model
 {
     /**
-     * @description The key-value pairs of query strings.
-     *
      * @var values[]
      */
     public $values;

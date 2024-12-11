@@ -39,6 +39,11 @@ class CreateServerGroupRequest extends Model
     public $connectionDrainConfig;
 
     /**
+     * @var bool
+     */
+    public $crossZoneEnabled;
+
+    /**
      * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
      *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
@@ -51,7 +56,7 @@ class CreateServerGroupRequest extends Model
     public $dryRun;
 
     /**
-     * @description The configuration of health checks.
+     * @description The configuration of the health check feature.
      *
      * This parameter is required.
      * @var healthCheckConfig
@@ -179,6 +184,7 @@ class CreateServerGroupRequest extends Model
     protected $_name = [
         'clientToken'              => 'ClientToken',
         'connectionDrainConfig'    => 'ConnectionDrainConfig',
+        'crossZoneEnabled'         => 'CrossZoneEnabled',
         'dryRun'                   => 'DryRun',
         'healthCheckConfig'        => 'HealthCheckConfig',
         'protocol'                 => 'Protocol',
@@ -207,6 +213,9 @@ class CreateServerGroupRequest extends Model
         }
         if (null !== $this->connectionDrainConfig) {
             $res['ConnectionDrainConfig'] = null !== $this->connectionDrainConfig ? $this->connectionDrainConfig->toMap() : null;
+        }
+        if (null !== $this->crossZoneEnabled) {
+            $res['CrossZoneEnabled'] = $this->crossZoneEnabled;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
@@ -273,6 +282,9 @@ class CreateServerGroupRequest extends Model
         }
         if (isset($map['ConnectionDrainConfig'])) {
             $model->connectionDrainConfig = connectionDrainConfig::fromMap($map['ConnectionDrainConfig']);
+        }
+        if (isset($map['CrossZoneEnabled'])) {
+            $model->crossZoneEnabled = $map['CrossZoneEnabled'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];

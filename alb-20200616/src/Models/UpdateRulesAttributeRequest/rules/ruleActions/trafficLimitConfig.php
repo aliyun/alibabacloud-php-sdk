@@ -9,20 +9,11 @@ use AlibabaCloud\Tea\Model;
 class trafficLimitConfig extends Model
 {
     /**
-     * @description The number of requests per IP address. Valid values: **1** to **1000000**.
-     *
-     * > If both the QPS and PerIpQps properties are specified, make sure that the value of the QPS property is smaller than the value of the PerIpQps property.
-     * @example 80
-     *
      * @var int
      */
     public $perIpQps;
 
     /**
-     * @description The number of queries per second (QPS). Valid values: **1** to **1000000**.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $QPS;

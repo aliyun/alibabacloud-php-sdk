@@ -34,9 +34,8 @@ class UpdateRulesAttributeRequest extends Model
     public $dryRun;
 
     /**
-     * @description The forwarding rules. You can specify at most 10 forwarding rules in each call.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @var rules[]
      */
     public $rules;

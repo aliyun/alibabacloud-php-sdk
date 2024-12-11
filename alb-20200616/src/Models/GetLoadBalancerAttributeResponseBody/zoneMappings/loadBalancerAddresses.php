@@ -50,11 +50,21 @@ class loadBalancerAddresses extends Model
     public $intranetAddress;
 
     /**
+     * @description The health status of the private IPv4 address of the ALB instance.
+     * This parameter is returned only when the Status of the zone is Active.Valid values:
+     *
+     * - **Healthy**
+     *
+     * - **Unhealthy**
+     * @example Healthy
+     *
      * @var string
      */
     public $intranetAddressHcStatus;
 
     /**
+     * @description The IPv4 link-local addresses. The IP addresses that the ALB instance uses to communicate with the backend servers.
+     *
      * @var string[]
      */
     public $ipv4LocalAddresses;
@@ -70,11 +80,21 @@ class loadBalancerAddresses extends Model
     public $ipv6Address;
 
     /**
+     * @description The health status of the private IPv6 address of the ALB instance.
+     * This parameter is returned only when the Status of the zone is Active.Valid values:
+     *
+     * - **Healthy**
+     *
+     * - **Unhealthy**
+     * @example Healthy
+     *
      * @var string
      */
     public $ipv6AddressHcStatus;
 
     /**
+     * @description The IPv6 link-local addresses. The IP addresses that the ALB instance uses to communicate with the backend servers.
+     *
      * @var string[]
      */
     public $ipv6LocalAddresses;

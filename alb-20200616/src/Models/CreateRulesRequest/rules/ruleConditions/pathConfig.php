@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class pathConfig extends Model
 {
     /**
-     * @description The forwarding URLs. You can specify at most 20 forwarding URLs.
-     *
      * @var string[]
      */
     public $values;

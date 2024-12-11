@@ -18,88 +18,51 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description The configuration of the cookie. You can specify at most 20 conditions.
-     *
      * @var cookieConfig
      */
     public $cookieConfig;
 
     /**
-     * @description The configuration of the HTTP header. You can specify at most 20 HTTP headers.
-     *
      * @var headerConfig
      */
     public $headerConfig;
 
     /**
-     * @description The match conditions for hostnames. You can specify at most 20 conditions.
-     *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
-     * @description The configuration of the HTTP request method. You can configure at most 20 HTTP request methods.
-     *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
-     * @description The match conditions for query strings. You can specify at most 20 conditions.
-     *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
-     * @description The match conditions for query strings. You can specify at most 20 conditions.
-     *
      * @var queryStringConfig
      */
     public $queryStringConfig;
 
     /**
-     * @description The HTTP response headers. You can specify at most 20 HTTP response headers.
-     *
      * @var responseHeaderConfig
      */
     public $responseHeaderConfig;
 
     /**
-     * @description The match conditions for response status codes. This parameter is required and valid when **Type** is set to **ResponseStatusCode**. You can specify at most 20 conditions.
-     *
      * @var responseStatusCodeConfig
      */
     public $responseStatusCodeConfig;
 
     /**
-     * @description Traffic matching based on source IP addresses. You can specify at most 20 match conditions based on IP addresses.
-     *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description The condition type of the forwarding rule is invalid.
-     *
-     * You can specify at most seven condition types for inbound forwarding rules. Valid values:
-     *
-     *   **Host**: Requests are forwarded based on hosts.
-     *   **Path**: Requests are forwarded based on paths.
-     *   **Header**: Requests are forwarded based on HTTP headers.
-     *   **QueryString**: Requests are forwarded based on query strings.
-     *   **Method**: Requests are forwarded based on request methods.
-     *   **Cookie**: Requests are forwarded based on cookies.
-     *   **SourceIp**: Requests are forwarded based on source IP addresses.
-     *
-     * You can specify at most two condition types for outbound forwarding rules. Valid values:
-     *
-     *   **ResponseHeader**: Responses are forwarded based on HTTP response headers.
-     *   **ResponseStatusCode**: Response are forwarded based on response status codes.
-     *
-     * @example ForwardGroup
-     *
      * @var string
      */
     public $type;

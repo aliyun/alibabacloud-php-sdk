@@ -17,6 +17,19 @@ class zoneMappings extends Model
     public $loadBalancerAddresses;
 
     /**
+     * @description The zone status. Valid values:
+     *
+     * - **Active**: The ALB instance is running.
+     *
+     * - **Stopped**: The ALB instance is disabled.
+     *
+     * - **Shifted**: The ALB instance is removed.
+     *
+     * - **Starting**: The ALB instance is starting.
+     *
+     * - **Stopping**: The ALB instance is stopping.
+     * @example Active
+     *
      * @var string
      */
     public $status;

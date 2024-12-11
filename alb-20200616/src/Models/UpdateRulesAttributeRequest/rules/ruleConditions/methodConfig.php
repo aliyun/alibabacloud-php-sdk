@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class methodConfig extends Model
 {
     /**
-     * @description The HTTP request methods.
-     *
      * @var string[]
      */
     public $values;

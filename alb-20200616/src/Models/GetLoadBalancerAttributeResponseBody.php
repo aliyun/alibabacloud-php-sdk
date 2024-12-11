@@ -241,7 +241,7 @@ class GetLoadBalancerAttributeResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The zone and the vSwitch in the zone. A maximum of 10 zones is returned. If the current region supports two or more zones, at least two zones are returned.
+     * @description The mappings between zones and vSwitches. At most 10 zones are returned. If the current region supports two or more zones, at least two zones are returned.
      *
      * @var zoneMappings[]
      */

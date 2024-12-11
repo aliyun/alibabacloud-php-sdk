@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class healthCheckConfig extends Model
 {
     /**
-     * @description The HTTP status codes that are used to indicate whether the backend server passes the health check.
+     * @description The HTTP status codes that indicate healthy backend servers.
      *
      * @var string[]
      */
@@ -43,15 +43,19 @@ class healthCheckConfig extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The domain name that is used for health checks. The domain name must meet the following requirements:
+     * @description The domain name that is used for health checks.
+     *
+     *   **Backend Server Internal IP** (default): Use the internal IP address of backend servers as the health check domain name.
+     *
+     *   **Custom Domain Name**: Enter a domain name.
      *
      *   The domain name must be 1 to 80 characters in length.
      *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
-     *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
+     *   The domain name can contain at least one period (.) but cannot start or end with a period (.).
      *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
      *   The domain name cannot start or end with a hyphen (-).
      *
-     * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP** or **HTTPS**.
+     * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
      * @example www.example.com
      *
      * @var string
@@ -95,7 +99,7 @@ class healthCheckConfig extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The URL that is used for health checks.
+     * @description The path that is used for health checks.
      *
      * The URL must be 1 to 80 characters in length, and can contain letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. The URL must start with a forward slash (/).
      *
@@ -111,7 +115,7 @@ class healthCheckConfig extends Model
      *
      *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
      *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS provides higher security than HTTP because HTTPS supports data encryption.
-     *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+     *   **TCP**: TCP health checks send TCP SYN packets to a backend server to probe the availability of backend servers.
      *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
      *
      * @example HTTP
@@ -133,7 +137,7 @@ class healthCheckConfig extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**.
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
      *
      * Valid values: **2** to **10**.
      *
@@ -145,7 +149,7 @@ class healthCheckConfig extends Model
     public $healthyThreshold;
 
     /**
-     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**.
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
      *
      * Valid values: **2** to **10**.
      *

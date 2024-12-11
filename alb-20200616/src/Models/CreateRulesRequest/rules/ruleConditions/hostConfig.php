@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class hostConfig extends Model
 {
     /**
-     * @description The hostname. You can specify at most 20 hosts.
-     *
      * @var string[]
      */
     public $values;

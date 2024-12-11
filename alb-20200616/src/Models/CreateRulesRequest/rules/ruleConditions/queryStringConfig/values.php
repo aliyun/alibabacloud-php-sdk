@@ -9,25 +9,11 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
-     * @description They key of the query string.
-     *
-     *   The key must be 1 to 100 characters in length.
-     *   You can use asterisks (\\*) and question marks (?) as wildcard characters. The key can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`.
-     *
-     * @example test
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the query string.
-     *
-     *   The value must be 1 to 128 characters in length,
-     *   The value can contain printable characters, excluding uppercase letters, space characters, and the following special characters: `# [ ] { } \\ | < > &`. You can use asterisks (\\*) and question marks (?) as wildcard characters.
-     *
-     * @example test
-     *
      * @var string
      */
     public $value;

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class responseStatusCodeConfig extends Model
 {
     /**
-     * @description The match conditions.
-     *
      * @var string[]
      */
     public $values;

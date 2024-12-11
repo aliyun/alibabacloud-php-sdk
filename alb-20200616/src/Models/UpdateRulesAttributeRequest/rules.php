@@ -11,44 +11,28 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value specifies a higher priority. You can specify at most 20 rule priorities.
-     *
-     * > The priority of each forwarding rule within a listener must be unique.
-     * @example 10
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description The action of the forwarding rule.
-     *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
-     * @description The match conditions of the forwarding rule.
-     *
      * @var ruleConditions[]
      */
     public $ruleConditions;
 
     /**
-     * @description The IDs of the forwarding rules. You can specify at most 20 rule IDs.
-     *
-     * This parameter is required.
-     * @example rule-cxjh7vazn2jpnl****
+     * @description This parameter is required.
      *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description The name of the forwarding rule. The name must be 2 to 128 letters in length, and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter. You can specify at most 20 rule names.
-     *
-     * @example rule-instance-test
-     *
      * @var string
      */
     public $ruleName;

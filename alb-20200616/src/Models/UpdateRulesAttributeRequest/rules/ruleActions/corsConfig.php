@@ -9,54 +9,31 @@ use AlibabaCloud\Tea\Model;
 class corsConfig extends Model
 {
     /**
-     * @description Specifies whether to allow credentials to be carried in CORS requests. Valid values:
-     *
-     *   **on**: allows credentials to be carried in CORS requests.
-     *   **off**: does not allow credentials to be carried in CORS requests.
-     *
-     * @example on
-     *
      * @var string
      */
     public $allowCredentials;
 
     /**
-     * @description The trusted headers of CORS requests.
-     *
      * @var string[]
      */
     public $allowHeaders;
 
     /**
-     * @description The trusted HTTP methods of CORS requests.
-     *
      * @var string[]
      */
     public $allowMethods;
 
     /**
-     * @description The trusted origins. You can specify one or more values, or only an asterisk (`*`).
-     *
-     *   The value must start with `http://` or `https://`, and be followed by a valid domain name, including top-level wildcard domain names. Example: `http://*.test.abc.example.com`.
-     *   You can specify ports for a single value. Valid values: **1** to **65535**.
-     *
      * @var string[]
      */
     public $allowOrigin;
 
     /**
-     * @description The headers that can be exposed.
-     *
      * @var string[]
      */
     public $exposeHeaders;
 
     /**
-     * @description The maximum cache time of dry runs in the browser. Unit: seconds.
-     *
-     * Valid values: **-1** to **172800**.
-     * @example 1000
-     *
      * @var int
      */
     public $maxAge;

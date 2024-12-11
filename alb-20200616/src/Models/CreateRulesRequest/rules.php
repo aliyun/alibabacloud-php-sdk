@@ -12,60 +12,39 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The direction to which the forwarding rule is applied. You can specify only one direction. Valid values:
-     *
-     *   **Request** (default): The forwarding rule applies to requests. Requests sent from clients to ALB are matches against the match conditions and processed based on the rule actions.
-     *   **Response**: The forwarding rule applies to responses. Responses from backend servers to ALB are matches against the match conditions and processed based on the rule actions.
-     *
-     * >  Basic ALB instances do not support forwarding rules applied to the **Response** direction.
-     * @example Request
-     *
      * @var string
      */
     public $direction;
 
     /**
-     * @description The priority of the forwarding rule. Valid values: **1** to **10000**. A lower value specifies a higher priority. You can specify at most 10 priorities.
-     *
-     * This parameter is required.
-     * @example 10
+     * @description This parameter is required.
      *
      * @var int
      */
     public $priority;
 
     /**
-     * @description The actions of the forwarding rule.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
-     * @description The match conditions of the forwarding rule.
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @var ruleConditions[]
      */
     public $ruleConditions;
 
     /**
-     * @description The name of the forwarding rule. You can specify at most 20 rule names.
-     *
-     *   The name must be 2 to 128 characters in length.
-     *   The name can contain letters, digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter.
-     *
-     * This parameter is required.
-     * @example test
+     * @description This parameter is required.
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;

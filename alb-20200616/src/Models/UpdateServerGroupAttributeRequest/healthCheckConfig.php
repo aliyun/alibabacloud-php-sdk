@@ -42,15 +42,19 @@ class healthCheckConfig extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The domain name that is used for health checks. The domain name must meet the following requirements:
+     * @description The domain name that is used for health checks.
+     *
+     *   **Backend Server Internal IP** (default): Use the internal IP address of backend servers as the health check domain name.
+     *
+     *   **Custom Domain Name**: Enter a domain name.
      *
      *   The domain name must be 1 to 80 characters in length.
      *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
      *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
-     *   The rightmost field of the domain name can contain only letters and cannot contain digits or hyphens (-).
-     *   Other fields cannot start or end with a hyphen (-).
+     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
+     *   The domain name cannot start or end with a hyphen (-).
      *
-     * >  This parameter takes effect only if you set **HealthCheckEnabled** to true and **HealthCheckProtocol** to **HTTP** or **HTTPS**.
+     * >  This parameter takes effect only if **HealthCheckProtocol** is set to **HTTP**, **HTTPS**, or **gRPC**.
      * @example example.com
      *
      * @var string
@@ -113,7 +117,7 @@ class healthCheckConfig extends Model
      *
      *   **HTTP**: HTTP health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers.
      *   **HTTPS**: HTTPS health checks simulate browser behaviors by sending HEAD or GET requests to probe the availability of backend servers. HTTPS supports encryption and provides higher security than HTTP.
-     *   **TCP**: TCP health checks send TCP SYN packets to a backend server to check whether the port of the backend server is reachable.
+     *   **TCP**: TCP health checks send TCP SYN packets to a backend server to probe the availability of backend servers.
      *   **gRPC**: gRPC health checks send POST or GET requests to a backend server to check whether the backend server is healthy.
      *
      * @example HTTP
