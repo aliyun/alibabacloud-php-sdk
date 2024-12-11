@@ -6,18 +6,24 @@ namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateInstancePackageStateResponseBody extends Model
+class GetTemplateParameterConstraintsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 2597E94B-5346-42D1-BB58-XXXXXXXXXXX
+     * @example [
+     * ]
+     * @var mixed[]
+     */
+    public $parameterConstraints;
+
+    /**
+     * @example CBEC8072-BEC2-478E-8EAE-E723BA79CF19
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'parameterConstraints' => 'ParameterConstraints',
+        'requestId'            => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class UpdateInstancePackageStateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->parameterConstraints) {
+            $res['ParameterConstraints'] = $this->parameterConstraints;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +46,14 @@ class UpdateInstancePackageStateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateInstancePackageStateResponseBody
+     * @return GetTemplateParameterConstraintsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ParameterConstraints'])) {
+            $model->parameterConstraints = $map['ParameterConstraints'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

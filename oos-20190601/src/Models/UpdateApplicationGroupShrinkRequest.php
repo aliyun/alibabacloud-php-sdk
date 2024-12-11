@@ -38,11 +38,19 @@ class UpdateApplicationGroupShrinkRequest extends Model
     public $newName;
 
     /**
+     * @description The name of the configuration update operation.
+     *
+     * @example /business/v1/product/spus/{spu_id}
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The JSON string that consists of a set of parameters. Default value: {}.
+     *
+     * @example {"username": "xx"}
+     *
      * @var string
      */
     public $parametersShrink;

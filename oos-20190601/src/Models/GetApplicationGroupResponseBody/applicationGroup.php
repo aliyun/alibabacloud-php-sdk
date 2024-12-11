@@ -18,6 +18,11 @@ class applicationGroup extends Model
     public $applicationName;
 
     /**
+     * @var string
+     */
+    public $applicationSource;
+
+    /**
      * @description The ID of the application group in CloudMonitor.
      *
      * @example 12345678
@@ -99,6 +104,10 @@ class applicationGroup extends Model
     public $name;
 
     /**
+     * @description The operation metadata.
+     *
+     * @example {\\"PrometheusConfigMap\\":{\\"模板1\\":{\\"EnablePrometheus\\":false}}}
+     *
      * @var string
      */
     public $operationMetadata;
@@ -140,6 +149,7 @@ class applicationGroup extends Model
     public $updateDate;
     protected $_name = [
         'applicationName'   => 'ApplicationName',
+        'applicationSource' => 'ApplicationSource',
         'cmsGroupId'        => 'CmsGroupId',
         'createDate'        => 'CreateDate',
         'deployOutputs'     => 'DeployOutputs',
@@ -165,6 +175,9 @@ class applicationGroup extends Model
         $res = [];
         if (null !== $this->applicationName) {
             $res['ApplicationName'] = $this->applicationName;
+        }
+        if (null !== $this->applicationSource) {
+            $res['ApplicationSource'] = $this->applicationSource;
         }
         if (null !== $this->cmsGroupId) {
             $res['CmsGroupId'] = $this->cmsGroupId;
@@ -222,6 +235,9 @@ class applicationGroup extends Model
         $model = new self();
         if (isset($map['ApplicationName'])) {
             $model->applicationName = $map['ApplicationName'];
+        }
+        if (isset($map['ApplicationSource'])) {
+            $model->applicationSource = $map['ApplicationSource'];
         }
         if (isset($map['CmsGroupId'])) {
             $model->cmsGroupId = $map['CmsGroupId'];

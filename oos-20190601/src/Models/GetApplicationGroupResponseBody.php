@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationGroupResponseBody extends Model
 {
     /**
-     * @description The details of the application group.
+     * @description The information about the application group.
      *
      * @var applicationGroup
      */

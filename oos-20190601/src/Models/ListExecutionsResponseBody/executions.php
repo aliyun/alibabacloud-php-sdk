@@ -143,6 +143,10 @@ class executions extends Model
     public $mode;
 
     /**
+     * @description The next schedule time for timer trigger execution.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $nextScheduleTime;

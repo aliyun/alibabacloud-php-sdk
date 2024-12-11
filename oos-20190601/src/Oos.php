@@ -89,6 +89,8 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParametersRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetSecretParametersResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetServiceSettingsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetServiceSettingsResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetTemplateParameterConstraintsRequest;
+use AlibabaCloud\SDK\Oos\V20190601\Models\GetTemplateParameterConstraintsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetTemplateRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\GetTemplateResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListActionsRequest;
@@ -492,6 +494,9 @@ class Oos extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->alarmConfigShrink)) {
             $query['AlarmConfig'] = $request->alarmConfigShrink;
+        }
+        if (!Utils::isUnset($request->applicationSource)) {
+            $query['ApplicationSource'] = $request->applicationSource;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -2565,6 +2570,68 @@ class Oos extends OpenApiClient
     }
 
     /**
+     * @summary 获取参数可用值
+     *  *
+     * @param GetTemplateParameterConstraintsRequest $request GetTemplateParameterConstraintsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTemplateParameterConstraintsResponse GetTemplateParameterConstraintsResponse
+     */
+    public function getTemplateParameterConstraintsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->templateContent)) {
+            $query['TemplateContent'] = $request->templateContent;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->templateURL)) {
+            $query['TemplateURL'] = $request->templateURL;
+        }
+        if (!Utils::isUnset($request->templateVersion)) {
+            $query['TemplateVersion'] = $request->templateVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTemplateParameterConstraints',
+            'version'     => '2019-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取参数可用值
+     *  *
+     * @param GetTemplateParameterConstraintsRequest $request GetTemplateParameterConstraintsRequest
+     *
+     * @return GetTemplateParameterConstraintsResponse GetTemplateParameterConstraintsResponse
+     */
+    public function getTemplateParameterConstraints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTemplateParameterConstraintsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the available actions, including atomic actions and cloud product actions.
      *  *
      * @param ListActionsRequest $request ListActionsRequest
@@ -3141,7 +3208,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @summary 列出实例软件包状态
+     * @summary List Instance Package States
      *  *
      * @param ListInstancePackageStatesRequest $request ListInstancePackageStatesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3186,7 +3253,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @summary 列出实例软件包状态
+     * @summary List Instance Package States
      *  *
      * @param ListInstancePackageStatesRequest $request ListInstancePackageStatesRequest
      *
@@ -5130,7 +5197,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @summary 更新实例软件包状态
+     * @summary Updates the installed extensions of an instance.
      *  *
      * @param UpdateInstancePackageStateRequest $tmpReq  UpdateInstancePackageStateRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -5183,7 +5250,7 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @summary 更新实例软件包状态
+     * @summary Updates the installed extensions of an instance.
      *  *
      * @param UpdateInstancePackageStateRequest $request UpdateInstancePackageStateRequest
      *

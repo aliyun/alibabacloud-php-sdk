@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstancePackageStateShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The operation type.
      *
+     * Valid values:
+     *
+     *   uninstall
+     *   install
+     *
+     * This parameter is required.
      * @example install
      *
      * @var string
@@ -18,8 +24,9 @@ class UpdateInstancePackageStateShrinkRequest extends Model
     public $configureAction;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Elastic Compute Service (ECS) instance.
      *
+     * This parameter is required.
      * @example i-bp1jaxa2bs4bps7*****
      *
      * @var string
@@ -27,6 +34,8 @@ class UpdateInstancePackageStateShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description The parameters for installing or uninstalling the extensions.
+     *
      * @example {"username": "xx"}
      *
      * @var string
@@ -34,6 +43,8 @@ class UpdateInstancePackageStateShrinkRequest extends Model
     public $parametersShrink;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,8 +52,9 @@ class UpdateInstancePackageStateShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the template.
      *
+     * This parameter is required.
      * @example ACS-ECS-InventoryDataCollection
      *
      * @var string
@@ -50,6 +62,8 @@ class UpdateInstancePackageStateShrinkRequest extends Model
     public $templateName;
 
     /**
+     * @description The version of the template.
+     *
      * @example v1
      *
      * @var string

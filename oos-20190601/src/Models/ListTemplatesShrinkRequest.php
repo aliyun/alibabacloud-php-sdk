@@ -59,7 +59,7 @@ class ListTemplatesShrinkRequest extends Model
     public $hasTrigger;
 
     /**
-     * @description Specifies whether the template is an example template
+     * @description Specifies whether the template is an example template.
      *
      * @example false
      *

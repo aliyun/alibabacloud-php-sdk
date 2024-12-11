@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePackageStatesResponseBody extends Model
 {
     /**
+     * @description Page size.
+     *
      * @example 50
      *
      * @var string
@@ -17,6 +19,8 @@ class ListInstancePackageStatesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description Token string for pagination.
+     *
      * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctzxxxxxxx
      *
      * @var string
@@ -24,12 +28,14 @@ class ListInstancePackageStatesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description List of extensions
+     *
      * @var packageStates[]
      */
     public $packageStates;
 
     /**
-     * @description Id of the request
+     * @description ID of the request
      *
      * @example 1306108F-610C-40FD-AAD5-XXXXXX
      *

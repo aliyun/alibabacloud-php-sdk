@@ -203,6 +203,10 @@ class templates extends Model
     public $updatedDate;
 
     /**
+     * @description The version name.
+     *
+     * @example v2.1
+     *
      * @var string
      */
     public $versionName;

@@ -16,6 +16,11 @@ class CreateApplicationShrinkRequest extends Model
     public $alarmConfigShrink;
 
     /**
+     * @var string
+     */
+    public $applicationSource;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * @example TF-CreateApplication-1647587475-84104b89-eba5-47a8-b2fd-807b8b7d
@@ -80,6 +85,7 @@ class CreateApplicationShrinkRequest extends Model
     public $tagsShrink;
     protected $_name = [
         'alarmConfigShrink' => 'AlarmConfig',
+        'applicationSource' => 'ApplicationSource',
         'clientToken'       => 'ClientToken',
         'description'       => 'Description',
         'name'              => 'Name',
@@ -98,6 +104,9 @@ class CreateApplicationShrinkRequest extends Model
         $res = [];
         if (null !== $this->alarmConfigShrink) {
             $res['AlarmConfig'] = $this->alarmConfigShrink;
+        }
+        if (null !== $this->applicationSource) {
+            $res['ApplicationSource'] = $this->applicationSource;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -134,6 +143,9 @@ class CreateApplicationShrinkRequest extends Model
         $model = new self();
         if (isset($map['AlarmConfig'])) {
             $model->alarmConfigShrink = $map['AlarmConfig'];
+        }
+        if (isset($map['ApplicationSource'])) {
+            $model->applicationSource = $map['ApplicationSource'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

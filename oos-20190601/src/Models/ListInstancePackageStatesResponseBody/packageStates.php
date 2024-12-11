@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class packageStates extends Model
 {
     /**
+     * @description Description
+     *
      * @example template description
      *
      * @var string
@@ -16,6 +18,8 @@ class packageStates extends Model
     public $description;
 
     /**
+     * @description Parameters
+     *
      * @example {}
      *
      * @var string
@@ -23,6 +27,8 @@ class packageStates extends Model
     public $parameters;
 
     /**
+     * @description Publisher
+     *
      * @example Alibaba Cloud
      *
      * @var string
@@ -30,6 +36,8 @@ class packageStates extends Model
     public $publisher;
 
     /**
+     * @description Template type
+     *
      * @example Package
      *
      * @var string
@@ -37,6 +45,8 @@ class packageStates extends Model
     public $templateCategory;
 
     /**
+     * @description Template ID
+     *
      * @example 087b1e11072a40259f6fxxxxxxxxx
      *
      * @var string
@@ -44,6 +54,8 @@ class packageStates extends Model
     public $templateId;
 
     /**
+     * @description Template name.
+     *
      * @example ACS-ECS-Docker
      *
      * @var string
@@ -51,6 +63,8 @@ class packageStates extends Model
     public $templateName;
 
     /**
+     * @description Template version number
+     *
      * @example v3
      *
      * @var string
@@ -58,6 +72,8 @@ class packageStates extends Model
     public $templateVersion;
 
     /**
+     * @description Template version name
+     *
      * @example fix bug
      *
      * @var string
@@ -65,6 +81,8 @@ class packageStates extends Model
     public $templateVersionName;
 
     /**
+     * @description Update time.
+     *
      * @example 2024-05-04T11:17:28
      *
      * @var string

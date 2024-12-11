@@ -17,6 +17,11 @@ class CreateApplicationRequest extends Model
     public $alarmConfig;
 
     /**
+     * @var string
+     */
+    public $applicationSource;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * @example TF-CreateApplication-1647587475-84104b89-eba5-47a8-b2fd-807b8b7d
@@ -80,14 +85,15 @@ class CreateApplicationRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'alarmConfig'     => 'AlarmConfig',
-        'clientToken'     => 'ClientToken',
-        'description'     => 'Description',
-        'name'            => 'Name',
-        'regionId'        => 'RegionId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'serviceId'       => 'ServiceId',
-        'tags'            => 'Tags',
+        'alarmConfig'       => 'AlarmConfig',
+        'applicationSource' => 'ApplicationSource',
+        'clientToken'       => 'ClientToken',
+        'description'       => 'Description',
+        'name'              => 'Name',
+        'regionId'          => 'RegionId',
+        'resourceGroupId'   => 'ResourceGroupId',
+        'serviceId'         => 'ServiceId',
+        'tags'              => 'Tags',
     ];
 
     public function validate()
@@ -99,6 +105,9 @@ class CreateApplicationRequest extends Model
         $res = [];
         if (null !== $this->alarmConfig) {
             $res['AlarmConfig'] = null !== $this->alarmConfig ? $this->alarmConfig->toMap() : null;
+        }
+        if (null !== $this->applicationSource) {
+            $res['ApplicationSource'] = $this->applicationSource;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -135,6 +144,9 @@ class CreateApplicationRequest extends Model
         $model = new self();
         if (isset($map['AlarmConfig'])) {
             $model->alarmConfig = alarmConfig::fromMap($map['AlarmConfig']);
+        }
+        if (isset($map['ApplicationSource'])) {
+            $model->applicationSource = $map['ApplicationSource'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

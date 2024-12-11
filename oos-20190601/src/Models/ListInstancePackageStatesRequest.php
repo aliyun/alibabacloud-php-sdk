@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePackageStatesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description ECS instance ID
      *
+     * This parameter is required.
      * @example i-bp1cpoxxxwxxxxxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class ListInstancePackageStatesRequest extends Model
     public $instanceId;
 
     /**
+     * @description Page size.
+     *
      * @example 50
      *
      * @var int
@@ -25,6 +28,8 @@ class ListInstancePackageStatesRequest extends Model
     public $maxResults;
 
     /**
+     * @description Pagination token.
+     *
      * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctzxxxxxxx
      *
      * @var string
@@ -32,6 +37,8 @@ class ListInstancePackageStatesRequest extends Model
     public $nextToken;
 
     /**
+     * @description Region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,6 +46,8 @@ class ListInstancePackageStatesRequest extends Model
     public $regionId;
 
     /**
+     * @description List of extension names
+     *
      * @example ["template1","template2"]
      *
      * @var string
