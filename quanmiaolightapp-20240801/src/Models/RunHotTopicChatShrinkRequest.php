@@ -38,6 +38,11 @@ class RunHotTopicChatShrinkRequest extends Model
     public $imageCount;
 
     /**
+     * @var string
+     */
+    public $messagesShrink;
+
+    /**
      * @example xx
      *
      * @var string
@@ -80,6 +85,7 @@ class RunHotTopicChatShrinkRequest extends Model
         'hotTopicVersion'                     => 'hotTopicVersion',
         'hotTopicsShrink'                     => 'hotTopics',
         'imageCount'                          => 'imageCount',
+        'messagesShrink'                      => 'messages',
         'modelCustomPromptTemplate'           => 'modelCustomPromptTemplate',
         'modelId'                             => 'modelId',
         'originalSessionId'                   => 'originalSessionId',
@@ -109,6 +115,9 @@ class RunHotTopicChatShrinkRequest extends Model
         }
         if (null !== $this->imageCount) {
             $res['imageCount'] = $this->imageCount;
+        }
+        if (null !== $this->messagesShrink) {
+            $res['messages'] = $this->messagesShrink;
         }
         if (null !== $this->modelCustomPromptTemplate) {
             $res['modelCustomPromptTemplate'] = $this->modelCustomPromptTemplate;
@@ -154,6 +163,9 @@ class RunHotTopicChatShrinkRequest extends Model
         }
         if (isset($map['imageCount'])) {
             $model->imageCount = $map['imageCount'];
+        }
+        if (isset($map['messages'])) {
+            $model->messagesShrink = $map['messages'];
         }
         if (isset($map['modelCustomPromptTemplate'])) {
             $model->modelCustomPromptTemplate = $map['modelCustomPromptTemplate'];

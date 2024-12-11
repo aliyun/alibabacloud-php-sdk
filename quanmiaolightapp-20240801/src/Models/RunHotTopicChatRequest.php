@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest\messages;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest\stepForBroadcastContentConfig;
 use AlibabaCloud\Tea\Model;
 
@@ -37,6 +38,11 @@ class RunHotTopicChatRequest extends Model
      * @var int
      */
     public $imageCount;
+
+    /**
+     * @var messages[]
+     */
+    public $messages;
 
     /**
      * @example xx
@@ -81,6 +87,7 @@ class RunHotTopicChatRequest extends Model
         'hotTopicVersion'               => 'hotTopicVersion',
         'hotTopics'                     => 'hotTopics',
         'imageCount'                    => 'imageCount',
+        'messages'                      => 'messages',
         'modelCustomPromptTemplate'     => 'modelCustomPromptTemplate',
         'modelId'                       => 'modelId',
         'originalSessionId'             => 'originalSessionId',
@@ -110,6 +117,15 @@ class RunHotTopicChatRequest extends Model
         }
         if (null !== $this->imageCount) {
             $res['imageCount'] = $this->imageCount;
+        }
+        if (null !== $this->messages) {
+            $res['messages'] = [];
+            if (null !== $this->messages && \is_array($this->messages)) {
+                $n = 0;
+                foreach ($this->messages as $item) {
+                    $res['messages'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->modelCustomPromptTemplate) {
             $res['modelCustomPromptTemplate'] = $this->modelCustomPromptTemplate;
@@ -159,6 +175,15 @@ class RunHotTopicChatRequest extends Model
         }
         if (isset($map['imageCount'])) {
             $model->imageCount = $map['imageCount'];
+        }
+        if (isset($map['messages'])) {
+            if (!empty($map['messages'])) {
+                $model->messages = [];
+                $n               = 0;
+                foreach ($map['messages'] as $item) {
+                    $model->messages[$n++] = null !== $item ? messages::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['modelCustomPromptTemplate'])) {
             $model->modelCustomPromptTemplate = $map['modelCustomPromptTemplate'];

@@ -207,6 +207,9 @@ class QuanMiaoLightApp extends OpenApiClient
         if (!Utils::isUnset($tmpReq->hotTopics)) {
             $request->hotTopicsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->hotTopics, 'hotTopics', 'json');
         }
+        if (!Utils::isUnset($tmpReq->messages)) {
+            $request->messagesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->messages, 'messages', 'json');
+        }
         if (!Utils::isUnset($tmpReq->stepForBroadcastContentConfig)) {
             $request->stepForBroadcastContentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stepForBroadcastContentConfig, 'stepForBroadcastContentConfig', 'json');
         }
@@ -225,6 +228,9 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         if (!Utils::isUnset($request->imageCount)) {
             $body['imageCount'] = $request->imageCount;
+        }
+        if (!Utils::isUnset($request->messagesShrink)) {
+            $body['messages'] = $request->messagesShrink;
         }
         if (!Utils::isUnset($request->modelCustomPromptTemplate)) {
             $body['modelCustomPromptTemplate'] = $request->modelCustomPromptTemplate;
