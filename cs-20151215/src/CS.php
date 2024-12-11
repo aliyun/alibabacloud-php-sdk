@@ -1530,8 +1530,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
+     *  *
      * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
      *  *
+     * Deprecated
+     *
      * @param CreateKubernetesTriggerRequest $request CreateKubernetesTriggerRequest
      * @param string[]                       $headers map
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1574,8 +1578,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI CreateKubernetesTrigger is deprecated
+     *  *
      * @summary You can call the CreateKubernetesTrigger operation to create a trigger for an application.
      *  *
+     * Deprecated
+     *
      * @param CreateKubernetesTriggerRequest $request CreateKubernetesTriggerRequest
      *
      * @return CreateKubernetesTriggerResponse CreateKubernetesTriggerResponse
@@ -2065,8 +2073,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
+     *  *
      * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
      *  *
+     * Deprecated
+     *
      * @param string         $Id
      * @param string[]       $headers map
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -2094,8 +2106,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DeleteKubernetesTrigger is deprecated
+     *  *
      * @summary You can call the DeleteKubernetesTrigger operation to delete an application trigger by trigger ID
      *  *
+     * Deprecated
+     *
      * @param string $Id
      *
      * @return DeleteKubernetesTriggerResponse DeleteKubernetesTriggerResponse
@@ -3593,8 +3609,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
+     *  *
      * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
      *  *
+     * Deprecated
+     *
      * @param string         $edgeMachineid
      * @param string[]       $headers       map
      * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
@@ -3622,8 +3642,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DescribeEdgeMachineActiveProcess is deprecated
+     *  *
      * @summary You can call the DescribeEdgeMachineActiveProcess operation to query the activation progress of a cloud-native box.
      *  *
+     * Deprecated
+     *
      * @param string $edgeMachineid
      *
      * @return DescribeEdgeMachineActiveProcessResponse DescribeEdgeMachineActiveProcessResponse
@@ -3904,10 +3928,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DescribeExternalAgent is deprecated
+     *  *
      * @summary Queries the proxy configurations of a registered cluster based on the cluster ID.
      *  *
      * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
      *  *
+     * Deprecated
+     *
      * @param string                       $ClusterId
      * @param DescribeExternalAgentRequest $request   DescribeExternalAgentRequest
      * @param string[]                     $headers   map
@@ -3945,10 +3973,14 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI DescribeExternalAgent is deprecated
+     *  *
      * @summary Queries the proxy configurations of a registered cluster based on the cluster ID.
      *  *
      * @description For more information, see [Register an external Kubernetes cluster](https://help.aliyun.com/document_detail/121053.html).
      *  *
+     * Deprecated
+     *
      * @param string                       $ClusterId
      * @param DescribeExternalAgentRequest $request   DescribeExternalAgentRequest
      *
@@ -4781,8 +4813,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
+     *  *
      * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
      *  *
+     * Deprecated
+     *
      * @param string                           $clusterid
      * @param string                           $edgeMachineid
      * @param EdgeClusterAddEdgeMachineRequest $request       EdgeClusterAddEdgeMachineRequest
@@ -4824,8 +4860,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI EdgeClusterAddEdgeMachine is deprecated
+     *  *
      * @summary You can call the EdgeClusterAddEdgeMachine operation to add a cloud-native box to a Container Service for Kubernetes (ACK) Edge cluster.
      *  *
+     * Deprecated
+     *
      * @param string                           $clusterid
      * @param string                           $edgeMachineid
      * @param EdgeClusterAddEdgeMachineRequest $request       EdgeClusterAddEdgeMachineRequest
@@ -5142,8 +5182,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetKubernetesTrigger is deprecated
+     *  *
      * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
      *  *
+     * Deprecated
+     *
      * @param string                      $ClusterId
      * @param GetKubernetesTriggerRequest $request   GetKubernetesTriggerRequest
      * @param string[]                    $headers   map
@@ -5187,8 +5231,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI GetKubernetesTrigger is deprecated
+     *  *
      * @summary You can call the GetKubernetesTrigger operationto query the triggers of an application by application name.
      *  *
+     * Deprecated
+     *
      * @param string                      $ClusterId
      * @param GetKubernetesTriggerRequest $request   GetKubernetesTriggerRequest
      *
@@ -5982,8 +6030,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
+     *  *
      * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
      *  *
+     * Deprecated
+     *
      * @param string                            $ClusterId
      * @param ModifyClusterConfigurationRequest $request   ModifyClusterConfigurationRequest
      * @param string[]                          $headers   map
@@ -6018,8 +6070,12 @@ class CS extends OpenApiClient
     }
 
     /**
+     * @deprecated OpenAPI ModifyClusterConfiguration is deprecated
+     *  *
      * @summary This API operation applies only to Container Service for Kubernetes (ACK) managed clusters.
      *  *
+     * Deprecated
+     *
      * @param string                            $ClusterId
      * @param ModifyClusterConfigurationRequest $request   ModifyClusterConfigurationRequest
      *
