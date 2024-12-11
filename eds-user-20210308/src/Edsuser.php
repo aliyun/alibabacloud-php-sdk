@@ -707,6 +707,9 @@ class Edsuser extends OpenApiClient
         if (!Utils::isUnset($request->includeDesktopGroupCount)) {
             $query['IncludeDesktopGroupCount'] = $request->includeDesktopGroupCount;
         }
+        if (!Utils::isUnset($request->isQueryAllSubOrgs)) {
+            $query['IsQueryAllSubOrgs'] = $request->isQueryAllSubOrgs;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }

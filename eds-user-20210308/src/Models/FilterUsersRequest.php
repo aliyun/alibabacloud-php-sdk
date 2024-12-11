@@ -64,6 +64,11 @@ class FilterUsersRequest extends Model
     public $includeDesktopGroupCount;
 
     /**
+     * @var bool
+     */
+    public $isQueryAllSubOrgs;
+
+    /**
      * @description The number of entries per page. If you set this parameter to a value greater than 100, the system resets the value to 100.
      *
      * @example 10
@@ -129,6 +134,7 @@ class FilterUsersRequest extends Model
         'filter'                      => 'Filter',
         'includeDesktopCount'         => 'IncludeDesktopCount',
         'includeDesktopGroupCount'    => 'IncludeDesktopGroupCount',
+        'isQueryAllSubOrgs'           => 'IsQueryAllSubOrgs',
         'maxResults'                  => 'MaxResults',
         'nextToken'                   => 'NextToken',
         'orderParam'                  => 'OrderParam',
@@ -157,6 +163,9 @@ class FilterUsersRequest extends Model
         }
         if (null !== $this->includeDesktopGroupCount) {
             $res['IncludeDesktopGroupCount'] = $this->includeDesktopGroupCount;
+        }
+        if (null !== $this->isQueryAllSubOrgs) {
+            $res['IsQueryAllSubOrgs'] = $this->isQueryAllSubOrgs;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -219,6 +228,9 @@ class FilterUsersRequest extends Model
         }
         if (isset($map['IncludeDesktopGroupCount'])) {
             $model->includeDesktopGroupCount = $map['IncludeDesktopGroupCount'];
+        }
+        if (isset($map['IsQueryAllSubOrgs'])) {
+            $model->isQueryAllSubOrgs = $map['IsQueryAllSubOrgs'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
