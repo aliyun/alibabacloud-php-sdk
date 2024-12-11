@@ -1,3 +1,11 @@
+2024-12-11 Version: 1.2.1
+- Update API GetLoginToken: update param AvailableFeatures.
+- Update API GetLoginToken: update param OfficeSiteId.
+- Update API GetLoginToken: update param TokenCode.
+- Update API GetLoginToken: update param UmidToken.
+- Update API RefreshLoginToken: update param ProfileRegion.
+
+
 2024-12-04 Version: 1.2.0
 - Support API GetStsToken.
 
