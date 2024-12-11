@@ -9,46 +9,84 @@ use AlibabaCloud\Tea\Model;
 class monthlySummaryList extends Model
 {
     /**
+     * @description The number of days that the instance is activated.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $enableDays;
 
     /**
+     * @description The total traffic of EIPs with Anti-DDoS (Enhanced) enabled in the Chinese mainland. Unit: bytes.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $flowCn;
 
     /**
+     * @description The total traffic of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland. Unit: bytes.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $flowIntl;
 
     /**
+     * @description The total number of protected IP addresses in the Chinese mainland.
+     *
+     * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
+     * @example 28
+     *
      * @var int
      */
     public $ipCountCn;
 
     /**
+     * @description The total number of protected IP addresses outside the Chinese mainland.
+     *
+     * >  The total number of protected IP addresses is the sum of the daily numbers of protected IP addresses in a month.
+     * @example 30
+     *
      * @var int
      */
     public $ipCountIntl;
 
     /**
+     * @description The ID of the member.
+     *
+     * @example 112873971277****
+     *
      * @var string
      */
     public $memberUid;
 
     /**
+     * @description The total traffic of regular Alibaba Cloud services in the Chinese mainland. Unit: bytes.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $standardAssetsFlowCn;
 
     /**
+     * @description The total traffic of regular Alibaba Cloud services outside the Chinese mainland. Unit: bytes.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $standardAssetsFlowIntl;
 
     /**
+     * @description The ID of the administrator account.
+     *
+     * @example 102518028277****
+     *
      * @var string
      */
     public $uid;

@@ -92,6 +92,8 @@ class DescribeDdosOriginInstanceBillResponseBody extends Model
     public $ipInfo;
 
     /**
+     * @description The information about the monthly summary bills.
+     *
      * @var monthlySummaryList[]
      */
     public $monthlySummaryList;

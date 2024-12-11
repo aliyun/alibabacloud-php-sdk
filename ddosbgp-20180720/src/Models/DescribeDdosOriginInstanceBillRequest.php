@@ -41,12 +41,13 @@ class DescribeDdosOriginInstanceBillRequest extends Model
     /**
      * @description The bill type. Valid values:
      *
-     *   **flow_cn**: the bill for the clean bandwidth of elastic IP addresses (EIPs) with Anti-DDoS (Enhanced) enabled in the Chinese mainland
-     *   **flow_ov**: the bill for the clean bandwidth of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland
-     *   **standard_assets_flow_cn**: the bill for the clean bandwidth of regular Alibaba Cloud services in the Chinese mainland
-     *   **standard_assets_flow_ov**: the bill for the clean bandwidth of regular Alibaba Cloud services outside the Chinese mainland
-     *   **function**: the bill for the basic fee
-     *   **ip_count**: the bill for protected IP addresses
+     *   **flow_cn**: the bill for the clean bandwidth of elastic IP addresses (EIPs) with Anti-DDoS (Enhanced) enabled in the Chinese mainland.
+     *   **flow_ov**: the bill for the clean bandwidth of EIPs with Anti-DDoS (Enhanced) enabled outside the Chinese mainland.
+     *   **standard_assets_flow_cn**: the bill for the clean bandwidth of regular Alibaba Cloud services in the Chinese mainland.
+     *   **standard_assets_flow_ov**: the bill for the clean bandwidth of regular Alibaba Cloud services outside the Chinese mainland.
+     *   **function**: the bill for the basic fee.
+     *   **ip_count**: the bill for protected IP addresses.
+     *   **monthly_summary**: the monthly summary bill.
      *
      * @example function
      *

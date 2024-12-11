@@ -94,6 +94,8 @@ use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyPolicyResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyPolicyShrinkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyRemarkRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ModifyRemarkResponse;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\MoveResourceGroupRequest;
+use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\MoveResourceGroupResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\QuerySchedruleOnDemandRequest;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\QuerySchedruleOnDemandResponse;
 use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ReleaseDdosOriginInstanceRequest;
@@ -2596,6 +2598,62 @@ class Ddosbgp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyRemarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 移动资源组
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     */
+    public function moveResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceRegionId)) {
+            $query['ResourceRegionId'] = $request->resourceRegionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MoveResourceGroup',
+            'version'     => '2018-07-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 移动资源组
+     *  *
+     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     *
+     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     */
+    public function moveResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->moveResourceGroupWithOptions($request, $runtime);
     }
 
     /**
