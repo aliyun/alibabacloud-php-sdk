@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutProvisionConfigRequest extends Model
 {
     /**
-     * @description The information about the provisioned configuration.
+     * @description The provisioned instance configurations.
      *
      * This parameter is required.
      * @var PutProvisionConfigInput

@@ -23,6 +23,11 @@ class PutProvisionConfigInput extends Model
     public $alwaysAllocateGPU;
 
     /**
+     * @var int
+     */
+    public $defaultTarget;
+
+    /**
      * @var ScheduledAction[]
      */
     public $scheduledActions;
@@ -31,6 +36,8 @@ class PutProvisionConfigInput extends Model
      * @description This parameter is required.
      *
      * @example 1
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -43,6 +50,7 @@ class PutProvisionConfigInput extends Model
     protected $_name = [
         'alwaysAllocateCPU'      => 'alwaysAllocateCPU',
         'alwaysAllocateGPU'      => 'alwaysAllocateGPU',
+        'defaultTarget'          => 'defaultTarget',
         'scheduledActions'       => 'scheduledActions',
         'target'                 => 'target',
         'targetTrackingPolicies' => 'targetTrackingPolicies',
@@ -60,6 +68,9 @@ class PutProvisionConfigInput extends Model
         }
         if (null !== $this->alwaysAllocateGPU) {
             $res['alwaysAllocateGPU'] = $this->alwaysAllocateGPU;
+        }
+        if (null !== $this->defaultTarget) {
+            $res['defaultTarget'] = $this->defaultTarget;
         }
         if (null !== $this->scheduledActions) {
             $res['scheduledActions'] = [];
@@ -99,6 +110,9 @@ class PutProvisionConfigInput extends Model
         }
         if (isset($map['alwaysAllocateGPU'])) {
             $model->alwaysAllocateGPU = $map['alwaysAllocateGPU'];
+        }
+        if (isset($map['defaultTarget'])) {
+            $model->defaultTarget = $map['defaultTarget'];
         }
         if (isset($map['scheduledActions'])) {
             if (!empty($map['scheduledActions'])) {

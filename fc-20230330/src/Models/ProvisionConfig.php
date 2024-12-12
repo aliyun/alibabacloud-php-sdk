@@ -37,6 +37,13 @@ class ProvisionConfig extends Model
     public $currentError;
 
     /**
+     * @example 5
+     *
+     * @var int
+     */
+    public $defaultTarget;
+
+    /**
      * @example acs:fc:cn-shanghai:124:functions/myFunction
      *
      * @var string
@@ -64,6 +71,7 @@ class ProvisionConfig extends Model
         'alwaysAllocateGPU'      => 'alwaysAllocateGPU',
         'current'                => 'current',
         'currentError'           => 'currentError',
+        'defaultTarget'          => 'defaultTarget',
         'functionArn'            => 'functionArn',
         'scheduledActions'       => 'scheduledActions',
         'target'                 => 'target',
@@ -88,6 +96,9 @@ class ProvisionConfig extends Model
         }
         if (null !== $this->currentError) {
             $res['currentError'] = $this->currentError;
+        }
+        if (null !== $this->defaultTarget) {
+            $res['defaultTarget'] = $this->defaultTarget;
         }
         if (null !== $this->functionArn) {
             $res['functionArn'] = $this->functionArn;
@@ -136,6 +147,9 @@ class ProvisionConfig extends Model
         }
         if (isset($map['currentError'])) {
             $model->currentError = $map['currentError'];
+        }
+        if (isset($map['defaultTarget'])) {
+            $model->defaultTarget = $map['defaultTarget'];
         }
         if (isset($map['functionArn'])) {
             $model->functionArn = $map['functionArn'];

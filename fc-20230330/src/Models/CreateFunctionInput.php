@@ -140,6 +140,11 @@ class CreateFunctionInput extends Model
     public $runtime;
 
     /**
+     * @var Tag[]
+     */
+    public $tags;
+
+    /**
      * @example 60
      *
      * @var int
@@ -177,6 +182,7 @@ class CreateFunctionInput extends Model
         'ossMountConfig'          => 'ossMountConfig',
         'role'                    => 'role',
         'runtime'                 => 'runtime',
+        'tags'                    => 'tags',
         'timeout'                 => 'timeout',
         'tracingConfig'           => 'tracingConfig',
         'vpcConfig'               => 'vpcConfig',
@@ -251,6 +257,15 @@ class CreateFunctionInput extends Model
         }
         if (null !== $this->runtime) {
             $res['runtime'] = $this->runtime;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->timeout) {
             $res['timeout'] = $this->timeout;
@@ -337,6 +352,15 @@ class CreateFunctionInput extends Model
         }
         if (isset($map['runtime'])) {
             $model->runtime = $map['runtime'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['timeout'])) {
             $model->timeout = $map['timeout'];

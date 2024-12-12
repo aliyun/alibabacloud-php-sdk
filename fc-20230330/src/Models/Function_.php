@@ -213,6 +213,11 @@ class Function_ extends Model
     public $stateReasonCode;
 
     /**
+     * @var Tag[]
+     */
+    public $tags;
+
+    /**
      * @example 60
      *
      * @var int
@@ -261,6 +266,7 @@ class Function_ extends Model
         'state'                      => 'state',
         'stateReason'                => 'stateReason',
         'stateReasonCode'            => 'stateReasonCode',
+        'tags'                       => 'tags',
         'timeout'                    => 'timeout',
         'tracingConfig'              => 'tracingConfig',
         'vpcConfig'                  => 'vpcConfig',
@@ -374,6 +380,15 @@ class Function_ extends Model
         }
         if (null !== $this->stateReasonCode) {
             $res['stateReasonCode'] = $this->stateReasonCode;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->timeout) {
             $res['timeout'] = $this->timeout;
@@ -497,6 +512,15 @@ class Function_ extends Model
         }
         if (isset($map['stateReasonCode'])) {
             $model->stateReasonCode = $map['stateReasonCode'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['timeout'])) {
             $model->timeout = $map['timeout'];
