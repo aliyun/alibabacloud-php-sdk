@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectRequest extends Model
 {
     /**
+     * @description The source of the project.
+     *
+     * Valid values:
+     *
+     *   AliyunConsole: The project is created in the Alibaba Cloud console.
+     *   WebSDK: The project is created by using the SDK for Web.
+     *   OpenAPI: The project is created by calling API operations.
+     *
      * @example WebSDK
      *
      * @var string
@@ -16,6 +24,8 @@ class SearchEditingProjectRequest extends Model
     public $createSource;
 
     /**
+     * @description The end of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -23,6 +33,8 @@ class SearchEditingProjectRequest extends Model
     public $endTime;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +42,8 @@ class SearchEditingProjectRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +51,11 @@ class SearchEditingProjectRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the editing project. Default value: EditingProject. Valid values:
+     *
+     *   EditingProject: a regular editing project.
+     *   LiveEditingProject: a live stream editing project.
+     *
      * @example EditingProject
      *
      * @var string
@@ -44,6 +63,9 @@ class SearchEditingProjectRequest extends Model
     public $projectType;
 
     /**
+     * @description The sorting rule of results. Valid values:
+     *
+     * \\- CreationTime:Asc: The results are sorted in chronological order based on the creation time.
      * @example CreationTime:Desc
      *
      * @var string
@@ -51,6 +73,8 @@ class SearchEditingProjectRequest extends Model
     public $sortBy;
 
     /**
+     * @description The beginning of the time range to query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -58,6 +82,9 @@ class SearchEditingProjectRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the online editing project. Separate multiple values with commas (,). By default, all online editing projects are queried.
+     *
+     * \\-ProduceFailed
      * @example Producing
      *
      * @var string
@@ -65,6 +92,14 @@ class SearchEditingProjectRequest extends Model
     public $status;
 
     /**
+     * @description The template type. Valid values:
+     *
+     * Valid values:
+     *
+     *   Timeline: regular template.
+     *   VETemplate: advanced template.
+     *   None: No template is used.
+     *
      * @example Timeline
      *
      * @var string

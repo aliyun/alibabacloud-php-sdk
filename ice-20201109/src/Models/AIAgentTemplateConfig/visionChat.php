@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig\visionChat\llmHistory;
 use AlibabaCloud\Tea\Model;
 
 class visionChat extends Model
@@ -44,6 +45,16 @@ class visionChat extends Model
     public $greeting;
 
     /**
+     * @var llmHistory[]
+     */
+    public $llmHistory;
+
+    /**
+     * @var int
+     */
+    public $llmHistoryLimit;
+
+    /**
      * @var int
      */
     public $maxIdleTime;
@@ -81,6 +92,11 @@ class visionChat extends Model
     /**
      * @var string
      */
+    public $wakeUpQuery;
+
+    /**
+     * @var string
+     */
     public $workflowOverrideParams;
     protected $_name = [
         'asrMaxSilence'            => 'AsrMaxSilence',
@@ -90,6 +106,8 @@ class visionChat extends Model
         'enableVoiceInterrupt'     => 'EnableVoiceInterrupt',
         'gracefulShutdown'         => 'GracefulShutdown',
         'greeting'                 => 'Greeting',
+        'llmHistory'               => 'LlmHistory',
+        'llmHistoryLimit'          => 'LlmHistoryLimit',
         'maxIdleTime'              => 'MaxIdleTime',
         'useVoiceprint'            => 'UseVoiceprint',
         'userOfflineTimeout'       => 'UserOfflineTimeout',
@@ -97,6 +115,7 @@ class visionChat extends Model
         'voiceId'                  => 'VoiceId',
         'voiceprintId'             => 'VoiceprintId',
         'volume'                   => 'Volume',
+        'wakeUpQuery'              => 'WakeUpQuery',
         'workflowOverrideParams'   => 'WorkflowOverrideParams',
     ];
 
@@ -128,6 +147,18 @@ class visionChat extends Model
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
         }
+        if (null !== $this->llmHistory) {
+            $res['LlmHistory'] = [];
+            if (null !== $this->llmHistory && \is_array($this->llmHistory)) {
+                $n = 0;
+                foreach ($this->llmHistory as $item) {
+                    $res['LlmHistory'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->llmHistoryLimit) {
+            $res['LlmHistoryLimit'] = $this->llmHistoryLimit;
+        }
         if (null !== $this->maxIdleTime) {
             $res['MaxIdleTime'] = $this->maxIdleTime;
         }
@@ -148,6 +179,9 @@ class visionChat extends Model
         }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
+        }
+        if (null !== $this->wakeUpQuery) {
+            $res['WakeUpQuery'] = $this->wakeUpQuery;
         }
         if (null !== $this->workflowOverrideParams) {
             $res['WorkflowOverrideParams'] = $this->workflowOverrideParams;
@@ -185,6 +219,18 @@ class visionChat extends Model
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
         }
+        if (isset($map['LlmHistory'])) {
+            if (!empty($map['LlmHistory'])) {
+                $model->llmHistory = [];
+                $n                 = 0;
+                foreach ($map['LlmHistory'] as $item) {
+                    $model->llmHistory[$n++] = null !== $item ? llmHistory::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['LlmHistoryLimit'])) {
+            $model->llmHistoryLimit = $map['LlmHistoryLimit'];
+        }
         if (isset($map['MaxIdleTime'])) {
             $model->maxIdleTime = $map['MaxIdleTime'];
         }
@@ -205,6 +251,9 @@ class visionChat extends Model
         }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
+        }
+        if (isset($map['WakeUpQuery'])) {
+            $model->wakeUpQuery = $map['WakeUpQuery'];
         }
         if (isset($map['WorkflowOverrideParams'])) {
             $model->workflowOverrideParams = $map['WorkflowOverrideParams'];

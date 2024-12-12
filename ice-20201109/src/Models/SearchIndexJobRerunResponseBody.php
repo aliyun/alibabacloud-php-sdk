@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchIndexJobRerunResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class SearchIndexJobRerunResponseBody extends Model
     public $code;
 
     /**
+     * @description The response data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example ******11-DB8D-4A9A-875B-275798******
      *
      * @var string
@@ -29,6 +35,11 @@ class SearchIndexJobRerunResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

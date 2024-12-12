@@ -279,6 +279,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTemplatesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListTranscodeJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightExtractJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightJobListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryCopyrightJobListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryDNAJobListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QueryIProductionJobRequest;
@@ -295,6 +299,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchLibRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchLibResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySmarttagJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySmarttagJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceAbJobListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceAbJobListResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceExtractJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceExtractJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceM3u8JobListRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\QueryTraceM3u8JobListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RefreshUploadMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RefreshUploadMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\RegisterMediaInfoRequest;
@@ -357,6 +367,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarVideoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarVideoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitBatchMediaProducingJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitBatchMediaProducingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightExtractJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightExtractJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightExtractJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCopyrightJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCustomizedVoiceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobRequest;
@@ -409,6 +425,15 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTextGenerateJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTextGenerateJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceAbJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceAbJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceAbJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceExtractJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceExtractJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceExtractJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceM3u8JobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceM3u8JobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTraceM3u8JobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobShrinkRequest;
@@ -7483,7 +7508,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取搜索库列表
+     * @summary Queries the information about search libraries.
      *  *
      * @param ListSearchLibRequest $request ListSearchLibRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7519,7 +7544,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 获取搜索库列表
+     * @summary Queries the information about search libraries.
      *  *
      * @param ListSearchLibRequest $request ListSearchLibRequest
      *
@@ -7991,6 +8016,115 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 查询版权水印提取任务
+     *  *
+     * @param QueryCopyrightExtractJobRequest $request QueryCopyrightExtractJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryCopyrightExtractJobResponse QueryCopyrightExtractJobResponse
+     */
+    public function queryCopyrightExtractJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCopyrightExtractJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCopyrightExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询版权水印提取任务
+     *  *
+     * @param QueryCopyrightExtractJobRequest $request QueryCopyrightExtractJobRequest
+     *
+     * @return QueryCopyrightExtractJobResponse QueryCopyrightExtractJobResponse
+     */
+    public function queryCopyrightExtractJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCopyrightExtractJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询视频版权水印任务列表
+     *  *
+     * @param QueryCopyrightJobListRequest $request QueryCopyrightJobListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryCopyrightJobListResponse QueryCopyrightJobListResponse
+     */
+    public function queryCopyrightJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCopyrightJobList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCopyrightJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询视频版权水印任务列表
+     *  *
+     * @param QueryCopyrightJobListRequest $request QueryCopyrightJobListRequest
+     *
+     * @return QueryCopyrightJobListResponse QueryCopyrightJobListResponse
+     */
+    public function queryCopyrightJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCopyrightJobListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of media fingerprint analysis jobs.
      *  *
      * @param QueryDNAJobListRequest $request QueryDNAJobListRequest
@@ -8447,6 +8581,174 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 查询视频溯源水印ab流任务
+     *  *
+     * @param QueryTraceAbJobListRequest $request QueryTraceAbJobListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryTraceAbJobListResponse QueryTraceAbJobListResponse
+     */
+    public function queryTraceAbJobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->traceMediaId)) {
+            $query['TraceMediaId'] = $request->traceMediaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTraceAbJobList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTraceAbJobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询视频溯源水印ab流任务
+     *  *
+     * @param QueryTraceAbJobListRequest $request QueryTraceAbJobListRequest
+     *
+     * @return QueryTraceAbJobListResponse QueryTraceAbJobListResponse
+     */
+    public function queryTraceAbJobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTraceAbJobListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询溯源水印提取任务
+     *  *
+     * @param QueryTraceExtractJobRequest $request QueryTraceExtractJobRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryTraceExtractJobResponse QueryTraceExtractJobResponse
+     */
+    public function queryTraceExtractJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTraceExtractJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTraceExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询溯源水印提取任务
+     *  *
+     * @param QueryTraceExtractJobRequest $request QueryTraceExtractJobRequest
+     *
+     * @return QueryTraceExtractJobResponse QueryTraceExtractJobResponse
+     */
+    public function queryTraceExtractJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTraceExtractJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询视频溯源水印m3u8任务
+     *  *
+     * @param QueryTraceM3u8JobListRequest $request QueryTraceM3u8JobListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryTraceM3u8JobListResponse QueryTraceM3u8JobListResponse
+     */
+    public function queryTraceM3u8JobListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $query['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $query['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryTraceM3u8JobList',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryTraceM3u8JobListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询视频溯源水印m3u8任务
+     *  *
+     * @param QueryTraceM3u8JobListRequest $request QueryTraceM3u8JobListRequest
+     *
+     * @return QueryTraceM3u8JobListResponse QueryTraceM3u8JobListResponse
+     */
+    public function queryTraceM3u8JobList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryTraceM3u8JobListWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Obtain a new upload credential for a media asset after its upload credential expires.
      *  *
      * @description You can also call this operation to overwrite media files. After you obtain the upload URL of a media file, you can upload the media file again without changing the audio or video ID.
@@ -8648,7 +8950,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SearchEditingProject
+     * @summary Queries online editing projects by creation time and status.
      *  *
      * @param SearchEditingProjectRequest $request SearchEditingProjectRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8705,7 +9007,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary SearchEditingProject
+     * @summary Queries online editing projects by creation time and status.
      *  *
      * @param SearchEditingProjectRequest $request SearchEditingProjectRequest
      *
@@ -8719,7 +9021,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 搜索索引任务重新分析
+     * @summary Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
      *  *
      * @param SearchIndexJobRerunRequest $request SearchIndexJobRerunRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -8758,7 +9060,7 @@ class ICE extends OpenApiClient
     }
 
     /**
-     * @summary 搜索索引任务重新分析
+     * @summary Re-analyzes the search index jobs of media assets. You can re-run the search index jobs of up to 20 media assets in each request.
      *  *
      * @param SearchIndexJobRerunRequest $request SearchIndexJobRerunRequest
      *
@@ -10255,6 +10557,143 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 提交版权水印提取作业
+     *  *
+     * @param SubmitCopyrightExtractJobRequest $tmpReq  SubmitCopyrightExtractJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitCopyrightExtractJobResponse SubmitCopyrightExtractJobResponse
+     */
+    public function submitCopyrightExtractJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitCopyrightExtractJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->inputShrink)) {
+            $query['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCopyrightExtractJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitCopyrightExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交版权水印提取作业
+     *  *
+     * @param SubmitCopyrightExtractJobRequest $request SubmitCopyrightExtractJobRequest
+     *
+     * @return SubmitCopyrightExtractJobResponse SubmitCopyrightExtractJobResponse
+     */
+    public function submitCopyrightExtractJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCopyrightExtractJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交版权水印任务
+     *  *
+     * @param SubmitCopyrightJobRequest $tmpReq  SubmitCopyrightJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitCopyrightJobResponse SubmitCopyrightJobResponse
+     */
+    public function submitCopyrightJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitCopyrightJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->output)) {
+            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $query['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        if (!Utils::isUnset($request->outputShrink)) {
+            $query['Output'] = $request->outputShrink;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->totalTime)) {
+            $query['TotalTime'] = $request->totalTime;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCopyrightJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitCopyrightJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交版权水印任务
+     *  *
+     * @param SubmitCopyrightJobRequest $request SubmitCopyrightJobRequest
+     *
+     * @return SubmitCopyrightJobResponse SubmitCopyrightJobResponse
+     */
+    public function submitCopyrightJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCopyrightJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Submits a human voice cloning job. The value of VoiceId must be the one used during audio check. The system uses this ID to find the cached audio file for training. After you call this operation, the JobId is returned. The training process is asynchronous. During training, you can call the GetCustomizedVoiceJob operation to query information such as the job state.
      *  *
      * @param SubmitCustomizedVoiceJobRequest $request SubmitCustomizedVoiceJobRequest
@@ -11715,6 +12154,201 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitTextGenerateJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交视频溯源水印ab流任务
+     *  *
+     * @param SubmitTraceAbJobRequest $tmpReq  SubmitTraceAbJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitTraceAbJobResponse SubmitTraceAbJobResponse
+     */
+    public function submitTraceAbJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitTraceAbJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->output)) {
+            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->cipherBase64ed)) {
+            $query['CipherBase64ed'] = $request->cipherBase64ed;
+        }
+        if (!Utils::isUnset($request->inputShrink)) {
+            $query['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
+        }
+        if (!Utils::isUnset($request->outputShrink)) {
+            $query['Output'] = $request->outputShrink;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->totalTime)) {
+            $query['TotalTime'] = $request->totalTime;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTraceAbJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTraceAbJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交视频溯源水印ab流任务
+     *  *
+     * @param SubmitTraceAbJobRequest $request SubmitTraceAbJobRequest
+     *
+     * @return SubmitTraceAbJobResponse SubmitTraceAbJobResponse
+     */
+    public function submitTraceAbJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitTraceAbJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交溯源水印提取任务
+     *  *
+     * @param SubmitTraceExtractJobRequest $tmpReq  SubmitTraceExtractJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitTraceExtractJobResponse SubmitTraceExtractJobResponse
+     */
+    public function submitTraceExtractJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitTraceExtractJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->inputShrink)) {
+            $query['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTraceExtractJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTraceExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交溯源水印提取任务
+     *  *
+     * @param SubmitTraceExtractJobRequest $request SubmitTraceExtractJobRequest
+     *
+     * @return SubmitTraceExtractJobResponse SubmitTraceExtractJobResponse
+     */
+    public function submitTraceExtractJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitTraceExtractJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交视频溯源水印m3u8文件任务
+     *  *
+     * @param SubmitTraceM3u8JobRequest $tmpReq  SubmitTraceM3u8JobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitTraceM3u8JobResponse SubmitTraceM3u8JobResponse
+     */
+    public function submitTraceM3u8JobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitTraceM3u8JobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->output)) {
+            $request->outputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->output, 'Output', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->keyUri)) {
+            $query['KeyUri'] = $request->keyUri;
+        }
+        if (!Utils::isUnset($request->outputShrink)) {
+            $query['Output'] = $request->outputShrink;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->trace)) {
+            $query['Trace'] = $request->trace;
+        }
+        if (!Utils::isUnset($request->traceMediaId)) {
+            $query['TraceMediaId'] = $request->traceMediaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTraceM3u8Job',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTraceM3u8JobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交视频溯源水印m3u8文件任务
+     *  *
+     * @param SubmitTraceM3u8JobRequest $request SubmitTraceM3u8JobRequest
+     *
+     * @return SubmitTraceM3u8JobResponse SubmitTraceM3u8JobResponse
+     */
+    public function submitTraceM3u8Job($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitTraceM3u8JobWithOptions($request, $runtime);
     }
 
     /**

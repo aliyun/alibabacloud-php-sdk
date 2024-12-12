@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSearchLibResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class ListSearchLibResponseBody extends Model
     public $code;
 
     /**
+     * @description The request ID.
+     *
      * @example ******3B-0E1A-586A-AC29-742247******
      *
      * @var string
@@ -24,11 +28,15 @@ class ListSearchLibResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Information about search libraries.
+     *
      * @var searchLibInfoList[]
      */
     public $searchLibInfoList;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var string
@@ -36,6 +44,10 @@ class ListSearchLibResponseBody extends Model
     public $success;
 
     /**
+     * @description 总数。
+     *
+     * @example 8
+     *
      * @var int
      */
     public $total;

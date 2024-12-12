@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The media asset IDs that do not exist.
+     *
      * @var string[]
      */
     public $mediaIdsNoExist;

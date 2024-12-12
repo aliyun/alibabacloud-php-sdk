@@ -60,7 +60,7 @@ class GetEventCallbackResponseBody extends Model
     public $callbackURL;
 
     /**
-     * @description The type of the callback event. Multiple values are separated with commas (,). For more information about callback event types, see [Event notification content](https://help.aliyun.com/document_detail/441362.html).
+     * @description The type of the callback event. Multiple values are separated with commas (,). For more information about callback event types, see [Event notification content](https://help.aliyun.com/document_detail/610204.html).
      *
      * @example ProduceMediaComplete,TranscodeComplete
      *

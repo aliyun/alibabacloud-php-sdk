@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\AIAgentTemplateConfig\voiceChat\llmHistory;
 use AlibabaCloud\Tea\Model;
 
 class voiceChat extends Model
@@ -31,6 +32,11 @@ class voiceChat extends Model
     /**
      * @var bool
      */
+    public $enableIntelligentSegment;
+
+    /**
+     * @var bool
+     */
     public $enablePushToTalk;
 
     /**
@@ -47,6 +53,16 @@ class voiceChat extends Model
      * @var string
      */
     public $greeting;
+
+    /**
+     * @var llmHistory[]
+     */
+    public $llmHistory;
+
+    /**
+     * @var int
+     */
+    public $llmHistoryLimit;
 
     /**
      * @var int
@@ -86,24 +102,33 @@ class voiceChat extends Model
     /**
      * @var string
      */
+    public $wakeUpQuery;
+
+    /**
+     * @var string
+     */
     public $workflowOverrideParams;
     protected $_name = [
-        'asrMaxSilence'          => 'AsrMaxSilence',
-        'avatarUrl'              => 'AvatarUrl',
-        'avatarUrlType'          => 'AvatarUrlType',
-        'bailianAppParams'       => 'BailianAppParams',
-        'enablePushToTalk'       => 'EnablePushToTalk',
-        'enableVoiceInterrupt'   => 'EnableVoiceInterrupt',
-        'gracefulShutdown'       => 'GracefulShutdown',
-        'greeting'               => 'Greeting',
-        'maxIdleTime'            => 'MaxIdleTime',
-        'useVoiceprint'          => 'UseVoiceprint',
-        'userOfflineTimeout'     => 'UserOfflineTimeout',
-        'userOnlineTimeout'      => 'UserOnlineTimeout',
-        'voiceId'                => 'VoiceId',
-        'voiceprintId'           => 'VoiceprintId',
-        'volume'                 => 'Volume',
-        'workflowOverrideParams' => 'WorkflowOverrideParams',
+        'asrMaxSilence'            => 'AsrMaxSilence',
+        'avatarUrl'                => 'AvatarUrl',
+        'avatarUrlType'            => 'AvatarUrlType',
+        'bailianAppParams'         => 'BailianAppParams',
+        'enableIntelligentSegment' => 'EnableIntelligentSegment',
+        'enablePushToTalk'         => 'EnablePushToTalk',
+        'enableVoiceInterrupt'     => 'EnableVoiceInterrupt',
+        'gracefulShutdown'         => 'GracefulShutdown',
+        'greeting'                 => 'Greeting',
+        'llmHistory'               => 'LlmHistory',
+        'llmHistoryLimit'          => 'LlmHistoryLimit',
+        'maxIdleTime'              => 'MaxIdleTime',
+        'useVoiceprint'            => 'UseVoiceprint',
+        'userOfflineTimeout'       => 'UserOfflineTimeout',
+        'userOnlineTimeout'        => 'UserOnlineTimeout',
+        'voiceId'                  => 'VoiceId',
+        'voiceprintId'             => 'VoiceprintId',
+        'volume'                   => 'Volume',
+        'wakeUpQuery'              => 'WakeUpQuery',
+        'workflowOverrideParams'   => 'WorkflowOverrideParams',
     ];
 
     public function validate()
@@ -125,6 +150,9 @@ class voiceChat extends Model
         if (null !== $this->bailianAppParams) {
             $res['BailianAppParams'] = $this->bailianAppParams;
         }
+        if (null !== $this->enableIntelligentSegment) {
+            $res['EnableIntelligentSegment'] = $this->enableIntelligentSegment;
+        }
         if (null !== $this->enablePushToTalk) {
             $res['EnablePushToTalk'] = $this->enablePushToTalk;
         }
@@ -136,6 +164,18 @@ class voiceChat extends Model
         }
         if (null !== $this->greeting) {
             $res['Greeting'] = $this->greeting;
+        }
+        if (null !== $this->llmHistory) {
+            $res['LlmHistory'] = [];
+            if (null !== $this->llmHistory && \is_array($this->llmHistory)) {
+                $n = 0;
+                foreach ($this->llmHistory as $item) {
+                    $res['LlmHistory'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->llmHistoryLimit) {
+            $res['LlmHistoryLimit'] = $this->llmHistoryLimit;
         }
         if (null !== $this->maxIdleTime) {
             $res['MaxIdleTime'] = $this->maxIdleTime;
@@ -157,6 +197,9 @@ class voiceChat extends Model
         }
         if (null !== $this->volume) {
             $res['Volume'] = $this->volume;
+        }
+        if (null !== $this->wakeUpQuery) {
+            $res['WakeUpQuery'] = $this->wakeUpQuery;
         }
         if (null !== $this->workflowOverrideParams) {
             $res['WorkflowOverrideParams'] = $this->workflowOverrideParams;
@@ -185,6 +228,9 @@ class voiceChat extends Model
         if (isset($map['BailianAppParams'])) {
             $model->bailianAppParams = $map['BailianAppParams'];
         }
+        if (isset($map['EnableIntelligentSegment'])) {
+            $model->enableIntelligentSegment = $map['EnableIntelligentSegment'];
+        }
         if (isset($map['EnablePushToTalk'])) {
             $model->enablePushToTalk = $map['EnablePushToTalk'];
         }
@@ -196,6 +242,18 @@ class voiceChat extends Model
         }
         if (isset($map['Greeting'])) {
             $model->greeting = $map['Greeting'];
+        }
+        if (isset($map['LlmHistory'])) {
+            if (!empty($map['LlmHistory'])) {
+                $model->llmHistory = [];
+                $n                 = 0;
+                foreach ($map['LlmHistory'] as $item) {
+                    $model->llmHistory[$n++] = null !== $item ? llmHistory::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['LlmHistoryLimit'])) {
+            $model->llmHistoryLimit = $map['LlmHistoryLimit'];
         }
         if (isset($map['MaxIdleTime'])) {
             $model->maxIdleTime = $map['MaxIdleTime'];
@@ -217,6 +275,9 @@ class voiceChat extends Model
         }
         if (isset($map['Volume'])) {
             $model->volume = $map['Volume'];
+        }
+        if (isset($map['WakeUpQuery'])) {
+            $model->wakeUpQuery = $map['WakeUpQuery'];
         }
         if (isset($map['WorkflowOverrideParams'])) {
             $model->workflowOverrideParams = $map['WorkflowOverrideParams'];

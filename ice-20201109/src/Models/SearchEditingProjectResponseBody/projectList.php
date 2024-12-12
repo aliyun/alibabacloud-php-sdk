@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class projectList extends Model
 {
     /**
+     * @description The business configuration of the project. This parameter can be ignored for general editing projects.
+     *
      * @example { "OutputMediaConfig" : { "StorageLocation": "test-bucket.oss-cn-shanghai.aliyuncs.com", "Path": "test-path" }, "OutputMediaTarget": "oss-object", "ReservationTime": "2021-06-21T08:05:00Z" }
      *
      * @var string
@@ -16,6 +18,16 @@ class projectList extends Model
     public $businessConfig;
 
     /**
+     * @description The business status of the project. This parameter can be ignored for general editing projects. Valid values:
+     *
+     * Valid values:
+     *
+     *   BroadCasting:
+     *   ReservationCanceled
+     *   LiveFinished
+     *   LoadingFailed
+     *   Reserving
+     *
      * @example Reserving
      *
      * @var string
@@ -23,6 +35,8 @@ class projectList extends Model
     public $businessStatus;
 
     /**
+     * @description The thumbnail URL of the online editing project.
+     *
      * @example http://example-bucket.oss-cn-shanghai.aliyuncs.com/example-cover.jpg
      *
      * @var string
@@ -30,6 +44,14 @@ class projectList extends Model
     public $coverURL;
 
     /**
+     * @description The method for editing the online editing project.
+     *
+     * Valid values:
+     *
+     *   AliyunConsole: The project is created in the Alibaba Cloud console.
+     *   WebSDK: The project is created by using the SDK for Web.
+     *   OpenAPI: The project is created by calling API operations.
+     *
      * @example OpenAPI
      *
      * @var string
@@ -37,6 +59,8 @@ class projectList extends Model
     public $createSource;
 
     /**
+     * @description The time when the online editing project was created.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -44,6 +68,8 @@ class projectList extends Model
     public $createTime;
 
     /**
+     * @description The description of the online editing project.
+     *
      * @example sample description
      *
      * @var string
@@ -51,6 +77,8 @@ class projectList extends Model
     public $description;
 
     /**
+     * @description The total length of the online editing project. Unit: seconds.
+     *
      * @example 30.100000
      *
      * @var int
@@ -58,6 +86,8 @@ class projectList extends Model
     public $duration;
 
     /**
+     * @description The error code returned if the production of the online editing project failed.
+     *
      * @example InvalidParameter
      *
      * @var string
@@ -65,6 +95,8 @@ class projectList extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the production of the online editing project failed.
+     *
      * @example "EventTime":"2021-08-12T10:04:15Z","ErrorCode":"InvalidParameter","ErrorMessage":"The specified parameter \\"LiveStreamConfig\\" is not valid. specified parameter example is not valid.
      *
      * @var string
@@ -72,6 +104,8 @@ class projectList extends Model
     public $errorMessage;
 
     /**
+     * @description The method used when the online editing project was last modified.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -79,6 +113,8 @@ class projectList extends Model
     public $modifiedSource;
 
     /**
+     * @description The time when the online editing project was last modified.
+     *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -86,6 +122,8 @@ class projectList extends Model
     public $modifiedTime;
 
     /**
+     * @description The ID of the online editing project.
+     *
      * @example ****fddd7748b58bf1d47e95****
      *
      * @var string
@@ -93,6 +131,13 @@ class projectList extends Model
     public $projectId;
 
     /**
+     * @description The type of the editing project.
+     *
+     * Valid values:
+     *
+     *   LiveEditingProject: a live stream editing project.
+     *   EditingProject: a regular editing project.
+     *
      * @example EditingProject
      *
      * @var string
@@ -100,6 +145,16 @@ class projectList extends Model
     public $projectType;
 
     /**
+     * @description The status of the online editing project. Valid values:
+     *
+     * Valid values:
+     *
+     *   Draft
+     *   Produced
+     *   Editing
+     *   Producing
+     *   ProduceFailed
+     *
      * @example PRODUCE_FAILED
      *
      * @var string
@@ -107,6 +162,8 @@ class projectList extends Model
     public $status;
 
     /**
+     * @description The type of the template.
+     *
      * @example Timeline
      *
      * @var string
@@ -114,6 +171,8 @@ class projectList extends Model
     public $templateType;
 
     /**
+     * @description The timeline of the online editing project.
+     *
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"****4d7cf14dc7b83b0e801c****"},{"MediaId":"****4d7cf14dc7b83b0e801c****"}]}]}
      *
      * @var string
@@ -121,6 +180,8 @@ class projectList extends Model
     public $timeline;
 
     /**
+     * @description The title of the online editing project.
+     *
      * @example title
      *
      * @var string

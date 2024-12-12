@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSearchLibRequest extends Model
 {
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListSearchLibRequest extends Model
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Maximum value: 50.
+     *
      * @example 10
      *
      * @var int

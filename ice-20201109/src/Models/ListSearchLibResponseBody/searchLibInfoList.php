@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class searchLibInfoList extends Model
 {
     /**
+     * @description The search library.
+     *
      * @example faceSearchLib
      *
      * @var string
@@ -16,6 +18,12 @@ class searchLibInfoList extends Model
     public $searchLibName;
 
     /**
+     * @description The status of the search library.
+     *
+     *   normal
+     *   deleting
+     *   deleteFail
+     *
      * @example normal
      *
      * @var string

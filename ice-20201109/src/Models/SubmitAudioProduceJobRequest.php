@@ -23,7 +23,7 @@ class SubmitAudioProduceJobRequest extends Model
     /**
      * @description The audio editing configurations.
      *
-     *   voice: the [voice type](https://help.aliyun.com/document_detail/402424.html).
+     *   voice: the [voice type](https://help.aliyun.com/document_detail/449563.html).
      *   customizedVoice: the ID of the personalized human voice.
      *   format: the format of the output file. Valid values: PCM, WAV, and MP3.
      *   volume: the volume. Default value: 50. Valid values: 0 to 100.
