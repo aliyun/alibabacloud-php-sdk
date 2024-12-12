@@ -27,6 +27,20 @@ class ScorePageItem extends Model
     public $displayLink;
 
     /**
+     * @example https://s2.zimgs.cn/ims?kt=url&at=smstruct&key=aHR0cHM6Ly9ndy5hbGljZG4uY29tL0wxLzcyMy8xNTY1MjU2NjAwLzJhL2YwL2I0LzJhZjBiNDQxMGI5YmVlMDVjOGVlNGJmODk3MTNkNTFjLnBuZw==&sign=yx:CUlNNQVJQjFrk3Kxt2F3KWhTOFU=&tv=400_400
+     *
+     * @var string
+     */
+    public $hostLogo;
+
+    /**
+     * @example 新华网
+     *
+     * @var string
+     */
+    public $hostname;
+
+    /**
      * @description This parameter is required.
      *
      * @example 100km/h-0制动能力上，仅有33.3m，不黑不吹，单看这个，<em>小米SU7</em>确实表现不错。而续航方面，101kWh电池容量，实现CLTC续航800km，还有现5分钟补能220km，15分钟补能510km的800V高压平台。而在...
@@ -94,6 +108,13 @@ class ScorePageItem extends Model
     public $score;
 
     /**
+     * @example 权威媒体
+     *
+     * @var string
+     */
+    public $siteLabel;
+
+    /**
      * @description This parameter is required.
      *
      * @example 小米SU7售价22.99万元起 高管亲自辟谣：发布前不会有价格
@@ -104,6 +125,8 @@ class ScorePageItem extends Model
     protected $_name = [
         'cardType'    => 'cardType',
         'displayLink' => 'displayLink',
+        'hostLogo'    => 'hostLogo',
+        'hostname'    => 'hostname',
         'htmlSnippet' => 'htmlSnippet',
         'htmlTitle'   => 'htmlTitle',
         'images'      => 'images',
@@ -113,6 +136,7 @@ class ScorePageItem extends Model
         'pageMap'     => 'pageMap',
         'publishTime' => 'publishTime',
         'score'       => 'score',
+        'siteLabel'   => 'siteLabel',
         'title'       => 'title',
     ];
 
@@ -128,6 +152,12 @@ class ScorePageItem extends Model
         }
         if (null !== $this->displayLink) {
             $res['displayLink'] = $this->displayLink;
+        }
+        if (null !== $this->hostLogo) {
+            $res['hostLogo'] = $this->hostLogo;
+        }
+        if (null !== $this->hostname) {
+            $res['hostname'] = $this->hostname;
         }
         if (null !== $this->htmlSnippet) {
             $res['htmlSnippet'] = $this->htmlSnippet;
@@ -162,6 +192,9 @@ class ScorePageItem extends Model
         if (null !== $this->score) {
             $res['score'] = $this->score;
         }
+        if (null !== $this->siteLabel) {
+            $res['siteLabel'] = $this->siteLabel;
+        }
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -182,6 +215,12 @@ class ScorePageItem extends Model
         }
         if (isset($map['displayLink'])) {
             $model->displayLink = $map['displayLink'];
+        }
+        if (isset($map['hostLogo'])) {
+            $model->hostLogo = $map['hostLogo'];
+        }
+        if (isset($map['hostname'])) {
+            $model->hostname = $map['hostname'];
         }
         if (isset($map['htmlSnippet'])) {
             $model->htmlSnippet = $map['htmlSnippet'];
@@ -215,6 +254,9 @@ class ScorePageItem extends Model
         }
         if (isset($map['score'])) {
             $model->score = $map['score'];
+        }
+        if (isset($map['siteLabel'])) {
+            $model->siteLabel = $map['siteLabel'];
         }
         if (isset($map['title'])) {
             $model->title = $map['title'];

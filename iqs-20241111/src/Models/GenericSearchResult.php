@@ -21,6 +21,11 @@ class GenericSearchResult extends Model
     public $requestId;
 
     /**
+     * @var SceneItem[]
+     */
+    public $sceneItems;
+
+    /**
      * @var SearchInformation
      */
     public $searchInformation;
@@ -32,6 +37,7 @@ class GenericSearchResult extends Model
     protected $_name = [
         'pageItems'         => 'pageItems',
         'requestId'         => 'requestId',
+        'sceneItems'        => 'sceneItems',
         'searchInformation' => 'searchInformation',
         'weiboItems'        => 'weiboItems',
     ];
@@ -54,6 +60,15 @@ class GenericSearchResult extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->sceneItems) {
+            $res['sceneItems'] = [];
+            if (null !== $this->sceneItems && \is_array($this->sceneItems)) {
+                $n = 0;
+                foreach ($this->sceneItems as $item) {
+                    $res['sceneItems'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->searchInformation) {
             $res['searchInformation'] = null !== $this->searchInformation ? $this->searchInformation->toMap() : null;
@@ -90,6 +105,15 @@ class GenericSearchResult extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['sceneItems'])) {
+            if (!empty($map['sceneItems'])) {
+                $model->sceneItems = [];
+                $n                 = 0;
+                foreach ($map['sceneItems'] as $item) {
+                    $model->sceneItems[$n++] = null !== $item ? SceneItem::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['searchInformation'])) {
             $model->searchInformation = SearchInformation::fromMap($map['searchInformation']);
