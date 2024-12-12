@@ -65,6 +65,7 @@ use AlibabaCloud\SDK\FC\V20230330\Models\ListFunctionVersionsRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListFunctionVersionsResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\FC\V20230330\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListLayersRequest;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListLayersResponse;
 use AlibabaCloud\SDK\FC\V20230330\Models\ListLayerVersionsRequest;
@@ -1935,18 +1936,44 @@ class FC extends OpenApiClient
      * @summary Queries a list of function instances.
      *  *
      * @param string               $functionName
-     * @param ListInstancesRequest $request      ListInstancesRequest
+     * @param ListInstancesRequest $tmpReq       ListInstancesRequest
      * @param string[]             $headers      map
      * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
      *
      * @return ListInstancesResponse ListInstancesResponse
      */
-    public function listInstancesWithOptions($functionName, $request, $headers, $runtime)
+    public function listInstancesWithOptions($functionName, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListInstancesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'instanceIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->instanceStatus)) {
+            $request->instanceStatusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceStatus, 'instanceStatus', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->endTimeMs)) {
+            $query['endTimeMs'] = $request->endTimeMs;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['instanceIds'] = $request->instanceIdsShrink;
+        }
+        if (!Utils::isUnset($request->instanceStatusShrink)) {
+            $query['instanceStatus'] = $request->instanceStatusShrink;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['limit'] = $request->limit;
+        }
         if (!Utils::isUnset($request->qualifier)) {
             $query['qualifier'] = $request->qualifier;
+        }
+        if (!Utils::isUnset($request->startKey)) {
+            $query['startKey'] = $request->startKey;
+        }
+        if (!Utils::isUnset($request->startTimeMs)) {
+            $query['startTimeMs'] = $request->startTimeMs;
         }
         if (!Utils::isUnset($request->withAllActive)) {
             $query['withAllActive'] = $request->withAllActive;

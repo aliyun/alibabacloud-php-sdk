@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListInstancesRequest extends Model
+class ListInstancesShrinkRequest extends Model
 {
     /**
      * @var int
@@ -14,14 +14,14 @@ class ListInstancesRequest extends Model
     public $endTimeMs;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceIds;
+    public $instanceIdsShrink;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $instanceStatus;
+    public $instanceStatusShrink;
 
     /**
      * @var string
@@ -56,14 +56,14 @@ class ListInstancesRequest extends Model
      */
     public $withAllActive;
     protected $_name = [
-        'endTimeMs'      => 'endTimeMs',
-        'instanceIds'    => 'instanceIds',
-        'instanceStatus' => 'instanceStatus',
-        'limit'          => 'limit',
-        'qualifier'      => 'qualifier',
-        'startKey'       => 'startKey',
-        'startTimeMs'    => 'startTimeMs',
-        'withAllActive'  => 'withAllActive',
+        'endTimeMs'            => 'endTimeMs',
+        'instanceIdsShrink'    => 'instanceIds',
+        'instanceStatusShrink' => 'instanceStatus',
+        'limit'                => 'limit',
+        'qualifier'            => 'qualifier',
+        'startKey'             => 'startKey',
+        'startTimeMs'          => 'startTimeMs',
+        'withAllActive'        => 'withAllActive',
     ];
 
     public function validate()
@@ -76,11 +76,11 @@ class ListInstancesRequest extends Model
         if (null !== $this->endTimeMs) {
             $res['endTimeMs'] = $this->endTimeMs;
         }
-        if (null !== $this->instanceIds) {
-            $res['instanceIds'] = $this->instanceIds;
+        if (null !== $this->instanceIdsShrink) {
+            $res['instanceIds'] = $this->instanceIdsShrink;
         }
-        if (null !== $this->instanceStatus) {
-            $res['instanceStatus'] = $this->instanceStatus;
+        if (null !== $this->instanceStatusShrink) {
+            $res['instanceStatus'] = $this->instanceStatusShrink;
         }
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
@@ -104,7 +104,7 @@ class ListInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListInstancesRequest
+     * @return ListInstancesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -113,14 +113,10 @@ class ListInstancesRequest extends Model
             $model->endTimeMs = $map['endTimeMs'];
         }
         if (isset($map['instanceIds'])) {
-            if (!empty($map['instanceIds'])) {
-                $model->instanceIds = $map['instanceIds'];
-            }
+            $model->instanceIdsShrink = $map['instanceIds'];
         }
         if (isset($map['instanceStatus'])) {
-            if (!empty($map['instanceStatus'])) {
-                $model->instanceStatus = $map['instanceStatus'];
-            }
+            $model->instanceStatusShrink = $map['instanceStatus'];
         }
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
