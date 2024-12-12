@@ -3110,6 +3110,9 @@ class Polardbx extends OpenApiClient
         if (!Utils::isUnset($request->dnClass)) {
             $query['DnClass'] = $request->dnClass;
         }
+        if (!Utils::isUnset($request->dnStorageSpace)) {
+            $query['DnStorageSpace'] = $request->dnStorageSpace;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }

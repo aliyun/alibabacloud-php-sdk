@@ -35,6 +35,11 @@ class ModifyDBInstanceClassRequest extends Model
     public $dnClass;
 
     /**
+     * @var string
+     */
+    public $dnStorageSpace;
+
+    /**
      * @description This parameter is required.
      *
      * @example cn-hangzhou
@@ -74,6 +79,7 @@ class ModifyDBInstanceClassRequest extends Model
         'cnClass'                => 'CnClass',
         'DBInstanceName'         => 'DBInstanceName',
         'dnClass'                => 'DnClass',
+        'dnStorageSpace'         => 'DnStorageSpace',
         'regionId'               => 'RegionId',
         'specifiedDNScale'       => 'SpecifiedDNScale',
         'specifiedDNSpecMapJson' => 'SpecifiedDNSpecMapJson',
@@ -100,6 +106,9 @@ class ModifyDBInstanceClassRequest extends Model
         }
         if (null !== $this->dnClass) {
             $res['DnClass'] = $this->dnClass;
+        }
+        if (null !== $this->dnStorageSpace) {
+            $res['DnStorageSpace'] = $this->dnStorageSpace;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -142,6 +151,9 @@ class ModifyDBInstanceClassRequest extends Model
         }
         if (isset($map['DnClass'])) {
             $model->dnClass = $map['DnClass'];
+        }
+        if (isset($map['DnStorageSpace'])) {
+            $model->dnStorageSpace = $map['DnStorageSpace'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
