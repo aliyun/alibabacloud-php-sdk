@@ -16,6 +16,11 @@ class ListChunksRequest extends Model
     public $fields;
 
     /**
+     * @var string
+     */
+    public $fileId;
+
+    /**
      * @description The primary key ID of the document. This parameter is not required for structured knowledge base, but is required for unstructured knowledge base. To view the ID, you can click the ID icon next to the file name on the [Data Management](https://bailian.console.aliyun.com/#/data-center) page. You can filter returned chunks by the document ID. This parameter is left empty by default.
      *
      * @example file_5f03dfea56da4050ab68d61871fc4cb3_10151493
@@ -53,6 +58,7 @@ class ListChunksRequest extends Model
     public $pageSize;
     protected $_name = [
         'fields'   => 'Fields',
+        'fileId'   => 'FileId',
         'filed'    => 'Filed',
         'indexId'  => 'IndexId',
         'pageNum'  => 'PageNum',
@@ -68,6 +74,9 @@ class ListChunksRequest extends Model
         $res = [];
         if (null !== $this->fields) {
             $res['Fields'] = $this->fields;
+        }
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
         if (null !== $this->filed) {
             $res['Filed'] = $this->filed;
@@ -97,6 +106,9 @@ class ListChunksRequest extends Model
             if (!empty($map['Fields'])) {
                 $model->fields = $map['Fields'];
             }
+        }
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
         if (isset($map['Filed'])) {
             $model->filed = $map['Filed'];

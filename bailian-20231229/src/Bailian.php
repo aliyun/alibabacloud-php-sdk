@@ -1479,6 +1479,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($request->fields)) {
             $body['Fields'] = $request->fields;
         }
+        if (!Utils::isUnset($request->fileId)) {
+            $body['FileId'] = $request->fileId;
+        }
         if (!Utils::isUnset($request->filed)) {
             $body['Filed'] = $request->filed;
         }
