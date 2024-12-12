@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The Common Name of the certificate.
+     *
      * @example www.example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class result extends Model
     public $commonName;
 
     /**
+     * @description The time when the certificate was created.
+     *
      * @example 2024-06-24 07:48:51
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $createTime;
 
     /**
+     * @description The certificate ID.
+     *
      * @example babab9db65ee5efcca9f3d41d4b5****
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $id;
 
     /**
+     * @description The CA that issued the certificate.
+     *
      * @example GlobalSign nv-sa
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $issuer;
 
     /**
+     * @description The certificate name.
+     *
      * @example yourCertName
      *
      * @var string
@@ -44,6 +54,8 @@ class result extends Model
     public $name;
 
     /**
+     * @description The time when the certificate expires.
+     *
      * @example 2024-03-31 02:08:00
      *
      * @var string
@@ -51,6 +63,8 @@ class result extends Model
     public $notAfter;
 
     /**
+     * @description The time when the certificate takes effect.
+     *
      * @example 2023-03-31 02:08:00
      *
      * @var string
@@ -58,6 +72,8 @@ class result extends Model
     public $notBefore;
 
     /**
+     * @description The public-key algorithm of the certificate.
+     *
      * @example RSA
      *
      * @var string
@@ -65,6 +81,8 @@ class result extends Model
     public $pubkeyAlgorithm;
 
     /**
+     * @description The Subject Alternative Name (SAN) of the certificate.
+     *
      * @example www.example.com,*.example.com
      *
      * @var string
@@ -72,6 +90,8 @@ class result extends Model
     public $SAN;
 
     /**
+     * @description The signature algorithm of the certificate.
+     *
      * @example SHA256-RSA
      *
      * @var string
@@ -79,6 +99,8 @@ class result extends Model
     public $signatureAlgorithm;
 
     /**
+     * @description The certificate status.
+     *
      * @example OK
      *
      * @var string
@@ -86,6 +108,8 @@ class result extends Model
     public $status;
 
     /**
+     * @description The certificate type.
+     *
      * @example upload
      *
      * @var string
@@ -93,6 +117,8 @@ class result extends Model
     public $type;
 
     /**
+     * @description The time when the certificate was updated.
+     *
      * @example 2024-07-20 06:18:42
      *
      * @var string

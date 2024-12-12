@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RevokeClientCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The certificate ID.
      *
+     * This parameter is required.
      * @example baba39055622c008b90285a8838ed09a
      *
      * @var string
@@ -18,8 +19,9 @@ class RevokeClientCertificateRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int

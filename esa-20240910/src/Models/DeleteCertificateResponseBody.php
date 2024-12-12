@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCertificateResponseBody extends Model
 {
     /**
+     * @description The certificate ID.
+     *
      * @example babaded901474b9693acf530e0fb1d95
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCertificateResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example F32C57AA-7BF8-49AE-A2CC-9F42390F5A19
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteCertificateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -30,6 +36,8 @@ class DeleteCertificateResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string

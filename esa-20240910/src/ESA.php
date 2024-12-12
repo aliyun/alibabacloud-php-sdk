@@ -3186,7 +3186,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除证书
+     * @summary Deletes a certificate for a website.
      *  *
      * @param DeleteCertificateRequest $request DeleteCertificateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -3216,7 +3216,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除证书
+     * @summary Deletes a certificate for a website.
      *  *
      * @param DeleteCertificateRequest $request DeleteCertificateRequest
      *
@@ -3230,7 +3230,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除客户端CA证书
+     * @summary Deletes a client CA certificate.
      *  *
      * @param DeleteClientCaCertificateRequest $request DeleteClientCaCertificateRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3260,7 +3260,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 删除客户端CA证书
+     * @summary Deletes a client CA certificate.
      *  *
      * @param DeleteClientCaCertificateRequest $request DeleteClientCaCertificateRequest
      *
@@ -5176,7 +5176,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户端证书以及证书信息
+     * @summary Queries information about a client certificate.
      *  *
      * @param GetClientCertificateRequest $request GetClientCertificateRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5206,7 +5206,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户端证书以及证书信息
+     * @summary Queries information about a client certificate.
      *  *
      * @param GetClientCertificateRequest $request GetClientCertificateRequest
      *
@@ -6497,6 +6497,9 @@ class ESA extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
         if (!Utils::isUnset($request->siteId)) {
             $query['SiteId'] = $request->siteId;
         }
@@ -7011,7 +7014,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点下客户端CA证书列表
+     * @summary Queries a list of client certificate authority (CA) certificates for a website.
      *  *
      * @param ListClientCaCertificatesRequest $request ListClientCaCertificatesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7041,7 +7044,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 查询站点下客户端CA证书列表
+     * @summary Queries a list of client certificate authority (CA) certificates for a website.
      *  *
      * @param ListClientCaCertificatesRequest $request ListClientCaCertificatesRequest
      *
@@ -9363,7 +9366,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 吊销客户端证书
+     * @summary Revokes an activated client certificate.
      *  *
      * @param RevokeClientCertificateRequest $request RevokeClientCertificateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -9393,7 +9396,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 吊销客户端证书
+     * @summary Revokes an activated client certificate.
      *  *
      * @param RevokeClientCertificateRequest $request RevokeClientCertificateRequest
      *

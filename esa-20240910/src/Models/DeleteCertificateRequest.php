@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The certificate ID.
      *
+     * This parameter is required.
      * @example babaded901474b9693acf530e0fb1d95
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteCertificateRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int

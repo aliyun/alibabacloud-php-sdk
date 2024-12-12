@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSiteWafSettingsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $path;
+
+    /**
      * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
      * @example 1
@@ -26,6 +31,7 @@ class GetSiteWafSettingsRequest extends Model
      */
     public $siteVersion;
     protected $_name = [
+        'path'        => 'Path',
         'siteId'      => 'SiteId',
         'siteVersion' => 'SiteVersion',
     ];
@@ -37,6 +43,9 @@ class GetSiteWafSettingsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->path) {
+            $res['Path'] = $this->path;
+        }
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -55,6 +64,9 @@ class GetSiteWafSettingsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Path'])) {
+            $model->path = $map['Path'];
+        }
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

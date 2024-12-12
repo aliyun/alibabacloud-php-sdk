@@ -2,34 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ESA\V20240910\Models;
+namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\botManagement;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteClientCaCertificateRequest extends Model
+class verifiedBots extends Model
 {
     /**
-     * @description The certificate ID.
-     *
-     * This parameter is required.
-     * @example baba39055622c008b90285a8838ed09a
-     *
      * @var string
      */
-    public $id;
+    public $action;
 
     /**
-     * @description The website ID.
-     *
-     * This parameter is required.
-     * @example 1234567890123
-     *
      * @var int
      */
-    public $siteId;
+    public $id;
     protected $_name = [
+        'action' => 'Action',
         'id'     => 'Id',
-        'siteId' => 'SiteId',
     ];
 
     public function validate()
@@ -39,11 +29,11 @@ class DeleteClientCaCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->action) {
+            $res['Action'] = $this->action;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->siteId) {
-            $res['SiteId'] = $this->siteId;
         }
 
         return $res;
@@ -52,16 +42,16 @@ class DeleteClientCaCertificateRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteClientCaCertificateRequest
+     * @return verifiedBots
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Action'])) {
+            $model->action = $map['Action'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['SiteId'])) {
-            $model->siteId = $map['SiteId'];
         }
 
         return $model;

@@ -69,6 +69,11 @@ class WafRuleConfig extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $notes;
+
+    /**
      * @var rateLimit
      */
     public $rateLimit;
@@ -92,6 +97,11 @@ class WafRuleConfig extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $value;
     protected $_name = [
         'action'          => 'Action',
         'actions'         => 'Actions',
@@ -104,11 +114,13 @@ class WafRuleConfig extends Model
         'managedRulesets' => 'ManagedRulesets',
         'match'           => 'Match',
         'name'            => 'Name',
+        'notes'           => 'Notes',
         'rateLimit'       => 'RateLimit',
         'sigchl'          => 'Sigchl',
         'status'          => 'Status',
         'timer'           => 'Timer',
         'type'            => 'Type',
+        'value'           => 'Value',
     ];
 
     public function validate()
@@ -157,6 +169,9 @@ class WafRuleConfig extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->notes) {
+            $res['Notes'] = $this->notes;
+        }
         if (null !== $this->rateLimit) {
             $res['RateLimit'] = null !== $this->rateLimit ? $this->rateLimit->toMap() : null;
         }
@@ -171,6 +186,9 @@ class WafRuleConfig extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -223,6 +241,9 @@ class WafRuleConfig extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Notes'])) {
+            $model->notes = $map['Notes'];
+        }
         if (isset($map['RateLimit'])) {
             $model->rateLimit = rateLimit::fromMap($map['RateLimit']);
         }
@@ -239,6 +260,9 @@ class WafRuleConfig extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

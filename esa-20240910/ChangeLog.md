@@ -1,3 +1,8 @@
+2024-12-12 Version: 2.7.4
+- Update API GetSiteWafSettings: add param Path.
+- Update API ListWafRules: update param QueryArgs.
+
+
 2024-12-07 Version: 2.7.3
 - Generated php 2024-09-10 for ESA.
 

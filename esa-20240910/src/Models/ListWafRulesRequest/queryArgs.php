@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class queryArgs extends Model
 {
     /**
+     * @var string
+     */
+    public $configValueLike;
+
+    /**
      * @description Specifies whether to sort the returned data in descending order.
      *
      * @example true
@@ -71,13 +76,14 @@ class queryArgs extends Model
      */
     public $status;
     protected $_name = [
-        'desc'       => 'Desc',
-        'id'         => 'Id',
-        'idNameLike' => 'IdNameLike',
-        'nameLike'   => 'NameLike',
-        'orderBy'    => 'OrderBy',
-        'rulesetId'  => 'RulesetId',
-        'status'     => 'Status',
+        'configValueLike' => 'ConfigValueLike',
+        'desc'            => 'Desc',
+        'id'              => 'Id',
+        'idNameLike'      => 'IdNameLike',
+        'nameLike'        => 'NameLike',
+        'orderBy'         => 'OrderBy',
+        'rulesetId'       => 'RulesetId',
+        'status'          => 'Status',
     ];
 
     public function validate()
@@ -87,6 +93,9 @@ class queryArgs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->configValueLike) {
+            $res['ConfigValueLike'] = $this->configValueLike;
+        }
         if (null !== $this->desc) {
             $res['Desc'] = $this->desc;
         }
@@ -120,6 +129,9 @@ class queryArgs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConfigValueLike'])) {
+            $model->configValueLike = $map['ConfigValueLike'];
+        }
         if (isset($map['Desc'])) {
             $model->desc = $map['Desc'];
         }

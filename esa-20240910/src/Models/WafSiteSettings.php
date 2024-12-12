@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\addBotProtectionHeaders;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\addSecurityHeaders;
+use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\botManagement;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\clientIpIdentifier;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings\securityLevel;
 use AlibabaCloud\Tea\Model;
@@ -23,6 +24,11 @@ class WafSiteSettings extends Model
     public $addSecurityHeaders;
 
     /**
+     * @var botManagement
+     */
+    public $botManagement;
+
+    /**
      * @var clientIpIdentifier
      */
     public $clientIpIdentifier;
@@ -34,6 +40,7 @@ class WafSiteSettings extends Model
     protected $_name = [
         'addBotProtectionHeaders' => 'AddBotProtectionHeaders',
         'addSecurityHeaders'      => 'AddSecurityHeaders',
+        'botManagement'           => 'BotManagement',
         'clientIpIdentifier'      => 'ClientIpIdentifier',
         'securityLevel'           => 'SecurityLevel',
     ];
@@ -50,6 +57,9 @@ class WafSiteSettings extends Model
         }
         if (null !== $this->addSecurityHeaders) {
             $res['AddSecurityHeaders'] = null !== $this->addSecurityHeaders ? $this->addSecurityHeaders->toMap() : null;
+        }
+        if (null !== $this->botManagement) {
+            $res['BotManagement'] = null !== $this->botManagement ? $this->botManagement->toMap() : null;
         }
         if (null !== $this->clientIpIdentifier) {
             $res['ClientIpIdentifier'] = null !== $this->clientIpIdentifier ? $this->clientIpIdentifier->toMap() : null;
@@ -74,6 +84,9 @@ class WafSiteSettings extends Model
         }
         if (isset($map['AddSecurityHeaders'])) {
             $model->addSecurityHeaders = addSecurityHeaders::fromMap($map['AddSecurityHeaders']);
+        }
+        if (isset($map['BotManagement'])) {
+            $model->botManagement = botManagement::fromMap($map['BotManagement']);
         }
         if (isset($map['ClientIpIdentifier'])) {
             $model->clientIpIdentifier = clientIpIdentifier::fromMap($map['ClientIpIdentifier']);

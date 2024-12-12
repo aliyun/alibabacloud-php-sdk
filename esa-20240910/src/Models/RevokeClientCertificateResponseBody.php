@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokeClientCertificateResponseBody extends Model
 {
     /**
+     * @description The certificate ID.
+     *
      * @example baba39055622c008b90285a8838ed09a
      *
      * @var string
@@ -16,6 +18,8 @@ class RevokeClientCertificateResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example 15C66C7B-671A-4297-9187-2C4477247A123425345
      *
      * @var string
@@ -23,6 +27,8 @@ class RevokeClientCertificateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -30,6 +36,8 @@ class RevokeClientCertificateResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string

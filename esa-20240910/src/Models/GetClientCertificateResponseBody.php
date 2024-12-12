@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetClientCertificateResponseBody extends Model
 {
     /**
+     * @description The certificate content.
+     *
      * @example -----BEGIN CERTIFICATE-----
      *
      * @var string
@@ -17,6 +19,8 @@ class GetClientCertificateResponseBody extends Model
     public $certificate;
 
     /**
+     * @description The request ID.
+     *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *
      * @var string
@@ -24,11 +28,15 @@ class GetClientCertificateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The certificate information.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -36,6 +44,8 @@ class GetClientCertificateResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string
@@ -43,6 +53,8 @@ class GetClientCertificateResponseBody extends Model
     public $siteName;
 
     /**
+     * @description The certificate status.
+     *
      * @example active
      *
      * @var string
