@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceRequest\listen;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceRequest\redirect;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateCloudResourceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateCloudResourceRequest extends Model
@@ -65,6 +66,11 @@ class CreateCloudResourceRequest extends Model
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'instanceId'                     => 'InstanceId',
         'listen'                         => 'Listen',
@@ -72,6 +78,7 @@ class CreateCloudResourceRequest extends Model
         'redirect'                       => 'Redirect',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'tag'                            => 'Tag',
     ];
 
     public function validate()
@@ -98,6 +105,15 @@ class CreateCloudResourceRequest extends Model
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -128,6 +144,15 @@ class CreateCloudResourceRequest extends Model
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -54,6 +54,10 @@ class data extends Model
     public $matchedHost;
 
     /**
+     * @description IP region, formatted as a region code.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $remoteCountryId;

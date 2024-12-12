@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models;
 
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\CreateDomainShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDomainShrinkRequest extends Model
@@ -77,6 +78,11 @@ class CreateDomainShrinkRequest extends Model
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'accessType'                     => 'AccessType',
         'domain'                         => 'Domain',
@@ -85,6 +91,7 @@ class CreateDomainShrinkRequest extends Model
         'redirectShrink'                 => 'Redirect',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'tag'                            => 'Tag',
     ];
 
     public function validate()
@@ -114,6 +121,15 @@ class CreateDomainShrinkRequest extends Model
         }
         if (null !== $this->resourceManagerResourceGroupId) {
             $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -147,6 +163,15 @@ class CreateDomainShrinkRequest extends Model
         }
         if (isset($map['ResourceManagerResourceGroupId'])) {
             $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

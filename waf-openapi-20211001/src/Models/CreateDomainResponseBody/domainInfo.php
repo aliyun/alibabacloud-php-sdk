@@ -25,9 +25,15 @@ class domainInfo extends Model
      * @var string
      */
     public $domain;
+
+    /**
+     * @var string
+     */
+    public $domainId;
     protected $_name = [
-        'cname'  => 'Cname',
-        'domain' => 'Domain',
+        'cname'    => 'Cname',
+        'domain'   => 'Domain',
+        'domainId' => 'DomainId',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class domainInfo extends Model
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->domainId) {
+            $res['DomainId'] = $this->domainId;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class domainInfo extends Model
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['DomainId'])) {
+            $model->domainId = $map['DomainId'];
         }
 
         return $model;

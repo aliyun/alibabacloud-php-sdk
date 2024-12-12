@@ -675,6 +675,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -944,6 +947,9 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
             $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

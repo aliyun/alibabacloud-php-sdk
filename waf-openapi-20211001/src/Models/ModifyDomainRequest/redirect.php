@@ -20,6 +20,11 @@ class redirect extends Model
     public $backends;
 
     /**
+     * @var string[]
+     */
+    public $backupBackends;
+
+    /**
      * @description Specifies whether to enable the public cloud disaster recovery feature. Valid values:
      *
      *   **true**
@@ -184,6 +189,7 @@ class redirect extends Model
     public $xffProto;
     protected $_name = [
         'backends'          => 'Backends',
+        'backupBackends'    => 'BackupBackends',
         'cnameEnabled'      => 'CnameEnabled',
         'connectTimeout'    => 'ConnectTimeout',
         'focusHttpBackend'  => 'FocusHttpBackend',
@@ -210,6 +216,9 @@ class redirect extends Model
         $res = [];
         if (null !== $this->backends) {
             $res['Backends'] = $this->backends;
+        }
+        if (null !== $this->backupBackends) {
+            $res['BackupBackends'] = $this->backupBackends;
         }
         if (null !== $this->cnameEnabled) {
             $res['CnameEnabled'] = $this->cnameEnabled;
@@ -277,6 +286,11 @@ class redirect extends Model
         if (isset($map['Backends'])) {
             if (!empty($map['Backends'])) {
                 $model->backends = $map['Backends'];
+            }
+        }
+        if (isset($map['BackupBackends'])) {
+            if (!empty($map['BackupBackends'])) {
+                $model->backupBackends = $map['BackupBackends'];
             }
         }
         if (isset($map['CnameEnabled'])) {

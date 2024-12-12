@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody;
 
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\backends;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\backupBackends;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeDomainDetailResponseBody\redirect\requestHeaders;
 use AlibabaCloud\Tea\Model;
 
@@ -16,6 +17,11 @@ class redirect extends Model
      * @var backends[]
      */
     public $backends;
+
+    /**
+     * @var backupBackends[]
+     */
+    public $backupBackends;
 
     /**
      * @description The timeout period of the connection. Unit: seconds. Valid values: 5 to 120.
@@ -154,6 +160,7 @@ class redirect extends Model
     public $xffProto;
     protected $_name = [
         'backends'          => 'Backends',
+        'backupBackends'    => 'BackupBackends',
         'connectTimeout'    => 'ConnectTimeout',
         'focusHttpBackend'  => 'FocusHttpBackend',
         'keepalive'         => 'Keepalive',
@@ -182,6 +189,15 @@ class redirect extends Model
                 $n = 0;
                 foreach ($this->backends as $item) {
                     $res['Backends'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->backupBackends) {
+            $res['BackupBackends'] = [];
+            if (null !== $this->backupBackends && \is_array($this->backupBackends)) {
+                $n = 0;
+                foreach ($this->backupBackends as $item) {
+                    $res['BackupBackends'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -248,6 +264,15 @@ class redirect extends Model
                 $n               = 0;
                 foreach ($map['Backends'] as $item) {
                     $model->backends[$n++] = null !== $item ? backends::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['BackupBackends'])) {
+            if (!empty($map['BackupBackends'])) {
+                $model->backupBackends = [];
+                $n                     = 0;
+                foreach ($map['BackupBackends'] as $item) {
+                    $model->backupBackends[$n++] = null !== $item ? backupBackends::fromMap($item) : $item;
                 }
             }
         }
