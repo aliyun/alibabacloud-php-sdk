@@ -5384,7 +5384,7 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return InstallClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7584,7 +7584,7 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return UnInstallClusterAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
