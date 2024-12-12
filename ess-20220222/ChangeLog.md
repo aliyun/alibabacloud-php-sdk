@@ -1,3 +1,6 @@
+2024-12-12 Version: 1.8.5
+- Generated php 2022-02-22 for Ess.
+
 2024-12-10 Version: 1.8.4
 - Update API DescribeInstanceRefreshes: update response param.
 - Update API StartInstanceRefresh: add param SkipMatching.
