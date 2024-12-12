@@ -144,6 +144,11 @@ class instanceList extends Model
     public $remark;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The status of the instance. Valid values:
      *
      *   **1**: normal
@@ -169,6 +174,7 @@ class instanceList extends Model
         'ipType'               => 'IpType',
         'product'              => 'Product',
         'remark'               => 'Remark',
+        'resourceGroupId'      => 'ResourceGroupId',
         'status'               => 'Status',
     ];
 
@@ -217,6 +223,9 @@ class instanceList extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -271,6 +280,9 @@ class instanceList extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
