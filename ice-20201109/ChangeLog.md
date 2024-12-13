@@ -3,6 +3,11 @@
 - Support API TakeoverAIAgentCall.
 
 
+2024-12-13 Version: 3.7.0
+- Support API SendAIAgentDataChannelMessage.
+- Support API TakeoverAIAgentCall.
+
+
 2024-12-12 Version: 3.7.0
 - Support API QueryCopyrightExtractJob.
 - Support API QueryCopyrightJobList.
