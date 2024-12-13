@@ -188,6 +188,11 @@ class DBInstances extends Model
     public $payType;
 
     /**
+     * @var string
+     */
+    public $primaryInstanceId;
+
+    /**
      * @description 主可用区。
      *
      * This parameter is required.
@@ -332,6 +337,7 @@ class DBInstances extends Model
         'nodeCount'               => 'NodeCount',
         'nodes'                   => 'Nodes',
         'payType'                 => 'PayType',
+        'primaryInstanceId'       => 'PrimaryInstanceId',
         'primaryZone'             => 'PrimaryZone',
         'readDBInstances'         => 'ReadDBInstances',
         'regionId'                => 'RegionId',
@@ -444,6 +450,9 @@ class DBInstances extends Model
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
+        }
+        if (null !== $this->primaryInstanceId) {
+            $res['PrimaryInstanceId'] = $this->primaryInstanceId;
         }
         if (null !== $this->primaryZone) {
             $res['PrimaryZone'] = $this->primaryZone;
@@ -602,6 +611,9 @@ class DBInstances extends Model
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
+        }
+        if (isset($map['PrimaryInstanceId'])) {
+            $model->primaryInstanceId = $map['PrimaryInstanceId'];
         }
         if (isset($map['PrimaryZone'])) {
             $model->primaryZone = $map['PrimaryZone'];

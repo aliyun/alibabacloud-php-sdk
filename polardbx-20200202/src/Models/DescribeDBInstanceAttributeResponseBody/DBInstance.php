@@ -245,6 +245,11 @@ class DBInstance extends Model
     public $port;
 
     /**
+     * @var string
+     */
+    public $primaryInstanceId;
+
+    /**
      * @description 主可用区。
      *
      * This parameter is required.
@@ -405,6 +410,7 @@ class DBInstance extends Model
         'network'                 => 'Network',
         'payType'                 => 'PayType',
         'port'                    => 'Port',
+        'primaryInstanceId'       => 'PrimaryInstanceId',
         'primaryZone'             => 'PrimaryZone',
         'readDBInstances'         => 'ReadDBInstances',
         'regionId'                => 'RegionId',
@@ -557,6 +563,9 @@ class DBInstance extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->primaryInstanceId) {
+            $res['PrimaryInstanceId'] = $this->primaryInstanceId;
         }
         if (null !== $this->primaryZone) {
             $res['PrimaryZone'] = $this->primaryZone;
@@ -759,6 +768,9 @@ class DBInstance extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['PrimaryInstanceId'])) {
+            $model->primaryInstanceId = $map['PrimaryInstanceId'];
         }
         if (isset($map['PrimaryZone'])) {
             $model->primaryZone = $map['PrimaryZone'];
