@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetLoginPreferenceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $allowUserToGetCredentials;
+
+    /**
      * @description The ID of the directory.
      *
      * @example d-00fc2p61****
@@ -32,8 +37,9 @@ class SetLoginPreferenceRequest extends Model
      */
     public $loginNetworkMasks;
     protected $_name = [
-        'directoryId'       => 'DirectoryId',
-        'loginNetworkMasks' => 'LoginNetworkMasks',
+        'allowUserToGetCredentials' => 'AllowUserToGetCredentials',
+        'directoryId'               => 'DirectoryId',
+        'loginNetworkMasks'         => 'LoginNetworkMasks',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class SetLoginPreferenceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowUserToGetCredentials) {
+            $res['AllowUserToGetCredentials'] = $this->allowUserToGetCredentials;
+        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
@@ -61,6 +70,9 @@ class SetLoginPreferenceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowUserToGetCredentials'])) {
+            $model->allowUserToGetCredentials = $map['AllowUserToGetCredentials'];
+        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }

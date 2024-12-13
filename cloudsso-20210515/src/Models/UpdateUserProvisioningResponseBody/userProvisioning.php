@@ -137,8 +137,6 @@ class userProvisioning extends Model
     /**
      * @description The path of the resource directory in which you create the RAM user provisioning for the object.
      *
-     * @example rd-******\/root/test**
-     *
      * @var string
      */
     public $targetPath;

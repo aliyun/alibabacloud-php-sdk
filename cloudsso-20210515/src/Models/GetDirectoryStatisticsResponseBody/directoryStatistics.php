@@ -81,6 +81,10 @@ class directoryStatistics extends Model
     public $inProgressTaskCount;
 
     /**
+     * @description The number of inline policies that can be configured for an access configuration.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $inlinePolicyPerAccessConfigurationQuota;

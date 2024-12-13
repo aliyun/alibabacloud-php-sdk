@@ -86,16 +86,12 @@ class accessAssignments extends Model
     /**
      * @description The path ID of the task object in the resource directory.
      *
-     * @example rd-3G****\/r-Wm****\/114240524784****
-     *
      * @var string
      */
     public $targetPath;
 
     /**
      * @description The path name of the task object in the resource directory.
-     *
-     * @example rd-3G****\/root/dev-test
      *
      * @var string
      */

@@ -95,16 +95,12 @@ class accessConfigurationProvisionings extends Model
     /**
      * @description The path ID of the task object in the resource directory.
      *
-     * @example rd-3G****\/r-Wm****\/fd-pjM8oy****\/101522521960****
-     *
      * @var string
      */
     public $targetPath;
 
     /**
      * @description The path name of the task object in the resource directory.
-     *
-     * @example rd-3G****\/root/Core/SharedServices_5009****
      *
      * @var string
      */

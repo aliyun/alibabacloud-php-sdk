@@ -824,6 +824,8 @@ class Cloudsso extends OpenApiClient
     /**
      * @summary Creates a Resource Access Management (RAM) user provisioning.
      *  *
+     * @description You can create a RAM user provisioning for a member in your resource directory to create a RAM user that has the same username as a CloudSSO user. This way, the CloudSSO user can access the resources of the member as the RAM user.
+     *  *
      * @param CreateUserProvisioningRequest $request CreateUserProvisioningRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -877,6 +879,8 @@ class Cloudsso extends OpenApiClient
 
     /**
      * @summary Creates a Resource Access Management (RAM) user provisioning.
+     *  *
+     * @description You can create a RAM user provisioning for a member in your resource directory to create a RAM user that has the same username as a CloudSSO user. This way, the CloudSSO user can access the resources of the member as the RAM user.
      *  *
      * @param CreateUserProvisioningRequest $request CreateUserProvisioningRequest
      *
@@ -1496,7 +1500,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @summary DisableDelegateAccount
+     * @summary Disables the delegated administrator account of CloudSSO.
      *  *
      * @param DisableDelegateAccountRequest $request DisableDelegateAccountRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1529,7 +1533,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @summary DisableDelegateAccount
+     * @summary Disables the delegated administrator account of CloudSSO.
      *  *
      * @param DisableDelegateAccountRequest $request DisableDelegateAccountRequest
      *
@@ -1584,7 +1588,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @summary EnableDelegateAccount
+     * @summary Enables the delegated administrator account of CloudSSO.
+     *  *
+     * @description You can use the management account of a resource directory to specify a member of the resource directory as the delegated administrator account of CloudSSO. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
+     * After the delegated administrator account of CloudSSO is specified, you can call this operation to enable the delegated administrator account of CloudSSO to manage CloudSSO resources.
      *  *
      * @param EnableDelegateAccountRequest $request EnableDelegateAccountRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -1617,7 +1624,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @summary EnableDelegateAccount
+     * @summary Enables the delegated administrator account of CloudSSO.
+     *  *
+     * @description You can use the management account of a resource directory to specify a member of the resource directory as the delegated administrator account of CloudSSO. For more information, see [Add a delegated administrator account](https://help.aliyun.com/document_detail/208117.html).
+     * After the delegated administrator account of CloudSSO is specified, you can call this operation to enable the delegated administrator account of CloudSSO to manage CloudSSO resources.
      *  *
      * @param EnableDelegateAccountRequest $request EnableDelegateAccountRequest
      *
@@ -1834,10 +1844,7 @@ class Cloudsso extends OpenApiClient
     /**
      * @summary Queries the statistics of a directory.
      *  *
-     * @description ### [](#)
-     * This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, quota for system policies that can be configured for an access configuration, number of access permissions that are assigned, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO), and status of SCIM synchronization.
-     * ### [](#qps)Limit
-     * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     * @description This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, number of access permissions that are assigned, number of system policies that can be configured for an access configuration, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO) logon, and status of SCIM synchronization.
      *  *
      * @param GetDirectoryStatisticsRequest $request GetDirectoryStatisticsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1872,10 +1879,7 @@ class Cloudsso extends OpenApiClient
     /**
      * @summary Queries the statistics of a directory.
      *  *
-     * @description ### [](#)
-     * This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, quota for system policies that can be configured for an access configuration, number of access permissions that are assigned, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO), and status of SCIM synchronization.
-     * ### [](#qps)Limit
-     * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     * @description This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, number of access permissions that are assigned, number of system policies that can be configured for an access configuration, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO) logon, and status of SCIM synchronization.
      *  *
      * @param GetDirectoryStatisticsRequest $request GetDirectoryStatisticsRequest
      *
@@ -2703,7 +2707,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @summary Queries a Resource Access Management (RAM) user provisioning event.
+     * @summary Queries the information about a Resource Access Management (RAM) user provisioning.
      *  *
      * @param GetUserProvisioningEventRequest $request GetUserProvisioningEventRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2739,7 +2743,7 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @summary Queries a Resource Access Management (RAM) user provisioning event.
+     * @summary Queries the information about a Resource Access Management (RAM) user provisioning.
      *  *
      * @param GetUserProvisioningEventRequest $request GetUserProvisioningEventRequest
      *
@@ -4142,6 +4146,9 @@ class Cloudsso extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bindingType)) {
+            $query['BindingType'] = $request->bindingType;
+        }
         if (!Utils::isUnset($request->directoryId)) {
             $query['DirectoryId'] = $request->directoryId;
         }
@@ -4217,6 +4224,9 @@ class Cloudsso extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->allowUserToGetCredentials)) {
+            $query['AllowUserToGetCredentials'] = $request->allowUserToGetCredentials;
+        }
         if (!Utils::isUnset($request->directoryId)) {
             $query['DirectoryId'] = $request->directoryId;
         }

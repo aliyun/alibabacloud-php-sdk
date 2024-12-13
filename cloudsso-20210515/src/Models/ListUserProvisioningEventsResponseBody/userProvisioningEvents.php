@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class userProvisioningEvents extends Model
 {
     /**
-     * @description The creation time.
+     * @description The creation time. The time is displayed in UTC.
      *
      * @example 2022-11-28T03:55:55Z
      *
@@ -78,7 +78,7 @@ class userProvisioningEvents extends Model
     public $eventId;
 
     /**
-     * @description The time at which the RAM user provisioning event was last executed.
+     * @description The time at which the RAM user provisioning event was last executed. The time is displayed in UTC.
      *
      * @example 2022-11-28T03:55:55Z
      *
@@ -89,8 +89,8 @@ class userProvisioningEvents extends Model
     /**
      * @description The identity ID of the RAM user provisioning. Valid values:
      *
-     *   If `Group` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user group (g-\\*\\*\\*\\*\\*\\*\\*\\*).
-     *   If `User` is returned for the `PrincipalType` parameter, the value of this parameter is the ID of a CloudSSO user (u-\\*\\*\\*\\*\\*\\*\\*\\*).
+     *   If you set the `PrincipalType` parameter to `Group`, the value of this parameter is the ID of a CloudSSO user group (g-\\*\\*\\*\\*\\*\\*\\*\\*).
+     *   If you set the `PrincipalType` parameter to `User`, the value of this parameter is the ID of a CloudSSO user (u-\\*\\*\\*\\*\\*\\*\\*\\*).
      *
      * @example g-02ha881d*****
      *
@@ -158,9 +158,7 @@ class userProvisioningEvents extends Model
     public $targetName;
 
     /**
-     * @description The path of the resource directory in which you create the RAM user provisioning for the object.
-     *
-     * @example rd-******\/root/test**
+     * @description The path of the resource directory in which you create the RAM user provisioning for the member.
      *
      * @var string
      */
@@ -176,7 +174,7 @@ class userProvisioningEvents extends Model
     public $targetType;
 
     /**
-     * @description The modification time.
+     * @description The modification time. The time is displayed in UTC.
      *
      * @example 2022-11-28T03:55:55Z
      *

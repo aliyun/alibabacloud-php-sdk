@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class userProvisioning extends Model
 {
     /**
-     * @description The creation time.
+     * @description The creation time. The time is displayed in UTC.
      *
      * @example 2022-11-28T03:55:42Z
      *
@@ -137,8 +137,6 @@ class userProvisioning extends Model
     /**
      * @description The path of the resource directory in which you create the RAM user provisioning for the member.
      *
-     * @example rd-******\/root/test**
-     *
      * @var string
      */
     public $targetPath;
@@ -153,7 +151,7 @@ class userProvisioning extends Model
     public $targetType;
 
     /**
-     * @description The modification time.
+     * @description The modification time. The time is displayed in UTC.
      *
      * @example 2022-11-28T03:55:42Z
      *

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SAMLIdentityProviderConfiguration extends Model
 {
     /**
+     * @description The Binding method for initiating a SAML request. Values:
+     *
+     * - Redirect: Initiate the SAML request using the Redirect method.
+     * @example Post
+     *
+     * @var string
+     */
+    public $bindingType;
+
+    /**
      * @description The ID of the SAML signing certificate.
      *
      * @var string[]
@@ -54,8 +64,6 @@ class SAMLIdentityProviderConfiguration extends Model
     /**
      * @description The logon URL of the IdP.
      *
-     * @example https://dev-xxxxxx.okta.com/app/dev-xxxxxx_cloudssodemo_1/exk3qwgtjhetR2Od****\/sso/saml
-     *
      * @var string
      */
     public $loginUrl;
@@ -93,6 +101,7 @@ class SAMLIdentityProviderConfiguration extends Model
      */
     public $wantRequestSigned;
     protected $_name = [
+        'bindingType'             => 'BindingType',
         'certificateIds'          => 'CertificateIds',
         'createTime'              => 'CreateTime',
         'directoryId'             => 'DirectoryId',
@@ -111,6 +120,9 @@ class SAMLIdentityProviderConfiguration extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bindingType) {
+            $res['BindingType'] = $this->bindingType;
+        }
         if (null !== $this->certificateIds) {
             $res['CertificateIds'] = $this->certificateIds;
         }
@@ -150,6 +162,9 @@ class SAMLIdentityProviderConfiguration extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindingType'])) {
+            $model->bindingType = $map['BindingType'];
+        }
         if (isset($map['CertificateIds'])) {
             if (!empty($map['CertificateIds'])) {
                 $model->certificateIds = $map['CertificateIds'];

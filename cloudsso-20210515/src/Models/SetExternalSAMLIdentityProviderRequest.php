@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SetExternalSAMLIdentityProviderRequest extends Model
 {
     /**
+     * @description The Binding method for initiating a SAML request. Values:
+     *
+     * - Redirect: Initiate the SAML request using the Redirect method.
+     * @example Redirect
+     *
+     * @var string
+     */
+    public $bindingType;
+
+    /**
      * @description The ID of the directory.
      *
      * @example d-00fc2p61****
@@ -38,8 +48,6 @@ class SetExternalSAMLIdentityProviderRequest extends Model
 
     /**
      * @description The logon URL of the IdP.
-     *
-     * @example https://dev-xxxxxx.okta.com/app/dev-xxxxxx_cloudssodemo_1/exk3qwgtjhetR2Od****\/sso/saml
      *
      * @var string
      */
@@ -78,6 +86,7 @@ class SetExternalSAMLIdentityProviderRequest extends Model
      */
     public $x509Certificate;
     protected $_name = [
+        'bindingType'             => 'BindingType',
         'directoryId'             => 'DirectoryId',
         'encodedMetadataDocument' => 'EncodedMetadataDocument',
         'entityId'                => 'EntityId',
@@ -94,6 +103,9 @@ class SetExternalSAMLIdentityProviderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bindingType) {
+            $res['BindingType'] = $this->bindingType;
+        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
@@ -127,6 +139,9 @@ class SetExternalSAMLIdentityProviderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindingType'])) {
+            $model->bindingType = $map['BindingType'];
+        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }

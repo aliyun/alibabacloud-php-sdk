@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableDelegateAccountRequest extends Model
 {
     /**
+     * @description The ID of the delegated administrator account of CloudSSO.
+     *
      * @example 180658567986****
      *
      * @var string

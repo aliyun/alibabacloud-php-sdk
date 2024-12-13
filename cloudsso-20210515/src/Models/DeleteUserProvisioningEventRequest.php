@@ -20,6 +20,7 @@ class DeleteUserProvisioningEventRequest extends Model
     /**
      * @description The ID of the RAM user provisioning event.
      *
+     * You can call the [ListUserProvisioningEvents](https://help.aliyun.com/document_detail/2636305.html) operation to query the value of `EventId`.
      * @example upe-wjKyNDmZvyZOiRcJ****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableDelegateAccountResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 12B3E332-DD16-515B-B695-39BA233AA172
      *
      * @var string

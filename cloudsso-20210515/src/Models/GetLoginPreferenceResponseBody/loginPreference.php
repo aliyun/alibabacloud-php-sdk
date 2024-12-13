@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class loginPreference extends Model
 {
     /**
+     * @description Whether the user can obtain program access credentials on the portal after logging in. Values:
+     * - False (default): No.
+     * @example True
+     *
+     * @var bool
+     */
+    public $allowUserToGetCredentials;
+
+    /**
      * @description The IP address whitelist. CloudSSO users can log on to the CloudSSO user portal only by using the IP addresses in the whitelist.
      *
      * If the return value of this parameter is empty, no IP address whitelists are configured.
@@ -18,7 +27,8 @@ class loginPreference extends Model
      */
     public $loginNetworkMasks;
     protected $_name = [
-        'loginNetworkMasks' => 'LoginNetworkMasks',
+        'allowUserToGetCredentials' => 'AllowUserToGetCredentials',
+        'loginNetworkMasks'         => 'LoginNetworkMasks',
     ];
 
     public function validate()
@@ -28,6 +38,9 @@ class loginPreference extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowUserToGetCredentials) {
+            $res['AllowUserToGetCredentials'] = $this->allowUserToGetCredentials;
+        }
         if (null !== $this->loginNetworkMasks) {
             $res['LoginNetworkMasks'] = $this->loginNetworkMasks;
         }
@@ -43,6 +56,9 @@ class loginPreference extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowUserToGetCredentials'])) {
+            $model->allowUserToGetCredentials = $map['AllowUserToGetCredentials'];
+        }
         if (isset($map['LoginNetworkMasks'])) {
             $model->loginNetworkMasks = $map['LoginNetworkMasks'];
         }
