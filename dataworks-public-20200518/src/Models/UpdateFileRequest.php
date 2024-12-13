@@ -332,6 +332,11 @@ class UpdateFileRequest extends Model
      * @var bool
      */
     public $stop;
+
+    /**
+     * @var int
+     */
+    public $timeout;
     protected $_name = [
         'advancedSettings'                => 'AdvancedSettings',
         'applyScheduleImmediately'        => 'ApplyScheduleImmediately',
@@ -364,6 +369,7 @@ class UpdateFileRequest extends Model
         'startEffectDate'                 => 'StartEffectDate',
         'startImmediately'                => 'StartImmediately',
         'stop'                            => 'Stop',
+        'timeout'                         => 'Timeout',
     ];
 
     public function validate()
@@ -465,6 +471,9 @@ class UpdateFileRequest extends Model
         }
         if (null !== $this->stop) {
             $res['Stop'] = $this->stop;
+        }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
         }
 
         return $res;
@@ -570,6 +579,9 @@ class UpdateFileRequest extends Model
         }
         if (isset($map['Stop'])) {
             $model->stop = $map['Stop'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

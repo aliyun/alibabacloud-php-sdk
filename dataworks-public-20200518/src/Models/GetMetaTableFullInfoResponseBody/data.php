@@ -19,14 +19,14 @@ class data extends Model
     public $clusterId;
 
     /**
-     * @description The fields in the metatable.
+     * @description A list of columns.
      *
      * @var columnList[]
      */
     public $columnList;
 
     /**
-     * @description The remarks of the metatable.
+     * @description The comment of the table.
      *
      * @example comment
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $comment;
 
     /**
-     * @description The time when the metatable was created. You can convert the timestamp to the related date based on the time zone that you use.
+     * @description The time when the table was created. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
      *
      * @example 1589870293000
      *
@@ -44,7 +44,7 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description The amount of storage resources that are consumed by the metatable. Unit: bytes.
+     * @description The storage space occupied by the table, in bytes (B).
      *
      * @example 10
      *
@@ -62,11 +62,8 @@ class data extends Model
     public $databaseName;
 
     /**
-     * @description The type of the environment in which the metatable resides. Valid values:
-     *
-     *   0: indicates that the metatable resides in the development environment.
-     *   1: indicates that the metatable resides in the production environment.
-     *
+     * @description Environment type, with the following values:
+     * - 1 indicates a table in the production environment.
      * @example 1
      *
      * @var int
@@ -74,13 +71,8 @@ class data extends Model
     public $envType;
 
     /**
-     * @description The scope in which the metatable is visible. Valid values:
-     *
-     *   0: indicates that the metatable is visible to workspace members.
-     *   1: indicates that the metatable is visible to users within a tenant.
-     *   2: indicates that the metatable is visible to all tenants.
-     *   3: indicates that the metatable is visible only to the metatable owner.
-     *
+     * @description Indicates whether the table is visible, with the following values:
+     * - 3: The table is only visible to the responsible person.
      * @example 1
      *
      * @var int
@@ -88,7 +80,7 @@ class data extends Model
     public $isVisible;
 
     /**
-     * @description The time when the metatable was last accessed. You can convert the timestamp to the related date based on the time zone that you use.
+     * @description The last time the table was accessed. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
      *
      * @example 1589870294000
      *
@@ -97,7 +89,7 @@ class data extends Model
     public $lastAccessTime;
 
     /**
-     * @description The time when the schema of the metatable was last changed. You can convert the timestamp to the related date based on the time zone that you use.
+     * @description The last time the table structure was changed. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
      *
      * @example 1589870294000
      *
@@ -106,7 +98,7 @@ class data extends Model
     public $lastDdlTime;
 
     /**
-     * @description The time when the metatable was last updated. You can convert the timestamp to the related date based on the time zone that you use.
+     * @description The last time the table was updated. The result is displayed as a timestamp, which you can convert to the corresponding date based on your timezone.
      *
      * @example 1589870294000
      *
@@ -115,7 +107,7 @@ class data extends Model
     public $lastModifyTime;
 
     /**
-     * @description The lifecycle of the metatable. Unit: days.
+     * @description The lifecycle of the table, in days.
      *
      * @example 5
      *
@@ -124,7 +116,7 @@ class data extends Model
     public $lifeCycle;
 
     /**
-     * @description The storage path of the Hive metatable.
+     * @description The storage location of the Hive table.
      *
      * @example hdfs://localhost:777/user/hadoop/test.txt
      *
@@ -133,7 +125,7 @@ class data extends Model
     public $location;
 
     /**
-     * @description The ID of the metatable owner.
+     * @description The ID of the table owner.
      *
      * @example 123
      *
@@ -142,7 +134,7 @@ class data extends Model
     public $ownerId;
 
     /**
-     * @description The partition key.
+     * @description Partition keys.
      *
      * @example abc
      *
@@ -151,7 +143,7 @@ class data extends Model
     public $partitionKeys;
 
     /**
-     * @description The ID of the workspace to which the metatable belongs.
+     * @description The ID of the workspace where the table is located.
      *
      * @example 22
      *
@@ -160,7 +152,7 @@ class data extends Model
     public $projectId;
 
     /**
-     * @description The name of the workspace to which the metatable belongs.
+     * @description The name of the workspace where the table is located.
      *
      * @example test
      *
@@ -174,7 +166,7 @@ class data extends Model
     public $schema;
 
     /**
-     * @description The GUID of the metatable.
+     * @description The unique identifier of the table.
      *
      * @example odps.engine_name.table_name
      *
@@ -183,7 +175,7 @@ class data extends Model
     public $tableGuid;
 
     /**
-     * @description The name of the metatable.
+     * @description The name of the table.
      *
      * @example table_name
      *
@@ -192,7 +184,7 @@ class data extends Model
     public $tableName;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
      * @example 12345
      *
@@ -201,7 +193,7 @@ class data extends Model
     public $tenantId;
 
     /**
-     * @description The total number of fields.
+     * @description The total number of columns.
      *
      * @example 22
      *

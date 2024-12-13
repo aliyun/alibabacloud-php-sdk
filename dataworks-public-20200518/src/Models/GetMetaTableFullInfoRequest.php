@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableFullInfoRequest extends Model
 {
     /**
-     * @description The ID of the E-MapReduce (EMR) cluster. You can log on to the EMR console to obtain the ID of the cluster.
+     * @description The ID of the EMR cluster. You can log in to the EMR management console to obtain the cluster ID.
      *
      * @example C-010A704DA760****
      *
@@ -18,7 +18,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $clusterId;
 
     /**
-     * @description The type of the data source. Only emr is supported.
+     * @description Data type, currently only supports the value `emr`.
      *
      * @example emr
      *
@@ -27,7 +27,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the name of the metadatabase.
+     * @description The name of the EMR database. You can obtain the database name by calling the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) interface.
      *
      * @example abc
      *
@@ -36,7 +36,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $databaseName;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number requested for pagination.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The number of items per page, with a default of 10 and a maximum of 100.
      *
      * @example 10
      *
@@ -54,7 +54,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $pageSize;
 
     /**
-     * @description The GUID of the metatable. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the GUID of the metatable.
+     * @description The unique identifier of the table. You can obtain the unique identifier by calling the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) interface.
      *
      * @example odps.engine_name.table_name
      *
@@ -63,7 +63,7 @@ class GetMetaTableFullInfoRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the name of the metatable.
+     * @description The name of the EMR table. You can obtain the table name by calling the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) interface.
      *
      * @example abc
      *

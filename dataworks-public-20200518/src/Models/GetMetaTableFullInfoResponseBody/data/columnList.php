@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
-     * @description The description of the field.
+     * @description The description of the column.
      *
      * @example data comment
      *
@@ -18,7 +18,7 @@ class columnList extends Model
     public $caption;
 
     /**
-     * @description The GUID of the field.
+     * @description The unique identifier of the column.
      *
      * @example odps.engine_name.table_name.1
      *
@@ -27,7 +27,7 @@ class columnList extends Model
     public $columnGuid;
 
     /**
-     * @description The name of the field.
+     * @description The name of the column.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class columnList extends Model
     public $columnName;
 
     /**
-     * @description The data type of the field.
+     * @description The type of the column.
      *
      * @example string
      *
@@ -45,7 +45,7 @@ class columnList extends Model
     public $columnType;
 
     /**
-     * @description The remarks of the field.
+     * @description The comment for the column.
      *
      * @example comment
      *
@@ -54,11 +54,8 @@ class columnList extends Model
     public $comment;
 
     /**
-     * @description Indicates whether the field is a foreign key. Valid values:
-     *
-     *   true: The field is a foreign key.
-     *   false: The field is not a foreign key.
-     *
+     * @description Whether the field is a foreign key, with values as follows:
+     * - false, it is not a foreign key.
      * @example true
      *
      * @var bool
@@ -66,11 +63,8 @@ class columnList extends Model
     public $isForeignKey;
 
     /**
-     * @description Indicates whether the field is a partition field. Valid values:
-     *
-     *   true: The field is a partition field.
-     *   false: The field is not a partition field.
-     *
+     * @description Indicates whether the column is a partition column, with the following values:
+     * - false: It is not a partition column.
      * @example true
      *
      * @var bool
@@ -78,11 +72,8 @@ class columnList extends Model
     public $isPartitionColumn;
 
     /**
-     * @description Indicates whether the field is the primary key. Valid values:
-     *
-     *   true: The field is the primary key.
-     *   false: The field is not the primary key.
-     *
+     * @description Indicates whether the column is a primary key, with the following values:
+     * - false: It is not a primary key.
      * @example false
      *
      * @var bool
@@ -90,7 +81,7 @@ class columnList extends Model
     public $isPrimaryKey;
 
     /**
-     * @description The ordinal number of the field.
+     * @description The position of the column in the order.
      *
      * @example 1
      *

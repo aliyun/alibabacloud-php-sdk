@@ -21,6 +21,8 @@ class columns extends Model
     /**
      * @description The display name of the field.
      *
+     * @example 名称
+     *
      * @var string
      */
     public $columnNameCn;
@@ -37,6 +39,8 @@ class columns extends Model
 
     /**
      * @description The comment of the field.
+     *
+     * @example comment
      *
      * @var string
      */

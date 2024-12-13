@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableFullInfoResponseBody extends Model
 {
     /**
-     * @description The business data returned.
+     * @description Business data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description Error code.
      *
      * @example 1031203110005
      *
@@ -26,7 +26,7 @@ class GetMetaTableFullInfoResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description Error message.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class GetMetaTableFullInfoResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description HTTP status code.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetMetaTableFullInfoResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description Request ID. Used for locating logs and troubleshooting issues.
      *
      * @example 0bc1411515937****
      *
@@ -53,7 +53,7 @@ class GetMetaTableFullInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description Whether the call was successful.
      *
      * @example true
      *

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableProducingTasksResponseBody extends Model
 {
     /**
+     * @description The output tasks of the metatable.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The error code.
+     *
      * @example "0"
      *
      * @var string
@@ -22,6 +26,8 @@ class GetMetaTableProducingTasksResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -29,6 +35,8 @@ class GetMetaTableProducingTasksResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class GetMetaTableProducingTasksResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The request ID.
+     *
      * @example 00000-00000-00000-00000
      *
      * @var string
@@ -43,6 +53,8 @@ class GetMetaTableProducingTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false. The value true indicates that the request was successful. The value false indicates that the request failed.
+     *
      * @example true
      *
      * @var bool

@@ -38,6 +38,8 @@ class UpdateTableRequest extends Model
     /**
      * @description The comment.
      *
+     * @example comment
+     *
      * @var string
      */
     public $comment;

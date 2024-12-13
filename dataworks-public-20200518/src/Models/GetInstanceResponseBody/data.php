@@ -188,6 +188,8 @@ class data extends Model
     public $nodeName;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $owner;
@@ -202,6 +204,8 @@ class data extends Model
     public $paramValues;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $periodNumber;

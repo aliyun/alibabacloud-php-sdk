@@ -94,6 +94,11 @@ class nodeConfiguration extends Model
     public $endEffectDate;
 
     /**
+     * @var string
+     */
+    public $ignoreParentSkipRunningProperty;
+
+    /**
      * @description The output names of the parent files on which the current file depends.
      *
      * @var inputList[]
@@ -203,26 +208,33 @@ class nodeConfiguration extends Model
      * @var bool
      */
     public $stop;
+
+    /**
+     * @var int
+     */
+    public $timeout;
     protected $_name = [
-        'applyScheduleImmediately' => 'ApplyScheduleImmediately',
-        'autoRerunIntervalMillis'  => 'AutoRerunIntervalMillis',
-        'autoRerunTimes'           => 'AutoRerunTimes',
-        'cronExpress'              => 'CronExpress',
-        'cycleType'                => 'CycleType',
-        'dependentNodeIdList'      => 'DependentNodeIdList',
-        'dependentType'            => 'DependentType',
-        'endEffectDate'            => 'EndEffectDate',
-        'inputList'                => 'InputList',
-        'inputParameters'          => 'InputParameters',
-        'outputList'               => 'OutputList',
-        'outputParameters'         => 'OutputParameters',
-        'paraValue'                => 'ParaValue',
-        'rerunMode'                => 'RerunMode',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'schedulerType'            => 'SchedulerType',
-        'startEffectDate'          => 'StartEffectDate',
-        'startImmediately'         => 'StartImmediately',
-        'stop'                     => 'Stop',
+        'applyScheduleImmediately'        => 'ApplyScheduleImmediately',
+        'autoRerunIntervalMillis'         => 'AutoRerunIntervalMillis',
+        'autoRerunTimes'                  => 'AutoRerunTimes',
+        'cronExpress'                     => 'CronExpress',
+        'cycleType'                       => 'CycleType',
+        'dependentNodeIdList'             => 'DependentNodeIdList',
+        'dependentType'                   => 'DependentType',
+        'endEffectDate'                   => 'EndEffectDate',
+        'ignoreParentSkipRunningProperty' => 'IgnoreParentSkipRunningProperty',
+        'inputList'                       => 'InputList',
+        'inputParameters'                 => 'InputParameters',
+        'outputList'                      => 'OutputList',
+        'outputParameters'                => 'OutputParameters',
+        'paraValue'                       => 'ParaValue',
+        'rerunMode'                       => 'RerunMode',
+        'resourceGroupId'                 => 'ResourceGroupId',
+        'schedulerType'                   => 'SchedulerType',
+        'startEffectDate'                 => 'StartEffectDate',
+        'startImmediately'                => 'StartImmediately',
+        'stop'                            => 'Stop',
+        'timeout'                         => 'Timeout',
     ];
 
     public function validate()
@@ -255,6 +267,9 @@ class nodeConfiguration extends Model
         }
         if (null !== $this->endEffectDate) {
             $res['EndEffectDate'] = $this->endEffectDate;
+        }
+        if (null !== $this->ignoreParentSkipRunningProperty) {
+            $res['IgnoreParentSkipRunningProperty'] = $this->ignoreParentSkipRunningProperty;
         }
         if (null !== $this->inputList) {
             $res['InputList'] = [];
@@ -313,6 +328,9 @@ class nodeConfiguration extends Model
         if (null !== $this->stop) {
             $res['Stop'] = $this->stop;
         }
+        if (null !== $this->timeout) {
+            $res['Timeout'] = $this->timeout;
+        }
 
         return $res;
     }
@@ -348,6 +366,9 @@ class nodeConfiguration extends Model
         }
         if (isset($map['EndEffectDate'])) {
             $model->endEffectDate = $map['EndEffectDate'];
+        }
+        if (isset($map['IgnoreParentSkipRunningProperty'])) {
+            $model->ignoreParentSkipRunningProperty = $map['IgnoreParentSkipRunningProperty'];
         }
         if (isset($map['InputList'])) {
             if (!empty($map['InputList'])) {
@@ -405,6 +426,9 @@ class nodeConfiguration extends Model
         }
         if (isset($map['Stop'])) {
             $model->stop = $map['Stop'];
+        }
+        if (isset($map['Timeout'])) {
+            $model->timeout = $map['Timeout'];
         }
 
         return $model;

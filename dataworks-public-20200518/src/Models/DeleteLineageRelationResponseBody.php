@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteLineageRelationResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description Error code
      *
      * @example 1010040007
      *
@@ -18,7 +18,7 @@ class DeleteLineageRelationResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
+     * @description Error message
      *
      * @example qualifiedName should be in format as entity-table.entity-guid
      *
@@ -27,7 +27,7 @@ class DeleteLineageRelationResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code.
+     * @description HTTP status code
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class DeleteLineageRelationResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The request ID.
+     * @description Request ID: used for locating logs and troubleshooting
      *
      * @example 64B-587A-8CED-969E1973887FXXX-TT
      *
@@ -45,9 +45,9 @@ class DeleteLineageRelationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result of the operation. Valid values:
+     * @description Operation result:
      *
-     * false: failed
+     * false: Failure
      * @example true
      *
      * @var bool
@@ -55,9 +55,9 @@ class DeleteLineageRelationResponseBody extends Model
     public $status;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Whether the call was successful. Values are as follows:
      *
-     * false
+     * false: failed
      * @example true
      *
      * @var bool

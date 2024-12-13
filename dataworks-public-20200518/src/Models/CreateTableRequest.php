@@ -31,6 +31,8 @@ class CreateTableRequest extends Model
     /**
      * @description A reserved parameter.
      *
+     * @example reserved
+     *
      * @var string
      */
     public $clientToken;
@@ -45,6 +47,8 @@ class CreateTableRequest extends Model
 
     /**
      * @description The comment.
+     *
+     * @example comment
      *
      * @var string
      */

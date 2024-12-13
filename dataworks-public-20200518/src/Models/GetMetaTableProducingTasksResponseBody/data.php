@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the output task.
+     *
      * @example 9876543210
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $taskId;
 
     /**
+     * @description The name of the output task.
+     *
      * @var string
      */
     public $taskName;

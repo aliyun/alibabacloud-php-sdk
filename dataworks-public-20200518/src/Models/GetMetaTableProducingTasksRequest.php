@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableProducingTasksRequest extends Model
 {
     /**
+     * @description The ID of the EMR cluster. This parameter takes effect only if the DataSourceType parameter is set to emr.
+     *
      * @example C-A_SAMPLE_CLUSTER_ID
      *
      * @var string
@@ -16,6 +18,8 @@ class GetMetaTableProducingTasksRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of the metatable. Valid values: odps and emr. The value odps indicates that the metatable is a MaxCompute metatable. The value emr indicates that the metatable is an E-MapReduce (EMR) metatable.
+     *
      * @example odps
      *
      * @var string
@@ -23,6 +27,8 @@ class GetMetaTableProducingTasksRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description The name of the database.
+     *
      * @example default
      *
      * @var string
@@ -30,6 +36,8 @@ class GetMetaTableProducingTasksRequest extends Model
     public $dbName;
 
     /**
+     * @description The name of the schema.
+     *
      * @example myschema
      *
      * @var string
@@ -37,8 +45,9 @@ class GetMetaTableProducingTasksRequest extends Model
     public $schemaName;
 
     /**
-     * @description This parameter is required.
+     * @description The GUID of the MaxCompute metatable.
      *
+     * This parameter is required.
      * @example odps.sample_project.sample_table
      *
      * @var string
@@ -46,6 +55,8 @@ class GetMetaTableProducingTasksRequest extends Model
     public $tableGuid;
 
     /**
+     * @description The name of the metatable.
+     *
      * @example sample_table
      *
      * @var string
