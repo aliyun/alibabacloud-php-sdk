@@ -28,8 +28,6 @@ class FindIdpListByLoginIdentifierRequest extends Model
     public $clientId;
 
     /**
-     * @example 22.21.XX.XX
-     *
      * @var string
      */
     public $clientIp;

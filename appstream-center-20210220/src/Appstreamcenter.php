@@ -76,15 +76,15 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->availableFeaturesShrink)) {
             $query['AvailableFeatures'] = $request->availableFeaturesShrink;
         }
+        if (!Utils::isUnset($request->clientIp)) {
+            $query['ClientIp'] = $request->clientIp;
+        }
         $body = [];
         if (!Utils::isUnset($request->clientChannel)) {
             $body['ClientChannel'] = $request->clientChannel;
         }
         if (!Utils::isUnset($request->clientId)) {
             $body['ClientId'] = $request->clientId;
-        }
-        if (!Utils::isUnset($request->clientIp)) {
-            $body['ClientIp'] = $request->clientIp;
         }
         if (!Utils::isUnset($request->clientOS)) {
             $body['ClientOS'] = $request->clientOS;
