@@ -30,6 +30,11 @@ class walking extends Model
     public $distanceMeter;
 
     /**
+     * @var string
+     */
+    public $index;
+
+    /**
      * @example 116.466568,39.995552
      *
      * @var string
@@ -44,6 +49,7 @@ class walking extends Model
         'cost'          => 'cost',
         'destination'   => 'destination',
         'distanceMeter' => 'distanceMeter',
+        'index'         => 'index',
         'origin'        => 'origin',
         'steps'         => 'steps',
     ];
@@ -63,6 +69,9 @@ class walking extends Model
         }
         if (null !== $this->distanceMeter) {
             $res['distanceMeter'] = $this->distanceMeter;
+        }
+        if (null !== $this->index) {
+            $res['index'] = $this->index;
         }
         if (null !== $this->origin) {
             $res['origin'] = $this->origin;
@@ -96,6 +105,9 @@ class walking extends Model
         }
         if (isset($map['distanceMeter'])) {
             $model->distanceMeter = $map['distanceMeter'];
+        }
+        if (isset($map['index'])) {
+            $model->index = $map['index'];
         }
         if (isset($map['origin'])) {
             $model->origin = $map['origin'];

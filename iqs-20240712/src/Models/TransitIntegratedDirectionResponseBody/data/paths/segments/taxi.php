@@ -39,6 +39,11 @@ class taxi extends Model
     /**
      * @var string
      */
+    public $index;
+
+    /**
+     * @var string
+     */
     public $originName;
 
     /**
@@ -59,6 +64,7 @@ class taxi extends Model
         'destinationPoint' => 'destinationPoint',
         'distanceMeter'    => 'distanceMeter',
         'driveTimeSecond'  => 'driveTimeSecond',
+        'index'            => 'index',
         'originName'       => 'originName',
         'originPoint'      => 'originPoint',
         'price'            => 'price',
@@ -82,6 +88,9 @@ class taxi extends Model
         }
         if (null !== $this->driveTimeSecond) {
             $res['driveTimeSecond'] = $this->driveTimeSecond;
+        }
+        if (null !== $this->index) {
+            $res['index'] = $this->index;
         }
         if (null !== $this->originName) {
             $res['originName'] = $this->originName;
@@ -115,6 +124,9 @@ class taxi extends Model
         }
         if (isset($map['driveTimeSecond'])) {
             $model->driveTimeSecond = $map['driveTimeSecond'];
+        }
+        if (isset($map['index'])) {
+            $model->index = $map['index'];
         }
         if (isset($map['originName'])) {
             $model->originName = $map['originName'];

@@ -13,8 +13,14 @@ class bus extends Model
      * @var buslines[]
      */
     public $buslines;
+
+    /**
+     * @var string
+     */
+    public $index;
     protected $_name = [
         'buslines' => 'buslines',
+        'index'    => 'index',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class bus extends Model
                     $res['buslines'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->index) {
+            $res['index'] = $this->index;
         }
 
         return $res;
@@ -53,6 +62,9 @@ class bus extends Model
                     $model->buslines[$n++] = null !== $item ? buslines::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['index'])) {
+            $model->index = $map['index'];
         }
 
         return $model;

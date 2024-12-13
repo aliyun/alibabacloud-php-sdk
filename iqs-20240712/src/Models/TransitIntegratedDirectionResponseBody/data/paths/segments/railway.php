@@ -38,6 +38,11 @@ class railway extends Model
     /**
      * @var string
      */
+    public $index;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -66,6 +71,7 @@ class railway extends Model
         'departureStop' => 'departureStop',
         'distanceMeter' => 'distanceMeter',
         'id'            => 'id',
+        'index'         => 'index',
         'name'          => 'name',
         'spaces'        => 'spaces',
         'time'          => 'time',
@@ -91,6 +97,9 @@ class railway extends Model
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->index) {
+            $res['index'] = $this->index;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -136,6 +145,9 @@ class railway extends Model
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['index'])) {
+            $model->index = $map['index'];
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
