@@ -17,8 +17,26 @@ class EnableRealtimeLogDeliveryRequest extends Model
      * @var string
      */
     public $domain;
+
+    /**
+     * @var string
+     */
+    public $logstore;
+
+    /**
+     * @var string
+     */
+    public $project;
+
+    /**
+     * @var string
+     */
+    public $region;
     protected $_name = [
-        'domain' => 'Domain',
+        'domain'   => 'Domain',
+        'logstore' => 'Logstore',
+        'project'  => 'Project',
+        'region'   => 'Region',
     ];
 
     public function validate()
@@ -30,6 +48,15 @@ class EnableRealtimeLogDeliveryRequest extends Model
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->logstore) {
+            $res['Logstore'] = $this->logstore;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = $this->project;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
 
         return $res;
@@ -45,6 +72,15 @@ class EnableRealtimeLogDeliveryRequest extends Model
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['Logstore'])) {
+            $model->logstore = $map['Logstore'];
+        }
+        if (isset($map['Project'])) {
+            $model->project = $map['Project'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
 
         return $model;
