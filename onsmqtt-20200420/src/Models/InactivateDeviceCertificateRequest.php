@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InactivateDeviceCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The serial number of the CA certificate to which the device certificate that you want to deregister belongs. The serial number is the unique identifier of a CA certificate.
      *
+     * This parameter is required.
      * @example 007269004887******
      *
      * @var string
@@ -18,8 +19,9 @@ class InactivateDeviceCertificateRequest extends Model
     public $caSn;
 
     /**
-     * @description This parameter is required.
+     * @description The serial number of the device certificate that you want to deregister. The serial number is the unique identifier of a device.
      *
+     * This parameter is required.
      * @example 356217374433******
      *
      * @var string
@@ -27,8 +29,9 @@ class InactivateDeviceCertificateRequest extends Model
     public $deviceSn;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the ApsaraMQ for MQTT instance to which the device certificate that you want to deregister is bound.
      *
+     * This parameter is required.
      * @example post-cn-7mz2d******
      *
      * @var string

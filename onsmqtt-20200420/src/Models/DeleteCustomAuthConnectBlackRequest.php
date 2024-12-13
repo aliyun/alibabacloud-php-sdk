@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomAuthConnectBlackRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the ApsaraMQ for MQTT client.
      *
+     * This parameter is required.
      * @example GID_test@@@test
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteCustomAuthConnectBlackRequest extends Model
     public $clientId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the ApsaraMQ for MQTT instance.
      *
+     * This parameter is required.
      * @example post-cn-0pp12gl****
      *
      * @var string

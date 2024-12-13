@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Details of the device certificate.
+     *
      * @var deviceCertificateVOS[]
      */
     public $deviceCertificateVOS;
 
     /**
+     * @description The current page number of the returned query records.
+     *
      * @example 2
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNo;
 
     /**
+     * @description The maximum number of results to display per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description Maximum number of pages in the query result.
+     *
      * @example 1
      *
      * @var int

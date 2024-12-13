@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomAuthPermissionResponseBody extends Model
 {
     /**
+     * @description Error code returned upon failed invocation. For more information, see Error Codes.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateCustomAuthPermissionResponseBody extends Model
     public $code;
 
     /**
+     * @description Information
+     *
      * @example operation success.
      *
      * @var string
@@ -32,6 +36,8 @@ class UpdateCustomAuthPermissionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. true: Call succeeded. false: Call failed.
+     *
      * @example True
      *
      * @var bool

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceCertificateByCaSnRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The SN serial number of the CA certificate to be queried, indicating which CA certificate\\"s registered device certificates are to be retrieved.
      *
+     * This parameter is required.
      * @example 007269004887******
      *
      * @var string
@@ -18,8 +19,9 @@ class ListDeviceCertificateByCaSnRequest extends Model
     public $caSn;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID bound to the CA certificate, which is the instance ID of the MQTT version of the cloud message queue.
      *
+     * This parameter is required.
      * @example post-cn-7mz2d******
      *
      * @var string
@@ -27,8 +29,9 @@ class ListDeviceCertificateByCaSnRequest extends Model
     public $mqttInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description Indicates the page number of the returned results. The starting page is counted from 1.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -36,8 +39,9 @@ class ListDeviceCertificateByCaSnRequest extends Model
     public $pageNo;
 
     /**
-     * @description This parameter is required.
+     * @description The maximum number of query records to display per page. Value range: 1 to 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CloseConnectionResponseBody extends Model
 {
     /**
+     * @description Return code of the interface: 200 indicates success. Other values indicate error codes. For details about the error codes, see Error Codes.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class CloseConnectionResponseBody extends Model
     public $code;
 
     /**
+     * @description Call result information
+     *
      * @example operation success.
      *
      * @var string
@@ -32,6 +36,8 @@ class CloseConnectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful. true means success, false means failure.
+     *
      * @example True
      *
      * @var bool

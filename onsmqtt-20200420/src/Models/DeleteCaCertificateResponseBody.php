@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCaCertificateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteCaCertificateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The serial number of the CA certificate that you deleted. The serial number is the unique identifier of a CA certificate.
+     *
      * @example 007269004887******
      *
      * @var string

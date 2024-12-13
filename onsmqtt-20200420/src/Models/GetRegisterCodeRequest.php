@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetRegisterCodeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the ApsaraMQ for MQTT instance.
      *
+     * This parameter is required.
      * @example post-cn-7mz2d******
      *
      * @var string

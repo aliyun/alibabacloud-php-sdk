@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ActiveCaCertificateResponseBody extends Model
 {
     /**
+     * @description Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+     *
      * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
      *
      * @var string
@@ -16,6 +18,8 @@ class ActiveCaCertificateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The SN serial number of the activated CA certificate, used to uniquely identify a CA certificate.
+     *
      * @example 007269004887******
      *
      * @var string

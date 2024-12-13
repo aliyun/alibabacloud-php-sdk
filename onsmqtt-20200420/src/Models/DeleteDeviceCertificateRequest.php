@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The serial number of the CA certificate to which the device certificate belongs. The serial number is the unique identifier of a CA certificate. CA certificates are used to validate device certificates.
      *
+     * This parameter is required.
      * @example 007269004887******
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteDeviceCertificateRequest extends Model
     public $caSn;
 
     /**
-     * @description This parameter is required.
+     * @description The serial number of the device certificate whose registration information you want to delete. The serial number is the unique identifier of a device.
      *
+     * This parameter is required.
      * @example 356217374433****
      *
      * @var string
@@ -27,8 +29,9 @@ class DeleteDeviceCertificateRequest extends Model
     public $deviceSn;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the ApsaraMQ for MQTT instance to which the device certificate is bound.
      *
+     * This parameter is required.
      * @example post-cn-7mz2d******
      *
      * @var string

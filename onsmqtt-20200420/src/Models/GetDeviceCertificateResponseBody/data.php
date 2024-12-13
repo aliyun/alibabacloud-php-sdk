@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The SN serial number of the CA certificate to which the device certificate belongs, used to uniquely identify a CA certificate.
+     *
      * @example 00f26900ba87******
      *
      * @var string
@@ -16,6 +18,9 @@ class data extends Model
     public $caSn;
 
     /**
+     * @description Content of the device certificate.
+     *
+     * represents a new line.
      * @example -----BEGIN DEVICECERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END DEVICECERTIFICATE-----
      *
      * @var string
@@ -23,6 +28,8 @@ class data extends Model
     public $deviceContent;
 
     /**
+     * @description Name of the device certificate.
+     *
      * @example mqtt_device
      *
      * @var string
@@ -30,6 +37,8 @@ class data extends Model
     public $deviceName;
 
     /**
+     * @description The SN serial number of the device certificate, used to uniquely identify a device certificate.
+     *
      * @example 356217374433******
      *
      * @var string
@@ -37,6 +46,9 @@ class data extends Model
     public $deviceSn;
 
     /**
+     * @description The status of the device certificate. The values are as follows:
+     * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
+     * > After the device certificate is registered, it is in an active state by default.
      * @example 1
      *
      * @var string
@@ -44,6 +56,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The start time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+     *
      * @example 1654137303000
      *
      * @var string
@@ -51,6 +65,8 @@ class data extends Model
     public $validBegin;
 
     /**
+     * @description The end time when the device certificate becomes effective. The format is a Unix timestamp in milliseconds.
+     *
      * @example 1969497303000
      *
      * @var string

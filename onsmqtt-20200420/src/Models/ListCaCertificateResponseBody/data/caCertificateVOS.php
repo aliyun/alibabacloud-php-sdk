@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class caCertificateVOS extends Model
 {
     /**
+     * @description Content of the CA certificate.
+     * > \\n represents a new line.
      * @example -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
      *
      * @var string
@@ -16,6 +18,8 @@ class caCertificateVOS extends Model
     public $caContent;
 
     /**
+     * @description Name of the CA certificate
+     *
      * @example mqtt_ca
      *
      * @var string
@@ -23,6 +27,8 @@ class caCertificateVOS extends Model
     public $caName;
 
     /**
+     * @description Registration code of the CA certificate
+     *
      * @example 13274673-8f90-4630-bea1-9cccb25756ad2089******
      *
      * @var string
@@ -30,6 +36,8 @@ class caCertificateVOS extends Model
     public $registrationCode;
 
     /**
+     * @description SN serial number of the CA certificate
+     *
      * @example 007269004887******
      *
      * @var string
@@ -37,6 +45,9 @@ class caCertificateVOS extends Model
     public $sn;
 
     /**
+     * @description The status of the CA certificate. The values are as follows:
+     * - **0**: Indicates that the certificate is in an inactive state. - **1**: Indicates that the certificate is in an active state.
+     * > After the CA certificate is registered, it is in an active state by default.
      * @example 1
      *
      * @var string
@@ -44,6 +55,8 @@ class caCertificateVOS extends Model
     public $status;
 
     /**
+     * @description The start time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+     *
      * @example 1654137303000
      *
      * @var string
@@ -51,6 +64,8 @@ class caCertificateVOS extends Model
     public $validBegin;
 
     /**
+     * @description The end time when the CA certificate becomes effective. The format is a Unix timestamp in milliseconds.
+     *
      * @example 1969497303000
      *
      * @var string
@@ -58,6 +73,8 @@ class caCertificateVOS extends Model
     public $validEnd;
 
     /**
+     * @description Verify the content of the certificate.
+     * > \\n represents a new line.
      * @example -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
      *
      * @var string

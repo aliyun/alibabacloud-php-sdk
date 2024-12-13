@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class deviceCredentialClientIdList extends Model
 {
     /**
+     * @description Client list.
+     *
      * @var string[]
      */
     public $clientIdList;
 
     /**
+     * @description Indicates whether there is a token (Token) for the next query. Values:
+     * - If there is a next query, the value should be the NextToken returned from the previous API call.
+     * @example 634dxxxxx75b5f
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The current page number of the returned query records.
+     *
      * @example 1
      *
      * @var string
@@ -26,6 +34,8 @@ class deviceCredentialClientIdList extends Model
     public $pageNo;
 
     /**
+     * @description The maximum number of results to display per page.
+     *
      * @example 100
      *
      * @var string
@@ -33,6 +43,8 @@ class deviceCredentialClientIdList extends Model
     public $pageSize;
 
     /**
+     * @description Total number of query results.
+     *
      * @example 10
      *
      * @var string

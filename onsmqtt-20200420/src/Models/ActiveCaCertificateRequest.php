@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ActiveCaCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description CA证书所绑定的实例ID，即云消息队列 MQTT 版的实例ID。
      *
+     * This parameter is required.
      * @example post-cn-7mz2d******
      *
      * @var string
@@ -18,8 +19,9 @@ class ActiveCaCertificateRequest extends Model
     public $mqttInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description 待激活CA证书的SN序列号，用于唯一标识一个CA证书。
      *
+     * This parameter is required.
      * @example 007269004887******
      *
      * @var string

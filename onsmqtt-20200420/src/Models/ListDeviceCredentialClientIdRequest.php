@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceCredentialClientIdRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Group ID of the MQTT version of the micro message queue.
      *
+     * This parameter is required.
      * @example GID_xxx
      *
      * @var string
@@ -18,8 +19,9 @@ class ListDeviceCredentialClientIdRequest extends Model
     public $groupId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Cloud Message Queue MQTT version instance, which must match the actual instance ID used by the client. You can obtain this ID from the **Instance Details** page in the console.
      *
+     * This parameter is required.
      * @example mqtt-xxxxxxxx
      *
      * @var string
@@ -27,11 +29,17 @@ class ListDeviceCredentialClientIdRequest extends Model
     public $instanceId;
 
     /**
+     * @description Token for starting the next page query.
+     *
+     * @example FFdXXXXXWa
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Indicates the page number of the returned results. The starting page is counted from 1.
+     *
      * @example 1
      *
      * @var string
@@ -39,8 +47,8 @@ class ListDeviceCredentialClientIdRequest extends Model
     public $pageNo;
 
     /**
-     * @description This parameter is required.
-     *
+     * @description The maximum number of query records to display per page.
+     * This parameter is required.
      * @example 100
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListCaCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID of the Cloud Message Queue MQTT version, indicating which instance\\"s CA certificates need to be viewed.
      *
+     * This parameter is required.
      * @example post-cn-7mz2d******
      *
      * @var string
@@ -18,8 +19,9 @@ class ListCaCertificateRequest extends Model
     public $mqttInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description Indicates the page number of the returned results. The starting page is counted from 1.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var string
@@ -27,8 +29,9 @@ class ListCaCertificateRequest extends Model
     public $pageNo;
 
     /**
-     * @description This parameter is required.
+     * @description The maximum number of query records to display per page. Value range: 1 to 100.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var string

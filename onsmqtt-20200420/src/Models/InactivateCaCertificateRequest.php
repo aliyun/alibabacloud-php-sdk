@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class InactivateCaCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the ApsaraMQ for MQTT instance to which the CA certificate is bound.
      *
+     * This parameter is required.
      * @example post-cn-7mz2d******
      *
      * @var string
@@ -18,8 +19,9 @@ class InactivateCaCertificateRequest extends Model
     public $mqttInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The serial number of the CA certificate that you want to deregister. The serial number is the unique identifier of a CA certificate.
      *
+     * This parameter is required.
      * @example 007269004887******
      *
      * @var string

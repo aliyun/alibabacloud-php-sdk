@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InactivateDeviceCertificateResponseBody extends Model
 {
     /**
+     * @description The serial number of the device certificate that is deregistered. The serial number is the unique identifier of a device certificate.
+     *
      * @example 356217374433******
      *
      * @var string
@@ -16,6 +18,8 @@ class InactivateDeviceCertificateResponseBody extends Model
     public $deviceSn;
 
     /**
+     * @description The request ID.
+     *
      * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CloseConnectionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Client ID of the device
      *
+     * This parameter is required.
      * @example GID_test@@@test
      *
      * @var string
@@ -18,8 +19,9 @@ class CloseConnectionRequest extends Model
     public $clientId;
 
     /**
-     * @description This parameter is required.
+     * @description ID of the Micro Message Queue MQTT version instance.
      *
+     * This parameter is required.
      * @example post-cn-0pp12gl****
      *
      * @var string

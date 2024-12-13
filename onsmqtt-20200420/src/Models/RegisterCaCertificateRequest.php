@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterCaCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
+     * @description Content of the CA certificate to be registered.
+     * This parameter is required.
      * @example -----BEGIN CERTIFICATE-----\\nMIIDuzCCAqdGVzdC5jbi1xaW5n******\\n-----END CERTIFICATE-----
      *
      * @var string
@@ -18,8 +18,9 @@ class RegisterCaCertificateRequest extends Model
     public $caContent;
 
     /**
-     * @description This parameter is required.
+     * @description Name of the CA certificate to be registered
      *
+     * This parameter is required.
      * @example mqtt_ca
      *
      * @var string
@@ -27,8 +28,9 @@ class RegisterCaCertificateRequest extends Model
     public $caName;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID of the Cloud Message Queue MQTT version. When registering a CA certificate, you need to specify an instance to bind with.
      *
+     * This parameter is required.
      * @example post-cn-7mz2d******
      *
      * @var string
@@ -36,8 +38,8 @@ class RegisterCaCertificateRequest extends Model
     public $mqttInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
+     * @description Content of the verification certificate for the CA certificate to be registered. It is used together with the registration code of the CA certificate to verify that the user possesses the private key of this CA certificate.
+     * This parameter is required.
      * @example -----BEGIN CERTIFICATE-----\\nMIID/DCCAu+Y5sRMpp9tnd+4s******\\n-----END CERTIFICATE-----
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetCaCertificateResponseBody extends Model
 {
     /**
+     * @description Certificate details.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
+     *
      * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
      *
      * @var string

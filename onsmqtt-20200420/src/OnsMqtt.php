@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RevokeTokenRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\RevokeTokenResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SendMessageRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SendMessageResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SetSniConfigRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SetSniConfigResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthIdentityRequest;
@@ -132,7 +134,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 激活CA证书
+     * @summary Activate CA Certificate
+     *  *
+     * @description - 仅铂金版和专业版实例支持使用ActiveCaCertificate接口。
+     * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
+     * -  ActiveCaCertificate接口仅支持对已在云消息队列 MQTT 版服务端注册的CA证书进行操作，您可以通过[ListCaCertificate](https://help.aliyun.com/document_detail/436768.html)接口查询指定实例下已注册的CA证书。
      *  *
      * @param ActiveCaCertificateRequest $request ActiveCaCertificateRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -168,7 +174,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 激活CA证书
+     * @summary Activate CA Certificate
+     *  *
+     * @description - 仅铂金版和专业版实例支持使用ActiveCaCertificate接口。
+     * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
+     * -  ActiveCaCertificate接口仅支持对已在云消息队列 MQTT 版服务端注册的CA证书进行操作，您可以通过[ListCaCertificate](https://help.aliyun.com/document_detail/436768.html)接口查询指定实例下已注册的CA证书。
      *  *
      * @param ActiveCaCertificateRequest $request ActiveCaCertificateRequest
      *
@@ -182,7 +192,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 激活设备证书
+     * @summary Reactivates a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client based on the registered CA certificate. If the CA certificate matches the device certificate, the client passes the authentication and the system automatically registers the device certificate with the ApsaraMQ for MQTT broker. After a device certificate is registered with an ApsaraMQ for MQTT broker, the certificate is automatically activated. If your device certificate is changed to the inactivated state, you can call this operation to reactivate the device certificate.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      *  *
      * @param ActiveDeviceCertificateRequest $request ActiveDeviceCertificateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -221,7 +234,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 激活设备证书
+     * @summary Reactivates a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client based on the registered CA certificate. If the CA certificate matches the device certificate, the client passes the authentication and the system automatically registers the device certificate with the ApsaraMQ for MQTT broker. After a device certificate is registered with an ApsaraMQ for MQTT broker, the certificate is automatically activated. If your device certificate is changed to the inactivated state, you can call this operation to reactivate the device certificate.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      *  *
      * @param ActiveDeviceCertificateRequest $request ActiveDeviceCertificateRequest
      *
@@ -529,7 +545,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 关闭设备连接
+     * @summary Proactively closes an online connection. After you call this API operation, the device may reconnect to the broker based on the client reconnection mechanism.
+     *  *
+     * @description This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
      *  *
      * @param CloseConnectionRequest $request CloseConnectionRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -565,7 +583,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 关闭设备连接
+     * @summary Proactively closes an online connection. After you call this API operation, the device may reconnect to the broker based on the client reconnection mechanism.
+     *  *
+     * @description This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
      *  *
      * @param CloseConnectionRequest $request CloseConnectionRequest
      *
@@ -633,7 +653,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 删除CA证书
+     * @summary Deletes a certificate authority (CA) certificate from an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you can use a CA certificate, you must register the certificate with an ApsaraMQ for MQTT broker. If you no longer require a CA certificate, you can call this operation to delete the certificate from the ApsaraMQ for MQTT broker.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   You can call this operation to delete only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
+     * *   If you delete a specific CA certificate from an ApsaraMQ for MQTT broker, all device certificates that are issued by the CA certificate and are registered with the ApsaraMQ for MQTT broker are automatically deleted.
      *  *
      * @param DeleteCaCertificateRequest $request DeleteCaCertificateRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -669,7 +694,12 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 删除CA证书
+     * @summary Deletes a certificate authority (CA) certificate from an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you can use a CA certificate, you must register the certificate with an ApsaraMQ for MQTT broker. If you no longer require a CA certificate, you can call this operation to delete the certificate from the ApsaraMQ for MQTT broker.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   You can call this operation to delete only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
+     * *   If you delete a specific CA certificate from an ApsaraMQ for MQTT broker, all device certificates that are issued by the CA certificate and are registered with the ApsaraMQ for MQTT broker are automatically deleted.
      *  *
      * @param DeleteCaCertificateRequest $request DeleteCaCertificateRequest
      *
@@ -683,7 +713,7 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义权限连接黑名单
+     * @summary Deletes a connection blacklist.
      *  *
      * @param DeleteCustomAuthConnectBlackRequest $request DeleteCustomAuthConnectBlackRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -719,7 +749,7 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 删除自定义权限连接黑名单
+     * @summary Deletes a connection blacklist.
      *  *
      * @param DeleteCustomAuthConnectBlackRequest $request DeleteCustomAuthConnectBlackRequest
      *
@@ -845,7 +875,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 删除设备证书
+     * @summary Deletes the registration information about a specific device certificate from an ApsaraMQ for MQTT broker. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client. If you no longer require a device certificate, you can call this operation to delete the registration information about the certificate from an ApsaraMQ for MQTT broker.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      *  *
      * @param DeleteDeviceCertificateRequest $request DeleteDeviceCertificateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -884,7 +917,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 删除设备证书
+     * @summary Deletes the registration information about a specific device certificate from an ApsaraMQ for MQTT broker. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client. If you no longer require a device certificate, you can call this operation to delete the registration information about the certificate from an ApsaraMQ for MQTT broker.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      *  *
      * @param DeleteDeviceCertificateRequest $request DeleteDeviceCertificateRequest
      *
@@ -952,7 +988,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 根据SN返回CA证书
+     * @summary Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
+     *  *
+     * @description - 仅铂金版和专业版实例支持使用GetCaCertificate接口。
+     * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
      *  *
      * @param GetCaCertificateRequest $request GetCaCertificateRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -982,7 +1021,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 根据SN返回CA证书
+     * @summary Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
+     *  *
+     * @description - 仅铂金版和专业版实例支持使用GetCaCertificate接口。
+     * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
      *  *
      * @param GetCaCertificateRequest $request GetCaCertificateRequest
      *
@@ -996,7 +1038,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备证书
+     * @summary Queries the details of a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+     *  *
+     * @description - Only Platinum edition instances support the use of the GetDeviceCertificate interface. - The request frequency limit per user is 500 requests/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param GetDeviceCertificateRequest $request GetDeviceCertificateRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1026,7 +1070,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备证书
+     * @summary Queries the details of a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+     *  *
+     * @description - Only Platinum edition instances support the use of the GetDeviceCertificate interface. - The request frequency limit per user is 500 requests/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param GetDeviceCertificateRequest $request GetDeviceCertificateRequest
      *
@@ -1096,7 +1142,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 获取添加CA证书的注册码
+     * @summary Obtains the registration code of a specific certificate authority (CA) certificate. When you register a CA certificate with an ApsaraMQ for MQTT broker, you must upload the validation certificate of the CA certificate to verify whether you have the private key of the CA certificate. The validation certificate of a CA certificate must be generated by using the registration code of the CA certificate.
+     *  *
+     * @description *   This API operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      *  *
      * @param GetRegisterCodeRequest $request GetRegisterCodeRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1126,7 +1175,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 获取添加CA证书的注册码
+     * @summary Obtains the registration code of a specific certificate authority (CA) certificate. When you register a CA certificate with an ApsaraMQ for MQTT broker, you must upload the validation certificate of the CA certificate to verify whether you have the private key of the CA certificate. The validation certificate of a CA certificate must be generated by using the registration code of the CA certificate.
+     *  *
+     * @description *   This API operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      *  *
      * @param GetRegisterCodeRequest $request GetRegisterCodeRequest
      *
@@ -1140,7 +1192,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 注销CA证书
+     * @summary Deregister a certificate authority (CA) certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. If you no longer require a CA certificate, you can call this operation to deregister the certificate. If you want to continue using a deregistered CA certificate, you can call the ActiveCaCertificate operation to reactivate the certificate.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   You can call this operation to deregister only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
      *  *
      * @param InactivateCaCertificateRequest $request InactivateCaCertificateRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1176,7 +1232,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 注销CA证书
+     * @summary Deregister a certificate authority (CA) certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. If you no longer require a CA certificate, you can call this operation to deregister the certificate. If you want to continue using a deregistered CA certificate, you can call the ActiveCaCertificate operation to reactivate the certificate.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   You can call this operation to deregister only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
      *  *
      * @param InactivateCaCertificateRequest $request InactivateCaCertificateRequest
      *
@@ -1190,7 +1250,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 注销设备证书
+     * @summary Deregisters a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      *  *
      * @param InactivateDeviceCertificateRequest $request InactivateDeviceCertificateRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1229,7 +1292,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 注销设备证书
+     * @summary Deregisters a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+     *  *
+     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      *  *
      * @param InactivateDeviceCertificateRequest $request InactivateDeviceCertificateRequest
      *
@@ -1243,7 +1309,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 根据实例ID 分页获取CA证书
+     * @summary Queries all certificate authority (CA) certificates that are registered with an ApsaraMQ for MQTT instance. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
+     *  *
+     * @description - Only Platinum and Professional instances support using the ListCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact the Micro Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param ListCaCertificateRequest $request ListCaCertificateRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1273,7 +1341,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 根据实例ID 分页获取CA证书
+     * @summary Queries all certificate authority (CA) certificates that are registered with an ApsaraMQ for MQTT instance. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
+     *  *
+     * @description - Only Platinum and Professional instances support using the ListCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact the Micro Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param ListCaCertificateRequest $request ListCaCertificateRequest
      *
@@ -1287,7 +1357,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备证书列表
+     * @summary Queries all device certificates that are registered with an ApsaraMQ for MQTT instance. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+     *  *
+     * @description - Only Platinum and Professional instances support using the ListDeviceCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param ListDeviceCertificateRequest $request ListDeviceCertificateRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -1317,7 +1389,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备证书列表
+     * @summary Queries all device certificates that are registered with an ApsaraMQ for MQTT instance. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+     *  *
+     * @description - Only Platinum and Professional instances support using the ListDeviceCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param ListDeviceCertificateRequest $request ListDeviceCertificateRequest
      *
@@ -1331,7 +1405,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备证书列表
+     * @summary Queries all device certificates that are issued by a certificate authority (CA) certificate and registered with ApsaraMQ for MQTT brokers. Device certificates are digital certificates issued to clients by CA root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+     *  *
+     * @description - Only Platinum and Professional edition instances support using the ListDeviceCertificateByCaSn interface. - The request frequency limit for a single user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param ListDeviceCertificateByCaSnRequest $request ListDeviceCertificateByCaSnRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1361,7 +1437,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 获取设备证书列表
+     * @summary Queries all device certificates that are issued by a certificate authority (CA) certificate and registered with ApsaraMQ for MQTT brokers. Device certificates are digital certificates issued to clients by CA root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
+     *  *
+     * @description - Only Platinum and Professional edition instances support using the ListDeviceCertificateByCaSn interface. - The request frequency limit for a single user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param ListDeviceCertificateByCaSnRequest $request ListDeviceCertificateByCaSnRequest
      *
@@ -1375,7 +1453,7 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 列出注册的一机一密的设备ID
+     * @summary Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
      *  *
      * @param ListDeviceCredentialClientIdRequest $request ListDeviceCredentialClientIdRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -1420,7 +1498,7 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 列出注册的一机一密的设备ID
+     * @summary Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
      *  *
      * @param ListDeviceCredentialClientIdRequest $request ListDeviceCredentialClientIdRequest
      *
@@ -2077,7 +2155,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 注册CA证书
+     * @summary Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
+     *  *
+     * @description - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param RegisterCaCertificateRequest $request RegisterCaCertificateRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2119,7 +2199,9 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 注册CA证书
+     * @summary Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
+     *  *
+     * @description - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
      *  *
      * @param RegisterCaCertificateRequest $request RegisterCaCertificateRequest
      *
@@ -2308,6 +2390,59 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
+     * @summary 配置多域名证书
+     *  *
+     * @param SetSniConfigRequest $request SetSniConfigRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetSniConfigResponse SetSniConfigResponse
+     */
+    public function setSniConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->defaultCertificate)) {
+            $query['DefaultCertificate'] = $request->defaultCertificate;
+        }
+        if (!Utils::isUnset($request->mqttInstanceId)) {
+            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        }
+        if (!Utils::isUnset($request->sniConfig)) {
+            $query['SniConfig'] = $request->sniConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSniConfig',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetSniConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 配置多域名证书
+     *  *
+     * @param SetSniConfigRequest $request SetSniConfigRequest
+     *
+     * @return SetSniConfigResponse SetSniConfigResponse
+     */
+    public function setSniConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSniConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
      *  *
      * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
@@ -2426,7 +2561,7 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 更新自定义权限授权
+     * @summary Updates the permissions on a topic.
      *  *
      * @param UpdateCustomAuthPermissionRequest $request UpdateCustomAuthPermissionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2474,7 +2609,7 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 更新自定义权限授权
+     * @summary Updates the permissions on a topic.
      *  *
      * @param UpdateCustomAuthPermissionRequest $request UpdateCustomAuthPermissionRequest
      *
