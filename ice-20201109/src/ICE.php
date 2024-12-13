@@ -329,6 +329,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SearchPublicMediaInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentDataChannelMessageRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentDataChannelMessageResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentSpeechRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendAIAgentSpeechResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SendLiveSnapshotJobCommandRequest;
@@ -439,6 +441,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitVideoTranslationJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\TakeoverAIAgentCallResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAIAgentInstanceShrinkRequest;
@@ -7881,8 +7885,8 @@ class ICE extends OpenApiClient
      * @summary Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
      *  *
      * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      *  *
      * @param ListTemplatesRequest $request ListTemplatesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7936,8 +7940,8 @@ class ICE extends OpenApiClient
      * @summary Queries a list of templates that meet the specified conditions. You can query templates based on information such as the template status and creation source.
      *  *
      * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      *  *
      * @param ListTemplatesRequest $request ListTemplatesRequest
      *
@@ -9546,6 +9550,56 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->searchPublicMediaInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 向智能体通话发送datachannel消息
+     *  *
+     * @param SendAIAgentDataChannelMessageRequest $request SendAIAgentDataChannelMessageRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SendAIAgentDataChannelMessageResponse SendAIAgentDataChannelMessageResponse
+     */
+    public function sendAIAgentDataChannelMessageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->message)) {
+            $query['Message'] = $request->message;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendAIAgentDataChannelMessage',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendAIAgentDataChannelMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 向智能体通话发送datachannel消息
+     *  *
+     * @param SendAIAgentDataChannelMessageRequest $request SendAIAgentDataChannelMessageRequest
+     *
+     * @return SendAIAgentDataChannelMessageResponse SendAIAgentDataChannelMessageResponse
+     */
+    public function sendAIAgentDataChannelMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendAIAgentDataChannelMessageWithOptions($request, $runtime);
     }
 
     /**
@@ -12494,6 +12548,59 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @summary 切换真人客服接管模式
+     *  *
+     * @param TakeoverAIAgentCallRequest $request TakeoverAIAgentCallRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TakeoverAIAgentCallResponse TakeoverAIAgentCallResponse
+     */
+    public function takeoverAIAgentCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->humanAgentUserId)) {
+            $query['HumanAgentUserId'] = $request->humanAgentUserId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->requireToken)) {
+            $query['RequireToken'] = $request->requireToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TakeoverAIAgentCall',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TakeoverAIAgentCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 切换真人客服接管模式
+     *  *
+     * @param TakeoverAIAgentCallRequest $request TakeoverAIAgentCallRequest
+     *
+     * @return TakeoverAIAgentCallResponse TakeoverAIAgentCallResponse
+     */
+    public function takeoverAIAgentCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->takeoverAIAgentCallWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 修改实例的配置
      *  *
      * @param UpdateAIAgentInstanceRequest $tmpReq  UpdateAIAgentInstanceRequest
@@ -13399,8 +13506,8 @@ class ICE extends OpenApiClient
     /**
      * @summary Modifies an online editing template. You can modify the template title and template configurations.
      *  *
-     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      *  *
      * @param UpdateTemplateRequest $request UpdateTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -13458,8 +13565,8 @@ class ICE extends OpenApiClient
     /**
      * @summary Modifies an online editing template. You can modify the template title and template configurations.
      *  *
-     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * @description *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      *  *
      * @param UpdateTemplateRequest $request UpdateTemplateRequest
      *

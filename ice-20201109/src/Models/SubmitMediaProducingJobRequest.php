@@ -18,14 +18,14 @@ class SubmitMediaProducingJobRequest extends Model
     public $clientToken;
 
     /**
-     * @description The material parameters of the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information, see [Create and use a regular template](https://help.aliyun.com/document_detail/328557.html) and [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * @description The material parameters of the template, in the JSON format. If TemplateId is specified, ClipsParam must also be specified. For more information, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html) and [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      *
      * @var string
      */
     public $clipsParam;
 
     /**
-     * @description The parameters for editing and production. For more information, see [EditingProduceConfig](https://help.aliyun.com/document_detail/357745.html#title-10z-t9u-n69).
+     * @description The parameters for editing and production. For more information, see [EditingProduceConfig](https://help.aliyun.com/document_detail/357745.html).
      *
      * >  If no thumbnail is specified in EditingProduceConfig, the first frame of the video is used as the thumbnail.
      *
@@ -40,7 +40,7 @@ class SubmitMediaProducingJobRequest extends Model
     public $editingProduceConfig;
 
     /**
-     * @description The metadata of the produced video, in the JSON format. For more information about the parameters, see [MediaMetadata](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.445712.0.0.49a716dbA8hgdz#97ff26d0e3c28).
+     * @description The metadata of the produced video, in the JSON format. For more information about the parameters, see [MediaMetadata](https://help.aliyun.com/document_detail/357745.html).
      *
      * @example {
      * }
@@ -82,7 +82,7 @@ class SubmitMediaProducingJobRequest extends Model
     public $projectId;
 
     /**
-     * @description The metadata of the editing project, in the JSON format. For more information about the parameters, see [ProjectMetadata](https://help.aliyun.com/document_detail/357745.html#title-yvp-81k-wff).
+     * @description The metadata of the editing project, in the JSON format. For more information about the parameters, see [ProjectMetadata](https://help.aliyun.com/document_detail/357745.html).
      *
      * @var string
      */
