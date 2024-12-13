@@ -63,6 +63,11 @@ class UpdatePrometheusInstanceRequest extends Model
     public $enableAuthToken;
 
     /**
+     * @var string
+     */
+    public $paymentType;
+
+    /**
      * @description The region ID.
      *
      * This parameter is required.
@@ -97,6 +102,7 @@ class UpdatePrometheusInstanceRequest extends Model
         'enableAuthFreeRead'  => 'EnableAuthFreeRead',
         'enableAuthFreeWrite' => 'EnableAuthFreeWrite',
         'enableAuthToken'     => 'EnableAuthToken',
+        'paymentType'         => 'PaymentType',
         'regionId'            => 'RegionId',
         'resourceGroupId'     => 'ResourceGroupId',
         'storageDuration'     => 'StorageDuration',
@@ -129,6 +135,9 @@ class UpdatePrometheusInstanceRequest extends Model
         }
         if (null !== $this->enableAuthToken) {
             $res['EnableAuthToken'] = $this->enableAuthToken;
+        }
+        if (null !== $this->paymentType) {
+            $res['PaymentType'] = $this->paymentType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -171,6 +180,9 @@ class UpdatePrometheusInstanceRequest extends Model
         }
         if (isset($map['EnableAuthToken'])) {
             $model->enableAuthToken = $map['EnableAuthToken'];
+        }
+        if (isset($map['PaymentType'])) {
+            $model->paymentType = $map['PaymentType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

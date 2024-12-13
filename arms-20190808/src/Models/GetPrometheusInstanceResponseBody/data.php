@@ -169,6 +169,11 @@ class data extends Model
     public $paymentType;
 
     /**
+     * @var string
+     */
+    public $paymentTypeUpdateTime;
+
+    /**
      * @description The product to which the Prometheus instance belongs. Valid values: arms and cms.
      *
      * @example arms
@@ -331,42 +336,43 @@ class data extends Model
      */
     public $vpcId;
     protected $_name = [
-        'accessType'          => 'AccessType',
-        'archiveDuration'     => 'ArchiveDuration',
-        'authFreeReadPolicy'  => 'AuthFreeReadPolicy',
-        'authFreeWritePolicy' => 'AuthFreeWritePolicy',
-        'authToken'           => 'AuthToken',
-        'clusterId'           => 'ClusterId',
-        'clusterName'         => 'ClusterName',
-        'clusterType'         => 'ClusterType',
-        'dbInstanceStatus'    => 'DbInstanceStatus',
-        'enableAuthFreeRead'  => 'EnableAuthFreeRead',
-        'enableAuthFreeWrite' => 'EnableAuthFreeWrite',
-        'enableAuthToken'     => 'EnableAuthToken',
-        'extraInfo'           => 'ExtraInfo',
-        'grafanaInstanceId'   => 'GrafanaInstanceId',
-        'httpApiInterUrl'     => 'HttpApiInterUrl',
-        'httpApiIntraUrl'     => 'HttpApiIntraUrl',
-        'paymentType'         => 'PaymentType',
-        'product'             => 'Product',
-        'pushGatewayInterUrl' => 'PushGatewayInterUrl',
-        'pushGatewayIntraUrl' => 'PushGatewayIntraUrl',
-        'regionId'            => 'RegionId',
-        'remoteReadInterUrl'  => 'RemoteReadInterUrl',
-        'remoteReadIntraUrl'  => 'RemoteReadIntraUrl',
-        'remoteWriteInterUrl' => 'RemoteWriteInterUrl',
-        'remoteWriteIntraUrl' => 'RemoteWriteIntraUrl',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'resourceType'        => 'ResourceType',
-        'securityGroupId'     => 'SecurityGroupId',
-        'storageDuration'     => 'StorageDuration',
-        'subClustersJson'     => 'SubClustersJson',
-        'supportAuthTypes'    => 'SupportAuthTypes',
-        'tags'                => 'Tags',
-        'userId'              => 'UserId',
-        'vSwitchId'           => 'VSwitchId',
-        'version'             => 'Version',
-        'vpcId'               => 'VpcId',
+        'accessType'            => 'AccessType',
+        'archiveDuration'       => 'ArchiveDuration',
+        'authFreeReadPolicy'    => 'AuthFreeReadPolicy',
+        'authFreeWritePolicy'   => 'AuthFreeWritePolicy',
+        'authToken'             => 'AuthToken',
+        'clusterId'             => 'ClusterId',
+        'clusterName'           => 'ClusterName',
+        'clusterType'           => 'ClusterType',
+        'dbInstanceStatus'      => 'DbInstanceStatus',
+        'enableAuthFreeRead'    => 'EnableAuthFreeRead',
+        'enableAuthFreeWrite'   => 'EnableAuthFreeWrite',
+        'enableAuthToken'       => 'EnableAuthToken',
+        'extraInfo'             => 'ExtraInfo',
+        'grafanaInstanceId'     => 'GrafanaInstanceId',
+        'httpApiInterUrl'       => 'HttpApiInterUrl',
+        'httpApiIntraUrl'       => 'HttpApiIntraUrl',
+        'paymentType'           => 'PaymentType',
+        'paymentTypeUpdateTime' => 'PaymentTypeUpdateTime',
+        'product'               => 'Product',
+        'pushGatewayInterUrl'   => 'PushGatewayInterUrl',
+        'pushGatewayIntraUrl'   => 'PushGatewayIntraUrl',
+        'regionId'              => 'RegionId',
+        'remoteReadInterUrl'    => 'RemoteReadInterUrl',
+        'remoteReadIntraUrl'    => 'RemoteReadIntraUrl',
+        'remoteWriteInterUrl'   => 'RemoteWriteInterUrl',
+        'remoteWriteIntraUrl'   => 'RemoteWriteIntraUrl',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'resourceType'          => 'ResourceType',
+        'securityGroupId'       => 'SecurityGroupId',
+        'storageDuration'       => 'StorageDuration',
+        'subClustersJson'       => 'SubClustersJson',
+        'supportAuthTypes'      => 'SupportAuthTypes',
+        'tags'                  => 'Tags',
+        'userId'                => 'UserId',
+        'vSwitchId'             => 'VSwitchId',
+        'version'               => 'Version',
+        'vpcId'                 => 'VpcId',
     ];
 
     public function validate()
@@ -426,6 +432,9 @@ class data extends Model
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
+        }
+        if (null !== $this->paymentTypeUpdateTime) {
+            $res['PaymentTypeUpdateTime'] = $this->paymentTypeUpdateTime;
         }
         if (null !== $this->product) {
             $res['Product'] = $this->product;
@@ -552,6 +561,9 @@ class data extends Model
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
+        }
+        if (isset($map['PaymentTypeUpdateTime'])) {
+            $model->paymentTypeUpdateTime = $map['PaymentTypeUpdateTime'];
         }
         if (isset($map['Product'])) {
             $model->product = $map['Product'];

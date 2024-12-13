@@ -82,6 +82,11 @@ class CreatePrometheusInstanceRequest extends Model
     public $grafanaInstanceId;
 
     /**
+     * @var string
+     */
+    public $paymentType;
+
+    /**
      * @description The ID of the region. If you use a Prometheus instance to monitor an Alibaba Cloud service in China, this parameter must be set to cn-shanghai.
      *
      * This parameter is required.
@@ -164,6 +169,7 @@ class CreatePrometheusInstanceRequest extends Model
         'clusterType'           => 'ClusterType',
         'duration'              => 'Duration',
         'grafanaInstanceId'     => 'GrafanaInstanceId',
+        'paymentType'           => 'PaymentType',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'securityGroupId'       => 'SecurityGroupId',
@@ -200,6 +206,9 @@ class CreatePrometheusInstanceRequest extends Model
         }
         if (null !== $this->grafanaInstanceId) {
             $res['GrafanaInstanceId'] = $this->grafanaInstanceId;
+        }
+        if (null !== $this->paymentType) {
+            $res['PaymentType'] = $this->paymentType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -260,6 +269,9 @@ class CreatePrometheusInstanceRequest extends Model
         }
         if (isset($map['GrafanaInstanceId'])) {
             $model->grafanaInstanceId = $map['GrafanaInstanceId'];
+        }
+        if (isset($map['PaymentType'])) {
+            $model->paymentType = $map['PaymentType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

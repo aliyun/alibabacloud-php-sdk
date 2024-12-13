@@ -3088,6 +3088,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->grafanaInstanceId)) {
             $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
         }
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['PaymentType'] = $request->paymentType;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -14686,6 +14689,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableAuthToken)) {
             $query['EnableAuthToken'] = $request->enableAuthToken;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['PaymentType'] = $request->paymentType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

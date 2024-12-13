@@ -1,3 +1,9 @@
+2024-12-13 Version: 7.3.3
+- Update API CreatePrometheusInstance: add param PaymentType.
+- Update API GetPrometheusInstance: update response param.
+- Update API UpdatePrometheusInstance: add param PaymentType.
+
+
 2024-12-06 Version: 7.3.2
 - Update API CreateGrafanaWorkspace: add param AccountNumber.
 - Update API CreateGrafanaWorkspace: add param AutoRenew.
