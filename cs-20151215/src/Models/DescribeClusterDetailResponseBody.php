@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterDetailResponseBody extends Model
 {
     /**
-     * @description The on-premises domain name of the cluster.
+     * @description The domain name of the cluster.
      *
      * @example cluster.local
      *
@@ -52,7 +52,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $clusterType;
 
     /**
-     * @description The CIDR block of the pod.
+     * @description The CIDR block of the pod. The configuration of the Flannel network plug-in.
      *
      * @example 172.20.0.0/16
      *
@@ -61,6 +61,8 @@ class DescribeClusterDetailResponseBody extends Model
     public $containerCidr;
 
     /**
+     * @description The control plane configurations in an ACK dedicated cluster.
+     *
      * @var controlPlaneConfig
      */
     public $controlPlaneConfig;
@@ -188,7 +190,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $nextVersion;
 
     /**
-     * @description The number of the IP addresses of the node.
+     * @description The maximum number of IP addresses that can be assigned to nodes. This number is determined by the node CIDR block. This parameter takes effect only if the cluster uses Flannel network plug-in.
      *
      * @example 26
      *
@@ -238,7 +240,10 @@ class DescribeClusterDetailResponseBody extends Model
     public $profile;
 
     /**
-     * @description The proxy mode. Valid values: ipvs and iptables.
+     * @description The kube-proxy mode. Valid values:
+     *
+     *   `iptables`: a mature and stable kube-proxy mode that uses iptables rules to conduct Service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
+     *   `ipvs`: provides high performance and uses IP Virtual Server (IPVS). This allows you to configure service discovery and load balancing. This mode is suitable for clusters that are required to run a large number of services. We recommend that you use this mode in scenarios that require high load balancing performance.
      *
      * @example ipvs
      *
@@ -274,7 +279,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $securityGroupId;
 
     /**
-     * @description The CIDR block of the Service.
+     * @description The CIDR block of the service network.
      *
      * This parameter is required.
      * @example 172.21.0.0/20
@@ -338,7 +343,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $tags;
 
     /**
-     * @description The time zone.
+     * @description The time zone
      *
      * @example Asia/Shanghai
      *
@@ -365,7 +370,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create a cluster. To ensure the high availability of the cluster, we recommend that you select vSwitches in different zones.
+     * @description The ID of the vSwitche. This field is deprecated. Use vswitch_ids to query the vSwitches on the control plane and vswitch_ids to query the vSwitches on the data plane.
      *
      * @example vsw-2zete8s4qocqg0mf6****,vsw-2zete8s4qocqg0mf6****
      *

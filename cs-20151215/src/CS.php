@@ -140,7 +140,9 @@ use AlibabaCloud\SDK\CS\V20151215\Models\FixNodePoolVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterAddonInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterAuditProjectResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterCheckResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisCheckItemsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisCheckItemsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisResultRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetClusterDiagnosisResultResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\GetKubernetesTriggerResponse;
@@ -748,7 +750,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the CleanClusterUserPermissions operation to delete kubeconfig files that may pose potential risks from a user and revoke Role-Based Access Control (RBAC) permissions on a cluster.
+     * @summary Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
      *  *
      * @description >
      * *   To call this operation, make sure that you have the AliyunCSFullAccess permission.
@@ -790,7 +792,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the CleanClusterUserPermissions operation to delete kubeconfig files that may pose potential risks from a user and revoke Role-Based Access Control (RBAC) permissions on a cluster.
+     * @summary Deletes kubeconfig files that may pose potential risks from a user and revokes Role-Based Access Control (RBAC) permissions on a cluster.
      *  *
      * @description >
      * *   To call this operation, make sure that you have the AliyunCSFullAccess permission.
@@ -1331,7 +1333,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 发起集群诊断
+     * @summary Starts a cluster diagnostic.
      *  *
      * @param string                        $clusterId
      * @param CreateClusterDiagnosisRequest $request   CreateClusterDiagnosisRequest
@@ -1370,7 +1372,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 发起集群诊断
+     * @summary Starts a cluster diagnostic.
      *  *
      * @param string                        $clusterId
      * @param CreateClusterDiagnosisRequest $request   CreateClusterDiagnosisRequest
@@ -1720,7 +1722,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 删除ACK报警联系人
+     * @summary Deletes one or more ACK alert contacts.
      *  *
      * @param DeleteAlertContactRequest $tmpReq  DeleteAlertContactRequest
      * @param string[]                  $headers map
@@ -1760,7 +1762,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 删除ACK报警联系人
+     * @summary Deletes one or more ACK alert contacts.
      *  *
      * @param DeleteAlertContactRequest $request DeleteAlertContactRequest
      *
@@ -1775,7 +1777,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 删除ACK报警联系人分组
+     * @summary Deletes an ACK alert contact group.
      *  *
      * @param DeleteAlertContactGroupRequest $tmpReq  DeleteAlertContactGroupRequest
      * @param string[]                       $headers map
@@ -1815,7 +1817,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 删除ACK报警联系人分组
+     * @summary Deletes an ACK alert contact group.
      *  *
      * @param DeleteAlertContactGroupRequest $request DeleteAlertContactGroupRequest
      *
@@ -5090,19 +5092,26 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群诊断检查项
+     * @summary Queries cluster diagnostic items.
      *  *
-     * @param string         $clusterId
-     * @param string         $diagnosisId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string                               $clusterId
+     * @param string                               $diagnosisId
+     * @param GetClusterDiagnosisCheckItemsRequest $request     GetClusterDiagnosisCheckItemsRequest
+     * @param string[]                             $headers     map
+     * @param RuntimeOptions                       $runtime     runtime options for this request RuntimeOptions
      *
      * @return GetClusterDiagnosisCheckItemsResponse GetClusterDiagnosisCheckItemsResponse
      */
-    public function getClusterDiagnosisCheckItemsWithOptions($clusterId, $diagnosisId, $headers, $runtime)
+    public function getClusterDiagnosisCheckItemsWithOptions($clusterId, $diagnosisId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetClusterDiagnosisCheckItems',
@@ -5120,35 +5129,43 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群诊断检查项
+     * @summary Queries cluster diagnostic items.
      *  *
-     * @param string $clusterId
-     * @param string $diagnosisId
+     * @param string                               $clusterId
+     * @param string                               $diagnosisId
+     * @param GetClusterDiagnosisCheckItemsRequest $request     GetClusterDiagnosisCheckItemsRequest
      *
      * @return GetClusterDiagnosisCheckItemsResponse GetClusterDiagnosisCheckItemsResponse
      */
-    public function getClusterDiagnosisCheckItems($clusterId, $diagnosisId)
+    public function getClusterDiagnosisCheckItems($clusterId, $diagnosisId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getClusterDiagnosisCheckItemsWithOptions($clusterId, $diagnosisId, $headers, $runtime);
+        return $this->getClusterDiagnosisCheckItemsWithOptions($clusterId, $diagnosisId, $request, $headers, $runtime);
     }
 
     /**
-     * @summary 获取集群诊断结果
+     * @summary Queries cluster diagnostic results.
      *  *
-     * @param string         $clusterId
-     * @param string         $diagnosisId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string                           $clusterId
+     * @param string                           $diagnosisId
+     * @param GetClusterDiagnosisResultRequest $request     GetClusterDiagnosisResultRequest
+     * @param string[]                         $headers     map
+     * @param RuntimeOptions                   $runtime     runtime options for this request RuntimeOptions
      *
      * @return GetClusterDiagnosisResultResponse GetClusterDiagnosisResultResponse
      */
-    public function getClusterDiagnosisResultWithOptions($clusterId, $diagnosisId, $headers, $runtime)
+    public function getClusterDiagnosisResultWithOptions($clusterId, $diagnosisId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['language'] = $request->language;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetClusterDiagnosisResult',
@@ -5166,19 +5183,20 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群诊断结果
+     * @summary Queries cluster diagnostic results.
      *  *
-     * @param string $clusterId
-     * @param string $diagnosisId
+     * @param string                           $clusterId
+     * @param string                           $diagnosisId
+     * @param GetClusterDiagnosisResultRequest $request     GetClusterDiagnosisResultRequest
      *
      * @return GetClusterDiagnosisResultResponse GetClusterDiagnosisResultResponse
      */
-    public function getClusterDiagnosisResult($clusterId, $diagnosisId)
+    public function getClusterDiagnosisResult($clusterId, $diagnosisId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getClusterDiagnosisResultWithOptions($clusterId, $diagnosisId, $headers, $runtime);
+        return $this->getClusterDiagnosisResultWithOptions($clusterId, $diagnosisId, $request, $headers, $runtime);
     }
 
     /**
@@ -5571,7 +5589,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ListClusterKubeconfigStates operation to query the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
+     * @summary Queries the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
      *  *
      * @description > - To call this operation, make sure that you have ram:ListUsers and ram:ListRoles permissions.
      * > - To call this operation, make sure that you have the AliyunCSFullAccess permissions.
@@ -5613,7 +5631,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ListClusterKubeconfigStates operation to query the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
+     * @summary Queries the kubeconfig files that are issued to users for the current cluster and the status of the kubeconfig files.
      *  *
      * @description > - To call this operation, make sure that you have ram:ListUsers and ram:ListRoles permissions.
      * > - To call this operation, make sure that you have the AliyunCSFullAccess permissions.
@@ -6626,10 +6644,11 @@ class CS extends OpenApiClient
     /**
      * @summary Removes nodes from a node pool.
      *  *
-     * @description - When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-     * - The operation may have unexpected risks. Back up the data before you perform this operation.
-     * - When the system removes a node, it sets the status of the node to Unschedulable.
-     * - The system removes only worker nodes. It does not remove master nodes.
+     * @description *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     * *   The operation may have unexpected risks. Back up the data before you perform this operation.
+     * *   Nodes remain in the Unschedulable state when they are being removed.
+     * *   The system removes only worker nodes. It does not remove master nodes.
+     * *   Even if you set the `release_node` parameter to `true`, subscription nodes are not released. You must release the subscription nodes in the [ECS console](https://ecs.console.aliyun.com/) after you remove the nodes.
      *  *
      * @param string                     $ClusterId
      * @param string                     $NodepoolId
@@ -6688,10 +6707,11 @@ class CS extends OpenApiClient
     /**
      * @summary Removes nodes from a node pool.
      *  *
-     * @description - When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
-     * - The operation may have unexpected risks. Back up the data before you perform this operation.
-     * - When the system removes a node, it sets the status of the node to Unschedulable.
-     * - The system removes only worker nodes. It does not remove master nodes.
+     * @description *   When you remove a node, the pods on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     * *   The operation may have unexpected risks. Back up the data before you perform this operation.
+     * *   Nodes remain in the Unschedulable state when they are being removed.
+     * *   The system removes only worker nodes. It does not remove master nodes.
+     * *   Even if you set the `release_node` parameter to `true`, subscription nodes are not released. You must release the subscription nodes in the [ECS console](https://ecs.console.aliyun.com/) after you remove the nodes.
      *  *
      * @param string                     $ClusterId
      * @param string                     $NodepoolId

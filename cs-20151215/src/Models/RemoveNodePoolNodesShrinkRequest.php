@@ -37,8 +37,9 @@ class RemoveNodePoolNodesShrinkRequest extends Model
     public $instanceIdsShrink;
 
     /**
-     * @description A list of nodes that you want to remove.
+     * @description This parameter is deprecated.
      *
+     * >  This parameter is deprecated. Use instance_ids instead.
      * @deprecated
      *
      * @var string

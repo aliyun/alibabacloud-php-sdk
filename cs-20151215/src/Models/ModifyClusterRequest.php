@@ -63,12 +63,12 @@ class ModifyClusterRequest extends Model
     public $controlPlaneConfig;
 
     /**
-     * @description Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
+     * @description Specifies whether to enable cluster deletion protection. If this option is enabled, the cluster cannot be deleted in the console or by calling API operations. Valid values:
      *
      *   `true`: enables cluster deletion protection.
      *   `false`: disables cluster deletion protection.
      *
-     * Default value: `false`.
+     * Default value: `false`
      * @example true
      *
      * @var bool
@@ -93,7 +93,7 @@ class ModifyClusterRequest extends Model
      *   `true`: remaps the test domain name of the cluster.
      *   `false`: does not remap the test domain name of the cluster.
      *
-     * Default value: `false`.
+     * Default value: `false`
      * @example true
      *
      * @var bool
@@ -115,7 +115,7 @@ class ModifyClusterRequest extends Model
      *   `true`: enables instance deletion protection.
      *   `false`: disables instance deletion protection.
      *
-     * Default value: `false`.
+     * Default value: `false`
      * @example true
      *
      * @var bool
@@ -153,6 +153,13 @@ class ModifyClusterRequest extends Model
     public $systemEventsLogging;
 
     /**
+     * @description The vSwitches of the control planes. This parameter can be used to change the vSwitches of the control planes in an ACK managed cluster. Take note of the following items:
+     *
+     *   This parameter overwrites the existing configuration. You must specify all vSwitches of the control planes.
+     *   The control planes restart during the update process. Exercise caution when you perform this operation.
+     *   Make sure that all security groups of the cluster, including the security groups of the control planes, all node pools, and container network, are allowed to access the CIDR blocks of the new vSwitches. This ensures that the nodes and containers can connect to the API server.
+     *   If the new vSwitches of the control planes are configured with an access control list (ACL), ensure that the ACL allows communication between the new vSwitches and the CIDR blocks of cluster nodes and container networks.
+     *
      * @var string[]
      */
     public $vswitchIds;

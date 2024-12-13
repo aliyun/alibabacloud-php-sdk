@@ -11,8 +11,8 @@ class autoRepairPolicy extends Model
     /**
      * @description Specifies whether ACK is allowed to automatically restart nodes after repairing the nodes. Valid values:
      *
-     *   `true`: allows node restart.
-     *   `false`: does not allow node restart.
+     *   `true`: yes.
+     *   `false`: no.
      *
      * @example true
      *

@@ -9,116 +9,206 @@ use AlibabaCloud\Tea\Model;
 class controlPlaneConfig extends Model
 {
     /**
+     * @description Indicates whether auto-renewal is enabled for the node.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description The auto-renewal duration for the node.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @description The billing method of the control plane node.
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description Indicates whether to install CloudMonitor for the node.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $cloudMonitorFlags;
 
     /**
+     * @description The CPU management policy of nodes.
+     *
+     * @example none
+     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
+     * @description The ID of the deployment set.
+     *
+     * @example ds-bp10b35imuam5amw****
+     *
      * @var string
      */
     public $deploymentsetId;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example aliyun_3_x64_20G_alibase_20240819.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The type of the OS image.
+     *
+     * @example AliyunLinux3
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The instance type of the node.
+     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
+     * @description The name of the key pair. You must set key_pair or login_password.
+     *
+     * @example ack
+     *
      * @var string
      */
     public $keyPair;
 
     /**
+     * @description The node port range.
+     *
+     * @example 30000-32767
+     *
      * @var string
      */
     public $nodePortRange;
 
     /**
+     * @description The subscription duration.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The unit of the subscription duration.
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The runtime.
+     *
+     * @example containerd
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @description Indicates whether to enable Alibaba Cloud Linux Security Hardening.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $securityHardeningOs;
 
     /**
+     * @description The number of control plane nodes.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description Indicates whether to enable Multi-Level Protection Scheme (MLPS) security hardening.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $socEnabled;
 
     /**
+     * @description Indicates whether to enable the burst feature for the system disk.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $systemDiskBurstingEnabled;
 
     /**
+     * @description The category of the system disk for nodes.
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
+     * @description The performance level (PL) of the system disk that you want to use for the node. This parameter takes effect only for ESSDs.
+     *
+     * @example PL1
+     *
      * @var string
      */
     public $systemDiskPerformanceLevel;
 
     /**
+     * @description The preset read/write IOPS of the system disk.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $systemDiskProvisionedIops;
 
     /**
+     * @description The system disk size of the node. The value must be at least 40 GB.
+     *
+     * @example 120
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @description The automatic snapshot policy of the node.
+     *
+     * @example sp-2zej1nogjvovnz4z****
+     *
      * @var string
      */
     public $systemDiskSnapshotPolicyId;

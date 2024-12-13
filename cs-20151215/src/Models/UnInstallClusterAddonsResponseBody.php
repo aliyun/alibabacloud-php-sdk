@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UnInstallClusterAddonsResponseBody extends Model
 {
     /**
+     * @description 集群ID。
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 请求ID。
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 任务ID。
+     *
      * @var string
      */
     public $taskId;

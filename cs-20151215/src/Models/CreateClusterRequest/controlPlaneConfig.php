@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class controlPlaneConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $cloudMonitorFlags;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
+     * @example ds-bp10b35imuam5amw****
+     *
      * @var string
      */
     public $deploymentsetId;
 
     /**
+     * @example aliyun_3_x64_20G_alibase_20240819.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example AliyunLinux3
+     *
      * @var string
      */
     public $imageType;
@@ -54,76 +70,106 @@ class controlPlaneConfig extends Model
     public $instanceTypes;
 
     /**
+     * @example ack
+     *
      * @var string
      */
     public $keyPair;
 
     /**
+     * @example ack@Test
+     *
      * @var string
      */
     public $loginPassword;
 
     /**
+     * @example 30000-32767
+     *
      * @var string
      */
     public $nodePortRange;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example containerd
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $securityHardeningOs;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $socEnabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $systemDiskBurstingEnabled;
 
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $systemDiskPerformanceLevel;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $systemDiskProvisionedIops;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $systemDiskSize;
 
     /**
+     * @example sp-2zej1nogjvovnz4z****
+     *
      * @var string
      */
     public $systemDiskSnapshotPolicyId;

@@ -23,7 +23,7 @@ class UpdateUserPermissionsRequest extends Model
      *   `delete`: revokes the specified permissions from the RAM user or RAM role. If you use this method, only the permissions that you specify are revoked, other permissions of the RAM user or RAM role on the cluster are not affected.
      *   `patch`: grants the specified permissions to the RAM user or role. If you use this method, only the permissions that you specify are granted, other permissions of the RAM user or RAM role on the cluster are not affected.
      *
-     * Default value: `apply`
+     * Default value: `apply`.
      * @example apply
      *
      * @var string

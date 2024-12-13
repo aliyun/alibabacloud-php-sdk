@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class customizeConfig extends Model
 {
     /**
-     * @description The custom configuration.
+     * @description The custom configurations.
      *
      * @var configs[]
      */

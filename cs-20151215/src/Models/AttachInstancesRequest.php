@@ -12,7 +12,7 @@ class AttachInstancesRequest extends Model
      * @description The CPU management policy of the node. The following policies are supported if the Kubernetes version of the cluster is 1.12.6 or later:
      *
      *   `static`: allows pods with specific resource characteristics on the node to be granted enhanced CPU affinity and exclusivity.
-     *   `none`: specifies that the default CPU affinity is used.
+     *   `none`: uses default CPU affinity.
      *
      * >  This parameter is not supported if you specify `nodepool_id`.
      * @example none
@@ -22,7 +22,7 @@ class AttachInstancesRequest extends Model
     public $cpuPolicy;
 
     /**
-     * @description Specifies whether to store container data and images on data disks. Valid values:
+     * @description Specifies whether to store container data and images on data disks. Valid value:
      *
      *   `true`: stores container data and images on data disks.
      *   `false`: does not store container data or images on data disks.
@@ -63,7 +63,7 @@ class AttachInstancesRequest extends Model
     public $instances;
 
     /**
-     * @description Specifies whether the node that you want to add is an Edge Node Service (ENS) node. Valid values:
+     * @description Specifies whether the node that you want to add is an Edge Node Service (ENS) node. Valid value:
      *
      *   `true`: the node that you want to add is an ENS node.
      *   `false`: the node that you want to add is not an ENS node.
@@ -76,7 +76,7 @@ class AttachInstancesRequest extends Model
     public $isEdgeWorker;
 
     /**
-     * @description Specifies whether to retain the instance name. Valid values:
+     * @description Specifies whether to retain the instance name. Valid value:
      *
      *   `true`: retains the instance name.
      *   `false`: does not retain the instance name.
@@ -144,7 +144,7 @@ class AttachInstancesRequest extends Model
     public $tags;
 
     /**
-     * @description The user-defined data on the node. For more information, see [Generate user-defined data](https://help.aliyun.com/document_detail/49121.html).
+     * @description The user-defined data on the node. For more information, see [Use instance user data to automatically run commands or scripts on instance startup](https://help.aliyun.com/document_detail/49121.html).
      *
      * >  This parameter is not supported if you specify `nodepool_id`.
      * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi

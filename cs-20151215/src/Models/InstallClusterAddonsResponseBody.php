@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class InstallClusterAddonsResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c82e6987e2961451182edacd74faf****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 48BD70F6-A7E6-543D-9F23-08DEB764C92E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the job.
+     *
+     * @example T-5a54309c80282e39ea00002f
+     *
      * @var string
      */
     public $taskId;

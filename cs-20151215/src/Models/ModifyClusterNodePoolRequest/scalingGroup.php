@@ -27,9 +27,12 @@ class scalingGroup extends Model
     public $autoRenew;
 
     /**
-     * @description The duration of the auto-renewal. This parameter takes effect and is required only when you set `instance_charge_type` to `PrePaid`.
+     * @description The auto-renewal period. Valid values:
      *
-     * If you specify `PeriodUnit=Month`, the valid values are 1, 2, 3, 6, and 12.
+     *   Valid values when PeriodUnit is set to Week: 1, 2, and 3
+     *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, 12, 24, 36, 48, and 60
+     *
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -39,7 +42,7 @@ class scalingGroup extends Model
     /**
      * @description Specifies whether to automatically create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created due to reasons such as the cost or insufficient inventory. This parameter takes effect only when you set `multi_az_policy` to `COST_OPTIMIZED`. Valid values:
      *
-     *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
+     *   `true`: automatically creates pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created
      *   `false`: does not create pay-as-you-go instances to meet the required number of ECS instances if preemptible instances cannot be created.
      *
      * @example true
@@ -49,7 +52,7 @@ class scalingGroup extends Model
     public $compensateWithOnDemand;
 
     /**
-     * @description The configurations of the data disks that are mounted to the nodes in the node pool. You can mount at most 10 data disks to the nodes in the node pool.
+     * @description The configurations of the data disks that are mounted to nodes in the node pool. Valid values: 0 to 10. You can mount at most 10 data disks to the nodes in the node pool.
      *
      * @var DataDisk[]
      */
@@ -78,7 +81,7 @@ class scalingGroup extends Model
      *
      *   `AliyunLinux`: Alibaba Cloud Linux 2.
      *   `AliyunLinuxSecurity`: Alibaba Cloud Linux 2 (UEFI).
-     *   `AliyunLinux3`: Alibaba Cloud Linux 3.
+     *   `AliyunLinux3`: Alibaba Cloud Linux 3
      *   `AliyunLinux3Arm64`: Alibaba Cloud Linux 3 (ARM).
      *   `AliyunLinux3Security`: Alibaba Cloud Linux 3 (UEFI).
      *   `CentOS`: CentOS.
@@ -120,7 +123,7 @@ class scalingGroup extends Model
     public $instanceTypes;
 
     /**
-     * @description The metering method of the public IP address. Valid values:
+     * @description The billing method of the public IP address. Valid values:
      *
      *   `PayByBandwidth`: pay-by-bandwidth.
      *   `PayByTraffic`: pay-by-data-transfer
@@ -290,7 +293,7 @@ class scalingGroup extends Model
      * @description The bidding policy of preemptible instances. Valid values:
      *
      *   `NoSpot`: non-preemptible instance.
-     *   `SpotWithPriceLimit`: specifies the highest bid for the preemptible instance.
+     *   `SpotWithPriceLimit`: specifies the highest bid.
      *   `SpotAsPriceGo`: automatically submits bids based on the up-to-date market price.
      *
      * For more information, see [Create a preemptible elastic container instance](https://help.aliyun.com/document_detail/157759.html).
@@ -310,7 +313,7 @@ class scalingGroup extends Model
     public $systemDiskBurstingEnabled;
 
     /**
-     * @description The system disk types. The system attempts to create system disks of a disk type with a lower priority if the disk type with a higher priority is unavailable. Valid values: cloud: disk. cloud_efficiency (ultra disk), cloud_ssd: standard SSD. cloud_essd: Enterprise SSD (ESSD).
+     * @description The system disk types. The system attempts to create system disks of a disk type with a lower priority if the disk type with a higher priority is unavailable. Valid values: cloud: disk. cloud_efficiency (ultra disk). cloud_ssd: standard SSD. cloud_essd: Enterprise SSD (ESSD).
      *
      * @var string[]
      */
@@ -320,7 +323,7 @@ class scalingGroup extends Model
      * @description The type of system disk. Valid values:
      *
      *   `cloud_efficiency`: ultra disk.
-     *   `cloud_ssd`: standard SSD
+     *   `cloud_ssd`: standard SSD.
      *
      * Default value: `cloud_ssd`.
      * @example cloud_efficiency
@@ -339,7 +342,7 @@ class scalingGroup extends Model
     public $systemDiskEncryptAlgorithm;
 
     /**
-     * @description Indicates whether the system disk is encrypted. Valid values: true: encrypts the system disk. false: does not encrypt the system disk.
+     * @description Specifies whether to encrypt the system disk. Valid values: true: encrypts the system disk. false: does not encrypt the system disk.
      *
      * @example false
      *
@@ -387,7 +390,7 @@ class scalingGroup extends Model
     /**
      * @description The tags that you want to add only to ECS instances.
      *
-     * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: or contain https:// or http://.
+     * The label key must be unique and cannot exceed 128 characters in length. The label key and value cannot start with aliyun or acs: and cannot contain https:// or http://.
      * @var Tag[]
      */
     public $tags;

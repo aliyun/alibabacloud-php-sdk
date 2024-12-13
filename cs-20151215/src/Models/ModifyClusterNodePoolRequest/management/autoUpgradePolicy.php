@@ -11,8 +11,8 @@ class autoUpgradePolicy extends Model
     /**
      * @description Specifies whether ACK is allowed to automatically update the kubelet. Valid values:
      *
-     *   `true`: allows auto update of the kubelet.
-     *   `false`: does not allow auto update of the kubelet.
+     *   `true`: yes.
+     *   `false`: no.
      *
      * @example true
      *

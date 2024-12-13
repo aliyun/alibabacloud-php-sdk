@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersV1ResponseBody extends Model
 {
     /**
-     * @description The details of the clusters.
+     * @description Details of the clusters.
      *
      * @var clusters[]
      */

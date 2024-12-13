@@ -18,7 +18,7 @@ class management extends Model
      *   `true`: enables auto repair.
      *   `false`: disables auto repair.
      *
-     * Default value: `true`.
+     * Default value: `true`
      * @example true
      *
      * @var bool
@@ -33,7 +33,7 @@ class management extends Model
     public $autoRepairPolicy;
 
     /**
-     * @description Indicates whether auto update is enabled. Valid values:
+     * @description Specifies whether to enable auto update. Valid values:
      *
      *   `true`: enables auto update.
      *   `false`: disables auto update.
@@ -54,7 +54,7 @@ class management extends Model
     /**
      * @description Specifies whether ACK is allowed to automatically patch CVE vulnerabilities. Valid values:
      *
-     *   `true`: enables auto CVE patching.
+     *   `true`: eanbles auto CVE patching.
      *   `true`: disables auto CVE patching.
      *
      * @example true

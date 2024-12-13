@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rollingPolicy extends Model
 {
     /**
-     * @description Maximum number of executions per batch.
+     * @description The maximum size of each batch.
      *
      * @example 3
      *

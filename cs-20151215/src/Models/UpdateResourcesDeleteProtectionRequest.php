@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourcesDeleteProtectionRequest extends Model
 {
     /**
-     * @description Specify whether to enable deletion protection. Set the value to true to enable deletion protection and set the value to false to disable deletion protection.
+     * @description Specifies whether to enable deletion protection. Set the value to true to enable deletion protection and set the value to false to disable deletion protection.
      *
      * @example true
      *

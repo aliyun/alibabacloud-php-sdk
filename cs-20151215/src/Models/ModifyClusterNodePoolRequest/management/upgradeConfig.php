@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class upgradeConfig extends Model
 {
     /**
-     * @description Specifies whether to enable auto update.
+     * @description Specifies whether to enable auto update. Valid values:
      *
      *   true: enables auto update.
      *   false: disables auto update.
@@ -26,7 +26,7 @@ class upgradeConfig extends Model
     /**
      * @description The maximum number of nodes that can be in the Unavailable state.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int

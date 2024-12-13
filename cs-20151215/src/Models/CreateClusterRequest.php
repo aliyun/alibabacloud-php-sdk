@@ -61,7 +61,7 @@ class CreateClusterRequest extends Model
      * @description Specifies whether to enable auto-renewal. This parameter takes effect only when `charge_type` is set to `PrePaid`. Valid values:
      *
      *   `true`: enables auto-renewal.
-     *   `false`: disables auto-renewal.
+     *   `false`: disables auto-renewal
      *
      * This parameter was changed on October 15, 2024. For more information, see [Announcement on changes to the parameter behavior of the CreateCluster operation](https://help.aliyun.com/document_detail/2849194.html).
      * @example true
@@ -146,7 +146,7 @@ class CreateClusterRequest extends Model
 
     /**
      * @description *   `Kubernetes`: an ACK dedicated cluster.
-     *   `ManagedKubernetes`: an ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless clusters (Basic and Pro), ACK Edge clusters (Basic and Pro), and ACK Lingjun clusters (Pro).
+     *   `ManagedKubernetes`: ACK managed cluster. ACK managed clusters include ACK Basic clusters, ACK Pro clusters, ACK Serverless Basic clusters, ACK Serverless Pro clusters, ACK Edge Basic clusters, ACK Edge Pro clusters, and ACK Lingjun Pro clusters.
      *   `ExternalKubernetes`: a registered cluster.
      *
      * This parameter is required.
@@ -452,7 +452,7 @@ class CreateClusterRequest extends Model
     public $loginPassword;
 
     /**
-     * @description Cluster maintenance window.
+     * @description The configurations of the cluster maintenance window.
      *
      * @var MaintenanceWindow
      */
@@ -462,7 +462,7 @@ class CreateClusterRequest extends Model
      * @description Specifies whether to enable auto-renewal for master nodes. This parameter takes effect only when `master_instance_charge_type` is set to `PrePaid`. Valid values:
      *
      *   `true`: enables auto-renewal.
-     *   `false`: disables auto-renewal.
+     *   `false`: disables auto-renewal
      *
      * Default value: `true`
      * @example true
@@ -476,7 +476,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The cycle of auto-renewal. This parameter takes effect and is required only if the subscription billing method is selected for master nodes.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @deprecated
@@ -501,7 +501,7 @@ class CreateClusterRequest extends Model
      * @description The billing method of master nodes. Valid values:
      *
      *   `PrePaid`: subscription.
-     *   `PostPaid`: pay-as-you-go.
+     *   `PostPaid`: the pay-as-you-go.
      *
      * Default value: `PostPaid`
      * @example PrePaid
@@ -513,7 +513,7 @@ class CreateClusterRequest extends Model
     public $masterInstanceChargeType;
 
     /**
-     * @description The instance types of master nodes. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     * @description The instance types of master nodes. For more information, see [Overview of ECS instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @deprecated
      *
@@ -524,7 +524,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The subscription duration of master nodes. This parameter takes effect and is required only when `master_instance_charge_type` is set to `PrePaid`.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @deprecated
@@ -549,7 +549,7 @@ class CreateClusterRequest extends Model
      * @description The system disk type of master nodes. Valid values:
      *
      *   `cloud_efficiency`: ultra disk
-     *   `cloud_ssd`: standard SSD
+     *   `cloud_ssd`: standard SSD.
      *   `cloud_essd`: Enterprise SSD (ESSD).
      *
      * Default value: `cloud_ssd`. The default value may vary in different zones.
@@ -606,7 +606,7 @@ class CreateClusterRequest extends Model
     public $masterVswitchIds;
 
     /**
-     * @description The name of the cluster.
+     * @description The cluster name.
      *
      * This parameter is required.
      * @example cluster-demo
@@ -680,7 +680,7 @@ class CreateClusterRequest extends Model
     public $numOfNodes;
 
     /**
-     * @description Cluster auto operation and maintenance policy.
+     * @description The automatic O\\&M policy of the cluster.
      *
      * @var operationPolicy
      */
@@ -726,7 +726,7 @@ class CreateClusterRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The operating system distribution. Valid values:
+     * @description The OS distribution that is used. Valid values:
      *
      *   CentOS
      *   AliyunLinux
@@ -755,10 +755,10 @@ class CreateClusterRequest extends Model
     /**
      * @description If you set `cluster_type` to `ManagedKubernetes`, an ACK managed cluster is created. In this case, you can further specify the cluster edition. Valid values:
      *
-     *   `Default`. an ACK managed cluster. ACK managed clusters include ACK Basic clusters and ACK Pro clusters.
-     *   `Edge`: an ACK Edge cluster. ACK Edge clusters include ACK Edge Basic clusters and ACK Edge Pro clusters.
-     *   `Serverless`: an ACK Serverless cluster. ACK Serverless clusters include ACK Serverless Basic clusters and ACK Serverless Pro clusters.
-     *   `Lingjun`: an ACK Lingjun Pro cluster.
+     *   `Default`: ACK managed cluster. ACK managed clusters include ACK Basic clusters and ACK Pro clusters.
+     *   `Edge`: ACK Edge cluster. ACK Edge clusters include ACK Edge Basic clusters and ACK Edge Pro clusters.
+     *   `Serverless`: ACK Serverless cluster. ACK Serverless clusters include ACK Serverless Basic clusters and ACK Serverless Pro clusters.
+     *   `Lingjun`: ACK Lingjun Pro cluster.
      *
      * @example Default
      *
@@ -884,12 +884,12 @@ class CreateClusterRequest extends Model
     public $snatEntry;
 
     /**
-     * @description Specifies whether to enable security hardening based on Multi-Level Protection Scheme (MLPS). For more information, see [ACK security hardening based on MLPS](https://help.aliyun.com/document_detail/196148.html).
+     * @description Specifies whether to enable Multi-Level Protection Scheme (MLPS) security hardening. For more information, see [ACK security hardening based on MLPS](https://help.aliyun.com/document_detail/196148.html).
      *
      * Valid values:
      *
-     *   `true`: enables security hardening based on MLPS.
-     *   `false`: disables security hardening based on MLPS.
+     *   `true`: enables MLPS security hardening.
+     *   `false`: disables MLPS security hardening.
      *
      * Default value: `false`
      * @example false
@@ -914,9 +914,9 @@ class CreateClusterRequest extends Model
     public $sshFlags;
 
     /**
-     * @description The tags to be added to nodes. You must add labels based on the following rules:
+     * @description The tags to be added to nodes. When you add tags to a node, the following rules apply:
      *
-     *   A label is a case-sensitive key-value pair. You can add up to 20 labels.
+     *   A tag is a case-sensitive key-value pair. You can add up to 20 tags.
      *   When you add a tag, you must specify a unique key but you can leave the value empty. A key cannot exceed 64 characters in length and a value cannot exceed 128 characters in length. Keys and values cannot start with aliyun, acs:, https://, or http://. For more information, see [Labels and Selectors](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set).
      *
      * @var Tag[]
@@ -924,7 +924,7 @@ class CreateClusterRequest extends Model
     public $tags;
 
     /**
-     * @description The taint. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
+     * @description The taints that you want to add to nodes. Taints can be used together with tolerations to avoid scheduling pods to specified nodes. For more information, see [taint-and-toleration](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/).
      *
      * @deprecated
      *
@@ -1027,7 +1027,7 @@ class CreateClusterRequest extends Model
      * @description The billing method of worker nodes. Valid values:
      *
      *   `PrePaid`: subscription.
-     *   `PostPaid`: pay-as-you-go.
+     *   `PostPaid`: the pay-as-you-go.
      *
      * Default value: PostPaid.
      * @example PrePaid
@@ -1050,7 +1050,7 @@ class CreateClusterRequest extends Model
     /**
      * @description The subscription duration of worker nodes. This parameter takes effect and is required only when `worker_instance_charge_type` is set to `PrePaid`.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @deprecated

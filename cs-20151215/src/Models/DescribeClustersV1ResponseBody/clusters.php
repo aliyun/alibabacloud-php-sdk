@@ -53,7 +53,7 @@ class clusters extends Model
     public $clusterType;
 
     /**
-     * @description The pod CIDR block.
+     * @description The pod CIDR block and the configuration of the Flannel network plug-in.
      *
      * @example 172.20.0.0/16
      *
@@ -224,7 +224,10 @@ class clusters extends Model
     public $profile;
 
     /**
-     * @description The kube-proxy mode. Valid values: ipvs and iptables.
+     * @description The Kube-proxy mode. Valid values:
+     *
+     *   `iptables`: a mature and stable kube-proxy mode that uses iptables rules to conduct Service discovery and load balancing. The performance of this mode is limited by the size of the cluster. This mode is suitable for clusters that run a small number of Services.
+     *   `ipvs`: provides high performance and uses IP Virtual Server (IPVS). This allows you to configure service discovery and load balancing. This mode is suitable for clusters that are required to run a large number of services. We recommend that you use this mode in scenarios that require high load balancing performance.
      *
      * @example ipvs
      *
@@ -299,7 +302,7 @@ class clusters extends Model
     public $state;
 
     /**
-     * @description The pod CIDR block. It must be a valid and private CIDR block, and must be one of the following CIDR blocks or their subnets:
+     * @description Tis parameter is deprecated. Use the container_cidr parameter to obtain the pod CIDR block. The pod CIDR block. It must be a valid and private CIDR block, and must be one of the following CIDR blocks or their subnets:
      *
      *   10.0.0.0/8
      *   172.16-31.0.0/12-16
@@ -322,7 +325,7 @@ class clusters extends Model
     public $tags;
 
     /**
-     * @description The time zone.
+     * @description The time zone
      *
      * @example Asia/Shanghai
      *
