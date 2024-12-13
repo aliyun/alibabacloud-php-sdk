@@ -23,7 +23,7 @@ class DescribeOrderForIsvResponseBody extends Model
     public $aliUid;
 
     /**
-     * @var mixed[]
+     * @var mixed
      */
     public $components;
 
