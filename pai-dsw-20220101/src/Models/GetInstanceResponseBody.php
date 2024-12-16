@@ -226,6 +226,11 @@ class GetInstanceResponseBody extends Model
     public $priority;
 
     /**
+     * @var string
+     */
+    public $proxyPath;
+
+    /**
      * @example Internal Error
      *
      * @var string
@@ -373,6 +378,7 @@ class GetInstanceResponseBody extends Model
         'nodeErrorRecovery'          => 'NodeErrorRecovery',
         'paymentType'                => 'PaymentType',
         'priority'                   => 'Priority',
+        'proxyPath'                  => 'ProxyPath',
         'reasonCode'                 => 'ReasonCode',
         'reasonMessage'              => 'ReasonMessage',
         'requestId'                  => 'RequestId',
@@ -515,6 +521,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
+        }
+        if (null !== $this->proxyPath) {
+            $res['ProxyPath'] = $this->proxyPath;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -701,6 +710,9 @@ class GetInstanceResponseBody extends Model
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
+        }
+        if (isset($map['ProxyPath'])) {
+            $model->proxyPath = $map['ProxyPath'];
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
