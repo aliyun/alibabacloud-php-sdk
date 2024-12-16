@@ -59,6 +59,11 @@ class DescribeInvocationsRequest extends Model
     public $endUserId;
 
     /**
+     * @var bool
+     */
+    public $includeInvokeDesktops;
+
+    /**
      * @description Specifies whether to return command outputs in the response. Valid values:
      *
      *   true: returns command outputs.
@@ -127,17 +132,18 @@ class DescribeInvocationsRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'commandType'     => 'CommandType',
-        'contentEncoding' => 'ContentEncoding',
-        'desktopId'       => 'DesktopId',
-        'desktopIds'      => 'DesktopIds',
-        'endUserId'       => 'EndUserId',
-        'includeOutput'   => 'IncludeOutput',
-        'invokeId'        => 'InvokeId',
-        'invokeStatus'    => 'InvokeStatus',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
+        'commandType'           => 'CommandType',
+        'contentEncoding'       => 'ContentEncoding',
+        'desktopId'             => 'DesktopId',
+        'desktopIds'            => 'DesktopIds',
+        'endUserId'             => 'EndUserId',
+        'includeInvokeDesktops' => 'IncludeInvokeDesktops',
+        'includeOutput'         => 'IncludeOutput',
+        'invokeId'              => 'InvokeId',
+        'invokeStatus'          => 'InvokeStatus',
+        'maxResults'            => 'MaxResults',
+        'nextToken'             => 'NextToken',
+        'regionId'              => 'RegionId',
     ];
 
     public function validate()
@@ -161,6 +167,9 @@ class DescribeInvocationsRequest extends Model
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->includeInvokeDesktops) {
+            $res['IncludeInvokeDesktops'] = $this->includeInvokeDesktops;
         }
         if (null !== $this->includeOutput) {
             $res['IncludeOutput'] = $this->includeOutput;
@@ -208,6 +217,9 @@ class DescribeInvocationsRequest extends Model
         }
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+        if (isset($map['IncludeInvokeDesktops'])) {
+            $model->includeInvokeDesktops = $map['IncludeInvokeDesktops'];
         }
         if (isset($map['IncludeOutput'])) {
             $model->includeOutput = $map['IncludeOutput'];

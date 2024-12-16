@@ -67,6 +67,15 @@ class DescribeOfficeSitesRequest extends Model
     public $regionId;
 
     /**
+     * @description The security protection setting of the office network.
+     *
+     * Valid values:
+     *
+     *   SASE: SASE is configured.
+     *   OFF: No security protection setting is configured.
+     *
+     * @example SASE
+     *
      * @var string
      */
     public $securityProtection;

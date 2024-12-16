@@ -44,7 +44,7 @@ class CreateADConnectorDirectoryRequest extends Model
      * @description The IP address of the DNS server corresponding to the enterprise AD. You can specify only one IP address. Make sure that the specified IP address is accessible in the network of the selected vSwitch.
      *
      * This parameter is required.
-     * @example 127.0.\*\*.**
+     * @example ``127.0.**.**``
      *
      * @var string[]
      */
@@ -139,7 +139,7 @@ class CreateADConnectorDirectoryRequest extends Model
     /**
      * @description The DNS address of the existing AD subdomain.\\
      * If you specify the `SubDomainName` parameter but you do not specify this parameter, the DNS address of the subdomain is the same as the DNS address of the parent domain.
-     * @example 127.0.\*\*.**
+     * @example ``127.0.**.**``
      *
      * @var string[]
      */

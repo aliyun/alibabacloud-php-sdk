@@ -719,6 +719,11 @@ class CreatePolicyGroupRequest extends Model
      * @var string
      */
     public $watermarkType;
+
+    /**
+     * @var string
+     */
+    public $wyAssistant;
     protected $_name = [
         'adminAccess'                   => 'AdminAccess',
         'appContentProtection'          => 'AppContentProtection',
@@ -776,6 +781,7 @@ class CreatePolicyGroupRequest extends Model
         'watermarkTransparency'         => 'WatermarkTransparency',
         'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
         'watermarkType'                 => 'WatermarkType',
+        'wyAssistant'                   => 'WyAssistant',
     ];
 
     public function validate()
@@ -994,6 +1000,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (null !== $this->watermarkType) {
             $res['WatermarkType'] = $this->watermarkType;
+        }
+        if (null !== $this->wyAssistant) {
+            $res['WyAssistant'] = $this->wyAssistant;
         }
 
         return $res;
@@ -1220,6 +1229,9 @@ class CreatePolicyGroupRequest extends Model
         }
         if (isset($map['WatermarkType'])) {
             $model->watermarkType = $map['WatermarkType'];
+        }
+        if (isset($map['WyAssistant'])) {
+            $model->wyAssistant = $map['WyAssistant'];
         }
 
         return $model;

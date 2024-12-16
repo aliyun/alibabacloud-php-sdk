@@ -48,6 +48,11 @@ class DescribeDesktopSessionsRequest extends Model
     public $endUserId;
 
     /**
+     * @var string
+     */
+    public $endUserIdFilter;
+
+    /**
      * @description The ID of the office network.
      *
      * @example cn-hangzhou+dir-363353****
@@ -112,18 +117,19 @@ class DescribeDesktopSessionsRequest extends Model
      */
     public $subPayType;
     protected $_name = [
-        'checkOsSession' => 'CheckOsSession',
-        'desktopId'      => 'DesktopId',
-        'desktopName'    => 'DesktopName',
-        'endTime'        => 'EndTime',
-        'endUserId'      => 'EndUserId',
-        'officeSiteId'   => 'OfficeSiteId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'sessionStatus'  => 'SessionStatus',
-        'startTime'      => 'StartTime',
-        'subPayType'     => 'SubPayType',
+        'checkOsSession'  => 'CheckOsSession',
+        'desktopId'       => 'DesktopId',
+        'desktopName'     => 'DesktopName',
+        'endTime'         => 'EndTime',
+        'endUserId'       => 'EndUserId',
+        'endUserIdFilter' => 'EndUserIdFilter',
+        'officeSiteId'    => 'OfficeSiteId',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'sessionStatus'   => 'SessionStatus',
+        'startTime'       => 'StartTime',
+        'subPayType'      => 'SubPayType',
     ];
 
     public function validate()
@@ -147,6 +153,9 @@ class DescribeDesktopSessionsRequest extends Model
         }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
+        }
+        if (null !== $this->endUserIdFilter) {
+            $res['EndUserIdFilter'] = $this->endUserIdFilter;
         }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
@@ -197,6 +206,9 @@ class DescribeDesktopSessionsRequest extends Model
         }
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
+        }
+        if (isset($map['EndUserIdFilter'])) {
+            $model->endUserIdFilter = $map['EndUserIdFilter'];
         }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];

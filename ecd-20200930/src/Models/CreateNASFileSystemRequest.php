@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNASFileSystemRequest extends Model
 {
     /**
+     * @description Description of the NAS file system.
+     *
      * @example testDescription
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateNASFileSystemRequest extends Model
     public $description;
 
     /**
+     * @description Whether the file system is encrypted. Uses KMS service-managed keys to encrypt the file system\\"s on-disk data. No decryption is required when reading and writing encrypted data. Possible values and their meanings:
+     *
+     * Default value: 0
      * @example 0
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateNASFileSystemRequest extends Model
     public $encryptType;
 
     /**
+     * @description Name of the NAS file system.
+     * - Can include numbers, underscores (_), or hyphens (-).
      * @example testNAS
      *
      * @var string
@@ -30,8 +37,9 @@ class CreateNASFileSystemRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description Workspace ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -39,8 +47,9 @@ class CreateNASFileSystemRequest extends Model
     public $officeSiteId;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -48,6 +57,9 @@ class CreateNASFileSystemRequest extends Model
     public $regionId;
 
     /**
+     * @description Storage specification type of the NAS file system. Allowed values:
+     *
+     * Default value: Capacity
      * @example Capacity
      *
      * @var string

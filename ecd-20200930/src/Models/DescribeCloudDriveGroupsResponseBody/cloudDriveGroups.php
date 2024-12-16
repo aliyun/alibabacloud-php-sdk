@@ -70,6 +70,11 @@ class cloudDriveGroups extends Model
     public $orgId;
 
     /**
+     * @var string
+     */
+    public $recycleBinSize;
+
+    /**
      * @description The team space status. Valid values:
      *
      *   enabled
@@ -108,6 +113,7 @@ class cloudDriveGroups extends Model
         'groupId'        => 'GroupId',
         'groupName'      => 'GroupName',
         'orgId'          => 'OrgId',
+        'recycleBinSize' => 'RecycleBinSize',
         'status'         => 'Status',
         'totalSize'      => 'TotalSize',
         'usedSize'       => 'UsedSize',
@@ -149,6 +155,9 @@ class cloudDriveGroups extends Model
         }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
+        }
+        if (null !== $this->recycleBinSize) {
+            $res['RecycleBinSize'] = $this->recycleBinSize;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -200,6 +209,9 @@ class cloudDriveGroups extends Model
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];
+        }
+        if (isset($map['RecycleBinSize'])) {
+            $model->recycleBinSize = $map['RecycleBinSize'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

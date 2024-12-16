@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetConnectionTicketResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $desktopId;
+
+    /**
      * @description The ID of the request.
      *
      * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -18,6 +23,11 @@ class GetConnectionTicketResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $taskCode;
+
+    /**
      * @description The ID of the cloud computer connection task.
      *
      * @example 2afbad19-778a-4fc5-9674-1f19c638****
@@ -25,6 +35,11 @@ class GetConnectionTicketResponseBody extends Model
      * @var string
      */
     public $taskId;
+
+    /**
+     * @var string
+     */
+    public $taskMessage;
 
     /**
      * @description The task status.
@@ -61,10 +76,13 @@ class GetConnectionTicketResponseBody extends Model
      */
     public $ticket;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'taskId'     => 'TaskId',
-        'taskStatus' => 'TaskStatus',
-        'ticket'     => 'Ticket',
+        'desktopId'   => 'DesktopId',
+        'requestId'   => 'RequestId',
+        'taskCode'    => 'TaskCode',
+        'taskId'      => 'TaskId',
+        'taskMessage' => 'TaskMessage',
+        'taskStatus'  => 'TaskStatus',
+        'ticket'      => 'Ticket',
     ];
 
     public function validate()
@@ -74,11 +92,20 @@ class GetConnectionTicketResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->desktopId) {
+            $res['DesktopId'] = $this->desktopId;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->taskCode) {
+            $res['TaskCode'] = $this->taskCode;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskMessage) {
+            $res['TaskMessage'] = $this->taskMessage;
         }
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
@@ -98,11 +125,20 @@ class GetConnectionTicketResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DesktopId'])) {
+            $model->desktopId = $map['DesktopId'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['TaskCode'])) {
+            $model->taskCode = $map['TaskCode'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskMessage'])) {
+            $model->taskMessage = $map['TaskMessage'];
         }
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];

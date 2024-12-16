@@ -78,6 +78,16 @@ class invocations extends Model
     public $invocationStatus;
 
     /**
+     * @var int
+     */
+    public $invokeDesktopCount;
+
+    /**
+     * @var int
+     */
+    public $invokeDesktopSucceedCount;
+
+    /**
      * @description The cloud desktops on which the command is executed.
      *
      * @var invokeDesktops[]
@@ -93,13 +103,15 @@ class invocations extends Model
      */
     public $invokeId;
     protected $_name = [
-        'commandContent'   => 'CommandContent',
-        'commandType'      => 'CommandType',
-        'creationTime'     => 'CreationTime',
-        'endUserId'        => 'EndUserId',
-        'invocationStatus' => 'InvocationStatus',
-        'invokeDesktops'   => 'InvokeDesktops',
-        'invokeId'         => 'InvokeId',
+        'commandContent'            => 'CommandContent',
+        'commandType'               => 'CommandType',
+        'creationTime'              => 'CreationTime',
+        'endUserId'                 => 'EndUserId',
+        'invocationStatus'          => 'InvocationStatus',
+        'invokeDesktopCount'        => 'InvokeDesktopCount',
+        'invokeDesktopSucceedCount' => 'InvokeDesktopSucceedCount',
+        'invokeDesktops'            => 'InvokeDesktops',
+        'invokeId'                  => 'InvokeId',
     ];
 
     public function validate()
@@ -123,6 +135,12 @@ class invocations extends Model
         }
         if (null !== $this->invocationStatus) {
             $res['InvocationStatus'] = $this->invocationStatus;
+        }
+        if (null !== $this->invokeDesktopCount) {
+            $res['InvokeDesktopCount'] = $this->invokeDesktopCount;
+        }
+        if (null !== $this->invokeDesktopSucceedCount) {
+            $res['InvokeDesktopSucceedCount'] = $this->invokeDesktopSucceedCount;
         }
         if (null !== $this->invokeDesktops) {
             $res['InvokeDesktops'] = [];
@@ -162,6 +180,12 @@ class invocations extends Model
         }
         if (isset($map['InvocationStatus'])) {
             $model->invocationStatus = $map['InvocationStatus'];
+        }
+        if (isset($map['InvokeDesktopCount'])) {
+            $model->invokeDesktopCount = $map['InvokeDesktopCount'];
+        }
+        if (isset($map['InvokeDesktopSucceedCount'])) {
+            $model->invokeDesktopSucceedCount = $map['InvokeDesktopSucceedCount'];
         }
         if (isset($map['InvokeDesktops'])) {
             if (!empty($map['InvokeDesktops'])) {

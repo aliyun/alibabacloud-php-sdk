@@ -135,6 +135,11 @@ class DescribeDesktopTypesRequest extends Model
     public $desktopTypeId;
 
     /**
+     * @var string[]
+     */
+    public $desktopTypeIdList;
+
+    /**
      * @description The number of GPUs.
      *
      * @example 1
@@ -196,6 +201,11 @@ class DescribeDesktopTypesRequest extends Model
     public $memorySize;
 
     /**
+     * @var string
+     */
+    public $orderBy;
+
+    /**
      * @description The order type.
      *
      * @example DOWNGRADE
@@ -213,18 +223,32 @@ class DescribeDesktopTypesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $scope;
+
+    /**
+     * @var string
+     */
+    public $sortType;
     protected $_name = [
         'appliedScope'            => 'AppliedScope',
         'cpuCount'                => 'CpuCount',
         'desktopGroupIdForModify' => 'DesktopGroupIdForModify',
         'desktopIdForModify'      => 'DesktopIdForModify',
         'desktopTypeId'           => 'DesktopTypeId',
+        'desktopTypeIdList'       => 'DesktopTypeIdList',
         'gpuCount'                => 'GpuCount',
         'gpuDriverType'           => 'GpuDriverType',
         'instanceTypeFamily'      => 'InstanceTypeFamily',
         'memorySize'              => 'MemorySize',
+        'orderBy'                 => 'OrderBy',
         'orderType'               => 'OrderType',
         'regionId'                => 'RegionId',
+        'scope'                   => 'Scope',
+        'sortType'                => 'SortType',
     ];
 
     public function validate()
@@ -249,6 +273,9 @@ class DescribeDesktopTypesRequest extends Model
         if (null !== $this->desktopTypeId) {
             $res['DesktopTypeId'] = $this->desktopTypeId;
         }
+        if (null !== $this->desktopTypeIdList) {
+            $res['DesktopTypeIdList'] = $this->desktopTypeIdList;
+        }
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
         }
@@ -261,11 +288,20 @@ class DescribeDesktopTypesRequest extends Model
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
         }
+        if (null !== $this->orderBy) {
+            $res['OrderBy'] = $this->orderBy;
+        }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->scope) {
+            $res['Scope'] = $this->scope;
+        }
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
         }
 
         return $res;
@@ -294,6 +330,11 @@ class DescribeDesktopTypesRequest extends Model
         if (isset($map['DesktopTypeId'])) {
             $model->desktopTypeId = $map['DesktopTypeId'];
         }
+        if (isset($map['DesktopTypeIdList'])) {
+            if (!empty($map['DesktopTypeIdList'])) {
+                $model->desktopTypeIdList = $map['DesktopTypeIdList'];
+            }
+        }
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
         }
@@ -306,11 +347,20 @@ class DescribeDesktopTypesRequest extends Model
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
         }
+        if (isset($map['OrderBy'])) {
+            $model->orderBy = $map['OrderBy'];
+        }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Scope'])) {
+            $model->scope = $map['Scope'];
+        }
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
 
         return $model;

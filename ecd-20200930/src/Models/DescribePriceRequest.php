@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceRequest\bundleModels;
 use AlibabaCloud\Tea\Model;
 
 class DescribePriceRequest extends Model
@@ -31,73 +30,14 @@ class DescribePriceRequest extends Model
     public $bandwidth;
 
     /**
-     * @var bundleModels[]
-     */
-    public $bundleModels;
-
-    /**
-     * @var string
-     */
-    public $eduCdsEnable;
-
-    /**
      * @var int
      */
-    public $eduCdsSize;
-
-    /**
-     * @var int
-     */
-    public $eduCommittedTime;
-
-    /**
-     * @var string
-     */
-    public $eduDesktopBundleId;
-
-    /**
-     * @var int
-     */
-    public $eduDesktopNum;
-
-    /**
-     * @var string
-     */
-    public $eduRoomClassify;
-
-    /**
-     * @var string
-     */
-    public $eduStudentBundleId;
-
-    /**
-     * @var int
-     */
-    public $eduStudentNum;
-
-    /**
-     * @var string
-     */
-    public $eduTeacherBundleId;
-
-    /**
-     * @var int
-     */
-    public $eduTeacherNum;
+    public $duration;
 
     /**
      * @var int
      */
     public $groupDesktopCount;
-
-    /**
-     * @description The model of the WUYING hardware client.
-     *
-     * @example hide
-     *
-     * @var string
-     */
-    public $hardwareVersion;
 
     /**
      * @description The resource specifications.
@@ -146,11 +86,6 @@ class DescribePriceRequest extends Model
     public $internetChargeType;
 
     /**
-     * @var string
-     */
-    public $networkType;
-
-    /**
      * @description The OS. Valid values:
      *
      *   Windows
@@ -162,11 +97,6 @@ class DescribePriceRequest extends Model
      * @var string
      */
     public $osType;
-
-    /**
-     * @var int
-     */
-    public $packageSize;
 
     /**
      * @description The subscription duration. Default value: 1.
@@ -225,18 +155,9 @@ class DescribePriceRequest extends Model
     public $resourceType;
 
     /**
-     * @description The performance level (PL) of the system disk. Valid values:
-     *
-     *   PL0
-     *   PL1
-     *   PL2
-     *   PL3
-     *
-     * @example PL0
-     *
      * @var string
      */
-    public $rootDiskPerformanceLevel;
+    public $rootDiskCategory;
 
     /**
      * @description The system disk size. Unit: GiB.
@@ -250,31 +171,7 @@ class DescribePriceRequest extends Model
     /**
      * @var string
      */
-    public $spPeriodInfo;
-
-    /**
-     * @var bool
-     */
-    public $spPrice;
-
-    /**
-     * @var string
-     */
-    public $spType;
-
-    /**
-     * @description The PL of the data disk. Valid values:
-     *
-     *   PL0
-     *   PL1
-     *   PL2
-     *   PL3
-     *
-     * @example PL0
-     *
-     * @var string
-     */
-    public $userDiskPerformanceLevel;
+    public $userDiskCategory;
 
     /**
      * @description The data disk size. Unit: GiB.
@@ -285,38 +182,22 @@ class DescribePriceRequest extends Model
      */
     public $userDiskSizeGib;
     protected $_name = [
-        'amount'                   => 'Amount',
-        'bandwidth'                => 'Bandwidth',
-        'bundleModels'             => 'BundleModels',
-        'eduCdsEnable'             => 'EduCdsEnable',
-        'eduCdsSize'               => 'EduCdsSize',
-        'eduCommittedTime'         => 'EduCommittedTime',
-        'eduDesktopBundleId'       => 'EduDesktopBundleId',
-        'eduDesktopNum'            => 'EduDesktopNum',
-        'eduRoomClassify'          => 'EduRoomClassify',
-        'eduStudentBundleId'       => 'EduStudentBundleId',
-        'eduStudentNum'            => 'EduStudentNum',
-        'eduTeacherBundleId'       => 'EduTeacherBundleId',
-        'eduTeacherNum'            => 'EduTeacherNum',
-        'groupDesktopCount'        => 'GroupDesktopCount',
-        'hardwareVersion'          => 'HardwareVersion',
-        'instanceType'             => 'InstanceType',
-        'internetChargeType'       => 'InternetChargeType',
-        'networkType'              => 'NetworkType',
-        'osType'                   => 'OsType',
-        'packageSize'              => 'PackageSize',
-        'period'                   => 'Period',
-        'periodUnit'               => 'PeriodUnit',
-        'promotionId'              => 'PromotionId',
-        'regionId'                 => 'RegionId',
-        'resourceType'             => 'ResourceType',
-        'rootDiskPerformanceLevel' => 'RootDiskPerformanceLevel',
-        'rootDiskSizeGib'          => 'RootDiskSizeGib',
-        'spPeriodInfo'             => 'SpPeriodInfo',
-        'spPrice'                  => 'SpPrice',
-        'spType'                   => 'SpType',
-        'userDiskPerformanceLevel' => 'UserDiskPerformanceLevel',
-        'userDiskSizeGib'          => 'UserDiskSizeGib',
+        'amount'             => 'Amount',
+        'bandwidth'          => 'Bandwidth',
+        'duration'           => 'Duration',
+        'groupDesktopCount'  => 'GroupDesktopCount',
+        'instanceType'       => 'InstanceType',
+        'internetChargeType' => 'InternetChargeType',
+        'osType'             => 'OsType',
+        'period'             => 'Period',
+        'periodUnit'         => 'PeriodUnit',
+        'promotionId'        => 'PromotionId',
+        'regionId'           => 'RegionId',
+        'resourceType'       => 'ResourceType',
+        'rootDiskCategory'   => 'RootDiskCategory',
+        'rootDiskSizeGib'    => 'RootDiskSizeGib',
+        'userDiskCategory'   => 'UserDiskCategory',
+        'userDiskSizeGib'    => 'UserDiskSizeGib',
     ];
 
     public function validate()
@@ -332,50 +213,11 @@ class DescribePriceRequest extends Model
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
-        if (null !== $this->bundleModels) {
-            $res['BundleModels'] = [];
-            if (null !== $this->bundleModels && \is_array($this->bundleModels)) {
-                $n = 0;
-                foreach ($this->bundleModels as $item) {
-                    $res['BundleModels'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->eduCdsEnable) {
-            $res['EduCdsEnable'] = $this->eduCdsEnable;
-        }
-        if (null !== $this->eduCdsSize) {
-            $res['EduCdsSize'] = $this->eduCdsSize;
-        }
-        if (null !== $this->eduCommittedTime) {
-            $res['EduCommittedTime'] = $this->eduCommittedTime;
-        }
-        if (null !== $this->eduDesktopBundleId) {
-            $res['EduDesktopBundleId'] = $this->eduDesktopBundleId;
-        }
-        if (null !== $this->eduDesktopNum) {
-            $res['EduDesktopNum'] = $this->eduDesktopNum;
-        }
-        if (null !== $this->eduRoomClassify) {
-            $res['EduRoomClassify'] = $this->eduRoomClassify;
-        }
-        if (null !== $this->eduStudentBundleId) {
-            $res['EduStudentBundleId'] = $this->eduStudentBundleId;
-        }
-        if (null !== $this->eduStudentNum) {
-            $res['EduStudentNum'] = $this->eduStudentNum;
-        }
-        if (null !== $this->eduTeacherBundleId) {
-            $res['EduTeacherBundleId'] = $this->eduTeacherBundleId;
-        }
-        if (null !== $this->eduTeacherNum) {
-            $res['EduTeacherNum'] = $this->eduTeacherNum;
+        if (null !== $this->duration) {
+            $res['Duration'] = $this->duration;
         }
         if (null !== $this->groupDesktopCount) {
             $res['GroupDesktopCount'] = $this->groupDesktopCount;
-        }
-        if (null !== $this->hardwareVersion) {
-            $res['HardwareVersion'] = $this->hardwareVersion;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
@@ -383,14 +225,8 @@ class DescribePriceRequest extends Model
         if (null !== $this->internetChargeType) {
             $res['InternetChargeType'] = $this->internetChargeType;
         }
-        if (null !== $this->networkType) {
-            $res['NetworkType'] = $this->networkType;
-        }
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
-        }
-        if (null !== $this->packageSize) {
-            $res['PackageSize'] = $this->packageSize;
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
@@ -407,23 +243,14 @@ class DescribePriceRequest extends Model
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
-        if (null !== $this->rootDiskPerformanceLevel) {
-            $res['RootDiskPerformanceLevel'] = $this->rootDiskPerformanceLevel;
+        if (null !== $this->rootDiskCategory) {
+            $res['RootDiskCategory'] = $this->rootDiskCategory;
         }
         if (null !== $this->rootDiskSizeGib) {
             $res['RootDiskSizeGib'] = $this->rootDiskSizeGib;
         }
-        if (null !== $this->spPeriodInfo) {
-            $res['SpPeriodInfo'] = $this->spPeriodInfo;
-        }
-        if (null !== $this->spPrice) {
-            $res['SpPrice'] = $this->spPrice;
-        }
-        if (null !== $this->spType) {
-            $res['SpType'] = $this->spType;
-        }
-        if (null !== $this->userDiskPerformanceLevel) {
-            $res['UserDiskPerformanceLevel'] = $this->userDiskPerformanceLevel;
+        if (null !== $this->userDiskCategory) {
+            $res['UserDiskCategory'] = $this->userDiskCategory;
         }
         if (null !== $this->userDiskSizeGib) {
             $res['UserDiskSizeGib'] = $this->userDiskSizeGib;
@@ -446,50 +273,11 @@ class DescribePriceRequest extends Model
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
-        if (isset($map['BundleModels'])) {
-            if (!empty($map['BundleModels'])) {
-                $model->bundleModels = [];
-                $n                   = 0;
-                foreach ($map['BundleModels'] as $item) {
-                    $model->bundleModels[$n++] = null !== $item ? bundleModels::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['EduCdsEnable'])) {
-            $model->eduCdsEnable = $map['EduCdsEnable'];
-        }
-        if (isset($map['EduCdsSize'])) {
-            $model->eduCdsSize = $map['EduCdsSize'];
-        }
-        if (isset($map['EduCommittedTime'])) {
-            $model->eduCommittedTime = $map['EduCommittedTime'];
-        }
-        if (isset($map['EduDesktopBundleId'])) {
-            $model->eduDesktopBundleId = $map['EduDesktopBundleId'];
-        }
-        if (isset($map['EduDesktopNum'])) {
-            $model->eduDesktopNum = $map['EduDesktopNum'];
-        }
-        if (isset($map['EduRoomClassify'])) {
-            $model->eduRoomClassify = $map['EduRoomClassify'];
-        }
-        if (isset($map['EduStudentBundleId'])) {
-            $model->eduStudentBundleId = $map['EduStudentBundleId'];
-        }
-        if (isset($map['EduStudentNum'])) {
-            $model->eduStudentNum = $map['EduStudentNum'];
-        }
-        if (isset($map['EduTeacherBundleId'])) {
-            $model->eduTeacherBundleId = $map['EduTeacherBundleId'];
-        }
-        if (isset($map['EduTeacherNum'])) {
-            $model->eduTeacherNum = $map['EduTeacherNum'];
+        if (isset($map['Duration'])) {
+            $model->duration = $map['Duration'];
         }
         if (isset($map['GroupDesktopCount'])) {
             $model->groupDesktopCount = $map['GroupDesktopCount'];
-        }
-        if (isset($map['HardwareVersion'])) {
-            $model->hardwareVersion = $map['HardwareVersion'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
@@ -497,14 +285,8 @@ class DescribePriceRequest extends Model
         if (isset($map['InternetChargeType'])) {
             $model->internetChargeType = $map['InternetChargeType'];
         }
-        if (isset($map['NetworkType'])) {
-            $model->networkType = $map['NetworkType'];
-        }
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
-        }
-        if (isset($map['PackageSize'])) {
-            $model->packageSize = $map['PackageSize'];
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
@@ -521,23 +303,14 @@ class DescribePriceRequest extends Model
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
-        if (isset($map['RootDiskPerformanceLevel'])) {
-            $model->rootDiskPerformanceLevel = $map['RootDiskPerformanceLevel'];
+        if (isset($map['RootDiskCategory'])) {
+            $model->rootDiskCategory = $map['RootDiskCategory'];
         }
         if (isset($map['RootDiskSizeGib'])) {
             $model->rootDiskSizeGib = $map['RootDiskSizeGib'];
         }
-        if (isset($map['SpPeriodInfo'])) {
-            $model->spPeriodInfo = $map['SpPeriodInfo'];
-        }
-        if (isset($map['SpPrice'])) {
-            $model->spPrice = $map['SpPrice'];
-        }
-        if (isset($map['SpType'])) {
-            $model->spType = $map['SpType'];
-        }
-        if (isset($map['UserDiskPerformanceLevel'])) {
-            $model->userDiskPerformanceLevel = $map['UserDiskPerformanceLevel'];
+        if (isset($map['UserDiskCategory'])) {
+            $model->userDiskCategory = $map['UserDiskCategory'];
         }
         if (isset($map['UserDiskSizeGib'])) {
             $model->userDiskSizeGib = $map['UserDiskSizeGib'];

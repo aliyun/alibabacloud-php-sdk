@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListDirectoryUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $assignedInfo;
+
+    /**
      * @description The ID of the AD directory.
      *
      * This parameter is required.
@@ -26,6 +31,11 @@ class ListDirectoryUsersRequest extends Model
      * @var string
      */
     public $filter;
+
+    /**
+     * @var bool
+     */
+    public $includeAssignedUser;
 
     /**
      * @description The number of entries to return on each page.
@@ -64,13 +74,21 @@ class ListDirectoryUsersRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $sortType;
     protected $_name = [
-        'directoryId' => 'DirectoryId',
-        'filter'      => 'Filter',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'OUPath'      => 'OUPath',
-        'regionId'    => 'RegionId',
+        'assignedInfo'        => 'AssignedInfo',
+        'directoryId'         => 'DirectoryId',
+        'filter'              => 'Filter',
+        'includeAssignedUser' => 'IncludeAssignedUser',
+        'maxResults'          => 'MaxResults',
+        'nextToken'           => 'NextToken',
+        'OUPath'              => 'OUPath',
+        'regionId'            => 'RegionId',
+        'sortType'            => 'SortType',
     ];
 
     public function validate()
@@ -80,11 +98,17 @@ class ListDirectoryUsersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assignedInfo) {
+            $res['AssignedInfo'] = $this->assignedInfo;
+        }
         if (null !== $this->directoryId) {
             $res['DirectoryId'] = $this->directoryId;
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->includeAssignedUser) {
+            $res['IncludeAssignedUser'] = $this->includeAssignedUser;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -98,6 +122,9 @@ class ListDirectoryUsersRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
+        }
 
         return $res;
     }
@@ -110,11 +137,17 @@ class ListDirectoryUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssignedInfo'])) {
+            $model->assignedInfo = $map['AssignedInfo'];
+        }
         if (isset($map['DirectoryId'])) {
             $model->directoryId = $map['DirectoryId'];
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['IncludeAssignedUser'])) {
+            $model->includeAssignedUser = $map['IncludeAssignedUser'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -127,6 +160,9 @@ class ListDirectoryUsersRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
 
         return $model;

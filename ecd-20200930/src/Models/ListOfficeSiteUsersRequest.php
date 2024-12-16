@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListOfficeSiteUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $assignedInfo;
+
+    /**
      * @description The query string for fuzzy query.
      *
      * @example *jin*
@@ -16,6 +21,11 @@ class ListOfficeSiteUsersRequest extends Model
      * @var string
      */
     public $filter;
+
+    /**
+     * @var bool
+     */
+    public $includeAssignedUser;
 
     /**
      * @description The number of entries per page.
@@ -66,13 +76,21 @@ class ListOfficeSiteUsersRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $sortType;
     protected $_name = [
-        'filter'       => 'Filter',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'OUPath'       => 'OUPath',
-        'officeSiteId' => 'OfficeSiteId',
-        'regionId'     => 'RegionId',
+        'assignedInfo'        => 'AssignedInfo',
+        'filter'              => 'Filter',
+        'includeAssignedUser' => 'IncludeAssignedUser',
+        'maxResults'          => 'MaxResults',
+        'nextToken'           => 'NextToken',
+        'OUPath'              => 'OUPath',
+        'officeSiteId'        => 'OfficeSiteId',
+        'regionId'            => 'RegionId',
+        'sortType'            => 'SortType',
     ];
 
     public function validate()
@@ -82,8 +100,14 @@ class ListOfficeSiteUsersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->assignedInfo) {
+            $res['AssignedInfo'] = $this->assignedInfo;
+        }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->includeAssignedUser) {
+            $res['IncludeAssignedUser'] = $this->includeAssignedUser;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -100,6 +124,9 @@ class ListOfficeSiteUsersRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->sortType) {
+            $res['SortType'] = $this->sortType;
+        }
 
         return $res;
     }
@@ -112,8 +139,14 @@ class ListOfficeSiteUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AssignedInfo'])) {
+            $model->assignedInfo = $map['AssignedInfo'];
+        }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['IncludeAssignedUser'])) {
+            $model->includeAssignedUser = $map['IncludeAssignedUser'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
@@ -129,6 +162,9 @@ class ListOfficeSiteUsersRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SortType'])) {
+            $model->sortType = $map['SortType'];
         }
 
         return $model;

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\bundleModels;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopAttachment;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\desktopTimers;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\monthDesktopSetting;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest\tag;
@@ -73,6 +74,11 @@ class CreateDesktopsRequest extends Model
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @var desktopAttachment
+     */
+    public $desktopAttachment;
 
     /**
      * @description The private IP address of the cloud computer.
@@ -249,6 +255,11 @@ class CreateDesktopsRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $snapshotPolicyId;
 
     /**
@@ -257,6 +268,11 @@ class CreateDesktopsRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $timerGroupId;
 
     /**
      * @description How the cloud computers are assigned.
@@ -325,6 +341,7 @@ class CreateDesktopsRequest extends Model
         'bundleId'                => 'BundleId',
         'bundleModels'            => 'BundleModels',
         'chargeType'              => 'ChargeType',
+        'desktopAttachment'       => 'DesktopAttachment',
         'desktopMemberIp'         => 'DesktopMemberIp',
         'desktopName'             => 'DesktopName',
         'desktopNameSuffix'       => 'DesktopNameSuffix',
@@ -340,8 +357,10 @@ class CreateDesktopsRequest extends Model
         'policyGroupId'           => 'PolicyGroupId',
         'promotionId'             => 'PromotionId',
         'regionId'                => 'RegionId',
+        'resourceGroupId'         => 'ResourceGroupId',
         'snapshotPolicyId'        => 'SnapshotPolicyId',
         'tag'                     => 'Tag',
+        'timerGroupId'            => 'TimerGroupId',
         'userAssignMode'          => 'UserAssignMode',
         'userCommands'            => 'UserCommands',
         'userName'                => 'UserName',
@@ -380,6 +399,9 @@ class CreateDesktopsRequest extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->desktopAttachment) {
+            $res['DesktopAttachment'] = null !== $this->desktopAttachment ? $this->desktopAttachment->toMap() : null;
         }
         if (null !== $this->desktopMemberIp) {
             $res['DesktopMemberIp'] = $this->desktopMemberIp;
@@ -432,6 +454,9 @@ class CreateDesktopsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->snapshotPolicyId) {
             $res['SnapshotPolicyId'] = $this->snapshotPolicyId;
         }
@@ -443,6 +468,9 @@ class CreateDesktopsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->timerGroupId) {
+            $res['TimerGroupId'] = $this->timerGroupId;
         }
         if (null !== $this->userAssignMode) {
             $res['UserAssignMode'] = $this->userAssignMode;
@@ -504,6 +532,9 @@ class CreateDesktopsRequest extends Model
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+        if (isset($map['DesktopAttachment'])) {
+            $model->desktopAttachment = desktopAttachment::fromMap($map['DesktopAttachment']);
+        }
         if (isset($map['DesktopMemberIp'])) {
             $model->desktopMemberIp = $map['DesktopMemberIp'];
         }
@@ -557,6 +588,9 @@ class CreateDesktopsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SnapshotPolicyId'])) {
             $model->snapshotPolicyId = $map['SnapshotPolicyId'];
         }
@@ -568,6 +602,9 @@ class CreateDesktopsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TimerGroupId'])) {
+            $model->timerGroupId = $map['TimerGroupId'];
         }
         if (isset($map['UserAssignMode'])) {
             $model->userAssignMode = $map['UserAssignMode'];

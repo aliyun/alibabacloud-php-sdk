@@ -583,6 +583,11 @@ class describePolicyGroups extends Model
     public $remoteCoordinate;
 
     /**
+     * @var string
+     */
+    public $resourceRegionId;
+
+    /**
      * @description The effective scope of the policy. Valid values:
      *
      *   GLOBAL: The policy takes effect globally.
@@ -824,6 +829,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $watermarkType;
+
+    /**
+     * @var string
+     */
+    public $wyAssistant;
     protected $_name = [
         'adminAccess'                   => 'AdminAccess',
         'appContentProtection'          => 'AppContentProtection',
@@ -882,6 +892,7 @@ class describePolicyGroups extends Model
         'recordingUserNotify'           => 'RecordingUserNotify',
         'recordingUserNotifyMessage'    => 'RecordingUserNotifyMessage',
         'remoteCoordinate'              => 'RemoteCoordinate',
+        'resourceRegionId'              => 'ResourceRegionId',
         'scope'                         => 'Scope',
         'scopeValue'                    => 'ScopeValue',
         'smoothEnhancement'             => 'SmoothEnhancement',
@@ -909,6 +920,7 @@ class describePolicyGroups extends Model
         'watermarkTransparency'         => 'WatermarkTransparency',
         'watermarkTransparencyValue'    => 'WatermarkTransparencyValue',
         'watermarkType'                 => 'WatermarkType',
+        'wyAssistant'                   => 'WyAssistant',
     ];
 
     public function validate()
@@ -1131,6 +1143,9 @@ class describePolicyGroups extends Model
         if (null !== $this->remoteCoordinate) {
             $res['RemoteCoordinate'] = $this->remoteCoordinate;
         }
+        if (null !== $this->resourceRegionId) {
+            $res['ResourceRegionId'] = $this->resourceRegionId;
+        }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
@@ -1217,6 +1232,9 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->watermarkType) {
             $res['WatermarkType'] = $this->watermarkType;
+        }
+        if (null !== $this->wyAssistant) {
+            $res['WyAssistant'] = $this->wyAssistant;
         }
 
         return $res;
@@ -1449,6 +1467,9 @@ class describePolicyGroups extends Model
         if (isset($map['RemoteCoordinate'])) {
             $model->remoteCoordinate = $map['RemoteCoordinate'];
         }
+        if (isset($map['ResourceRegionId'])) {
+            $model->resourceRegionId = $map['ResourceRegionId'];
+        }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
@@ -1537,6 +1558,9 @@ class describePolicyGroups extends Model
         }
         if (isset($map['WatermarkType'])) {
             $model->watermarkType = $map['WatermarkType'];
+        }
+        if (isset($map['WyAssistant'])) {
+            $model->wyAssistant = $map['WyAssistant'];
         }
 
         return $model;

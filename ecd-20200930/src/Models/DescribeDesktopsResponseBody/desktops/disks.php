@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class disks extends Model
 {
     /**
+     * @var string
+     */
+    public $diskCategory;
+
+    /**
      * @description The disk ID.
      *
      * @example d-jedbpr4sl9l37****
@@ -59,6 +64,7 @@ class disks extends Model
      */
     public $performanceLevel;
     protected $_name = [
+        'diskCategory'     => 'DiskCategory',
         'diskId'           => 'DiskId',
         'diskSize'         => 'DiskSize',
         'diskType'         => 'DiskType',
@@ -72,6 +78,9 @@ class disks extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->diskCategory) {
+            $res['DiskCategory'] = $this->diskCategory;
+        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
@@ -96,6 +105,9 @@ class disks extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DiskCategory'])) {
+            $model->diskCategory = $map['DiskCategory'];
+        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }

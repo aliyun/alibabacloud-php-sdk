@@ -208,6 +208,16 @@ class DescribeDesktopsRequest extends Model
     public $osTypes;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @description The ID of the policy.
      *
      * @example system-all-enabled-policy
@@ -307,6 +317,8 @@ class DescribeDesktopsRequest extends Model
         'officeSiteName'     => 'OfficeSiteName',
         'onlyDesktopGroup'   => 'OnlyDesktopGroup',
         'osTypes'            => 'OsTypes',
+        'pageNumber'         => 'PageNumber',
+        'pageSize'           => 'PageSize',
         'policyGroupId'      => 'PolicyGroupId',
         'protocolType'       => 'ProtocolType',
         'qosRuleId'          => 'QosRuleId',
@@ -394,6 +406,12 @@ class DescribeDesktopsRequest extends Model
         }
         if (null !== $this->osTypes) {
             $res['OsTypes'] = $this->osTypes;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
@@ -523,6 +541,12 @@ class DescribeDesktopsRequest extends Model
             if (!empty($map['OsTypes'])) {
                 $model->osTypes = $map['OsTypes'];
             }
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];

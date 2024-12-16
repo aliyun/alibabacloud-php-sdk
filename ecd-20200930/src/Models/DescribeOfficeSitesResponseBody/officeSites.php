@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponseBody;
 
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponseBody\officeSites\ADConnectors;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponseBody\officeSites\logs;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeOfficeSitesResponseBody\officeSites\resourceAmounts;
 use AlibabaCloud\Tea\Model;
 
 class officeSites extends Model
@@ -102,6 +103,16 @@ class officeSites extends Model
      * @var string
      */
     public $creationTime;
+
+    /**
+     * @var string
+     */
+    public $customAccessPoint;
+
+    /**
+     * @var string[]
+     */
+    public $customDnsAddress;
 
     /**
      * @description The ID of the security group.
@@ -230,7 +241,7 @@ class officeSites extends Model
     public $enableServiceRoute;
 
     /**
-     * @description An array of Apsara File Storage NAS (NAS) file system IDs.
+     * @description An array of File Storage NAS (NAS) file system IDs.
      *
      * @var string[]
      */
@@ -292,6 +303,11 @@ class officeSites extends Model
      * @var string
      */
     public $networkPackageId;
+
+    /**
+     * @var string
+     */
+    public $nmVersion;
 
     /**
      * @description The IDs of the office networks.
@@ -367,6 +383,20 @@ class officeSites extends Model
     public $rdsLicenseStatus;
 
     /**
+     * @var resourceAmounts[]
+     */
+    public $resourceAmounts;
+
+    /**
+     * @description The security protection setting of the office network.
+     *
+     * Valid values:
+     *
+     *   SASE: SASE is configured.
+     *   OFF: No security protection setting is configured.
+     *
+     * @example SASE
+     *
      * @var string
      */
     public $securityProtection;
@@ -431,6 +461,15 @@ class officeSites extends Model
     public $subDomainName;
 
     /**
+     * @description The subnet mode of the office network.
+     *
+     * Valid values:
+     *
+     *   0: disabled.
+     *   1: enabled.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $subnetMode;
@@ -452,6 +491,11 @@ class officeSites extends Model
      * @var int
      */
     public $totalEdsCountForGroup;
+
+    /**
+     * @var int
+     */
+    public $totalResourceAmount;
 
     /**
      * @description >  This parameter is unavailable.
@@ -503,6 +547,8 @@ class officeSites extends Model
         'cidrBlock'                => 'CidrBlock',
         'cloudBoxOfficeSite'       => 'CloudBoxOfficeSite',
         'creationTime'             => 'CreationTime',
+        'customAccessPoint'        => 'CustomAccessPoint',
+        'customDnsAddress'         => 'CustomDnsAddress',
         'customSecurityGroupId'    => 'CustomSecurityGroupId',
         'desktopAccessType'        => 'DesktopAccessType',
         'desktopCount'             => 'DesktopCount',
@@ -523,6 +569,7 @@ class officeSites extends Model
         'needVerifyLoginRisk'      => 'NeedVerifyLoginRisk',
         'needVerifyZeroDevice'     => 'NeedVerifyZeroDevice',
         'networkPackageId'         => 'NetworkPackageId',
+        'nmVersion'                => 'NmVersion',
         'officeSiteId'             => 'OfficeSiteId',
         'officeSiteType'           => 'OfficeSiteType',
         'ouName'                   => 'OuName',
@@ -530,6 +577,7 @@ class officeSites extends Model
         'rdsLicenseAddress'        => 'RdsLicenseAddress',
         'rdsLicenseDomainName'     => 'RdsLicenseDomainName',
         'rdsLicenseStatus'         => 'RdsLicenseStatus',
+        'resourceAmounts'          => 'ResourceAmounts',
         'securityProtection'       => 'SecurityProtection',
         'ssoEnabled'               => 'SsoEnabled',
         'ssoType'                  => 'SsoType',
@@ -539,6 +587,7 @@ class officeSites extends Model
         'subnetMode'               => 'SubnetMode',
         'totalEdsCount'            => 'TotalEdsCount',
         'totalEdsCountForGroup'    => 'TotalEdsCountForGroup',
+        'totalResourceAmount'      => 'TotalResourceAmount',
         'trustPassword'            => 'TrustPassword',
         'vSwitchIds'               => 'VSwitchIds',
         'vpcId'                    => 'VpcId',
@@ -587,6 +636,12 @@ class officeSites extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->customAccessPoint) {
+            $res['CustomAccessPoint'] = $this->customAccessPoint;
+        }
+        if (null !== $this->customDnsAddress) {
+            $res['CustomDnsAddress'] = $this->customDnsAddress;
         }
         if (null !== $this->customSecurityGroupId) {
             $res['CustomSecurityGroupId'] = $this->customSecurityGroupId;
@@ -654,6 +709,9 @@ class officeSites extends Model
         if (null !== $this->networkPackageId) {
             $res['NetworkPackageId'] = $this->networkPackageId;
         }
+        if (null !== $this->nmVersion) {
+            $res['NmVersion'] = $this->nmVersion;
+        }
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
@@ -674,6 +732,15 @@ class officeSites extends Model
         }
         if (null !== $this->rdsLicenseStatus) {
             $res['RdsLicenseStatus'] = $this->rdsLicenseStatus;
+        }
+        if (null !== $this->resourceAmounts) {
+            $res['ResourceAmounts'] = [];
+            if (null !== $this->resourceAmounts && \is_array($this->resourceAmounts)) {
+                $n = 0;
+                foreach ($this->resourceAmounts as $item) {
+                    $res['ResourceAmounts'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->securityProtection) {
             $res['SecurityProtection'] = $this->securityProtection;
@@ -701,6 +768,9 @@ class officeSites extends Model
         }
         if (null !== $this->totalEdsCountForGroup) {
             $res['TotalEdsCountForGroup'] = $this->totalEdsCountForGroup;
+        }
+        if (null !== $this->totalResourceAmount) {
+            $res['TotalResourceAmount'] = $this->totalResourceAmount;
         }
         if (null !== $this->trustPassword) {
             $res['TrustPassword'] = $this->trustPassword;
@@ -761,6 +831,14 @@ class officeSites extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['CustomAccessPoint'])) {
+            $model->customAccessPoint = $map['CustomAccessPoint'];
+        }
+        if (isset($map['CustomDnsAddress'])) {
+            if (!empty($map['CustomDnsAddress'])) {
+                $model->customDnsAddress = $map['CustomDnsAddress'];
+            }
         }
         if (isset($map['CustomSecurityGroupId'])) {
             $model->customSecurityGroupId = $map['CustomSecurityGroupId'];
@@ -832,6 +910,9 @@ class officeSites extends Model
         if (isset($map['NetworkPackageId'])) {
             $model->networkPackageId = $map['NetworkPackageId'];
         }
+        if (isset($map['NmVersion'])) {
+            $model->nmVersion = $map['NmVersion'];
+        }
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
@@ -852,6 +933,15 @@ class officeSites extends Model
         }
         if (isset($map['RdsLicenseStatus'])) {
             $model->rdsLicenseStatus = $map['RdsLicenseStatus'];
+        }
+        if (isset($map['ResourceAmounts'])) {
+            if (!empty($map['ResourceAmounts'])) {
+                $model->resourceAmounts = [];
+                $n                      = 0;
+                foreach ($map['ResourceAmounts'] as $item) {
+                    $model->resourceAmounts[$n++] = null !== $item ? resourceAmounts::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SecurityProtection'])) {
             $model->securityProtection = $map['SecurityProtection'];
@@ -881,6 +971,9 @@ class officeSites extends Model
         }
         if (isset($map['TotalEdsCountForGroup'])) {
             $model->totalEdsCountForGroup = $map['TotalEdsCountForGroup'];
+        }
+        if (isset($map['TotalResourceAmount'])) {
+            $model->totalResourceAmount = $map['TotalResourceAmount'];
         }
         if (isset($map['TrustPassword'])) {
             $model->trustPassword = $map['TrustPassword'];

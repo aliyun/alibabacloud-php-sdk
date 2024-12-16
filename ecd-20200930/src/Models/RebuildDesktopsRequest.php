@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RebuildDesktopsRequest extends Model
 {
     /**
-     * @description The IDs of the cloud computers. You can specify 1 to 20 IDs.
+     * @description The cloud computer IDs. You can specify the IDs of 1 to 20 cloud computers.
      *
      * This parameter is required.
      * @example ecd-gx2x1dhsmucyy****
@@ -28,6 +28,17 @@ class RebuildDesktopsRequest extends Model
     public $imageId;
 
     /**
+     * @description The OS language. Only system images are supported, and Linux cloud computers support only English.
+     *
+     * Valid values:
+     *
+     *   en-US: English
+     *   zh-HK: Traditional Chinese (Hong Kong, China)
+     *   zh-CN: Simplified Chinese
+     *   ja-JP: Japanese
+     *
+     * @example en-US
+     *
      * @var string
      */
     public $language;
@@ -59,7 +70,7 @@ class RebuildDesktopsRequest extends Model
     public $operateType;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by Elastic Desktop Service (EDS).
      *
      * This parameter is required.
      * @example cn-hangzhou

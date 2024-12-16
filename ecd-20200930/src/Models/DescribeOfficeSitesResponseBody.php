@@ -35,6 +35,10 @@ class DescribeOfficeSitesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

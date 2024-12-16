@@ -26,6 +26,16 @@ class DescribeDesktopsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @description The ID of the request.
      *
      * @example 484256DA-D816-44D2-9D86-B6EE4D5BA78C
@@ -45,6 +55,8 @@ class DescribeDesktopsResponseBody extends Model
     protected $_name = [
         'desktops'   => 'Desktops',
         'nextToken'  => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
@@ -67,6 +79,12 @@ class DescribeDesktopsResponseBody extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -97,6 +115,12 @@ class DescribeDesktopsResponseBody extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

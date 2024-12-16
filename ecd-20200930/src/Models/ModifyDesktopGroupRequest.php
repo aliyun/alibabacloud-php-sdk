@@ -120,7 +120,7 @@ class ModifyDesktopGroupRequest extends Model
     public $disableSessionConfig;
 
     /**
-     * @description The ID of the Apsara File Storage NAS (NAS) file system for the user data roaming feature.
+     * @description The ID of the File Storage NAS (NAS) file system for the user data roaming feature.
      *
      * >  This parameter is unavailable.
      * @example 04f314****

@@ -33,6 +33,11 @@ class ModifyCloudDrivePermissionRequest extends Model
     public $downloadUploadEndUserIds;
 
     /**
+     * @var string[]
+     */
+    public $noDownloadNoUploadEndUserIds;
+
+    /**
      * @description The region ID.
      *
      * This parameter is required.
@@ -42,10 +47,11 @@ class ModifyCloudDrivePermissionRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'cdsId'                    => 'CdsId',
-        'downloadEndUserIds'       => 'DownloadEndUserIds',
-        'downloadUploadEndUserIds' => 'DownloadUploadEndUserIds',
-        'regionId'                 => 'RegionId',
+        'cdsId'                        => 'CdsId',
+        'downloadEndUserIds'           => 'DownloadEndUserIds',
+        'downloadUploadEndUserIds'     => 'DownloadUploadEndUserIds',
+        'noDownloadNoUploadEndUserIds' => 'NoDownloadNoUploadEndUserIds',
+        'regionId'                     => 'RegionId',
     ];
 
     public function validate()
@@ -63,6 +69,9 @@ class ModifyCloudDrivePermissionRequest extends Model
         }
         if (null !== $this->downloadUploadEndUserIds) {
             $res['DownloadUploadEndUserIds'] = $this->downloadUploadEndUserIds;
+        }
+        if (null !== $this->noDownloadNoUploadEndUserIds) {
+            $res['NoDownloadNoUploadEndUserIds'] = $this->noDownloadNoUploadEndUserIds;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -90,6 +99,11 @@ class ModifyCloudDrivePermissionRequest extends Model
         if (isset($map['DownloadUploadEndUserIds'])) {
             if (!empty($map['DownloadUploadEndUserIds'])) {
                 $model->downloadUploadEndUserIds = $map['DownloadUploadEndUserIds'];
+            }
+        }
+        if (isset($map['NoDownloadNoUploadEndUserIds'])) {
+            if (!empty($map['NoDownloadNoUploadEndUserIds'])) {
+                $model->noDownloadNoUploadEndUserIds = $map['NoDownloadNoUploadEndUserIds'];
             }
         }
         if (isset($map['RegionId'])) {

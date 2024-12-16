@@ -39,7 +39,6 @@ class CreateADConnectorOfficeSiteRequest extends Model
     /**
      * @description The ID of the CEN instance.
      *
-     * This parameter is required.
      * @example cen-3gwy16dojz1m65****
      *
      * @var string
@@ -65,7 +64,6 @@ class CreateADConnectorOfficeSiteRequest extends Model
      *   `172.16.0.0/12` (subnet mask range: 12 to 24 bits)
      *   `192.168.0.0/16` (subnet mask range: 16 to 24 bits)
      *
-     * This parameter is required.
      * @example 47.100.XX.XX
      *
      * @var string
@@ -227,6 +225,11 @@ class CreateADConnectorOfficeSiteRequest extends Model
     public $subDomainName;
 
     /**
+     * @var string[]
+     */
+    public $vSwitchId;
+
+    /**
      * @description The verification code. If the CEN instance that you specify for the CenId parameter belongs to another Alibaba Cloud account, you must call the [SendVerifyCode](https://help.aliyun.com/document_detail/436847.html) operation to obtain the verification code.
      *
      * @example 12****
@@ -256,6 +259,7 @@ class CreateADConnectorOfficeSiteRequest extends Model
         'specification'        => 'Specification',
         'subDomainDnsAddress'  => 'SubDomainDnsAddress',
         'subDomainName'        => 'SubDomainName',
+        'vSwitchId'            => 'VSwitchId',
         'verifyCode'           => 'VerifyCode',
     ];
 
@@ -328,6 +332,9 @@ class CreateADConnectorOfficeSiteRequest extends Model
         }
         if (null !== $this->subDomainName) {
             $res['SubDomainName'] = $this->subDomainName;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
         if (null !== $this->verifyCode) {
             $res['VerifyCode'] = $this->verifyCode;
@@ -410,6 +417,11 @@ class CreateADConnectorOfficeSiteRequest extends Model
         }
         if (isset($map['SubDomainName'])) {
             $model->subDomainName = $map['SubDomainName'];
+        }
+        if (isset($map['VSwitchId'])) {
+            if (!empty($map['VSwitchId'])) {
+                $model->vSwitchId = $map['VSwitchId'];
+            }
         }
         if (isset($map['VerifyCode'])) {
             $model->verifyCode = $map['VerifyCode'];

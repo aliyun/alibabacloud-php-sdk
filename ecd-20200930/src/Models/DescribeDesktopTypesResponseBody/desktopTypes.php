@@ -54,6 +54,11 @@ class desktopTypes extends Model
     public $gpuCount;
 
     /**
+     * @var int
+     */
+    public $gpuMemory;
+
+    /**
      * @description The GPU memory.
      *
      * @example 16 GiB
@@ -81,6 +86,16 @@ class desktopTypes extends Model
     public $memorySize;
 
     /**
+     * @var string[]
+     */
+    public $scopes;
+
+    /**
+     * @var string
+     */
+    public $stockState;
+
+    /**
      * @description The size of the system disk. Unit: GiB.
      *
      * @example 150
@@ -94,9 +109,12 @@ class desktopTypes extends Model
         'desktopTypeId'      => 'DesktopTypeId',
         'desktopTypeStatus'  => 'DesktopTypeStatus',
         'gpuCount'           => 'GpuCount',
+        'gpuMemory'          => 'GpuMemory',
         'gpuSpec'            => 'GpuSpec',
         'instanceTypeFamily' => 'InstanceTypeFamily',
         'memorySize'         => 'MemorySize',
+        'scopes'             => 'Scopes',
+        'stockState'         => 'StockState',
         'systemDiskSize'     => 'SystemDiskSize',
     ];
 
@@ -122,6 +140,9 @@ class desktopTypes extends Model
         if (null !== $this->gpuCount) {
             $res['GpuCount'] = $this->gpuCount;
         }
+        if (null !== $this->gpuMemory) {
+            $res['GpuMemory'] = $this->gpuMemory;
+        }
         if (null !== $this->gpuSpec) {
             $res['GpuSpec'] = $this->gpuSpec;
         }
@@ -130,6 +151,12 @@ class desktopTypes extends Model
         }
         if (null !== $this->memorySize) {
             $res['MemorySize'] = $this->memorySize;
+        }
+        if (null !== $this->scopes) {
+            $res['Scopes'] = $this->scopes;
+        }
+        if (null !== $this->stockState) {
+            $res['StockState'] = $this->stockState;
         }
         if (null !== $this->systemDiskSize) {
             $res['SystemDiskSize'] = $this->systemDiskSize;
@@ -161,6 +188,9 @@ class desktopTypes extends Model
         if (isset($map['GpuCount'])) {
             $model->gpuCount = $map['GpuCount'];
         }
+        if (isset($map['GpuMemory'])) {
+            $model->gpuMemory = $map['GpuMemory'];
+        }
         if (isset($map['GpuSpec'])) {
             $model->gpuSpec = $map['GpuSpec'];
         }
@@ -169,6 +199,14 @@ class desktopTypes extends Model
         }
         if (isset($map['MemorySize'])) {
             $model->memorySize = $map['MemorySize'];
+        }
+        if (isset($map['Scopes'])) {
+            if (!empty($map['Scopes'])) {
+                $model->scopes = $map['Scopes'];
+            }
+        }
+        if (isset($map['StockState'])) {
+            $model->stockState = $map['StockState'];
         }
         if (isset($map['SystemDiskSize'])) {
             $model->systemDiskSize = $map['SystemDiskSize'];

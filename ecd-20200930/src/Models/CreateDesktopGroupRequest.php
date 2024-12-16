@@ -172,7 +172,7 @@ class CreateDesktopGroupRequest extends Model
     public $endUserIds;
 
     /**
-     * @description The Apsara File Storage NAS (NAS) file system that is used after data roaming is enabled.
+     * @description The File Storage NAS (NAS) file system that is used after data roaming is enabled.
      *
      * @example 04f314****
      *
@@ -306,6 +306,11 @@ class CreateDesktopGroupRequest extends Model
     public $profileFollowSwitch;
 
     /**
+     * @var string
+     */
+    public $promotionId;
+
+    /**
      * @description The threshold for the ratio of connected sessions. This parameter is the condition that triggers auto scaling in a multi-session desktop group. `Ratio of connected sessions = Number of connected sessions/(Total number of cloud desktops × Maximum number of sessions allowed for each cloud desktop) × 100%`. When the specified threshold is reached, new cloud desktops are automatically created. When the specified threshold is not reached, idle cloud desktops are released.
      *
      * @example 0.5
@@ -416,6 +421,7 @@ class CreateDesktopGroupRequest extends Model
         'periodUnit'              => 'PeriodUnit',
         'policyGroupId'           => 'PolicyGroupId',
         'profileFollowSwitch'     => 'ProfileFollowSwitch',
+        'promotionId'             => 'PromotionId',
         'ratioThreshold'          => 'RatioThreshold',
         'regionId'                => 'RegionId',
         'resetType'               => 'ResetType',
@@ -523,6 +529,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (null !== $this->profileFollowSwitch) {
             $res['ProfileFollowSwitch'] = $this->profileFollowSwitch;
+        }
+        if (null !== $this->promotionId) {
+            $res['PromotionId'] = $this->promotionId;
         }
         if (null !== $this->ratioThreshold) {
             $res['RatioThreshold'] = $this->ratioThreshold;
@@ -660,6 +669,9 @@ class CreateDesktopGroupRequest extends Model
         }
         if (isset($map['ProfileFollowSwitch'])) {
             $model->profileFollowSwitch = $map['ProfileFollowSwitch'];
+        }
+        if (isset($map['PromotionId'])) {
+            $model->promotionId = $map['PromotionId'];
         }
         if (isset($map['RatioThreshold'])) {
             $model->ratioThreshold = $map['RatioThreshold'];

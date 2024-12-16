@@ -18,16 +18,22 @@ class directories extends Model
     public $ADConnectors;
 
     /**
+     * @example dc001
+     *
      * @var string
      */
     public $adHostname;
 
     /**
+     * @example dc002
+     *
      * @var string
      */
     public $backupDCHostname;
 
     /**
+     * @example 192.168.2.100
+     *
      * @var string
      */
     public $backupDns;
@@ -180,7 +186,7 @@ class directories extends Model
     public $enableInternetAccess;
 
     /**
-     * @description The IDs of Apsara File Storage NAS (NAS) file systems.
+     * @description The IDs of File Storage NAS (NAS) file systems.
      *
      * @var string[]
      */

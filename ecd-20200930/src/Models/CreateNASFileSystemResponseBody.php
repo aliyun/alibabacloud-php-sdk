@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNASFileSystemResponseBody extends Model
 {
     /**
+     * @description ID of the NAS file system.
+     *
      * @example 04f314****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNASFileSystemResponseBody extends Model
     public $fileSystemId;
 
     /**
+     * @description Name of the NAS file system.
+     *
      * @example testNAS
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateNASFileSystemResponseBody extends Model
     public $fileSystemName;
 
     /**
+     * @description Mount point domain.
+     *
      * @example 04f314****-at***.cn-hangzhou.nas.aliyuncs.com
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateNASFileSystemResponseBody extends Model
     public $mountTargetDomain;
 
     /**
+     * @description Workspace ID.
+     *
      * @example cn-hangzhou+dir-363353****
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateNASFileSystemResponseBody extends Model
     public $officeSiteId;
 
     /**
+     * @description Request ID.
+     *
      * @example 269BDB16-2CD8-4865-84BD-11C40BC21DB0
      *
      * @var string

@@ -133,6 +133,11 @@ class UploadImageRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $systemDiskSize;
     protected $_name = [
         'dataDiskSize'        => 'DataDiskSize',
         'description'         => 'Description',
@@ -145,6 +150,7 @@ class UploadImageRequest extends Model
         'ossObjectPath'       => 'OssObjectPath',
         'protocolType'        => 'ProtocolType',
         'regionId'            => 'RegionId',
+        'systemDiskSize'      => 'SystemDiskSize',
     ];
 
     public function validate()
@@ -186,6 +192,9 @@ class UploadImageRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
         }
 
         return $res;
@@ -231,6 +240,9 @@ class UploadImageRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
         }
 
         return $model;

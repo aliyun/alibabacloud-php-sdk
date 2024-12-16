@@ -77,6 +77,7 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopOversoldGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopOversoldGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDesktopsShrinkRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateDiskEncryptionServiceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateImageRequest;
@@ -191,6 +192,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeInvocationsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeInvocationsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeKmsKeysRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeKmsKeysResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeModificationPriceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeModificationPriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNetworkPackagesRequest;
@@ -209,8 +212,12 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordingsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRecordingsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRefundPriceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRefundPriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRenewalPriceRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeRenewalPriceResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSessionStatisticResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeSnapshotsRequest;
@@ -363,6 +370,8 @@ use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopOversoldUserGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RemoveUserFromDesktopOversoldUserGroupResponse;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopGroupRequest;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopOversoldGroupRequest;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopOversoldGroupResponse;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\RenewDesktopsRequest;
@@ -1975,6 +1984,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->subDomainName)) {
             $query['SubDomainName'] = $request->subDomainName;
         }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
         if (!Utils::isUnset($request->verifyCode)) {
             $query['VerifyCode'] = $request->verifyCode;
         }
@@ -2019,7 +2031,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Apsara File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+     * @summary Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
      *  *
      * @param CreateAndBindNasFileSystemRequest $request CreateAndBindNasFileSystemRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2073,7 +2085,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Creates an Apsara File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
+     * @summary Creates a File Storage NAS (NAS) file system and mount the file system to the workspace in which a desktop group resides.
      *  *
      * @param CreateAndBindNasFileSystemRequest $request CreateAndBindNasFileSystemRequest
      *
@@ -2645,6 +2657,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->profileFollowSwitch)) {
             $query['ProfileFollowSwitch'] = $request->profileFollowSwitch;
         }
+        if (!Utils::isUnset($request->promotionId)) {
+            $query['PromotionId'] = $request->promotionId;
+        }
         if (!Utils::isUnset($request->ratioThreshold)) {
             $query['RatioThreshold'] = $request->ratioThreshold;
         }
@@ -2811,14 +2826,19 @@ class Ecd extends OpenApiClient
      * *   Make sure a policy exists. If no policy exists, call the [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) operation to create a policy.
      * If you want the cloud computers to automatically execute a custom command script, you can use the `UserCommands` field to configure a custom command.
      *  *
-     * @param CreateDesktopsRequest $request CreateDesktopsRequest
+     * @param CreateDesktopsRequest $tmpReq  CreateDesktopsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
      * @return CreateDesktopsResponse CreateDesktopsResponse
      */
-    public function createDesktopsWithOptions($request, $runtime)
+    public function createDesktopsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreateDesktopsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->desktopAttachment)) {
+            $request->desktopAttachmentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->desktopAttachment, 'DesktopAttachment', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->amount)) {
             $query['Amount'] = $request->amount;
@@ -2837,6 +2857,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
+        }
+        if (!Utils::isUnset($request->desktopAttachmentShrink)) {
+            $query['DesktopAttachment'] = $request->desktopAttachmentShrink;
         }
         if (!Utils::isUnset($request->desktopMemberIp)) {
             $query['DesktopMemberIp'] = $request->desktopMemberIp;
@@ -2883,11 +2906,17 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->snapshotPolicyId)) {
             $query['SnapshotPolicyId'] = $request->snapshotPolicyId;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->timerGroupId)) {
+            $query['TimerGroupId'] = $request->timerGroupId;
         }
         if (!Utils::isUnset($request->userAssignMode)) {
             $query['UserAssignMode'] = $request->userAssignMode;
@@ -3066,6 +3095,19 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary Create a NAS file system.
+     *  *
+     * @description <props="china">
+     * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
+     * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
+     * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
+     * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+     * <props="intl">
+     * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
+     * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
+     * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
+     * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+     *  *
      * @param CreateNASFileSystemRequest $request CreateNASFileSystemRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -3112,6 +3154,19 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @summary Create a NAS file system.
+     *  *
+     * @description <props="china">
+     * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
+     * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
+     * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase resource packages to offset the storage usage.
+     * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+     * <props="intl">
+     * - Each standard workspace can create one NAS file system to meet the need for sharing files between cloud desktops in the workspace.
+     * - The system will automatically create a general-purpose NAS file system (with storage specifications of Capacity and Performance, with capacities of 10 PiB and 1 PiB respectively) and generate a default mount point.
+     * - The NAS file system uses pay-as-you-go by default. You need to pay for the actual storage usage. You can also purchase storage packages to offset the storage usage.
+     * For more information, see [Creating Shared Storage NAS](https://help.aliyun.com/document_detail/214481.html).
+     *  *
      * @param CreateNASFileSystemRequest $request CreateNASFileSystemRequest
      *
      * @return CreateNASFileSystemResponse CreateNASFileSystemResponse
@@ -3378,6 +3433,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->watermarkType)) {
             $query['WatermarkType'] = $request->watermarkType;
+        }
+        if (!Utils::isUnset($request->wyAssistant)) {
+            $query['WyAssistant'] = $request->wyAssistant;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4227,7 +4285,7 @@ class Ecd extends OpenApiClient
     /**
      * @summary Deletes NAS file systems.
      *  *
-     * @description Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+     * @description Before you delete a File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
      * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
      *  *
      * @param DeleteNASFileSystemsRequest $request DeleteNASFileSystemsRequest
@@ -4266,7 +4324,7 @@ class Ecd extends OpenApiClient
     /**
      * @summary Deletes NAS file systems.
      *  *
-     * @description Before you delete an Apsara File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
+     * @description Before you delete a File Storage NAS (NAS) file system, make sure that the data you want to retain is backed up.
      * >Warning: If a NAS file system is deleted, data stored in the NAS file system cannot be restored. Proceed with caution when you delete NAS file systems.
      *  *
      * @param DeleteNASFileSystemsRequest $request DeleteNASFileSystemsRequest
@@ -5639,6 +5697,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->endUserId)) {
             $query['EndUserId'] = $request->endUserId;
         }
+        if (!Utils::isUnset($request->endUserIdFilter)) {
+            $query['EndUserIdFilter'] = $request->endUserIdFilter;
+        }
         if (!Utils::isUnset($request->officeSiteId)) {
             $query['OfficeSiteId'] = $request->officeSiteId;
         }
@@ -5723,6 +5784,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->desktopTypeId)) {
             $query['DesktopTypeId'] = $request->desktopTypeId;
         }
+        if (!Utils::isUnset($request->desktopTypeIdList)) {
+            $query['DesktopTypeIdList'] = $request->desktopTypeIdList;
+        }
         if (!Utils::isUnset($request->gpuCount)) {
             $query['GpuCount'] = $request->gpuCount;
         }
@@ -5735,11 +5799,20 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->memorySize)) {
             $query['MemorySize'] = $request->memorySize;
         }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
         if (!Utils::isUnset($request->orderType)) {
             $query['OrderType'] = $request->orderType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5855,6 +5928,12 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->osTypes)) {
             $query['OsTypes'] = $request->osTypes;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
         }
         if (!Utils::isUnset($request->policyGroupId)) {
             $query['PolicyGroupId'] = $request->policyGroupId;
@@ -6254,8 +6333,29 @@ class Ecd extends OpenApiClient
     public function describeFotaPendingDesktopsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
+        }
+        if (!Utils::isUnset($request->desktopName)) {
+            $query['DesktopName'] = $request->desktopName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $query['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskUid)) {
+            $query['TaskUid'] = $request->taskUid;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -6263,7 +6363,7 @@ class Ecd extends OpenApiClient
             'version'     => '2020-09-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -6632,6 +6732,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->endUserId)) {
             $query['EndUserId'] = $request->endUserId;
         }
+        if (!Utils::isUnset($request->includeInvokeDesktops)) {
+            $query['IncludeInvokeDesktops'] = $request->includeInvokeDesktops;
+        }
         if (!Utils::isUnset($request->includeOutput)) {
             $query['IncludeOutput'] = $request->includeOutput;
         }
@@ -6731,7 +6834,68 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
+     * @param DescribeModificationPriceRequest $request DescribeModificationPriceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeModificationPriceResponse DescribeModificationPriceResponse
+     */
+    public function describeModificationPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bandwidth)) {
+            $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->rootDiskSizeGib)) {
+            $query['RootDiskSizeGib'] = $request->rootDiskSizeGib;
+        }
+        if (!Utils::isUnset($request->userDiskSizeGib)) {
+            $query['UserDiskSizeGib'] = $request->userDiskSizeGib;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeModificationPrice',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeModificationPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeModificationPriceRequest $request DescribeModificationPriceRequest
+     *
+     * @return DescribeModificationPriceResponse DescribeModificationPriceResponse
+     */
+    public function describeModificationPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeModificationPriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about File Storage NAS (NAS) file systems.
      *  *
      * @param DescribeNASFileSystemsRequest $request DescribeNASFileSystemsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -6779,7 +6943,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about Apsara File Storage NAS (NAS) file systems.
+     * @summary Queries the information about File Storage NAS (NAS) file systems.
      *  *
      * @param DescribeNASFileSystemsRequest $request DescribeNASFileSystemsRequest
      *
@@ -7000,44 +7164,11 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->bandwidth)) {
             $query['Bandwidth'] = $request->bandwidth;
         }
-        if (!Utils::isUnset($request->bundleModels)) {
-            $query['BundleModels'] = $request->bundleModels;
-        }
-        if (!Utils::isUnset($request->eduCdsEnable)) {
-            $query['EduCdsEnable'] = $request->eduCdsEnable;
-        }
-        if (!Utils::isUnset($request->eduCdsSize)) {
-            $query['EduCdsSize'] = $request->eduCdsSize;
-        }
-        if (!Utils::isUnset($request->eduCommittedTime)) {
-            $query['EduCommittedTime'] = $request->eduCommittedTime;
-        }
-        if (!Utils::isUnset($request->eduDesktopBundleId)) {
-            $query['EduDesktopBundleId'] = $request->eduDesktopBundleId;
-        }
-        if (!Utils::isUnset($request->eduDesktopNum)) {
-            $query['EduDesktopNum'] = $request->eduDesktopNum;
-        }
-        if (!Utils::isUnset($request->eduRoomClassify)) {
-            $query['EduRoomClassify'] = $request->eduRoomClassify;
-        }
-        if (!Utils::isUnset($request->eduStudentBundleId)) {
-            $query['EduStudentBundleId'] = $request->eduStudentBundleId;
-        }
-        if (!Utils::isUnset($request->eduStudentNum)) {
-            $query['EduStudentNum'] = $request->eduStudentNum;
-        }
-        if (!Utils::isUnset($request->eduTeacherBundleId)) {
-            $query['EduTeacherBundleId'] = $request->eduTeacherBundleId;
-        }
-        if (!Utils::isUnset($request->eduTeacherNum)) {
-            $query['EduTeacherNum'] = $request->eduTeacherNum;
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
         }
         if (!Utils::isUnset($request->groupDesktopCount)) {
             $query['GroupDesktopCount'] = $request->groupDesktopCount;
-        }
-        if (!Utils::isUnset($request->hardwareVersion)) {
-            $query['HardwareVersion'] = $request->hardwareVersion;
         }
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
@@ -7045,14 +7176,8 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->internetChargeType)) {
             $query['InternetChargeType'] = $request->internetChargeType;
         }
-        if (!Utils::isUnset($request->networkType)) {
-            $query['NetworkType'] = $request->networkType;
-        }
         if (!Utils::isUnset($request->osType)) {
             $query['OsType'] = $request->osType;
-        }
-        if (!Utils::isUnset($request->packageSize)) {
-            $query['PackageSize'] = $request->packageSize;
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
@@ -7069,23 +7194,14 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->rootDiskPerformanceLevel)) {
-            $query['RootDiskPerformanceLevel'] = $request->rootDiskPerformanceLevel;
+        if (!Utils::isUnset($request->rootDiskCategory)) {
+            $query['RootDiskCategory'] = $request->rootDiskCategory;
         }
         if (!Utils::isUnset($request->rootDiskSizeGib)) {
             $query['RootDiskSizeGib'] = $request->rootDiskSizeGib;
         }
-        if (!Utils::isUnset($request->spPeriodInfo)) {
-            $query['SpPeriodInfo'] = $request->spPeriodInfo;
-        }
-        if (!Utils::isUnset($request->spPrice)) {
-            $query['SpPrice'] = $request->spPrice;
-        }
-        if (!Utils::isUnset($request->spType)) {
-            $query['SpType'] = $request->spType;
-        }
-        if (!Utils::isUnset($request->userDiskPerformanceLevel)) {
-            $query['UserDiskPerformanceLevel'] = $request->userDiskPerformanceLevel;
+        if (!Utils::isUnset($request->userDiskCategory)) {
+            $query['UserDiskCategory'] = $request->userDiskCategory;
         }
         if (!Utils::isUnset($request->userDiskSizeGib)) {
             $query['UserDiskSizeGib'] = $request->userDiskSizeGib;
@@ -7368,6 +7484,55 @@ class Ecd extends OpenApiClient
     }
 
     /**
+     * @param DescribeRefundPriceRequest $request DescribeRefundPriceRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRefundPriceResponse DescribeRefundPriceResponse
+     */
+    public function describeRefundPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->desktopId)) {
+            $query['DesktopId'] = $request->desktopId;
+        }
+        if (!Utils::isUnset($request->refundType)) {
+            $query['RefundType'] = $request->refundType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRefundPrice',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRefundPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRefundPriceRequest $request DescribeRefundPriceRequest
+     *
+     * @return DescribeRefundPriceResponse DescribeRefundPriceResponse
+     */
+    public function describeRefundPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRefundPriceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the Alibaba Cloud regions that are available for Elastic Desktop Service (EDS).
      *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
@@ -7415,6 +7580,64 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRenewalPriceResponse DescribeRenewalPriceResponse
+     */
+    public function describeRenewalPriceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRenewalPrice',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRenewalPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRenewalPriceRequest $request DescribeRenewalPriceRequest
+     *
+     * @return DescribeRenewalPriceResponse DescribeRenewalPriceResponse
+     */
+    public function describeRenewalPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRenewalPriceWithOptions($request, $runtime);
     }
 
     /**
@@ -9103,11 +9326,17 @@ class Ecd extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->assignedInfo)) {
+            $query['AssignedInfo'] = $request->assignedInfo;
+        }
         if (!Utils::isUnset($request->directoryId)) {
             $query['DirectoryId'] = $request->directoryId;
         }
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->includeAssignedUser)) {
+            $query['IncludeAssignedUser'] = $request->includeAssignedUser;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -9120,6 +9349,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -9288,8 +9520,14 @@ class Ecd extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->assignedInfo)) {
+            $query['AssignedInfo'] = $request->assignedInfo;
+        }
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->includeAssignedUser)) {
+            $query['IncludeAssignedUser'] = $request->includeAssignedUser;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
@@ -9305,6 +9543,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sortType)) {
+            $query['SortType'] = $request->sortType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -10224,6 +10465,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->downloadUploadEndUserIds)) {
             $query['DownloadUploadEndUserIds'] = $request->downloadUploadEndUserIds;
+        }
+        if (!Utils::isUnset($request->noDownloadNoUploadEndUserIds)) {
+            $query['NoDownloadNoUploadEndUserIds'] = $request->noDownloadNoUploadEndUserIds;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -11375,7 +11619,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the mount target of an Apsara File Storage NAS (NAS) file system.
+     * @summary Modifies the mount target of a File Storage NAS (NAS) file system.
      *  *
      * @description When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
      *  *
@@ -11416,7 +11660,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the mount target of an Apsara File Storage NAS (NAS) file system.
+     * @summary Modifies the mount target of a File Storage NAS (NAS) file system.
      *  *
      * @description When you create a NAS file system, a mount target is automatically generated. By default, the mount target does not need to be changed. If the mount target is deleted by misoperation, you must specify a new mount target for the NAS file system in the workspace. You can call the [CreateMountTarget](https://help.aliyun.com/document_detail/62621.html) operation to create a mount target.
      *  *
@@ -11907,6 +12151,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->watermarkType)) {
             $query['WatermarkType'] = $request->watermarkType;
         }
+        if (!Utils::isUnset($request->wyAssistant)) {
+            $query['WyAssistant'] = $request->wyAssistant;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -12177,12 +12424,12 @@ class Ecd extends OpenApiClient
     /**
      * @summary Recreates cloud computers.
      *  *
-     * @description Before you change the image of a cloud computer, take note of the following limits:
-     * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
-     * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
-     * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
-     * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
-     * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
+     * @description Take note of the following limits when you change an image:
+     * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Singapore, and Japan (Tokyo).
+     * *   GPU images and non-GPU images cannot be exchanged. Graphic-based cloud computers can only use GPU-accelerated images. The other cloud computers can only use non-GPU-accelerated images.
+     * After the image of a cloud computer is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
+     * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer become unavailable. The system automatically deletes the snapshots.
+     * *   If the OS of the image is changed, the data in the data disk of the original cloud computer is cleared, and the snapshots that are created based on the data disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disk of the original cloud computer is retained, and the snapshots that are created based on the data disk of the original cloud computer can still be used.
      *  *
      * @param RebuildDesktopsRequest $request RebuildDesktopsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -12229,12 +12476,12 @@ class Ecd extends OpenApiClient
     /**
      * @summary Recreates cloud computers.
      *  *
-     * @description Before you change the image of a cloud computer, take note of the following limits:
-     * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Australia (Sydney), Singapore, and Japan (Tokyo).
-     * *   GPU images and non-GPU images cannot be exchanged. Graphical cloud computers can only use GPU-accelerated images. Non-graphical cloud computers can only use non-GPU-accelerated images.
-     * After the image is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
-     * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots.
-     * *   If the OS of the image is changed, the data in the data disks of the original cloud computer is cleared, and the snapshots that are created based on the data disks of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disks of the original cloud computer is retained, and the snapshots that are created based on the data disks of the original cloud computer can still be used.
+     * @description Take note of the following limits when you change an image:
+     * *   You can select an image whose OS is different from the OS of the original image. The image change feature is not supported in the following regions: China (Hong Kong), Singapore, and Japan (Tokyo).
+     * *   GPU images and non-GPU images cannot be exchanged. Graphic-based cloud computers can only use GPU-accelerated images. The other cloud computers can only use non-GPU-accelerated images.
+     * After the image of a cloud computer is changed, the system uses the new image to initialize the system disk of the cloud computer. This has the following impacts:
+     * *   Data in the system disk of the original cloud computer is cleared. Snapshots that are created based on the system disk of the original cloud computer become unavailable. The system automatically deletes the snapshots.
+     * *   If the OS of the image is changed, the data in the data disk of the original cloud computer is cleared, and the snapshots that are created based on the data disk of the original cloud computer can no longer be used. The system automatically deletes the snapshots. If the OS of the image is not changed, the data in the data disk of the original cloud computer is retained, and the snapshots that are created based on the data disk of the original cloud computer can still be used.
      *  *
      * @param RebuildDesktopsRequest $request RebuildDesktopsRequest
      *
@@ -12424,6 +12671,64 @@ class Ecd extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeUserFromDesktopOversoldUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewDesktopGroupRequest $request RenewDesktopGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RenewDesktopGroupResponse RenewDesktopGroupResponse
+     */
+    public function renewDesktopGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->desktopGroupId)) {
+            $query['DesktopGroupId'] = $request->desktopGroupId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewDesktopGroup',
+            'version'     => '2020-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewDesktopGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewDesktopGroupRequest $request RenewDesktopGroupRequest
+     *
+     * @return RenewDesktopGroupResponse RenewDesktopGroupResponse
+     */
+    public function renewDesktopGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewDesktopGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -12682,7 +12987,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Resets the mount target of an Apsara File Storage NAS (NAS) file system.
+     * @summary Resets the mount target of a File Storage NAS (NAS) file system.
      *  *
      * @description When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
      *  *
@@ -12720,7 +13025,7 @@ class Ecd extends OpenApiClient
     }
 
     /**
-     * @summary Resets the mount target of an Apsara File Storage NAS (NAS) file system.
+     * @summary Resets the mount target of a File Storage NAS (NAS) file system.
      *  *
      * @description When you create a NAS file system, a mount target is automatically generated. By default, you do not need to modify the mount target of the NAS file system. If the mount target is disabled, you need to reset the mount target of the NAS file system.
      *  *
@@ -13937,6 +14242,9 @@ class Ecd extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->systemDiskSize)) {
+            $query['SystemDiskSize'] = $request->systemDiskSize;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

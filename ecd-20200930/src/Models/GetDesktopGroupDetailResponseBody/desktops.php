@@ -251,7 +251,7 @@ class desktops extends Model
     public $minDesktopsCount;
 
     /**
-     * @description The ID of the Apsara File Storage NAS (NAS) file system for the user data roaming feature.
+     * @description The ID of the File Storage NAS (NAS) file system for the user data roaming feature.
      *
      * @example 0783b4****
      *
