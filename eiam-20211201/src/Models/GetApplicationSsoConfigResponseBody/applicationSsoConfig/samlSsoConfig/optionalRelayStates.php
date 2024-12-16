@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class optionalRelayStates extends Model
 {
     /**
+     * @description The display name of the RelayState
+     *
+     * @example Ram Account SSO
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description RelayState.The user will see the display names of multiple optional redirect addresses in the application card of the application portal. After the user clicks and completes SSO, they will automatically jump to the corresponding address. This field can only be filled in after the default redirect address is filled in.
+     *
+     * @example https://home.console.aliyun.com
+     *
      * @var string
      */
     public $relayState;

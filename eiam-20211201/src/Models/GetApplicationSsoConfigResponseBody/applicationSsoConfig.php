@@ -47,7 +47,7 @@ class applicationSsoConfig extends Model
     public $protocolEndpointDomain;
 
     /**
-     * @description The Security Assertion Markup Language (SAML)-based SSO configuration attributes of the application. This parameter is returned only when the SSO protocol of the application is SAML 2.0.
+     * @description The Security Assertion Markup Language (SAML)-based SSO configuration attributes of the application. This parameter is returned only if the SSO protocol of the application is SAML 2.0.
      *
      * @var samlSsoConfig
      */

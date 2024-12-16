@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class samlSsoConfig extends Model
 {
     /**
-     * @description assertion是否签名
+     * @description Whether the Assertion needs a signature. ResponseSigned and AssertionSigned cannot be false at the same time.
      *
+     * false: signature is not required.
      * @example true
      *
      * @var bool
@@ -36,6 +37,10 @@ class samlSsoConfig extends Model
     public $defaultRelayState;
 
     /**
+     * @description The custom issuer ID.
+     *
+     * @example https://example.com/
+     *
      * @var string
      */
     public $idPEntityId;
@@ -64,13 +69,16 @@ class samlSsoConfig extends Model
     public $nameIdValueExpression;
 
     /**
+     * @description Optional RelayState. The user will see the display names of multiple optional redirect addresses in the application card of the application portal. After the user clicks and completes SSO, they will automatically jump to the corresponding address. This field can only be filled in after the default redirect address is filled in.
+     *
      * @var optionalRelayStates[]
      */
     public $optionalRelayStates;
 
     /**
-     * @description response是否签名
+     * @description Whether the response needs to be signed. ResponseSigned and AssertionSigned cannot be false at the same time.
      *
+     * false: signature is not required.
      * @example true
      *
      * @var bool

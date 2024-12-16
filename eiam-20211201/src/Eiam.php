@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateIdentityProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateNetworkAccessEndpointRequest;
@@ -44,6 +46,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteIdentityProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteIdentityProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteNetworkAccessEndpointRequest;
@@ -66,6 +70,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderUdPullRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableIdentityProviderUdPullResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserRequest;
@@ -82,6 +88,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderUdPullRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableIdentityProviderUdPullResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
@@ -104,6 +112,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetForgetPasswordConfigurationRequest
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetForgetPasswordConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderUdPullConfigurationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderUdPullConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointRequest;
@@ -145,6 +157,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListIdentityProvidersRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListIdentityProvidersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListNetworkAccessEndpointAvailableRegionsResponse;
@@ -197,6 +211,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetDefaultDomainRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetDefaultDomainResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetForgetPasswordConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetForgetPasswordConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetIdentityProviderUdPullConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordExpirationConfigurationRequest;
@@ -217,6 +233,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateGroupDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateGroupDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateGroupResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateIdentityProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateInstanceDescriptionResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateNetworkAccessEndpointNameRequest;
@@ -816,6 +834,95 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @summary 创建身份提供方
+     *  *
+     * @param CreateIdentityProviderRequest $request CreateIdentityProviderRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateIdentityProviderResponse CreateIdentityProviderResponse
+     */
+    public function createIdentityProviderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authnConfig)) {
+            $query['AuthnConfig'] = $request->authnConfig;
+        }
+        if (!Utils::isUnset($request->autoCreateUserConfig)) {
+            $query['AutoCreateUserConfig'] = $request->autoCreateUserConfig;
+        }
+        if (!Utils::isUnset($request->autoUpdateUserConfig)) {
+            $query['AutoUpdateUserConfig'] = $request->autoUpdateUserConfig;
+        }
+        if (!Utils::isUnset($request->bindingConfig)) {
+            $query['BindingConfig'] = $request->bindingConfig;
+        }
+        if (!Utils::isUnset($request->dingtalkAppConfig)) {
+            $query['DingtalkAppConfig'] = $request->dingtalkAppConfig;
+        }
+        if (!Utils::isUnset($request->identityProviderName)) {
+            $query['IdentityProviderName'] = $request->identityProviderName;
+        }
+        if (!Utils::isUnset($request->identityProviderType)) {
+            $query['IdentityProviderType'] = $request->identityProviderType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->larkConfig)) {
+            $query['LarkConfig'] = $request->larkConfig;
+        }
+        if (!Utils::isUnset($request->ldapConfig)) {
+            $query['LdapConfig'] = $request->ldapConfig;
+        }
+        if (!Utils::isUnset($request->networkAccessEndpointId)) {
+            $query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+        }
+        if (!Utils::isUnset($request->oidcConfig)) {
+            $query['OidcConfig'] = $request->oidcConfig;
+        }
+        if (!Utils::isUnset($request->udPullConfig)) {
+            $query['UdPullConfig'] = $request->udPullConfig;
+        }
+        if (!Utils::isUnset($request->udPushConfig)) {
+            $query['UdPushConfig'] = $request->udPushConfig;
+        }
+        if (!Utils::isUnset($request->weComConfig)) {
+            $query['WeComConfig'] = $request->weComConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIdentityProvider',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建身份提供方
+     *  *
+     * @param CreateIdentityProviderRequest $request CreateIdentityProviderRequest
+     *
+     * @return CreateIdentityProviderResponse CreateIdentityProviderResponse
+     */
+    public function createIdentityProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createIdentityProviderWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an instance based on which all capabilities of Identity as a Service (IDaaS) Enterprise Identity and Access Management (EIAM) are provided.
      *  *
      * @param CreateInstanceRequest $request CreateInstanceRequest
@@ -1330,6 +1437,56 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除身份提供方
+     *  *
+     * @param DeleteIdentityProviderRequest $request DeleteIdentityProviderRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteIdentityProviderResponse DeleteIdentityProviderResponse
+     */
+    public function deleteIdentityProviderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identityProviderId)) {
+            $query['IdentityProviderId'] = $request->identityProviderId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIdentityProvider',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除身份提供方
+     *  *
+     * @param DeleteIdentityProviderRequest $request DeleteIdentityProviderRequest
+     *
+     * @return DeleteIdentityProviderResponse DeleteIdentityProviderResponse
+     */
+    public function deleteIdentityProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteIdentityProviderWithOptions($request, $runtime);
     }
 
     /**
@@ -1894,6 +2051,56 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @summary 禁用同步入
+     *  *
+     * @param DisableIdentityProviderUdPullRequest $request DisableIdentityProviderUdPullRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DisableIdentityProviderUdPullResponse DisableIdentityProviderUdPullResponse
+     */
+    public function disableIdentityProviderUdPullWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identityProviderId)) {
+            $query['IdentityProviderId'] = $request->identityProviderId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableIdentityProviderUdPull',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 禁用同步入
+     *  *
+     * @param DisableIdentityProviderUdPullRequest $request DisableIdentityProviderUdPullRequest
+     *
+     * @return DisableIdentityProviderUdPullResponse DisableIdentityProviderUdPullResponse
+     */
+    public function disableIdentityProviderUdPull($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableIdentityProviderUdPullWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 关闭初始化域名自动跳转。
      *  *
      * @param DisableInitDomainAutoRedirectRequest $request DisableInitDomainAutoRedirectRequest
@@ -2294,6 +2501,56 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 启用同步入
+     *  *
+     * @param EnableIdentityProviderUdPullRequest $request EnableIdentityProviderUdPullRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableIdentityProviderUdPullResponse EnableIdentityProviderUdPullResponse
+     */
+    public function enableIdentityProviderUdPullWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identityProviderId)) {
+            $query['IdentityProviderId'] = $request->identityProviderId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableIdentityProviderUdPull',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启用同步入
+     *  *
+     * @param EnableIdentityProviderUdPullRequest $request EnableIdentityProviderUdPullRequest
+     *
+     * @return EnableIdentityProviderUdPullResponse EnableIdentityProviderUdPullResponse
+     */
+    public function enableIdentityProviderUdPull($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableIdentityProviderUdPullWithOptions($request, $runtime);
     }
 
     /**
@@ -2838,6 +3095,106 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取身份提供方
+     *  *
+     * @param GetIdentityProviderRequest $request GetIdentityProviderRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetIdentityProviderResponse GetIdentityProviderResponse
+     */
+    public function getIdentityProviderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identityProviderId)) {
+            $query['IdentityProviderId'] = $request->identityProviderId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIdentityProvider',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取身份提供方
+     *  *
+     * @param GetIdentityProviderRequest $request GetIdentityProviderRequest
+     *
+     * @return GetIdentityProviderResponse GetIdentityProviderResponse
+     */
+    public function getIdentityProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIdentityProviderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取IdP同步入配置
+     *  *
+     * @param GetIdentityProviderUdPullConfigurationRequest $request GetIdentityProviderUdPullConfigurationRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetIdentityProviderUdPullConfigurationResponse GetIdentityProviderUdPullConfigurationResponse
+     */
+    public function getIdentityProviderUdPullConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identityProviderId)) {
+            $query['IdentityProviderId'] = $request->identityProviderId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIdentityProviderUdPullConfiguration',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取IdP同步入配置
+     *  *
+     * @param GetIdentityProviderUdPullConfigurationRequest $request GetIdentityProviderUdPullConfigurationRequest
+     *
+     * @return GetIdentityProviderUdPullConfigurationResponse GetIdentityProviderUdPullConfigurationResponse
+     */
+    public function getIdentityProviderUdPullConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIdentityProviderUdPullConfigurationWithOptions($request, $runtime);
     }
 
     /**
@@ -3924,6 +4281,59 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listGroupsForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询身份提供方
+     *  *
+     * @param ListIdentityProvidersRequest $request ListIdentityProvidersRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListIdentityProvidersResponse ListIdentityProvidersResponse
+     */
+    public function listIdentityProvidersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListIdentityProviders',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIdentityProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询身份提供方
+     *  *
+     * @param ListIdentityProvidersRequest $request ListIdentityProvidersRequest
+     *
+     * @return ListIdentityProvidersResponse ListIdentityProvidersResponse
+     */
+    public function listIdentityProviders($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIdentityProvidersWithOptions($request, $runtime);
     }
 
     /**
@@ -5441,6 +5851,74 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @summary 修改IdP同步入配置
+     *  *
+     * @param SetIdentityProviderUdPullConfigurationRequest $request SetIdentityProviderUdPullConfigurationRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetIdentityProviderUdPullConfigurationResponse SetIdentityProviderUdPullConfigurationResponse
+     */
+    public function setIdentityProviderUdPullConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->groupSyncStatus)) {
+            $query['GroupSyncStatus'] = $request->groupSyncStatus;
+        }
+        if (!Utils::isUnset($request->identityProviderId)) {
+            $query['IdentityProviderId'] = $request->identityProviderId;
+        }
+        if (!Utils::isUnset($request->incrementalCallbackStatus)) {
+            $query['IncrementalCallbackStatus'] = $request->incrementalCallbackStatus;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ldapUdPullConfig)) {
+            $query['LdapUdPullConfig'] = $request->ldapUdPullConfig;
+        }
+        if (!Utils::isUnset($request->periodicSyncStatus)) {
+            $query['PeriodicSyncStatus'] = $request->periodicSyncStatus;
+        }
+        if (!Utils::isUnset($request->pullProtectedRule)) {
+            $query['PullProtectedRule'] = $request->pullProtectedRule;
+        }
+        if (!Utils::isUnset($request->udSyncScopeConfig)) {
+            $query['UdSyncScopeConfig'] = $request->udSyncScopeConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetIdentityProviderUdPullConfiguration',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改IdP同步入配置
+     *  *
+     * @param SetIdentityProviderUdPullConfigurationRequest $request SetIdentityProviderUdPullConfigurationRequest
+     *
+     * @return SetIdentityProviderUdPullConfigurationResponse SetIdentityProviderUdPullConfigurationResponse
+     */
+    public function setIdentityProviderUdPullConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setIdentityProviderUdPullConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Configures a password complexity policy for an Employee Identity and Access Management (EIAM) instance of Identity as a Service (IDaaS).
      *  *
      * @param SetPasswordComplexityConfigurationRequest $request SetPasswordComplexityConfigurationRequest
@@ -5992,6 +6470,77 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateGroupDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新idp基础配置
+     *  *
+     * @param UpdateIdentityProviderRequest $request UpdateIdentityProviderRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateIdentityProviderResponse UpdateIdentityProviderResponse
+     */
+    public function updateIdentityProviderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dingtalkAppConfig)) {
+            $query['DingtalkAppConfig'] = $request->dingtalkAppConfig;
+        }
+        if (!Utils::isUnset($request->identityProviderId)) {
+            $query['IdentityProviderId'] = $request->identityProviderId;
+        }
+        if (!Utils::isUnset($request->identityProviderName)) {
+            $query['IdentityProviderName'] = $request->identityProviderName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->larkConfig)) {
+            $query['LarkConfig'] = $request->larkConfig;
+        }
+        if (!Utils::isUnset($request->ldapConfig)) {
+            $query['LdapConfig'] = $request->ldapConfig;
+        }
+        if (!Utils::isUnset($request->networkAccessEndpointId)) {
+            $query['NetworkAccessEndpointId'] = $request->networkAccessEndpointId;
+        }
+        if (!Utils::isUnset($request->oidcConfig)) {
+            $query['OidcConfig'] = $request->oidcConfig;
+        }
+        if (!Utils::isUnset($request->weComConfig)) {
+            $query['WeComConfig'] = $request->weComConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateIdentityProvider',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新idp基础配置
+     *  *
+     * @param UpdateIdentityProviderRequest $request UpdateIdentityProviderRequest
+     *
+     * @return UpdateIdentityProviderResponse UpdateIdentityProviderResponse
+     */
+    public function updateIdentityProvider($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateIdentityProviderWithOptions($request, $runtime);
     }
 
     /**

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationSsoConfigResponseBody extends Model
 {
     /**
-     * @description The SSO configuration information of the application.
+     * @description The single sign-on (SSO) configuration information of the application.
      *
      * @var applicationSsoConfig
      */

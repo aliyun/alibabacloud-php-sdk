@@ -1,3 +1,15 @@
+2024-12-16 Version: 1.6.0
+- Support API CreateIdentityProvider.
+- Support API DeleteIdentityProvider.
+- Support API DisableIdentityProviderUdPull.
+- Support API EnableIdentityProviderUdPull.
+- Support API GetIdentityProvider.
+- Support API GetIdentityProviderUdPullConfiguration.
+- Support API ListIdentityProviders.
+- Support API SetIdentityProviderUdPullConfiguration.
+- Support API UpdateIdentityProvider.
+
+
 2024-12-04 Version: 1.5.4
 - Update API GetApplicationSsoConfig: update response param.
 - Update API SetApplicationSsoConfig: add param ClientToken.
