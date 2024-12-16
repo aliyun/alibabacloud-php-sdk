@@ -18,21 +18,17 @@ class availableResource extends Model
     public $conditionSupportedResources;
 
     /**
-     * @description The information about the resources.
+     * @description The information about the supported resources.
      *
      * @var supportedResources
      */
     public $supportedResources;
 
     /**
-     * @description The type of the resources. Valid values:
+     * @description The resource type. Valid values:
      *
-     *   Zone
-     *   IoOptimized
      *   InstanceType
      *   SystemDisk
-     *   DataDisk
-     *   Network
      *
      * @example InstanceType
      *

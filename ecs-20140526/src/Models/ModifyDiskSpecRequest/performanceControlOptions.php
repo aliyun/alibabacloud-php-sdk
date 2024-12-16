@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class performanceControlOptions extends Model
 {
     /**
-     * @description The new IOPS rate of the disk. You can modify the IOPS rate of only disks in dedicated block storage clusters.
+     * @description The new IOPS rate of the cloud disk. You can modify the IOPS rate of only cloud disks in dedicated block storage clusters.
      *
      * For more information, see [Block storage performance](https://help.aliyun.com/document_detail/25382.html).
      * @example 2000
@@ -19,9 +19,9 @@ class performanceControlOptions extends Model
     public $IOPS;
 
     /**
-     * @description Specifies whether to reset the IOPS rate and throughput of the disk. This parameter takes effect only when the disk belongs to a dedicated block storage cluster.
+     * @description Specifies whether to reset the IOPS rate and throughput of the cloud disk. This parameter takes effect only when the cloud disk belongs to a dedicated block storage cluster.
      *
-     * Set the value to All, which indicates that the IOPS rate and throughput of the disk are reset to the initial values.
+     * Set the value to All, which indicates that the IOPS rate and throughput of the cloud disk are reset to the initial values.
      * @example All
      *
      * @var string
@@ -29,7 +29,7 @@ class performanceControlOptions extends Model
     public $recover;
 
     /**
-     * @description The new throughput of the disk. You can modify the throughput of only disks in dedicated block storage clusters. Unit: MB/s.
+     * @description The new throughput of the cloud disk. You can change the throughput of only cloud disks in dedicated block storage clusters. Unit: MB/s.
      *
      * For more information, see [Block storage performance](https://help.aliyun.com/document_detail/25382.html).
      * @example 200

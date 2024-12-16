@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAttachmentAttributesResponseBody extends Model
 {
     /**
-     * @description Details about the private pools that the instances match.
+     * @description The information about the association between private pools and instances.
      *
      * @var instances
      */

@@ -18,6 +18,11 @@ class diskDeviceMapping extends Model
     public $device;
 
     /**
+     * @var string
+     */
+    public $encrypted;
+
+    /**
      * @description The format of the image.
      *
      * @example qcow2
@@ -90,6 +95,7 @@ class diskDeviceMapping extends Model
     public $type;
     protected $_name = [
         'device'          => 'Device',
+        'encrypted'       => 'Encrypted',
         'format'          => 'Format',
         'importOSSBucket' => 'ImportOSSBucket',
         'importOSSObject' => 'ImportOSSObject',
@@ -109,6 +115,9 @@ class diskDeviceMapping extends Model
         $res = [];
         if (null !== $this->device) {
             $res['Device'] = $this->device;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
         }
         if (null !== $this->format) {
             $res['Format'] = $this->format;
@@ -148,6 +157,9 @@ class diskDeviceMapping extends Model
         $model = new self();
         if (isset($map['Device'])) {
             $model->device = $map['Device'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
         }
         if (isset($map['Format'])) {
             $model->format = $map['Format'];

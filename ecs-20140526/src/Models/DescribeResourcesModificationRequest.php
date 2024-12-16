@@ -16,8 +16,9 @@ class DescribeResourcesModificationRequest extends Model
     public $conditions;
 
     /**
-     * @description The number of vCPUs of the instance type. For information about the values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html). This parameter takes effect only when DestinationResource is set to InstanceType.
+     * @description The number of vCPUs of the instance type. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
+     * This parameter is valid only when the DestinationResource parameter is set to InstanceType.
      * @example 2
      *
      * @var int
@@ -25,9 +26,10 @@ class DescribeResourcesModificationRequest extends Model
     public $cores;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The resource type that you want to change. Valid values:
      *
      *   InstanceType
+     *
      *   SystemDisk
      *
      * This parameter is required.
@@ -38,8 +40,9 @@ class DescribeResourcesModificationRequest extends Model
     public $destinationResource;
 
     /**
-     * @description The instance type. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html). You can also call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list. This parameter must be specified when DestinationResource is set to SystemDisk.
+     * @description The instance type to which you want to change the instance type of the instance. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html). You can also call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation to query the most recent instance type list.
      *
+     * If you set the DestinationResource parameter to SystemDisk, you must specify the InstanceType parameter. In this case, this operation queries the system disk categories supported by the specified instance type.
      * @example ecs.g5.large
      *
      * @var string
@@ -47,8 +50,9 @@ class DescribeResourcesModificationRequest extends Model
     public $instanceType;
 
     /**
-     * @description The memory size of the instance type. Unit: GiB. For information about the values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html). This parameter takes effect only when DestinationResource is set to InstanceType.
+     * @description The memory size of the instance type. Unit: GiB. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
+     * This parameter is valid only when the DestinationResource parameter is set to InstanceType.
      * @example 8.0
      *
      * @var float
@@ -106,7 +110,7 @@ class DescribeResourcesModificationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The region ID of the instance for which you want to change the instance type or system disk category. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -116,7 +120,7 @@ class DescribeResourcesModificationRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource. For example, when DestinationResource is set to InstanceType, this parameter can be interpreted as InstanceId.
+     * @description The ID of the instance for which you want to change the instance type or system disk category.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4p****
@@ -136,8 +140,9 @@ class DescribeResourcesModificationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The zone ID.
+     * @description The ID of the destination zone to which you want to migrate the instance.
      *
+     * If you want to change the instance type across zones, you must specify this parameter.
      * @example cn-hangzhou-e
      *
      * @var string

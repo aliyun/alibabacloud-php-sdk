@@ -68,7 +68,7 @@ class CreateSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain Unicode characters under the Decimal Number category and the categories whose names contain Letter. The name can also contain colons (:), underscores (_), periods (.), and hyphens (-).
+     * @description The name of the security group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
      *
      * @example testSecurityGroupName
      *
@@ -79,9 +79,10 @@ class CreateSecurityGroupRequest extends Model
     /**
      * @description The type of the security group. Valid values:
      *
-     *   normal: basic security group.
-     *   enterprise: advanced security group. For more information, see [Advanced security groups](https://help.aliyun.com/document_detail/120621.html).
+     *   normal: basic security group
+     *   enterprise: advanced security group For more information, see [Advanced security groups](https://help.aliyun.com/document_detail/120621.html).
      *
+     * Default value: normal.
      * @example enterprise
      *
      * @var string
@@ -98,7 +99,7 @@ class CreateSecurityGroupRequest extends Model
     public $serviceManaged;
 
     /**
-     * @description The tags to add to the security group.
+     * @description The tags to add to the security group. You can add up to 20 tags.
      *
      * @var tag[]
      */

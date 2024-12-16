@@ -1540,7 +1540,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
+     * @summary Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch connected to the ENI. You can also specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
      *  *
      * @description ## [](#)Usage notes
      * *   The ENI to which you want to assign secondary private IP addresses must be in the Available (Available) or InUse (InUse) state.
@@ -1612,7 +1612,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
+     * @summary Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch connected to the ENI. You can also specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
      *  *
      * @description ## [](#)Usage notes
      * *   The ENI to which you want to assign secondary private IP addresses must be in the Available (Available) or InUse (InUse) state.
@@ -3651,7 +3651,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for a disk on a regular basis to back up data. The policies can be applied to both system disks and data disks. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the default service customer master key (CMK) that was created by Key Management Service (KMS) in the destination region.
+     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for cloud disks on a regular basis to back up data. The policies can be applied to both system disks and data disks. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region.
      *  *
      * @description ## [](#)Usage notes
      * When you call this operation to create an automatic snapshot policy, you can specify the days of the week on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the policy to meet your diverse data backup requirements. After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
@@ -3733,7 +3733,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for a disk on a regular basis to back up data. The policies can be applied to both system disks and data disks. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the default service customer master key (CMK) that was created by Key Management Service (KMS) in the destination region.
+     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for cloud disks on a regular basis to back up data. The policies can be applied to both system disks and data disks. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region.
      *  *
      * @description ## [](#)Usage notes
      * When you call this operation to create an automatic snapshot policy, you can specify the days of the week on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the policy to meet your diverse data backup requirements. After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
@@ -4895,6 +4895,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->diskDeviceMapping)) {
             $query['DiskDeviceMapping'] = $request->diskDeviceMapping;
+        }
+        if (!Utils::isUnset($request->features)) {
+            $query['Features'] = $request->features;
         }
         if (!Utils::isUnset($request->imageFamily)) {
             $query['ImageFamily'] = $request->imageFamily;
@@ -6815,11 +6818,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a security group. By default, a security group allows only instances in the security group to access each other. Access requests from outside the security group are denied. If you want to allow requests over the Internet or from instances in other security groups, you can call the AuthorizeSecurityGroup operation.
+     * @summary Creates a security group.
      *  *
-     * @description ## [](#)Usage notes
-     * Take note of the following items:
-     * *   You can create up to 100 security groups in a single Alibaba Cloud region.
+     * @description *   By default, the internal access control policy (InnerAccessPolicy) of the basic security group that you create by calling this operation is internal interconnectivity (**Accept**). You can call the [ModifySecurityGroupPolicy](https://help.aliyun.com/document_detail/2679846.html) operation to change the value of InnerAccessPolicy for the basic security group.
+     * *   By default, the internal access control policy (InnerAccessPolicy) of the advanced security group that you create by calling this operation is internal isolation (**Drop**). The InnerAccessPolicy value of the advanced security group cannot be changed.
+     * *   You can create a limited number of security groups per region. You can create at least 100 security groups per region. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits" topic.
      * *   To create a security group of the Virtual Private Cloud (VPC) type, you must specify VpcId.
      *  *
      * @param CreateSecurityGroupRequest $request CreateSecurityGroupRequest
@@ -6889,11 +6892,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates a security group. By default, a security group allows only instances in the security group to access each other. Access requests from outside the security group are denied. If you want to allow requests over the Internet or from instances in other security groups, you can call the AuthorizeSecurityGroup operation.
+     * @summary Creates a security group.
      *  *
-     * @description ## [](#)Usage notes
-     * Take note of the following items:
-     * *   You can create up to 100 security groups in a single Alibaba Cloud region.
+     * @description *   By default, the internal access control policy (InnerAccessPolicy) of the basic security group that you create by calling this operation is internal interconnectivity (**Accept**). You can call the [ModifySecurityGroupPolicy](https://help.aliyun.com/document_detail/2679846.html) operation to change the value of InnerAccessPolicy for the basic security group.
+     * *   By default, the internal access control policy (InnerAccessPolicy) of the advanced security group that you create by calling this operation is internal isolation (**Drop**). The InnerAccessPolicy value of the advanced security group cannot be changed.
+     * *   You can create a limited number of security groups per region. You can create at least 100 security groups per region. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section in the "Limits" topic.
      * *   To create a security group of the Virtual Private Cloud (VPC) type, you must specify VpcId.
      *  *
      * @param CreateSecurityGroupRequest $request CreateSecurityGroupRequest
@@ -14127,8 +14130,9 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the information about the private pools that Elastic Compute Service (ECS) instances match.
      *  *
-     * @description A private pool is generated after an elasticity assurance or a capacity reservation is created. The private pool is associated with information about the instances that are created by using the private pool. You can configure a private pool when you create an instance. This way, the instance matches the elasticity assurance or capacity reservation that is associated with the private pool.
-     * When a private pool expires, data about the association between instances and the private pool becomes invalid. If you call this operation to query the information about the private pool, empty values are returned.
+     * @description ## [](#)Usage notes
+     * After an elasticity assurance or a capacity reservation is created, a private pool is generated and associated with information about the instances that are created by using the private pool. You can specify a private pool when you create an instance. This way, the instance matches the elasticity assurance or capacity reservation that is associated with the private pool.
+     * When a private pool expires, data related to the association between instances and the private pool becomes invalid. If you call this operation to query information about the private pool, empty values are returned.
      *  *
      * @param DescribeInstanceAttachmentAttributesRequest $request DescribeInstanceAttachmentAttributesRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -14184,8 +14188,9 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the information about the private pools that Elastic Compute Service (ECS) instances match.
      *  *
-     * @description A private pool is generated after an elasticity assurance or a capacity reservation is created. The private pool is associated with information about the instances that are created by using the private pool. You can configure a private pool when you create an instance. This way, the instance matches the elasticity assurance or capacity reservation that is associated with the private pool.
-     * When a private pool expires, data about the association between instances and the private pool becomes invalid. If you call this operation to query the information about the private pool, empty values are returned.
+     * @description ## [](#)Usage notes
+     * After an elasticity assurance or a capacity reservation is created, a private pool is generated and associated with information about the instances that are created by using the private pool. You can specify a private pool when you create an instance. This way, the instance matches the elasticity assurance or capacity reservation that is associated with the private pool.
+     * When a private pool expires, data related to the association between instances and the private pool becomes invalid. If you call this operation to query information about the private pool, empty values are returned.
      *  *
      * @param DescribeInstanceAttachmentAttributesRequest $request DescribeInstanceAttachmentAttributesRequest
      *
@@ -15697,14 +15702,11 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the execution list and states of Cloud Assistant commands.
      *  *
-     * @description ## [](#)Usage notes
-     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
+     * @description *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
      * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
      * *   You can [subscribe to Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain command execution results from the events. This helps you reduce the number of times to poll API operations and improve efficiency.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, use `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
-     * *   Comparison between the `DescribeInvocations` and `DescribeInvocationResults` operations:
+     * *   During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     * *   Differences between the `DescribeInvocations` and `DescribeInvocationResults` operations:
      *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on multiple instances:
      *         *   The `DescribeInvocations` operation queries the execution status of the command on each instance and the overall execution status of the command on all instances.
      *         *   The `DescribeInvocationResults` operation queries only the execution status of the command on each instance.
@@ -15809,14 +15811,11 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the execution list and states of Cloud Assistant commands.
      *  *
-     * @description ## [](#)Usage notes
-     * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
+     * @description *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
      * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
      * *   You can [subscribe to Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain command execution results from the events. This helps you reduce the number of times to poll API operations and improve efficiency.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, use `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
-     * *   Comparison between the `DescribeInvocations` and `DescribeInvocationResults` operations:
+     * *   During a paged query, when you call the DescribeInvocations operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeInvocations operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     * *   Differences between the `DescribeInvocations` and `DescribeInvocationResults` operations:
      *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on multiple instances:
      *         *   The `DescribeInvocations` operation queries the execution status of the command on each instance and the overall execution status of the command on all instances.
      *         *   The `DescribeInvocationResults` operation queries only the execution status of the command on each instance.
@@ -17394,7 +17393,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the auto-renewal status of one or more subscription reserved instances.
+     * @summary Queries the auto-renewal attributes of one or more reserved instances, including the auto-renewal duration and auto-renewal status.
      *  *
      * @param DescribeReservedInstanceAutoRenewAttributeRequest $request DescribeReservedInstanceAutoRenewAttributeRequest
      * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
@@ -17442,7 +17441,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the auto-renewal status of one or more subscription reserved instances.
+     * @summary Queries the auto-renewal attributes of one or more reserved instances, including the auto-renewal duration and auto-renewal status.
      *  *
      * @param DescribeReservedInstanceAutoRenewAttributeRequest $request DescribeReservedInstanceAutoRenewAttributeRequest
      *
@@ -17627,8 +17626,34 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries available instance types or system disk categories in a specific zone before you change the instance type or system disk category of an Elastic Compute Service (ECS) instance.
      *  *
-     * @description ## Debugging
-     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeResourcesModification\\&type=RPC\\&version=2014-05-26)
+     * @description Examples of common scenarios in which this operation is used:
+     * ### [](#-1)Example 1: Query the instance types to which you can change the instance type of an instance.
+     * Query the instance types to which you can change the instance type of the i-bp67acfmxazb4p\\*\\*\\*\\* instance and the inventory of the queried instance types in the zone in which the instance resides.
+     *     http(s)://ecs.aliyuncs.com/?Action=DescribeResourcesModification
+     *     &RegionId=cn-hangzhou
+     *     &ResourceId=i-bp67acfmxazb4p****
+     *     &DestinationResource=InstanceType
+     *     &OperationType=Upgrade
+     *     &<Common request parameters>
+     * ### [](#-2)Example 2: Query the instance types to which you can change the instance type of an instance after a system disk category change.
+     * Query the instance types to which you can change the instance type of the i-bp67acfmxazb4p\\*\\*\\*\\* instance after a system disk category change and the inventory of the queried instance types in the zone in which the instance resides.
+     *     http(s)://ecs.aliyuncs.com/?Action=DescribeResourcesModification
+     *     &RegionId=cn-hangzhou
+     *     &ResourceId=i-bp67acfmxazb4p****
+     *     &DestinationResource=InstanceType
+     *     &OperationType=Upgrade
+     *     &Conditions.0=DiskCategory
+     *     &<Common request parameters>
+     * ### [](#-3)Example 3: Query the system disk categories supported by the instance type to which you want to change the instance type of an instance.
+     * Query the system disk categories supported by the instance type to which you want to change the instance type of the i-bp67acfmxazb4p\\*\\*\\*\\* instance and the inventory of the disk categories in the zone in which the instance resides. In this example, the ecs.g7.large instance type is used. To change to the instance type, you must change the system disk category of the instance to a category supported by the instance type.
+     * >  You can call this operation as described in Example 2 to query the instance types to which you can change the instance type of an instance.
+     *     http(s)://ecs.aliyuncs.com/?Action=DescribeResourcesModification
+     *     &RegionId=cn-hangzhou
+     *     &ResourceId=i-bp67acfmxazb4p****
+     *     &DestinationResource=SystemDisk
+     *     &OperationType=Upgrade
+     *     &InstanceType=ecs.g7.large
+     *     &<Common request parameters>
      *  *
      * @param DescribeResourcesModificationRequest $request DescribeResourcesModificationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -17702,8 +17727,34 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries available instance types or system disk categories in a specific zone before you change the instance type or system disk category of an Elastic Compute Service (ECS) instance.
      *  *
-     * @description ## Debugging
-     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeResourcesModification\\&type=RPC\\&version=2014-05-26)
+     * @description Examples of common scenarios in which this operation is used:
+     * ### [](#-1)Example 1: Query the instance types to which you can change the instance type of an instance.
+     * Query the instance types to which you can change the instance type of the i-bp67acfmxazb4p\\*\\*\\*\\* instance and the inventory of the queried instance types in the zone in which the instance resides.
+     *     http(s)://ecs.aliyuncs.com/?Action=DescribeResourcesModification
+     *     &RegionId=cn-hangzhou
+     *     &ResourceId=i-bp67acfmxazb4p****
+     *     &DestinationResource=InstanceType
+     *     &OperationType=Upgrade
+     *     &<Common request parameters>
+     * ### [](#-2)Example 2: Query the instance types to which you can change the instance type of an instance after a system disk category change.
+     * Query the instance types to which you can change the instance type of the i-bp67acfmxazb4p\\*\\*\\*\\* instance after a system disk category change and the inventory of the queried instance types in the zone in which the instance resides.
+     *     http(s)://ecs.aliyuncs.com/?Action=DescribeResourcesModification
+     *     &RegionId=cn-hangzhou
+     *     &ResourceId=i-bp67acfmxazb4p****
+     *     &DestinationResource=InstanceType
+     *     &OperationType=Upgrade
+     *     &Conditions.0=DiskCategory
+     *     &<Common request parameters>
+     * ### [](#-3)Example 3: Query the system disk categories supported by the instance type to which you want to change the instance type of an instance.
+     * Query the system disk categories supported by the instance type to which you want to change the instance type of the i-bp67acfmxazb4p\\*\\*\\*\\* instance and the inventory of the disk categories in the zone in which the instance resides. In this example, the ecs.g7.large instance type is used. To change to the instance type, you must change the system disk category of the instance to a category supported by the instance type.
+     * >  You can call this operation as described in Example 2 to query the instance types to which you can change the instance type of an instance.
+     *     http(s)://ecs.aliyuncs.com/?Action=DescribeResourcesModification
+     *     &RegionId=cn-hangzhou
+     *     &ResourceId=i-bp67acfmxazb4p****
+     *     &DestinationResource=SystemDisk
+     *     &OperationType=Upgrade
+     *     &InstanceType=ecs.g7.large
+     *     &<Common request parameters>
      *  *
      * @param DescribeResourcesModificationRequest $request DescribeResourcesModificationRequest
      *
@@ -18702,7 +18753,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of all snapshots of an Elastic Compute Service (ECS) instance or a cloud disk. The details include the status of the snapshots, amount of remaining time required to create the snapshots, and the retention period of the automatic snapshots in days.
+     * @summary Queries the details of cloud disk snapshots. The details include the status of the snapshots, the amount of remaining time required to create the snapshots, and the retention period of the automatic snapshots in days.
      *  *
      * @description You can configure multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Configured parameters have logical AND relations. Only the configured parameters are included in the filter conditions.
      * When you use Alibaba Cloud CLI to call an API operation, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
@@ -18810,7 +18861,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of all snapshots of an Elastic Compute Service (ECS) instance or a cloud disk. The details include the status of the snapshots, amount of remaining time required to create the snapshots, and the retention period of the automatic snapshots in days.
+     * @summary Queries the details of cloud disk snapshots. The details include the status of the snapshots, the amount of remaining time required to create the snapshots, and the retention period of the automatic snapshots in days.
      *  *
      * @description You can configure multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Configured parameters have logical AND relations. Only the configured parameters are included in the filter conditions.
      * When you use Alibaba Cloud CLI to call an API operation, you must specify request parameter values of different data types in required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
@@ -18894,16 +18945,12 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries information about preemptible instances in a region in the previous 30 days. The information includes the average release rate of preemptible instances and the percentage of the average preemptible instance price relative to the pay-as-you-go instance price.
      *  *
-     * @description ## [](#)Usage notes
-     * *   You can call this operation to query information about preemptible instances in the previous 30 days and select suitable instance types based on the query results. The information that you can query includes:
-     *     *   Average release rate of preemptible instances
-     *     *   Percentage of the average preemptible instance price relative to the pay-as-you-go instance price
-     *     *   Average preemptible instance price that is calculated based on the preceding percentage
-     * *   This operation is applicable only to I/O optimized preemptible instances that reside in virtual private clouds (VPCs).
-     * *   You can use one of the following methods to query information about preemptible instances in the previous 30 days:
-     *     *   Configure the `Cores` and `Memory` parameters or the `MinCores` and `MinMemory` parameters to query information about instance types that meet the specified vCPU and memory requirements.
-     *     *   Configure the `InstanceTypes.N` parameter to query information about specified instance types.
-     *     *   Configure the `Cores` and `Memory` parameters or the `MinCores` and `MinMemory` parameters and then configure the `InstanceTypeFamily` or `InstanceFamilyLevel` parameter to query information about instance types that meet the specified vCPU and memory requirements within the specified instance family or at a specified instance family level.
+     * @description *   This operation is applicable only to I/O optimized preemptible instances that reside in virtual private clouds (VPCs).
+     * *   You can use one of the following methods to call this operation:
+     *     *   Specify `Cores` and `Memory` or `MinCores` and `MinMemory` to query information about the instance types that meet the specified vCPU and memory requirements.
+     *     *   Specify `InstanceTypes.N` to query information about the specified instance types.
+     *     *   Specify `Cores` and `Memory` or `MinCores` and `MinMemory`, and then specify `InstanceTypeFamily` or `InstanceFamilyLevel` to query information about the instance types that meet the specified vCPU and memory requirements within the specified instance family or at a specified instance family level.
+     * *   You can calculate the average price of preemptible instances based on the percentage of the average preemptible instance price relative to the pay-as-you-go instance price and the pay-as-you-go instance price.
      *  *
      * @param DescribeSpotAdviceRequest $request DescribeSpotAdviceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -18980,16 +19027,12 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries information about preemptible instances in a region in the previous 30 days. The information includes the average release rate of preemptible instances and the percentage of the average preemptible instance price relative to the pay-as-you-go instance price.
      *  *
-     * @description ## [](#)Usage notes
-     * *   You can call this operation to query information about preemptible instances in the previous 30 days and select suitable instance types based on the query results. The information that you can query includes:
-     *     *   Average release rate of preemptible instances
-     *     *   Percentage of the average preemptible instance price relative to the pay-as-you-go instance price
-     *     *   Average preemptible instance price that is calculated based on the preceding percentage
-     * *   This operation is applicable only to I/O optimized preemptible instances that reside in virtual private clouds (VPCs).
-     * *   You can use one of the following methods to query information about preemptible instances in the previous 30 days:
-     *     *   Configure the `Cores` and `Memory` parameters or the `MinCores` and `MinMemory` parameters to query information about instance types that meet the specified vCPU and memory requirements.
-     *     *   Configure the `InstanceTypes.N` parameter to query information about specified instance types.
-     *     *   Configure the `Cores` and `Memory` parameters or the `MinCores` and `MinMemory` parameters and then configure the `InstanceTypeFamily` or `InstanceFamilyLevel` parameter to query information about instance types that meet the specified vCPU and memory requirements within the specified instance family or at a specified instance family level.
+     * @description *   This operation is applicable only to I/O optimized preemptible instances that reside in virtual private clouds (VPCs).
+     * *   You can use one of the following methods to call this operation:
+     *     *   Specify `Cores` and `Memory` or `MinCores` and `MinMemory` to query information about the instance types that meet the specified vCPU and memory requirements.
+     *     *   Specify `InstanceTypes.N` to query information about the specified instance types.
+     *     *   Specify `Cores` and `Memory` or `MinCores` and `MinMemory`, and then specify `InstanceTypeFamily` or `InstanceFamilyLevel` to query information about the instance types that meet the specified vCPU and memory requirements within the specified instance family or at a specified instance family level.
+     * *   You can calculate the average price of preemptible instances based on the percentage of the average preemptible instance price relative to the pay-as-you-go instance price and the pay-as-you-go instance price.
      *  *
      * @param DescribeSpotAdviceRequest $request DescribeSpotAdviceRequest
      *
@@ -23841,18 +23884,22 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to change the category of a disk or modify the performance level of an enhanced SSD (ESSD).
+     * @summary Changes the disk category of a cloud disk or the performance level of an Enterprise SSD (ESSD). You cannot change the disk categories of Regional ESSDs (in public preview), basic disks, elastic ephemeral disks, and local disks.
      *  *
-     * @description ## Usage notes
+     * @description To minimize impacts on your business, change the disk categories or performance levels of cloud disks during off-peak hours.
      * Take note of the following items:
-     * *   To modify the performance level of an ESSD, take note of the following items:
-     *     *   For a subscription ESSD, you can only upgrade its performance level.
-     *     *   For a pay-as-you-go ESSD, you can upgrade or downgrade its performance level. However, you cannot downgrade the performance level to PL0.
+     * *   To change the performance level of an ESSD, take note of the following items:
+     *     *   If the ESSD is a subscription ESSD, you can only upgrade its performance level.
+     *     *   If the ESSD is a pay-as-you-go ESSD, you can upgrade or downgrade its performance level. However, you cannot downgrade the performance level to PL0.
      *     *   The ESSD must be in the **In Use** (In_Use) or **Unattached** (Available) state.
      *     *   If the ESSD is attached to an Elastic Compute Service (ECS) instance, the instance must be in the **Running** (Running) or **Stopped** (Stopped) state. The instance cannot be in the Expired state or stopped due to an overdue payment.
-     *     *   If you cannot upgrade the performance level of the ESSD due to the capacity limit, resize the ESSD by calling the [ResizeDisk](https://help.aliyun.com/document_detail/25522.html) operation and then try again. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
-     * *   For information about the limits on changing the category of a disk, see the "Limits" section of the [Change the category of a disk](https://help.aliyun.com/document_detail/161980.html) topic.
-     * The new disk category or performance level takes effect immediately after this operation is performed. Alibaba Cloud calculates the bill based on the new disk category and performance level.
+     *     *   If you cannot upgrade the performance level of an ESSD due to the capacity limit, extend the ESSD by calling the [ResizeDisk](https://help.aliyun.com/document_detail/25522.html) operation and then try again. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+     * *   For information about the limits on changing the disk category of a cloud disk, see [Change the category of a disk](~~161980#section_s4a_to0_1jx~~).
+     * *   For the disk categories to which cloud disks of each disk category can be changed, see [Change the category of a disk](~~161980#eb8bb54032nho~~).
+     * After the disk category of a cloud disk is changed, the billing of the cloud disk has the following changes:
+     * *   If the cloud disk is a pay-as-you-go disk, you are charged for the disk based on the new disk category.
+     * *   If the cloud disk is a subscription disk, you may be charged additionally based on the price difference between the old and new disk categories and the remaining days of the billing cycle, starting from 00:00 the next day until the end of the subscription period.
+     * For information about the billing of cloud disks, see [Block storage devices](https://help.aliyun.com/document_detail/179022.html).
      *  *
      * @param ModifyDiskSpecRequest $request ModifyDiskSpecRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -23912,18 +23959,22 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to change the category of a disk or modify the performance level of an enhanced SSD (ESSD).
+     * @summary Changes the disk category of a cloud disk or the performance level of an Enterprise SSD (ESSD). You cannot change the disk categories of Regional ESSDs (in public preview), basic disks, elastic ephemeral disks, and local disks.
      *  *
-     * @description ## Usage notes
+     * @description To minimize impacts on your business, change the disk categories or performance levels of cloud disks during off-peak hours.
      * Take note of the following items:
-     * *   To modify the performance level of an ESSD, take note of the following items:
-     *     *   For a subscription ESSD, you can only upgrade its performance level.
-     *     *   For a pay-as-you-go ESSD, you can upgrade or downgrade its performance level. However, you cannot downgrade the performance level to PL0.
+     * *   To change the performance level of an ESSD, take note of the following items:
+     *     *   If the ESSD is a subscription ESSD, you can only upgrade its performance level.
+     *     *   If the ESSD is a pay-as-you-go ESSD, you can upgrade or downgrade its performance level. However, you cannot downgrade the performance level to PL0.
      *     *   The ESSD must be in the **In Use** (In_Use) or **Unattached** (Available) state.
      *     *   If the ESSD is attached to an Elastic Compute Service (ECS) instance, the instance must be in the **Running** (Running) or **Stopped** (Stopped) state. The instance cannot be in the Expired state or stopped due to an overdue payment.
-     *     *   If you cannot upgrade the performance level of the ESSD due to the capacity limit, resize the ESSD by calling the [ResizeDisk](https://help.aliyun.com/document_detail/25522.html) operation and then try again. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
-     * *   For information about the limits on changing the category of a disk, see the "Limits" section of the [Change the category of a disk](https://help.aliyun.com/document_detail/161980.html) topic.
-     * The new disk category or performance level takes effect immediately after this operation is performed. Alibaba Cloud calculates the bill based on the new disk category and performance level.
+     *     *   If you cannot upgrade the performance level of an ESSD due to the capacity limit, extend the ESSD by calling the [ResizeDisk](https://help.aliyun.com/document_detail/25522.html) operation and then try again. For more information, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+     * *   For information about the limits on changing the disk category of a cloud disk, see [Change the category of a disk](~~161980#section_s4a_to0_1jx~~).
+     * *   For the disk categories to which cloud disks of each disk category can be changed, see [Change the category of a disk](~~161980#eb8bb54032nho~~).
+     * After the disk category of a cloud disk is changed, the billing of the cloud disk has the following changes:
+     * *   If the cloud disk is a pay-as-you-go disk, you are charged for the disk based on the new disk category.
+     * *   If the cloud disk is a subscription disk, you may be charged additionally based on the price difference between the old and new disk categories and the remaining days of the billing cycle, starting from 00:00 the next day until the end of the subscription period.
+     * For information about the billing of cloud disks, see [Block storage devices](https://help.aliyun.com/document_detail/179022.html).
      *  *
      * @param ModifyDiskSpecRequest $request ModifyDiskSpecRequest
      *
@@ -26840,15 +26891,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies outbound rules in a security group.
+     * @summary Modifies an outbound security group rule in a security group.
      *  *
-     * @description ## [](#)Usage notes
-     * In security group-related API documents, inbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-     * Take note of the following items:
-     * *   An authorization object in a security group rule can be of one of the following types: IP address or CIDR block, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IP address, you can change the authorization object to another IP address or a CIDR block, but you cannot change the authorization object to a security group or prefix list.
-     * *   You cannot change the IP address family of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you cannot change the authorization object to an IPv6 CIDR block. If an authorization object is a prefix list of the IPv4 address family, you cannot change the authorization object to a prefix list of the IPv6 address family.
-     * *   The modified security group rule cannot be the same as other existing rules.
-     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create another rule and delete the original rule.
+     * @description Take note of the following items:
+     * *   An authorization object in a security group rule can be of one of the following types: IPv4 CIDR block or address, IPv6 CIDR block or address, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you can change the authorization object to a different IPv4 CIDR block or an IPv4 address, but you cannot change the authorization object to an IPv6 CIDR block or address, a security group, or a prefix list.
+     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create a security group rule and delete the original security group rule.
      *  *
      * @param ModifySecurityGroupEgressRuleRequest $request ModifySecurityGroupEgressRuleRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -26950,15 +26997,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies outbound rules in a security group.
+     * @summary Modifies an outbound security group rule in a security group.
      *  *
-     * @description ## [](#)Usage notes
-     * In security group-related API documents, inbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-     * Take note of the following items:
-     * *   An authorization object in a security group rule can be of one of the following types: IP address or CIDR block, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IP address, you can change the authorization object to another IP address or a CIDR block, but you cannot change the authorization object to a security group or prefix list.
-     * *   You cannot change the IP address family of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you cannot change the authorization object to an IPv6 CIDR block. If an authorization object is a prefix list of the IPv4 address family, you cannot change the authorization object to a prefix list of the IPv6 address family.
-     * *   The modified security group rule cannot be the same as other existing rules.
-     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create another rule and delete the original rule.
+     * @description Take note of the following items:
+     * *   An authorization object in a security group rule can be of one of the following types: IPv4 CIDR block or address, IPv6 CIDR block or address, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you can change the authorization object to a different IPv4 CIDR block or an IPv4 address, but you cannot change the authorization object to an IPv6 CIDR block or address, a security group, or a prefix list.
+     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create a security group rule and delete the original security group rule.
      *  *
      * @param ModifySecurityGroupEgressRuleRequest $request ModifySecurityGroupEgressRuleRequest
      *
@@ -27050,15 +27093,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an inbound rule in a security group.
+     * @summary Modifies an inbound security group rule in a security group.
      *  *
-     * @description ## [](#)Usage notes
-     * In security group-related API documents, inbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-     * Take note of the following items:
-     * *   An authorization object in a security group rule can be one of the following types: IP address or CIDR block, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IP address, you can change the authorization object to another IP address or a CIDR block, but you cannot change the authorization object to a security group or prefix list.
-     * *   You cannot change the IP address family of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you cannot change the authorization object to an IPv6 CIDR block. If an authorization object is a prefix list of the IPv4 address family, you cannot change the authorization object to a prefix list of the IPv6 address family.
-     * *   The new security group rule after modification cannot be the same as other existing rules.
-     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create another rule and delete the original rule.
+     * @description Take note of the following items:
+     * *   An authorization object in a security group rule can be of one of the following types: IPv4 CIDR block or address, IPv6 CIDR block or address, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you can change the authorization object to a different IPv4 CIDR block or an IPv4 address, but you cannot change the authorization object to an IPv6 CIDR block or address, a security group, or a prefix list.
+     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create a security group rule and delete the original security group rule.
      *  *
      * @param ModifySecurityGroupRuleRequest $request ModifySecurityGroupRuleRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -27160,15 +27199,11 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an inbound rule in a security group.
+     * @summary Modifies an inbound security group rule in a security group.
      *  *
-     * @description ## [](#)Usage notes
-     * In security group-related API documents, inbound traffic refers to the traffic that is sent by the source device and received at the destination device.
-     * Take note of the following items:
-     * *   An authorization object in a security group rule can be one of the following types: IP address or CIDR block, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IP address, you can change the authorization object to another IP address or a CIDR block, but you cannot change the authorization object to a security group or prefix list.
-     * *   You cannot change the IP address family of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you cannot change the authorization object to an IPv6 CIDR block. If an authorization object is a prefix list of the IPv4 address family, you cannot change the authorization object to a prefix list of the IPv6 address family.
-     * *   The new security group rule after modification cannot be the same as other existing rules.
-     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create another rule and delete the original rule.
+     * @description Take note of the following items:
+     * *   An authorization object in a security group rule can be of one of the following types: IPv4 CIDR block or address, IPv6 CIDR block or address, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you can change the authorization object to a different IPv4 CIDR block or an IPv4 address, but you cannot change the authorization object to an IPv6 CIDR block or address, a security group, or a prefix list.
+     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create a security group rule and delete the original security group rule.
      *  *
      * @param ModifySecurityGroupRuleRequest $request ModifySecurityGroupRuleRequest
      *
@@ -28375,9 +28410,9 @@ class Ecs extends OpenApiClient
      * @summary Restarts Elastic Compute Service (ECS) instances. When you call this operation, you can configure parameters to specify a batch operation mode and whether to forcefully restart the instances.
      *  *
      * @description This operation is an asynchronous operation. After you call this operation to restart an ECS instance, the operation sets the status of the ECS instance to `Starting` and begins the restart process. You can call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the status of the instance. When the status of the ECS instance changes to `Running`, the instance is restarted.
-     * *   **Precautions**
-     *     *   You cannot call this operation to restart ECS instances that are locked due to security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
-     *     *   The ECS instances that you want to restart must be in the **Running** (`Running`) state.
+     * ### [](#)Limits
+     * *   You cannot call this operation to restart ECS instances that are locked due to security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
+     * *   The ECS instances that you want to restart must be in the **Running** (`Running`) state.
      *  *
      * @param RebootInstancesRequest $request RebootInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -28437,9 +28472,9 @@ class Ecs extends OpenApiClient
      * @summary Restarts Elastic Compute Service (ECS) instances. When you call this operation, you can configure parameters to specify a batch operation mode and whether to forcefully restart the instances.
      *  *
      * @description This operation is an asynchronous operation. After you call this operation to restart an ECS instance, the operation sets the status of the ECS instance to `Starting` and begins the restart process. You can call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the status of the instance. When the status of the ECS instance changes to `Running`, the instance is restarted.
-     * *   **Precautions**
-     *     *   You cannot call this operation to restart ECS instances that are locked due to security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
-     *     *   The ECS instances that you want to restart must be in the **Running** (`Running`) state.
+     * ### [](#)Limits
+     * *   You cannot call this operation to restart ECS instances that are locked due to security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
+     * *   The ECS instances that you want to restart must be in the **Running** (`Running`) state.
      *  *
      * @param RebootInstancesRequest $request RebootInstancesRequest
      *
@@ -29328,10 +29363,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary *   Before you call this operation, make sure that you are familiar with the billing method of reserved instances. For more information, see [Reserved instances](https://help.aliyun.com/document_detail/100371.html).
-     * *   You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/100065.html) operation to query the reserved instances that you purchased.
+     * @summary Renews one or more reserved instances. When you renew reserved instances, you can specify a validity period (renewal period) and whether to enable auto-renewal for the reserved instances.
      *  *
-     * @description The IDs of the reserved instances.
+     * @description **Before you call this operation, make sure that you are familiar with the billing and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of reserved instances.**
+     * *   You can manually renew reserved instances or enable auto-renewal for reserved instances. For more information, see the [Renewal](~~100371#53bfc50b78sta~~) section of the "Reserved instances" topic.
+     * *   You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/100065.html) operation to query the reserved instances that you purchased.
+     * *   You can call this operation to enable auto-renewal for reserved instances but cannot call this operation to disable auto-renewal for reserved instances. To disable auto-renewal for a reserved instance, call the [ModifyReservedInstanceAutoRenewAttribute](https://help.aliyun.com/document_detail/2679786.html) operation.
      *  *
      * @param RenewReservedInstancesRequest $request RenewReservedInstancesRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -29394,10 +29431,12 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary *   Before you call this operation, make sure that you are familiar with the billing method of reserved instances. For more information, see [Reserved instances](https://help.aliyun.com/document_detail/100371.html).
-     * *   You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/100065.html) operation to query the reserved instances that you purchased.
+     * @summary Renews one or more reserved instances. When you renew reserved instances, you can specify a validity period (renewal period) and whether to enable auto-renewal for the reserved instances.
      *  *
-     * @description The IDs of the reserved instances.
+     * @description **Before you call this operation, make sure that you are familiar with the billing and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of reserved instances.**
+     * *   You can manually renew reserved instances or enable auto-renewal for reserved instances. For more information, see the [Renewal](~~100371#53bfc50b78sta~~) section of the "Reserved instances" topic.
+     * *   You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/100065.html) operation to query the reserved instances that you purchased.
+     * *   You can call this operation to enable auto-renewal for reserved instances but cannot call this operation to disable auto-renewal for reserved instances. To disable auto-renewal for a reserved instance, call the [ModifyReservedInstanceAutoRenewAttribute](https://help.aliyun.com/document_detail/2679786.html) operation.
      *  *
      * @param RenewReservedInstancesRequest $request RenewReservedInstancesRequest
      *

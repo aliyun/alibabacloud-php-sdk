@@ -10,12 +10,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskSpecRequest extends Model
 {
     /**
-     * @description The new category of the disk. Valid values:
+     * @description The new disk category of the cloud disk. Valid values:
      *
-     *   cloud_essd: enhanced SSD (ESSD)
+     *   cloud_essd: ESSD
      *   cloud_auto: ESSD AutoPL disk
      *   cloud_ssd: standard SSD
-     *   cloud_efficiency: ultra disk
+     *   cloud_efficiency: utra disk
      *
      * >
      *

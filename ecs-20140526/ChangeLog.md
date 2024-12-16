@@ -1,3 +1,10 @@
+2024-12-16 Version: 4.4.11
+- Update API CreateImage: add param Features.
+- Update API DescribeImages: update response param.
+- Update API ImportImage: update param Features.
+- Update API ModifyImageAttribute: update param Features.
+
+
 2024-12-04 Version: 4.4.10
 - Update API DescribeInstances: update response param.
 

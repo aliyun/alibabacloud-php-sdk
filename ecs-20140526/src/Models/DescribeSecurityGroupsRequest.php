@@ -83,9 +83,8 @@ class DescribeSecurityGroupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      * @example 1
      *
      * @var int
@@ -93,9 +92,8 @@ class DescribeSecurityGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      * @example 10
      *
      * @var int

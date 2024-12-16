@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest\diskDeviceMapping;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest\features;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImageRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -72,6 +73,11 @@ class CreateImageRequest extends Model
      * @var diskDeviceMapping[]
      */
     public $diskDeviceMapping;
+
+    /**
+     * @var features
+     */
+    public $features;
 
     /**
      * @description The name of the image family. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with acs: or aliyun. The name cannot contain http:// or https://. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
@@ -209,6 +215,7 @@ class CreateImageRequest extends Model
         'description'          => 'Description',
         'detectionStrategy'    => 'DetectionStrategy',
         'diskDeviceMapping'    => 'DiskDeviceMapping',
+        'features'             => 'Features',
         'imageFamily'          => 'ImageFamily',
         'imageName'            => 'ImageName',
         'imageVersion'         => 'ImageVersion',
@@ -254,6 +261,9 @@ class CreateImageRequest extends Model
                     $res['DiskDeviceMapping'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->features) {
+            $res['Features'] = null !== $this->features ? $this->features->toMap() : null;
         }
         if (null !== $this->imageFamily) {
             $res['ImageFamily'] = $this->imageFamily;
@@ -335,6 +345,9 @@ class CreateImageRequest extends Model
                     $model->diskDeviceMapping[$n++] = null !== $item ? diskDeviceMapping::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Features'])) {
+            $model->features = features::fromMap($map['Features']);
         }
         if (isset($map['ImageFamily'])) {
             $model->imageFamily = $map['ImageFamily'];

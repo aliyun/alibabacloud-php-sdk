@@ -105,13 +105,17 @@ class DescribeInvocationsRequest extends Model
      *   Failed:
      *
      *   Scheduled task: The overall execution state can never be Failed.
-     *   One-time task: The execution fails on all instances.
+     *   One-time task: The execution failed on all instances.
      *
      *   Stopped: The task is stopped.
      *
      *   Stopping: The task is being stopped.
      *
      *   PartialFailed: The task fails on some instances. If you specify both this parameter and `InstanceId`, this parameter does not take effect.
+     *
+     *   Pending: The command is being verified or sent. If the execution state on at least one instance is Pending, the overall execution state is Pending.
+     *
+     *   Scheduled: The command that is set to run on a schedule is sent and waiting to be run. If the execution state on at least one instance is Scheduled, the overall execution state is Scheduled.
      *
      * @example Finished
      *
@@ -149,9 +153,8 @@ class DescribeInvocationsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the page to return.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -159,9 +162,8 @@ class DescribeInvocationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int
