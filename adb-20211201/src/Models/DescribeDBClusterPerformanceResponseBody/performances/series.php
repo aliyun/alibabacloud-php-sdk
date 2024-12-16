@@ -209,15 +209,21 @@ class series extends Model
     public $tags;
 
     /**
+     * @var string
+     */
+    public $translateKey;
+
+    /**
      * @description The values of the performance metric at different points in time.
      *
      * @var string[]
      */
     public $values;
     protected $_name = [
-        'name'   => 'Name',
-        'tags'   => 'Tags',
-        'values' => 'Values',
+        'name'         => 'Name',
+        'tags'         => 'Tags',
+        'translateKey' => 'TranslateKey',
+        'values'       => 'Values',
     ];
 
     public function validate()
@@ -232,6 +238,9 @@ class series extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->translateKey) {
+            $res['TranslateKey'] = $this->translateKey;
         }
         if (null !== $this->values) {
             $res['Values'] = $this->values;
@@ -253,6 +262,9 @@ class series extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+        if (isset($map['TranslateKey'])) {
+            $model->translateKey = $map['TranslateKey'];
         }
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {

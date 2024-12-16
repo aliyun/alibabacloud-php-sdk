@@ -148,6 +148,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSchemasRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSchemasResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppDiagnosisInfoRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppDiagnosisInfoResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppTypeRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkAppTypeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkCodeLogRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkCodeLogResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeSparkCodeOutputRequest;
@@ -4892,6 +4896,107 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSparkAppDiagnosisInfoRequest $request DescribeSparkAppDiagnosisInfoRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSparkAppDiagnosisInfoResponse DescribeSparkAppDiagnosisInfoResponse
+     */
+    public function describeSparkAppDiagnosisInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSparkAppDiagnosisInfo',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSparkAppDiagnosisInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSparkAppDiagnosisInfoRequest $request DescribeSparkAppDiagnosisInfoRequest
+     *
+     * @return DescribeSparkAppDiagnosisInfoResponse DescribeSparkAppDiagnosisInfoResponse
+     */
+    public function describeSparkAppDiagnosisInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSparkAppDiagnosisInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSparkAppTypeRequest $request DescribeSparkAppTypeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSparkAppTypeResponse DescribeSparkAppTypeResponse
+     */
+    public function describeSparkAppTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSparkAppType',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSparkAppTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSparkAppTypeRequest $request DescribeSparkAppTypeRequest
+     *
+     * @return DescribeSparkAppTypeResponse DescribeSparkAppTypeResponse
+     */
+    public function describeSparkAppType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSparkAppTypeWithOptions($request, $runtime);
     }
 
     /**
