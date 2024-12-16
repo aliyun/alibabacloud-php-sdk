@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class RunWritingResponseBody extends Model
 {
     /**
+     * @var bool
+     */
+    public $end;
+
+    /**
      * @var header
      */
     public $header;
@@ -27,6 +32,7 @@ class RunWritingResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'end'       => 'End',
         'header'    => 'Header',
         'payload'   => 'Payload',
         'requestId' => 'RequestId',
@@ -39,6 +45,9 @@ class RunWritingResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->end) {
+            $res['End'] = $this->end;
+        }
         if (null !== $this->header) {
             $res['Header'] = null !== $this->header ? $this->header->toMap() : null;
         }
@@ -60,6 +69,9 @@ class RunWritingResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['End'])) {
+            $model->end = $map['End'];
+        }
         if (isset($map['Header'])) {
             $model->header = header::fromMap($map['Header']);
         }
