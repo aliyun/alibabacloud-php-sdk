@@ -44,6 +44,11 @@ class trainingJobs extends Model
     public $computeResource;
 
     /**
+     * @var string
+     */
+    public $dlcJobId;
+
+    /**
      * @var string[]
      */
     public $environments;
@@ -179,6 +184,7 @@ class trainingJobs extends Model
         'algorithmProvider'      => 'AlgorithmProvider',
         'algorithmVersion'       => 'AlgorithmVersion',
         'computeResource'        => 'ComputeResource',
+        'dlcJobId'               => 'DlcJobId',
         'environments'           => 'Environments',
         'experimentConfig'       => 'ExperimentConfig',
         'gmtCreateTime'          => 'GmtCreateTime',
@@ -221,6 +227,9 @@ class trainingJobs extends Model
         }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = null !== $this->computeResource ? $this->computeResource->toMap() : null;
+        }
+        if (null !== $this->dlcJobId) {
+            $res['DlcJobId'] = $this->dlcJobId;
         }
         if (null !== $this->environments) {
             $res['Environments'] = $this->environments;
@@ -341,6 +350,9 @@ class trainingJobs extends Model
         }
         if (isset($map['ComputeResource'])) {
             $model->computeResource = computeResource::fromMap($map['ComputeResource']);
+        }
+        if (isset($map['DlcJobId'])) {
+            $model->dlcJobId = $map['DlcJobId'];
         }
         if (isset($map['Environments'])) {
             $model->environments = $map['Environments'];
