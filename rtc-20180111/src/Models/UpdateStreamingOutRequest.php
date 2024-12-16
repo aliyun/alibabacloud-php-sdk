@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\images;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\layoutSpecifiedUsers;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\panes;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest\texts;
 use AlibabaCloud\Tea\Model;
@@ -47,6 +48,11 @@ class UpdateStreamingOutRequest extends Model
     public $images;
 
     /**
+     * @var layoutSpecifiedUsers
+     */
+    public $layoutSpecifiedUsers;
+
+    /**
      * @var panes[]
      */
     public $panes;
@@ -74,15 +80,16 @@ class UpdateStreamingOutRequest extends Model
      */
     public $texts;
     protected $_name = [
-        'appId'        => 'AppId',
-        'backgrounds'  => 'Backgrounds',
-        'channelId'    => 'ChannelId',
-        'clockWidgets' => 'ClockWidgets',
-        'images'       => 'Images',
-        'panes'        => 'Panes',
-        'taskId'       => 'TaskId',
-        'templateId'   => 'TemplateId',
-        'texts'        => 'Texts',
+        'appId'                => 'AppId',
+        'backgrounds'          => 'Backgrounds',
+        'channelId'            => 'ChannelId',
+        'clockWidgets'         => 'ClockWidgets',
+        'images'               => 'Images',
+        'layoutSpecifiedUsers' => 'LayoutSpecifiedUsers',
+        'panes'                => 'Panes',
+        'taskId'               => 'TaskId',
+        'templateId'           => 'TemplateId',
+        'texts'                => 'Texts',
     ];
 
     public function validate()
@@ -124,6 +131,9 @@ class UpdateStreamingOutRequest extends Model
                     $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->layoutSpecifiedUsers) {
+            $res['LayoutSpecifiedUsers'] = null !== $this->layoutSpecifiedUsers ? $this->layoutSpecifiedUsers->toMap() : null;
         }
         if (null !== $this->panes) {
             $res['Panes'] = [];
@@ -193,6 +203,9 @@ class UpdateStreamingOutRequest extends Model
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LayoutSpecifiedUsers'])) {
+            $model->layoutSpecifiedUsers = layoutSpecifiedUsers::fromMap($map['LayoutSpecifiedUsers']);
         }
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {

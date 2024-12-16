@@ -97,6 +97,9 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUserResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUsersRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeChannelUsersResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotesRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotesResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeCloudNotesShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeEndPointEventListRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeEndPointEventListResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\DescribeEndPointMetricDataRequest;
@@ -186,19 +189,26 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\RemoveUsersResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCategoryCallbackShrinkRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudNoteShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartRecordTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCategoryCallbackShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopChannelRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopChannelResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCloudNoteRequest;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCloudNoteResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCloudRecordRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopCloudRecordResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StopMPUTaskRequest;
@@ -211,6 +221,7 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateAutoLiveStreamRuleResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordShrinkRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPUTaskRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateMPUTaskResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTaskRequest;
@@ -219,6 +230,7 @@ use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateRecordTemplateResponse;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutRequest;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutResponse;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateStreamingOutShrinkRequest;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
@@ -2488,6 +2500,55 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeChannelsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 纪要列表
+     *  *
+     * @param DescribeCloudNotesRequest $tmpReq  DescribeCloudNotesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeCloudNotesResponse DescribeCloudNotesResponse
+     */
+    public function describeCloudNotesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeCloudNotesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskIds)) {
+            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCloudNotes',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCloudNotesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 纪要列表
+     *  *
+     * @param DescribeCloudNotesRequest $request DescribeCloudNotesRequest
+     *
+     * @return DescribeCloudNotesResponse DescribeCloudNotesResponse
+     */
+    public function describeCloudNotes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCloudNotesWithOptions($request, $runtime);
     }
 
     /**
@@ -4839,16 +4900,121 @@ class Rtc extends OpenApiClient
     }
 
     /**
+     * @summary 开启智能纪要
+     *  *
+     * @param StartCloudNoteRequest $tmpReq  StartCloudNoteRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartCloudNoteResponse StartCloudNoteResponse
+     */
+    public function startCloudNoteWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartCloudNoteShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->autoChapters)) {
+            $request->autoChaptersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoChapters, 'AutoChapters', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->customPrompt)) {
+            $request->customPromptShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customPrompt, 'CustomPrompt', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->meetingAssistance)) {
+            $request->meetingAssistanceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->meetingAssistance, 'MeetingAssistance', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->serviceInspection)) {
+            $request->serviceInspectionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serviceInspection, 'ServiceInspection', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->summarization)) {
+            $request->summarizationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->summarization, 'Summarization', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->textPolish)) {
+            $request->textPolishShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textPolish, 'TextPolish', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->autoChaptersShrink)) {
+            $query['AutoChapters'] = $request->autoChaptersShrink;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->customPromptShrink)) {
+            $query['CustomPrompt'] = $request->customPromptShrink;
+        }
+        if (!Utils::isUnset($request->languageHints)) {
+            $query['LanguageHints'] = $request->languageHints;
+        }
+        if (!Utils::isUnset($request->meetingAssistanceShrink)) {
+            $query['MeetingAssistance'] = $request->meetingAssistanceShrink;
+        }
+        if (!Utils::isUnset($request->serviceInspectionShrink)) {
+            $query['ServiceInspection'] = $request->serviceInspectionShrink;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $query['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->storageConfig)) {
+            $query['StorageConfig'] = $request->storageConfig;
+        }
+        if (!Utils::isUnset($request->summarizationShrink)) {
+            $query['Summarization'] = $request->summarizationShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->textPolishShrink)) {
+            $query['TextPolish'] = $request->textPolishShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartCloudNote',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartCloudNoteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启智能纪要
+     *  *
+     * @param StartCloudNoteRequest $request StartCloudNoteRequest
+     *
+     * @return StartCloudNoteResponse StartCloudNoteResponse
+     */
+    public function startCloudNote($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startCloudNoteWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary StartCloudRecord
      *  *
-     * @param StartCloudRecordRequest $request StartCloudRecordRequest
+     * @param StartCloudRecordRequest $tmpReq  StartCloudRecordRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
      * @return StartCloudRecordResponse StartCloudRecordResponse
      */
-    public function startCloudRecordWithOptions($request, $runtime)
+    public function startCloudRecordWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new StartCloudRecordShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->layoutSpecifiedUsers)) {
+            $request->layoutSpecifiedUsersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->layoutSpecifiedUsers, 'LayoutSpecifiedUsers', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
@@ -4867,6 +5033,9 @@ class Rtc extends OpenApiClient
         }
         if (!Utils::isUnset($request->images)) {
             $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->layoutSpecifiedUsersShrink)) {
+            $query['LayoutSpecifiedUsers'] = $request->layoutSpecifiedUsersShrink;
         }
         if (!Utils::isUnset($request->panes)) {
             $query['Panes'] = $request->panes;
@@ -5155,14 +5324,19 @@ class Rtc extends OpenApiClient
     /**
      * @summary StartStreamingOut
      *  *
-     * @param StartStreamingOutRequest $request StartStreamingOutRequest
+     * @param StartStreamingOutRequest $tmpReq  StartStreamingOutRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
      * @return StartStreamingOutResponse StartStreamingOutResponse
      */
-    public function startStreamingOutWithOptions($request, $runtime)
+    public function startStreamingOutWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new StartStreamingOutShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->layoutSpecifiedUsers)) {
+            $request->layoutSpecifiedUsersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->layoutSpecifiedUsers, 'LayoutSpecifiedUsers', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
@@ -5181,6 +5355,9 @@ class Rtc extends OpenApiClient
         }
         if (!Utils::isUnset($request->images)) {
             $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->layoutSpecifiedUsersShrink)) {
+            $query['LayoutSpecifiedUsers'] = $request->layoutSpecifiedUsersShrink;
         }
         if (!Utils::isUnset($request->panes)) {
             $query['Panes'] = $request->panes;
@@ -5335,6 +5512,62 @@ class Rtc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopChannelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 停止智能纪要
+     *  *
+     * @param StopCloudNoteRequest $request StopCloudNoteRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopCloudNoteResponse StopCloudNoteResponse
+     */
+    public function stopCloudNoteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $query['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopCloudNote',
+            'version'     => '2018-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopCloudNoteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止智能纪要
+     *  *
+     * @param StopCloudNoteRequest $request StopCloudNoteRequest
+     *
+     * @return StopCloudNoteResponse StopCloudNoteResponse
+     */
+    public function stopCloudNote($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopCloudNoteWithOptions($request, $runtime);
     }
 
     /**
@@ -5611,14 +5844,19 @@ class Rtc extends OpenApiClient
     /**
      * @summary 更新云端录制任务
      *  *
-     * @param UpdateCloudRecordRequest $request UpdateCloudRecordRequest
+     * @param UpdateCloudRecordRequest $tmpReq  UpdateCloudRecordRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
      * @return UpdateCloudRecordResponse UpdateCloudRecordResponse
      */
-    public function updateCloudRecordWithOptions($request, $runtime)
+    public function updateCloudRecordWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCloudRecordShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->layoutSpecifiedUsers)) {
+            $request->layoutSpecifiedUsersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->layoutSpecifiedUsers, 'LayoutSpecifiedUsers', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
@@ -5634,6 +5872,9 @@ class Rtc extends OpenApiClient
         }
         if (!Utils::isUnset($request->images)) {
             $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->layoutSpecifiedUsersShrink)) {
+            $query['LayoutSpecifiedUsers'] = $request->layoutSpecifiedUsersShrink;
         }
         if (!Utils::isUnset($request->panes)) {
             $query['Panes'] = $request->panes;
@@ -5976,14 +6217,19 @@ class Rtc extends OpenApiClient
     /**
      * @summary 更新旁路推流任务
      *  *
-     * @param UpdateStreamingOutRequest $request UpdateStreamingOutRequest
+     * @param UpdateStreamingOutRequest $tmpReq  UpdateStreamingOutRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
      * @return UpdateStreamingOutResponse UpdateStreamingOutResponse
      */
-    public function updateStreamingOutWithOptions($request, $runtime)
+    public function updateStreamingOutWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdateStreamingOutShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->layoutSpecifiedUsers)) {
+            $request->layoutSpecifiedUsersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->layoutSpecifiedUsers, 'LayoutSpecifiedUsers', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
@@ -5999,6 +6245,9 @@ class Rtc extends OpenApiClient
         }
         if (!Utils::isUnset($request->images)) {
             $query['Images'] = $request->images;
+        }
+        if (!Utils::isUnset($request->layoutSpecifiedUsersShrink)) {
+            $query['LayoutSpecifiedUsers'] = $request->layoutSpecifiedUsersShrink;
         }
         if (!Utils::isUnset($request->panes)) {
             $query['Panes'] = $request->panes;

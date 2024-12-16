@@ -4,22 +4,19 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\backgrounds;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\clockWidgets;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\images;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\layoutSpecifiedUsers;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\panes;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\regionColor;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\storageConfig;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\texts;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\backgrounds;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\clockWidgets;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\images;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\panes;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\regionColor;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutShrinkRequest\texts;
 use AlibabaCloud\Tea\Model;
 
-class StartCloudRecordRequest extends Model
+class StartStreamingOutShrinkRequest extends Model
 {
     /**
-     * @description appId
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example eo85****
      *
      * @var string
@@ -32,9 +29,8 @@ class StartCloudRecordRequest extends Model
     public $backgrounds;
 
     /**
-     * @description channelName
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example testid
      *
      * @var string
@@ -59,13 +55,11 @@ class StartCloudRecordRequest extends Model
     public $images;
 
     /**
-     * @var layoutSpecifiedUsers
+     * @var string
      */
-    public $layoutSpecifiedUsers;
+    public $layoutSpecifiedUsersShrink;
 
     /**
-     * @description panes
-     *
      * @var panes[]
      */
     public $panes;
@@ -76,16 +70,6 @@ class StartCloudRecordRequest extends Model
     public $regionColor;
 
     /**
-     * @description storageConfig
-     *
-     * This parameter is required.
-     * @var storageConfig
-     */
-    public $storageConfig;
-
-    /**
-     * @description taskId
-     *
      * @example 123
      *
      * @var string
@@ -93,9 +77,8 @@ class StartCloudRecordRequest extends Model
     public $taskId;
 
     /**
-     * @description templateId
+     * @description This parameter is required.
      *
-     * This parameter is required.
      * @example 567
      *
      * @var string
@@ -106,20 +89,29 @@ class StartCloudRecordRequest extends Model
      * @var texts[]
      */
     public $texts;
+
+    /**
+     * @description This parameter is required.
+     *
+     * @example rtmp://example.com/live/stream
+     *
+     * @var string
+     */
+    public $url;
     protected $_name = [
-        'appId'                => 'AppId',
-        'backgrounds'          => 'Backgrounds',
-        'channelId'            => 'ChannelId',
-        'clockWidgets'         => 'ClockWidgets',
-        'cropMode'             => 'CropMode',
-        'images'               => 'Images',
-        'layoutSpecifiedUsers' => 'LayoutSpecifiedUsers',
-        'panes'                => 'Panes',
-        'regionColor'          => 'RegionColor',
-        'storageConfig'        => 'StorageConfig',
-        'taskId'               => 'TaskId',
-        'templateId'           => 'TemplateId',
-        'texts'                => 'Texts',
+        'appId'                      => 'AppId',
+        'backgrounds'                => 'Backgrounds',
+        'channelId'                  => 'ChannelId',
+        'clockWidgets'               => 'ClockWidgets',
+        'cropMode'                   => 'CropMode',
+        'images'                     => 'Images',
+        'layoutSpecifiedUsersShrink' => 'LayoutSpecifiedUsers',
+        'panes'                      => 'Panes',
+        'regionColor'                => 'RegionColor',
+        'taskId'                     => 'TaskId',
+        'templateId'                 => 'TemplateId',
+        'texts'                      => 'Texts',
+        'url'                        => 'Url',
     ];
 
     public function validate()
@@ -165,8 +157,8 @@ class StartCloudRecordRequest extends Model
                 }
             }
         }
-        if (null !== $this->layoutSpecifiedUsers) {
-            $res['LayoutSpecifiedUsers'] = null !== $this->layoutSpecifiedUsers ? $this->layoutSpecifiedUsers->toMap() : null;
+        if (null !== $this->layoutSpecifiedUsersShrink) {
+            $res['LayoutSpecifiedUsers'] = $this->layoutSpecifiedUsersShrink;
         }
         if (null !== $this->panes) {
             $res['Panes'] = [];
@@ -179,9 +171,6 @@ class StartCloudRecordRequest extends Model
         }
         if (null !== $this->regionColor) {
             $res['RegionColor'] = null !== $this->regionColor ? $this->regionColor->toMap() : null;
-        }
-        if (null !== $this->storageConfig) {
-            $res['StorageConfig'] = null !== $this->storageConfig ? $this->storageConfig->toMap() : null;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -198,6 +187,9 @@ class StartCloudRecordRequest extends Model
                 }
             }
         }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
+        }
 
         return $res;
     }
@@ -205,7 +197,7 @@ class StartCloudRecordRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartCloudRecordRequest
+     * @return StartStreamingOutShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -247,7 +239,7 @@ class StartCloudRecordRequest extends Model
             }
         }
         if (isset($map['LayoutSpecifiedUsers'])) {
-            $model->layoutSpecifiedUsers = layoutSpecifiedUsers::fromMap($map['LayoutSpecifiedUsers']);
+            $model->layoutSpecifiedUsersShrink = $map['LayoutSpecifiedUsers'];
         }
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {
@@ -260,9 +252,6 @@ class StartCloudRecordRequest extends Model
         }
         if (isset($map['RegionColor'])) {
             $model->regionColor = regionColor::fromMap($map['RegionColor']);
-        }
-        if (isset($map['StorageConfig'])) {
-            $model->storageConfig = storageConfig::fromMap($map['StorageConfig']);
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
@@ -278,6 +267,9 @@ class StartCloudRecordRequest extends Model
                     $model->texts[$n++] = null !== $item ? texts::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
 
         return $model;

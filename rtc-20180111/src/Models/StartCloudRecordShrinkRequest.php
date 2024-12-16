@@ -4,17 +4,16 @@
 
 namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\backgrounds;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\clockWidgets;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\images;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\layoutSpecifiedUsers;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\panes;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\regionColor;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\storageConfig;
-use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordRequest\texts;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\backgrounds;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\clockWidgets;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\images;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\panes;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\regionColor;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\storageConfig;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartCloudRecordShrinkRequest\texts;
 use AlibabaCloud\Tea\Model;
 
-class StartCloudRecordRequest extends Model
+class StartCloudRecordShrinkRequest extends Model
 {
     /**
      * @description appId
@@ -59,9 +58,9 @@ class StartCloudRecordRequest extends Model
     public $images;
 
     /**
-     * @var layoutSpecifiedUsers
+     * @var string
      */
-    public $layoutSpecifiedUsers;
+    public $layoutSpecifiedUsersShrink;
 
     /**
      * @description panes
@@ -107,19 +106,19 @@ class StartCloudRecordRequest extends Model
      */
     public $texts;
     protected $_name = [
-        'appId'                => 'AppId',
-        'backgrounds'          => 'Backgrounds',
-        'channelId'            => 'ChannelId',
-        'clockWidgets'         => 'ClockWidgets',
-        'cropMode'             => 'CropMode',
-        'images'               => 'Images',
-        'layoutSpecifiedUsers' => 'LayoutSpecifiedUsers',
-        'panes'                => 'Panes',
-        'regionColor'          => 'RegionColor',
-        'storageConfig'        => 'StorageConfig',
-        'taskId'               => 'TaskId',
-        'templateId'           => 'TemplateId',
-        'texts'                => 'Texts',
+        'appId'                      => 'AppId',
+        'backgrounds'                => 'Backgrounds',
+        'channelId'                  => 'ChannelId',
+        'clockWidgets'               => 'ClockWidgets',
+        'cropMode'                   => 'CropMode',
+        'images'                     => 'Images',
+        'layoutSpecifiedUsersShrink' => 'LayoutSpecifiedUsers',
+        'panes'                      => 'Panes',
+        'regionColor'                => 'RegionColor',
+        'storageConfig'              => 'StorageConfig',
+        'taskId'                     => 'TaskId',
+        'templateId'                 => 'TemplateId',
+        'texts'                      => 'Texts',
     ];
 
     public function validate()
@@ -165,8 +164,8 @@ class StartCloudRecordRequest extends Model
                 }
             }
         }
-        if (null !== $this->layoutSpecifiedUsers) {
-            $res['LayoutSpecifiedUsers'] = null !== $this->layoutSpecifiedUsers ? $this->layoutSpecifiedUsers->toMap() : null;
+        if (null !== $this->layoutSpecifiedUsersShrink) {
+            $res['LayoutSpecifiedUsers'] = $this->layoutSpecifiedUsersShrink;
         }
         if (null !== $this->panes) {
             $res['Panes'] = [];
@@ -205,7 +204,7 @@ class StartCloudRecordRequest extends Model
     /**
      * @param array $map
      *
-     * @return StartCloudRecordRequest
+     * @return StartCloudRecordShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -247,7 +246,7 @@ class StartCloudRecordRequest extends Model
             }
         }
         if (isset($map['LayoutSpecifiedUsers'])) {
-            $model->layoutSpecifiedUsers = layoutSpecifiedUsers::fromMap($map['LayoutSpecifiedUsers']);
+            $model->layoutSpecifiedUsersShrink = $map['LayoutSpecifiedUsers'];
         }
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {

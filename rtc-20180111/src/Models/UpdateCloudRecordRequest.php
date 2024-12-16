@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\images;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\layoutSpecifiedUsers;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\panes;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\UpdateCloudRecordRequest\texts;
 use AlibabaCloud\Tea\Model;
@@ -47,6 +48,11 @@ class UpdateCloudRecordRequest extends Model
     public $images;
 
     /**
+     * @var layoutSpecifiedUsers
+     */
+    public $layoutSpecifiedUsers;
+
+    /**
      * @var panes[]
      */
     public $panes;
@@ -74,15 +80,16 @@ class UpdateCloudRecordRequest extends Model
      */
     public $texts;
     protected $_name = [
-        'appId'        => 'AppId',
-        'backgrounds'  => 'Backgrounds',
-        'channelId'    => 'ChannelId',
-        'clockWidgets' => 'ClockWidgets',
-        'images'       => 'Images',
-        'panes'        => 'Panes',
-        'taskId'       => 'TaskId',
-        'templateId'   => 'TemplateId',
-        'texts'        => 'Texts',
+        'appId'                => 'AppId',
+        'backgrounds'          => 'Backgrounds',
+        'channelId'            => 'ChannelId',
+        'clockWidgets'         => 'ClockWidgets',
+        'images'               => 'Images',
+        'layoutSpecifiedUsers' => 'LayoutSpecifiedUsers',
+        'panes'                => 'Panes',
+        'taskId'               => 'TaskId',
+        'templateId'           => 'TemplateId',
+        'texts'                => 'Texts',
     ];
 
     public function validate()
@@ -124,6 +131,9 @@ class UpdateCloudRecordRequest extends Model
                     $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->layoutSpecifiedUsers) {
+            $res['LayoutSpecifiedUsers'] = null !== $this->layoutSpecifiedUsers ? $this->layoutSpecifiedUsers->toMap() : null;
         }
         if (null !== $this->panes) {
             $res['Panes'] = [];
@@ -193,6 +203,9 @@ class UpdateCloudRecordRequest extends Model
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LayoutSpecifiedUsers'])) {
+            $model->layoutSpecifiedUsers = layoutSpecifiedUsers::fromMap($map['LayoutSpecifiedUsers']);
         }
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Rtc\V20180111\Models;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\backgrounds;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\clockWidgets;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\images;
+use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\layoutSpecifiedUsers;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\panes;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\regionColor;
 use AlibabaCloud\SDK\Rtc\V20180111\Models\StartStreamingOutRequest\texts;
@@ -55,6 +56,11 @@ class StartStreamingOutRequest extends Model
     public $images;
 
     /**
+     * @var layoutSpecifiedUsers
+     */
+    public $layoutSpecifiedUsers;
+
+    /**
      * @var panes[]
      */
     public $panes;
@@ -94,18 +100,19 @@ class StartStreamingOutRequest extends Model
      */
     public $url;
     protected $_name = [
-        'appId'        => 'AppId',
-        'backgrounds'  => 'Backgrounds',
-        'channelId'    => 'ChannelId',
-        'clockWidgets' => 'ClockWidgets',
-        'cropMode'     => 'CropMode',
-        'images'       => 'Images',
-        'panes'        => 'Panes',
-        'regionColor'  => 'RegionColor',
-        'taskId'       => 'TaskId',
-        'templateId'   => 'TemplateId',
-        'texts'        => 'Texts',
-        'url'          => 'Url',
+        'appId'                => 'AppId',
+        'backgrounds'          => 'Backgrounds',
+        'channelId'            => 'ChannelId',
+        'clockWidgets'         => 'ClockWidgets',
+        'cropMode'             => 'CropMode',
+        'images'               => 'Images',
+        'layoutSpecifiedUsers' => 'LayoutSpecifiedUsers',
+        'panes'                => 'Panes',
+        'regionColor'          => 'RegionColor',
+        'taskId'               => 'TaskId',
+        'templateId'           => 'TemplateId',
+        'texts'                => 'Texts',
+        'url'                  => 'Url',
     ];
 
     public function validate()
@@ -150,6 +157,9 @@ class StartStreamingOutRequest extends Model
                     $res['Images'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->layoutSpecifiedUsers) {
+            $res['LayoutSpecifiedUsers'] = null !== $this->layoutSpecifiedUsers ? $this->layoutSpecifiedUsers->toMap() : null;
         }
         if (null !== $this->panes) {
             $res['Panes'] = [];
@@ -228,6 +238,9 @@ class StartStreamingOutRequest extends Model
                     $model->images[$n++] = null !== $item ? images::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LayoutSpecifiedUsers'])) {
+            $model->layoutSpecifiedUsers = layoutSpecifiedUsers::fromMap($map['LayoutSpecifiedUsers']);
         }
         if (isset($map['Panes'])) {
             if (!empty($map['Panes'])) {
