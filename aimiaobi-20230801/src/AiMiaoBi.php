@@ -21,6 +21,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicByTopicRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicByTopicResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicViewPointByIdRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteCustomTopicViewPointByIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDocsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDocsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteDocsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteInterveneRuleRequest;
@@ -65,6 +68,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDataSourceOrderConfigResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocClusterTaskResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocInfoRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetDocInfoResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetEnterpriseVocAnalysisTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\GetGeneratedContentRequest;
@@ -115,6 +120,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomViewPointsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListCustomViewPointsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDialoguesRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDialoguesResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListDocsShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListFreshViewPointsRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListFreshViewPointsResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ListGeneratedContentsRequest;
@@ -163,6 +171,17 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicAnalysisRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicAnalysisResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicViewPointAnalysisRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicViewPointAnalysisResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocBrainmapRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocBrainmapResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocIntroductionRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocIntroductionResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSummaryRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSummaryResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocTranslationRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocTranslationResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunExpandContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunKeywordsExtractionGenerationRequest;
@@ -229,6 +248,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentShrinkReque
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ValidateUploadTemplateRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ValidateUploadTemplateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -651,6 +673,61 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomTopicViewPointByIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读删除多个文档
+     *  *
+     * @param DeleteDocsRequest $tmpReq  DeleteDocsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDocsResponse DeleteDocsResponse
+     */
+    public function deleteDocsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteDocsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->docIds)) {
+            $request->docIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->docIdsShrink)) {
+            $body['DocIds'] = $request->docIdsShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDocs',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDocsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读删除多个文档
+     *  *
+     * @param DeleteDocsRequest $request DeleteDocsRequest
+     *
+     * @return DeleteDocsResponse DeleteDocsResponse
+     */
+    public function deleteDocs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDocsWithOptions($request, $runtime);
     }
 
     /**
@@ -1720,6 +1797,59 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDocClusterTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读获取文档信息
+     *  *
+     * @param GetDocInfoRequest $request GetDocInfoRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDocInfoResponse GetDocInfoResponse
+     */
+    public function getDocInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->docId)) {
+            $body['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDocInfo',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDocInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读获取文档信息
+     *  *
+     * @param GetDocInfoRequest $request GetDocInfoRequest
+     *
+     * @return GetDocInfoResponse GetDocInfoResponse
+     */
+    public function getDocInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDocInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -2997,6 +3127,79 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDialoguesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读获取文档列表
+     *  *
+     * @param ListDocsRequest $tmpReq  ListDocsRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDocsResponse ListDocsResponse
+     */
+    public function listDocsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDocsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->statuses)) {
+            $request->statusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statuses, 'Statuses', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->docName)) {
+            $body['DocName'] = $request->docName;
+        }
+        if (!Utils::isUnset($request->docType)) {
+            $body['DocType'] = $request->docType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->skip)) {
+            $body['Skip'] = $request->skip;
+        }
+        if (!Utils::isUnset($request->statusesShrink)) {
+            $body['Statuses'] = $request->statusesShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDocs',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDocsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读获取文档列表
+     *  *
+     * @param ListDocsRequest $request ListDocsRequest
+     *
+     * @return ListDocsResponse ListDocsResponse
+     */
+    public function listDocs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDocsWithOptions($request, $runtime);
     }
 
     /**
@@ -4382,6 +4585,309 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runCustomHotTopicViewPointAnalysisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读脑图生成接口
+     *  *
+     * @param RunDocBrainmapRequest $request RunDocBrainmapRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunDocBrainmapResponse RunDocBrainmapResponse
+     */
+    public function runDocBrainmapWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDocBrainmap',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunDocBrainmapResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读脑图生成接口
+     *  *
+     * @param RunDocBrainmapRequest $request RunDocBrainmapRequest
+     *
+     * @return RunDocBrainmapResponse RunDocBrainmapResponse
+     */
+    public function runDocBrainmap($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDocBrainmapWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读文档导读接口
+     *  *
+     * @param RunDocIntroductionRequest $request RunDocIntroductionRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunDocIntroductionResponse RunDocIntroductionResponse
+     */
+    public function runDocIntroductionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDocIntroduction',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunDocIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读文档导读接口
+     *  *
+     * @param RunDocIntroductionRequest $request RunDocIntroductionRequest
+     *
+     * @return RunDocIntroductionResponse RunDocIntroductionResponse
+     */
+    public function runDocIntroduction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDocIntroductionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读问答接口
+     *  *
+     * @param RunDocQaRequest $tmpReq  RunDocQaRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunDocQaResponse RunDocQaResponse
+     */
+    public function runDocQaWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunDocQaShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categoryIds)) {
+            $request->categoryIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categoryIds, 'CategoryIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->conversationContexts)) {
+            $request->conversationContextsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->conversationContexts, 'ConversationContexts', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->docIds)) {
+            $request->docIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docIds, 'DocIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoryIdsShrink)) {
+            $body['CategoryIds'] = $request->categoryIdsShrink;
+        }
+        if (!Utils::isUnset($request->conversationContextsShrink)) {
+            $body['ConversationContexts'] = $request->conversationContextsShrink;
+        }
+        if (!Utils::isUnset($request->docIdsShrink)) {
+            $body['DocIds'] = $request->docIdsShrink;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->referenceContent)) {
+            $body['ReferenceContent'] = $request->referenceContent;
+        }
+        if (!Utils::isUnset($request->searchSource)) {
+            $body['SearchSource'] = $request->searchSource;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDocQa',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunDocQaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读问答接口
+     *  *
+     * @param RunDocQaRequest $request RunDocQaRequest
+     *
+     * @return RunDocQaResponse RunDocQaResponse
+     */
+    public function runDocQa($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDocQaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读文档总结摘要接口
+     *  *
+     * @param RunDocSummaryRequest $request RunDocSummaryRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunDocSummaryResponse RunDocSummaryResponse
+     */
+    public function runDocSummaryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->recommendContent)) {
+            $body['RecommendContent'] = $request->recommendContent;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDocSummary',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunDocSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读文档总结摘要接口
+     *  *
+     * @param RunDocSummaryRequest $request RunDocSummaryRequest
+     *
+     * @return RunDocSummaryResponse RunDocSummaryResponse
+     */
+    public function runDocSummary($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDocSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读文档翻译接口
+     *  *
+     * @param RunDocTranslationRequest $request RunDocTranslationRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunDocTranslationResponse RunDocTranslationResponse
+     */
+    public function runDocTranslationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->recommendContent)) {
+            $body['RecommendContent'] = $request->recommendContent;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->transType)) {
+            $body['TransType'] = $request->transType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDocTranslation',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunDocTranslationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读文档翻译接口
+     *  *
+     * @param RunDocTranslationRequest $request RunDocTranslationRequest
+     *
+     * @return RunDocTranslationResponse RunDocTranslationResponse
+     */
+    public function runDocTranslation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDocTranslationWithOptions($request, $runtime);
     }
 
     /**
@@ -5964,6 +6470,64 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMaterialDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读上传文档接口
+     *  *
+     * @param UploadDocRequest $tmpReq  UploadDocRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UploadDocResponse UploadDocResponse
+     */
+    public function uploadDocWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UploadDocShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->docs)) {
+            $request->docsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docs, 'Docs', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->docsShrink)) {
+            $body['Docs'] = $request->docsShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadDoc',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadDocResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读上传文档接口
+     *  *
+     * @param UploadDocRequest $request UploadDocRequest
+     *
+     * @return UploadDocResponse UploadDocResponse
+     */
+    public function uploadDoc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadDocWithOptions($request, $runtime);
     }
 
     /**
