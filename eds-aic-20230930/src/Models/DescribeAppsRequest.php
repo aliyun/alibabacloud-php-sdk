@@ -31,6 +31,11 @@ class DescribeAppsRequest extends Model
     public $installationStatus;
 
     /**
+     * @var string
+     */
+    public $MD5;
+
+    /**
      * @example 10
      *
      * @var int
@@ -55,6 +60,7 @@ class DescribeAppsRequest extends Model
         'appName'            => 'AppName',
         'bizRegionId'        => 'BizRegionId',
         'installationStatus' => 'InstallationStatus',
+        'MD5'                => 'MD5',
         'maxResults'         => 'MaxResults',
         'nextToken'          => 'NextToken',
         'status'             => 'Status',
@@ -78,6 +84,9 @@ class DescribeAppsRequest extends Model
         }
         if (null !== $this->installationStatus) {
             $res['InstallationStatus'] = $this->installationStatus;
+        }
+        if (null !== $this->MD5) {
+            $res['MD5'] = $this->MD5;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -113,6 +122,9 @@ class DescribeAppsRequest extends Model
         }
         if (isset($map['InstallationStatus'])) {
             $model->installationStatus = $map['InstallationStatus'];
+        }
+        if (isset($map['MD5'])) {
+            $model->MD5 = $map['MD5'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @example B8ED2BA9-0C6A-5643-818F-B5D60A64****
      *
      * @var string
      */
     public $invokeId;
+
+    /**
+     * @var int
+     */
+    public $level;
 
     /**
      * @example 10
@@ -28,6 +43,16 @@ class DescribeTasksRequest extends Model
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var string
+     */
+    public $param;
+
+    /**
+     * @var string
+     */
+    public $parentTaskId;
 
     /**
      * @var string[]
@@ -47,19 +72,36 @@ class DescribeTasksRequest extends Model
     public $taskStatus;
 
     /**
+     * @var string[]
+     */
+    public $taskStatuses;
+
+    /**
      * @example StartInstance
      *
      * @var string
      */
     public $taskType;
+
+    /**
+     * @var string[]
+     */
+    public $taskTypes;
     protected $_name = [
-        'invokeId'    => 'InvokeId',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'resourceIds' => 'ResourceIds',
-        'taskIds'     => 'TaskIds',
-        'taskStatus'  => 'TaskStatus',
-        'taskType'    => 'TaskType',
+        'instanceId'   => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'invokeId'     => 'InvokeId',
+        'level'        => 'Level',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
+        'param'        => 'Param',
+        'parentTaskId' => 'ParentTaskId',
+        'resourceIds'  => 'ResourceIds',
+        'taskIds'      => 'TaskIds',
+        'taskStatus'   => 'TaskStatus',
+        'taskStatuses' => 'TaskStatuses',
+        'taskType'     => 'TaskType',
+        'taskTypes'    => 'TaskTypes',
     ];
 
     public function validate()
@@ -69,14 +111,29 @@ class DescribeTasksRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
+        }
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->param) {
+            $res['Param'] = $this->param;
+        }
+        if (null !== $this->parentTaskId) {
+            $res['ParentTaskId'] = $this->parentTaskId;
         }
         if (null !== $this->resourceIds) {
             $res['ResourceIds'] = $this->resourceIds;
@@ -87,8 +144,14 @@ class DescribeTasksRequest extends Model
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
+        if (null !== $this->taskStatuses) {
+            $res['TaskStatuses'] = $this->taskStatuses;
+        }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
+        }
+        if (null !== $this->taskTypes) {
+            $res['TaskTypes'] = $this->taskTypes;
         }
 
         return $res;
@@ -102,14 +165,29 @@ class DescribeTasksRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
+        }
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Param'])) {
+            $model->param = $map['Param'];
+        }
+        if (isset($map['ParentTaskId'])) {
+            $model->parentTaskId = $map['ParentTaskId'];
         }
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
@@ -124,8 +202,18 @@ class DescribeTasksRequest extends Model
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }
+        if (isset($map['TaskStatuses'])) {
+            if (!empty($map['TaskStatuses'])) {
+                $model->taskStatuses = $map['TaskStatuses'];
+            }
+        }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
+        }
+        if (isset($map['TaskTypes'])) {
+            if (!empty($map['TaskTypes'])) {
+                $model->taskTypes = $map['TaskTypes'];
+            }
         }
 
         return $model;

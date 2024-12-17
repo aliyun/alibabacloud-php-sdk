@@ -16,6 +16,11 @@ class data extends Model
     public $androidAppVersion;
 
     /**
+     * @var string
+     */
+    public $apkSize;
+
+    /**
      * @example 10404
      *
      * @var int
@@ -75,6 +80,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $MD5;
+
+    /**
+     * @var string
+     */
     public $packageName;
 
     /**
@@ -85,6 +95,7 @@ class data extends Model
     public $status;
     protected $_name = [
         'androidAppVersion'  => 'AndroidAppVersion',
+        'apkSize'            => 'ApkSize',
         'appId'              => 'AppId',
         'appName'            => 'AppName',
         'bizRegionId'        => 'BizRegionId',
@@ -94,6 +105,7 @@ class data extends Model
         'iconUrl'            => 'IconUrl',
         'installationStatus' => 'InstallationStatus',
         'instanceGroupList'  => 'InstanceGroupList',
+        'MD5'                => 'MD5',
         'packageName'        => 'PackageName',
         'status'             => 'Status',
     ];
@@ -107,6 +119,9 @@ class data extends Model
         $res = [];
         if (null !== $this->androidAppVersion) {
             $res['AndroidAppVersion'] = $this->androidAppVersion;
+        }
+        if (null !== $this->apkSize) {
+            $res['ApkSize'] = $this->apkSize;
         }
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
@@ -135,6 +150,9 @@ class data extends Model
         if (null !== $this->instanceGroupList) {
             $res['InstanceGroupList'] = $this->instanceGroupList;
         }
+        if (null !== $this->MD5) {
+            $res['MD5'] = $this->MD5;
+        }
         if (null !== $this->packageName) {
             $res['PackageName'] = $this->packageName;
         }
@@ -155,6 +173,9 @@ class data extends Model
         $model = new self();
         if (isset($map['AndroidAppVersion'])) {
             $model->androidAppVersion = $map['AndroidAppVersion'];
+        }
+        if (isset($map['ApkSize'])) {
+            $model->apkSize = $map['ApkSize'];
         }
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
@@ -184,6 +205,9 @@ class data extends Model
             if (!empty($map['InstanceGroupList'])) {
                 $model->instanceGroupList = $map['InstanceGroupList'];
             }
+        }
+        if (isset($map['MD5'])) {
+            $model->MD5 = $map['MD5'];
         }
         if (isset($map['PackageName'])) {
             $model->packageName = $map['PackageName'];

@@ -1124,6 +1124,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->installationStatus)) {
             $query['InstallationStatus'] = $request->installationStatus;
         }
+        if (!Utils::isUnset($request->MD5)) {
+            $query['MD5'] = $request->MD5;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -1526,14 +1529,29 @@ class Edsaic extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
         if (!Utils::isUnset($request->invokeId)) {
             $query['InvokeId'] = $request->invokeId;
+        }
+        if (!Utils::isUnset($request->level)) {
+            $query['Level'] = $request->level;
         }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->param)) {
+            $query['Param'] = $request->param;
+        }
+        if (!Utils::isUnset($request->parentTaskId)) {
+            $query['ParentTaskId'] = $request->parentTaskId;
         }
         if (!Utils::isUnset($request->resourceIds)) {
             $query['ResourceIds'] = $request->resourceIds;
@@ -1544,8 +1562,14 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->taskStatus)) {
             $query['TaskStatus'] = $request->taskStatus;
         }
+        if (!Utils::isUnset($request->taskStatuses)) {
+            $query['TaskStatuses'] = $request->taskStatuses;
+        }
         if (!Utils::isUnset($request->taskType)) {
             $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->taskTypes)) {
+            $query['TaskTypes'] = $request->taskTypes;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2675,6 +2699,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceGroupIdList)) {
             $query['InstanceGroupIdList'] = $request->instanceGroupIdList;
+        }
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $query['InstanceIdList'] = $request->instanceIdList;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
