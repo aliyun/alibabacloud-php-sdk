@@ -86,6 +86,8 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodTemplateRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteVodTemplateResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteWatermarkRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DeleteWatermarkResponse;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeMediaDistributionRequest;
+use AlibabaCloud\SDK\Vod\V20170321\Models\DescribeMediaDistributionResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayTopVideosRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayTopVideosResponse;
 use AlibabaCloud\SDK\Vod\V20170321\Models\DescribePlayUserAvgRequest;
@@ -361,6 +363,7 @@ use AlibabaCloud\SDK\Vod\V20170321\Models\VerifyVodDomainOwnerRequest;
 use AlibabaCloud\SDK\Vod\V20170321\Models\VerifyVodDomainOwnerResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -370,9 +373,11 @@ class Vod extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_signatureAlgorithm = 'v2';
-        $this->_endpointRule       = 'regional';
-        $this->_endpointMap        = [
+        $this->_productId    = 'vod';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
+        $this->_endpointRule = 'regional';
+        $this->_endpointMap  = [
             'cn-hangzhou'                 => 'vod.cn-shanghai.aliyuncs.com',
             'ap-northeast-2-pop'          => 'vod.aliyuncs.com',
             'ap-southeast-2'              => 'vod.aliyuncs.com',
@@ -483,8 +488,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -542,8 +550,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -618,8 +629,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -685,8 +699,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -750,8 +767,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -832,8 +852,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -893,8 +916,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddVodStorageForAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddVodStorageForAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddVodStorageForAppResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -955,8 +981,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1021,8 +1050,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AddWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AddWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1083,8 +1115,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachAppPolicyToIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachAppPolicyToIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachAppPolicyToIdentityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1146,8 +1181,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchSetVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchSetVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchSetVodDomainConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1204,8 +1242,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchStartVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchStartVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchStartVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1263,8 +1304,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchStopVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BatchStopVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchStopVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1320,8 +1364,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CancelUrlUploadJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelUrlUploadJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelUrlUploadJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1380,8 +1427,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1437,8 +1487,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1488,8 +1541,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAuditResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAuditResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1571,8 +1627,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUploadAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUploadAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUploadAttachedMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1657,8 +1716,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUploadImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUploadImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUploadImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1751,8 +1813,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateUploadVideoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1818,8 +1883,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DecryptKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DecryptKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DecryptKMSDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1868,8 +1936,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAIImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAIImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAIImageInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1921,8 +1992,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1973,8 +2047,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2025,8 +2102,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAttachedMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAttachedMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2078,8 +2158,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2133,8 +2216,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDynamicImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2196,8 +2282,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2261,8 +2350,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2322,8 +2414,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2378,8 +2473,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMessageCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2432,8 +2530,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteMezzaninesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMezzaninesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMezzaninesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2491,8 +2592,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteMultipartUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteMultipartUploadResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteMultipartUploadResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2545,8 +2649,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteStreamResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteStreamResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2601,8 +2708,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2655,8 +2765,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVideoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2719,8 +2832,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2787,8 +2903,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteVodSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVodSpecificConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVodSpecificConfigResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2839,8 +2958,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2889,8 +3011,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2908,6 +3033,65 @@ class Vod extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteWatermarkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 媒资数据分布
+     *  *
+     * @param DescribeMediaDistributionRequest $request DescribeMediaDistributionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeMediaDistributionResponse DescribeMediaDistributionResponse
+     */
+    public function describeMediaDistributionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->storageClass)) {
+            $query['StorageClass'] = $request->storageClass;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMediaDistribution',
+            'version'     => '2017-03-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeMediaDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeMediaDistributionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 媒资数据分布
+     *  *
+     * @param DescribeMediaDistributionRequest $request DescribeMediaDistributionRequest
+     *
+     * @return DescribeMediaDistributionResponse DescribeMediaDistributionResponse
+     */
+    public function describeMediaDistribution($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMediaDistributionWithOptions($request, $runtime);
     }
 
     /**
@@ -2954,8 +3138,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlayTopVideosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlayTopVideosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlayTopVideosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3018,8 +3205,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlayUserAvgResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlayUserAvgResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlayUserAvgResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3081,8 +3271,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlayUserTotalResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlayUserTotalResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlayUserTotalResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3147,8 +3340,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePlayVideoStatisResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePlayVideoStatisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePlayVideoStatisResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3214,8 +3410,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodAIDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodAIDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodAIDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3272,8 +3471,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodCertificateListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3341,8 +3543,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3419,8 +3624,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainBpsDataByLayerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainBpsDataByLayerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3479,8 +3687,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainCertificateInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainCertificateInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3539,8 +3750,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainConfigsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3596,8 +3810,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3668,8 +3885,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3746,8 +3966,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3793,8 +4016,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainMax95BpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainMax95BpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainMax95BpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3868,8 +4094,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainQpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3935,8 +4164,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainRealTimeBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainRealTimeBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4001,8 +4233,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainRealTimeByteHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainRealTimeByteHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4058,8 +4293,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainRealTimeDetailDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainRealTimeDetailDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4133,8 +4371,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainRealTimeHttpCodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainRealTimeHttpCodeDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4199,8 +4440,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainRealTimeQpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainRealTimeQpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4266,8 +4510,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainRealTimeReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainRealTimeReqHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4351,8 +4598,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainRealTimeTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainRealTimeTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4429,8 +4679,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainReqHitRateDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainReqHitRateDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4510,8 +4763,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainSrcBpsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainSrcBpsDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4592,8 +4848,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainSrcTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4680,8 +4939,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainTrafficDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainTrafficDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4763,8 +5025,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodDomainUsageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodDomainUsageDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4851,8 +5116,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodMediaPlayDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodMediaPlayDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodMediaPlayDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4932,8 +5200,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodRangeDataByLocateAndIspServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodRangeDataByLocateAndIspServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodRangeDataByLocateAndIspServiceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4991,8 +5262,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodRefreshQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodRefreshQuotaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5074,8 +5348,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodRefreshTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodRefreshTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5139,8 +5416,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodSSLCertificateListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5207,8 +5487,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodStorageDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5272,8 +5555,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodTieringStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodTieringStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodTieringStorageDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5337,8 +5623,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodTieringStorageRetrievalDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodTieringStorageRetrievalDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodTieringStorageRetrievalDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5411,8 +5700,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodTranscodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodTranscodeDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodTranscodeDataResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5485,8 +5777,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodUserDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodUserDomainsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5540,8 +5835,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeVodVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeVodVerifyContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeVodVerifyContentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5600,8 +5898,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachAppPolicyFromIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachAppPolicyFromIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachAppPolicyFromIdentityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5664,8 +5965,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GenerateDownloadSecretKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateDownloadSecretKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateDownloadSecretKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5723,8 +6027,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GenerateKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateKMSDataKeyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5786,8 +6093,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAIImageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAIImageJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAIImageJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5839,8 +6149,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAIMediaAuditJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5891,8 +6204,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5956,8 +6272,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAIVideoTagResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAIVideoTagResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAIVideoTagResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6008,8 +6327,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAppInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAppInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAppInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6065,8 +6387,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAttachedMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAttachedMediaInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAttachedMediaInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6123,8 +6448,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetAuditHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAuditHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAuditHistoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6182,8 +6510,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetCategoriesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6232,8 +6563,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDefaultAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6304,8 +6638,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDigitalWatermarkExtractResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDigitalWatermarkExtractResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDigitalWatermarkExtractResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6365,8 +6702,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6430,8 +6770,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6485,8 +6828,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetImageInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6542,8 +6888,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetImageInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6596,8 +6945,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6660,8 +7012,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMediaAuditAudioResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaAuditAudioResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaAuditAudioResultDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6709,8 +7064,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMediaAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaAuditResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaAuditResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6763,8 +7121,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMediaAuditResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaAuditResultDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaAuditResultDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6817,8 +7178,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMediaAuditResultTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaAuditResultTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaAuditResultTimelineResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6881,8 +7245,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMediaDNAResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaDNAResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaDNAResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6931,8 +7298,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMediaRefreshJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMediaRefreshJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMediaRefreshJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6987,8 +7357,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMessageCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7047,8 +7420,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetMezzanineInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetMezzanineInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetMezzanineInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7133,8 +7509,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetPlayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetPlayInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7189,8 +7568,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetTranscodeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTranscodeSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTranscodeSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7246,8 +7628,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTranscodeTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7297,8 +7682,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7352,8 +7740,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetURLUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetURLUploadInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetURLUploadInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7415,8 +7806,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetUploadDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetUploadDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetUploadDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7474,8 +7868,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVideoInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7526,8 +7923,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVideoInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7599,8 +7999,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetVideoListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVideoListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVideoListResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7657,8 +8060,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetVideoPlayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVideoPlayAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVideoPlayAuthResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7707,8 +8113,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7754,8 +8163,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7804,8 +8216,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAIImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAIImageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAIImageInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7869,8 +8284,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAIJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7922,8 +8340,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7986,8 +8407,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8046,8 +8470,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAppPoliciesForIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAppPoliciesForIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAppPoliciesForIdentityResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8095,8 +8522,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAuditSecurityIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8142,8 +8572,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDynamicImageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDynamicImageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8192,8 +8625,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListJobInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJobInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8262,8 +8698,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListLiveRecordVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListLiveRecordVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListLiveRecordVideoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8325,8 +8764,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListSnapshotsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSnapshotsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8389,8 +8831,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTranscodeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTranscodeTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8441,8 +8886,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8493,8 +8941,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8540,8 +8991,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8593,8 +9047,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return MoveAppResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveAppResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveAppResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8659,8 +9116,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return PreloadVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PreloadVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PreloadVodObjectCachesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8761,8 +9221,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ProduceEditingProjectVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ProduceEditingProjectVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ProduceEditingProjectVideoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8854,8 +9317,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RefreshMediaPlayUrlsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefreshMediaPlayUrlsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshMediaPlayUrlsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8916,8 +9382,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RefreshUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefreshUploadVideoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshUploadVideoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -8981,8 +9450,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RefreshVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RefreshVodObjectCachesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshVodObjectCachesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9047,8 +9519,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RegisterMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9111,8 +9586,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RestoreMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RestoreMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RestoreMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9190,8 +9668,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SearchEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9264,8 +9745,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SearchMediaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SearchMediaResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9328,8 +9812,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetAuditSecurityIpResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetAuditSecurityIpResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9397,8 +9884,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetCrossdomainContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetCrossdomainContentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetCrossdomainContentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9448,8 +9938,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDefaultAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDefaultAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9497,8 +9990,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetDefaultTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDefaultTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDefaultTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9544,8 +10040,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetDefaultWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDefaultWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDefaultWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9606,8 +10105,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetEditingProjectMaterialsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetEditingProjectMaterialsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9679,8 +10181,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetMessageCallbackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetMessageCallbackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9748,8 +10253,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetVodDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetVodDomainCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetVodDomainCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9827,8 +10335,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetVodDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetVodDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetVodDomainSSLCertificateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9894,8 +10405,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitAIImageAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitAIImageAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitAIImageAuditJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -9967,8 +10481,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitAIImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitAIImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitAIImageJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10044,8 +10561,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitAIJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitAIJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10114,8 +10634,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitAIMediaAuditJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitAIMediaAuditJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10187,8 +10710,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitDigitalWatermarkExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDigitalWatermarkExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDigitalWatermarkExtractJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10251,8 +10777,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitDynamicImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitDynamicImageJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10317,8 +10846,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitMediaDNADeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitMediaDNADeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitMediaDNADeleteJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10372,8 +10904,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitPreprocessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitPreprocessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitPreprocessJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10459,8 +10994,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitSnapshotJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitSnapshotJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10538,8 +11076,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitTranscodeJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitTranscodeJobsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10597,8 +11138,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SubmitWorkflowJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SubmitWorkflowJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubmitWorkflowJobResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10656,8 +11200,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAITemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAITemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10718,8 +11265,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAppInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10770,8 +11320,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateAttachedMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateAttachedMediaInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateAttachedMediaInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10824,8 +11377,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateCategoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10897,8 +11453,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEditingProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEditingProjectResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -10947,8 +11506,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateImageInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateImageInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11014,8 +11576,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateMediaStorageClassResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateMediaStorageClassResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateMediaStorageClassResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11077,8 +11642,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTranscodeTemplateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTranscodeTemplateGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11146,8 +11714,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVideoInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVideoInfoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11197,8 +11768,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVideoInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVideoInfosResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11260,8 +11834,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVodDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVodDomainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11315,8 +11892,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateVodTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateVodTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11371,8 +11951,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UpdateWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateWatermarkResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateWatermarkResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11449,8 +12032,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UploadMediaByURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadMediaByURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadMediaByURLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11523,8 +12109,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UploadStreamByURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UploadStreamByURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UploadStreamByURLResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -11583,8 +12172,11 @@ class Vod extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return VerifyVodDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyVodDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyVodDomainOwnerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
