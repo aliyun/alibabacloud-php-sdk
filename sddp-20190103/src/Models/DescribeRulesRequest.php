@@ -30,6 +30,11 @@ class DescribeRulesRequest extends Model
     public $contentCategory;
 
     /**
+     * @var string
+     */
+    public $cooperationChannel;
+
+    /**
      * @description The page number of the page to return.
      *
      * @example 1
@@ -171,6 +176,11 @@ class DescribeRulesRequest extends Model
     public $ruleType;
 
     /**
+     * @var bool
+     */
+    public $simplify;
+
+    /**
      * @description The status of the sensitive data detection rule. Valid values:
      *
      *   **1**: enabled
@@ -209,24 +219,26 @@ class DescribeRulesRequest extends Model
      */
     public $warnLevel;
     protected $_name = [
-        'category'          => 'Category',
-        'contentCategory'   => 'ContentCategory',
-        'currentPage'       => 'CurrentPage',
-        'customType'        => 'CustomType',
-        'featureType'       => 'FeatureType',
-        'groupId'           => 'GroupId',
-        'keywordCompatible' => 'KeywordCompatible',
-        'lang'              => 'Lang',
-        'matchType'         => 'MatchType',
-        'name'              => 'Name',
-        'pageSize'          => 'PageSize',
-        'productCode'       => 'ProductCode',
-        'productId'         => 'ProductId',
-        'riskLevelId'       => 'RiskLevelId',
-        'ruleType'          => 'RuleType',
-        'status'            => 'Status',
-        'supportForm'       => 'SupportForm',
-        'warnLevel'         => 'WarnLevel',
+        'category'           => 'Category',
+        'contentCategory'    => 'ContentCategory',
+        'cooperationChannel' => 'CooperationChannel',
+        'currentPage'        => 'CurrentPage',
+        'customType'         => 'CustomType',
+        'featureType'        => 'FeatureType',
+        'groupId'            => 'GroupId',
+        'keywordCompatible'  => 'KeywordCompatible',
+        'lang'               => 'Lang',
+        'matchType'          => 'MatchType',
+        'name'               => 'Name',
+        'pageSize'           => 'PageSize',
+        'productCode'        => 'ProductCode',
+        'productId'          => 'ProductId',
+        'riskLevelId'        => 'RiskLevelId',
+        'ruleType'           => 'RuleType',
+        'simplify'           => 'Simplify',
+        'status'             => 'Status',
+        'supportForm'        => 'SupportForm',
+        'warnLevel'          => 'WarnLevel',
     ];
 
     public function validate()
@@ -241,6 +253,9 @@ class DescribeRulesRequest extends Model
         }
         if (null !== $this->contentCategory) {
             $res['ContentCategory'] = $this->contentCategory;
+        }
+        if (null !== $this->cooperationChannel) {
+            $res['CooperationChannel'] = $this->cooperationChannel;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -281,6 +296,9 @@ class DescribeRulesRequest extends Model
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
+        if (null !== $this->simplify) {
+            $res['Simplify'] = $this->simplify;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -307,6 +325,9 @@ class DescribeRulesRequest extends Model
         }
         if (isset($map['ContentCategory'])) {
             $model->contentCategory = $map['ContentCategory'];
+        }
+        if (isset($map['CooperationChannel'])) {
+            $model->cooperationChannel = $map['CooperationChannel'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
@@ -346,6 +367,9 @@ class DescribeRulesRequest extends Model
         }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['Simplify'])) {
+            $model->simplify = $map['Simplify'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
