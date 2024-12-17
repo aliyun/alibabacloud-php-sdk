@@ -65,6 +65,8 @@ class SetWorkflowExtraInfoRequest extends Model
     public $tid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 184****
      *
      * @var int
