@@ -87,6 +87,11 @@ class qualityCheckList extends Model
      * @var string
      */
     public $ruleType;
+
+    /**
+     * @var mixed[]
+     */
+    public $subNodeCol;
     protected $_name = [
         'bizType'          => 'bizType',
         'checkExplanation' => 'checkExplanation',
@@ -101,6 +106,7 @@ class qualityCheckList extends Model
         'ruleDescription'  => 'ruleDescription',
         'ruleId'           => 'ruleId',
         'ruleType'         => 'ruleType',
+        'subNodeCol'       => 'subNodeCol',
     ];
 
     public function validate()
@@ -154,6 +160,9 @@ class qualityCheckList extends Model
         }
         if (null !== $this->ruleType) {
             $res['ruleType'] = $this->ruleType;
+        }
+        if (null !== $this->subNodeCol) {
+            $res['subNodeCol'] = $this->subNodeCol;
         }
 
         return $res;
@@ -211,6 +220,11 @@ class qualityCheckList extends Model
         }
         if (isset($map['ruleType'])) {
             $model->ruleType = $map['ruleType'];
+        }
+        if (isset($map['subNodeCol'])) {
+            if (!empty($map['subNodeCol'])) {
+                $model->subNodeCol = $map['subNodeCol'];
+            }
         }
 
         return $model;
