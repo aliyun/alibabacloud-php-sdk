@@ -673,6 +673,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $voucherTypeDesc;
+
+    /**
+     * @var string
+     */
     public $voyageName;
     protected $_name = [
         'advanceDay'             => 'advance_day',
@@ -779,6 +784,7 @@ class items extends Model
         'travelerName'           => 'traveler_name',
         'upgradeCost'            => 'upgrade_cost',
         'voucherType'            => 'voucher_type',
+        'voucherTypeDesc'        => 'voucher_type_desc',
         'voyageName'             => 'voyage_name',
     ];
 
@@ -1100,6 +1106,9 @@ class items extends Model
         }
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
+        }
+        if (null !== $this->voucherTypeDesc) {
+            $res['voucher_type_desc'] = $this->voucherTypeDesc;
         }
         if (null !== $this->voyageName) {
             $res['voyage_name'] = $this->voyageName;
@@ -1427,6 +1436,9 @@ class items extends Model
         }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voucher_type_desc'])) {
+            $model->voucherTypeDesc = $map['voucher_type_desc'];
         }
         if (isset($map['voyage_name'])) {
             $model->voyageName = $map['voyage_name'];

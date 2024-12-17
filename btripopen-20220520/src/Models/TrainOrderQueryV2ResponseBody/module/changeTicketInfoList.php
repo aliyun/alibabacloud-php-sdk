@@ -117,6 +117,11 @@ class changeTicketInfoList extends Model
     public $segmentIndex;
 
     /**
+     * @var string
+     */
+    public $shortTicketNo;
+
+    /**
      * @example 2022-05-15T22:27Z
      *
      * @var string
@@ -182,6 +187,7 @@ class changeTicketInfoList extends Model
         'originTicketNo'      => 'origin_ticket_no',
         'outTicketStatus'     => 'out_ticket_status',
         'segmentIndex'        => 'segment_index',
+        'shortTicketNo'       => 'short_ticket_no',
         'startTime'           => 'start_time',
         'ticketEntrance'      => 'ticket_entrance',
         'ticketNo'            => 'ticket_no',
@@ -252,6 +258,9 @@ class changeTicketInfoList extends Model
         }
         if (null !== $this->segmentIndex) {
             $res['segment_index'] = $this->segmentIndex;
+        }
+        if (null !== $this->shortTicketNo) {
+            $res['short_ticket_no'] = $this->shortTicketNo;
         }
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
@@ -342,6 +351,9 @@ class changeTicketInfoList extends Model
         }
         if (isset($map['segment_index'])) {
             $model->segmentIndex = $map['segment_index'];
+        }
+        if (isset($map['short_ticket_no'])) {
+            $model->shortTicketNo = $map['short_ticket_no'];
         }
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];

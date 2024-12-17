@@ -78,6 +78,11 @@ class flightRefundTicketInfoList extends Model
     public $gmtModify;
 
     /**
+     * @var int
+     */
+    public $journeyIndex;
+
+    /**
      * @var string
      */
     public $outApplyId;
@@ -114,6 +119,11 @@ class flightRefundTicketInfoList extends Model
     public $refundType;
 
     /**
+     * @var int
+     */
+    public $segmentIndex;
+
+    /**
      * @example 000-13232
      *
      * @var string
@@ -133,12 +143,14 @@ class flightRefundTicketInfoList extends Model
         'flightNo'                => 'flight_no',
         'gmtCreate'               => 'gmt_create',
         'gmtModify'               => 'gmt_modify',
+        'journeyIndex'            => 'journey_index',
         'outApplyId'              => 'out_apply_id',
         'personalRefundTicketFee' => 'personal_refund_ticket_fee',
         'refundOrderId'           => 'refund_order_id',
         'refundReason'            => 'refund_reason',
         'refundTicketFee'         => 'refund_ticket_fee',
         'refundType'              => 'refund_type',
+        'segmentIndex'            => 'segment_index',
         'ticketNo'                => 'ticket_no',
     ];
 
@@ -188,6 +200,9 @@ class flightRefundTicketInfoList extends Model
         if (null !== $this->gmtModify) {
             $res['gmt_modify'] = $this->gmtModify;
         }
+        if (null !== $this->journeyIndex) {
+            $res['journey_index'] = $this->journeyIndex;
+        }
         if (null !== $this->outApplyId) {
             $res['out_apply_id'] = $this->outApplyId;
         }
@@ -205,6 +220,9 @@ class flightRefundTicketInfoList extends Model
         }
         if (null !== $this->refundType) {
             $res['refund_type'] = $this->refundType;
+        }
+        if (null !== $this->segmentIndex) {
+            $res['segment_index'] = $this->segmentIndex;
         }
         if (null !== $this->ticketNo) {
             $res['ticket_no'] = $this->ticketNo;
@@ -260,6 +278,9 @@ class flightRefundTicketInfoList extends Model
         if (isset($map['gmt_modify'])) {
             $model->gmtModify = $map['gmt_modify'];
         }
+        if (isset($map['journey_index'])) {
+            $model->journeyIndex = $map['journey_index'];
+        }
         if (isset($map['out_apply_id'])) {
             $model->outApplyId = $map['out_apply_id'];
         }
@@ -277,6 +298,9 @@ class flightRefundTicketInfoList extends Model
         }
         if (isset($map['refund_type'])) {
             $model->refundType = $map['refund_type'];
+        }
+        if (isset($map['segment_index'])) {
+            $model->segmentIndex = $map['segment_index'];
         }
         if (isset($map['ticket_no'])) {
             $model->ticketNo = $map['ticket_no'];

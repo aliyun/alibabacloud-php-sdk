@@ -16,8 +16,6 @@ class HotelOrderChangeDetailRequest extends Model
     public $btripUserId;
 
     /**
-     * @description This parameter is required.
-     *
      * @example 21351235134
      *
      * @var string
@@ -25,8 +23,6 @@ class HotelOrderChangeDetailRequest extends Model
     public $changeOrderId;
 
     /**
-     * @description This parameter is required.
-     *
      * @example dis123
      *
      * @var string
@@ -34,8 +30,6 @@ class HotelOrderChangeDetailRequest extends Model
     public $disOrderId;
 
     /**
-     * @description This parameter is required.
-     *
      * @example 1402002197440511306
      *
      * @var string

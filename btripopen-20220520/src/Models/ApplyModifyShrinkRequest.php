@@ -88,6 +88,16 @@ class ApplyModifyShrinkRequest extends Model
     public $hotelShareShrink;
 
     /**
+     * @var int
+     */
+    public $intlFlightBudget;
+
+    /**
+     * @var int
+     */
+    public $intlHotelBudget;
+
+    /**
      * @example 0
      *
      * @var string
@@ -246,6 +256,8 @@ class ApplyModifyShrinkRequest extends Model
         'flightBudget'                   => 'flight_budget',
         'hotelBudget'                    => 'hotel_budget',
         'hotelShareShrink'               => 'hotel_share',
+        'intlFlightBudget'               => 'intl_flight_budget',
+        'intlHotelBudget'                => 'intl_hotel_budget',
         'itineraryListShrink'            => 'itinerary_list',
         'itineraryRule'                  => 'itinerary_rule',
         'itinerarySetListShrink'         => 'itinerary_set_list',
@@ -315,6 +327,12 @@ class ApplyModifyShrinkRequest extends Model
         }
         if (null !== $this->hotelShareShrink) {
             $res['hotel_share'] = $this->hotelShareShrink;
+        }
+        if (null !== $this->intlFlightBudget) {
+            $res['intl_flight_budget'] = $this->intlFlightBudget;
+        }
+        if (null !== $this->intlHotelBudget) {
+            $res['intl_hotel_budget'] = $this->intlHotelBudget;
         }
         if (null !== $this->itineraryListShrink) {
             $res['itinerary_list'] = $this->itineraryListShrink;
@@ -432,6 +450,12 @@ class ApplyModifyShrinkRequest extends Model
         }
         if (isset($map['hotel_share'])) {
             $model->hotelShareShrink = $map['hotel_share'];
+        }
+        if (isset($map['intl_flight_budget'])) {
+            $model->intlFlightBudget = $map['intl_flight_budget'];
+        }
+        if (isset($map['intl_hotel_budget'])) {
+            $model->intlHotelBudget = $map['intl_hotel_budget'];
         }
         if (isset($map['itinerary_list'])) {
             $model->itineraryListShrink = $map['itinerary_list'];

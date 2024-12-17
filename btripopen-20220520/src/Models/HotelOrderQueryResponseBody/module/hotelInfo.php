@@ -50,6 +50,16 @@ class hotelInfo extends Model
     /**
      * @var string
      */
+    public $countryCode;
+
+    /**
+     * @var string
+     */
+    public $countryName;
+
+    /**
+     * @var string
+     */
     public $hotelAddress;
 
     /**
@@ -95,6 +105,8 @@ class hotelInfo extends Model
         'checkOut'                   => 'check_out',
         'city'                       => 'city',
         'cityAdCode'                 => 'city_ad_code',
+        'countryCode'                => 'country_code',
+        'countryName'                => 'country_name',
         'hotelAddress'               => 'hotel_address',
         'hotelName'                  => 'hotel_name',
         'hotelPhone'                 => 'hotel_phone',
@@ -131,6 +143,12 @@ class hotelInfo extends Model
         }
         if (null !== $this->cityAdCode) {
             $res['city_ad_code'] = $this->cityAdCode;
+        }
+        if (null !== $this->countryCode) {
+            $res['country_code'] = $this->countryCode;
+        }
+        if (null !== $this->countryName) {
+            $res['country_name'] = $this->countryName;
         }
         if (null !== $this->hotelAddress) {
             $res['hotel_address'] = $this->hotelAddress;
@@ -185,6 +203,12 @@ class hotelInfo extends Model
         }
         if (isset($map['city_ad_code'])) {
             $model->cityAdCode = $map['city_ad_code'];
+        }
+        if (isset($map['country_code'])) {
+            $model->countryCode = $map['country_code'];
+        }
+        if (isset($map['country_name'])) {
+            $model->countryName = $map['country_name'];
         }
         if (isset($map['hotel_address'])) {
             $model->hotelAddress = $map['hotel_address'];

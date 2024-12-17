@@ -90,6 +90,11 @@ class trainTicketInfos extends Model
     /**
      * @var string
      */
+    public $shortTicketNo;
+
+    /**
+     * @var string
+     */
     public $startTime;
 
     /**
@@ -150,6 +155,7 @@ class trainTicketInfos extends Model
         'seatTypeName'    => 'seat_type_name',
         'segmentIndex'    => 'segment_index',
         'serviceFee'      => 'service_fee',
+        'shortTicketNo'   => 'short_ticket_no',
         'startTime'       => 'start_time',
         'ticketEntrance'  => 'ticket_entrance',
         'ticketNo'        => 'ticket_no',
@@ -205,6 +211,9 @@ class trainTicketInfos extends Model
         }
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
+        }
+        if (null !== $this->shortTicketNo) {
+            $res['short_ticket_no'] = $this->shortTicketNo;
         }
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
@@ -280,6 +289,9 @@ class trainTicketInfos extends Model
         }
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];
+        }
+        if (isset($map['short_ticket_no'])) {
+            $model->shortTicketNo = $map['short_ticket_no'];
         }
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];

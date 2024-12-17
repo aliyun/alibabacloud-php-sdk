@@ -151,6 +151,13 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\DepartmentSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryBatchApplyHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryBatchApplyRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryBatchApplyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryBatchApplyShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryGetApplyResultHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryGetApplyResultRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ElectronicItineraryGetApplyResultResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\EntityAddResponse;
@@ -242,6 +249,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailV2Response;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2Headers;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2Request;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2Response;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryV2ShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponse;
@@ -374,6 +385,13 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeFlightBillSettlementQueryRespo
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeHotelBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeHotelBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IeHotelBillSettlementQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderDetailQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderDetailQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderDetailQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderListQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderListQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderListQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IFlightOrderListQueryShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InsInvoiceScanQueryResponse;
@@ -493,6 +511,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryEmployeeDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryEmployeeDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryEmployeeDetailResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryGroupCorpListHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryGroupCorpListRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryGroupCorpListResponse;
@@ -820,6 +841,9 @@ class BtripOpen extends OpenApiClient
             $request->outDeptIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outDeptIdList, 'out_dept_id_list', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->attribute)) {
+            $body['attribute'] = $request->attribute;
+        }
         if (!Utils::isUnset($request->avatar)) {
             $body['avatar'] = $request->avatar;
         }
@@ -1351,6 +1375,12 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->internationalFlightCabins)) {
             $body['international_flight_cabins'] = $request->internationalFlightCabins;
         }
+        if (!Utils::isUnset($request->intlFlightBudget)) {
+            $body['intl_flight_budget'] = $request->intlFlightBudget;
+        }
+        if (!Utils::isUnset($request->intlHotelBudget)) {
+            $body['intl_hotel_budget'] = $request->intlHotelBudget;
+        }
         if (!Utils::isUnset($request->itineraryListShrink)) {
             $body['itinerary_list'] = $request->itineraryListShrink;
         }
@@ -1839,6 +1869,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->hotelShareShrink)) {
             $body['hotel_share'] = $request->hotelShareShrink;
+        }
+        if (!Utils::isUnset($request->intlFlightBudget)) {
+            $body['intl_flight_budget'] = $request->intlFlightBudget;
+        }
+        if (!Utils::isUnset($request->intlHotelBudget)) {
+            $body['intl_hotel_budget'] = $request->intlHotelBudget;
         }
         if (!Utils::isUnset($request->itineraryListShrink)) {
             $body['itinerary_list'] = $request->itineraryListShrink;
@@ -4094,6 +4130,128 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 批量申请电子行程单
+     *  *
+     * @param ElectronicItineraryBatchApplyRequest $tmpReq  ElectronicItineraryBatchApplyRequest
+     * @param ElectronicItineraryBatchApplyHeaders $headers ElectronicItineraryBatchApplyHeaders
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ElectronicItineraryBatchApplyResponse ElectronicItineraryBatchApplyResponse
+     */
+    public function electronicItineraryBatchApplyWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ElectronicItineraryBatchApplyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applyItineraryList)) {
+            $request->applyItineraryListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applyItineraryList, 'apply_itinerary_list', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applyItineraryListShrink)) {
+            $body['apply_itinerary_list'] = $request->applyItineraryListShrink;
+        }
+        if (!Utils::isUnset($request->canReprint)) {
+            $body['can_reprint'] = $request->canReprint;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ElectronicItineraryBatchApply',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/invoice/v1/apply-itinerary-batch-task',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ElectronicItineraryBatchApplyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量申请电子行程单
+     *  *
+     * @param ElectronicItineraryBatchApplyRequest $request ElectronicItineraryBatchApplyRequest
+     *
+     * @return ElectronicItineraryBatchApplyResponse ElectronicItineraryBatchApplyResponse
+     */
+    public function electronicItineraryBatchApply($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ElectronicItineraryBatchApplyHeaders([]);
+
+        return $this->electronicItineraryBatchApplyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取电子行程单申请结果
+     *  *
+     * @param ElectronicItineraryGetApplyResultRequest $request ElectronicItineraryGetApplyResultRequest
+     * @param ElectronicItineraryGetApplyResultHeaders $headers ElectronicItineraryGetApplyResultHeaders
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ElectronicItineraryGetApplyResultResponse ElectronicItineraryGetApplyResultResponse
+     */
+    public function electronicItineraryGetApplyResultWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->batchApplyNo)) {
+            $query['batch_apply_no'] = $request->batchApplyNo;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripSoCorpToken)) {
+            $realHeaders['x-acs-btrip-so-corp-token'] = Utils::toJSONString($headers->xAcsBtripSoCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ElectronicItineraryGetApplyResult',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/invoice/v1/get-itinerary-batch-task',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ElectronicItineraryGetApplyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取电子行程单申请结果
+     *  *
+     * @param ElectronicItineraryGetApplyResultRequest $request ElectronicItineraryGetApplyResultRequest
+     *
+     * @return ElectronicItineraryGetApplyResultResponse ElectronicItineraryGetApplyResultResponse
+     */
+    public function electronicItineraryGetApplyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new ElectronicItineraryGetApplyResultHeaders([]);
+
+        return $this->electronicItineraryGetApplyResultWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 增加成本中心人员信息
      *  *
      * @param EntityAddRequest $tmpReq  EntityAddRequest
@@ -6123,6 +6281,110 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightOrderListQueryHeaders([]);
 
         return $this->flightOrderListQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 机票订单列表查询
+     *  *
+     * @param FlightOrderListQueryV2Request $tmpReq  FlightOrderListQueryV2Request
+     * @param FlightOrderListQueryV2Headers $headers FlightOrderListQueryV2Headers
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return FlightOrderListQueryV2Response FlightOrderListQueryV2Response
+     */
+    public function flightOrderListQueryV2WithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FlightOrderListQueryV2ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->approveId)) {
+            $request->approveIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->approveId, 'approve_id', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->bookerId)) {
+            $request->bookerIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookerId, 'booker_id', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->departId)) {
+            $request->departIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->departId, 'depart_id', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->supplier)) {
+            $request->supplierShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->supplier, 'supplier', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->thirdpartApproveId)) {
+            $request->thirdpartApproveIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdpartApproveId, 'thirdpart_approve_id', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->approveIdShrink)) {
+            $query['approve_id'] = $request->approveIdShrink;
+        }
+        if (!Utils::isUnset($request->bookerIdShrink)) {
+            $query['booker_id'] = $request->bookerIdShrink;
+        }
+        if (!Utils::isUnset($request->departIdShrink)) {
+            $query['depart_id'] = $request->departIdShrink;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['end_date'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_Size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['start_date'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->supplierShrink)) {
+            $query['supplier'] = $request->supplierShrink;
+        }
+        if (!Utils::isUnset($request->thirdpartApproveIdShrink)) {
+            $query['thirdpart_approve_id'] = $request->thirdpartApproveIdShrink;
+        }
+        if (!Utils::isUnset($request->updateEndDate)) {
+            $query['update_end_date'] = $request->updateEndDate;
+        }
+        if (!Utils::isUnset($request->updateStartDate)) {
+            $query['update_start_date'] = $request->updateStartDate;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightOrderListQueryV2',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/open/v2/Flight-order-list-query',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightOrderListQueryV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 机票订单列表查询
+     *  *
+     * @param FlightOrderListQueryV2Request $request FlightOrderListQueryV2Request
+     *
+     * @return FlightOrderListQueryV2Response FlightOrderListQueryV2Response
+     */
+    public function flightOrderListQueryV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightOrderListQueryV2Headers([]);
+
+        return $this->flightOrderListQueryV2WithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8257,6 +8519,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->applyId)) {
             $query['apply_id'] = $request->applyId;
         }
+        if (!Utils::isUnset($request->category)) {
+            $query['category'] = $request->category;
+        }
         if (!Utils::isUnset($request->departId)) {
             $query['depart_id'] = $request->departId;
         }
@@ -8957,6 +9222,155 @@ class BtripOpen extends OpenApiClient
         $headers = new HotelSuggestV2Headers([]);
 
         return $this->hotelSuggestV2WithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 国际机票订单详情
+     *  *
+     * @param IFlightOrderDetailQueryRequest $request IFlightOrderDetailQueryRequest
+     * @param IFlightOrderDetailQueryHeaders $headers IFlightOrderDetailQueryHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return IFlightOrderDetailQueryResponse IFlightOrderDetailQueryResponse
+     */
+    public function iFlightOrderDetailQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_id'] = $request->orderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IFlightOrderDetailQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/open/v1/intlFlight-order-detail-query',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IFlightOrderDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 国际机票订单详情
+     *  *
+     * @param IFlightOrderDetailQueryRequest $request IFlightOrderDetailQueryRequest
+     *
+     * @return IFlightOrderDetailQueryResponse IFlightOrderDetailQueryResponse
+     */
+    public function iFlightOrderDetailQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IFlightOrderDetailQueryHeaders([]);
+
+        return $this->iFlightOrderDetailQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 国际机票订单列表
+     *  *
+     * @param IFlightOrderListQueryRequest $tmpReq  IFlightOrderListQueryRequest
+     * @param IFlightOrderListQueryHeaders $headers IFlightOrderListQueryHeaders
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return IFlightOrderListQueryResponse IFlightOrderListQueryResponse
+     */
+    public function iFlightOrderListQueryWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new IFlightOrderListQueryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applyIdList)) {
+            $request->applyIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applyIdList, 'apply_id_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->bookTypeList)) {
+            $request->bookTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookTypeList, 'book_type_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->bookerId)) {
+            $request->bookerIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookerId, 'booker_id', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->thirdPartApplyIdList)) {
+            $request->thirdPartApplyIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thirdPartApplyIdList, 'third_part_apply_id_list', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->applyIdListShrink)) {
+            $query['apply_id_list'] = $request->applyIdListShrink;
+        }
+        if (!Utils::isUnset($request->bookTypeListShrink)) {
+            $query['book_type_list'] = $request->bookTypeListShrink;
+        }
+        if (!Utils::isUnset($request->bookerIdShrink)) {
+            $query['booker_id'] = $request->bookerIdShrink;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['end_date'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['start_date'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->thirdPartApplyIdListShrink)) {
+            $query['third_part_apply_id_list'] = $request->thirdPartApplyIdListShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'IFlightOrderListQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/open/v1/intlFlight-order-list-query',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return IFlightOrderListQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 国际机票订单列表
+     *  *
+     * @param IFlightOrderListQueryRequest $request IFlightOrderListQueryRequest
+     *
+     * @return IFlightOrderListQueryResponse IFlightOrderListQueryResponse
+     */
+    public function iFlightOrderListQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new IFlightOrderListQueryHeaders([]);
+
+        return $this->iFlightOrderListQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -11669,6 +12083,63 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 获取单个员工信息
+     *  *
+     * @param QueryEmployeeDetailRequest $request QueryEmployeeDetailRequest
+     * @param QueryEmployeeDetailHeaders $headers QueryEmployeeDetailHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryEmployeeDetailResponse QueryEmployeeDetailResponse
+     */
+    public function queryEmployeeDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outEmployeeId)) {
+            $query['out_employee_id'] = $request->outEmployeeId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryEmployeeDetail',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/user/v1/employeeDetail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryEmployeeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取单个员工信息
+     *  *
+     * @param QueryEmployeeDetailRequest $request QueryEmployeeDetailRequest
+     *
+     * @return QueryEmployeeDetailResponse QueryEmployeeDetailResponse
+     */
+    public function queryEmployeeDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryEmployeeDetailHeaders([]);
+
+        return $this->queryEmployeeDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询子企业列表
      *  *
      * @param QueryGroupCorpListRequest $request QueryGroupCorpListRequest
@@ -14292,6 +14763,9 @@ class BtripOpen extends OpenApiClient
             $request->outDeptIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->outDeptIdList, 'out_dept_id_list', 'json');
         }
         $body = [];
+        if (!Utils::isUnset($request->attribute)) {
+            $body['attribute'] = $request->attribute;
+        }
         if (!Utils::isUnset($request->avatar)) {
             $body['avatar'] = $request->avatar;
         }

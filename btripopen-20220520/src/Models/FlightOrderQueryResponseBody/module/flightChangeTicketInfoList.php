@@ -134,6 +134,11 @@ class flightChangeTicketInfoList extends Model
     public $gmtModify;
 
     /**
+     * @var int
+     */
+    public $journeyIndex;
+
+    /**
      * @example 00-123123
      *
      * @var string
@@ -144,6 +149,11 @@ class flightChangeTicketInfoList extends Model
      * @var string
      */
     public $outApplyId;
+
+    /**
+     * @var int
+     */
+    public $segmentIndex;
 
     /**
      * @var string
@@ -195,8 +205,10 @@ class flightChangeTicketInfoList extends Model
         'discount'         => 'discount',
         'gmtCreate'        => 'gmt_create',
         'gmtModify'        => 'gmt_modify',
+        'journeyIndex'     => 'journey_index',
         'originTicketNo'   => 'origin_ticket_no',
         'outApplyId'       => 'out_apply_id',
+        'segmentIndex'     => 'segment_index',
         'stopCity'         => 'stop_city',
         'ticketNo'         => 'ticket_no',
         'ticketStatus'     => 'ticket_status',
@@ -274,11 +286,17 @@ class flightChangeTicketInfoList extends Model
         if (null !== $this->gmtModify) {
             $res['gmt_modify'] = $this->gmtModify;
         }
+        if (null !== $this->journeyIndex) {
+            $res['journey_index'] = $this->journeyIndex;
+        }
         if (null !== $this->originTicketNo) {
             $res['origin_ticket_no'] = $this->originTicketNo;
         }
         if (null !== $this->outApplyId) {
             $res['out_apply_id'] = $this->outApplyId;
+        }
+        if (null !== $this->segmentIndex) {
+            $res['segment_index'] = $this->segmentIndex;
         }
         if (null !== $this->stopCity) {
             $res['stop_city'] = $this->stopCity;
@@ -370,11 +388,17 @@ class flightChangeTicketInfoList extends Model
         if (isset($map['gmt_modify'])) {
             $model->gmtModify = $map['gmt_modify'];
         }
+        if (isset($map['journey_index'])) {
+            $model->journeyIndex = $map['journey_index'];
+        }
         if (isset($map['origin_ticket_no'])) {
             $model->originTicketNo = $map['origin_ticket_no'];
         }
         if (isset($map['out_apply_id'])) {
             $model->outApplyId = $map['out_apply_id'];
+        }
+        if (isset($map['segment_index'])) {
+            $model->segmentIndex = $map['segment_index'];
         }
         if (isset($map['stop_city'])) {
             $model->stopCity = $map['stop_city'];

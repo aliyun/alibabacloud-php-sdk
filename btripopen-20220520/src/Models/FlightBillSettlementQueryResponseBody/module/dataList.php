@@ -117,6 +117,11 @@ class dataList extends Model
     public $billRecordTime;
 
     /**
+     * @var string
+     */
+    public $bookMode;
+
+    /**
      * @example 2021-10-01 00:17:05
      *
      * @var string
@@ -193,6 +198,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $changeReasonCode;
+
+    /**
+     * @var string
+     */
     public $changeResult;
 
     /**
@@ -225,6 +235,11 @@ class dataList extends Model
      * @var float
      */
     public $coupon;
+
+    /**
+     * @var float
+     */
+    public $deductibleTax;
 
     /**
      * @example KHN
@@ -399,6 +414,11 @@ class dataList extends Model
     public $negotiationCouponFee;
 
     /**
+     * @var string
+     */
+    public $offlineStatus;
+
+    /**
      * @example 0
      *
      * @var float
@@ -474,6 +494,11 @@ class dataList extends Model
      * @var float
      */
     public $refundFee;
+
+    /**
+     * @var string
+     */
+    public $refundReasonCode;
 
     /**
      * @var string
@@ -621,6 +646,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $voucherTypeDesc;
+
+    /**
+     * @var string
+     */
     public $voyageName;
     protected $_name = [
         'advanceDay'             => 'advance_day',
@@ -641,6 +671,7 @@ class dataList extends Model
         'arrStation'             => 'arr_station',
         'arrTime'                => 'arr_time',
         'billRecordTime'         => 'bill_record_time',
+        'bookMode'               => 'book_mode',
         'bookTime'               => 'book_time',
         'bookerId'               => 'booker_id',
         'bookerJobNo'            => 'booker_job_no',
@@ -653,12 +684,14 @@ class dataList extends Model
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
         'changeFee'              => 'change_fee',
+        'changeReasonCode'       => 'change_reason_code',
         'changeResult'           => 'change_result',
         'corpPayOrderFee'        => 'corp_pay_order_fee',
         'corpSettlePrice'        => 'corp_settle_price',
         'costCenter'             => 'cost_center',
         'costCenterNumber'       => 'cost_center_number',
         'coupon'                 => 'coupon',
+        'deductibleTax'          => 'deductible_tax',
         'depAirportCode'         => 'dep_airport_code',
         'depCityCode'            => 'dep_city_code',
         'department'             => 'department',
@@ -687,6 +720,7 @@ class dataList extends Model
         'mostDifferenceReason'   => 'most_difference_reason',
         'mostPrice'              => 'most_price',
         'negotiationCouponFee'   => 'negotiation_coupon_fee',
+        'offlineStatus'          => 'offline_status',
         'oilFee'                 => 'oil_fee',
         'orderId'                => 'order_id',
         'overApplyId'            => 'over_apply_id',
@@ -700,6 +734,7 @@ class dataList extends Model
         'refundAffiliateNo'      => 'refund_affiliate_no',
         'refundApplyId'          => 'refund_apply_id',
         'refundFee'              => 'refund_fee',
+        'refundReasonCode'       => 'refund_reason_code',
         'refundResult'           => 'refund_result',
         'refundUpgradeCost'      => 'refund_upgrade_cost',
         'remark'                 => 'remark',
@@ -723,6 +758,7 @@ class dataList extends Model
         'travelerName'           => 'traveler_name',
         'upgradeCost'            => 'upgrade_cost',
         'voucherType'            => 'voucher_type',
+        'voucherTypeDesc'        => 'voucher_type_desc',
         'voyageName'             => 'voyage_name',
     ];
 
@@ -787,6 +823,9 @@ class dataList extends Model
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
         }
+        if (null !== $this->bookMode) {
+            $res['book_mode'] = $this->bookMode;
+        }
         if (null !== $this->bookTime) {
             $res['book_time'] = $this->bookTime;
         }
@@ -823,6 +862,9 @@ class dataList extends Model
         if (null !== $this->changeFee) {
             $res['change_fee'] = $this->changeFee;
         }
+        if (null !== $this->changeReasonCode) {
+            $res['change_reason_code'] = $this->changeReasonCode;
+        }
         if (null !== $this->changeResult) {
             $res['change_result'] = $this->changeResult;
         }
@@ -840,6 +882,9 @@ class dataList extends Model
         }
         if (null !== $this->coupon) {
             $res['coupon'] = $this->coupon;
+        }
+        if (null !== $this->deductibleTax) {
+            $res['deductible_tax'] = $this->deductibleTax;
         }
         if (null !== $this->depAirportCode) {
             $res['dep_airport_code'] = $this->depAirportCode;
@@ -925,6 +970,9 @@ class dataList extends Model
         if (null !== $this->negotiationCouponFee) {
             $res['negotiation_coupon_fee'] = $this->negotiationCouponFee;
         }
+        if (null !== $this->offlineStatus) {
+            $res['offline_status'] = $this->offlineStatus;
+        }
         if (null !== $this->oilFee) {
             $res['oil_fee'] = $this->oilFee;
         }
@@ -963,6 +1011,9 @@ class dataList extends Model
         }
         if (null !== $this->refundFee) {
             $res['refund_fee'] = $this->refundFee;
+        }
+        if (null !== $this->refundReasonCode) {
+            $res['refund_reason_code'] = $this->refundReasonCode;
         }
         if (null !== $this->refundResult) {
             $res['refund_result'] = $this->refundResult;
@@ -1033,6 +1084,9 @@ class dataList extends Model
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
         }
+        if (null !== $this->voucherTypeDesc) {
+            $res['voucher_type_desc'] = $this->voucherTypeDesc;
+        }
         if (null !== $this->voyageName) {
             $res['voyage_name'] = $this->voyageName;
         }
@@ -1102,6 +1156,9 @@ class dataList extends Model
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
         }
+        if (isset($map['book_mode'])) {
+            $model->bookMode = $map['book_mode'];
+        }
         if (isset($map['book_time'])) {
             $model->bookTime = $map['book_time'];
         }
@@ -1138,6 +1195,9 @@ class dataList extends Model
         if (isset($map['change_fee'])) {
             $model->changeFee = $map['change_fee'];
         }
+        if (isset($map['change_reason_code'])) {
+            $model->changeReasonCode = $map['change_reason_code'];
+        }
         if (isset($map['change_result'])) {
             $model->changeResult = $map['change_result'];
         }
@@ -1155,6 +1215,9 @@ class dataList extends Model
         }
         if (isset($map['coupon'])) {
             $model->coupon = $map['coupon'];
+        }
+        if (isset($map['deductible_tax'])) {
+            $model->deductibleTax = $map['deductible_tax'];
         }
         if (isset($map['dep_airport_code'])) {
             $model->depAirportCode = $map['dep_airport_code'];
@@ -1240,6 +1303,9 @@ class dataList extends Model
         if (isset($map['negotiation_coupon_fee'])) {
             $model->negotiationCouponFee = $map['negotiation_coupon_fee'];
         }
+        if (isset($map['offline_status'])) {
+            $model->offlineStatus = $map['offline_status'];
+        }
         if (isset($map['oil_fee'])) {
             $model->oilFee = $map['oil_fee'];
         }
@@ -1278,6 +1344,9 @@ class dataList extends Model
         }
         if (isset($map['refund_fee'])) {
             $model->refundFee = $map['refund_fee'];
+        }
+        if (isset($map['refund_reason_code'])) {
+            $model->refundReasonCode = $map['refund_reason_code'];
         }
         if (isset($map['refund_result'])) {
             $model->refundResult = $map['refund_result'];
@@ -1347,6 +1416,9 @@ class dataList extends Model
         }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voucher_type_desc'])) {
+            $model->voucherTypeDesc = $map['voucher_type_desc'];
         }
         if (isset($map['voyage_name'])) {
             $model->voyageName = $map['voyage_name'];

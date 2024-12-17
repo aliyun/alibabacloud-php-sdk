@@ -30,8 +30,6 @@ class UpdateDepartmentShrinkRequest extends Model
     public $outDeptId;
 
     /**
-     * @description This parameter is required.
-     *
      * @example dept456
      *
      * @var string

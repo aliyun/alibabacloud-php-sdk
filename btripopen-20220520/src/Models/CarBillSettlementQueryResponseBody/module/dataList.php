@@ -166,6 +166,11 @@ class dataList extends Model
     public $couponPrice;
 
     /**
+     * @var float
+     */
+    public $deductibleTax;
+
+    /**
      * @var string
      */
     public $depCityCode;
@@ -462,11 +467,26 @@ class dataList extends Model
     public $userConfirmDesc;
 
     /**
+     * @var string
+     */
+    public $vehicleSceneId;
+
+    /**
+     * @var string
+     */
+    public $vehicleSceneName;
+
+    /**
      * @example 11
      *
      * @var int
      */
     public $voucherType;
+
+    /**
+     * @var string
+     */
+    public $voucherTypeDesc;
     protected $_name = [
         'alipayTradeNo'          => 'alipay_trade_no',
         'applyArrCityCode'       => 'apply_arr_city_code',
@@ -495,6 +515,7 @@ class dataList extends Model
         'costCenterNumber'       => 'cost_center_number',
         'coupon'                 => 'coupon',
         'couponPrice'            => 'coupon_price',
+        'deductibleTax'          => 'deductible_tax',
         'depCityCode'            => 'dep_city_code',
         'department'             => 'department',
         'departmentId'           => 'department_id',
@@ -545,7 +566,10 @@ class dataList extends Model
         'travelerMemberTypeName' => 'traveler_member_type_name',
         'travelerName'           => 'traveler_name',
         'userConfirmDesc'        => 'user_confirm_desc',
+        'vehicleSceneId'         => 'vehicle_scene_id',
+        'vehicleSceneName'       => 'vehicle_scene_name',
         'voucherType'            => 'voucher_type',
+        'voucherTypeDesc'        => 'voucher_type_desc',
     ];
 
     public function validate()
@@ -635,6 +659,9 @@ class dataList extends Model
         }
         if (null !== $this->couponPrice) {
             $res['coupon_price'] = $this->couponPrice;
+        }
+        if (null !== $this->deductibleTax) {
+            $res['deductible_tax'] = $this->deductibleTax;
         }
         if (null !== $this->depCityCode) {
             $res['dep_city_code'] = $this->depCityCode;
@@ -786,8 +813,17 @@ class dataList extends Model
         if (null !== $this->userConfirmDesc) {
             $res['user_confirm_desc'] = $this->userConfirmDesc;
         }
+        if (null !== $this->vehicleSceneId) {
+            $res['vehicle_scene_id'] = $this->vehicleSceneId;
+        }
+        if (null !== $this->vehicleSceneName) {
+            $res['vehicle_scene_name'] = $this->vehicleSceneName;
+        }
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
+        }
+        if (null !== $this->voucherTypeDesc) {
+            $res['voucher_type_desc'] = $this->voucherTypeDesc;
         }
 
         return $res;
@@ -881,6 +917,9 @@ class dataList extends Model
         }
         if (isset($map['coupon_price'])) {
             $model->couponPrice = $map['coupon_price'];
+        }
+        if (isset($map['deductible_tax'])) {
+            $model->deductibleTax = $map['deductible_tax'];
         }
         if (isset($map['dep_city_code'])) {
             $model->depCityCode = $map['dep_city_code'];
@@ -1032,8 +1071,17 @@ class dataList extends Model
         if (isset($map['user_confirm_desc'])) {
             $model->userConfirmDesc = $map['user_confirm_desc'];
         }
+        if (isset($map['vehicle_scene_id'])) {
+            $model->vehicleSceneId = $map['vehicle_scene_id'];
+        }
+        if (isset($map['vehicle_scene_name'])) {
+            $model->vehicleSceneName = $map['vehicle_scene_name'];
+        }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voucher_type_desc'])) {
+            $model->voucherTypeDesc = $map['voucher_type_desc'];
         }
 
         return $model;

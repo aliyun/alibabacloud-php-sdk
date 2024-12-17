@@ -25,6 +25,11 @@ class module extends Model
     public $btripTitle;
 
     /**
+     * @var int
+     */
+    public $category;
+
+    /**
      * @example 2022-05-15T22:27Z
      *
      * @var string
@@ -67,6 +72,16 @@ class module extends Model
      * @var costCenter
      */
     public $costCenter;
+
+    /**
+     * @var string
+     */
+    public $countryCode;
+
+    /**
+     * @var string
+     */
+    public $countryName;
 
     /**
      * @var string
@@ -194,6 +209,11 @@ class module extends Model
     public $roomType;
 
     /**
+     * @var string
+     */
+    public $supplier;
+
+    /**
      * @example CS-THIRDAPPLY
      *
      * @var string
@@ -236,6 +256,7 @@ class module extends Model
     protected $_name = [
         'applyId'                    => 'apply_id',
         'btripTitle'                 => 'btrip_title',
+        'category'                   => 'category',
         'checkIn'                    => 'check_in',
         'checkOut'                   => 'check_out',
         'city'                       => 'city',
@@ -244,6 +265,8 @@ class module extends Model
         'corpId'                     => 'corp_id',
         'corpName'                   => 'corp_name',
         'costCenter'                 => 'cost_center',
+        'countryCode'                => 'country_code',
+        'countryName'                => 'country_name',
         'departId'                   => 'depart_id',
         'departName'                 => 'depart_name',
         'extendField'                => 'extend_field',
@@ -265,6 +288,7 @@ class module extends Model
         'projectTitle'               => 'project_title',
         'roomNum'                    => 'room_num',
         'roomType'                   => 'room_type',
+        'supplier'                   => 'supplier',
         'thirdpartApplyId'           => 'thirdpart_apply_id',
         'thirdpartBusinessId'        => 'thirdpart_business_id',
         'thirdpartItineraryId'       => 'thirdpart_itinerary_id',
@@ -286,6 +310,9 @@ class module extends Model
         }
         if (null !== $this->btripTitle) {
             $res['btrip_title'] = $this->btripTitle;
+        }
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
         }
         if (null !== $this->checkIn) {
             $res['check_in'] = $this->checkIn;
@@ -310,6 +337,12 @@ class module extends Model
         }
         if (null !== $this->costCenter) {
             $res['cost_center'] = null !== $this->costCenter ? $this->costCenter->toMap() : null;
+        }
+        if (null !== $this->countryCode) {
+            $res['country_code'] = $this->countryCode;
+        }
+        if (null !== $this->countryName) {
+            $res['country_name'] = $this->countryName;
         }
         if (null !== $this->departId) {
             $res['depart_id'] = $this->departId;
@@ -380,6 +413,9 @@ class module extends Model
         if (null !== $this->roomType) {
             $res['room_type'] = $this->roomType;
         }
+        if (null !== $this->supplier) {
+            $res['supplier'] = $this->supplier;
+        }
         if (null !== $this->thirdpartApplyId) {
             $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
         }
@@ -425,6 +461,9 @@ class module extends Model
         if (isset($map['btrip_title'])) {
             $model->btripTitle = $map['btrip_title'];
         }
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
+        }
         if (isset($map['check_in'])) {
             $model->checkIn = $map['check_in'];
         }
@@ -448,6 +487,12 @@ class module extends Model
         }
         if (isset($map['cost_center'])) {
             $model->costCenter = costCenter::fromMap($map['cost_center']);
+        }
+        if (isset($map['country_code'])) {
+            $model->countryCode = $map['country_code'];
+        }
+        if (isset($map['country_name'])) {
+            $model->countryName = $map['country_name'];
         }
         if (isset($map['depart_id'])) {
             $model->departId = $map['depart_id'];
@@ -517,6 +562,9 @@ class module extends Model
         }
         if (isset($map['room_type'])) {
             $model->roomType = $map['room_type'];
+        }
+        if (isset($map['supplier'])) {
+            $model->supplier = $map['supplier'];
         }
         if (isset($map['thirdpart_apply_id'])) {
             $model->thirdpartApplyId = $map['thirdpart_apply_id'];

@@ -18,9 +18,21 @@ class btripHotelCancelPolicyDTO extends Model
      * @var int
      */
     public $cancelPolicyType;
+
+    /**
+     * @var string
+     */
+    public $content;
+
+    /**
+     * @var string
+     */
+    public $shortDesc;
     protected $_name = [
         'btripHotelCancelPolicyInfoDTOList' => 'btrip_hotel_cancel_policy_info_d_t_o_list',
         'cancelPolicyType'                  => 'cancel_policy_type',
+        'content'                           => 'content',
+        'shortDesc'                         => 'short_desc',
     ];
 
     public function validate()
@@ -41,6 +53,12 @@ class btripHotelCancelPolicyDTO extends Model
         }
         if (null !== $this->cancelPolicyType) {
             $res['cancel_policy_type'] = $this->cancelPolicyType;
+        }
+        if (null !== $this->content) {
+            $res['content'] = $this->content;
+        }
+        if (null !== $this->shortDesc) {
+            $res['short_desc'] = $this->shortDesc;
         }
 
         return $res;
@@ -65,6 +83,12 @@ class btripHotelCancelPolicyDTO extends Model
         }
         if (isset($map['cancel_policy_type'])) {
             $model->cancelPolicyType = $map['cancel_policy_type'];
+        }
+        if (isset($map['content'])) {
+            $model->content = $map['content'];
+        }
+        if (isset($map['short_desc'])) {
+            $model->shortDesc = $map['short_desc'];
         }
 
         return $model;

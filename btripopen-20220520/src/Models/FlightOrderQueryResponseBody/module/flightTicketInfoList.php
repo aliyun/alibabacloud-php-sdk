@@ -19,6 +19,16 @@ class flightTicketInfoList extends Model
     public $arrAirportCode;
 
     /**
+     * @var string
+     */
+    public $arrCity;
+
+    /**
+     * @var string
+     */
+    public $arrCityCode;
+
+    /**
      * @example 100
      *
      * @var float
@@ -41,6 +51,16 @@ class flightTicketInfoList extends Model
      * @var string
      */
     public $depAirportCode;
+
+    /**
+     * @var string
+     */
+    public $depCity;
+
+    /**
+     * @var string
+     */
+    public $depCityCode;
 
     /**
      * @example 10
@@ -69,6 +89,11 @@ class flightTicketInfoList extends Model
     public $gmtModify;
 
     /**
+     * @var int
+     */
+    public $journeyIndex;
+
+    /**
      * @example 100
      *
      * @var float
@@ -86,6 +111,11 @@ class flightTicketInfoList extends Model
      * @var float
      */
     public $personalPrice;
+
+    /**
+     * @var int
+     */
+    public $segmentIndex;
 
     /**
      * @example 100
@@ -129,17 +159,23 @@ class flightTicketInfoList extends Model
     protected $_name = [
         'arrAirport'       => 'arr_airport',
         'arrAirportCode'   => 'arr_airport_code',
+        'arrCity'          => 'arr_city',
+        'arrCityCode'      => 'arr_city_code',
         'buildPrice'       => 'build_price',
         'changed'          => 'changed',
         'depAirport'       => 'dep_airport',
         'depAirportCode'   => 'dep_airport_code',
+        'depCity'          => 'dep_city',
+        'depCityCode'      => 'dep_city_code',
         'discount'         => 'discount',
         'flightNo'         => 'flight_no',
         'gmtCreate'        => 'gmt_create',
         'gmtModify'        => 'gmt_modify',
+        'journeyIndex'     => 'journey_index',
         'oilPrice'         => 'oil_price',
         'payType'          => 'pay_type',
         'personalPrice'    => 'personal_price',
+        'segmentIndex'     => 'segment_index',
         'settlePrice'      => 'settle_price',
         'ticketNo'         => 'ticket_no',
         'ticketPrice'      => 'ticket_price',
@@ -161,6 +197,12 @@ class flightTicketInfoList extends Model
         if (null !== $this->arrAirportCode) {
             $res['arr_airport_code'] = $this->arrAirportCode;
         }
+        if (null !== $this->arrCity) {
+            $res['arr_city'] = $this->arrCity;
+        }
+        if (null !== $this->arrCityCode) {
+            $res['arr_city_code'] = $this->arrCityCode;
+        }
         if (null !== $this->buildPrice) {
             $res['build_price'] = $this->buildPrice;
         }
@@ -172,6 +214,12 @@ class flightTicketInfoList extends Model
         }
         if (null !== $this->depAirportCode) {
             $res['dep_airport_code'] = $this->depAirportCode;
+        }
+        if (null !== $this->depCity) {
+            $res['dep_city'] = $this->depCity;
+        }
+        if (null !== $this->depCityCode) {
+            $res['dep_city_code'] = $this->depCityCode;
         }
         if (null !== $this->discount) {
             $res['discount'] = $this->discount;
@@ -185,6 +233,9 @@ class flightTicketInfoList extends Model
         if (null !== $this->gmtModify) {
             $res['gmt_modify'] = $this->gmtModify;
         }
+        if (null !== $this->journeyIndex) {
+            $res['journey_index'] = $this->journeyIndex;
+        }
         if (null !== $this->oilPrice) {
             $res['oil_price'] = $this->oilPrice;
         }
@@ -193,6 +244,9 @@ class flightTicketInfoList extends Model
         }
         if (null !== $this->personalPrice) {
             $res['personal_price'] = $this->personalPrice;
+        }
+        if (null !== $this->segmentIndex) {
+            $res['segment_index'] = $this->segmentIndex;
         }
         if (null !== $this->settlePrice) {
             $res['settle_price'] = $this->settlePrice;
@@ -230,6 +284,12 @@ class flightTicketInfoList extends Model
         if (isset($map['arr_airport_code'])) {
             $model->arrAirportCode = $map['arr_airport_code'];
         }
+        if (isset($map['arr_city'])) {
+            $model->arrCity = $map['arr_city'];
+        }
+        if (isset($map['arr_city_code'])) {
+            $model->arrCityCode = $map['arr_city_code'];
+        }
         if (isset($map['build_price'])) {
             $model->buildPrice = $map['build_price'];
         }
@@ -241,6 +301,12 @@ class flightTicketInfoList extends Model
         }
         if (isset($map['dep_airport_code'])) {
             $model->depAirportCode = $map['dep_airport_code'];
+        }
+        if (isset($map['dep_city'])) {
+            $model->depCity = $map['dep_city'];
+        }
+        if (isset($map['dep_city_code'])) {
+            $model->depCityCode = $map['dep_city_code'];
         }
         if (isset($map['discount'])) {
             $model->discount = $map['discount'];
@@ -254,6 +320,9 @@ class flightTicketInfoList extends Model
         if (isset($map['gmt_modify'])) {
             $model->gmtModify = $map['gmt_modify'];
         }
+        if (isset($map['journey_index'])) {
+            $model->journeyIndex = $map['journey_index'];
+        }
         if (isset($map['oil_price'])) {
             $model->oilPrice = $map['oil_price'];
         }
@@ -262,6 +331,9 @@ class flightTicketInfoList extends Model
         }
         if (isset($map['personal_price'])) {
             $model->personalPrice = $map['personal_price'];
+        }
+        if (isset($map['segment_index'])) {
+            $model->segmentIndex = $map['segment_index'];
         }
         if (isset($map['settle_price'])) {
             $model->settlePrice = $map['settle_price'];

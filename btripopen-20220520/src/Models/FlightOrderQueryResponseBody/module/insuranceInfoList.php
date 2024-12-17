@@ -23,6 +23,11 @@ class insuranceInfoList extends Model
     public $insuranceNo;
 
     /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @example 1
      *
      * @var int
@@ -36,6 +41,7 @@ class insuranceInfoList extends Model
     protected $_name = [
         'amount'      => 'amount',
         'insuranceNo' => 'insurance_no',
+        'name'        => 'name',
         'status'      => 'status',
         'type'        => 'type',
     ];
@@ -52,6 +58,9 @@ class insuranceInfoList extends Model
         }
         if (null !== $this->insuranceNo) {
             $res['insurance_no'] = $this->insuranceNo;
+        }
+        if (null !== $this->name) {
+            $res['name'] = $this->name;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -76,6 +85,9 @@ class insuranceInfoList extends Model
         }
         if (isset($map['insurance_no'])) {
             $model->insuranceNo = $map['insurance_no'];
+        }
+        if (isset($map['name'])) {
+            $model->name = $map['name'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

@@ -74,6 +74,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $bookMode;
+
+    /**
+     * @var string
+     */
     public $bookReason;
 
     /**
@@ -196,6 +201,11 @@ class dataList extends Model
      * @var string
      */
     public $costCenterNumber;
+
+    /**
+     * @var float
+     */
+    public $deductibleTax;
 
     /**
      * @var string
@@ -379,6 +389,11 @@ class dataList extends Model
     public $promotionFee;
 
     /**
+     * @var float
+     */
+    public $recoverMoneyReceiptAmt;
+
+    /**
      * @var string
      */
     public $remark;
@@ -513,99 +528,114 @@ class dataList extends Model
     public $travelerName;
 
     /**
+     * @var string
+     */
+    public $unbookedLowestPriceReason;
+
+    /**
      * @example 11
      *
      * @var int
      */
     public $voucherType;
+
+    /**
+     * @var string
+     */
+    public $voucherTypeDesc;
     protected $_name = [
-        'agreementPromotionFee'  => 'agreement_promotion_fee',
-        'alipayTradeNo'          => 'alipay_trade_no',
-        'applyArrCityCode'       => 'apply_arr_city_code',
-        'applyArrCityName'       => 'apply_arr_city_name',
-        'applyDepCityCode'       => 'apply_dep_city_code',
-        'applyDepCityName'       => 'apply_dep_city_name',
-        'applyExtendField'       => 'apply_extend_field',
-        'applyId'                => 'apply_id',
-        'averageNights'          => 'average_nights',
-        'billRecordTime'         => 'bill_record_time',
-        'billingEntity'          => 'billing_entity',
-        'bookReason'             => 'book_reason',
-        'bookTime'               => 'book_time',
-        'bookerId'               => 'booker_id',
-        'bookerJobNo'            => 'booker_job_no',
-        'bookerName'             => 'booker_name',
-        'brandGroup'             => 'brand_group',
-        'brandName'              => 'brand_name',
-        'businessTripResult'     => 'business_trip_result',
-        'cancelOrModifyReason'   => 'cancel_or_modify_reason',
-        'cancelOrModifyScene'    => 'cancel_or_modify_scene',
-        'capitalDirection'       => 'capital_direction',
-        'cascadeDepartment'      => 'cascade_department',
-        'checkInDate'            => 'check_in_date',
-        'checkoutDate'           => 'checkout_date',
-        'city'                   => 'city',
-        'cityCode'               => 'city_code',
-        'cityCounty'             => 'city_county',
-        'cityCountyCode'         => 'city_county_code',
-        'corpRefundFee'          => 'corp_refund_fee',
-        'corpTotalFee'           => 'corp_total_fee',
-        'costCenter'             => 'cost_center',
-        'costCenterNumber'       => 'cost_center_number',
-        'department'             => 'department',
-        'departmentId'           => 'department_id',
-        'exceedReason'           => 'exceed_reason',
-        'feeType'                => 'fee_type',
-        'fees'                   => 'fees',
-        'fines'                  => 'fines',
-        'fuPointFee'             => 'fu_point_fee',
-        'hotelName'              => 'hotel_name',
-        'index'                  => 'index',
-        'insOrderId'             => 'ins_order_id',
-        'insuranceNumber'        => 'insurance_number',
-        'insurancePrice'         => 'insurance_price',
-        'insuranceProductName'   => 'insurance_product_name',
-        'invoiceTitle'           => 'invoice_title',
-        'isEarlyDeparture'       => 'is_early_departure',
-        'isNegotiation'          => 'is_negotiation',
-        'isShareStr'             => 'is_share_str',
-        'nights'                 => 'nights',
-        'orderId'                => 'order_id',
-        'orderPrice'             => 'order_price',
-        'orderType'              => 'order_type',
-        'originalReserveRule'    => 'original_reserve_rule',
-        'overApplyId'            => 'over_apply_id',
-        'paymentDepartmentId'    => 'payment_department_id',
-        'paymentDepartmentName'  => 'payment_department_name',
-        'personRefundFee'        => 'person_refund_fee',
-        'personSettlePrice'      => 'person_settle_price',
-        'primaryId'              => 'primary_id',
-        'projectCode'            => 'project_code',
-        'projectName'            => 'project_name',
-        'promotionFee'           => 'promotion_fee',
-        'remark'                 => 'remark',
-        'reserveRule'            => 'reserve_rule',
-        'roomNo'                 => 'room_no',
-        'roomNumber'             => 'room_number',
-        'roomPrice'              => 'room_price',
-        'roomType'               => 'room_type',
-        'sceneId'                => 'scene_id',
-        'sceneName'              => 'scene_name',
-        'serviceFee'             => 'service_fee',
-        'settlementFee'          => 'settlement_fee',
-        'settlementGrantFee'     => 'settlement_grant_fee',
-        'settlementTime'         => 'settlement_time',
-        'settlementType'         => 'settlement_type',
-        'star'                   => 'star',
-        'status'                 => 'status',
-        'taxRate'                => 'tax_rate',
-        'thirdItineraryId'       => 'third_itinerary_id',
-        'totalNights'            => 'total_nights',
-        'travelerId'             => 'traveler_id',
-        'travelerJobNo'          => 'traveler_job_no',
-        'travelerMemberTypeName' => 'traveler_member_type_name',
-        'travelerName'           => 'traveler_name',
-        'voucherType'            => 'voucher_type',
+        'agreementPromotionFee'     => 'agreement_promotion_fee',
+        'alipayTradeNo'             => 'alipay_trade_no',
+        'applyArrCityCode'          => 'apply_arr_city_code',
+        'applyArrCityName'          => 'apply_arr_city_name',
+        'applyDepCityCode'          => 'apply_dep_city_code',
+        'applyDepCityName'          => 'apply_dep_city_name',
+        'applyExtendField'          => 'apply_extend_field',
+        'applyId'                   => 'apply_id',
+        'averageNights'             => 'average_nights',
+        'billRecordTime'            => 'bill_record_time',
+        'billingEntity'             => 'billing_entity',
+        'bookMode'                  => 'book_mode',
+        'bookReason'                => 'book_reason',
+        'bookTime'                  => 'book_time',
+        'bookerId'                  => 'booker_id',
+        'bookerJobNo'               => 'booker_job_no',
+        'bookerName'                => 'booker_name',
+        'brandGroup'                => 'brand_group',
+        'brandName'                 => 'brand_name',
+        'businessTripResult'        => 'business_trip_result',
+        'cancelOrModifyReason'      => 'cancel_or_modify_reason',
+        'cancelOrModifyScene'       => 'cancel_or_modify_scene',
+        'capitalDirection'          => 'capital_direction',
+        'cascadeDepartment'         => 'cascade_department',
+        'checkInDate'               => 'check_in_date',
+        'checkoutDate'              => 'checkout_date',
+        'city'                      => 'city',
+        'cityCode'                  => 'city_code',
+        'cityCounty'                => 'city_county',
+        'cityCountyCode'            => 'city_county_code',
+        'corpRefundFee'             => 'corp_refund_fee',
+        'corpTotalFee'              => 'corp_total_fee',
+        'costCenter'                => 'cost_center',
+        'costCenterNumber'          => 'cost_center_number',
+        'deductibleTax'             => 'deductible_tax',
+        'department'                => 'department',
+        'departmentId'              => 'department_id',
+        'exceedReason'              => 'exceed_reason',
+        'feeType'                   => 'fee_type',
+        'fees'                      => 'fees',
+        'fines'                     => 'fines',
+        'fuPointFee'                => 'fu_point_fee',
+        'hotelName'                 => 'hotel_name',
+        'index'                     => 'index',
+        'insOrderId'                => 'ins_order_id',
+        'insuranceNumber'           => 'insurance_number',
+        'insurancePrice'            => 'insurance_price',
+        'insuranceProductName'      => 'insurance_product_name',
+        'invoiceTitle'              => 'invoice_title',
+        'isEarlyDeparture'          => 'is_early_departure',
+        'isNegotiation'             => 'is_negotiation',
+        'isShareStr'                => 'is_share_str',
+        'nights'                    => 'nights',
+        'orderId'                   => 'order_id',
+        'orderPrice'                => 'order_price',
+        'orderType'                 => 'order_type',
+        'originalReserveRule'       => 'original_reserve_rule',
+        'overApplyId'               => 'over_apply_id',
+        'paymentDepartmentId'       => 'payment_department_id',
+        'paymentDepartmentName'     => 'payment_department_name',
+        'personRefundFee'           => 'person_refund_fee',
+        'personSettlePrice'         => 'person_settle_price',
+        'primaryId'                 => 'primary_id',
+        'projectCode'               => 'project_code',
+        'projectName'               => 'project_name',
+        'promotionFee'              => 'promotion_fee',
+        'recoverMoneyReceiptAmt'    => 'recover_money_receipt_amt',
+        'remark'                    => 'remark',
+        'reserveRule'               => 'reserve_rule',
+        'roomNo'                    => 'room_no',
+        'roomNumber'                => 'room_number',
+        'roomPrice'                 => 'room_price',
+        'roomType'                  => 'room_type',
+        'sceneId'                   => 'scene_id',
+        'sceneName'                 => 'scene_name',
+        'serviceFee'                => 'service_fee',
+        'settlementFee'             => 'settlement_fee',
+        'settlementGrantFee'        => 'settlement_grant_fee',
+        'settlementTime'            => 'settlement_time',
+        'settlementType'            => 'settlement_type',
+        'star'                      => 'star',
+        'status'                    => 'status',
+        'taxRate'                   => 'tax_rate',
+        'thirdItineraryId'          => 'third_itinerary_id',
+        'totalNights'               => 'total_nights',
+        'travelerId'                => 'traveler_id',
+        'travelerJobNo'             => 'traveler_job_no',
+        'travelerMemberTypeName'    => 'traveler_member_type_name',
+        'travelerName'              => 'traveler_name',
+        'unbookedLowestPriceReason' => 'unbooked_lowest_price_reason',
+        'voucherType'               => 'voucher_type',
+        'voucherTypeDesc'           => 'voucher_type_desc',
     ];
 
     public function validate()
@@ -647,6 +677,9 @@ class dataList extends Model
         }
         if (null !== $this->billingEntity) {
             $res['billing_entity'] = $this->billingEntity;
+        }
+        if (null !== $this->bookMode) {
+            $res['book_mode'] = $this->bookMode;
         }
         if (null !== $this->bookReason) {
             $res['book_reason'] = $this->bookReason;
@@ -713,6 +746,9 @@ class dataList extends Model
         }
         if (null !== $this->costCenterNumber) {
             $res['cost_center_number'] = $this->costCenterNumber;
+        }
+        if (null !== $this->deductibleTax) {
+            $res['deductible_tax'] = $this->deductibleTax;
         }
         if (null !== $this->department) {
             $res['department'] = $this->department;
@@ -807,6 +843,9 @@ class dataList extends Model
         if (null !== $this->promotionFee) {
             $res['promotion_fee'] = $this->promotionFee;
         }
+        if (null !== $this->recoverMoneyReceiptAmt) {
+            $res['recover_money_receipt_amt'] = $this->recoverMoneyReceiptAmt;
+        }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
@@ -873,8 +912,14 @@ class dataList extends Model
         if (null !== $this->travelerName) {
             $res['traveler_name'] = $this->travelerName;
         }
+        if (null !== $this->unbookedLowestPriceReason) {
+            $res['unbooked_lowest_price_reason'] = $this->unbookedLowestPriceReason;
+        }
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
+        }
+        if (null !== $this->voucherTypeDesc) {
+            $res['voucher_type_desc'] = $this->voucherTypeDesc;
         }
 
         return $res;
@@ -920,6 +965,9 @@ class dataList extends Model
         }
         if (isset($map['billing_entity'])) {
             $model->billingEntity = $map['billing_entity'];
+        }
+        if (isset($map['book_mode'])) {
+            $model->bookMode = $map['book_mode'];
         }
         if (isset($map['book_reason'])) {
             $model->bookReason = $map['book_reason'];
@@ -986,6 +1034,9 @@ class dataList extends Model
         }
         if (isset($map['cost_center_number'])) {
             $model->costCenterNumber = $map['cost_center_number'];
+        }
+        if (isset($map['deductible_tax'])) {
+            $model->deductibleTax = $map['deductible_tax'];
         }
         if (isset($map['department'])) {
             $model->department = $map['department'];
@@ -1080,6 +1131,9 @@ class dataList extends Model
         if (isset($map['promotion_fee'])) {
             $model->promotionFee = $map['promotion_fee'];
         }
+        if (isset($map['recover_money_receipt_amt'])) {
+            $model->recoverMoneyReceiptAmt = $map['recover_money_receipt_amt'];
+        }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
         }
@@ -1146,8 +1200,14 @@ class dataList extends Model
         if (isset($map['traveler_name'])) {
             $model->travelerName = $map['traveler_name'];
         }
+        if (isset($map['unbooked_lowest_price_reason'])) {
+            $model->unbookedLowestPriceReason = $map['unbooked_lowest_price_reason'];
+        }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voucher_type_desc'])) {
+            $model->voucherTypeDesc = $map['voucher_type_desc'];
         }
 
         return $model;

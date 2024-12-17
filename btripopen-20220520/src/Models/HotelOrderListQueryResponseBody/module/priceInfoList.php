@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class priceInfoList extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @example 1
      *
      * @var int
@@ -62,6 +67,7 @@ class priceInfoList extends Model
      */
     public $type;
     protected $_name = [
+        'category'      => 'category',
         'categoryCode'  => 'category_code',
         'categoryType'  => 'category_type',
         'gmtCreate'     => 'gmt_create',
@@ -79,6 +85,9 @@ class priceInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
+        }
         if (null !== $this->categoryCode) {
             $res['category_code'] = $this->categoryCode;
         }
@@ -115,6 +124,9 @@ class priceInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
+        }
         if (isset($map['category_code'])) {
             $model->categoryCode = $map['category_code'];
         }

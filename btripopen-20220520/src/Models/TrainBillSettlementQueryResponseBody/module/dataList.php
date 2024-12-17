@@ -178,6 +178,11 @@ class dataList extends Model
     public $coupon;
 
     /**
+     * @var float
+     */
+    public $deductibleTax;
+
+    /**
      * @var string
      */
     public $depCityCode;
@@ -248,6 +253,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $longTicketNo;
+
+    /**
+     * @var string
+     */
     public $maxCabin;
 
     /**
@@ -263,6 +273,11 @@ class dataList extends Model
      * @var float
      */
     public $orderPrice;
+
+    /**
+     * @var string
+     */
+    public $orderTicketNo;
 
     /**
      * @example 534545345
@@ -492,6 +507,11 @@ class dataList extends Model
      * @var int
      */
     public $voucherType;
+
+    /**
+     * @var string
+     */
+    public $voucherTypeDesc;
     protected $_name = [
         'alipayTradeNo'          => 'alipay_trade_no',
         'applyArrCityCode'       => 'apply_arr_city_code',
@@ -522,6 +542,7 @@ class dataList extends Model
         'costCenter'             => 'cost_center',
         'costCenterNumber'       => 'cost_center_number',
         'coupon'                 => 'coupon',
+        'deductibleTax'          => 'deductible_tax',
         'depCityCode'            => 'dep_city_code',
         'depCityName'            => 'dep_city_name',
         'department'             => 'department',
@@ -534,9 +555,11 @@ class dataList extends Model
         'index'                  => 'index',
         'invoiceTitle'           => 'invoice_title',
         'isTransferOrder'        => 'is_transfer_order',
+        'longTicketNo'           => 'long_ticket_no',
         'maxCabin'               => 'max_cabin',
         'orderId'                => 'order_id',
         'orderPrice'             => 'order_price',
+        'orderTicketNo'          => 'order_ticket_no',
         'overApplyId'            => 'over_apply_id',
         'paymentDepartmentId'    => 'payment_department_id',
         'paymentDepartmentName'  => 'payment_department_name',
@@ -576,6 +599,7 @@ class dataList extends Model
         'travelerMemberTypeName' => 'traveler_member_type_name',
         'travelerName'           => 'traveler_name',
         'voucherType'            => 'voucher_type',
+        'voucherTypeDesc'        => 'voucher_type_desc',
     ];
 
     public function validate()
@@ -672,6 +696,9 @@ class dataList extends Model
         if (null !== $this->coupon) {
             $res['coupon'] = $this->coupon;
         }
+        if (null !== $this->deductibleTax) {
+            $res['deductible_tax'] = $this->deductibleTax;
+        }
         if (null !== $this->depCityCode) {
             $res['dep_city_code'] = $this->depCityCode;
         }
@@ -708,6 +735,9 @@ class dataList extends Model
         if (null !== $this->isTransferOrder) {
             $res['is_transfer_order'] = $this->isTransferOrder;
         }
+        if (null !== $this->longTicketNo) {
+            $res['long_ticket_no'] = $this->longTicketNo;
+        }
         if (null !== $this->maxCabin) {
             $res['max_cabin'] = $this->maxCabin;
         }
@@ -716,6 +746,9 @@ class dataList extends Model
         }
         if (null !== $this->orderPrice) {
             $res['order_price'] = $this->orderPrice;
+        }
+        if (null !== $this->orderTicketNo) {
+            $res['order_ticket_no'] = $this->orderTicketNo;
         }
         if (null !== $this->overApplyId) {
             $res['over_apply_id'] = $this->overApplyId;
@@ -834,6 +867,9 @@ class dataList extends Model
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
         }
+        if (null !== $this->voucherTypeDesc) {
+            $res['voucher_type_desc'] = $this->voucherTypeDesc;
+        }
 
         return $res;
     }
@@ -933,6 +969,9 @@ class dataList extends Model
         if (isset($map['coupon'])) {
             $model->coupon = $map['coupon'];
         }
+        if (isset($map['deductible_tax'])) {
+            $model->deductibleTax = $map['deductible_tax'];
+        }
         if (isset($map['dep_city_code'])) {
             $model->depCityCode = $map['dep_city_code'];
         }
@@ -969,6 +1008,9 @@ class dataList extends Model
         if (isset($map['is_transfer_order'])) {
             $model->isTransferOrder = $map['is_transfer_order'];
         }
+        if (isset($map['long_ticket_no'])) {
+            $model->longTicketNo = $map['long_ticket_no'];
+        }
         if (isset($map['max_cabin'])) {
             $model->maxCabin = $map['max_cabin'];
         }
@@ -977,6 +1019,9 @@ class dataList extends Model
         }
         if (isset($map['order_price'])) {
             $model->orderPrice = $map['order_price'];
+        }
+        if (isset($map['order_ticket_no'])) {
+            $model->orderTicketNo = $map['order_ticket_no'];
         }
         if (isset($map['over_apply_id'])) {
             $model->overApplyId = $map['over_apply_id'];
@@ -1094,6 +1139,9 @@ class dataList extends Model
         }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voucher_type_desc'])) {
+            $model->voucherTypeDesc = $map['voucher_type_desc'];
         }
 
         return $model;

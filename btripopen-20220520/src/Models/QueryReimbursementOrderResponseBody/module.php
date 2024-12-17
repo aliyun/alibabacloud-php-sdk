@@ -87,6 +87,11 @@ class module extends Model
     public $itineraries;
 
     /**
+     * @var string
+     */
+    public $paymentFinishTime;
+
+    /**
      * @var paymentInfos[]
      */
     public $paymentInfos;
@@ -97,6 +102,11 @@ class module extends Model
      * @var string
      */
     public $personalAmount;
+
+    /**
+     * @var string
+     */
+    public $processEndTime;
 
     /**
      * @var string
@@ -160,8 +170,10 @@ class module extends Model
         'gmtModified'               => 'gmt_modified',
         'isDeleted'                 => 'is_deleted',
         'itineraries'               => 'itineraries',
+        'paymentFinishTime'         => 'payment_finish_time',
         'paymentInfos'              => 'payment_infos',
         'personalAmount'            => 'personal_amount',
+        'processEndTime'            => 'process_end_time',
         'projectCode'               => 'project_code',
         'projectName'               => 'project_name',
         'reason'                    => 'reason',
@@ -231,6 +243,9 @@ class module extends Model
                 }
             }
         }
+        if (null !== $this->paymentFinishTime) {
+            $res['payment_finish_time'] = $this->paymentFinishTime;
+        }
         if (null !== $this->paymentInfos) {
             $res['payment_infos'] = [];
             if (null !== $this->paymentInfos && \is_array($this->paymentInfos)) {
@@ -242,6 +257,9 @@ class module extends Model
         }
         if (null !== $this->personalAmount) {
             $res['personal_amount'] = $this->personalAmount;
+        }
+        if (null !== $this->processEndTime) {
+            $res['process_end_time'] = $this->processEndTime;
         }
         if (null !== $this->projectCode) {
             $res['project_code'] = $this->projectCode;
@@ -333,6 +351,9 @@ class module extends Model
                 }
             }
         }
+        if (isset($map['payment_finish_time'])) {
+            $model->paymentFinishTime = $map['payment_finish_time'];
+        }
         if (isset($map['payment_infos'])) {
             if (!empty($map['payment_infos'])) {
                 $model->paymentInfos = [];
@@ -344,6 +365,9 @@ class module extends Model
         }
         if (isset($map['personal_amount'])) {
             $model->personalAmount = $map['personal_amount'];
+        }
+        if (isset($map['process_end_time'])) {
+            $model->processEndTime = $map['process_end_time'];
         }
         if (isset($map['project_code'])) {
             $model->projectCode = $map['project_code'];

@@ -127,6 +127,16 @@ class module extends Model
     public $id;
 
     /**
+     * @var int
+     */
+    public $intlFlightBudget;
+
+    /**
+     * @var int
+     */
+    public $intlHotelBudget;
+
+    /**
      * @var itineraryList[]
      */
     public $itineraryList;
@@ -272,6 +282,8 @@ class module extends Model
         'hotelBudget'           => 'hotel_budget',
         'hotelShare'            => 'hotel_share',
         'id'                    => 'id',
+        'intlFlightBudget'      => 'intl_flight_budget',
+        'intlHotelBudget'       => 'intl_hotel_budget',
         'itineraryList'         => 'itinerary_list',
         'itineraryRule'         => 'itinerary_rule',
         'itinerarySetList'      => 'itinerary_set_list',
@@ -364,6 +376,12 @@ class module extends Model
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
+        }
+        if (null !== $this->intlFlightBudget) {
+            $res['intl_flight_budget'] = $this->intlFlightBudget;
+        }
+        if (null !== $this->intlHotelBudget) {
+            $res['intl_hotel_budget'] = $this->intlHotelBudget;
         }
         if (null !== $this->itineraryList) {
             $res['itinerary_list'] = [];
@@ -520,6 +538,12 @@ class module extends Model
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];
+        }
+        if (isset($map['intl_flight_budget'])) {
+            $model->intlFlightBudget = $map['intl_flight_budget'];
+        }
+        if (isset($map['intl_hotel_budget'])) {
+            $model->intlHotelBudget = $map['intl_hotel_budget'];
         }
         if (isset($map['itinerary_list'])) {
             if (!empty($map['itinerary_list'])) {

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateEmployeeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $attribute;
+
+    /**
      * @example https://static-legacy.dingtalk.com/media/lADPF8XMoxJeUkbNA2LNA5s_923_866.jpg
      *
      * @var string
@@ -132,6 +137,7 @@ class UpdateEmployeeRequest extends Model
      */
     public $userNick;
     protected $_name = [
+        'attribute'          => 'attribute',
         'avatar'             => 'avatar',
         'baseCityCodeList'   => 'base_city_code_list',
         'birthday'           => 'birthday',
@@ -160,6 +166,9 @@ class UpdateEmployeeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attribute) {
+            $res['attribute'] = $this->attribute;
+        }
         if (null !== $this->avatar) {
             $res['avatar'] = $this->avatar;
         }
@@ -235,6 +244,9 @@ class UpdateEmployeeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attribute'])) {
+            $model->attribute = $map['attribute'];
+        }
         if (isset($map['avatar'])) {
             $model->avatar = $map['avatar'];
         }

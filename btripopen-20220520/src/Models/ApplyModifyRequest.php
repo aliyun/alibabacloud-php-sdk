@@ -97,6 +97,16 @@ class ApplyModifyRequest extends Model
     public $hotelShare;
 
     /**
+     * @var int
+     */
+    public $intlFlightBudget;
+
+    /**
+     * @var int
+     */
+    public $intlHotelBudget;
+
+    /**
      * @example 0
      *
      * @var itineraryList[]
@@ -255,6 +265,8 @@ class ApplyModifyRequest extends Model
         'flightBudget'             => 'flight_budget',
         'hotelBudget'              => 'hotel_budget',
         'hotelShare'               => 'hotel_share',
+        'intlFlightBudget'         => 'intl_flight_budget',
+        'intlHotelBudget'          => 'intl_hotel_budget',
         'itineraryList'            => 'itinerary_list',
         'itineraryRule'            => 'itinerary_rule',
         'itinerarySetList'         => 'itinerary_set_list',
@@ -330,6 +342,12 @@ class ApplyModifyRequest extends Model
         }
         if (null !== $this->hotelShare) {
             $res['hotel_share'] = null !== $this->hotelShare ? $this->hotelShare->toMap() : null;
+        }
+        if (null !== $this->intlFlightBudget) {
+            $res['intl_flight_budget'] = $this->intlFlightBudget;
+        }
+        if (null !== $this->intlHotelBudget) {
+            $res['intl_hotel_budget'] = $this->intlHotelBudget;
         }
         if (null !== $this->itineraryList) {
             $res['itinerary_list'] = [];
@@ -477,6 +495,12 @@ class ApplyModifyRequest extends Model
         }
         if (isset($map['hotel_share'])) {
             $model->hotelShare = hotelShare::fromMap($map['hotel_share']);
+        }
+        if (isset($map['intl_flight_budget'])) {
+            $model->intlFlightBudget = $map['intl_flight_budget'];
+        }
+        if (isset($map['intl_hotel_budget'])) {
+            $model->intlHotelBudget = $map['intl_hotel_budget'];
         }
         if (isset($map['itinerary_list'])) {
             if (!empty($map['itinerary_list'])) {

@@ -75,6 +75,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $bookMode;
+
+    /**
+     * @var string
+     */
     public $bookReason;
 
     /**
@@ -202,6 +207,11 @@ class dataList extends Model
      * @var string
      */
     public $countryCode;
+
+    /**
+     * @var float
+     */
+    public $deductibleTax;
 
     /**
      * @var string
@@ -544,6 +554,11 @@ class dataList extends Model
      * @var int
      */
     public $voucherType;
+
+    /**
+     * @var string
+     */
+    public $voucherTypeDesc;
     protected $_name = [
         'alipayTradeNo'          => 'alipay_trade_no',
         'amountCurrency'         => 'amount_currency',
@@ -555,6 +570,7 @@ class dataList extends Model
         'applyId'                => 'apply_id',
         'averageNights'          => 'average_nights',
         'billRecordTime'         => 'bill_record_time',
+        'bookMode'               => 'book_mode',
         'bookReason'             => 'book_reason',
         'bookTime'               => 'book_time',
         'bookerId'               => 'booker_id',
@@ -576,6 +592,7 @@ class dataList extends Model
         'costCenterNumber'       => 'cost_center_number',
         'country'                => 'country',
         'countryCode'            => 'country_code',
+        'deductibleTax'          => 'deductible_tax',
         'department'             => 'department',
         'departmentId'           => 'department_id',
         'exceedReason'           => 'exceed_reason',
@@ -630,6 +647,7 @@ class dataList extends Model
         'travelerMemberType'     => 'traveler_member_type',
         'travelerName'           => 'traveler_name',
         'voucherType'            => 'voucher_type',
+        'voucherTypeDesc'        => 'voucher_type_desc',
     ];
 
     public function validate()
@@ -668,6 +686,9 @@ class dataList extends Model
         }
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
+        }
+        if (null !== $this->bookMode) {
+            $res['book_mode'] = $this->bookMode;
         }
         if (null !== $this->bookReason) {
             $res['book_reason'] = $this->bookReason;
@@ -731,6 +752,9 @@ class dataList extends Model
         }
         if (null !== $this->countryCode) {
             $res['country_code'] = $this->countryCode;
+        }
+        if (null !== $this->deductibleTax) {
+            $res['deductible_tax'] = $this->deductibleTax;
         }
         if (null !== $this->department) {
             $res['department'] = $this->department;
@@ -894,6 +918,9 @@ class dataList extends Model
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
         }
+        if (null !== $this->voucherTypeDesc) {
+            $res['voucher_type_desc'] = $this->voucherTypeDesc;
+        }
 
         return $res;
     }
@@ -935,6 +962,9 @@ class dataList extends Model
         }
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
+        }
+        if (isset($map['book_mode'])) {
+            $model->bookMode = $map['book_mode'];
         }
         if (isset($map['book_reason'])) {
             $model->bookReason = $map['book_reason'];
@@ -998,6 +1028,9 @@ class dataList extends Model
         }
         if (isset($map['country_code'])) {
             $model->countryCode = $map['country_code'];
+        }
+        if (isset($map['deductible_tax'])) {
+            $model->deductibleTax = $map['deductible_tax'];
         }
         if (isset($map['department'])) {
             $model->department = $map['department'];
@@ -1160,6 +1193,9 @@ class dataList extends Model
         }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voucher_type_desc'])) {
+            $model->voucherTypeDesc = $map['voucher_type_desc'];
         }
 
         return $model;

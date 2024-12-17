@@ -21,6 +21,11 @@ class orderBaseInfo extends Model
     public $btripTitle;
 
     /**
+     * @var int
+     */
+    public $category;
+
+    /**
      * @example iscorpId
      *
      * @var string
@@ -97,6 +102,11 @@ class orderBaseInfo extends Model
     public $orderType;
 
     /**
+     * @var string
+     */
+    public $supplier;
+
+    /**
      * @example 12345678
      *
      * @var string
@@ -136,6 +146,7 @@ class orderBaseInfo extends Model
     protected $_name = [
         'applyId'              => 'apply_id',
         'btripTitle'           => 'btrip_title',
+        'category'             => 'category',
         'corpId'               => 'corp_id',
         'corpName'             => 'corp_name',
         'departId'             => 'depart_id',
@@ -148,6 +159,7 @@ class orderBaseInfo extends Model
         'itineraryId'          => 'itinerary_id',
         'orderStatus'          => 'order_status',
         'orderType'            => 'order_type',
+        'supplier'             => 'supplier',
         'thirdpartApplyId'     => 'thirdpart_apply_id',
         'thirdpartBusinessId'  => 'thirdpart_business_id',
         'thirdpartDepartId'    => 'thirdpart_depart_id',
@@ -168,6 +180,9 @@ class orderBaseInfo extends Model
         }
         if (null !== $this->btripTitle) {
             $res['btrip_title'] = $this->btripTitle;
+        }
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
         }
         if (null !== $this->corpId) {
             $res['corp_id'] = $this->corpId;
@@ -205,6 +220,9 @@ class orderBaseInfo extends Model
         if (null !== $this->orderType) {
             $res['order_type'] = $this->orderType;
         }
+        if (null !== $this->supplier) {
+            $res['supplier'] = $this->supplier;
+        }
         if (null !== $this->thirdpartApplyId) {
             $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
         }
@@ -240,6 +258,9 @@ class orderBaseInfo extends Model
         }
         if (isset($map['btrip_title'])) {
             $model->btripTitle = $map['btrip_title'];
+        }
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
         }
         if (isset($map['corp_id'])) {
             $model->corpId = $map['corp_id'];
@@ -278,6 +299,9 @@ class orderBaseInfo extends Model
         }
         if (isset($map['order_type'])) {
             $model->orderType = $map['order_type'];
+        }
+        if (isset($map['supplier'])) {
+            $model->supplier = $map['supplier'];
         }
         if (isset($map['thirdpart_apply_id'])) {
             $model->thirdpartApplyId = $map['thirdpart_apply_id'];

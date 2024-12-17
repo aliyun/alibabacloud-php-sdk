@@ -340,6 +340,11 @@ class items extends Model
      * @var int
      */
     public $voucherType;
+
+    /**
+     * @var string
+     */
+    public $voucherTypeDesc;
     protected $_name = [
         'applyExtendField'       => 'apply_extend_field',
         'applyId'                => 'apply_id',
@@ -394,6 +399,7 @@ class items extends Model
         'travelerMemberTypeName' => 'traveler_member_type_name',
         'travelerName'           => 'traveler_name',
         'voucherType'            => 'voucher_type',
+        'voucherTypeDesc'        => 'voucher_type_desc',
     ];
 
     public function validate()
@@ -561,6 +567,9 @@ class items extends Model
         }
         if (null !== $this->voucherType) {
             $res['voucher_type'] = $this->voucherType;
+        }
+        if (null !== $this->voucherTypeDesc) {
+            $res['voucher_type_desc'] = $this->voucherTypeDesc;
         }
 
         return $res;
@@ -732,6 +741,9 @@ class items extends Model
         }
         if (isset($map['voucher_type'])) {
             $model->voucherType = $map['voucher_type'];
+        }
+        if (isset($map['voucher_type_desc'])) {
+            $model->voucherTypeDesc = $map['voucher_type_desc'];
         }
 
         return $model;

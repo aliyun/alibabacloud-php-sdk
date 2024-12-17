@@ -50,6 +50,11 @@ class flightInfoList extends Model
     public $arrCityName;
 
     /**
+     * @var string
+     */
+    public $arrTerminal;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
@@ -100,6 +105,11 @@ class flightInfoList extends Model
     public $depCityName;
 
     /**
+     * @var string
+     */
+    public $depTerminal;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
@@ -119,6 +129,21 @@ class flightInfoList extends Model
      * @var string
      */
     public $flightNo;
+
+    /**
+     * @var int
+     */
+    public $journeyIndex;
+
+    /**
+     * @var int
+     */
+    public $segmentIndex;
+
+    /**
+     * @var string[]
+     */
+    public $stopCity;
     protected $_name = [
         'airlineCode'    => 'airline_code',
         'airlineName'    => 'airline_name',
@@ -127,6 +152,7 @@ class flightInfoList extends Model
         'arrCityAdCode'  => 'arr_city_ad_code',
         'arrCityCode'    => 'arr_city_code',
         'arrCityName'    => 'arr_city_name',
+        'arrTerminal'    => 'arr_terminal',
         'arrTime'        => 'arr_time',
         'cabin'          => 'cabin',
         'cabinLevel'     => 'cabin_level',
@@ -135,9 +161,13 @@ class flightInfoList extends Model
         'depCityAdCode'  => 'dep_city_ad_code',
         'depCityCode'    => 'dep_city_code',
         'depCityName'    => 'dep_city_name',
+        'depTerminal'    => 'dep_terminal',
         'depTime'        => 'dep_time',
         'flightMile'     => 'flight_mile',
         'flightNo'       => 'flight_no',
+        'journeyIndex'   => 'journey_index',
+        'segmentIndex'   => 'segment_index',
+        'stopCity'       => 'stop_city',
     ];
 
     public function validate()
@@ -168,6 +198,9 @@ class flightInfoList extends Model
         if (null !== $this->arrCityName) {
             $res['arr_city_name'] = $this->arrCityName;
         }
+        if (null !== $this->arrTerminal) {
+            $res['arr_terminal'] = $this->arrTerminal;
+        }
         if (null !== $this->arrTime) {
             $res['arr_time'] = $this->arrTime;
         }
@@ -192,6 +225,9 @@ class flightInfoList extends Model
         if (null !== $this->depCityName) {
             $res['dep_city_name'] = $this->depCityName;
         }
+        if (null !== $this->depTerminal) {
+            $res['dep_terminal'] = $this->depTerminal;
+        }
         if (null !== $this->depTime) {
             $res['dep_time'] = $this->depTime;
         }
@@ -200,6 +236,15 @@ class flightInfoList extends Model
         }
         if (null !== $this->flightNo) {
             $res['flight_no'] = $this->flightNo;
+        }
+        if (null !== $this->journeyIndex) {
+            $res['journey_index'] = $this->journeyIndex;
+        }
+        if (null !== $this->segmentIndex) {
+            $res['segment_index'] = $this->segmentIndex;
+        }
+        if (null !== $this->stopCity) {
+            $res['stop_city'] = $this->stopCity;
         }
 
         return $res;
@@ -234,6 +279,9 @@ class flightInfoList extends Model
         if (isset($map['arr_city_name'])) {
             $model->arrCityName = $map['arr_city_name'];
         }
+        if (isset($map['arr_terminal'])) {
+            $model->arrTerminal = $map['arr_terminal'];
+        }
         if (isset($map['arr_time'])) {
             $model->arrTime = $map['arr_time'];
         }
@@ -258,6 +306,9 @@ class flightInfoList extends Model
         if (isset($map['dep_city_name'])) {
             $model->depCityName = $map['dep_city_name'];
         }
+        if (isset($map['dep_terminal'])) {
+            $model->depTerminal = $map['dep_terminal'];
+        }
         if (isset($map['dep_time'])) {
             $model->depTime = $map['dep_time'];
         }
@@ -266,6 +317,17 @@ class flightInfoList extends Model
         }
         if (isset($map['flight_no'])) {
             $model->flightNo = $map['flight_no'];
+        }
+        if (isset($map['journey_index'])) {
+            $model->journeyIndex = $map['journey_index'];
+        }
+        if (isset($map['segment_index'])) {
+            $model->segmentIndex = $map['segment_index'];
+        }
+        if (isset($map['stop_city'])) {
+            if (!empty($map['stop_city'])) {
+                $model->stopCity = $map['stop_city'];
+            }
         }
 
         return $model;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddEmployeeShrinkRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $attribute;
+
+    /**
      * @example https://static-legacy.dingtalk.com/media/lADPF8XMoxJeUkbNA2LNA5s_923_866.jpg
      *
      * @var string
@@ -140,6 +145,7 @@ class AddEmployeeShrinkRequest extends Model
      */
     public $userNick;
     protected $_name = [
+        'attribute'                => 'attribute',
         'avatar'                   => 'avatar',
         'baseCityCodeListShrink'   => 'base_city_code_list',
         'birthday'                 => 'birthday',
@@ -169,6 +175,9 @@ class AddEmployeeShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attribute) {
+            $res['attribute'] = $this->attribute;
+        }
         if (null !== $this->avatar) {
             $res['avatar'] = $this->avatar;
         }
@@ -241,6 +250,9 @@ class AddEmployeeShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['attribute'])) {
+            $model->attribute = $map['attribute'];
+        }
         if (isset($map['avatar'])) {
             $model->avatar = $map['avatar'];
         }

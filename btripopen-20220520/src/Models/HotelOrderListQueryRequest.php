@@ -23,6 +23,11 @@ class HotelOrderListQueryRequest extends Model
     public $applyId;
 
     /**
+     * @var int
+     */
+    public $category;
+
+    /**
      * @var string
      */
     public $departId;
@@ -83,6 +88,7 @@ class HotelOrderListQueryRequest extends Model
     protected $_name = [
         'allApply'         => 'all_apply',
         'applyId'          => 'apply_id',
+        'category'         => 'category',
         'departId'         => 'depart_id',
         'endTime'          => 'end_time',
         'page'             => 'page',
@@ -106,6 +112,9 @@ class HotelOrderListQueryRequest extends Model
         }
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
+        }
+        if (null !== $this->category) {
+            $res['category'] = $this->category;
         }
         if (null !== $this->departId) {
             $res['depart_id'] = $this->departId;
@@ -151,6 +160,9 @@ class HotelOrderListQueryRequest extends Model
         }
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
+        }
+        if (isset($map['category'])) {
+            $model->category = $map['category'];
         }
         if (isset($map['depart_id'])) {
             $model->departId = $map['depart_id'];

@@ -29,6 +29,16 @@ class module extends Model
     public $flightInfoDTOS;
 
     /**
+     * @var int
+     */
+    public $nonRefundableChangeServicePrice;
+
+    /**
+     * @var int
+     */
+    public $nonRefundableChangeUpgradePrice;
+
+    /**
      * @example 1002039195025156700
      *
      * @var int
@@ -99,20 +109,22 @@ class module extends Model
      */
     public $travelerInfoDTOS;
     protected $_name = [
-        'applyTime'         => 'apply_time',
-        'contactInfoDTO'    => 'contact_info_d_t_o',
-        'flightInfoDTOS'    => 'flight_info_d_t_o_s',
-        'orderId'           => 'order_id',
-        'outOrderId'        => 'out_order_id',
-        'outSubOrderId'     => 'out_sub_order_id',
-        'reason'            => 'reason',
-        'reasonCode'        => 'reason_code',
-        'refundFailReason'  => 'refund_fail_reason',
-        'refundHandlingFee' => 'refund_handling_fee',
-        'refundMoney'       => 'refund_money',
-        'status'            => 'status',
-        'subOrderId'        => 'sub_order_id',
-        'travelerInfoDTOS'  => 'traveler_info_d_t_o_s',
+        'applyTime'                       => 'apply_time',
+        'contactInfoDTO'                  => 'contact_info_d_t_o',
+        'flightInfoDTOS'                  => 'flight_info_d_t_o_s',
+        'nonRefundableChangeServicePrice' => 'non_refundable_change_service_price',
+        'nonRefundableChangeUpgradePrice' => 'non_refundable_change_upgrade_price',
+        'orderId'                         => 'order_id',
+        'outOrderId'                      => 'out_order_id',
+        'outSubOrderId'                   => 'out_sub_order_id',
+        'reason'                          => 'reason',
+        'reasonCode'                      => 'reason_code',
+        'refundFailReason'                => 'refund_fail_reason',
+        'refundHandlingFee'               => 'refund_handling_fee',
+        'refundMoney'                     => 'refund_money',
+        'status'                          => 'status',
+        'subOrderId'                      => 'sub_order_id',
+        'travelerInfoDTOS'                => 'traveler_info_d_t_o_s',
     ];
 
     public function validate()
@@ -136,6 +148,12 @@ class module extends Model
                     $res['flight_info_d_t_o_s'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nonRefundableChangeServicePrice) {
+            $res['non_refundable_change_service_price'] = $this->nonRefundableChangeServicePrice;
+        }
+        if (null !== $this->nonRefundableChangeUpgradePrice) {
+            $res['non_refundable_change_upgrade_price'] = $this->nonRefundableChangeUpgradePrice;
         }
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
@@ -202,6 +220,12 @@ class module extends Model
                     $model->flightInfoDTOS[$n++] = null !== $item ? flightInfoDTOS::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['non_refundable_change_service_price'])) {
+            $model->nonRefundableChangeServicePrice = $map['non_refundable_change_service_price'];
+        }
+        if (isset($map['non_refundable_change_upgrade_price'])) {
+            $model->nonRefundableChangeUpgradePrice = $map['non_refundable_change_upgrade_price'];
         }
         if (isset($map['order_id'])) {
             $model->orderId = $map['order_id'];

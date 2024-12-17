@@ -93,6 +93,16 @@ class ApplyAddShrinkRequest extends Model
     public $internationalFlightCabins;
 
     /**
+     * @var int
+     */
+    public $intlFlightBudget;
+
+    /**
+     * @var int
+     */
+    public $intlHotelBudget;
+
+    /**
      * @var string
      */
     public $itineraryListShrink;
@@ -253,6 +263,8 @@ class ApplyAddShrinkRequest extends Model
         'hotelBudget'                    => 'hotel_budget',
         'hotelShareShrink'               => 'hotel_share',
         'internationalFlightCabins'      => 'international_flight_cabins',
+        'intlFlightBudget'               => 'intl_flight_budget',
+        'intlHotelBudget'                => 'intl_hotel_budget',
         'itineraryListShrink'            => 'itinerary_list',
         'itineraryRule'                  => 'itinerary_rule',
         'itinerarySetListShrink'         => 'itinerary_set_list',
@@ -326,6 +338,12 @@ class ApplyAddShrinkRequest extends Model
         }
         if (null !== $this->internationalFlightCabins) {
             $res['international_flight_cabins'] = $this->internationalFlightCabins;
+        }
+        if (null !== $this->intlFlightBudget) {
+            $res['intl_flight_budget'] = $this->intlFlightBudget;
+        }
+        if (null !== $this->intlHotelBudget) {
+            $res['intl_hotel_budget'] = $this->intlHotelBudget;
         }
         if (null !== $this->itineraryListShrink) {
             $res['itinerary_list'] = $this->itineraryListShrink;
@@ -449,6 +467,12 @@ class ApplyAddShrinkRequest extends Model
         }
         if (isset($map['international_flight_cabins'])) {
             $model->internationalFlightCabins = $map['international_flight_cabins'];
+        }
+        if (isset($map['intl_flight_budget'])) {
+            $model->intlFlightBudget = $map['intl_flight_budget'];
+        }
+        if (isset($map['intl_hotel_budget'])) {
+            $model->intlHotelBudget = $map['intl_hotel_budget'];
         }
         if (isset($map['itinerary_list'])) {
             $model->itineraryListShrink = $map['itinerary_list'];
