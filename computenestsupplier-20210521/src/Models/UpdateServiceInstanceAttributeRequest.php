@@ -27,6 +27,10 @@ class UpdateServiceInstanceAttributeRequest extends Model
     public $licenseData;
 
     /**
+     * @description Application reason, currently used for trial application extension.
+     *
+     * @example \\"\\"
+     *
      * @var string
      */
     public $reason;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class upgradableServiceInfos extends Model
 {
     /**
+     * @description The upgradable service version.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @description The version name of an upgradable service version.
+     *
+     * @example Init version
+     *
      * @var string
      */
     public $versionName;

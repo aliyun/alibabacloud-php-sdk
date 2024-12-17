@@ -52,6 +52,8 @@ class UpdateServiceRequest extends Model
     public $commodity;
 
     /**
+     * @description Compliance check metadata.
+     *
      * @var complianceMetadata
      */
     public $complianceMetadata;
@@ -75,6 +77,13 @@ class UpdateServiceRequest extends Model
     public $deployType;
 
     /**
+     * @description Specifies whether to perform only a dry run for the request to check information such as the permissions and instance status. Valid values:
+     *
+     *   true: performs a dry run for the request, but does not update a service.
+     *   false: performs a dry run for the request, and update a service if the request passes the dry run.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;

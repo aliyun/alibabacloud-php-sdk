@@ -26,6 +26,10 @@ class UpdateServiceInstanceAttributeShrinkRequest extends Model
     public $licenseDataShrink;
 
     /**
+     * @description Application reason, currently used for trial application extension.
+     *
+     * @example \\"\\"
+     *
      * @var string
      */
     public $reason;

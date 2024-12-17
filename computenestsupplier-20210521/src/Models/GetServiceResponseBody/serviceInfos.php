@@ -66,6 +66,8 @@ class serviceInfos extends Model
     public $shortDescription;
 
     /**
+     * @description The list of the information about the software in the service.
+     *
      * @var softwares[]
      */
     public $softwares;

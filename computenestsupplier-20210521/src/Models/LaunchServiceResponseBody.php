@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class LaunchServiceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
      *
      * @var string
@@ -16,6 +18,9 @@ class LaunchServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The mode of the service online. Valid Type
+     *
+     * - UpdateLatestVersion: Update the latest version online
      * @example PublishNewVersion
      *
      * @var string
@@ -23,6 +28,8 @@ class LaunchServiceResponseBody extends Model
     public $serviceLaunchResultType;
 
     /**
+     * @description The service version.
+     *
      * @example 1.0
      *
      * @var string

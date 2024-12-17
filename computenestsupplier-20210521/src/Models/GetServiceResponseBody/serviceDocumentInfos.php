@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class serviceDocumentInfos extends Model
 {
     /**
+     * @description The URL that is used to access the document.
+     *
+     * @example http://docurl
+     *
      * @var string
      */
     public $documentUrl;
 
     /**
+     * @description The language of the return data. Valid values: zh-CN and en-US.
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $locale;
 
     /**
+     * @description The template name.
+     *
+     * @example Default Template.
+     *
      * @var string
      */
     public $templateName;

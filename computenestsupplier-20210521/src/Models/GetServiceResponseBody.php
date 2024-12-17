@@ -62,6 +62,8 @@ class GetServiceResponseBody extends Model
     public $commodity;
 
     /**
+     * @description Compliance check metadata.
+     *
      * @var complianceMetadata
      */
     public $complianceMetadata;
@@ -278,6 +280,8 @@ class GetServiceResponseBody extends Model
     public $serviceDiscoverable;
 
     /**
+     * @description Service document information.
+     *
      * @var serviceDocumentInfos[]
      */
     public $serviceDocumentInfos;

@@ -36,11 +36,19 @@ class GetServiceRequest extends Model
     public $serviceId;
 
     /**
+     * @description The Service Instance Id.
+     *
+     * @example si-85b1exxx
+     *
      * @var string
      */
     public $serviceInstanceId;
 
     /**
+     * @description The Service Name.
+     *
+     * @example Wordpress社区版
+     *
      * @var string
      */
     public $serviceName;

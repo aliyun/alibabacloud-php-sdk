@@ -69,6 +69,8 @@ class shareAccount extends Model
     public $updateTime;
 
     /**
+     * @description The user aliUid.
+     *
      * @example 127383705xxxxxx
      *
      * @var string

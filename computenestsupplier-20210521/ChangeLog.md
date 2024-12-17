@@ -1,3 +1,8 @@
+2024-12-17 Version: 5.0.0
+- Update API CreateArtifact: update param ArtifactProperty.
+- Update API UpdateArtifact: update param ArtifactProperty.
+
+
 2024-12-05 Version: 4.0.2
 - Update API CreateArtifact: add param ClientToken.
 - Update API DeleteArtifact: add param ClientToken.

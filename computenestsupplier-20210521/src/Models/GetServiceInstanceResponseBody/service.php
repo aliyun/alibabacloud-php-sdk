@@ -117,6 +117,8 @@ class service extends Model
     public $supplierUrl;
 
     /**
+     * @description The upgradable service Info.
+     *
      * @var upgradableServiceInfos[]
      */
     public $upgradableServiceInfos;

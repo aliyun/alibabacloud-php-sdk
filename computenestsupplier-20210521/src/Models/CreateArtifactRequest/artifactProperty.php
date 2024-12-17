@@ -29,15 +29,6 @@ class artifactProperty extends Model
     public $commodityVersion;
 
     /**
-     * @description The script metadata.
-     *
-     * @example {\\"WorkDir\\":\\"/root\\",\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"echo hello\\"}
-     *
-     * @var string
-     */
-    public $fileScriptMetadata;
-
-    /**
      * @description The image ID.
      *
      * >  This parameter is available only if the deployment package is an image.
@@ -78,19 +69,17 @@ class artifactProperty extends Model
     public $repoName;
 
     /**
+     * @description The default repository type. Valid values:
+     *
+     *   `Public`: a public repository.
+     *   `Private`: a private repository.
+     *
+     * You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
+     * @example Public
+     *
      * @var string
      */
     public $repoType;
-
-    /**
-     * @description The script content.
-     *
-     * >  This parameter is available only if the deployment package is a script.
-     * @example {"ScriptMetadata":"{\\"CommandType\\":\\"RunShellScript\\",\\"Platform\\":\\"Linux\\",\\"Script\\":\\"ls\\"}"}
-     *
-     * @var string
-     */
-    public $scriptMetadata;
 
     /**
      * @description The version tag of the image repository.
@@ -111,17 +100,15 @@ class artifactProperty extends Model
      */
     public $url;
     protected $_name = [
-        'commodityCode'      => 'CommodityCode',
-        'commodityVersion'   => 'CommodityVersion',
-        'fileScriptMetadata' => 'FileScriptMetadata',
-        'imageId'            => 'ImageId',
-        'regionId'           => 'RegionId',
-        'repoId'             => 'RepoId',
-        'repoName'           => 'RepoName',
-        'repoType'           => 'RepoType',
-        'scriptMetadata'     => 'ScriptMetadata',
-        'tag'                => 'Tag',
-        'url'                => 'Url',
+        'commodityCode'    => 'CommodityCode',
+        'commodityVersion' => 'CommodityVersion',
+        'imageId'          => 'ImageId',
+        'regionId'         => 'RegionId',
+        'repoId'           => 'RepoId',
+        'repoName'         => 'RepoName',
+        'repoType'         => 'RepoType',
+        'tag'              => 'Tag',
+        'url'              => 'Url',
     ];
 
     public function validate()
@@ -137,9 +124,6 @@ class artifactProperty extends Model
         if (null !== $this->commodityVersion) {
             $res['CommodityVersion'] = $this->commodityVersion;
         }
-        if (null !== $this->fileScriptMetadata) {
-            $res['FileScriptMetadata'] = $this->fileScriptMetadata;
-        }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
@@ -154,9 +138,6 @@ class artifactProperty extends Model
         }
         if (null !== $this->repoType) {
             $res['RepoType'] = $this->repoType;
-        }
-        if (null !== $this->scriptMetadata) {
-            $res['ScriptMetadata'] = $this->scriptMetadata;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -182,9 +163,6 @@ class artifactProperty extends Model
         if (isset($map['CommodityVersion'])) {
             $model->commodityVersion = $map['CommodityVersion'];
         }
-        if (isset($map['FileScriptMetadata'])) {
-            $model->fileScriptMetadata = $map['FileScriptMetadata'];
-        }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
@@ -199,9 +177,6 @@ class artifactProperty extends Model
         }
         if (isset($map['RepoType'])) {
             $model->repoType = $map['RepoType'];
-        }
-        if (isset($map['ScriptMetadata'])) {
-            $model->scriptMetadata = $map['ScriptMetadata'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

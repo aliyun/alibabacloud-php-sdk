@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class LaunchServiceRequest extends Model
 {
     /**
+     * @description The categories of the service.
+     *
      * @var string[]
      */
     public $categories;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 10CM943JP0EN9D51H
      *
      * @var string
@@ -21,13 +25,16 @@ class LaunchServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @description Whether to set the recommended service publishing to the service directory.
+     *
      * @var bool
      */
     public $recommend;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -35,8 +42,9 @@ class LaunchServiceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example service-0e6fca6a51a544xxxxxx
      *
      * @var string
@@ -44,8 +52,9 @@ class LaunchServiceRequest extends Model
     public $serviceId;
 
     /**
-     * @description This parameter is required.
+     * @description The service version.
      *
+     * This parameter is required.
      * @example 1.0
      *
      * @var string

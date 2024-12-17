@@ -37,6 +37,8 @@ class ListServiceSharedAccountsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Service shared account information.
+     *
      * @var shareAccount[]
      */
     public $shareAccount;

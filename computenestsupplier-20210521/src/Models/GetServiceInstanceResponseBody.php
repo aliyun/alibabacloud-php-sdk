@@ -130,6 +130,10 @@ class GetServiceInstanceResponseBody extends Model
     public $operationEndTime;
 
     /**
+     * @description Operate extra info
+     *
+     * @example 6cc5ce3590ed7f5529e85fec
+     *
      * @var string
      */
     public $operationExtraInfo;

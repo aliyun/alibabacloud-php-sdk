@@ -19,6 +19,11 @@ class ReleaseArtifactRequest extends Model
     public $artifactId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 788E7CP0EN9D51P
+     *
      * @var string
      */
     public $clientToken;
