@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateApplicationRequest extends Model
+class CreateApplicationShrinkRequest extends Model
 {
     /**
      * @description acs:ram::123456789012\\*\\*\\*\\*:role/adminrole
@@ -477,9 +477,9 @@ class CreateApplicationRequest extends Model
     public $serviceTags;
 
     /**
-     * @var SidecarContainerConfig[]
+     * @var string
      */
-    public $sidecarContainersConfig;
+    public $sidecarContainersConfigShrink;
 
     /**
      * @description [{"logDir":"","logType":"stdout"},{"logDir":"/tmp/a.log"}]
@@ -612,7 +612,7 @@ class CreateApplicationRequest extends Model
         'secretMountDesc'               => 'SecretMountDesc',
         'securityGroupId'               => 'SecurityGroupId',
         'serviceTags'                   => 'ServiceTags',
-        'sidecarContainersConfig'       => 'SidecarContainersConfig',
+        'sidecarContainersConfigShrink' => 'SidecarContainersConfig',
         'slsConfigs'                    => 'SlsConfigs',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
         'timezone'                      => 'Timezone',
@@ -807,14 +807,8 @@ class CreateApplicationRequest extends Model
         if (null !== $this->serviceTags) {
             $res['ServiceTags'] = $this->serviceTags;
         }
-        if (null !== $this->sidecarContainersConfig) {
-            $res['SidecarContainersConfig'] = [];
-            if (null !== $this->sidecarContainersConfig && \is_array($this->sidecarContainersConfig)) {
-                $n = 0;
-                foreach ($this->sidecarContainersConfig as $item) {
-                    $res['SidecarContainersConfig'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->sidecarContainersConfigShrink) {
+            $res['SidecarContainersConfig'] = $this->sidecarContainersConfigShrink;
         }
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
@@ -847,7 +841,7 @@ class CreateApplicationRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateApplicationRequest
+     * @return CreateApplicationShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -1030,13 +1024,7 @@ class CreateApplicationRequest extends Model
             $model->serviceTags = $map['ServiceTags'];
         }
         if (isset($map['SidecarContainersConfig'])) {
-            if (!empty($map['SidecarContainersConfig'])) {
-                $model->sidecarContainersConfig = [];
-                $n                              = 0;
-                foreach ($map['SidecarContainersConfig'] as $item) {
-                    $model->sidecarContainersConfig[$n++] = null !== $item ? SidecarContainerConfig::fromMap($item) : $item;
-                }
-            }
+            $model->sidecarContainersConfigShrink = $map['SidecarContainersConfig'];
         }
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];

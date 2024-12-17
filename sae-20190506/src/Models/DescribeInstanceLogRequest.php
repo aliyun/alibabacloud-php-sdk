@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceLogRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $containerId;
+
+    /**
      * @description The ID of the request.
      *
      * This parameter is required.
@@ -18,7 +23,8 @@ class DescribeInstanceLogRequest extends Model
      */
     public $instanceId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
+        'containerId' => 'ContainerId',
+        'instanceId'  => 'InstanceId',
     ];
 
     public function validate()
@@ -28,6 +34,9 @@ class DescribeInstanceLogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->containerId) {
+            $res['ContainerId'] = $this->containerId;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -43,6 +52,9 @@ class DescribeInstanceLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContainerId'])) {
+            $model->containerId = $map['ContainerId'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

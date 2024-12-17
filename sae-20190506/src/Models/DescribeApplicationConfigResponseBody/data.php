@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigRespons
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\configMapMountDesc;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\mountDesc;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\ossMountDescs;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\secretMountDesc;
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\sidecarContainersConfig;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationConfigResponseBody\data\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -616,6 +618,11 @@ class data extends Model
     public $replicas;
 
     /**
+     * @var secretMountDesc[]
+     */
+    public $secretMountDesc;
+
+    /**
      * @description The ID of the security group.
      *
      * @example sg-wz969ngg2e49q5i4****
@@ -628,6 +635,11 @@ class data extends Model
      * @var string[]
      */
     public $serviceTags;
+
+    /**
+     * @var sidecarContainersConfig[]
+     */
+    public $sidecarContainersConfig;
 
     /**
      * @description The logging configurations of Log Service.
@@ -815,8 +827,10 @@ class data extends Model
         'readiness'                     => 'Readiness',
         'regionId'                      => 'RegionId',
         'replicas'                      => 'Replicas',
+        'secretMountDesc'               => 'SecretMountDesc',
         'securityGroupId'               => 'SecurityGroupId',
         'serviceTags'                   => 'ServiceTags',
+        'sidecarContainersConfig'       => 'SidecarContainersConfig',
         'slsConfigs'                    => 'SlsConfigs',
         'tags'                          => 'Tags',
         'terminationGracePeriodSeconds' => 'TerminationGracePeriodSeconds',
@@ -1034,11 +1048,29 @@ class data extends Model
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
         }
+        if (null !== $this->secretMountDesc) {
+            $res['SecretMountDesc'] = [];
+            if (null !== $this->secretMountDesc && \is_array($this->secretMountDesc)) {
+                $n = 0;
+                foreach ($this->secretMountDesc as $item) {
+                    $res['SecretMountDesc'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
         if (null !== $this->serviceTags) {
             $res['ServiceTags'] = $this->serviceTags;
+        }
+        if (null !== $this->sidecarContainersConfig) {
+            $res['SidecarContainersConfig'] = [];
+            if (null !== $this->sidecarContainersConfig && \is_array($this->sidecarContainersConfig)) {
+                $n = 0;
+                foreach ($this->sidecarContainersConfig as $item) {
+                    $res['SidecarContainersConfig'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
@@ -1286,11 +1318,29 @@ class data extends Model
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
         }
+        if (isset($map['SecretMountDesc'])) {
+            if (!empty($map['SecretMountDesc'])) {
+                $model->secretMountDesc = [];
+                $n                      = 0;
+                foreach ($map['SecretMountDesc'] as $item) {
+                    $model->secretMountDesc[$n++] = null !== $item ? secretMountDesc::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
         if (isset($map['ServiceTags'])) {
             $model->serviceTags = $map['ServiceTags'];
+        }
+        if (isset($map['SidecarContainersConfig'])) {
+            if (!empty($map['SidecarContainersConfig'])) {
+                $model->sidecarContainersConfig = [];
+                $n                              = 0;
+                foreach ($map['SidecarContainersConfig'] as $item) {
+                    $model->sidecarContainersConfig[$n++] = null !== $item ? sidecarContainersConfig::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];

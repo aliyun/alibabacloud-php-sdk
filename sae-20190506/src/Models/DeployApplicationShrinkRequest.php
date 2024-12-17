@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeployApplicationRequest extends Model
+class DeployApplicationShrinkRequest extends Model
 {
     /**
      * @description The Alibaba Cloud Resource Name (ARN) required for a RAM role to obtain images across accounts. For more information, see [Grant permissions across Alibaba Cloud accounts by using a RAM role](https://help.aliyun.com/document_detail/223585.html).
@@ -594,9 +594,9 @@ class DeployApplicationRequest extends Model
     public $serviceTags;
 
     /**
-     * @var SidecarContainerConfig[]
+     * @var string
      */
-    public $sidecarContainersConfig;
+    public $sidecarContainersConfigShrink;
 
     /**
      * @description The logging configurations of Log Service.
@@ -766,7 +766,7 @@ class DeployApplicationRequest extends Model
         'secretMountDesc'                  => 'SecretMountDesc',
         'securityGroupId'                  => 'SecurityGroupId',
         'serviceTags'                      => 'ServiceTags',
-        'sidecarContainersConfig'          => 'SidecarContainersConfig',
+        'sidecarContainersConfigShrink'    => 'SidecarContainersConfig',
         'slsConfigs'                       => 'SlsConfigs',
         'terminationGracePeriodSeconds'    => 'TerminationGracePeriodSeconds',
         'timezone'                         => 'Timezone',
@@ -958,14 +958,8 @@ class DeployApplicationRequest extends Model
         if (null !== $this->serviceTags) {
             $res['ServiceTags'] = $this->serviceTags;
         }
-        if (null !== $this->sidecarContainersConfig) {
-            $res['SidecarContainersConfig'] = [];
-            if (null !== $this->sidecarContainersConfig && \is_array($this->sidecarContainersConfig)) {
-                $n = 0;
-                foreach ($this->sidecarContainersConfig as $item) {
-                    $res['SidecarContainersConfig'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->sidecarContainersConfigShrink) {
+            $res['SidecarContainersConfig'] = $this->sidecarContainersConfigShrink;
         }
         if (null !== $this->slsConfigs) {
             $res['SlsConfigs'] = $this->slsConfigs;
@@ -998,7 +992,7 @@ class DeployApplicationRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeployApplicationRequest
+     * @return DeployApplicationShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -1178,13 +1172,7 @@ class DeployApplicationRequest extends Model
             $model->serviceTags = $map['ServiceTags'];
         }
         if (isset($map['SidecarContainersConfig'])) {
-            if (!empty($map['SidecarContainersConfig'])) {
-                $model->sidecarContainersConfig = [];
-                $n                              = 0;
-                foreach ($map['SidecarContainersConfig'] as $item) {
-                    $model->sidecarContainersConfig[$n++] = null !== $item ? SidecarContainerConfig::fromMap($item) : $item;
-                }
-            }
+            $model->sidecarContainersConfigShrink = $map['SidecarContainersConfig'];
         }
         if (isset($map['SlsConfigs'])) {
             $model->slsConfigs = $map['SlsConfigs'];
