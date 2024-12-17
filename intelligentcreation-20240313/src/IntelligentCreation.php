@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackRespons
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetProjectTaskShrinkRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchQueryIndividuationTextRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchQueryIndividuationTextResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchQueryIndividuationTextShrinkRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CheckSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CloseAICoachTaskSessionRequest;
@@ -19,12 +22,22 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAnchorRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAnchorResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIllustrationTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIndividuationProjectRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIndividuationProjectResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIndividuationTextTaskRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateIndividuationTextTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateRealisticPortraitRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateRealisticPortraitResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTextTaskRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateTextTaskResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationProjectRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationProjectResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationTextRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\DeleteIndividuationTextResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\FinishAICoachTaskSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetAICoachTaskSessionHistoryRequest;
@@ -62,6 +75,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarProjectRequ
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarProjectResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarResourceResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryIndividuationTextTaskRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryIndividuationTextTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QuerySessionInfoShrinkRequest;
@@ -71,6 +86,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SaveAvatarProjectRespo
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SelectImageTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SelectResourceRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SelectResourceResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SendSdkMessageRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SendSdkMessageResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SendTextMsgRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SendTextMsgResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\StartAvatarSessionRequest;
@@ -241,6 +258,64 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->batchGetProjectTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 批量查询文案
+     *  *
+     * @param BatchQueryIndividuationTextRequest $tmpReq  BatchQueryIndividuationTextRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchQueryIndividuationTextResponse BatchQueryIndividuationTextResponse
+     */
+    public function batchQueryIndividuationTextWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchQueryIndividuationTextShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->textIdList)) {
+            $request->textIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textIdList, 'textIdList', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->textIdListShrink)) {
+            $query['textIdList'] = $request->textIdListShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchQueryIndividuationText',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/individuationText/batchQueryText',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BatchQueryIndividuationTextResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return BatchQueryIndividuationTextResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量查询文案
+     *  *
+     * @param BatchQueryIndividuationTextRequest $request BatchQueryIndividuationTextRequest
+     *
+     * @return BatchQueryIndividuationTextResponse BatchQueryIndividuationTextResponse
+     */
+    public function batchQueryIndividuationText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->batchQueryIndividuationTextWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -474,6 +549,71 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * @summary 创建照片数字人
+     *  *
+     * @param CreateAnchorRequest $request CreateAnchorRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAnchorResponse CreateAnchorResponse
+     */
+    public function createAnchorWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->anchorMaterialName)) {
+            $body['anchorMaterialName'] = $request->anchorMaterialName;
+        }
+        if (!Utils::isUnset($request->coverUrl)) {
+            $body['coverUrl'] = $request->coverUrl;
+        }
+        if (!Utils::isUnset($request->digitalHumanType)) {
+            $body['digitalHumanType'] = $request->digitalHumanType;
+        }
+        if (!Utils::isUnset($request->gender)) {
+            $body['gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->useScene)) {
+            $body['useScene'] = $request->useScene;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAnchor',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/anchorOpen/createAnchor',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAnchorResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateAnchorResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建照片数字人
+     *  *
+     * @param CreateAnchorRequest $request CreateAnchorRequest
+     *
+     * @return CreateAnchorResponse CreateAnchorResponse
+     */
+    public function createAnchor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAnchorWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 创建配图生成任务
      *  *
      * @param string                        $textId
@@ -522,6 +662,127 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->createIllustrationTaskWithOptions($textId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建个性化文案项目
+     *  *
+     * @param CreateIndividuationProjectRequest $request CreateIndividuationProjectRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateIndividuationProjectResponse CreateIndividuationProjectResponse
+     */
+    public function createIndividuationProjectWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectInfo)) {
+            $body['projectInfo'] = $request->projectInfo;
+        }
+        if (!Utils::isUnset($request->projectName)) {
+            $body['projectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->purpose)) {
+            $body['purpose'] = $request->purpose;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $body['sceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIndividuationProject',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/individuationText/createProject',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateIndividuationProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateIndividuationProjectResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建个性化文案项目
+     *  *
+     * @param CreateIndividuationProjectRequest $request CreateIndividuationProjectRequest
+     *
+     * @return CreateIndividuationProjectResponse CreateIndividuationProjectResponse
+     */
+    public function createIndividuationProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createIndividuationProjectWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建个性化文案任务
+     *  *
+     * @param CreateIndividuationTextTaskRequest $request CreateIndividuationTextTaskRequest
+     * @param string[]                           $headers map
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateIndividuationTextTaskResponse CreateIndividuationTextTaskResponse
+     */
+    public function createIndividuationTextTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->crowdPack)) {
+            $body['crowdPack'] = $request->crowdPack;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['projectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $body['taskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIndividuationTextTask',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/individuationText/createTextTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateIndividuationTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateIndividuationTextTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建个性化文案任务
+     *  *
+     * @param CreateIndividuationTextTaskRequest $request CreateIndividuationTextTaskRequest
+     *
+     * @return CreateIndividuationTextTaskResponse CreateIndividuationTextTaskResponse
+     */
+    public function createIndividuationTextTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createIndividuationTextTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -663,6 +924,112 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->createTextTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除个性化文案项目
+     *  *
+     * @param DeleteIndividuationProjectRequest $request DeleteIndividuationProjectRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteIndividuationProjectResponse DeleteIndividuationProjectResponse
+     */
+    public function deleteIndividuationProjectWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->projectId)) {
+            $body['projectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIndividuationProject',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/individuationText/deleteProject',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteIndividuationProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteIndividuationProjectResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除个性化文案项目
+     *  *
+     * @param DeleteIndividuationProjectRequest $request DeleteIndividuationProjectRequest
+     *
+     * @return DeleteIndividuationProjectResponse DeleteIndividuationProjectResponse
+     */
+    public function deleteIndividuationProject($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteIndividuationProjectWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除个性化文案
+     *  *
+     * @param DeleteIndividuationTextRequest $request DeleteIndividuationTextRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteIndividuationTextResponse DeleteIndividuationTextResponse
+     */
+    public function deleteIndividuationTextWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->textIdList)) {
+            $body['textIdList'] = $request->textIdList;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteIndividuationText',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/individuationText/deleteText',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteIndividuationTextResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteIndividuationTextResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除个性化文案
+     *  *
+     * @param DeleteIndividuationTextRequest $request DeleteIndividuationTextRequest
+     *
+     * @return DeleteIndividuationTextResponse DeleteIndividuationTextResponse
+     */
+    public function deleteIndividuationText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteIndividuationTextWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1813,6 +2180,59 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
+     * @summary 查询个性化文案任务
+     *  *
+     * @param QueryIndividuationTextTaskRequest $request QueryIndividuationTextTaskRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryIndividuationTextTaskResponse QueryIndividuationTextTaskResponse
+     */
+    public function queryIndividuationTextTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryIndividuationTextTask',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/individuationText/queryTextTask',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return QueryIndividuationTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return QueryIndividuationTextTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询个性化文案任务
+     *  *
+     * @param QueryIndividuationTextTaskRequest $request QueryIndividuationTextTaskRequest
+     *
+     * @return QueryIndividuationTextTaskResponse QueryIndividuationTextTaskResponse
+     */
+    public function queryIndividuationTextTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryIndividuationTextTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 查询会话信息
      *  *
      * @param QuerySessionInfoRequest $tmpReq  QuerySessionInfoRequest
@@ -2095,6 +2515,68 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->selectResourceWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 发送sdk消息
+     *  *
+     * @param SendSdkMessageRequest $request SendSdkMessageRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SendSdkMessageResponse SendSdkMessageResponse
+     */
+    public function sendSdkMessageWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->data)) {
+            $body['data'] = $request->data;
+        }
+        if (!Utils::isUnset($request->moduleName)) {
+            $body['moduleName'] = $request->moduleName;
+        }
+        if (!Utils::isUnset($request->operationName)) {
+            $body['operationName'] = $request->operationName;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendSdkMessage',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/sdk/sendMessage',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SendSdkMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SendSdkMessageResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 发送sdk消息
+     *  *
+     * @param SendSdkMessageRequest $request SendSdkMessageRequest
+     *
+     * @return SendSdkMessageResponse SendSdkMessageResponse
+     */
+    public function sendSdkMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->sendSdkMessageWithOptions($request, $headers, $runtime);
     }
 
     /**
