@@ -14,11 +14,17 @@ class SpotSpec extends Model
     public $spotDiscountLimit;
 
     /**
+     * @var float
+     */
+    public $spotPriceLimit;
+
+    /**
      * @var string
      */
     public $spotStrategy;
     protected $_name = [
         'spotDiscountLimit' => 'SpotDiscountLimit',
+        'spotPriceLimit'    => 'SpotPriceLimit',
         'spotStrategy'      => 'SpotStrategy',
     ];
 
@@ -31,6 +37,9 @@ class SpotSpec extends Model
         $res = [];
         if (null !== $this->spotDiscountLimit) {
             $res['SpotDiscountLimit'] = $this->spotDiscountLimit;
+        }
+        if (null !== $this->spotPriceLimit) {
+            $res['SpotPriceLimit'] = $this->spotPriceLimit;
         }
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
@@ -49,6 +58,9 @@ class SpotSpec extends Model
         $model = new self();
         if (isset($map['SpotDiscountLimit'])) {
             $model->spotDiscountLimit = $map['SpotDiscountLimit'];
+        }
+        if (isset($map['SpotPriceLimit'])) {
+            $model->spotPriceLimit = $map['SpotPriceLimit'];
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];

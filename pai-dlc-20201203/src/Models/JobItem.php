@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\JobItem\codeSource;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\JobItem\dataSources;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\JobItem\userVpc;
 use AlibabaCloud\Tea\Model;
 
 class JobItem extends Model
@@ -342,7 +343,7 @@ class JobItem extends Model
     /**
      * @example vpc-1
      *
-     * @var string
+     * @var userVpc
      */
     public $userVpc;
 
@@ -617,7 +618,7 @@ class JobItem extends Model
             $res['UserScript'] = $this->userScript;
         }
         if (null !== $this->userVpc) {
-            $res['UserVpc'] = $this->userVpc;
+            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
         }
         if (null !== $this->username) {
             $res['Username'] = $this->username;
@@ -825,7 +826,7 @@ class JobItem extends Model
             $model->userScript = $map['UserScript'];
         }
         if (isset($map['UserVpc'])) {
-            $model->userVpc = $map['UserVpc'];
+            $model->userVpc = userVpc::fromMap($map['UserVpc']);
         }
         if (isset($map['Username'])) {
             $model->username = $map['Username'];

@@ -64,6 +64,8 @@ class JobSpec extends Model
     /**
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $useSpotInstance;
