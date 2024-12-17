@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models;
 
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsRequest\filters;
 use AlibabaCloud\Tea\Model;
 
 class ListSynchronizationJobsRequest extends Model
@@ -25,6 +26,11 @@ class ListSynchronizationJobsRequest extends Model
      * @var int
      */
     public $endTime;
+
+    /**
+     * @var filters[]
+     */
+    public $filters;
 
     /**
      * @description IDaaS EIAM实例的ID。
@@ -110,6 +116,7 @@ class ListSynchronizationJobsRequest extends Model
     protected $_name = [
         'direction'  => 'Direction',
         'endTime'    => 'EndTime',
+        'filters'    => 'Filters',
         'instanceId' => 'InstanceId',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
@@ -133,6 +140,15 @@ class ListSynchronizationJobsRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->filters) {
+            $res['Filters'] = [];
+            if (null !== $this->filters && \is_array($this->filters)) {
+                $n = 0;
+                foreach ($this->filters as $item) {
+                    $res['Filters'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -178,6 +194,15 @@ class ListSynchronizationJobsRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Filters'])) {
+            if (!empty($map['Filters'])) {
+                $model->filters = [];
+                $n              = 0;
+                foreach ($map['Filters'] as $item) {
+                    $model->filters[$n++] = null !== $item ? filters::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -162,6 +162,11 @@ class identityProviderDetail extends Model
     public $lockReason;
 
     /**
+     * @var string
+     */
+    public $logoUrl;
+
+    /**
      * @description 网络端点ID
      *
      * @example nae_mx4vsadfe6govkqkwckxxxx
@@ -242,6 +247,7 @@ class identityProviderDetail extends Model
         'lastStatusCheckJobResult'   => 'LastStatusCheckJobResult',
         'ldapConfig'                 => 'LdapConfig',
         'lockReason'                 => 'LockReason',
+        'logoUrl'                    => 'LogoUrl',
         'networkAccessEndpointId'    => 'NetworkAccessEndpointId',
         'oidcConfig'                 => 'OidcConfig',
         'udPullConfig'               => 'UdPullConfig',
@@ -309,6 +315,9 @@ class identityProviderDetail extends Model
         }
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
+        }
+        if (null !== $this->logoUrl) {
+            $res['LogoUrl'] = $this->logoUrl;
         }
         if (null !== $this->networkAccessEndpointId) {
             $res['NetworkAccessEndpointId'] = $this->networkAccessEndpointId;
@@ -396,6 +405,9 @@ class identityProviderDetail extends Model
         }
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
+        }
+        if (isset($map['LogoUrl'])) {
+            $model->logoUrl = $map['LogoUrl'];
         }
         if (isset($map['NetworkAccessEndpointId'])) {
             $model->networkAccessEndpointId = $map['NetworkAccessEndpointId'];

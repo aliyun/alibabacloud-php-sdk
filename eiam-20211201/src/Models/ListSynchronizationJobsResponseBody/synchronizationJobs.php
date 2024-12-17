@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class synchronizationJobs extends Model
 {
     /**
+     * @example 描述
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description 同步任务方向
      *
      * @example ingress
@@ -88,6 +95,7 @@ class synchronizationJobs extends Model
      */
     public $triggerType;
     protected $_name = [
+        'description'          => 'Description',
         'direction'            => 'Direction',
         'endTime'              => 'EndTime',
         'result'               => 'Result',
@@ -106,6 +114,9 @@ class synchronizationJobs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->direction) {
             $res['Direction'] = $this->direction;
         }
@@ -145,6 +156,9 @@ class synchronizationJobs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['Direction'])) {
             $model->direction = $map['Direction'];
         }

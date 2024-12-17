@@ -99,6 +99,11 @@ class CreateIdentityProviderRequest extends Model
     public $ldapConfig;
 
     /**
+     * @var string
+     */
+    public $logoUrl;
+
+    /**
      * @description 网络端点ID
      *
      * @example nae_examplexxxx
@@ -145,6 +150,7 @@ class CreateIdentityProviderRequest extends Model
         'instanceId'              => 'InstanceId',
         'larkConfig'              => 'LarkConfig',
         'ldapConfig'              => 'LdapConfig',
+        'logoUrl'                 => 'LogoUrl',
         'networkAccessEndpointId' => 'NetworkAccessEndpointId',
         'oidcConfig'              => 'OidcConfig',
         'udPullConfig'            => 'UdPullConfig',
@@ -188,6 +194,9 @@ class CreateIdentityProviderRequest extends Model
         }
         if (null !== $this->ldapConfig) {
             $res['LdapConfig'] = null !== $this->ldapConfig ? $this->ldapConfig->toMap() : null;
+        }
+        if (null !== $this->logoUrl) {
+            $res['LogoUrl'] = $this->logoUrl;
         }
         if (null !== $this->networkAccessEndpointId) {
             $res['NetworkAccessEndpointId'] = $this->networkAccessEndpointId;
@@ -245,6 +254,9 @@ class CreateIdentityProviderRequest extends Model
         }
         if (isset($map['LdapConfig'])) {
             $model->ldapConfig = ldapConfig::fromMap($map['LdapConfig']);
+        }
+        if (isset($map['LogoUrl'])) {
+            $model->logoUrl = $map['LogoUrl'];
         }
         if (isset($map['NetworkAccessEndpointId'])) {
             $model->networkAccessEndpointId = $map['NetworkAccessEndpointId'];

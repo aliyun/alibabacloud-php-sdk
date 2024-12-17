@@ -127,6 +127,11 @@ class identityProviders extends Model
     public $lockReason;
 
     /**
+     * @var string
+     */
+    public $logoUrl;
+
+    /**
      * @description IDaaS EIAM 是否支持UD同步
      *
      * @example disabled
@@ -174,6 +179,7 @@ class identityProviders extends Model
         'instanceId'                 => 'InstanceId',
         'lastStatusCheckJobResult'   => 'LastStatusCheckJobResult',
         'lockReason'                 => 'LockReason',
+        'logoUrl'                    => 'LogoUrl',
         'udPullStatus'               => 'UdPullStatus',
         'udPullTargetScope'          => 'UdPullTargetScope',
         'udPushStatus'               => 'UdPushStatus',
@@ -228,6 +234,9 @@ class identityProviders extends Model
         }
         if (null !== $this->lockReason) {
             $res['LockReason'] = $this->lockReason;
+        }
+        if (null !== $this->logoUrl) {
+            $res['LogoUrl'] = $this->logoUrl;
         }
         if (null !== $this->udPullStatus) {
             $res['UdPullStatus'] = $this->udPullStatus;
@@ -294,6 +303,9 @@ class identityProviders extends Model
         }
         if (isset($map['LockReason'])) {
             $model->lockReason = $map['LockReason'];
+        }
+        if (isset($map['LogoUrl'])) {
+            $model->logoUrl = $map['LogoUrl'];
         }
         if (isset($map['UdPullStatus'])) {
             $model->udPullStatus = $map['UdPullStatus'];

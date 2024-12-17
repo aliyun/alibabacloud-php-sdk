@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponse
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\userStatistics\binded;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\userStatistics\created;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\userStatistics\deleted;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\userStatistics\exported;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\userStatistics\pushed;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\userStatistics\same;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListSynchronizationJobsResponseBody\synchronizationJobs\result\userStatistics\updated;
@@ -36,6 +37,11 @@ class userStatistics extends Model
     public $deleted;
 
     /**
+     * @var exported
+     */
+    public $exported;
+
+    /**
      * @description 推送结果统计
      *
      * @var pushed
@@ -56,12 +62,13 @@ class userStatistics extends Model
      */
     public $updated;
     protected $_name = [
-        'binded'  => 'Binded',
-        'created' => 'Created',
-        'deleted' => 'Deleted',
-        'pushed'  => 'Pushed',
-        'same'    => 'Same',
-        'updated' => 'Updated',
+        'binded'   => 'Binded',
+        'created'  => 'Created',
+        'deleted'  => 'Deleted',
+        'exported' => 'Exported',
+        'pushed'   => 'Pushed',
+        'same'     => 'Same',
+        'updated'  => 'Updated',
     ];
 
     public function validate()
@@ -79,6 +86,9 @@ class userStatistics extends Model
         }
         if (null !== $this->deleted) {
             $res['Deleted'] = null !== $this->deleted ? $this->deleted->toMap() : null;
+        }
+        if (null !== $this->exported) {
+            $res['Exported'] = null !== $this->exported ? $this->exported->toMap() : null;
         }
         if (null !== $this->pushed) {
             $res['Pushed'] = null !== $this->pushed ? $this->pushed->toMap() : null;
@@ -109,6 +119,9 @@ class userStatistics extends Model
         }
         if (isset($map['Deleted'])) {
             $model->deleted = deleted::fromMap($map['Deleted']);
+        }
+        if (isset($map['Exported'])) {
+            $model->exported = exported::fromMap($map['Exported']);
         }
         if (isset($map['Pushed'])) {
             $model->pushed = pushed::fromMap($map['Pushed']);
