@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetAICoachTaskSessionHistoryRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @example 111
      *
      * @var string
@@ -22,8 +32,10 @@ class GetAICoachTaskSessionHistoryRequest extends Model
      */
     public $uid;
     protected $_name = [
-        'sessionId' => 'sessionId',
-        'uid'       => 'uid',
+        'pageNumber' => 'pageNumber',
+        'pageSize'   => 'pageSize',
+        'sessionId'  => 'sessionId',
+        'uid'        => 'uid',
     ];
 
     public function validate()
@@ -33,6 +45,12 @@ class GetAICoachTaskSessionHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
+        }
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
@@ -51,6 +69,12 @@ class GetAICoachTaskSessionHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
+        }
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }

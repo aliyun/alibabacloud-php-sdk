@@ -30,6 +30,11 @@ class GetAICoachTaskSessionReportResponseBody extends Model
     public $evaluationResult;
 
     /**
+     * @var bool
+     */
+    public $feedback;
+
+    /**
      * @example 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
      *
      * @var string
@@ -63,6 +68,7 @@ class GetAICoachTaskSessionReportResponseBody extends Model
         'duration'         => 'duration',
         'endTime'          => 'endTime',
         'evaluationResult' => 'evaluationResult',
+        'feedback'         => 'feedback',
         'requestId'        => 'requestId',
         'scriptName'       => 'scriptName',
         'startTime'        => 'startTime',
@@ -85,6 +91,9 @@ class GetAICoachTaskSessionReportResponseBody extends Model
         }
         if (null !== $this->evaluationResult) {
             $res['evaluationResult'] = $this->evaluationResult;
+        }
+        if (null !== $this->feedback) {
+            $res['feedback'] = $this->feedback;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -121,6 +130,9 @@ class GetAICoachTaskSessionReportResponseBody extends Model
         }
         if (isset($map['evaluationResult'])) {
             $model->evaluationResult = $map['evaluationResult'];
+        }
+        if (isset($map['feedback'])) {
+            $model->feedback = $map['feedback'];
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];

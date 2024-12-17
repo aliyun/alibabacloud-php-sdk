@@ -11,6 +11,11 @@ class AnchorResponse extends Model
     /**
      * @var string
      */
+    public $anchorCategory;
+
+    /**
+     * @var string
+     */
     public $anchorId;
 
     /**
@@ -78,6 +83,7 @@ class AnchorResponse extends Model
      */
     public $useScene;
     protected $_name = [
+        'anchorCategory'     => 'anchorCategory',
         'anchorId'           => 'anchorId',
         'anchorMaterialName' => 'anchorMaterialName',
         'anchorType'         => 'anchorType',
@@ -101,6 +107,9 @@ class AnchorResponse extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->anchorCategory) {
+            $res['anchorCategory'] = $this->anchorCategory;
+        }
         if (null !== $this->anchorId) {
             $res['anchorId'] = $this->anchorId;
         }
@@ -155,6 +164,9 @@ class AnchorResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['anchorCategory'])) {
+            $model->anchorCategory = $map['anchorCategory'];
+        }
         if (isset($map['anchorId'])) {
             $model->anchorId = $map['anchorId'];
         }

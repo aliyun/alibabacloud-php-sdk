@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListAnchorRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $anchorCategory;
+
+    /**
      * @example PUBLIC_MODEL
      *
      * @var string
@@ -55,6 +60,7 @@ class ListAnchorRequest extends Model
      */
     public $useScene;
     protected $_name = [
+        'anchorCategory'   => 'anchorCategory',
         'anchorType'       => 'anchorType',
         'coverRate'        => 'coverRate',
         'digitalHumanType' => 'digitalHumanType',
@@ -71,6 +77,9 @@ class ListAnchorRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->anchorCategory) {
+            $res['anchorCategory'] = $this->anchorCategory;
+        }
         if (null !== $this->anchorType) {
             $res['anchorType'] = $this->anchorType;
         }
@@ -104,6 +113,9 @@ class ListAnchorRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['anchorCategory'])) {
+            $model->anchorCategory = $map['anchorCategory'];
+        }
         if (isset($map['anchorType'])) {
             $model->anchorType = $map['anchorType'];
         }

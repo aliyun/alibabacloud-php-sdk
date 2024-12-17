@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class material extends Model
 {
     /**
+     * @var string
+     */
+    public $anchorStyleLevel;
+
+    /**
      * @example video/mp4
      *
      * @var string
@@ -39,11 +44,12 @@ class material extends Model
      */
     public $volume;
     protected $_name = [
-        'format' => 'format',
-        'id'     => 'id',
-        'speed'  => 'speed',
-        'url'    => 'url',
-        'volume' => 'volume',
+        'anchorStyleLevel' => 'anchorStyleLevel',
+        'format'           => 'format',
+        'id'               => 'id',
+        'speed'            => 'speed',
+        'url'              => 'url',
+        'volume'           => 'volume',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class material extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->anchorStyleLevel) {
+            $res['anchorStyleLevel'] = $this->anchorStyleLevel;
+        }
         if (null !== $this->format) {
             $res['format'] = $this->format;
         }
@@ -80,6 +89,9 @@ class material extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['anchorStyleLevel'])) {
+            $model->anchorStyleLevel = $map['anchorStyleLevel'];
+        }
         if (isset($map['format'])) {
             $model->format = $map['format'];
         }

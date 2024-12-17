@@ -53,6 +53,11 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
     public $status;
 
     /**
+     * @var int
+     */
+    public $total;
+
+    /**
      * @example 1579404690269235
      *
      * @var string
@@ -66,6 +71,7 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
         'scriptName'       => 'scriptName',
         'startTime'        => 'startTime',
         'status'           => 'status',
+        'total'            => 'total',
         'uid'              => 'uid',
     ];
 
@@ -102,6 +108,9 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->total) {
+            $res['total'] = $this->total;
         }
         if (null !== $this->uid) {
             $res['uid'] = $this->uid;
@@ -144,6 +153,9 @@ class GetAICoachTaskSessionHistoryResponseBody extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['total'])) {
+            $model->total = $map['total'];
         }
         if (isset($map['uid'])) {
             $model->uid = $map['uid'];
