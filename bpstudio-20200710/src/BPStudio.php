@@ -12,6 +12,7 @@ use AlibabaCloud\SDK\BPStudio\V20200710\Models\GetDeployDetailRequest;
 use AlibabaCloud\SDK\BPStudio\V20200710\Models\GetDeployDetailResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -21,6 +22,9 @@ class BPStudio extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId    = 'BPStudio';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('bpstudio', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -84,8 +88,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return BillingApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return BillingApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BillingApplicationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -152,8 +159,11 @@ class BPStudio extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return GetDeployDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDeployDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeployDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

@@ -30,6 +30,11 @@ class resourceList extends Model
     public $executionStrategy;
 
     /**
+     * @var int
+     */
+    public $expiredTime;
+
+    /**
      * @example 1714031840000
      *
      * @var int
@@ -105,6 +110,7 @@ class resourceList extends Model
         'buyDuration'       => 'BuyDuration',
         'chargeType'        => 'ChargeType',
         'executionStrategy' => 'ExecutionStrategy',
+        'expiredTime'       => 'ExpiredTime',
         'modifiedTime'      => 'ModifiedTime',
         'monitorURL'        => 'MonitorURL',
         'nodeName'          => 'NodeName',
@@ -133,6 +139,9 @@ class resourceList extends Model
         }
         if (null !== $this->executionStrategy) {
             $res['ExecutionStrategy'] = $this->executionStrategy;
+        }
+        if (null !== $this->expiredTime) {
+            $res['ExpiredTime'] = $this->expiredTime;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
@@ -193,6 +202,9 @@ class resourceList extends Model
         }
         if (isset($map['ExecutionStrategy'])) {
             $model->executionStrategy = $map['ExecutionStrategy'];
+        }
+        if (isset($map['ExpiredTime'])) {
+            $model->expiredTime = $map['ExpiredTime'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
