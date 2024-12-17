@@ -347,6 +347,11 @@ class CreateInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $replicaCount;
+
+    /**
      * @description The ID of the resource group.
      *
      * @example rg-resourcegroupid1
@@ -409,6 +414,11 @@ class CreateInstanceRequest extends Model
      * @var int
      */
     public $slaveReadOnlyCount;
+
+    /**
+     * @var int
+     */
+    public $slaveReplicaCount;
 
     /**
      * @description If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
@@ -495,6 +505,7 @@ class CreateInstanceRequest extends Model
         'readOnlyCount'          => 'ReadOnlyCount',
         'recoverConfigMode'      => 'RecoverConfigMode',
         'regionId'               => 'RegionId',
+        'replicaCount'           => 'ReplicaCount',
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
@@ -503,6 +514,7 @@ class CreateInstanceRequest extends Model
         'securityToken'          => 'SecurityToken',
         'shardCount'             => 'ShardCount',
         'slaveReadOnlyCount'     => 'SlaveReadOnlyCount',
+        'slaveReplicaCount'      => 'SlaveReplicaCount',
         'srcDBInstanceId'        => 'SrcDBInstanceId',
         'tag'                    => 'Tag',
         'token'                  => 'Token',
@@ -614,6 +626,9 @@ class CreateInstanceRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->replicaCount) {
+            $res['ReplicaCount'] = $this->replicaCount;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -637,6 +652,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->slaveReadOnlyCount) {
             $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
+        }
+        if (null !== $this->slaveReplicaCount) {
+            $res['SlaveReplicaCount'] = $this->slaveReplicaCount;
         }
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
@@ -770,6 +788,9 @@ class CreateInstanceRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ReplicaCount'])) {
+            $model->replicaCount = $map['ReplicaCount'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -793,6 +814,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['SlaveReadOnlyCount'])) {
             $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
+        }
+        if (isset($map['SlaveReplicaCount'])) {
+            $model->slaveReplicaCount = $map['SlaveReplicaCount'];
         }
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceParameterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the instance.
      *
+     * This parameter is required.
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -28,6 +29,9 @@ class ModifyInstanceParameterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The parameter template ID.
+     *
+     * > You can view the list of parameter templates in the target region, including the parameter template ID, through the DescribeParameterGroups interface.
      * @example g-idhwofwofewhf****
      *
      * @var string
@@ -35,6 +39,8 @@ class ModifyInstanceParameterRequest extends Model
     public $parameterGroupId;
 
     /**
+     * @description The information about parameters.
+     *
      * @example {"hz": "50"}
      *
      * @var string
@@ -42,7 +48,10 @@ class ModifyInstanceParameterRequest extends Model
     public $parameters;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
      *
      * @var string
      */

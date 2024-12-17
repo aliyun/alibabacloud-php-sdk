@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateDirectConnectionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateDirectConnectionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\AllocateInstancePublicConnectionResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CancelActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CheckCloudResourceAuthorizedRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CheckCloudResourceAuthorizedResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateAccountRequest;
@@ -32,6 +34,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateParameterGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTairInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateTCInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteAccountResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteGlobalSecurityIPGroupRequest;
@@ -138,6 +142,12 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityIpsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSecurityIpsResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeSlowLogRecordsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceAttributeRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceAttributeResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstancesRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTairKVCacheCustomInstancesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeZonesRequest;
@@ -158,6 +168,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\LockDBInstanceWriteRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\LockDBInstanceWriteResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\MasterNodeShutDownFailOverRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\MasterNodeShutDownFailOverResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\MigrateToOtherZoneRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\MigrateToOtherZoneResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionRequest;
@@ -186,6 +198,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAutoRenewalAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceAutoRenewalAttributeResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceBandwidthRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceBandwidthResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceConfigRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceMaintainTimeRequest;
@@ -216,6 +230,10 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityGroupConfigurationR
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityGroupConfigurationResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityIpsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyTairKVCacheCustomInstanceAttributeRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyTairKVCacheCustomInstanceAttributeResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyTaskInfoRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyTaskInfoResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseDirectConnectionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseDirectConnectionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ReleaseInstancePublicConnectionRequest;
@@ -228,14 +246,26 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ResetAccountPasswordResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ResetTairKVCacheCustomInstancePasswordRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ResetTairKVCacheCustomInstancePasswordResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ResizeTairKVCacheCustomInstanceDiskRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ResizeTairKVCacheCustomInstanceDiskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestartInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestartTairKVCacheCustomInstanceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestartTairKVCacheCustomInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestoreInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\RestoreInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\StartTairKVCacheCustomInstanceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\StartTairKVCacheCustomInstanceResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\StopTairKVCacheCustomInstanceRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\StopTairKVCacheCustomInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceHARequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceHAResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceProxyRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceProxyResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceZoneFailOverRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchInstanceZoneFailOverResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchNetworkRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SwitchNetworkResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\SyncDtsStatusRequest;
@@ -575,6 +605,78 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateInstancePublicConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Cancels O\\\\\\&M events at a time.
+     *  *
+     * @description O\\&M events cannot be canceled in the following scenarios:
+     * *   The allowCancel parameter is set to 0.
+     * *   The current time is later than the start time of the O\\&M event.
+     * *   The state value of the O\\&M event is not 3.
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelActiveOperationTasks',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Cancels O\\\\\\&M events at a time.
+     *  *
+     * @description O\\&M events cannot be canceled in the following scenarios:
+     * *   The allowCancel parameter is set to 0.
+     * *   The current time is later than the start time of the O\\&M event.
+     * *   The state value of the O\\&M event is not 3.
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     *
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -1133,6 +1235,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->replicaCount)) {
+            $query['ReplicaCount'] = $request->replicaCount;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -1156,6 +1261,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->slaveReadOnlyCount)) {
             $query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
+        }
+        if (!Utils::isUnset($request->slaveReplicaCount)) {
+            $query['SlaveReplicaCount'] = $request->slaveReplicaCount;
         }
         if (!Utils::isUnset($request->srcDBInstanceId)) {
             $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
@@ -1304,7 +1412,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例参数模板。
+     * @summary Creates a parameter template.
      *  *
      * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1370,7 +1478,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @summary 创建实例参数模板。
+     * @summary Creates a parameter template.
      *  *
      * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      *
@@ -1381,6 +1489,131 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建TairCustom实例
+     *  *
+     * @param CreateTCInstanceRequest $request CreateTCInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateTCInstanceResponse CreateTCInstanceResponse
+     */
+    public function createTCInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
+        }
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
+        if (!Utils::isUnset($request->businessInfo)) {
+            $query['BusinessInfo'] = $request->businessInfo;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->couponNo)) {
+            $query['CouponNo'] = $request->couponNo;
+        }
+        if (!Utils::isUnset($request->dataDisk)) {
+            $query['DataDisk'] = $request->dataDisk;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->instanceClass)) {
+            $query['InstanceClass'] = $request->instanceClass;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->needEni)) {
+            $query['NeedEni'] = $request->needEni;
+        }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTCInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建TairCustom实例
+     *  *
+     * @param CreateTCInstanceRequest $request CreateTCInstanceRequest
+     *
+     * @return CreateTCInstanceResponse CreateTCInstanceResponse
+     */
+    public function createTCInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTCInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1426,6 +1659,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->clusterBackupId)) {
             $query['ClusterBackupId'] = $request->clusterBackupId;
+        }
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
         if (!Utils::isUnset($request->couponNo)) {
             $query['CouponNo'] = $request->couponNo;
@@ -1481,6 +1717,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->replicaCount)) {
+            $query['ReplicaCount'] = $request->replicaCount;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -1507,6 +1746,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->slaveReadOnlyCount)) {
             $query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
+        }
+        if (!Utils::isUnset($request->slaveReplicaCount)) {
+            $query['SlaveReplicaCount'] = $request->slaveReplicaCount;
         }
         if (!Utils::isUnset($request->srcDBInstanceId)) {
             $query['SrcDBInstanceId'] = $request->srcDBInstanceId;
@@ -2083,6 +2325,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about the O\\\\\\&M tasks of an ApsaraDB for Redis instance.
+     *  *
      * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -2159,6 +2403,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary Queries the details about the O\\\\\\&M tasks of an ApsaraDB for Redis instance.
+     *  *
      * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
      *
      * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
@@ -5514,6 +5760,138 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary 查看TairCustom实例
+     *  *
+     * @param DescribeTairKVCacheCustomInstanceAttributeRequest $request DescribeTairKVCacheCustomInstanceAttributeRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeTairKVCacheCustomInstanceAttributeResponse DescribeTairKVCacheCustomInstanceAttributeResponse
+     */
+    public function describeTairKVCacheCustomInstanceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTairKVCacheCustomInstanceAttribute',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTairKVCacheCustomInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看TairCustom实例
+     *  *
+     * @param DescribeTairKVCacheCustomInstanceAttributeRequest $request DescribeTairKVCacheCustomInstanceAttributeRequest
+     *
+     * @return DescribeTairKVCacheCustomInstanceAttributeResponse DescribeTairKVCacheCustomInstanceAttributeResponse
+     */
+    public function describeTairKVCacheCustomInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTairKVCacheCustomInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询TairCustom主机监控
+     *  *
+     * @param DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest $request DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
+     * @param RuntimeOptions                                               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
+     */
+    public function describeTairKVCacheCustomInstanceHistoryMonitorValuesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTairKVCacheCustomInstanceHistoryMonitorValues',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询TairCustom主机监控
+     *  *
+     * @param DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest $request DescribeTairKVCacheCustomInstanceHistoryMonitorValuesRequest
+     *
+     * @return DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse DescribeTairKVCacheCustomInstanceHistoryMonitorValuesResponse
+     */
+    public function describeTairKVCacheCustomInstanceHistoryMonitorValues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTairKVCacheCustomInstanceHistoryMonitorValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看TairCustom实例
+     *  *
+     * @param DescribeTairKVCacheCustomInstancesRequest $request DescribeTairKVCacheCustomInstancesRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeTairKVCacheCustomInstancesResponse DescribeTairKVCacheCustomInstancesResponse
+     */
+    public function describeTairKVCacheCustomInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTairKVCacheCustomInstances',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTairKVCacheCustomInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看TairCustom实例
+     *  *
+     * @param DescribeTairKVCacheCustomInstancesRequest $request DescribeTairKVCacheCustomInstancesRequest
+     *
+     * @return DescribeTairKVCacheCustomInstancesResponse DescribeTairKVCacheCustomInstancesResponse
+     */
+    public function describeTairKVCacheCustomInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTairKVCacheCustomInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries all tasks that are performed on an ApsaraDB for Redis instance within a specified period of time.
      *  *
      * @description You can call this operation to query the progress of a task when you perform time-consuming operations. You can also log on to the ApsaraDB for Redis console and click the Tasks icon in the upper-right corner of the **Instance Information** page to view the progress of the current task.
@@ -6241,6 +6619,71 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary Simulates database node failures.
+     *  *
+     * @param MasterNodeShutDownFailOverRequest $request MasterNodeShutDownFailOverRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return MasterNodeShutDownFailOverResponse MasterNodeShutDownFailOverResponse
+     */
+    public function masterNodeShutDownFailOverWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->DBFaultMode)) {
+            $query['DBFaultMode'] = $request->DBFaultMode;
+        }
+        if (!Utils::isUnset($request->DBNodes)) {
+            $query['DBNodes'] = $request->DBNodes;
+        }
+        if (!Utils::isUnset($request->failMode)) {
+            $query['FailMode'] = $request->failMode;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->proxyFaultMode)) {
+            $query['ProxyFaultMode'] = $request->proxyFaultMode;
+        }
+        if (!Utils::isUnset($request->proxyInstanceIds)) {
+            $query['ProxyInstanceIds'] = $request->proxyInstanceIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'MasterNodeShutDownFailOver',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return MasterNodeShutDownFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Simulates database node failures.
+     *  *
+     * @param MasterNodeShutDownFailOverRequest $request MasterNodeShutDownFailOverRequest
+     *
+     * @return MasterNodeShutDownFailOverResponse MasterNodeShutDownFailOverResponse
+     */
+    public function masterNodeShutDownFailOver($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->masterNodeShutDownFailOverWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Migrates an ApsaraDB for Redis instance to another zone in the same region.
      *  *
      * @description Before you call this operation, you must release the public endpoint (if any) of the instance. For more information, see [Migrate an instance across zones](https://help.aliyun.com/document_detail/106272.html).
@@ -6474,7 +6917,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @summary Changes the scheduled switchover time of an O&M task.
+     * @summary Changes the scheduled switchover time of an O\\&amp;M task.
      *  *
      * @description You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
      *  *
@@ -6527,7 +6970,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @summary Changes the scheduled switchover time of an O&M task.
+     * @summary Changes the scheduled switchover time of an O\\&amp;M task.
      *  *
      * @description You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](https://help.aliyun.com/document_detail/187022.html).
      *  *
@@ -6543,6 +6986,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the switching time of scheduled O\\\\\\&M events for an instance.
+     *  *
      * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -6595,6 +7040,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the switching time of scheduled O\\\\\\&M events for an instance.
+     *  *
      * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
      * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
@@ -7265,6 +7712,71 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary Modifies the bandwidth of an instance.
+     *  *
+     * @param ModifyInstanceBandwidthRequest $request ModifyInstanceBandwidthRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyInstanceBandwidthResponse ModifyInstanceBandwidthResponse
+     */
+    public function modifyInstanceBandwidthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->targetIntranetBandwidth)) {
+            $query['TargetIntranetBandwidth'] = $request->targetIntranetBandwidth;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceBandwidth',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the bandwidth of an instance.
+     *  *
+     * @param ModifyInstanceBandwidthRequest $request ModifyInstanceBandwidthRequest
+     *
+     * @return ModifyInstanceBandwidthResponse ModifyInstanceBandwidthResponse
+     */
+    public function modifyInstanceBandwidth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceBandwidthWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the parameter settings of an ApsaraDB for Redis instance.
      *  *
      * @param ModifyInstanceConfigRequest $request ModifyInstanceConfigRequest
@@ -7287,6 +7799,24 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->paramNoLooseSentinelEnabled)) {
+            $query['ParamNoLooseSentinelEnabled'] = $request->paramNoLooseSentinelEnabled;
+        }
+        if (!Utils::isUnset($request->paramNoLooseSentinelPasswordFreeAccess)) {
+            $query['ParamNoLooseSentinelPasswordFreeAccess'] = $request->paramNoLooseSentinelPasswordFreeAccess;
+        }
+        if (!Utils::isUnset($request->paramNoLooseSentinelPasswordFreeCommands)) {
+            $query['ParamNoLooseSentinelPasswordFreeCommands'] = $request->paramNoLooseSentinelPasswordFreeCommands;
+        }
+        if (!Utils::isUnset($request->paramReplMode)) {
+            $query['ParamReplMode'] = $request->paramReplMode;
+        }
+        if (!Utils::isUnset($request->paramSemisyncReplTimeout)) {
+            $query['ParamSemisyncReplTimeout'] = $request->paramSemisyncReplTimeout;
+        }
+        if (!Utils::isUnset($request->paramSentinelCompatEnable)) {
+            $query['ParamSentinelCompatEnable'] = $request->paramSentinelCompatEnable;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -7626,7 +8156,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例参数
+     * @summary Applies a parameter template to specific instances. This indicates that the parameter values in the template take effect on the instances. After you modify a parameter template, you must reapply it to specific instances for the new parameter values to take effect on the instances.
      *  *
      * @param ModifyInstanceParameterRequest $request ModifyInstanceParameterRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -7683,7 +8213,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @summary 修改实例参数
+     * @summary Applies a parameter template to specific instances. This indicates that the parameter values in the template take effect on the instances. After you modify a parameter template, you must reapply it to specific instances for the new parameter values to take effect on the instances.
      *  *
      * @param ModifyInstanceParameterRequest $request ModifyInstanceParameterRequest
      *
@@ -7829,6 +8359,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->replicaCount)) {
+            $query['ReplicaCount'] = $request->replicaCount;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -7844,8 +8377,17 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->slaveReadOnlyCount)) {
             $query['SlaveReadOnlyCount'] = $request->slaveReadOnlyCount;
         }
+        if (!Utils::isUnset($request->slaveReplicaCount)) {
+            $query['SlaveReplicaCount'] = $request->slaveReplicaCount;
+        }
         if (!Utils::isUnset($request->sourceBiz)) {
             $query['SourceBiz'] = $request->sourceBiz;
+        }
+        if (!Utils::isUnset($request->storage)) {
+            $query['Storage'] = $request->storage;
+        }
+        if (!Utils::isUnset($request->storageType)) {
+            $query['StorageType'] = $request->storageType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8403,6 +8945,142 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary 修改TairCustom实例基本参数
+     *  *
+     * @param ModifyTairKVCacheCustomInstanceAttributeRequest $request ModifyTairKVCacheCustomInstanceAttributeRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyTairKVCacheCustomInstanceAttributeResponse ModifyTairKVCacheCustomInstanceAttributeResponse
+     */
+    public function modifyTairKVCacheCustomInstanceAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTairKVCacheCustomInstanceAttribute',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTairKVCacheCustomInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改TairCustom实例基本参数
+     *  *
+     * @param ModifyTairKVCacheCustomInstanceAttributeRequest $request ModifyTairKVCacheCustomInstanceAttributeRequest
+     *
+     * @return ModifyTairKVCacheCustomInstanceAttributeResponse ModifyTairKVCacheCustomInstanceAttributeResponse
+     */
+    public function modifyTairKVCacheCustomInstanceAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTairKVCacheCustomInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 任务中心修改任务信息
+     *  *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
+     */
+    public function modifyTaskInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->actionParams)) {
+            $query['ActionParams'] = $request->actionParams;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stepName)) {
+            $query['StepName'] = $request->stepName;
+        }
+        if (!Utils::isUnset($request->taskAction)) {
+            $query['TaskAction'] = $request->taskAction;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTaskInfo',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 任务中心修改任务信息
+     *  *
+     * @param ModifyTaskInfoRequest $request ModifyTaskInfoRequest
+     *
+     * @return ModifyTaskInfoResponse ModifyTaskInfoResponse
+     */
+    public function modifyTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Releases the private endpoint of an ApsaraDB for Redis cluster instance.
      *  *
      * @description In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](https://help.aliyun.com/document_detail/146901.html).
@@ -8854,6 +9532,145 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
+     * @summary 重置TairCustom上主机密码
+     *  *
+     * @param ResetTairKVCacheCustomInstancePasswordRequest $request ResetTairKVCacheCustomInstancePasswordRequest
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResetTairKVCacheCustomInstancePasswordResponse ResetTairKVCacheCustomInstancePasswordResponse
+     */
+    public function resetTairKVCacheCustomInstancePasswordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sourceBiz)) {
+            $query['SourceBiz'] = $request->sourceBiz;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetTairKVCacheCustomInstancePassword',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetTairKVCacheCustomInstancePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重置TairCustom上主机密码
+     *  *
+     * @param ResetTairKVCacheCustomInstancePasswordRequest $request ResetTairKVCacheCustomInstancePasswordRequest
+     *
+     * @return ResetTairKVCacheCustomInstancePasswordResponse ResetTairKVCacheCustomInstancePasswordResponse
+     */
+    public function resetTairKVCacheCustomInstancePassword($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetTairKVCacheCustomInstancePasswordWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 变配TairCustom的主机的磁盘
+     *  *
+     * @param ResizeTairKVCacheCustomInstanceDiskRequest $request ResizeTairKVCacheCustomInstanceDiskRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ResizeTairKVCacheCustomInstanceDiskResponse ResizeTairKVCacheCustomInstanceDiskResponse
+     */
+    public function resizeTairKVCacheCustomInstanceDiskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->diskId)) {
+            $query['DiskId'] = $request->diskId;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResizeTairKVCacheCustomInstanceDisk',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResizeTairKVCacheCustomInstanceDiskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 变配TairCustom的主机的磁盘
+     *  *
+     * @param ResizeTairKVCacheCustomInstanceDiskRequest $request ResizeTairKVCacheCustomInstanceDiskRequest
+     *
+     * @return ResizeTairKVCacheCustomInstanceDiskResponse ResizeTairKVCacheCustomInstanceDiskResponse
+     */
+    public function resizeTairKVCacheCustomInstanceDisk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resizeTairKVCacheCustomInstanceDiskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Restarts a running ApsaraDB for Redis instance.
      *  *
      * @param RestartInstanceRequest $request RestartInstanceRequest
@@ -8919,6 +9736,68 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restartInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 重启TairCustom的主机
+     *  *
+     * @param RestartTairKVCacheCustomInstanceRequest $request RestartTairKVCacheCustomInstanceRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RestartTairKVCacheCustomInstanceResponse RestartTairKVCacheCustomInstanceResponse
+     */
+    public function restartTairKVCacheCustomInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartTairKVCacheCustomInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 重启TairCustom的主机
+     *  *
+     * @param RestartTairKVCacheCustomInstanceRequest $request RestartTairKVCacheCustomInstanceRequest
+     *
+     * @return RestartTairKVCacheCustomInstanceResponse RestartTairKVCacheCustomInstanceResponse
+     */
+    public function restartTairKVCacheCustomInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartTairKVCacheCustomInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -9002,6 +9881,130 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->restoreInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 启动TairCustom的主机
+     *  *
+     * @param StartTairKVCacheCustomInstanceRequest $request StartTairKVCacheCustomInstanceRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartTairKVCacheCustomInstanceResponse StartTairKVCacheCustomInstanceResponse
+     */
+    public function startTairKVCacheCustomInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTairKVCacheCustomInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动TairCustom的主机
+     *  *
+     * @param StartTairKVCacheCustomInstanceRequest $request StartTairKVCacheCustomInstanceRequest
+     *
+     * @return StartTairKVCacheCustomInstanceResponse StartTairKVCacheCustomInstanceResponse
+     */
+    public function startTairKVCacheCustomInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startTairKVCacheCustomInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 停止TairCustom的主机
+     *  *
+     * @param StopTairKVCacheCustomInstanceRequest $request StopTairKVCacheCustomInstanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopTairKVCacheCustomInstanceResponse StopTairKVCacheCustomInstanceResponse
+     */
+    public function stopTairKVCacheCustomInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopTairKVCacheCustomInstance',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopTairKVCacheCustomInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停止TairCustom的主机
+     *  *
+     * @param StopTairKVCacheCustomInstanceRequest $request StopTairKVCacheCustomInstanceRequest
+     *
+     * @return StopTairKVCacheCustomInstanceResponse StopTairKVCacheCustomInstanceResponse
+     */
+    public function stopTairKVCacheCustomInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopTairKVCacheCustomInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -9157,6 +10160,59 @@ class Rkvstore extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->switchInstanceProxyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Switches an instance from the current zone to the specified zone in the event of a fault.
+     *  *
+     * @param SwitchInstanceZoneFailOverRequest $request SwitchInstanceZoneFailOverRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SwitchInstanceZoneFailOverResponse SwitchInstanceZoneFailOverResponse
+     */
+    public function switchInstanceZoneFailOverWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->siteFaultTime)) {
+            $query['SiteFaultTime'] = $request->siteFaultTime;
+        }
+        if (!Utils::isUnset($request->targetZoneId)) {
+            $query['TargetZoneId'] = $request->targetZoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchInstanceZoneFailOver',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchInstanceZoneFailOverResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Switches an instance from the current zone to the specified zone in the event of a fault.
+     *  *
+     * @param SwitchInstanceZoneFailOverRequest $request SwitchInstanceZoneFailOverRequest
+     *
+     * @return SwitchInstanceZoneFailOverResponse SwitchInstanceZoneFailOverResponse
+     */
+    public function switchInstanceZoneFailOver($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchInstanceZoneFailOverWithOptions($request, $runtime);
     }
 
     /**
@@ -9493,6 +10549,12 @@ class Rkvstore extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->autoRenewPeriod)) {
+            $query['AutoRenewPeriod'] = $request->autoRenewPeriod;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;

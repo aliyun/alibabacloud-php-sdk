@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTasksResponseBody extends Model
 {
     /**
+     * @description The list of details of O\\&M tasks.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeActiveOperationTasksResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Default 25.
+     *
      * @example 25
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeActiveOperationTasksResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 2D9F3768-EDA9-4811-943E-42C8006E****
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeActiveOperationTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 1
      *
      * @var int

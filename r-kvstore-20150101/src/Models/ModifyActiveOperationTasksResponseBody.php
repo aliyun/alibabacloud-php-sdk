@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTasksResponseBody extends Model
 {
     /**
+     * @description The IDs of the O\\&M events. Separate multiple event IDs with commas (,).
+     *
      * @example 11111,22222
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyActiveOperationTasksResponseBody extends Model
     public $ids;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E278D833-BB4B-50BF-8646-7BC1BAB2373B
      *
      * @var string

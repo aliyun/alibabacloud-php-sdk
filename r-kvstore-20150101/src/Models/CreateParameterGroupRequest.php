@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateParameterGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The service category. Valid values:
      *
+     *   **standard**: Community Edition
+     *   **enterprise**: Enhanced Edition (Tair)
+     *
+     * This parameter is required.
      * @example enterprise
      *
      * @var string
@@ -18,8 +22,13 @@ class CreateParameterGroupRequest extends Model
     public $category;
 
     /**
-     * @description This parameter is required.
+     * @description The engine type. Valid values:
      *
+     *   **redis**: ApsaraDB for Redis Community Edition instance or Tair DRAM-based instance
+     *   **tair_pena**: Tair persistent memory-optimized instance
+     *   **tair_pdb**: Tair ESSD/SSD-based instance
+     *
+     * This parameter is required.
      * @example redis
      *
      * @var string
@@ -27,8 +36,14 @@ class CreateParameterGroupRequest extends Model
     public $engineType;
 
     /**
-     * @description This parameter is required.
+     * @description The compatible engine version. Valid values:
      *
+     *   For ApsaraDB for Redis Community Edition instances, set the parameter to **5.0**, **6.0**, or **7.0**.
+     *   For Tair DRAM-based instances that are compatible with Redis 5.0, 6.0, or 7.0, set the parameter to **5.0**, **6.0**, or **7.0**.
+     *   For Tair persistent memory-optimized instances that are compatible with Redis 6.0, set the parameter to **1.0**.
+     *   For Tair ESSD-based instances that are compatible with Redis 6.0, set the parameter to **1.0**. For Tair SSD-based instances that are compatible with Redis 6.0, set the parameter to **2.0**.
+     *
+     * This parameter is required.
      * @example 6.0
      *
      * @var string
@@ -46,6 +61,8 @@ class CreateParameterGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the parameter template. The description must be 0 to 200 characters in length.
+     *
      * @example test
      *
      * @var string
@@ -53,8 +70,12 @@ class CreateParameterGroupRequest extends Model
     public $parameterGroupDesc;
 
     /**
-     * @description This parameter is required.
+     * @description The new name of the parameter template. The name must meet the following requirements:
      *
+     *   The name can contain letters, digits, and underscores (_). It must start with a letter and cannot contain Chinese characters.
+     *   The name can be 8 to 64 characters in length.
+     *
+     * This parameter is required.
      * @example tw_test1
      *
      * @var string
@@ -62,8 +83,9 @@ class CreateParameterGroupRequest extends Model
     public $parameterGroupName;
 
     /**
-     * @description This parameter is required.
+     * @description A JSON-formatted object that specifies the parameter-value pairs. Format: {"Parameter 1":"Value 1","Parameter 2":"Value 2"...}. The specified value overwrites the original content.
      *
+     * This parameter is required.
      * @example {"hz":"15","#no_loose_disabled-commands":"flushall"}
      *
      * @var string
@@ -71,8 +93,9 @@ class CreateParameterGroupRequest extends Model
     public $parameters;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

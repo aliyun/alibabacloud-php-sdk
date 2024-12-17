@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateParameterGroupResponseBody extends Model
 {
     /**
+     * @description The parameter template ID.
+     *
      * @example g-51ii2ienn0dg0xi8****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateParameterGroupResponseBody extends Model
     public $paramGroupId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 62DA5BE5-F9C9-527C-ACCB-4D783C297A3A
      *
      * @var string

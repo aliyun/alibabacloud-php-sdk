@@ -105,6 +105,11 @@ class CreateTairInstanceRequest extends Model
     public $clusterBackupId;
 
     /**
+     * @var string
+     */
+    public $connectionStringPrefix;
+
+    /**
      * @description The coupon code.
      *
      * @example youhuiquan_promotion_option_id_for_blank
@@ -287,6 +292,11 @@ class CreateTairInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $replicaCount;
+
+    /**
      * @description The ID of the resource group to which you want to assign the instance.
      *
      * >
@@ -369,6 +379,11 @@ class CreateTairInstanceRequest extends Model
      * @var int
      */
     public $slaveReadOnlyCount;
+
+    /**
+     * @var int
+     */
+    public $slaveReplicaCount;
 
     /**
      * @description If you want to create an instance based on the backup set of an existing instance, set this parameter to the ID of the source instance.
@@ -454,6 +469,7 @@ class CreateTairInstanceRequest extends Model
         'chargeType'             => 'ChargeType',
         'clientToken'            => 'ClientToken',
         'clusterBackupId'        => 'ClusterBackupId',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
         'couponNo'               => 'CouponNo',
         'dryRun'                 => 'DryRun',
         'engineVersion'          => 'EngineVersion',
@@ -472,6 +488,7 @@ class CreateTairInstanceRequest extends Model
         'readOnlyCount'          => 'ReadOnlyCount',
         'recoverConfigMode'      => 'RecoverConfigMode',
         'regionId'               => 'RegionId',
+        'replicaCount'           => 'ReplicaCount',
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
@@ -481,6 +498,7 @@ class CreateTairInstanceRequest extends Model
         'shardCount'             => 'ShardCount',
         'shardType'              => 'ShardType',
         'slaveReadOnlyCount'     => 'SlaveReadOnlyCount',
+        'slaveReplicaCount'      => 'SlaveReplicaCount',
         'srcDBInstanceId'        => 'SrcDBInstanceId',
         'storage'                => 'Storage',
         'storageType'            => 'StorageType',
@@ -523,6 +541,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (null !== $this->clusterBackupId) {
             $res['ClusterBackupId'] = $this->clusterBackupId;
+        }
+        if (null !== $this->connectionStringPrefix) {
+            $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
@@ -578,6 +599,9 @@ class CreateTairInstanceRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->replicaCount) {
+            $res['ReplicaCount'] = $this->replicaCount;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -604,6 +628,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (null !== $this->slaveReadOnlyCount) {
             $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
+        }
+        if (null !== $this->slaveReplicaCount) {
+            $res['SlaveReplicaCount'] = $this->slaveReplicaCount;
         }
         if (null !== $this->srcDBInstanceId) {
             $res['SrcDBInstanceId'] = $this->srcDBInstanceId;
@@ -671,6 +698,9 @@ class CreateTairInstanceRequest extends Model
         if (isset($map['ClusterBackupId'])) {
             $model->clusterBackupId = $map['ClusterBackupId'];
         }
+        if (isset($map['ConnectionStringPrefix'])) {
+            $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
+        }
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
@@ -725,6 +755,9 @@ class CreateTairInstanceRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ReplicaCount'])) {
+            $model->replicaCount = $map['ReplicaCount'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -751,6 +784,9 @@ class CreateTairInstanceRequest extends Model
         }
         if (isset($map['SlaveReadOnlyCount'])) {
             $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
+        }
+        if (isset($map['SlaveReplicaCount'])) {
+            $model->slaveReplicaCount = $map['SlaveReplicaCount'];
         }
         if (isset($map['SrcDBInstanceId'])) {
             $model->srcDBInstanceId = $map['SrcDBInstanceId'];

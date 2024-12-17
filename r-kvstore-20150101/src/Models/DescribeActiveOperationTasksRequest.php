@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTasksRequest extends Model
 {
     /**
+     * @description The filter condition that is used to return tasks based on the settings of task cancellation. Default value: -1. Valid values:
+     *
+     *   **-1**: returns all tasks.
+     *   **0**: returns only tasks that cannot be canceled.
+     *   **1**: returns only tasks that can be canceled.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +22,12 @@ class DescribeActiveOperationTasksRequest extends Model
     public $allowCancel;
 
     /**
+     * @description The filter condition that is used to return tasks based on the settings of the switching time. Default value: -1. Valid values:
+     *
+     *   **-1**: returns all tasks.
+     *   **0**: returns only tasks for which the switching time cannot be changed.
+     *   **1**: returns only tasks for which the switching time can be changed.
+     *
      * @example -1
      *
      * @var int
@@ -23,6 +35,12 @@ class DescribeActiveOperationTasksRequest extends Model
     public $allowChange;
 
     /**
+     * @description The type of task configuration change. Valid values:
+     *
+     *   **all** (default): The configurations of all O\\&M tasks are changed.
+     *   **S0**: The configurations of tasks initiated to fix exceptions are changed.
+     *   **S1**: The configurations of system O\\&M tasks are changed.
+     *
      * @example all
      *
      * @var string
@@ -30,6 +48,8 @@ class DescribeActiveOperationTasksRequest extends Model
     public $changeLevel;
 
     /**
+     * @description The database type. Valid values: **redis**
+     *
      * @example redis
      *
      * @var string
@@ -37,6 +57,8 @@ class DescribeActiveOperationTasksRequest extends Model
     public $dbType;
 
     /**
+     * @description The name of the instance. You can leave this parameter empty. If you configure this parameter, you can specify the name only of one instance.
+     *
      * @example r-wz96fzmpvpr2qnqnlb
      *
      * @var string
@@ -54,6 +76,8 @@ class DescribeActiveOperationTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -61,6 +85,8 @@ class DescribeActiveOperationTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 25. Maximum value: 100.
+     *
      * @example 25
      *
      * @var int
@@ -68,6 +94,8 @@ class DescribeActiveOperationTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the service. Valid values: RDS, POLARDB, MongoDB, and Redis. For Redis instances, set the value to Redis.
+     *
      * @example Redis
      *
      * @var string
@@ -75,6 +103,9 @@ class DescribeActiveOperationTasksRequest extends Model
     public $productId;
 
     /**
+     * @description The region ID of the O&M task. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the most recent region list.
+     *
+     * > A value of **all** indicates all region IDs.
      * @example cn-shanghai
      *
      * @var string
@@ -97,6 +128,15 @@ class DescribeActiveOperationTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description The status of operation and maintenance events. It is used to filter and return tasks. The values are as follows:. Valid values:
+     *
+     *   **-1**: All events.
+     *   **3**: Events awaiting processing.
+     *   **4**: Events being processed.
+     *   **5**: Events that have successfully ended.
+     *   **6**: Events that have ended in failure.
+     *   **7**: Events that have been canceled.
+     *
      * @example 3
      *
      * @var int
@@ -104,6 +144,8 @@ class DescribeActiveOperationTasksRequest extends Model
     public $status;
 
     /**
+     * @description The type of the O\\&M task. If left blank, all types will be queried.
+     *
      * @example all
      *
      * @var string

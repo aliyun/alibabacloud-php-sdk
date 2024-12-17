@@ -404,6 +404,11 @@ class DBInstanceAttribute extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $replicaCount;
+
+    /**
      * @description The ID of the replica node.
      *
      * @example bls-awxxxxxxxxxxxxx
@@ -469,6 +474,11 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $slaveReadOnlyCount;
+
+    /**
+     * @var int
+     */
+    public $slaveReplicaCount;
 
     /**
      * @description The storage capacity of the cloud disk.
@@ -592,6 +602,7 @@ class DBInstanceAttribute extends Model
         'readOnlyCount'             => 'ReadOnlyCount',
         'realInstanceClass'         => 'RealInstanceClass',
         'regionId'                  => 'RegionId',
+        'replicaCount'              => 'ReplicaCount',
         'replicaId'                 => 'ReplicaId',
         'replicationMode'           => 'ReplicationMode',
         'resourceGroupId'           => 'ResourceGroupId',
@@ -599,6 +610,7 @@ class DBInstanceAttribute extends Model
         'securityIPList'            => 'SecurityIPList',
         'shardCount'                => 'ShardCount',
         'slaveReadOnlyCount'        => 'SlaveReadOnlyCount',
+        'slaveReplicaCount'         => 'SlaveReplicaCount',
         'storage'                   => 'Storage',
         'storageType'               => 'StorageType',
         'tags'                      => 'Tags',
@@ -728,6 +740,9 @@ class DBInstanceAttribute extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->replicaCount) {
+            $res['ReplicaCount'] = $this->replicaCount;
+        }
         if (null !== $this->replicaId) {
             $res['ReplicaId'] = $this->replicaId;
         }
@@ -748,6 +763,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->slaveReadOnlyCount) {
             $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
+        }
+        if (null !== $this->slaveReplicaCount) {
+            $res['SlaveReplicaCount'] = $this->slaveReplicaCount;
         }
         if (null !== $this->storage) {
             $res['Storage'] = $this->storage;
@@ -899,6 +917,9 @@ class DBInstanceAttribute extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ReplicaCount'])) {
+            $model->replicaCount = $map['ReplicaCount'];
+        }
         if (isset($map['ReplicaId'])) {
             $model->replicaId = $map['ReplicaId'];
         }
@@ -919,6 +940,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['SlaveReadOnlyCount'])) {
             $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
+        }
+        if (isset($map['SlaveReplicaCount'])) {
+            $model->slaveReplicaCount = $map['SlaveReplicaCount'];
         }
         if (isset($map['Storage'])) {
             $model->storage = $map['Storage'];

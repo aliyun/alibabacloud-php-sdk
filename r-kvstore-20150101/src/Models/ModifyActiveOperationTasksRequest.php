@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTasksRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IDs of the O\\&M events. Separate multiple event IDs with commas (,).
      *
+     * This parameter is required.
      * @example 1111721,1111718
      *
      * @var string
@@ -18,6 +19,12 @@ class ModifyActiveOperationTasksRequest extends Model
     public $ids;
 
     /**
+     * @description Specifies whether to immediately start scheduling. Valid values:
+     *
+     *   0 (default): Scheduling is not started immediately.
+     *   1: Scheduling is started immediately.
+     *
+     * >  If you set this parameter to 0, the SwitchTime parameter takes effect. If you set this parameter to 1, the SwitchTime parameter does not take effect. In this case, the start time of the event is set to the current time, and the system determines the switching time based on the start time. Scheduling is started immediately, which is a prerequisite for the switchover. Then, the switchover is performed. You can call the DescribeActiveOperationTasks operation to query the preparation time that is returned for the PrepareInterval parameter.
      * @example 0
      *
      * @var int
@@ -50,8 +57,9 @@ class ModifyActiveOperationTasksRequest extends Model
     public $securityToken;
 
     /**
-     * @description This parameter is required.
+     * @description The scheduled switching time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * This parameter is required.
      * @example 2019-10-17T18:50:00Z
      *
      * @var string

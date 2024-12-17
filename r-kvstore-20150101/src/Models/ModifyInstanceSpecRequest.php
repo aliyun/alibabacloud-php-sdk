@@ -177,6 +177,11 @@ class ModifyInstanceSpecRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $replicaCount;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -210,6 +215,11 @@ class ModifyInstanceSpecRequest extends Model
     public $slaveReadOnlyCount;
 
     /**
+     * @var int
+     */
+    public $slaveReplicaCount;
+
+    /**
      * @description The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
      *
      * @example SDK
@@ -217,6 +227,16 @@ class ModifyInstanceSpecRequest extends Model
      * @var string
      */
     public $sourceBiz;
+
+    /**
+     * @var int
+     */
+    public $storage;
+
+    /**
+     * @var string
+     */
+    public $storageType;
     protected $_name = [
         'autoPay'              => 'AutoPay',
         'businessInfo'         => 'BusinessInfo',
@@ -234,12 +254,16 @@ class ModifyInstanceSpecRequest extends Model
         'ownerId'              => 'OwnerId',
         'readOnlyCount'        => 'ReadOnlyCount',
         'regionId'             => 'RegionId',
+        'replicaCount'         => 'ReplicaCount',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
         'shardCount'           => 'ShardCount',
         'slaveReadOnlyCount'   => 'SlaveReadOnlyCount',
+        'slaveReplicaCount'    => 'SlaveReplicaCount',
         'sourceBiz'            => 'SourceBiz',
+        'storage'              => 'Storage',
+        'storageType'          => 'StorageType',
     ];
 
     public function validate()
@@ -297,6 +321,9 @@ class ModifyInstanceSpecRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->replicaCount) {
+            $res['ReplicaCount'] = $this->replicaCount;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -312,8 +339,17 @@ class ModifyInstanceSpecRequest extends Model
         if (null !== $this->slaveReadOnlyCount) {
             $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
         }
+        if (null !== $this->slaveReplicaCount) {
+            $res['SlaveReplicaCount'] = $this->slaveReplicaCount;
+        }
         if (null !== $this->sourceBiz) {
             $res['SourceBiz'] = $this->sourceBiz;
+        }
+        if (null !== $this->storage) {
+            $res['Storage'] = $this->storage;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
 
         return $res;
@@ -375,6 +411,9 @@ class ModifyInstanceSpecRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ReplicaCount'])) {
+            $model->replicaCount = $map['ReplicaCount'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -390,8 +429,17 @@ class ModifyInstanceSpecRequest extends Model
         if (isset($map['SlaveReadOnlyCount'])) {
             $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
         }
+        if (isset($map['SlaveReplicaCount'])) {
+            $model->slaveReplicaCount = $map['SlaveReplicaCount'];
+        }
         if (isset($map['SourceBiz'])) {
             $model->sourceBiz = $map['SourceBiz'];
+        }
+        if (isset($map['Storage'])) {
+            $model->storage = $map['Storage'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
 
         return $model;

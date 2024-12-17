@@ -18,6 +18,8 @@ class DescribeBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @description The backup task ID, returned by CreateBackup. If CreateBackup returns multiple BackupJobIds, you need to use this interface to query each of them separately.
+     *
      * @example 10001
      *
      * @var int
@@ -68,7 +70,7 @@ class DescribeBackupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     * @description The page number. The value must be an integer that is greater than **0**. Default value: **1**.
      *
      * @example 1
      *
@@ -77,7 +79,7 @@ class DescribeBackupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 30, 50, 100, 200, and 300.
+     * @description The maximum number of entries per page. Valid values: 30, 50, 100, 200, and 300.
      *
      * @example 30
      *

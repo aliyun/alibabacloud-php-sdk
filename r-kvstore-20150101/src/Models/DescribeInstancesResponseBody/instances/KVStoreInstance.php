@@ -318,6 +318,11 @@ class KVStoreInstance extends Model
     public $QPS;
 
     /**
+     * @var string
+     */
+    public $readOnlyCount;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -334,6 +339,11 @@ class KVStoreInstance extends Model
      * @var string
      */
     public $replacateId;
+
+    /**
+     * @var int
+     */
+    public $replicaCount;
 
     /**
      * @description The ID of the resource group to which the instance belongs.
@@ -373,6 +383,16 @@ class KVStoreInstance extends Model
      * @var int
      */
     public $shardCount;
+
+    /**
+     * @var int
+     */
+    public $slaveReadOnlyCount;
+
+    /**
+     * @var int
+     */
+    public $slaveReplicaCount;
 
     /**
      * @description Details about the tags.
@@ -446,12 +466,16 @@ class KVStoreInstance extends Model
         'port'                => 'Port',
         'privateIp'           => 'PrivateIp',
         'QPS'                 => 'QPS',
+        'readOnlyCount'       => 'ReadOnlyCount',
         'regionId'            => 'RegionId',
         'replacateId'         => 'ReplacateId',
+        'replicaCount'        => 'ReplicaCount',
         'resourceGroupId'     => 'ResourceGroupId',
         'secondaryZoneId'     => 'SecondaryZoneId',
         'shardClass'          => 'ShardClass',
         'shardCount'          => 'ShardCount',
+        'slaveReadOnlyCount'  => 'SlaveReadOnlyCount',
+        'slaveReplicaCount'   => 'SlaveReplicaCount',
         'tags'                => 'Tags',
         'userName'            => 'UserName',
         'vSwitchId'           => 'VSwitchId',
@@ -553,11 +577,17 @@ class KVStoreInstance extends Model
         if (null !== $this->QPS) {
             $res['QPS'] = $this->QPS;
         }
+        if (null !== $this->readOnlyCount) {
+            $res['ReadOnlyCount'] = $this->readOnlyCount;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->replacateId) {
             $res['ReplacateId'] = $this->replacateId;
+        }
+        if (null !== $this->replicaCount) {
+            $res['ReplicaCount'] = $this->replicaCount;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -570,6 +600,12 @@ class KVStoreInstance extends Model
         }
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
+        }
+        if (null !== $this->slaveReadOnlyCount) {
+            $res['SlaveReadOnlyCount'] = $this->slaveReadOnlyCount;
+        }
+        if (null !== $this->slaveReplicaCount) {
+            $res['SlaveReplicaCount'] = $this->slaveReplicaCount;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -685,11 +721,17 @@ class KVStoreInstance extends Model
         if (isset($map['QPS'])) {
             $model->QPS = $map['QPS'];
         }
+        if (isset($map['ReadOnlyCount'])) {
+            $model->readOnlyCount = $map['ReadOnlyCount'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['ReplacateId'])) {
             $model->replacateId = $map['ReplacateId'];
+        }
+        if (isset($map['ReplicaCount'])) {
+            $model->replicaCount = $map['ReplicaCount'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -702,6 +744,12 @@ class KVStoreInstance extends Model
         }
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];
+        }
+        if (isset($map['SlaveReadOnlyCount'])) {
+            $model->slaveReadOnlyCount = $map['SlaveReadOnlyCount'];
+        }
+        if (isset($map['SlaveReplicaCount'])) {
+            $model->slaveReplicaCount = $map['SlaveReplicaCount'];
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceParameterResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -25,6 +27,8 @@ class ModifyInstanceParameterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 578678678
      *
      * @var int

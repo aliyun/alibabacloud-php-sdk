@@ -149,6 +149,10 @@ class backup extends Model
     public $nodeInstanceId;
 
     /**
+     * @description If the backup includes account information, kernel parameters and whitelist details.
+     *
+     * @example {"whitelist":true,"config":true,"account":true}
+     *
      * @var string
      */
     public $recoverConfigMode;

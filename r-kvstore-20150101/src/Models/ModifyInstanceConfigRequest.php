@@ -15,7 +15,6 @@ class ModifyInstanceConfigRequest extends Model
      *
      **Description** For more information, see [Supported parameters](https://help.aliyun.com/document_detail/259681.html).
      *
-     * This parameter is required.
      * @example {"maxmemory-policy":"volatile-lru","zset-max-ziplist-entries":128,"zset-max-ziplist-value":64,"hash-max-ziplist-entries":512,"set-max-intset-entries":512}
      *
      * @var string
@@ -45,6 +44,36 @@ class ModifyInstanceConfigRequest extends Model
     /**
      * @var string
      */
+    public $paramNoLooseSentinelEnabled;
+
+    /**
+     * @var string
+     */
+    public $paramNoLooseSentinelPasswordFreeAccess;
+
+    /**
+     * @var string
+     */
+    public $paramNoLooseSentinelPasswordFreeCommands;
+
+    /**
+     * @var string
+     */
+    public $paramReplMode;
+
+    /**
+     * @var string
+     */
+    public $paramSemisyncReplTimeout;
+
+    /**
+     * @var string
+     */
+    public $paramSentinelCompatEnable;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -57,13 +86,19 @@ class ModifyInstanceConfigRequest extends Model
      */
     public $securityToken;
     protected $_name = [
-        'config'               => 'Config',
-        'instanceId'           => 'InstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
+        'config'                                   => 'Config',
+        'instanceId'                               => 'InstanceId',
+        'ownerAccount'                             => 'OwnerAccount',
+        'ownerId'                                  => 'OwnerId',
+        'paramNoLooseSentinelEnabled'              => 'ParamNoLooseSentinelEnabled',
+        'paramNoLooseSentinelPasswordFreeAccess'   => 'ParamNoLooseSentinelPasswordFreeAccess',
+        'paramNoLooseSentinelPasswordFreeCommands' => 'ParamNoLooseSentinelPasswordFreeCommands',
+        'paramReplMode'                            => 'ParamReplMode',
+        'paramSemisyncReplTimeout'                 => 'ParamSemisyncReplTimeout',
+        'paramSentinelCompatEnable'                => 'ParamSentinelCompatEnable',
+        'resourceOwnerAccount'                     => 'ResourceOwnerAccount',
+        'resourceOwnerId'                          => 'ResourceOwnerId',
+        'securityToken'                            => 'SecurityToken',
     ];
 
     public function validate()
@@ -84,6 +119,24 @@ class ModifyInstanceConfigRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->paramNoLooseSentinelEnabled) {
+            $res['ParamNoLooseSentinelEnabled'] = $this->paramNoLooseSentinelEnabled;
+        }
+        if (null !== $this->paramNoLooseSentinelPasswordFreeAccess) {
+            $res['ParamNoLooseSentinelPasswordFreeAccess'] = $this->paramNoLooseSentinelPasswordFreeAccess;
+        }
+        if (null !== $this->paramNoLooseSentinelPasswordFreeCommands) {
+            $res['ParamNoLooseSentinelPasswordFreeCommands'] = $this->paramNoLooseSentinelPasswordFreeCommands;
+        }
+        if (null !== $this->paramReplMode) {
+            $res['ParamReplMode'] = $this->paramReplMode;
+        }
+        if (null !== $this->paramSemisyncReplTimeout) {
+            $res['ParamSemisyncReplTimeout'] = $this->paramSemisyncReplTimeout;
+        }
+        if (null !== $this->paramSentinelCompatEnable) {
+            $res['ParamSentinelCompatEnable'] = $this->paramSentinelCompatEnable;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -117,6 +170,24 @@ class ModifyInstanceConfigRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ParamNoLooseSentinelEnabled'])) {
+            $model->paramNoLooseSentinelEnabled = $map['ParamNoLooseSentinelEnabled'];
+        }
+        if (isset($map['ParamNoLooseSentinelPasswordFreeAccess'])) {
+            $model->paramNoLooseSentinelPasswordFreeAccess = $map['ParamNoLooseSentinelPasswordFreeAccess'];
+        }
+        if (isset($map['ParamNoLooseSentinelPasswordFreeCommands'])) {
+            $model->paramNoLooseSentinelPasswordFreeCommands = $map['ParamNoLooseSentinelPasswordFreeCommands'];
+        }
+        if (isset($map['ParamReplMode'])) {
+            $model->paramReplMode = $map['ParamReplMode'];
+        }
+        if (isset($map['ParamSemisyncReplTimeout'])) {
+            $model->paramSemisyncReplTimeout = $map['ParamSemisyncReplTimeout'];
+        }
+        if (isset($map['ParamSentinelCompatEnable'])) {
+            $model->paramSentinelCompatEnable = $map['ParamSentinelCompatEnable'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description Indicates whether the task can be canceled. The value 1 indicates that the task can be canceled. The value 0 indicates that the task cannot be canceled.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $allowCancel;
 
     /**
+     * @description Indicates whether the switching time can be changed. The value 1 indicates that the switching time can be changed. The value 0 indicates that the switching time cannot be changed.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $allowChange;
 
     /**
+     * @description The code of the task level. The value S1 indicates the system O\\&M level. The value S0 indicates the exception fixing level.
+     *
      * @example S1
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $changeLevel;
 
     /**
+     * @description The level of the task in English.
+     *
      * @example System maintenance
      *
      * @var string
@@ -37,11 +45,17 @@ class items extends Model
     public $changeLevelEn;
 
     /**
+     * @description The level of the task in Chinese.
+     *
+     * @example 系统运维
+     *
      * @var string
      */
     public $changeLevelZh;
 
     /**
+     * @description The time when the O\\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-05-30T14:30:00Z
      *
      * @var string
@@ -49,6 +63,8 @@ class items extends Model
     public $createdTime;
 
     /**
+     * @description The current zone.
+     *
      * @example cn-beijing-h
      *
      * @var string
@@ -56,6 +72,8 @@ class items extends Model
     public $currentAVZ;
 
     /**
+     * @description The database type of the instance. The return value is **Redis**.
+     *
      * @example redis
      *
      * @var string
@@ -63,6 +81,8 @@ class items extends Model
     public $dbType;
 
     /**
+     * @description The version of the database engine.
+     *
      * @example 5.0
      *
      * @var string
@@ -70,6 +90,8 @@ class items extends Model
     public $dbVersion;
 
     /**
+     * @description The deadline before which the time to preform the O&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     *
      * @example 2018-05-30T23:59:59Z
      *
      * @var string
@@ -77,6 +99,8 @@ class items extends Model
     public $deadline;
 
     /**
+     * @description The ID of the O\\&M event.
+     *
      * @example 11111
      *
      * @var int
@@ -84,6 +108,8 @@ class items extends Model
     public $id;
 
     /**
+     * @description The impact of the task.
+     *
      * @example TransientDisconnection
      *
      * @var string
@@ -91,6 +117,8 @@ class items extends Model
     public $impact;
 
     /**
+     * @description The impact of the task in English.
+     *
      * @example Transient instance disconnection
      *
      * @var string
@@ -98,11 +126,17 @@ class items extends Model
     public $impactEn;
 
     /**
+     * @description The impact of the task in Chinese.
+     *
+     * @example 实例闪断
+     *
      * @var string
      */
     public $impactZh;
 
     /**
+     * @description The alias and description of the instance.
+     *
      * @example test
      *
      * @var string
@@ -110,6 +144,8 @@ class items extends Model
     public $insComment;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example r-bp1lgal1sdvxrz****
      *
      * @var string
@@ -117,6 +153,8 @@ class items extends Model
     public $insName;
 
     /**
+     * @description The time when the O\\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-05-30T14:30:00Z
      *
      * @var string
@@ -124,6 +162,8 @@ class items extends Model
     public $modifiedTime;
 
     /**
+     * @description The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+     *
      * @example 04:00:00
      *
      * @var string
@@ -131,6 +171,8 @@ class items extends Model
     public $prepareInterval;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hanghzou
      *
      * @var string
@@ -138,6 +180,8 @@ class items extends Model
     public $region;
 
     /**
+     * @description The information about the execution result.
+     *
      * @example userCancel
      *
      * @var string
@@ -145,6 +189,8 @@ class items extends Model
     public $resultInfo;
 
     /**
+     * @description The time when the O\\&M task was preformed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-05-30T00:00:00Z
      *
      * @var string
@@ -152,6 +198,14 @@ class items extends Model
     public $startTime;
 
     /**
+     * @description The status of operation and maintenance events. Return values
+     *
+     *   **3**: Events awaiting processing.
+     *   **4**: Events being processed.
+     *   **5**: Events that have successfully ended.
+     *   **6**: Events that have ended in failure.
+     *   **7**: Events that have been canceled.
+     *
      * @example 5
      *
      * @var int
@@ -159,11 +213,15 @@ class items extends Model
     public $status;
 
     /**
+     * @description The list of the subinstances.
+     *
      * @var string[]
      */
     public $subInsNames;
 
     /**
+     * @description The time when the system performs the switchover operation. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-05-30T14:30:00Z
      *
      * @var string
@@ -171,6 +229,8 @@ class items extends Model
     public $switchTime;
 
     /**
+     * @description The parameters of the task.
+     *
      * @example {
      * }
      * @var string
@@ -178,6 +238,8 @@ class items extends Model
     public $taskParams;
 
     /**
+     * @description The type of the O\\&M event.
+     *
      * @example rds_apsaradb_transfer
      *
      * @var string
@@ -185,6 +247,8 @@ class items extends Model
     public $taskType;
 
     /**
+     * @description The reason for the task in English.
+     *
      * @example Minor version update
      *
      * @var string
@@ -192,6 +256,10 @@ class items extends Model
     public $taskTypeEn;
 
     /**
+     * @description The reason for the task in Chinese.
+     *
+     * @example 小版本升级
+     *
      * @var string
      */
     public $taskTypeZh;

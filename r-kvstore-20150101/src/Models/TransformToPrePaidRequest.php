@@ -21,6 +21,16 @@ class TransformToPrePaidRequest extends Model
     public $autoPay;
 
     /**
+     * @var string
+     */
+    public $autoRenew;
+
+    /**
+     * @var int
+     */
+    public $autoRenewPeriod;
+
+    /**
      * @description The ID of the instance. You can call the [DescribeInstances](~~DescribeInstances~~) operation to query the ID of the instance.
      *
      * This parameter is required.
@@ -66,6 +76,8 @@ class TransformToPrePaidRequest extends Model
     public $securityToken;
     protected $_name = [
         'autoPay'              => 'AutoPay',
+        'autoRenew'            => 'AutoRenew',
+        'autoRenewPeriod'      => 'AutoRenewPeriod',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -84,6 +96,12 @@ class TransformToPrePaidRequest extends Model
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -120,6 +138,12 @@ class TransformToPrePaidRequest extends Model
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

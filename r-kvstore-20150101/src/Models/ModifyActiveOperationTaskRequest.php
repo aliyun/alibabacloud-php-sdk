@@ -46,7 +46,7 @@ class ModifyActiveOperationTaskRequest extends Model
     /**
      * @description The scheduled switchover time to be specified. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
-     * > The time cannot be later than the latest operation time. You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/197387.html) operation to obtain the latest operation time, which is the value of the **Deadline** parameter in the response.
+     * > The time cannot be later than the latest operation time. You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/473865.html) operation to obtain the latest operation time, which is the value of the **Deadline** parameter in the response.
      *
      * This parameter is required.
      * @example 2019-10-17T18:50:00Z

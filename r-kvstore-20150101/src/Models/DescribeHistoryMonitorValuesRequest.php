@@ -44,10 +44,12 @@ class DescribeHistoryMonitorValuesRequest extends Model
     /**
      * @description The monitoring metrics. Separate the metrics with commas (,). Take CpuUsage as an example:
      *
+     *   Cluster or read/write splitting instances
+     *
      *   To query the overall CPU utilization of all data nodes, specify **CpuUsage$db**.
      *   To query the CPU utilization of a single data node, specify **CpuUsage** and NodeId.
      *
-     * For more information about the monitoring metrics, see **Additional description of MonitorKeys**.
+     *   Standard master-replica instances: Specify only **CpuUsage**.
      *
      * >
      *
@@ -55,7 +57,6 @@ class DescribeHistoryMonitorValuesRequest extends Model
      *
      *   To ensure query efficiency, we recommend that you specify no more than five metrics for a single node at a time, and specify only a single metric when you query aggregate metrics.
      *
-     * [Additional description of MonitorKeys](https://help.aliyun.com/zh/redis/developer-reference/api-r-kvstore-2015-01-01-describehistorymonitorvalues-redis)
      * @example memoryUsage
      *
      * @var string

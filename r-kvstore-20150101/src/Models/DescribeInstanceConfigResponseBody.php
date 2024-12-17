@@ -18,6 +18,36 @@ class DescribeInstanceConfigResponseBody extends Model
     public $config;
 
     /**
+     * @var string
+     */
+    public $paramNoLooseSentinelEnabled;
+
+    /**
+     * @var string
+     */
+    public $paramNoLooseSentinelPasswordFreeAccess;
+
+    /**
+     * @var string
+     */
+    public $paramNoLooseSentinelPasswordFreeCommands;
+
+    /**
+     * @var string
+     */
+    public $paramReplMode;
+
+    /**
+     * @var string
+     */
+    public $paramReplTimeout;
+
+    /**
+     * @var string
+     */
+    public $paramSentinelCompatEnable;
+
+    /**
      * @description The request ID.
      *
      * @example 4E2C08F6-2D11-4ECD-9A4C-27EF2D3D****
@@ -26,8 +56,14 @@ class DescribeInstanceConfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'config'    => 'Config',
-        'requestId' => 'RequestId',
+        'config'                                   => 'Config',
+        'paramNoLooseSentinelEnabled'              => 'ParamNoLooseSentinelEnabled',
+        'paramNoLooseSentinelPasswordFreeAccess'   => 'ParamNoLooseSentinelPasswordFreeAccess',
+        'paramNoLooseSentinelPasswordFreeCommands' => 'ParamNoLooseSentinelPasswordFreeCommands',
+        'paramReplMode'                            => 'ParamReplMode',
+        'paramReplTimeout'                         => 'ParamReplTimeout',
+        'paramSentinelCompatEnable'                => 'ParamSentinelCompatEnable',
+        'requestId'                                => 'RequestId',
     ];
 
     public function validate()
@@ -39,6 +75,24 @@ class DescribeInstanceConfigResponseBody extends Model
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
+        }
+        if (null !== $this->paramNoLooseSentinelEnabled) {
+            $res['ParamNoLooseSentinelEnabled'] = $this->paramNoLooseSentinelEnabled;
+        }
+        if (null !== $this->paramNoLooseSentinelPasswordFreeAccess) {
+            $res['ParamNoLooseSentinelPasswordFreeAccess'] = $this->paramNoLooseSentinelPasswordFreeAccess;
+        }
+        if (null !== $this->paramNoLooseSentinelPasswordFreeCommands) {
+            $res['ParamNoLooseSentinelPasswordFreeCommands'] = $this->paramNoLooseSentinelPasswordFreeCommands;
+        }
+        if (null !== $this->paramReplMode) {
+            $res['ParamReplMode'] = $this->paramReplMode;
+        }
+        if (null !== $this->paramReplTimeout) {
+            $res['ParamReplTimeout'] = $this->paramReplTimeout;
+        }
+        if (null !== $this->paramSentinelCompatEnable) {
+            $res['ParamSentinelCompatEnable'] = $this->paramSentinelCompatEnable;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,6 +111,24 @@ class DescribeInstanceConfigResponseBody extends Model
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
+        }
+        if (isset($map['ParamNoLooseSentinelEnabled'])) {
+            $model->paramNoLooseSentinelEnabled = $map['ParamNoLooseSentinelEnabled'];
+        }
+        if (isset($map['ParamNoLooseSentinelPasswordFreeAccess'])) {
+            $model->paramNoLooseSentinelPasswordFreeAccess = $map['ParamNoLooseSentinelPasswordFreeAccess'];
+        }
+        if (isset($map['ParamNoLooseSentinelPasswordFreeCommands'])) {
+            $model->paramNoLooseSentinelPasswordFreeCommands = $map['ParamNoLooseSentinelPasswordFreeCommands'];
+        }
+        if (isset($map['ParamReplMode'])) {
+            $model->paramReplMode = $map['ParamReplMode'];
+        }
+        if (isset($map['ParamReplTimeout'])) {
+            $model->paramReplTimeout = $map['ParamReplTimeout'];
+        }
+        if (isset($map['ParamSentinelCompatEnable'])) {
+            $model->paramSentinelCompatEnable = $map['ParamSentinelCompatEnable'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
