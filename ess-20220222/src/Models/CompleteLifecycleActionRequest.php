@@ -37,7 +37,7 @@ class CompleteLifecycleActionRequest extends Model
     public $lifecycleActionResult;
 
     /**
-     * @description The token of the lifecycle hook. You can obtain this token by using a Message Service (MNS) queue or an MNS topic that is specified for the lifecycle hook.
+     * @description The token of the lifecycle action. You can obtain the token from the Simple Message Queue (SMQ, formerly MNS) queue or topic that is specified for the lifecycle hook.
      *
      * This parameter is required.
      * @example aaaa-bbbbb-cccc-ddddd

@@ -39,6 +39,13 @@ class DescribeScheduledTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The interval at which scheduled task N is repeatedly executed. Valid values:
+     *
+     *   Daily: Scheduled task N is executed once every specified number of days.
+     *   Weekly: Scheduled task N is executed on each specified day of a week.
+     *   Monthly: Scheduled task N is executed on each specified day of a month.
+     *   Cron: Scheduled task N is executed based on the specified Cron expression.
+     *
      * @example Weekly
      *
      * @var string
@@ -46,6 +53,9 @@ class DescribeScheduledTasksRequest extends Model
     public $recurrenceType;
 
     /**
+     * @description The number of times scheduled task N is repeatedly executed.
+     *
+     * You can specify this parameter only if you set RecurrenceType to Weekly. Separate multiple values with commas (,). The values that correspond to Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, and Saturday are 0, 1, 2, 3, 4, 5, and 6.
      * @example 1,2,3
      *
      * @var string
@@ -103,6 +113,11 @@ class DescribeScheduledTasksRequest extends Model
     public $scheduledTaskNames;
 
     /**
+     * @description Specifies whether scheduled task N is enabled.
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -110,6 +125,8 @@ class DescribeScheduledTasksRequest extends Model
     public $taskEnabled;
 
     /**
+     * @description The name of scheduled task N. Fuzzy search based on keywords is supported.
+     *
      * @example scheduled****
      *
      * @var string

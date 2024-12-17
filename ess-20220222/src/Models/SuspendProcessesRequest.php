@@ -23,13 +23,13 @@ class SuspendProcessesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The types of the processes that you want to suspend. Valid values:
+     * @description The types of processes that you want to suspend. Valid values:
      *
-     *   scalein: the scale-in process.
-     *   scaleout: the scale-out process.
-     *   healthcheck: the health check process.
-     *   alarmnotification: the process of executing an event-triggered task.
-     *   scheduledaction: the process of executing a scheduled task.
+     *   ScaleIn: the scale-in process.
+     *   ScaleOut: the scale-out process.
+     *   HealthCheck: the health check process.
+     *   AlarmNotification: the process of executing an event-triggered task.
+     *   ScheduledAction: the process of executing a scheduled task.
      *
      * This parameter is required.
      * @var string[]

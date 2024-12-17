@@ -46,6 +46,8 @@ class ModifyScalingGroupRequest extends Model
     public $azBalance;
 
     /**
+     * @description The capacity options.
+     *
      * @var capacityOptions
      */
     public $capacityOptions;

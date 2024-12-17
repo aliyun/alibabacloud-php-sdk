@@ -33,7 +33,7 @@ class DetachLoadBalancersRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to remove Elastic Compute Service (ECS) instances in the scaling group from the backend server groups of the CLB instance. Valid values:
+     * @description Specifies whether to remove Elastic Compute Service (ECS) instances in the scaling group from the backend server groups of the Server Load Balancer (SLB) instance. Valid values:
      *
      *   true
      *   false

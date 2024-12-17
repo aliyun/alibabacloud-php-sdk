@@ -9,13 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribePatternTypesRequest extends Model
 {
     /**
-     * @description The architectures of instance types. Valid values:
+     * @description The architecture types of the instance types. Valid values:
      *
-     *   X86: x86
-     *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated
-     *   BareMetal: ECS Bare Metal Instance
-     *   Arm: Arm
-     *   SuperComputeCluster: Super Computing Cluster
+     *   X86: x86 architecture.
+     *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
+     *   BareMetal: ECS Bare Metal Instance.
+     *   Arm: Arm.
      *
      * By default, all values are selected.
      * @var string[]
@@ -86,24 +85,23 @@ class DescribePatternTypesRequest extends Model
     public $gpuSpecs;
 
     /**
-     * @description The categories of the instance types. Valid values:
+     * @description The classifications of the instance types. Valid values:
      *
-     *   General-purpose
-     *   Compute-optimized
-     *   Memory-optimized
-     *   Big data
-     *   Local SSDs
-     *   High Clock Speed
-     *   Enhanced
-     *   Shared
-     *   Compute-optimized with GPU
-     *   Visual Compute-optimized
-     *   Heterogeneous Service
-     *   Compute-optimized with FPGA
-     *   Compute-optimized with NPU
-     *   ECS Bare Metal
-     *   Super Computing Cluster
-     *   High Performance Compute
+     *   General-purpose: general-purpose instance type.
+     *   Compute-optimized: compute-optimized instance type.
+     *   Memory-optimized: memory-optimized instance type.
+     *   Big data: big data instance type.
+     *   Local SSDs: instance type with local SSDs.
+     *   High Clock Speed: instance type with high clock speeds.
+     *   Enhanced: enhanced instance type.
+     *   Shared: shared instance type.
+     *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
+     *   Visual Compute-optimized: visual compute-optimized instance type.
+     *   Heterogeneous Service: heterogeneous service instance type.
+     *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
+     *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
+     *   ECS Bare Metal: ECS Bare Metal Instance type.
+     *   High Performance Compute: HPC-optimized instance type.
      *
      * @var string[]
      */
@@ -292,6 +290,8 @@ class DescribePatternTypesRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The zone IDs. If you pass vSwitch IDs to the system, this parameter does not take effect.
+     *
      * @var string[]
      */
     public $zoneId;

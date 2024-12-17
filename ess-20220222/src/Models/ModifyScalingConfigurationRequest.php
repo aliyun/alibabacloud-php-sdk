@@ -148,11 +148,27 @@ class ModifyScalingConfigurationRequest extends Model
     public $hpcClusterId;
 
     /**
+     * @description Specifies whether to enable the access channel for instance metadata. Valid values:
+     *
+     *   enabled
+     *   disabled
+     *
+     * >  For information about instance metadata, see [Obtain instance metadata](https://help.aliyun.com/document_detail/108460.html).
+     * @example enabled
+     *
      * @var string
      */
     public $httpEndpoint;
 
     /**
+     * @description Specifies whether to forcibly use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
+     *
+     *   optional: does not forcibly use the security hardening mode (IMDSv2).
+     *   required: forcibly uses the security hardening mode (IMDSv2). If you set this parameter to required, you cannot access instance metadata in normal mode.
+     *
+     * >  For more information about instance metadata access modes, see [Access modes of instance metadata](https://help.aliyun.com/document_detail/108460.html).
+     * @example optional
+     *
      * @var string
      */
     public $httpTokens;
@@ -205,7 +221,7 @@ class ModifyScalingConfigurationRequest extends Model
     public $instanceName;
 
     /**
-     * @description The information about the intelligent configuration settings, which determine the available instance types.
+     * @description The intelligent configuration settings, which determine the available instance types.
      *
      * @var instancePatternInfos[]
      */
@@ -239,16 +255,21 @@ class ModifyScalingConfigurationRequest extends Model
     public $internetChargeType;
 
     /**
+     * @description The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
+     *
+     *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10. The default value is 10.
+     *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the value of `InternetMaxBandwidthOut`. The default value is the value of `InternetMaxBandwidthOut`.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $internetMaxBandwidthIn;
 
     /**
-     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values:
+     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
      *
-     *   If you set InternetChargeType to PayByBandwidth: 0 to 100. If you leave this parameter empty, this parameter is automatically set to 0.
-     *   If you set InternetChargeType to PayByTraffic: 0 to 100. If you leave this parameter empty, an error is returned.
-     *
+     * Default value: 0.
      * @example 50
      *
      * @var int
@@ -315,7 +336,7 @@ class ModifyScalingConfigurationRequest extends Model
     public $networkInterfaces;
 
     /**
-     * @description Specifies whether to override existing data. Valid values:
+     * @description Specifies whether to overwrite existing data. Valid values:
      *
      *   true
      *   false

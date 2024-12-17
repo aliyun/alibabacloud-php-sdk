@@ -39,7 +39,7 @@ class AttachLoadBalancersRequest extends Model
      *
      **
      *
-     **Note** If a load balancer is currently attached to your scaling group, and you want to add the instances in your scaling group to the backend server groups of the load balancer, you can call this operation again and set the ForceAttach request parameter to true.
+     **Note** If a load balancer is currently attached to your scaling group, and you want to add the instances in your scaling group to the backend server groups of the load balancer, you can call this operation again and set ForceAttach request to true.
      *
      *   false: If you set this parameter to false, the attachment of the load balancer does not entail the addition of the existing instances in the scaling group to the backend server groups of the load balancer.
      *

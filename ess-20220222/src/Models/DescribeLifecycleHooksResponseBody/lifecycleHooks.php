@@ -66,20 +66,20 @@ class lifecycleHooks extends Model
     public $lifecycleTransition;
 
     /**
-     * @description The ARN of the notification recipient when the lifecycle hook takes effect. The value of this parameter is in one of the following formats:
+     * @description The ARN of the notification recipient when the lifecycle hook takes effect. The value of this parameter must be in one of the following formats:
      *
-     *   If you did not specify this parameter, the return value is in the `acs:ess:{region-id}:{account-id}:null/null` format.
-     *   If you specified a Message Service (MNS) queue as the notification recipient, the return value is in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
-     *   If you specified an MNS topic as the notification recipient, the return value is in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
-     *   If you specified a CloudOps Orchestration Service (OOS) template as the notification recipient, the return value is in the `acs:oos:{region-id}:{account-id}:template/{templatename}` format.
-     *   If you specified an event bus as the notification recipient, the return value is in the `acs:eventbridge:{region-id}:{account-id}:eventbus/default` format.
+     *   If you do not create a notification rule, specify the value in the `acs:ess:{region-id}:{account-id}:null/null` format.
+     *   If you specify a Simple Message Queue (SMQ, formerly MNS) queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
+     *   If you specify an SMQ as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
+     *   If you specify a CloudOps Orchestration Service (OOS) template as the notification recipient, specify the value in the `acs:oos:{region-id}:{account-id}:template/{templatename}` format.
+     *   If you specify an event bus as the notification recipient, specify the value in the `acs:eventbridge:{region-id}:{account-id}:eventbus/default` format.
      *
-     * The variables in the preceding formats have the following meanings:
+     * The variables in the preceding value formats have the following meanings:
      *
      *   region-id: the region ID of your scaling group.
-     *   account-id: the ID of your Alibaba Cloud.
-     *   queuename: the name of the MNS queue.
-     *   topicname: the name of the MNS topic.
+     *   account-id: the ID of your Alibaba Cloud account.
+     *   queuename: the name of the SMQ queue.
+     *   topicname: the name of the SMQ topic.
      *   templatename: the name of the OOS template.
      *
      * @example acs:ess:cn-beijing:161456884340****:null/null

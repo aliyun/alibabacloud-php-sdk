@@ -18,12 +18,12 @@ class CreateAlarmRequest extends Model
     public $alarmActions;
 
     /**
-     * @description The operator that is used to compare the metric value and the threshold. Valid values:
+     * @description The operator that you want to use to compare the metric value and the threshold. Valid values:
      *
-     *   If the metric value is greater than or equal to the threshold, set the value to: >=.
-     *   If the metric value is less than or equal to the threshold, set the value to: <=.
-     *   If the metric value is greater than the threshold, set the value to: >.
-     *   If the metric value is less than the threshold, set the value to: <.
+     *   If the metric value is greater than or equal to the threshold, set the value to >=.
+     *   If the metric value is less than or equal to the metric threshold, set the value to <=.
+     *   If the metric value is greater than the metric threshold, set the value to >.
+     *   If the metric value is less than the metric threshold, set the value to <.
      *
      * Default value: >=.
      * @example >=
@@ -71,7 +71,7 @@ class CreateAlarmRequest extends Model
     public $effective;
 
     /**
-     * @description The number of times that the threshold must be reached before a scaling rule can be executed. For example, if you set this parameter to 3, the average CPU utilization must reach or exceed 80% three times in a row before a scaling rule is triggered.
+     * @description The number of consecutive times that the threshold must be reached before a scaling rule is executed. For example, if you set this parameter to 3, the average CPU utilization must reach or exceed 80% three times in a row before the scaling rule is executed.
      *
      * Default value: 3.
      * @example 3
@@ -150,10 +150,10 @@ class CreateAlarmRequest extends Model
     public $metricName;
 
     /**
-     * @description The type of the metric. Valid values:
+     * @description The metric type. Valid values:
      *
-     *   system: system metrics of CloudMonitor
-     *   custom: custom metrics that are reported to CloudMonitor
+     *   system: system metrics of CloudMonitor.
+     *   custom: custom metrics that are reported to CloudMonitor.
      *
      * @example system
      *
@@ -217,11 +217,11 @@ class CreateAlarmRequest extends Model
     public $scalingGroupId;
 
     /**
-     * @description The method that is used to aggregate statistics for the metric. Valid values:
+     * @description The method that you want to use to aggregate the metric data. Valid values:
      *
-     *   Average
-     *   Minimum
-     *   Maximum
+     *   Average: the average value.
+     *   Minimum: the minimum value.
+     *   Maximum: the maximum value.
      *
      * Default value: Average.
      * @example Average

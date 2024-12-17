@@ -48,7 +48,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description Details of the tags.
+     * @description The tags that you want to add to the Auto Scaling resources.
      *
      * This parameter is required.
      * @var tags[]

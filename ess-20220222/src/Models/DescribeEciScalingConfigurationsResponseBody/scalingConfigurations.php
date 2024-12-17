@@ -229,6 +229,10 @@ class scalingConfigurations extends Model
     public $ephemeralStorage;
 
     /**
+     * @description The version of the GPU driver.
+     *
+     * @example tesla=470.82.01
+     *
      * @var string
      */
     public $gpuDriverVersion;

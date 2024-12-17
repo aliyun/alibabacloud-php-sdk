@@ -28,7 +28,7 @@ class DetachAlbServerGroupsRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to remove the existing ECS instances from the ALB server group. Valid values:
+     * @description Specifies whether to remove the existing Elastic Compute Service (ECS) instances from the Application Load Balancer (ALB) server group marked for detachment. Valid values:
      *
      *   true: removes the existing ECS instances from the ALB server group and returns the value of `ScalingActivityId`. You can query the value of ScalingActivityId to check whether the existing ECS instances are removed from the ALB server group.
      *   false: does not remove the existing ECS instances from the ALB server group.

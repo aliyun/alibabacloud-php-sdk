@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class reports extends Model
 {
     /**
+     * @description The time when the diagnostic report was created.
+     *
      * @example 2024-08-23T02:22:30Z
      *
      * @var string
@@ -17,11 +19,19 @@ class reports extends Model
     public $creationTime;
 
     /**
+     * @description The details of the diagnostic report.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description The status of the diagnostic item. Only the severe status is displayed in the diagnostic report. Valid values:
+     *
+     *   Normal: The diagnostic result is normal.
+     *   Warn: The diagnostic result is warning.
+     *   Critical: The diagnostic result is critical.
+     *
      * @example Normal
      *
      * @var string
@@ -29,6 +39,11 @@ class reports extends Model
     public $diagnoseStatus;
 
     /**
+     * @description The status of the diagnostic report. Valid values:
+     *
+     *   processing: The diagnosis is in progress.
+     *   Finished: The diagnosis is complete.
+     *
      * @example Finished
      *
      * @var string
@@ -36,6 +51,8 @@ class reports extends Model
     public $processStatus;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -43,6 +60,8 @@ class reports extends Model
     public $regionId;
 
     /**
+     * @description The ID of the diagnostic report.
+     *
      * @example dr-bp14p0cjp7wvjob5l6hk
      *
      * @var string
@@ -50,6 +69,8 @@ class reports extends Model
     public $reportId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp124uve5iph3*****
      *
      * @var string
@@ -57,6 +78,8 @@ class reports extends Model
     public $scalingGroupId;
 
     /**
+     * @description The user ID of the scaling group.
+     *
      * @example 161456884*******
      *
      * @var string

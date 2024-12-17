@@ -102,8 +102,8 @@ class ScaleWithAdjustmentRequest extends Model
     /**
      * @description Specifies whether to trigger the scaling activity in a synchronous manner. This parameter takes effect only on scaling groups for which you specified an expected number of instances. Valid values:
      *
-     *   true: triggers the scaling activity in a synchronous manner. The scaling activity is triggered at the time when the scaling rule is executed.
-     *   false: does not trigger the scaling activity in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number of instances and determines whether to trigger the scaling activity based on the check result.
+     *   true: triggers the scaling activity in a synchronous manner. A scaling activity is triggered at the time when the scaling rule is executed.
+     *   false: does not trigger the scaling activity in a synchronous manner. After you change the expected number of instances for the scaling group, Auto Scaling checks whether the total number of instances in the scaling group matches the new expected number and determines whether to trigger the scaling activity based on the check result.
      *
      * Default value: false.
      * @example false

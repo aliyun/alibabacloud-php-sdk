@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachDBInstancesRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/25965.html).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -54,7 +54,10 @@ class DetachDBInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter takes effect only for databases whose AttachMode is set to SecurityGroup. If you set this parameter to true, Auto Scaling removes the security group ID of the active scaling configuration from the security group whitelist of the database that you want to detach from the scaling group.
+     * @description Specifies whether to remove the security group. This parameter takes effect only if you set `AttachMode` to `SecurityGroup`. Valid values:
+     *
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false

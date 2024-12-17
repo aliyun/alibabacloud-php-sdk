@@ -137,11 +137,25 @@ class scalingConfigurations extends Model
     public $hpcClusterId;
 
     /**
+     * @description Indicates whether the access channel is enabled for instance metadata. Valid values:
+     *
+     *   enabled
+     *   disabled
+     *
+     * @example enabled
+     *
      * @var string
      */
     public $httpEndpoint;
 
     /**
+     * @description Indicates whether the security hardening mode (IMDSv2) is forcefully used to access instance metadata. Valid values:
+     *
+     *   optional: The security hardening mode IMDSv2 is not forcibly used.
+     *   required: The security hardening mode (IMDSv2) is forcibly used. After you set this parameter to required, you cannot access instance metadata in normal mode.
+     *
+     * @example optional
+     *
      * @var string
      */
     public $httpTokens;
@@ -262,7 +276,7 @@ class scalingConfigurations extends Model
     public $internetChargeType;
 
     /**
-     * @description The maximum inbound bandwidth. Unit: Mbit/s. Valid values: 1 to 200.
+     * @description The maximum inbound public bandwidth. Unit: Mbit/s.
      *
      * @example 200
      *
@@ -271,10 +285,7 @@ class scalingConfigurations extends Model
     public $internetMaxBandwidthIn;
 
     /**
-     * @description The maximum outbound bandwidth. Unit: Mbit/s. Valid values:
-     *
-     *   0 to 1024 if you set InternetChargeType to PayByBandwidth. If you leave this parameter empty, this parameter is automatically set to 0.
-     *   0 to 1024 if you set InternetChargeType to PayByTraffic. If you leave this parameter empty, an error is returned.
+     * @description The maximum outbound public bandwidth. Unit: Mbit/s.
      *
      * @example 0
      *
@@ -459,8 +470,6 @@ class scalingConfigurations extends Model
     public $securityGroupIds;
 
     /**
-     * @description 安全选项。
-     *
      * @var securityOptions
      */
     public $securityOptions;

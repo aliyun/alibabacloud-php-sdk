@@ -14,16 +14,22 @@ class DescribeElasticStrengthRequest extends Model
     public $dataDiskCategories;
 
     /**
+     * @example CentOS7
+     *
      * @var string
      */
     public $imageFamily;
 
     /**
+     * @example centos6u5_64_20G_aliaegis****.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example ubuntu_18_04_x64_20G_alibase_20231225.vhd
+     *
      * @var string
      */
     public $imageName;
@@ -36,6 +42,8 @@ class DescribeElasticStrengthRequest extends Model
     public $instanceTypes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ipv6AddressCount;
@@ -81,6 +89,8 @@ class DescribeElasticStrengthRequest extends Model
     public $scalingGroupIds;
 
     /**
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;

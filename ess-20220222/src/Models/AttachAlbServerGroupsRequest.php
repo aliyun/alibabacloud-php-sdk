@@ -28,10 +28,10 @@ class AttachAlbServerGroupsRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the ALB server group. Valid values:
+     * @description Specifies whether to add the existing Elastic Compute Service (ECS) instances or elastic container instances in the scaling group to the new ALB server group. Valid values:
      *
-     *   true: adds the existing ECS instances or elastic container instances in the scaling group to the ALB server group. In this case, the system returns the value of `ScalingActivityId`.
-     *   false: does not add the existing ECS instances or elastic container instances in the scaling group to the ALB server group.
+     *   true: adds the existing ECS instances or elastic container instances in the scaling group to the new ALB server group. In this case, the system returns the value of `ScalingActivityId`.
+     *   false: does not add the existing ECS instances or elastic container instances in the scaling group to the new ALB server group.
      *
      * Default value: false.
      * @example false

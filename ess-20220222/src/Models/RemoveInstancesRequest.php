@@ -116,14 +116,18 @@ class RemoveInstancesRequest extends Model
     public $scalingGroupId;
 
     /**
-     * @description The period of time that is required by the Elastic Compute Service (ECS) instance to enter the Stopped state during the scale-in process. Unit: seconds. Valid values: 30 to 240.
+     * @description The period of time required by the ECS instance to enter the Stopped state. Unit: seconds. Valid values: 30 to 240.
      *
      * >
      *
      *   By default, this parameter inherits the value of StopInstanceTimeout specified in the CreateScalingGroup or ModifyScalingGroup operation. You can also specify a different value for this parameter in the RemoveInstances operation.
      *
-     *   This parameter takes effect only if you set RemovePolicy to release.\\
-     * If you do not specify this parameter, the system proceeds with the scale-in process only after the ECS instance enters the Stopped state. If the ECS instance fails to enter the Stopped state, the scale-in process rolls back, and the scale-in operation is considered as failed.
+     *   This parameter takes effect only if you set RemovePolicy to release.
+     *
+     *   If you specify this parameter, the system waits for the ECS instance to enter the Stopped state only for up to the specified period of time before continuing with the scale-in operation, regardless of the status of the ECS instance.
+     *
+     *   If you do not specify this parameter, the system continues with the scale-in operation until the ECS instance enters the Stopped state. If the ECS instance is not successfully stopped, the scale-in process is rolled back and considered failed.
+     *
      * @example 60
      *
      * @var int

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticStrengthResponseBody extends Model
 {
     /**
-     * @description The scaling strength models.
+     * @description The scaling strengths of scaling configurations that are queried at the same time.
      *
      * @var elasticStrengthModels[]
      */

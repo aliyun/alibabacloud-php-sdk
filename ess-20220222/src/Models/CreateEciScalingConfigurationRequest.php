@@ -237,6 +237,14 @@ class CreateEciScalingConfigurationRequest extends Model
     public $ephemeralStorage;
 
     /**
+     * @description The version of the GPU driver. Valid values:
+     *
+     *   tesla=470.82.01 (default)
+     *   tesla=525.85.12
+     *
+     * >  You can switch the GPU driver version only for a few Elastic Compute Service (ECS) instance types. For more information, see [Specify GPU-accelerated ECS instance types to create an elastic container instance](https://help.aliyun.com/document_detail/2579486.html).
+     * @example tesla=525.85.12
+     *
      * @var string
      */
     public $gpuDriverVersion;

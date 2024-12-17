@@ -12,15 +12,15 @@ class CreateNotificationConfigurationRequest extends Model
      * @description The Alibaba Cloud Resource Name (ARN) of the notification recipient. The following list describes the value formats of this parameter:
      *
      *   If you specify CloudMonitor as the notification recipient, specify the value in the `acs:ess:{region-id}:{account-id}:cloudmonitor` format.
-     *   If you specify an MNS queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
-     *   If you specify an MNS topic as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
+     *   If you specify an SMQ queue as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:queue/{queuename}` format.
+     *   If you specify an SMQ topic as the notification recipient, specify the value in the `acs:mns:{region-id}:{account-id}:topic/{topicname}` format.
      *
      * The variables in the preceding formats have the following meanings:
      *
      *   `region-id`: the region ID of the scaling group.
      *   `account-id`: the ID of the Alibaba Cloud account.
-     *   `queuename`: the name of the MNS queue.
-     *   `topicname`: the name of the MNS topic.
+     *   `queuename`: the name of the SMQ queue.
+     *   `topicname`: the name of the SMQ topic.
      *
      * This parameter is required.
      * @example acs:mns:cn-beijing:161456884340****:queue/modifyLifecycleHo****

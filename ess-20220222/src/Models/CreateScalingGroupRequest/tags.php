@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The tag key that you want to add to the scaling group.
+     * @description The tag key.
      *
      * @example Department
      *
@@ -18,10 +18,10 @@ class tags extends Model
     public $key;
 
     /**
-     * @description Specifies whether to propagate the tag that you want to add to the scaling group. Valid values:
+     * @description Specifies whether to propagate the tag that you want to add. Valid values:
      *
-     *   true: propagates the tag to only instances that are newly created.
-     *   false: does not propagate the tag to any instances.
+     *   true: propagates the tag to new instances.
+     *   false: does not propagate the tag to any instance.
      *
      * Default value: false.
      * @example false
@@ -31,7 +31,7 @@ class tags extends Model
     public $propagate;
 
     /**
-     * @description The tag value that you want to add to the scaling group.
+     * @description The tag value.
      *
      * @example Finance
      *

@@ -75,18 +75,19 @@ class ModifyLifecycleHookRequest extends Model
     public $lifecycleTransition;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the notification method. Specify the value in one of the following formats:
+     * @description The Alibaba Cloud Resource Name (ARN) of the notification recipient. Specify the value in one of the following formats:
      *
-     *   If the notification method is a Message Service (MNS) queue, specify the value in the acs:mns:{region-id}:{account-id}:queue/{queuename} format.
-     *   If the notification method is an MNS topic, specify the value in the acs:mns:{region-id}:{account-id}:topic/{topicname} format.
-     *   If the notification method is an Operation Orchestration Service (OOS) template, specify the value in the acs:oos:{region-id}:{account-id}:template/{templatename} format.
+     *   If you specify a Simple Message Queue (SMQ, formerly MNS) as the notification recipient, specify the value in the acs:mns:{region-id}:{account-id}:queue/{queuename} format.
+     *   If you specify an SMQ topic as the notification recipient, specify the value in the acs:mns:{region-id}:{account-id}:topic/{topicname} format.
+     *   If you specify a CloudOps Orchestration Service (OOS) template as the notification recipient, specify the value in the acs:oos:{region-id}:{account-id}:template/{templatename} format.
+     *   If you specify an event bus as the notification recipient, specify the value in the acs:eventbridge:{region-id}:{account-id}:eventbus/default format.
      *
-     * The variables in the preceding parameter formats have the following meanings:
+     * The variables in the preceding value formats have the following meanings:
      *
-     *   region-id: the region ID of the scaling group.
-     *   account-id: the ID of the Alibaba Cloud account.
-     *   queuename: the name of the MNS queue.
-     *   topicname: the name of the MNS topic.
+     *   region-id: the region ID of your scaling group.
+     *   account-id: the ID of your Alibaba Cloud account.
+     *   queuename: the name of the SMQ queue.
+     *   topicname: the name of the SMQ topic.
      *   templatename: the name of the OOS template.
      *
      * @example acs:mns:cn-beijing:161456884340****:queue/modifyLifecycleHo****

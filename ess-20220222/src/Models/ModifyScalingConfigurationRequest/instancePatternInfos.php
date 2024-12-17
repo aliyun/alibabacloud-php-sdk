@@ -9,15 +9,14 @@ use AlibabaCloud\Tea\Model;
 class instancePatternInfos extends Model
 {
     /**
-     * @description The architectures of instance types. Valid values:
+     * @description The architecture types of the instance types. Valid values:
      *
      *   X86: x86.
      *   Heterogeneous: heterogeneous computing, such as GPU-accelerated or FPGA-accelerated.
      *   BareMetal: ECS Bare Metal Instance.
      *   Arm: Arm.
-     *   SuperComputeCluster: Super Computing Cluster.
      *
-     * By default, all values are included.
+     * By default, all values are selected.
      * @var string[]
      */
     public $architectures;
@@ -25,7 +24,7 @@ class instancePatternInfos extends Model
     /**
      * @description Specifies whether to include burstable instance types. Valid values:
      *
-     *   Exclude: does not include burstable instance types.
+     *   Exclude: excludes burstable instance types.
      *   Include: includes burstable instance types.
      *   Required: includes only burstable instance types.
      *
@@ -52,7 +51,7 @@ class instancePatternInfos extends Model
     public $cores;
 
     /**
-     * @description The CPU architectures of instance types. Valid values:
+     * @description The CPU architectures of the instance types. Valid values:
      *
      * >  You can specify up to two CPU architectures.
      *
@@ -64,7 +63,7 @@ class instancePatternInfos extends Model
     public $cpuArchitectures;
 
     /**
-     * @description The instance types that you want to exclude. You can use wildcard characters, such as an asterisk (\\*), to exclude an instance type or an instance family. Examples:
+     * @description The instance types that you want to exclude. You can use an asterisk (\\*) as a wildcard character to exclude an instance type or an instance family. Examples:
      *
      *   ecs.c6.large: excludes the ecs.c6.large instance type.
      *   ecs.c6.\\*: excludes the c6 instance family.
@@ -81,35 +80,34 @@ class instancePatternInfos extends Model
     public $gpuSpecs;
 
     /**
-     * @description The categories of instance types. Valid values:
+     * @description The categories of the instance types. Valid values:
      *
-     *   General-purpose
-     *   Compute-optimized
-     *   Memory-optimized
-     *   Big data
-     *   Local SSDs
-     *   High Clock Speed
-     *   Enhanced
-     *   Shared
-     *   Compute-optimized with GPU
-     *   Visual Compute-optimized
-     *   Heterogeneous Service
-     *   Compute-optimized with FPGA
-     *   Compute-optimized with NPU
-     *   ECS Bare Metal
-     *   Super Computing Cluster
-     *   High Performance Compute
+     *   General-purpose: general-purpose instance type.
+     *   Compute-optimized: compute-optimized instance type.
+     *   Memory-optimized: memory-optimized instance type.
+     *   Big data: big data instance type.
+     *   Local SSDs: instance type that uses local SSDs.
+     *   High Clock Speed: instance type that has a high clock speed.
+     *   Enhanced: enhanced instance type.
+     *   Shared: shared instance type.
+     *   Compute-optimized with GPU: GPU-accelerated compute-optimized instance type.
+     *   Visual Compute-optimized: visual compute-optimized instance type.
+     *   Heterogeneous Service: heterogeneous service instance type.
+     *   Compute-optimized with FPGA: FPGA-accelerated compute-optimized instance type.
+     *   Compute-optimized with NPU: NPU-accelerated compute-optimized instance type.
+     *   ECS Bare Metal: ECS Bare Metal Instance type.
+     *   High Performance Compute: HPC-optimized instance type.
      *
      * @var string[]
      */
     public $instanceCategories;
 
     /**
-     * @description The level of the instance family. You can specify this parameter to filter the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
+     * @description The level of the instance family. You can specify this parameter to obtain the available instance types. This parameter takes effect only if you set `CostOptimization` to true. Valid values:
      *
-     *   EntryLevel: entry level (shared instance type). Instance types of this level are the most cost-effective but may not provide stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
-     *   EnterpriseLevel: enterprise level. Instance types of this level provide stable performance and dedicated resources, and are suitable for business scenarios in which high stability is required. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
-     *   CreditEntryLevel: credit-based entry level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview of burstable instances](https://help.aliyun.com/document_detail/59977.html).
+     *   EntryLevel: entry-level (shared instance types). Instance types of this level are the most cost-effective but may not ensure stable computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low. For more information, see [Shared instance families](https://help.aliyun.com/document_detail/108489.html).
+     *   EnterpriseLevel: enterprise-level. Instance types of this level provide stable performance and dedicated resources and are suitable for business scenarios that require high stability. For more information, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
+     *   CreditEntryLevel: credit entry-level (burstable instance types). CPU credits are used to ensure computing performance. Instance types of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [Overview](https://help.aliyun.com/document_detail/59977.html) of burstable instances.
      *
      * @example EnterpriseLevel
      *
@@ -125,7 +123,7 @@ class instancePatternInfos extends Model
     public $instanceTypeFamilies;
 
     /**
-     * @description The maximum hourly price of pay-as-you-go or preemptible instances in intelligent configuration mode. You can specify this parameter to filter the available instance types.
+     * @description The maximum hourly price of pay-as-you-go or preemptible instances in intelligent configuration mode. You can specify this parameter to obtain the available instance types.
      *
      * >  If you set SpotStrategy to SpotWithPriceLimit, you must specify this parameter. In other cases, this parameter is optional.
      * @example 2
@@ -172,7 +170,7 @@ class instancePatternInfos extends Model
     public $memory;
 
     /**
-     * @description The baseline vCPU computing performance (overall baseline performance of all vCPUs) per t5 or t6 burstable instance.
+     * @description The baseline vCPU computing performance (overall baseline performance of all vCPUs) of each t5 or t6 burstable instance.
      *
      * @example 12
      *
@@ -226,7 +224,7 @@ class instancePatternInfos extends Model
     public $minimumGpuAmount;
 
     /**
-     * @description The initial vCPU credits per t5 or t6 burstable instance.
+     * @description The initial vCPU credits of each t5 or t6 burstable instance.
      *
      * @example 12
      *
@@ -244,7 +242,7 @@ class instancePatternInfos extends Model
     public $minimumMemorySize;
 
     /**
-     * @description The processor models of instance types. You can specify up to 10 processor models.
+     * @description The processor models of the instance types. You can specify up to 10 processor models.
      *
      * @var string[]
      */

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class securityOptions extends Model
 {
     /**
-     * @description 机密计算模式。可能值：
-     * - TDX：表示构建TDX机密计算环境。更多信息，请参见[构建TDX机密计算环境](https://help.aliyun.com/document_detail/479090.html)。
      * @example TDX
      *
      * @var string

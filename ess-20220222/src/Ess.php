@@ -201,6 +201,7 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\VerifyUserRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\VerifyUserResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -210,6 +211,9 @@ class Ess extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
+        $this->_productId    = 'Ess';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
             'cn-qingdao'                  => 'ess.aliyuncs.com',
@@ -329,8 +333,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ApplyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyEciScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -419,8 +426,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ApplyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ApplyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ApplyScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -521,8 +531,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachAlbServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -604,8 +617,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -704,8 +720,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -795,8 +814,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachLoadBalancersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -868,8 +890,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -949,8 +974,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return AttachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return AttachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachVServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -984,7 +1012,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Cancels an instance refresh task. Take note that new instances that are used to replace old instances or that are scaled out still exist after you call this operation.
+     * @summary Cancels an instance refresh task. Take note that instances whose configurations were already updated by running an instance refresh task remain intact even after you cancel the task.
      *  *
      * @description *   You cannot call this operation to cancel instance refresh tasks that are being rolled back.
      *  *
@@ -1026,12 +1054,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CancelInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Cancels an instance refresh task. Take note that new instances that are used to replace old instances or that are scaled out still exist after you call this operation.
+     * @summary Cancels an instance refresh task. Take note that instances whose configurations were already updated by running an instance refresh task remain intact even after you cancel the task.
      *  *
      * @description *   You cannot call this operation to cancel instance refresh tasks that are being rolled back.
      *  *
@@ -1093,8 +1124,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1166,8 +1200,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CompleteLifecycleActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CompleteLifecycleActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CompleteLifecycleActionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1275,8 +1312,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAlarmResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1300,7 +1340,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary CreateDiagnoseReport
+     * @summary Creates a diagnostic report.
      *  *
      * @param CreateDiagnoseReportRequest $request CreateDiagnoseReportRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1325,12 +1365,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDiagnoseReportResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary CreateDiagnoseReport
+     * @summary Creates a diagnostic report.
      *  *
      * @param CreateDiagnoseReportRequest $request CreateDiagnoseReportRequest
      *
@@ -1522,8 +1565,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEciScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1604,8 +1650,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLifecycleHookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1630,9 +1679,9 @@ class Ess extends OpenApiClient
     /**
      * @summary Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
      *  *
-     * @description *   You can enable a CloudMonitor system event, Message Service (MNS) queue, or MNS topic to receive notifications. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or MNS.
+     * @description *   You can specify CloudMonitor system events, Simple Message Queue (SMQ, formerly MNS) topics, or SMQ queues as notification recipients. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or SMQ.
      * *   You cannot specify the same recipient for notifications of different event types in a scaling group.
-     *     For example, you cannot enable the same CloudMonitor system event, MNS topic, or MNS queue to receive notifications of different event types in a scaling group.
+     *     For example, you cannot enable the same CloudMonitor system event, SMQ topic, or SMQ queue to receive notifications of different event types in a scaling group.
      *  *
      * @param CreateNotificationConfigurationRequest $request CreateNotificationConfigurationRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -1678,16 +1727,19 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNotificationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * @summary Creates a notification rule. You can call the CreateNotificationConfiguration operation to create a notification rule to stay informed about scaling events or resource changes. This helps you learn about the dynamic status of your scaling group in real time and further automates the management of scaling events.
      *  *
-     * @description *   You can enable a CloudMonitor system event, Message Service (MNS) queue, or MNS topic to receive notifications. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or MNS.
+     * @description *   You can specify CloudMonitor system events, Simple Message Queue (SMQ, formerly MNS) topics, or SMQ queues as notification recipients. When a scaling event of the specified type or resource change occurs in your scaling group, Auto Scaling automatically sends notifications to CloudMonitor or SMQ.
      * *   You cannot specify the same recipient for notifications of different event types in a scaling group.
-     *     For example, you cannot enable the same CloudMonitor system event, MNS topic, or MNS queue to receive notifications of different event types in a scaling group.
+     *     For example, you cannot enable the same CloudMonitor system event, SMQ topic, or SMQ queue to receive notifications of different event types in a scaling group.
      *  *
      * @param CreateNotificationConfigurationRequest $request CreateNotificationConfigurationRequest
      *
@@ -1919,8 +1971,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2135,8 +2190,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2296,8 +2354,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScalingRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2414,8 +2475,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return CreateScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateScheduledTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2482,8 +2546,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeactivateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeactivateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeactivateScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2540,8 +2607,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteAlarmResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2603,8 +2673,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEciScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2676,8 +2749,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteLifecycleHookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2739,8 +2815,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNotificationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2799,8 +2878,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2876,8 +2958,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2946,8 +3031,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScalingRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3005,8 +3093,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DeleteScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteScheduledTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3082,8 +3173,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeAlarmsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAlarmsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAlarmsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3138,8 +3232,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeAlertConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3157,7 +3254,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary DescribeDiagnoseReports
+     * @summary Queries the diagnostic reports.
      *  *
      * @param DescribeDiagnoseReportsRequest $request DescribeDiagnoseReportsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3182,12 +3279,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeDiagnoseReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeDiagnoseReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeDiagnoseReportsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary DescribeDiagnoseReports
+     * @summary Queries the diagnostic reports.
      *  *
      * @param DescribeDiagnoseReportsRequest $request DescribeDiagnoseReportsRequest
      *
@@ -3238,8 +3338,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeEciScalingConfigurationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEciScalingConfigurationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEciScalingConfigurationDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3312,8 +3415,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeEciScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeEciScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeEciScalingConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3331,7 +3437,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary DescribeElasticStrength
+     * @summary Queries the scaling strength of a scaling configuration. The success rate of scale-out events depends on the scaling strength of the scaling configuration that you want to use. By checking the scaling strength of a scaling configuration, you can enable Auto Scaling to measure its performance and improve specific configurations.
      *  *
      * @param DescribeElasticStrengthRequest $request DescribeElasticStrengthRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3356,12 +3462,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeElasticStrengthResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeElasticStrengthResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeElasticStrengthResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary DescribeElasticStrength
+     * @summary Queries the scaling strength of a scaling configuration. The success rate of scale-out events depends on the scaling strength of the scaling configuration that you want to use. By checking the scaling strength of a scaling configuration, you can enable Auto Scaling to measure its performance and improve specific configurations.
      *  *
      * @param DescribeElasticStrengthRequest $request DescribeElasticStrengthRequest
      *
@@ -3427,8 +3536,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeInstanceRefreshesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeInstanceRefreshesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeInstanceRefreshesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3446,7 +3558,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a lifecycle hook. If you want to query the details of a lifecycle hook, you can call the DescribeLifecycleActions operation. For example, you can query the execution status and ID of a lifecycle hook, along with the Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect. When you call this operation, you can specify parameters such as ScalingActivityId, LifecycleActionToken, and MaxResults to query the details of a lifecycle hook.
+     * @summary Queries lifecycle hook actions. When you call the DescribeLifecycleActions operation, you can specify parameters such as ScalingActivityId, NextToken, and MaxResults to query the details such as the action status and ID of a lifecycle hook. You can also call this operation to query the IDs of Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect.
      *  *
      * @description If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
      * *   If a lifecycle action is in the Pending state, Elastic Compute Service (ECS) instances are waiting to be added to a scaling group or waiting to be removed from a scaling group.
@@ -3498,12 +3610,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeLifecycleActionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLifecycleActionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLifecycleActionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a lifecycle hook. If you want to query the details of a lifecycle hook, you can call the DescribeLifecycleActions operation. For example, you can query the execution status and ID of a lifecycle hook, along with the Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect. When you call this operation, you can specify parameters such as ScalingActivityId, LifecycleActionToken, and MaxResults to query the details of a lifecycle hook.
+     * @summary Queries lifecycle hook actions. When you call the DescribeLifecycleActions operation, you can specify parameters such as ScalingActivityId, NextToken, and MaxResults to query the details such as the action status and ID of a lifecycle hook. You can also call this operation to query the IDs of Elastic Compute Service (ECS) instances on which the lifecycle hook takes effect.
      *  *
      * @description If a scaling activity is executed and a lifecycle hook is created for the scaling activity, the lifecycle hook triggers a lifecycle action. A lifecycle action can be in one of the following states:
      * *   If a lifecycle action is in the Pending state, Elastic Compute Service (ECS) instances are waiting to be added to a scaling group or waiting to be removed from a scaling group.
@@ -3523,7 +3638,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries lifecycle hooks. If you want to check whether the configurations of your lifecycle hooks are correct or you want to query the details of multiple lifecycle hooks at the same time, you can call the DescribeLifecycleHooks operation. You can specify lifecycle hook IDs or scaling group IDs when you call this operation. This operation returns details such as the default actions, scaling activities, Alibaba Cloud Resource Names (ARNs) of notification recipients, and timeout periods of lifecycle hooks.
+     * @summary Queries lifecycle hooks. When you call this operation, you can specify the lifecycle hook ID or scaling group ID to query the details of the desired lifecycle hook, such as the default action after the lifecycle hook times out, scaling activity that corresponds to the lifecycle hook, Alibaba Cloud Resource Name (ARN) of the notification recipient, and effective period of the lifecycle hook.
      *  *
      * @description You can use one of the following methods to query lifecycle hooks:
      * *   Specify a list of lifecycle hook IDs by using the LifecycleHookIds parameter. In this case, you do not need to specify the ScalingGroupId and LifecycleHookName parameters.
@@ -3580,12 +3695,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeLifecycleHooksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLifecycleHooksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLifecycleHooksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries lifecycle hooks. If you want to check whether the configurations of your lifecycle hooks are correct or you want to query the details of multiple lifecycle hooks at the same time, you can call the DescribeLifecycleHooks operation. You can specify lifecycle hook IDs or scaling group IDs when you call this operation. This operation returns details such as the default actions, scaling activities, Alibaba Cloud Resource Names (ARNs) of notification recipients, and timeout periods of lifecycle hooks.
+     * @summary Queries lifecycle hooks. When you call this operation, you can specify the lifecycle hook ID or scaling group ID to query the details of the desired lifecycle hook, such as the default action after the lifecycle hook times out, scaling activity that corresponds to the lifecycle hook, Alibaba Cloud Resource Name (ARN) of the notification recipient, and effective period of the lifecycle hook.
      *  *
      * @description You can use one of the following methods to query lifecycle hooks:
      * *   Specify a list of lifecycle hook IDs by using the LifecycleHookIds parameter. In this case, you do not need to specify the ScalingGroupId and LifecycleHookName parameters.
@@ -3635,8 +3753,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeLimitationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeLimitationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeLimitationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3691,8 +3812,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeNotificationConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNotificationConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNotificationConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3741,8 +3865,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeNotificationTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeNotificationTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeNotificationTypesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3785,8 +3912,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribePatternTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribePatternTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribePatternTypesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3841,8 +3971,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3922,8 +4055,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScalingActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScalingActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScalingActivitiesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3945,7 +4081,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a scaling activity. The DescribeScalingActivityDetail operation enables you to access and monitor the details of a scaling activity, which is beneficial for troubleshooting and performance analysis purposes.
+     * @summary Queries the details of a scaling activity. You can query a scaling activity by its ID. The scaling activity details include the scaling activity status, error code, and error message. You can efficiently troubleshoot issues and analyze service performance based on the error message.
      *  *
      * @param DescribeScalingActivityDetailRequest $request DescribeScalingActivityDetailRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -3982,12 +4118,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScalingActivityDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScalingActivityDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScalingActivityDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries the details of a scaling activity. The DescribeScalingActivityDetail operation enables you to access and monitor the details of a scaling activity, which is beneficial for troubleshooting and performance analysis purposes.
+     * @summary Queries the details of a scaling activity. You can query a scaling activity by its ID. The scaling activity details include the scaling activity status, error code, and error message. You can efficiently troubleshoot issues and analyze service performance based on the error message.
      *  *
      * @param DescribeScalingActivityDetailRequest $request DescribeScalingActivityDetailRequest
      *
@@ -4056,8 +4195,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScalingConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4112,8 +4254,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScalingGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScalingGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScalingGroupDetailResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4131,7 +4276,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary DescribeScalingGroupDiagnoseDetails
+     * @summary Queries the latest diagnosis details for a scaling group. Diagnosis details are only returned in the presence of exceptions.
      *  *
      * @param DescribeScalingGroupDiagnoseDetailsRequest $request DescribeScalingGroupDiagnoseDetailsRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -4156,12 +4301,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScalingGroupDiagnoseDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScalingGroupDiagnoseDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScalingGroupDiagnoseDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary DescribeScalingGroupDiagnoseDetails
+     * @summary Queries the latest diagnosis details for a scaling group. Diagnosis details are only returned in the presence of exceptions.
      *  *
      * @param DescribeScalingGroupDiagnoseDetailsRequest $request DescribeScalingGroupDiagnoseDetailsRequest
      *
@@ -4239,8 +4387,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScalingGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScalingGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScalingGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4331,8 +4482,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScalingInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScalingInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScalingInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4416,8 +4570,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScalingRulesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4509,8 +4666,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DescribeScheduledTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeScheduledTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeScheduledTasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4576,8 +4736,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachAlbServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4595,7 +4758,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Disassociates one or more ApsaraDB RDS instances from a scaling group.
+     * @summary Detaches one or more ApsaraDB RDS instances from a scaling group. If you want to decrease the number of ApsaraDB RDS instances attached to your scaling group, you can call the DetachDBInstance operation. This operation liberates ApsaraDB RDS instances from your scaling group, thereby significantly boosting the agility and efficiency in managing and allocating your resources.
      *  *
      * @param DetachDBInstancesRequest $request DetachDBInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -4644,12 +4807,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Disassociates one or more ApsaraDB RDS instances from a scaling group.
+     * @summary Detaches one or more ApsaraDB RDS instances from a scaling group. If you want to decrease the number of ApsaraDB RDS instances attached to your scaling group, you can call the DetachDBInstance operation. This operation liberates ApsaraDB RDS instances from your scaling group, thereby significantly boosting the agility and efficiency in managing and allocating your resources.
      *  *
      * @param DetachDBInstancesRequest $request DetachDBInstancesRequest
      *
@@ -4732,8 +4898,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4811,8 +4980,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachLoadBalancersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4876,8 +5048,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4948,8 +5123,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DetachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachVServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5013,8 +5191,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DisableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableAlarmResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5078,8 +5259,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return DisableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DisableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5138,8 +5322,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableAlarmResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5225,8 +5412,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5300,8 +5490,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return EnterStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return EnterStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnterStandbyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5386,8 +5579,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExecuteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteScalingRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5466,8 +5662,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ExitStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExitStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExitStandbyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5534,8 +5733,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5553,7 +5755,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient management. This operation aids in the automation of resource categorization and permission management processes.
+     * @summary Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient resource management. This operation aids in the automation of resource categorization and permission management processes.
      *  *
      * @description *   Specify at least one of the following request parameters: `ResourceIds` and `Tags`. `Tags.Key` and `Tags.Value` are used to specify the query objects.
      * *   If you provide both `ResourceIds` and `Tags` in your request, the response will exclusively include Auto Scaling resources that satisfy the criteria set by these parameters, ensuring targeted and precise information retrieval.
@@ -5602,12 +5804,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient management. This operation aids in the automation of resource categorization and permission management processes.
+     * @summary Queries tags. You can call the ListTagResources operation to query tags that are added to Auto Scaling resources, thereby clarifying resource utilization and facilitating efficient resource management. This operation aids in the automation of resource categorization and permission management processes.
      *  *
      * @description *   Specify at least one of the following request parameters: `ResourceIds` and `Tags`. `Tags.Key` and `Tags.Value` are used to specify the query objects.
      * *   If you provide both `ResourceIds` and `Tags` in your request, the response will exclusively include Auto Scaling resources that satisfy the criteria set by these parameters, ensuring targeted and precise information retrieval.
@@ -5670,8 +5875,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5777,8 +5985,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAlarmResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5842,8 +6053,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyAlertConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6042,8 +6256,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyEciScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6107,8 +6324,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6194,8 +6414,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyLifecycleHookResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6263,8 +6486,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyNotificationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6491,8 +6717,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6656,8 +6885,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6792,8 +7024,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyScalingRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6860,6 +7095,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->recurrenceValue)) {
             $query['RecurrenceValue'] = $request->recurrenceValue;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -6895,8 +7133,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ModifyScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ModifyScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyScheduledTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6970,8 +7211,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RebalanceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RebalanceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RebalanceInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6999,8 +7243,8 @@ class Ess extends OpenApiClient
     /**
      * @summary Extends the time window during which Elastic Compute Service (ECS) instances stay in a Pending state. If the current time window during which an ECS instance stays in a Pending state is not sufficient for you to complete custom operations on the ECS instance, you can call the RecordLifecycleActionHeartbeat operation to extend the time window. When you call this operation, you can specify lifecycleHookId, lifecycleActionToken, and heartbeatTimeout to extend the time window for the desired ECS instance.
      *  *
-     * @description You can call this operation only when the desired ECS instance enters a Pending state.\\
-     * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in a Pending state up to 20 times.
+     * @description You can call this operation only to extend the time window during which Elastic Compute Service (ECS) instances stay in a Pending state.
+     * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in the Pending state up to 20 times.
      *  *
      * @param RecordLifecycleActionHeartbeatRequest $request RecordLifecycleActionHeartbeatRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -7046,15 +7290,18 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RecordLifecycleActionHeartbeatResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RecordLifecycleActionHeartbeatResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RecordLifecycleActionHeartbeatResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * @summary Extends the time window during which Elastic Compute Service (ECS) instances stay in a Pending state. If the current time window during which an ECS instance stays in a Pending state is not sufficient for you to complete custom operations on the ECS instance, you can call the RecordLifecycleActionHeartbeat operation to extend the time window. When you call this operation, you can specify lifecycleHookId, lifecycleActionToken, and heartbeatTimeout to extend the time window for the desired ECS instance.
      *  *
-     * @description You can call this operation only when the desired ECS instance enters a Pending state.\\
-     * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in a Pending state up to 20 times.
+     * @description You can call this operation only to extend the time window during which Elastic Compute Service (ECS) instances stay in a Pending state.
+     * An ECS instance can stay in a Pending state for up to six hours. Each time an ECS instance enters a Pending state, you can extend the time window during which the ECS instance stays in the Pending state up to 20 times.
      *  *
      * @param RecordLifecycleActionHeartbeatRequest $request RecordLifecycleActionHeartbeatRequest
      *
@@ -7138,8 +7385,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RemoveInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RemoveInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7206,8 +7456,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResumeInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumeInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumeInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7225,7 +7478,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Resumes suspended processes in a scaling group.
+     * @summary Resumes suspended processes in a scaling group. This operation allows Auto Scaling to proceed with executing these processes according to their predefined rules and logic. For example, if you resume the health check process in your scaling group, Auto Scaling automatically detects and removes any instances deemed unhealthy from the scaling group.
      *  *
      * @param ResumeProcessesRequest $request ResumeProcessesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -7268,12 +7521,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ResumeProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResumeProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResumeProcessesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Resumes suspended processes in a scaling group.
+     * @summary Resumes suspended processes in a scaling group. This operation allows Auto Scaling to proceed with executing these processes according to their predefined rules and logic. For example, if you resume the health check process in your scaling group, Auto Scaling automatically detects and removes any instances deemed unhealthy from the scaling group.
      *  *
      * @param ResumeProcessesRequest $request ResumeProcessesRequest
      *
@@ -7287,7 +7543,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Rolls back an instance refresh task. If the configurations of an instance refresh task cannot meet your business requirements, you can call this operation to roll back the task. During the rollback process, Auto Scaling creates instances based on the active scaling configuration to replace instances that are created based on the configurations of the instance refresh task.
+     * @summary Rolls back an instance refresh task. If an instance refresh task cannot meet your business requirements, you can call the RollbackInstanceRefresh operation. When you roll back an instance refresh task, Auto Scaling creates new instances based on the active scaling configuration to replace the instances whose configurations are already updated by running the task.
      *  *
      * @param RollbackInstanceRefreshRequest $request RollbackInstanceRefreshRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -7327,12 +7583,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return RollbackInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RollbackInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RollbackInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Rolls back an instance refresh task. If the configurations of an instance refresh task cannot meet your business requirements, you can call this operation to roll back the task. During the rollback process, Auto Scaling creates instances based on the active scaling configuration to replace instances that are created based on the configurations of the instance refresh task.
+     * @summary Rolls back an instance refresh task. If an instance refresh task cannot meet your business requirements, you can call the RollbackInstanceRefresh operation. When you roll back an instance refresh task, Auto Scaling creates new instances based on the active scaling configuration to replace the instances whose configurations are already updated by running the task.
      *  *
      * @param RollbackInstanceRefreshRequest $request RollbackInstanceRefreshRequest
      *
@@ -7420,8 +7679,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return ScaleWithAdjustmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ScaleWithAdjustmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ScaleWithAdjustmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7487,8 +7749,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetGroupDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetGroupDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetGroupDeletionProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7545,8 +7810,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetInstanceHealthResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetInstanceHealthResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetInstanceHealthResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7611,8 +7879,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SetInstancesProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetInstancesProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetInstancesProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7635,12 +7906,12 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Starts an instance refresh task. If you want to batch update instance images, modify information in scaling configurations, and scale out instances based on new configurations, you can call the StartInstanceRefresh.html operation. After you start an instance refresh task, Auto Scaling gradually creates new instances from the desired configurations provided by the task to replace old instances. When all replacements are complete, the configurations of instances in your scaling group perfectly match your expectations.
+     * @summary Starts an instance refresh task. If you want to apply a new scaling configuration in a scaling group or update the image specified in a scaling configuration, you can call the StartInstanceRefresh operation.
      *  *
      * @description *   Only one instance refresh task can be executed at a time in a scaling group.
-     * *   Instance refresh tasks are currently supported only by scaling groups of the Elastic Compute Service (ECS) type and using **the priority policy**. Scaling groups that use the number of vCPUs as the method to calculate the group capacity or scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support instance refresh tasks.
-     * *   During the execution of an instance refresh task, scaling events can be complete as expected. Take note that instances that are scaled out use the desired configurations provided by the instance refresh task.
-     * *   Instance refresh tasks does not take effect on instances that are manually added and instances that are in the Standby and Protected states.
+     * *   You can start instance refresh tasks for Elastic Compute Service (ECS) instances in scaling groups that use the **priority policy** as the scaling policy. Scaling groups whose capacity is measured based on the **number of vCPUs** and scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support the StartInstanceRefresh operation.
+     * *   When you start an instance refresh task, scaling events can be completed as expected. Take note that instances that are scaled out use the configurations specified in the instance refresh task.
+     * *   The StartInstanceRefresh operation does not take effect on instances that are manually added or instances that are in the Standby and Protected states.
      *  *
      * @param StartInstanceRefreshRequest $request StartInstanceRefreshRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7692,17 +7963,20 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return StartInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StartInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Starts an instance refresh task. If you want to batch update instance images, modify information in scaling configurations, and scale out instances based on new configurations, you can call the StartInstanceRefresh.html operation. After you start an instance refresh task, Auto Scaling gradually creates new instances from the desired configurations provided by the task to replace old instances. When all replacements are complete, the configurations of instances in your scaling group perfectly match your expectations.
+     * @summary Starts an instance refresh task. If you want to apply a new scaling configuration in a scaling group or update the image specified in a scaling configuration, you can call the StartInstanceRefresh operation.
      *  *
      * @description *   Only one instance refresh task can be executed at a time in a scaling group.
-     * *   Instance refresh tasks are currently supported only by scaling groups of the Elastic Compute Service (ECS) type and using **the priority policy**. Scaling groups that use the number of vCPUs as the method to calculate the group capacity or scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support instance refresh tasks.
-     * *   During the execution of an instance refresh task, scaling events can be complete as expected. Take note that instances that are scaled out use the desired configurations provided by the instance refresh task.
-     * *   Instance refresh tasks does not take effect on instances that are manually added and instances that are in the Standby and Protected states.
+     * *   You can start instance refresh tasks for Elastic Compute Service (ECS) instances in scaling groups that use the **priority policy** as the scaling policy. Scaling groups whose capacity is measured based on the **number of vCPUs** and scaling groups whose instance reclaim mode is **Economical Mode** or **Forcibly Recycle** do not support the StartInstanceRefresh operation.
+     * *   When you start an instance refresh task, scaling events can be completed as expected. Take note that instances that are scaled out use the configurations specified in the instance refresh task.
+     * *   The StartInstanceRefresh operation does not take effect on instances that are manually added or instances that are in the Standby and Protected states.
      *  *
      * @param StartInstanceRefreshRequest $request StartInstanceRefreshRequest
      *
@@ -7716,7 +7990,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Suspends an instance refresh task. You can call this operation to suspend an ongoing instance refresh task for observation.
+     * @summary Suspends an instance refresh task. If you are not sure that you want to roll back an ongoing instance refresh task whose configurations you think has an issue, you can call the SuspendInstanceRefresh operation to suspend the task.
      *  *
      * @description *   You cannot call this operation to suspend an instance refresh task that is being rolled back.
      *  *
@@ -7758,12 +8032,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SuspendInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SuspendInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SuspendInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Suspends an instance refresh task. You can call this operation to suspend an ongoing instance refresh task for observation.
+     * @summary Suspends an instance refresh task. If you are not sure that you want to roll back an ongoing instance refresh task whose configurations you think has an issue, you can call the SuspendInstanceRefresh operation to suspend the task.
      *  *
      * @description *   You cannot call this operation to suspend an instance refresh task that is being rolled back.
      *  *
@@ -7822,8 +8099,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return SuspendProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SuspendProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SuspendProcessesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7841,7 +8121,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Creates and attaches tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
+     * @summary Creates and adds tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
      *  *
      * @description *   You can attach up to 20 tags to a scaling group.
      *     **
@@ -7892,12 +8172,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Creates and attaches tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
+     * @summary Creates and adds tags. You can call the TagResources operation to uniformly create and attach tags to your Auto Scaling resources, streamlining resource management. This capability empowers you to categorize resources based on tags, thereby enhancing the overall efficiency of resource allocation and utilization.
      *  *
      * @description *   You can attach up to 20 tags to a scaling group.
      *     **
@@ -7965,8 +8248,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7984,7 +8270,7 @@ class Ess extends OpenApiClient
     }
 
     /**
-     * @summary Checks whether Auto Scaling is authorized to access Elastic Compute Service (ECS) and Elastic Container Instance resources.
+     * @summary Checks whether the specified Alibaba Cloud account assumes the AliyunServiceRoleForAutoScaling service-linked role. An account can be used to operate Elastic Compute Service (ECS) instances and elastic container instances only after it assumes the service-linked role.
      *  *
      * @param VerifyAuthenticationRequest $request VerifyAuthenticationRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8024,12 +8310,15 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return VerifyAuthenticationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyAuthenticationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyAuthenticationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @summary Checks whether Auto Scaling is authorized to access Elastic Compute Service (ECS) and Elastic Container Instance resources.
+     * @summary Checks whether the specified Alibaba Cloud account assumes the AliyunServiceRoleForAutoScaling service-linked role. An account can be used to operate Elastic Compute Service (ECS) instances and elastic container instances only after it assumes the service-linked role.
      *  *
      * @param VerifyAuthenticationRequest $request VerifyAuthenticationRequest
      *
@@ -8080,8 +8369,11 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
+        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+            return VerifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return VerifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return VerifyUserResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**

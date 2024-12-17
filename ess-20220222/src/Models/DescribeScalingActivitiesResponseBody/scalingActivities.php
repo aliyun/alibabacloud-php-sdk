@@ -123,6 +123,8 @@ class scalingActivities extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the instance refresh task.
+     *
      * @example ir-asdf12adsxg*****
      *
      * @var string

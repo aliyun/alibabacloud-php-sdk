@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnoseReportRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateDiagnoseReportRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-bp1f2f6oxc2*******
      *
      * @var string

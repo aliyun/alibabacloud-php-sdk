@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnoseReportsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDiagnoseReportsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,12 +28,14 @@ class DescribeDiagnoseReportsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The diagnostic reports.
+     *
      * @var reports[]
      */
     public $reports;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example ECA123C6-107B-5F70-A177-740A7224C996
      *
@@ -38,6 +44,8 @@ class DescribeDiagnoseReportsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of diagnostic reports.
+     *
      * @example 5
      *
      * @var int

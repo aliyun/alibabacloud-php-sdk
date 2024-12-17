@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnoseReportsRequest extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeDiagnoseReportsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -23,8 +27,9 @@ class DescribeDiagnoseReportsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the scaling group.
      *
+     * This parameter is required.
      * @example cn-shenzhen
      *
      * @var string
@@ -32,13 +37,16 @@ class DescribeDiagnoseReportsRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the diagnostic reports. You can specify at most 20 IDs.
+     *
      * @var string[]
      */
     public $reportIds;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the scaling group.
      *
+     * This parameter is required.
      * @example asg-2vcis7yglxtm*****
      *
      * @var string

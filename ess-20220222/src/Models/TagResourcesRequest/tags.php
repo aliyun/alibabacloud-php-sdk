@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of the tag that you want to add to the Auto Scaling resource.
+     * @description The tag key.
      *
-     * You cannot specify empty strings as tag keys. The tag key must be 1 to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
+     * You cannot specify an empty string as a tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag key cannot contain `http://` or `https://`.
      * @example TestKey
      *
      * @var string
@@ -21,8 +21,8 @@ class tags extends Model
     /**
      * @description Specifies whether to propagate the tag that you want to add. Valid values:
      *
-     *   true: propagates the tag only to instances that are newly created and does not propagate the tag to instances that are already running in the scaling group.
-     *   false: does not propagate the tag to any instances.
+     *   true: propagates the tag to new instances.
+     *   false: does not propagate the tag to any instance.
      *
      * Default value: false.
      * @example false
@@ -32,9 +32,9 @@ class tags extends Model
     public $propagate;
 
     /**
-     * @description The value of the tag that you want to add to the Auto Scaling resource.
+     * @description The tag value.
      *
-     * You can specify empty strings as tag values. The tag value must be 0 to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
+     * You can specify empty strings as tag values. The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
      * @example TestValue
      *
      * @var string

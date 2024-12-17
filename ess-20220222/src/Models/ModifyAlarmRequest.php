@@ -153,10 +153,10 @@ class ModifyAlarmRequest extends Model
     public $metricName;
 
     /**
-     * @description The type of the metric. Valid values:
+     * @description The metric type. Valid values:
      *
      *   system: system metrics of CloudMonitor
-     *   custom: custom metrics that are reported to CloudMonitor
+     *   custom: custom metrics that are reported to CloudMonitor.
      *
      * @example system
      *

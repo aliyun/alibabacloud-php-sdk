@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScalingActivitiesRequest extends Model
 {
     /**
+     * @description The ID of the instance refresh task. If you specify this parameter, this operation returns the list of scaling activities associated with the instance refresh task.
+     *
      * @example ir-a12ds234fasd*****
      *
      * @var string
