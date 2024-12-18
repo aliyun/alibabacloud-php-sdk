@@ -12,12 +12,16 @@ class managedRule extends Model
     /**
      * @description The settings of the required input parameters for the managed rule.
      *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $compulsoryInputParameterDetails;
 
     /**
      * @description The description of the managed rule.
+     *
+     * @example example-description
      *
      * @var string
      */
@@ -42,12 +46,16 @@ class managedRule extends Model
     /**
      * @description The name of the managed rule.
      *
+     * @example example-name
+     *
      * @var string
      */
     public $managedRuleName;
 
     /**
      * @description The settings of the optional input parameters for the managed rule.
+     *
+     * @example {}
      *
      * @var mixed[]
      */

@@ -20,12 +20,16 @@ class managedRules extends Model
     /**
      * @description The name of the rule.
      *
+     * @example ram-user-ak-used-expired-check
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
      * @description The description of the rule.
+     *
+     * @example Example description
      *
      * @var string
      */

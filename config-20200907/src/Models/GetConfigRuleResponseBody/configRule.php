@@ -60,6 +60,8 @@ class configRule extends Model
     /**
      * @description The name of the rule.
      *
+     * @example ecs-disk-auto-snapshot-policy
+     *
      * @var string
      */
     public $configRuleName;
@@ -109,16 +111,26 @@ class configRule extends Model
     /**
      * @description The description of the managed rule.
      *
+     * @example example-description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description ExcludeRegionIdsScope
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description ExcludeResourceGroupIdsScope
+     *
+     * @example rg-aekzdibsjjc****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -133,17 +145,25 @@ class configRule extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description ExcludeTagsScope
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
 
     /**
+     * @description Optional field, only used in conjunction with the 24-hour cycle execution to set the trigger time.
+     *
+     * @example {"fixedHour":"12"}
+     *
      * @var string
      */
     public $extendContent;
 
     /**
      * @description The input parameters of the rule.
+     *
+     * @example {}
      *
      * @var mixed[]
      */
@@ -200,6 +220,10 @@ class configRule extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description ResourceIdsScope
+     *
+     * @example eip-8vbf3x310fn56ijfd****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -271,6 +295,8 @@ class configRule extends Model
     public $tagValueScope;
 
     /**
+     * @description TagsScope
+     *
      * @var tagsScope[]
      */
     public $tagsScope;

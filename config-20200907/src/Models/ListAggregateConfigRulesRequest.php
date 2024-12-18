@@ -19,6 +19,11 @@ class ListAggregateConfigRulesRequest extends Model
     public $aggregatorId;
 
     /**
+     * @var string
+     */
+    public $compliancePackId;
+
+    /**
      * @description The compliance evaluation result. Valid values:
      *
      *   COMPLIANT: The resources are evaluated as compliant.
@@ -107,15 +112,16 @@ class ListAggregateConfigRulesRequest extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'aggregatorId'    => 'AggregatorId',
-        'complianceType'  => 'ComplianceType',
-        'configRuleName'  => 'ConfigRuleName',
-        'configRuleState' => 'ConfigRuleState',
-        'keyword'         => 'Keyword',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'resourceTypes'   => 'ResourceTypes',
-        'riskLevel'       => 'RiskLevel',
+        'aggregatorId'     => 'AggregatorId',
+        'compliancePackId' => 'CompliancePackId',
+        'complianceType'   => 'ComplianceType',
+        'configRuleName'   => 'ConfigRuleName',
+        'configRuleState'  => 'ConfigRuleState',
+        'keyword'          => 'Keyword',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'resourceTypes'    => 'ResourceTypes',
+        'riskLevel'        => 'RiskLevel',
     ];
 
     public function validate()
@@ -127,6 +133,9 @@ class ListAggregateConfigRulesRequest extends Model
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
         }
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
@@ -166,6 +175,9 @@ class ListAggregateConfigRulesRequest extends Model
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
         }
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];

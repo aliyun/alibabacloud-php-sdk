@@ -21,6 +21,8 @@ class configRules extends Model
     /**
      * @description The rule name.
      *
+     * @example eip-bandwidth-limit
+     *
      * @var string
      */
     public $configRuleName;
@@ -34,6 +36,8 @@ class configRules extends Model
 
     /**
      * @description The rule description.
+     *
+     * @example example-description
      *
      * @var string
      */

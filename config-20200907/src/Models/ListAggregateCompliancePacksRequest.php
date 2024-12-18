@@ -19,7 +19,7 @@ class ListAggregateCompliancePacksRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The page number.
+     * @description The number of the page to return.
      *
      * Pages start from page 1. Default value: 1.
      * @example 1
@@ -29,9 +29,9 @@ class ListAggregateCompliancePacksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description The number of entries to return on each page.
      *
-     * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
+     * Valid values: 1 to 100. Default value: 10.
      * @example 20
      *
      * @var int

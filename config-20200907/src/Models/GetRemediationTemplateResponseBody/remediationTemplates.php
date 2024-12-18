@@ -30,6 +30,8 @@ class remediationTemplates extends Model
     /**
      * @description The parameters of the automatic remediation template.
      *
+     * @example {\\"Parameters\\":{\\"regionId\\":{\\"AssociationProperty\\":\\"RegionId\\",\\"CreateDated\\":\\"2023-09-08T16:36:15\\",\\"Default\\":\\"{regionId}\\",\\"Description\\":{\\"en\\":\\"regionId\\",\\"zh-cn\\":\\"regionId\\"},\\"Id\\":538,\\"MaxKeyLength\\":\\"125\\",\\"MaxValueLength\\":\\"255\\",\\"ModifiedDate\\":\\"2023-09-08T16:36:15\\",\\"Name\\":\\"regionId\\",\\"Optional\\":1,\\"TemplateIdentifier\\":\\"ACS-ALB-BulkyEnableDeletionProtection\\",\\"Type\\":\\"String\\",\\"Version\\":\\"LASTEST\\"},\\"loadBalancerIds\\":{\\"CreateDated\\":\\"2023-09-08T16:36:16\\",\\"Default\\":\\"[\\\\\\"{resourceId}\\\\\\"]\\",\\"Description\\":{\\"en\\":\\"loadBalancerIds\\",\\"zh-cn\\":\\"loadBalancerIds\\"},\\"Id\\":539,\\"MaxKeyLength\\":\\"125\\",\\"MaxValueLength\\":\\"255\\",\\"ModifiedDate\\":\\"2023-09-08T16:36:16\\",\\"Name\\":\\"loadBalancerIds\\",\\"Optional\\":1,\\"TemplateIdentifier\\":\\"ACS-ALB-BulkyEnableDeletionProtection\\",\\"Type\\":\\"ARRAY\\",\\"Version\\":\\"LASTEST\\"}}}
+     *
      * @var string
      */
     public $templateDefinition;
@@ -38,6 +40,8 @@ class remediationTemplates extends Model
      * @description The description of the automatic remediation template.
      *
      * This parameter is required.
+     * @example 调用接口EnableDeletionProtection，开启ALB实例删除保护，请您知晓风险谨慎操作。
+     *
      * @var string
      */
     public $templateDescription;
@@ -53,6 +57,8 @@ class remediationTemplates extends Model
 
     /**
      * @description The name of the automatic remediation template.
+     *
+     * @example 开启ALB实例删除保护
      *
      * @var string
      */

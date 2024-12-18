@@ -19,17 +19,23 @@ class DeactiveAggregateConfigRulesRequest extends Model
     public $aggregatorId;
 
     /**
+     * @var string
+     */
+    public $compliancePackId;
+
+    /**
      * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
-     * This parameter is required.
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
      * @example cr-5772ba41209e007b****
      *
      * @var string
      */
     public $configRuleIds;
     protected $_name = [
-        'aggregatorId'  => 'AggregatorId',
-        'configRuleIds' => 'ConfigRuleIds',
+        'aggregatorId'     => 'AggregatorId',
+        'compliancePackId' => 'CompliancePackId',
+        'configRuleIds'    => 'ConfigRuleIds',
     ];
 
     public function validate()
@@ -41,6 +47,9 @@ class DeactiveAggregateConfigRulesRequest extends Model
         $res = [];
         if (null !== $this->aggregatorId) {
             $res['AggregatorId'] = $this->aggregatorId;
+        }
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
         }
         if (null !== $this->configRuleIds) {
             $res['ConfigRuleIds'] = $this->configRuleIds;
@@ -59,6 +68,9 @@ class DeactiveAggregateConfigRulesRequest extends Model
         $model = new self();
         if (isset($map['AggregatorId'])) {
             $model->aggregatorId = $map['AggregatorId'];
+        }
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
         }
         if (isset($map['ConfigRuleIds'])) {
             $model->configRuleIds = $map['ConfigRuleIds'];

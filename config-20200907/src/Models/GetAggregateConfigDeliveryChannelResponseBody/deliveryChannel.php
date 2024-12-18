@@ -27,6 +27,13 @@ class deliveryChannel extends Model
     public $aggregatorId;
 
     /**
+     * @description Indicates whether the specified destination receives scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots at `04:00Z` and `16:00Z` to Log Service every day. The time is displayed in UTC. Valid values:
+     *
+     *   true: The specified destination receives scheduled compliant snapshots.
+     *   false: The specified destination does not receive scheduled compliant snapshots.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $compliantSnapshot;

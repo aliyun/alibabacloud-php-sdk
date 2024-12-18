@@ -81,6 +81,8 @@ class aggregators extends Model
     /**
      * @description The description of the account group.
      *
+     * @example Example-description
+     *
      * @var string
      */
     public $description;

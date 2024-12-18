@@ -29,6 +29,8 @@ class resourceTypeList extends Model
     /**
      * @description The Chinese name of the resource type.
      *
+     * @example ECS实例
+     *
      * @var string
      */
     public $typeNameZh;

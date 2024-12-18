@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateAggregateConfigRuleShrinkRequest extends Model
 {
     /**
+     * @description The IDs of the member accounts to which the rule applies, which means that the resources within the member accounts are evaluated based on the rule. Separate multiple member account IDs with commas (,).
+     *
+     * @example 115748125982****
+     *
      * @var string
      */
     public $accountIdsScope;
@@ -48,6 +52,8 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
      * @description The name of the rule.
      *
      * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+     * @example test_rule
+     *
      * @var string
      */
     public $configRuleName;
@@ -67,6 +73,8 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
 
     /**
      * @description The description of the rule.
+     *
+     * @example test_description
      *
      * @var string
      */
@@ -98,11 +106,19 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $excludeFolderIdsScope;
 
     /**
+     * @description The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description The IDs of the resource groups to which the rule not applies. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-bnczc6r7rml****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -118,6 +134,8 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description Exclude the specific tag scope of resources .
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
@@ -183,6 +201,10 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+     *
+     * @example lb-5cmbowstbkss9ta03****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -242,6 +264,8 @@ class UpdateAggregateConfigRuleShrinkRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description The valid tag scope of resources.
+     *
      * @var tagsScope[]
      */
     public $tagsScope;

@@ -23,6 +23,8 @@ class CreateConfigRuleRequest extends Model
      * @description The name of the rule.
      *
      * This parameter is required.
+     * @example required-tags
+     *
      * @var string
      */
     public $configRuleName;
@@ -43,16 +45,26 @@ class CreateConfigRuleRequest extends Model
     /**
      * @description The description of the rule.
      *
+     * @example example-description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description ExcludeRegionIdsScope
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description ExcludeResourceGroupIdsScope
+     *
+     * @example rg-bnczc6r7rml****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -68,11 +80,17 @@ class CreateConfigRuleRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description ExcludeTagsScope
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
 
     /**
+     * @description Optional field, only used in conjunction with the 24-hour cycle execution to set the trigger time.
+     *
+     * @example {"fixedHour":"13"}
+     *
      * @var string
      */
     public $extendContent;
@@ -123,6 +141,10 @@ class CreateConfigRuleRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description ResourceIdsScope
+     *
+     * @example lb-5cmbowstbkss9ta03****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -210,6 +232,8 @@ class CreateConfigRuleRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description TagsScope
+     *
      * @var tagsScope[]
      */
     public $tagsScope;

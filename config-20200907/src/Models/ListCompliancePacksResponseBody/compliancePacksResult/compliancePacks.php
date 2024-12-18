@@ -29,6 +29,8 @@ class compliancePacks extends Model
     /**
      * @description The name of the compliance package.
      *
+     * @example ClassifiedProtectionPreCheck
+     *
      * @var string
      */
     public $compliancePackName;
@@ -53,6 +55,8 @@ class compliancePacks extends Model
 
     /**
      * @description The description of the compliance package.
+     *
+     * @example Based on the Level 3 standards Equal Protection 2.0, this template provides continuous compliance monitoring recommendations to help you perform self-inspections and fix issues in advance, ensuring a quick pass during the official inspection.
      *
      * @var string
      */

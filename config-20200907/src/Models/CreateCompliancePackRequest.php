@@ -69,11 +69,19 @@ class CreateCompliancePackRequest extends Model
     public $description;
 
     /**
+     * @description ExcludeRegionIdsScope
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-bnczc6r7rml****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -88,6 +96,8 @@ class CreateCompliancePackRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description ExcludeTagsScope
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
@@ -111,6 +121,10 @@ class CreateCompliancePackRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description ResourceIdsScope
+     *
+     * @example eip-8vbf3x310fn56ijfd****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -148,6 +162,8 @@ class CreateCompliancePackRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description TagsScope
+     *
      * @var tagsScope[]
      */
     public $tagsScope;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSupportedProductsRequest extends Model
 {
     /**
-     * @description The maximum number of entries to return for a single request.
+     * @description The maximum number of entries to return in a request.
      *
      * Valid values: 1 to 500. Default value: 200.
      * @example 100

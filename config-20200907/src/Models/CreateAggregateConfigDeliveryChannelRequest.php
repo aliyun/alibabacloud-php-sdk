@@ -29,6 +29,13 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to deliver scheduled compliant snapshots. Cloud Config delivers scheduled compliant snapshots to Log Service at `04:00Z` and `16:00Z` every day. The time is displayed in UTC. Valid values:
+     *
+     *   true: Cloud Config delivers scheduled compliant snapshots.
+     *   false: Cloud Config does not deliver scheduled compliant snapshots. This is the default value.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $compliantSnapshot;

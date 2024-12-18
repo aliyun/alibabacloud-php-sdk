@@ -357,6 +357,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->aggregatorId)) {
             $query['AggregatorId'] = $request->aggregatorId;
         }
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
         if (!Utils::isUnset($request->configRuleIds)) {
             $query['ConfigRuleIds'] = $request->configRuleIds;
         }
@@ -412,6 +415,9 @@ class Config extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
         if (!Utils::isUnset($request->configRuleIds)) {
             $query['ConfigRuleIds'] = $request->configRuleIds;
         }
@@ -1766,6 +1772,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->aggregatorId)) {
             $query['AggregatorId'] = $request->aggregatorId;
         }
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
         if (!Utils::isUnset($request->configRuleIds)) {
             $query['ConfigRuleIds'] = $request->configRuleIds;
         }
@@ -1823,6 +1832,9 @@ class Config extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
         if (!Utils::isUnset($request->configRuleIds)) {
             $query['ConfigRuleIds'] = $request->configRuleIds;
         }
@@ -5604,6 +5616,9 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($request->aggregatorId)) {
             $query['AggregatorId'] = $request->aggregatorId;
         }
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
         if (!Utils::isUnset($request->complianceType)) {
             $query['ComplianceType'] = $request->complianceType;
         }
@@ -6076,7 +6091,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of account groups that the current account manages or to which the current account belongs.
+     * @summary Queries all account groups within the current management account or delegated administrator account.
      *  *
      * @description The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
      *  *
@@ -6114,7 +6129,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of account groups that the current account manages or to which the current account belongs.
+     * @summary Queries all account groups within the current management account or delegated administrator account.
      *  *
      * @description The sample request in this topic shows you how to query account groups. A maximum of 10 entries can be returned for the request. As shown in the responses, the account group returned is named as `Test_Group`, its description is `Test account group`, and it is of the `CUSTOM` type, which indicates a custom account group. The account group contains two member accounts.
      *  *
@@ -6132,7 +6147,7 @@ class Config extends OpenApiClient
     /**
      * @summary Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
      *  *
-     * @description This topic provides an example on how to query the details of a compliance package template whose ID is `ct-d254ff4e06a300cf****`. The returned result indicates that the template name is `BestPracticesForNetwork`, the template ID is `ct-d254ff4e06a300cf****`, and the ID of the managed rule of the template is `slb-servercertificate-expired-check`.
+     * @description A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
      *  *
      * @param ListCompliancePackTemplatesRequest $request ListCompliancePackTemplatesRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6176,7 +6191,7 @@ class Config extends OpenApiClient
     /**
      * @summary Queries all compliance package templates provided by Cloud Config and the details of the compliance package templates.
      *  *
-     * @description This topic provides an example on how to query the details of a compliance package template whose ID is `ct-d254ff4e06a300cf****`. The returned result indicates that the template name is `BestPracticesForNetwork`, the template ID is `ct-d254ff4e06a300cf****`, and the ID of the managed rule of the template is `slb-servercertificate-expired-check`.
+     * @description A compliance package template is a collection of rules that Cloud Config can create based on compliance scenarios.
      *  *
      * @param ListCompliancePackTemplatesRequest $request ListCompliancePackTemplatesRequest
      *
@@ -6392,6 +6407,9 @@ class Config extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->compliancePackId)) {
+            $query['CompliancePackId'] = $request->compliancePackId;
+        }
         if (!Utils::isUnset($request->complianceType)) {
             $query['ComplianceType'] = $request->complianceType;
         }
@@ -8380,7 +8398,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a delivery channel.
+     * @summary Modifies a delivery channel by using the current account.
      *  *
      * @description In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
      *  *
@@ -8451,7 +8469,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a delivery channel.
+     * @summary Modifies a delivery channel by using the current account.
      *  *
      * @description In this example, a delivery channel is disabled. The ID of the delivery channel is `cdc-8e45ff4e06a3a8****```. The Status parameter is set to 0. After the delivery channel is disabled, Cloud Config retains the most recent delivery configuration and stops the delivery of resource data.
      *  *

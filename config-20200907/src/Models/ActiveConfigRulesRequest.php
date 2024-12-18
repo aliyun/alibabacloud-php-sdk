@@ -9,16 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ActiveConfigRulesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $compliancePackId;
+
+    /**
      * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
-     * This parameter is required.
      * @example cr-2da35180a8d1008e****,cr-2da35180a8d1008e****
      *
      * @var string
      */
     public $configRuleIds;
     protected $_name = [
-        'configRuleIds' => 'ConfigRuleIds',
+        'compliancePackId' => 'CompliancePackId',
+        'configRuleIds'    => 'ConfigRuleIds',
     ];
 
     public function validate()
@@ -28,6 +33,9 @@ class ActiveConfigRulesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
+        }
         if (null !== $this->configRuleIds) {
             $res['ConfigRuleIds'] = $this->configRuleIds;
         }
@@ -43,6 +51,9 @@ class ActiveConfigRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
+        }
         if (isset($map['ConfigRuleIds'])) {
             $model->configRuleIds = $map['ConfigRuleIds'];
         }

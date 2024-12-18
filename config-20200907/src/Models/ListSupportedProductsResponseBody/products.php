@@ -21,6 +21,8 @@ class products extends Model
     /**
      * @description The Chinese name of the Alibaba Cloud service.
      *
+     * @example 云服务器ECS
+     *
      * @var string
      */
     public $productNameZh;

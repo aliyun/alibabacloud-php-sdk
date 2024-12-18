@@ -27,6 +27,16 @@ class discoveredResourceDetail extends Model
     public $availabilityZone;
 
     /**
+     * @description The compliance evaluation result of the resource. Valid values:
+     *
+     *   COMPLIANT: The resource is evaluated as compliant.
+     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resource.
+     *   INSUFFICIENT_DATA: No data is available.
+     *   IGNORED: The resource is ignored during compliance evaluation.
+     *
+     * @example COMPLIANT
+     *
      * @var string
      */
     public $complianceType;

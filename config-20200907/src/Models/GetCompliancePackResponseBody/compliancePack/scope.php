@@ -11,11 +11,19 @@ use AlibabaCloud\Tea\Model;
 class scope extends Model
 {
     /**
+     * @description Excluded region scope, multiple regions should be separated by commas.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description Excluded resourceGroup scope, multiple resourceGroup should be separated by commas.
+     *
+     * @example rg-aekzc7r7rhx****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -30,8 +38,9 @@ class scope extends Model
     public $excludeResourceIdsScope;
 
     /**
-     * @description This parameter is required.
+     * @description Exclude tag scope.
      *
+     * This parameter is required.
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
@@ -55,6 +64,10 @@ class scope extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description Include ResourceId scope, multiple resourceIds should be separated by commas.
+     *
+     * @example eip-8vbf3x310fn56ijfd****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -78,8 +91,9 @@ class scope extends Model
     public $tagValueScope;
 
     /**
-     * @description This parameter is required.
+     * @description Include tag scope.
      *
+     * This parameter is required.
      * @var tagsScope[]
      */
     public $tagsScope;

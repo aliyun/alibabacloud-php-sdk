@@ -18,7 +18,7 @@ class compliancePacks extends Model
     public $accountId;
 
     /**
-     * @description The account group ID.
+     * @description The ID of the account group.
      *
      * @example ca-f632626622af0079****
      *
@@ -27,7 +27,7 @@ class compliancePacks extends Model
     public $aggregatorId;
 
     /**
-     * @description The compliance package ID.
+     * @description The ID of the compliance package.
      *
      * @example cp-fdc8626622af00f9****
      *
@@ -37,6 +37,8 @@ class compliancePacks extends Model
 
     /**
      * @description The name of the compliance package.
+     *
+     * @example example-name
      *
      * @var string
      */
@@ -63,16 +65,18 @@ class compliancePacks extends Model
     /**
      * @description The description of the compliance package.
      *
+     * @example example-description
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
+     * @description The risk level of the resources that are not compliant with the managed rules in the compliance package. Valid values:
      *
-     *   1: high
-     *   2: medium
-     *   3: low
+     *   1: high risk level.
+     *   2: medium risk level.
+     *   3: low risk level.
      *
      * @example 1
      *
@@ -83,7 +87,7 @@ class compliancePacks extends Model
     /**
      * @description The status of the compliance package. Valid values:
      *
-     *   ACTIVE: The compliance package is normal.
+     *   ACTIVE: The compliance package is available for use.
      *   CREATING: The compliance package is being created.
      *
      * @example ACTIVE

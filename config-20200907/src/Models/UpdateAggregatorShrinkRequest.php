@@ -49,6 +49,8 @@ class UpdateAggregatorShrinkRequest extends Model
      * @description The description of the account group.
      *
      * For more information about how to obtain the description of an account group, see [ListAggregators](https://help.aliyun.com/document_detail/255797.html).
+     * @example Test_Aggregator_Description
+     *
      * @var string
      */
     public $description;

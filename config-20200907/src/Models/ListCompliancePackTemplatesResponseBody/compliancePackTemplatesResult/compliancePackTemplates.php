@@ -21,6 +21,8 @@ class compliancePackTemplates extends Model
     /**
      * @description The name of the compliance package template.
      *
+     * @example BestPracticesForResourceStability
+     *
      * @var string
      */
     public $compliancePackTemplateName;
@@ -35,12 +37,16 @@ class compliancePackTemplates extends Model
     /**
      * @description The description of the compliance package.
      *
+     * @example example-description
+     *
      * @var string
      */
     public $description;
 
     /**
      * @description The tag of the compliance package.
+     *
+     * @example tagKey-1
      *
      * @var string
      */

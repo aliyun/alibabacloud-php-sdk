@@ -50,6 +50,8 @@ class configRules extends Model
     /**
      * @description The description of the rule.
      *
+     * @example If the expiration time of the SLB certificate is later than the specified number of days after the check time, the configuration is considered compliant. Default value: 90 days.
+     *
      * @var string
      */
     public $description;
@@ -65,6 +67,8 @@ class configRules extends Model
 
     /**
      * @description The name of the managed rule.
+     *
+     * @example slb-servercertificate-expired-check
      *
      * @var string
      */

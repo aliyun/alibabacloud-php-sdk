@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListConfigRulesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $compliancePackId;
+
+    /**
      * @description The compliance evaluation result of the rule. Valid values:
      *
      *   COMPLIANT: The resources are evaluated as compliant.
@@ -97,14 +102,15 @@ class ListConfigRulesRequest extends Model
      */
     public $riskLevel;
     protected $_name = [
-        'complianceType'  => 'ComplianceType',
-        'configRuleName'  => 'ConfigRuleName',
-        'configRuleState' => 'ConfigRuleState',
-        'keyword'         => 'Keyword',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'resourceTypes'   => 'ResourceTypes',
-        'riskLevel'       => 'RiskLevel',
+        'compliancePackId' => 'CompliancePackId',
+        'complianceType'   => 'ComplianceType',
+        'configRuleName'   => 'ConfigRuleName',
+        'configRuleState'  => 'ConfigRuleState',
+        'keyword'          => 'Keyword',
+        'pageNumber'       => 'PageNumber',
+        'pageSize'         => 'PageSize',
+        'resourceTypes'    => 'ResourceTypes',
+        'riskLevel'        => 'RiskLevel',
     ];
 
     public function validate()
@@ -114,6 +120,9 @@ class ListConfigRulesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->compliancePackId) {
+            $res['CompliancePackId'] = $this->compliancePackId;
+        }
         if (null !== $this->complianceType) {
             $res['ComplianceType'] = $this->complianceType;
         }
@@ -150,6 +159,9 @@ class ListConfigRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CompliancePackId'])) {
+            $model->compliancePackId = $map['CompliancePackId'];
+        }
         if (isset($map['ComplianceType'])) {
             $model->complianceType = $map['ComplianceType'];
         }
