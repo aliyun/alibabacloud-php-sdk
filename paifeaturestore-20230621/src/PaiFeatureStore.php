@@ -20,7 +20,6 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateLabelTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateLabelTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureResponse;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateModelFeatureTrainingSetFGTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\CreateServiceIdentityRoleRequest;
@@ -31,8 +30,6 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteFeatureViewResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteLabelTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteModelFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\DeleteProjectResponse;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetFGTableRequest;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetFGTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\ExportModelFeatureTrainingSetTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\GetDatasourceResponse;
@@ -90,8 +87,6 @@ use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLabelTableRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateLabelTableResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGFeatureRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGFeatureResponse;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGInfoRequest;
-use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureFGInfoResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureRequest;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateModelFeatureResponse;
 use AlibabaCloud\SDK\PaiFeatureStore\V20230621\Models\UpdateProjectRequest;
@@ -584,52 +579,6 @@ class PaiFeatureStore extends OpenApiClient
     }
 
     /**
-     * @summary 创建训练样本FG表。
-     *  *
-     * @param string         $InstanceId
-     * @param string         $ModelFeatureId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return CreateModelFeatureTrainingSetFGTableResponse CreateModelFeatureTrainingSetFGTableResponse
-     */
-    public function createModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'CreateModelFeatureTrainingSetFGTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/trainingsetfgtable',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateModelFeatureTrainingSetFGTableResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建训练样本FG表。
-     *  *
-     * @param string $InstanceId
-     * @param string $ModelFeatureId
-     *
-     * @return CreateModelFeatureTrainingSetFGTableResponse CreateModelFeatureTrainingSetFGTableResponse
-     */
-    public function createModelFeatureTrainingSetFGTable($InstanceId, $ModelFeatureId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $headers, $runtime);
-    }
-
-    /**
      * @summary 创建FeatureStore项目
      *  *
      * @param string               $InstanceId
@@ -1020,60 +969,6 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->deleteProjectWithOptions($InstanceId, $ProjectId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 导出训练样本FG表。
-     *  *
-     * @param string                                      $InstanceId
-     * @param string                                      $ModelFeatureId
-     * @param ExportModelFeatureTrainingSetFGTableRequest $request        ExportModelFeatureTrainingSetFGTableRequest
-     * @param string[]                                    $headers        map
-     * @param RuntimeOptions                              $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return ExportModelFeatureTrainingSetFGTableResponse ExportModelFeatureTrainingSetFGTableResponse
-     */
-    public function exportModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->trainingSetFgConfig)) {
-            $body['TrainingSetFgConfig'] = $request->trainingSetFgConfig;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ExportModelFeatureTrainingSetFGTable',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/action/exporttrainingsetfgtable',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ExportModelFeatureTrainingSetFGTableResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 导出训练样本FG表。
-     *  *
-     * @param string                                      $InstanceId
-     * @param string                                      $ModelFeatureId
-     * @param ExportModelFeatureTrainingSetFGTableRequest $request        ExportModelFeatureTrainingSetFGTableRequest
-     *
-     * @return ExportModelFeatureTrainingSetFGTableResponse ExportModelFeatureTrainingSetFGTableResponse
-     */
-    public function exportModelFeatureTrainingSetFGTable($InstanceId, $ModelFeatureId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->exportModelFeatureTrainingSetFGTableWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime);
     }
 
     /**
@@ -2917,6 +2812,9 @@ class PaiFeatureStore extends OpenApiClient
         if (!Utils::isUnset($request->features)) {
             $body['Features'] = $request->features;
         }
+        if (!Utils::isUnset($request->labelPriorityLevel)) {
+            $body['LabelPriorityLevel'] = $request->labelPriorityLevel;
+        }
         if (!Utils::isUnset($request->labelTableId)) {
             $body['LabelTableId'] = $request->labelTableId;
         }
@@ -3020,60 +2918,6 @@ class PaiFeatureStore extends OpenApiClient
         $headers = [];
 
         return $this->updateModelFeatureFGFeatureWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 更新模型特征的fg.json文件配置信息。
-     *  *
-     * @param string                          $InstanceId
-     * @param string                          $ModelFeatureId
-     * @param UpdateModelFeatureFGInfoRequest $request        UpdateModelFeatureFGInfoRequest
-     * @param string[]                        $headers        map
-     * @param RuntimeOptions                  $runtime        runtime options for this request RuntimeOptions
-     *
-     * @return UpdateModelFeatureFGInfoResponse UpdateModelFeatureFGInfoResponse
-     */
-    public function updateModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['Content'] = $request->content;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateModelFeatureFGInfo',
-            'version'     => '2023-06-21',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/modelfeatures/' . OpenApiUtilClient::getEncodeParam($ModelFeatureId) . '/fginfo',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateModelFeatureFGInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 更新模型特征的fg.json文件配置信息。
-     *  *
-     * @param string                          $InstanceId
-     * @param string                          $ModelFeatureId
-     * @param UpdateModelFeatureFGInfoRequest $request        UpdateModelFeatureFGInfoRequest
-     *
-     * @return UpdateModelFeatureFGInfoResponse UpdateModelFeatureFGInfoResponse
-     */
-    public function updateModelFeatureFGInfo($InstanceId, $ModelFeatureId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->updateModelFeatureFGInfoWithOptions($InstanceId, $ModelFeatureId, $request, $headers, $runtime);
     }
 
     /**

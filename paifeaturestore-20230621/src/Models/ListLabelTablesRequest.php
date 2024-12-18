@@ -49,8 +49,6 @@ class ListLabelTablesRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
      * @example project1
      *
      * @var string

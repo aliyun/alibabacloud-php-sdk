@@ -15,6 +15,13 @@ class UpdateModelFeatureRequest extends Model
     public $features;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $labelPriorityLevel;
+
+    /**
      * @example 4
      *
      * @var string
@@ -27,6 +34,7 @@ class UpdateModelFeatureRequest extends Model
     public $sequenceFeatureViewIds;
     protected $_name = [
         'features'               => 'Features',
+        'labelPriorityLevel'     => 'LabelPriorityLevel',
         'labelTableId'           => 'LabelTableId',
         'sequenceFeatureViewIds' => 'SequenceFeatureViewIds',
     ];
@@ -46,6 +54,9 @@ class UpdateModelFeatureRequest extends Model
                     $res['Features'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->labelPriorityLevel) {
+            $res['LabelPriorityLevel'] = $this->labelPriorityLevel;
         }
         if (null !== $this->labelTableId) {
             $res['LabelTableId'] = $this->labelTableId;
@@ -73,6 +84,9 @@ class UpdateModelFeatureRequest extends Model
                     $model->features[$n++] = null !== $item ? features::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['LabelPriorityLevel'])) {
+            $model->labelPriorityLevel = $map['LabelPriorityLevel'];
         }
         if (isset($map['LabelTableId'])) {
             $model->labelTableId = $map['LabelTableId'];
