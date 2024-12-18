@@ -1,3 +1,11 @@
+2024-12-18 Version: 6.9.8
+- Update API CreateExpressConnectTrafficQos: add param ResourceGroupId.
+- Update API CreateExpressConnectTrafficQos: add param Tags.
+- Update API DescribeExpressConnectTrafficQos: add param ResourceGroupId.
+- Update API DescribeExpressConnectTrafficQos: add param Tags.
+- Update API DescribeExpressConnectTrafficQos: update response param.
+
+
 2024-12-03 Version: 6.9.7
 - Update API CreateForwardEntry: add param DryRun.
 - Update API CreateSnatEntry: add param DryRun.
