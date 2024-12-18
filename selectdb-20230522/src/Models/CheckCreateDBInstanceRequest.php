@@ -64,6 +64,8 @@ class CheckCreateDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description The database engine of the instance.
+     *
      * @example SelectDB
      *
      * @var string

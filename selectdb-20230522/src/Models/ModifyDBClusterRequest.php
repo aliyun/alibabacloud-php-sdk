@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterRequest extends Model
 {
     /**
+     * @description The size of the reserved cache.
+     *
      * @example 200
      *
      * @var string

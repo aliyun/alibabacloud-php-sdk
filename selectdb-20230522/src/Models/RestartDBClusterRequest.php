@@ -29,7 +29,7 @@ class RestartDBClusterRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region in which the ApsaraDB for SelectDB instance resides.
      *
      * This parameter is required.
      * @example cn-hangzhou

@@ -55,6 +55,8 @@ class CreateDBClusterRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The database engine of the instance.
+     *
      * @example selectdb
      *
      * @var string
@@ -108,7 +110,7 @@ class CreateDBClusterRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description VPC ID。
+     * @description VPC ID.
      *
      * This parameter is required.
      * @example vpc-bp175iuvg8nxqraf2****

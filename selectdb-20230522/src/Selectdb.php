@@ -17,12 +17,16 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateDBInstanceShrinkRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateElasticRuleRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateElasticRuleResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateServiceLinkedRoleForSelectDBRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\CreateServiceLinkedRoleForSelectDBResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteDBInstanceResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteElasticRuleRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DeleteElasticRuleResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeAllDBInstanceClassRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeAllDBInstanceClassResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBClusterConfigChangeLogsRequest;
@@ -36,8 +40,12 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstanceNetInfoResponse
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeDBInstancesShrinkRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeElasticRulesRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeElasticRulesResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\DescribeSecurityIPListResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\EnDisableScalingRulesRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\EnDisableScalingRulesResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetCreateBEClusterInquiryRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetCreateBEClusterInquiryResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\GetModifyBEClusterInquiryRequest;
@@ -50,6 +58,8 @@ use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBClusterRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBClusterResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBInstanceAttributeRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyDBInstanceAttributeResponse;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyElasticRuleRequest;
+use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifyElasticRuleResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifySecurityIPListRequest;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ModifySecurityIPListResponse;
 use AlibabaCloud\SDK\Selectdb\V20230522\Models\ReleaseInstancePublicConnectionRequest;
@@ -308,7 +318,9 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cluster in an ApsaraDB for SelectDB instance. Note: You can create only pay-as-you-go clusters in a pay-as-you-go instance.
+     * @summary Creates a cluster in an ApsaraDB for SelectDB instance.
+     *  *
+     * @description > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
      *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -382,7 +394,9 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a cluster in an ApsaraDB for SelectDB instance. Note: You can create only pay-as-you-go clusters in a pay-as-you-go instance.
+     * @summary Creates a cluster in an ApsaraDB for SelectDB instance.
+     *  *
+     * @description > : For an instance that uses the pay-as-you-go billing method, you can create only pay-as-you-go clusters. For an instance that uses the subscription billing method, you can create pay-as-you-go or subscription clusters.
      *  *
      * @param CreateDBClusterRequest $request CreateDBClusterRequest
      *
@@ -498,6 +512,71 @@ class Selectdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDBInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建分时弹性规则
+     *  *
+     * @param CreateElasticRuleRequest $request CreateElasticRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateElasticRuleResponse CreateElasticRuleResponse
+     */
+    public function createElasticRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterClass)) {
+            $query['ClusterClass'] = $request->clusterClass;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dbInstanceId)) {
+            $query['DbInstanceId'] = $request->dbInstanceId;
+        }
+        if (!Utils::isUnset($request->elasticRuleStartTime)) {
+            $query['ElasticRuleStartTime'] = $request->elasticRuleStartTime;
+        }
+        if (!Utils::isUnset($request->executionPeriod)) {
+            $query['ExecutionPeriod'] = $request->executionPeriod;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateElasticRule',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建分时弹性规则
+     *  *
+     * @param CreateElasticRuleRequest $request CreateElasticRuleRequest
+     *
+     * @return CreateElasticRuleResponse CreateElasticRuleResponse
+     */
+    public function createElasticRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createElasticRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -667,7 +746,69 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 获取所有实例规格信息
+     * @summary 删除分时弹性规则
+     *  *
+     * @param DeleteElasticRuleRequest $request DeleteElasticRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteElasticRuleResponse DeleteElasticRuleResponse
+     */
+    public function deleteElasticRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dbInstanceId)) {
+            $query['DbInstanceId'] = $request->dbInstanceId;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteElasticRule',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除分时弹性规则
+     *  *
+     * @param DeleteElasticRuleRequest $request DeleteElasticRuleRequest
+     *
+     * @return DeleteElasticRuleResponse DeleteElasticRuleResponse
+     */
+    public function deleteElasticRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteElasticRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the information about all instance specifications.
      *  *
      * @param DescribeAllDBInstanceClassRequest $request DescribeAllDBInstanceClassRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -703,7 +844,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 获取所有实例规格信息
+     * @summary Queries the information about all instance specifications.
      *  *
      * @param DescribeAllDBInstanceClassRequest $request DescribeAllDBInstanceClassRequest
      *
@@ -1017,6 +1158,50 @@ class Selectdb extends OpenApiClient
     }
 
     /**
+     * @summary 查询分时弹性规则
+     *  *
+     * @param DescribeElasticRulesRequest $request DescribeElasticRulesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeElasticRulesResponse DescribeElasticRulesResponse
+     */
+    public function describeElasticRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeElasticRules',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeElasticRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询分时弹性规则
+     *  *
+     * @param DescribeElasticRulesRequest $request DescribeElasticRulesRequest
+     *
+     * @return DescribeElasticRulesResponse DescribeElasticRulesResponse
+     */
+    public function describeElasticRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeElasticRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the IP addresses in the whitelists of an ApsaraDB for SelectDB instance.
      *  *
      * @param DescribeSecurityIPListRequest $request DescribeSecurityIPListRequest
@@ -1067,6 +1252,68 @@ class Selectdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSecurityIPListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 开关分时弹性策略
+     *  *
+     * @param EnDisableScalingRulesRequest $request EnDisableScalingRulesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnDisableScalingRulesResponse EnDisableScalingRulesResponse
+     */
+    public function enDisableScalingRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dbInstanceId)) {
+            $query['DbInstanceId'] = $request->dbInstanceId;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->scalingRulesEnable)) {
+            $query['ScalingRulesEnable'] = $request->scalingRulesEnable;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnDisableScalingRules',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnDisableScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开关分时弹性策略
+     *  *
+     * @param EnDisableScalingRulesRequest $request EnDisableScalingRulesRequest
+     *
+     * @return EnDisableScalingRulesResponse EnDisableScalingRulesResponse
+     */
+    public function enDisableScalingRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enDisableScalingRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -1158,7 +1405,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改BE集群名称、属性、设置
+     * @summary Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param ModifyBEClusterAttributeRequest $request ModifyBEClusterAttributeRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1206,7 +1453,7 @@ class Selectdb extends OpenApiClient
     }
 
     /**
-     * @summary 修改BE集群名称、属性、设置
+     * @summary Modifies the name of a cluster in an ApsaraDB for SelectDB instance.
      *  *
      * @param ModifyBEClusterAttributeRequest $request ModifyBEClusterAttributeRequest
      *
@@ -1403,6 +1650,77 @@ class Selectdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceAttributeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改分时弹性规则
+     *  *
+     * @param ModifyElasticRuleRequest $request ModifyElasticRuleRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyElasticRuleResponse ModifyElasticRuleResponse
+     */
+    public function modifyElasticRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterClass)) {
+            $query['ClusterClass'] = $request->clusterClass;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dbInstanceId)) {
+            $query['DbInstanceId'] = $request->dbInstanceId;
+        }
+        if (!Utils::isUnset($request->elasticRuleStartTime)) {
+            $query['ElasticRuleStartTime'] = $request->elasticRuleStartTime;
+        }
+        if (!Utils::isUnset($request->executionPeriod)) {
+            $query['ExecutionPeriod'] = $request->executionPeriod;
+        }
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyElasticRule',
+            'version'     => '2023-05-22',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyElasticRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改分时弹性规则
+     *  *
+     * @param ModifyElasticRuleRequest $request ModifyElasticRuleRequest
+     *
+     * @return ModifyElasticRuleResponse ModifyElasticRuleResponse
+     */
+    public function modifyElasticRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyElasticRuleWithOptions($request, $runtime);
     }
 
     /**
