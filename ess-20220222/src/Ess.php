@@ -201,7 +201,6 @@ use AlibabaCloud\SDK\Ess\V20220222\Models\VerifyUserRequest;
 use AlibabaCloud\SDK\Ess\V20220222\Models\VerifyUserResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -211,9 +210,6 @@ class Ess extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'Ess';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
             'cn-qingdao'                  => 'ess.aliyuncs.com',
@@ -333,11 +329,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ApplyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApplyEciScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApplyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -426,11 +419,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ApplyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApplyScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApplyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -531,11 +521,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AttachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachAlbServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -617,11 +604,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AttachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -720,11 +704,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AttachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -814,11 +795,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AttachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachLoadBalancersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -890,11 +868,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AttachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -974,11 +949,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AttachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AttachVServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AttachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1054,11 +1026,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CancelInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CancelInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
+        return CancelInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1124,11 +1093,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1200,11 +1166,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CompleteLifecycleActionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CompleteLifecycleActionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CompleteLifecycleActionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1312,11 +1275,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1365,11 +1325,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDiagnoseReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDiagnoseReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1565,11 +1522,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateEciScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1650,11 +1604,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLifecycleHookResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1727,11 +1678,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNotificationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1971,11 +1919,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2190,11 +2135,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2354,11 +2296,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScalingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2475,11 +2414,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScheduledTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2546,11 +2482,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeactivateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeactivateScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeactivateScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2607,11 +2540,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2673,11 +2603,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteEciScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2749,11 +2676,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLifecycleHookResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2815,11 +2739,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNotificationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2878,11 +2799,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2958,11 +2876,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3031,11 +2946,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScalingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3093,11 +3005,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScheduledTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3173,11 +3082,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeAlarmsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAlarmsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAlarmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3232,11 +3138,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeAlertConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3279,11 +3182,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeDiagnoseReportsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeDiagnoseReportsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeDiagnoseReportsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3338,11 +3238,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeEciScalingConfigurationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEciScalingConfigurationDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEciScalingConfigurationDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3415,11 +3312,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeEciScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeEciScalingConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeEciScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3462,11 +3356,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeElasticStrengthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeElasticStrengthResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeElasticStrengthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3536,11 +3427,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeInstanceRefreshesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeInstanceRefreshesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeInstanceRefreshesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3610,11 +3498,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeLifecycleActionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLifecycleActionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLifecycleActionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3695,11 +3580,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeLifecycleHooksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLifecycleHooksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLifecycleHooksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3753,11 +3635,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeLimitationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeLimitationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeLimitationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3812,11 +3691,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeNotificationConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNotificationConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNotificationConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3865,11 +3741,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeNotificationTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeNotificationTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeNotificationTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3912,11 +3785,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribePatternTypesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribePatternTypesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribePatternTypesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3971,11 +3841,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4055,11 +3922,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScalingActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScalingActivitiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScalingActivitiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4118,11 +3982,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScalingActivityDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScalingActivityDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScalingActivityDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4195,11 +4056,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScalingConfigurationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScalingConfigurationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4254,11 +4112,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScalingGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScalingGroupDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScalingGroupDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4301,11 +4156,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScalingGroupDiagnoseDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScalingGroupDiagnoseDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScalingGroupDiagnoseDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4387,11 +4239,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScalingGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScalingGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScalingGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4482,11 +4331,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScalingInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScalingInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScalingInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4570,11 +4416,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScalingRulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScalingRulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4666,11 +4509,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DescribeScheduledTasksResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DescribeScheduledTasksResponse::fromMap($this->execute($params, $req, $runtime));
+        return DescribeScheduledTasksResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4736,11 +4576,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DetachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachAlbServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachAlbServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4807,11 +4644,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DetachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachDBInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4898,11 +4732,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DetachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4980,11 +4811,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DetachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachLoadBalancersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachLoadBalancersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5048,11 +4876,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DetachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5123,11 +4948,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DetachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DetachVServerGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return DetachVServerGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5191,11 +5013,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5259,11 +5078,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5322,11 +5138,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5412,11 +5225,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5490,11 +5300,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnterStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnterStandbyResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnterStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5579,11 +5386,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteScalingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5662,11 +5466,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExitStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExitStandbyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExitStandbyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5733,11 +5534,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5804,11 +5602,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5875,11 +5670,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5985,11 +5777,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAlarmResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6053,11 +5842,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyAlertConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyAlertConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6256,11 +6042,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyEciScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyEciScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6324,11 +6107,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6414,11 +6194,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyLifecycleHookResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyLifecycleHookResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6486,11 +6263,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyNotificationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyNotificationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6717,11 +6491,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyScalingConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyScalingConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6885,11 +6656,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyScalingGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyScalingGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7024,11 +6792,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyScalingRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyScalingRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7133,11 +6898,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyScheduledTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyScheduledTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7211,11 +6973,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RebalanceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RebalanceInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RebalanceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7290,11 +7049,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RecordLifecycleActionHeartbeatResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RecordLifecycleActionHeartbeatResponse::fromMap($this->execute($params, $req, $runtime));
+        return RecordLifecycleActionHeartbeatResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7385,11 +7141,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7456,11 +7209,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResumeInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7521,11 +7271,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResumeProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeProcessesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7583,11 +7330,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RollbackInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RollbackInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
+        return RollbackInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7679,11 +7423,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ScaleWithAdjustmentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ScaleWithAdjustmentResponse::fromMap($this->execute($params, $req, $runtime));
+        return ScaleWithAdjustmentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7749,11 +7490,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetGroupDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetGroupDeletionProtectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetGroupDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7810,11 +7548,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetInstanceHealthResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetInstanceHealthResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetInstanceHealthResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7879,11 +7614,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetInstancesProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetInstancesProtectionResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetInstancesProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7963,11 +7695,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StartInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8032,11 +7761,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SuspendInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendInstanceRefreshResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendInstanceRefreshResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8099,11 +7825,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SuspendProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendProcessesResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8172,11 +7895,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8248,11 +7968,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8310,11 +8027,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return VerifyAuthenticationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifyAuthenticationResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifyAuthenticationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8369,11 +8083,8 @@ class Ess extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return VerifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return VerifyUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return VerifyUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

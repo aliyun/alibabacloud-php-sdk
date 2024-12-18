@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeElasticStrengthResponseBody\elasticStrengthModels;
 
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeElasticStrengthResponseBody\elasticStrengthModels\resourcePools\inventoryHealth;
 use AlibabaCloud\Tea\Model;
 
 class resourcePools extends Model
@@ -27,6 +28,11 @@ class resourcePools extends Model
     public $instanceType;
 
     /**
+     * @var inventoryHealth
+     */
+    public $inventoryHealth;
+
+    /**
      * @description The error message returned when the scaling strength is the weakest.
      *
      * @example The instanceTypes or diskTypes are not supported.
@@ -34,6 +40,11 @@ class resourcePools extends Model
      * @var string
      */
     public $msg;
+
+    /**
+     * @var string
+     */
+    public $status;
 
     /**
      * @description The scaling strength of the resource pool.
@@ -60,12 +71,14 @@ class resourcePools extends Model
      */
     public $zoneId;
     protected $_name = [
-        'code'         => 'Code',
-        'instanceType' => 'InstanceType',
-        'msg'          => 'Msg',
-        'strength'     => 'Strength',
-        'vSwitchIds'   => 'VSwitchIds',
-        'zoneId'       => 'ZoneId',
+        'code'            => 'Code',
+        'instanceType'    => 'InstanceType',
+        'inventoryHealth' => 'InventoryHealth',
+        'msg'             => 'Msg',
+        'status'          => 'Status',
+        'strength'        => 'Strength',
+        'vSwitchIds'      => 'VSwitchIds',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -81,8 +94,14 @@ class resourcePools extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+        if (null !== $this->inventoryHealth) {
+            $res['InventoryHealth'] = null !== $this->inventoryHealth ? $this->inventoryHealth->toMap() : null;
+        }
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->strength) {
             $res['Strength'] = $this->strength;
@@ -111,8 +130,14 @@ class resourcePools extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+        if (isset($map['InventoryHealth'])) {
+            $model->inventoryHealth = inventoryHealth::fromMap($map['InventoryHealth']);
+        }
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['Strength'])) {
             $model->strength = $map['Strength'];

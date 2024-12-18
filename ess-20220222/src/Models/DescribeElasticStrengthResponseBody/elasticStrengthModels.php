@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class elasticStrengthModels extends Model
 {
     /**
+     * @var string
+     */
+    public $elasticStrength;
+
+    /**
      * @description The resource pools.
      *
      * @var resourcePools[]
@@ -34,9 +39,10 @@ class elasticStrengthModels extends Model
      */
     public $totalStrength;
     protected $_name = [
-        'resourcePools'  => 'ResourcePools',
-        'scalingGroupId' => 'ScalingGroupId',
-        'totalStrength'  => 'TotalStrength',
+        'elasticStrength' => 'ElasticStrength',
+        'resourcePools'   => 'ResourcePools',
+        'scalingGroupId'  => 'ScalingGroupId',
+        'totalStrength'   => 'TotalStrength',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class elasticStrengthModels extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->elasticStrength) {
+            $res['ElasticStrength'] = $this->elasticStrength;
+        }
         if (null !== $this->resourcePools) {
             $res['ResourcePools'] = [];
             if (null !== $this->resourcePools && \is_array($this->resourcePools)) {
@@ -73,6 +82,9 @@ class elasticStrengthModels extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ElasticStrength'])) {
+            $model->elasticStrength = $map['ElasticStrength'];
+        }
         if (isset($map['ResourcePools'])) {
             if (!empty($map['ResourcePools'])) {
                 $model->resourcePools = [];

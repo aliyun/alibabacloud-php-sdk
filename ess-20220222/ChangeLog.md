@@ -1,3 +1,7 @@
+2024-12-18 Version: 1.8.7
+- Update API DescribeElasticStrength: update response param.
+
+
 2024-12-17 Version: 1.8.6
 - Update API ModifyScheduledTask: add param RegionId.
 
