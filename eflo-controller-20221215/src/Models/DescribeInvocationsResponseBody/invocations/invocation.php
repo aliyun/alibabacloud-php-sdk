@@ -38,8 +38,6 @@ class invocation extends Model
     public $creationTime;
 
     /**
-     * @example 0 *\/20 * * * *
-     *
      * @var string
      */
     public $frequency;

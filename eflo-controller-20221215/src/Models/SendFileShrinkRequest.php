@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendFileShrinkRequest extends Model
 {
     /**
-     * @example #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \"{print $2}\") -------- oss://bucketName/objectName
+     * @description This parameter is required.
+     *
+     * @example #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
      *
      * @var string
      */
@@ -51,6 +53,8 @@ class SendFileShrinkRequest extends Model
     public $fileOwner;
 
     /**
+     * @description This parameter is required.
+     *
      * @example file.txt
      *
      * @var string
@@ -58,6 +62,8 @@ class SendFileShrinkRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $nodeIdListShrink;
@@ -70,6 +76,8 @@ class SendFileShrinkRequest extends Model
     public $overwrite;
 
     /**
+     * @description This parameter is required.
+     *
      * @example /home
      *
      * @var string

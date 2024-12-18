@@ -23,6 +23,8 @@ class DescribeInvocationsRequest extends Model
     public $includeOutput;
 
     /**
+     * @description This parameter is required.
+     *
      * @example t-cd03crwys0lrls0
      *
      * @var string

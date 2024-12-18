@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example i116913051662373010974
      *
      * @var string

@@ -17,6 +17,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -24,11 +26,15 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example Node
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSendFileResultsRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example t-bj038i0d6r8zoqo
      *
      * @var string

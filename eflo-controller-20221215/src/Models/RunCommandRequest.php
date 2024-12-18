@@ -16,6 +16,8 @@ class RunCommandRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ZWNobyAxMjM=
      *
      * @var string
@@ -44,8 +46,6 @@ class RunCommandRequest extends Model
     public $enableParameter;
 
     /**
-     * @example 0 *\/20 * * * ?
-     *
      * @var string
      */
     public $frequency;

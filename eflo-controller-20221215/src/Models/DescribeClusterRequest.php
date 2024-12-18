@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example i119982311660892626523
      *
      * @var string

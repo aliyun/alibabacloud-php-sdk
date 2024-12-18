@@ -102,10 +102,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ApproveOperationRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 审批运维操作
+     *  *
+     * @param ApproveOperationRequest $request ApproveOperationRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApproveOperationResponse
+     * @return ApproveOperationResponse ApproveOperationResponse
      */
     public function approveOperationWithOptions($request, $runtime)
     {
@@ -136,9 +138,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ApproveOperationRequest $request
+     * @summary 审批运维操作
+     *  *
+     * @param ApproveOperationRequest $request ApproveOperationRequest
      *
-     * @return ApproveOperationResponse
+     * @return ApproveOperationResponse ApproveOperationResponse
      */
     public function approveOperation($request)
     {
@@ -148,10 +152,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
@@ -185,9 +191,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ChangeResourceGroupRequest $request
+     * @summary 资源转组
+     *  *
+     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
-     * @return ChangeResourceGroupResponse
+     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -197,10 +205,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 创建大计算集群
+     *  *
+     * @param CreateClusterRequest $tmpReq  CreateClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createClusterWithOptions($tmpReq, $runtime)
     {
@@ -251,6 +261,9 @@ class Eflocontroller extends OpenApiClient
         if (!Utils::isUnset($request->nodeGroupsShrink)) {
             $body['NodeGroups'] = $request->nodeGroupsShrink;
         }
+        if (!Utils::isUnset($request->openEniJumboFrame)) {
+            $body['OpenEniJumboFrame'] = $request->openEniJumboFrame;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -274,9 +287,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
+     * @summary 创建大计算集群
+     *  *
+     * @param CreateClusterRequest $request CreateClusterRequest
      *
-     * @return CreateClusterResponse
+     * @return CreateClusterResponse CreateClusterResponse
      */
     public function createCluster($request)
     {
@@ -286,10 +301,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 删除集群实例
+     *  *
+     * @param DeleteClusterRequest $request DeleteClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteClusterWithOptions($request, $runtime)
     {
@@ -317,9 +334,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DeleteClusterRequest $request
+     * @summary 删除集群实例
+     *  *
+     * @param DeleteClusterRequest $request DeleteClusterRequest
      *
-     * @return DeleteClusterResponse
+     * @return DeleteClusterResponse DeleteClusterResponse
      */
     public function deleteCluster($request)
     {
@@ -329,10 +348,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 集群详情
+     *  *
+     * @param DescribeClusterRequest $request DescribeClusterRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterResponse
+     * @return DescribeClusterResponse DescribeClusterResponse
      */
     public function describeClusterWithOptions($request, $runtime)
     {
@@ -360,9 +381,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterRequest $request
+     * @summary 集群详情
+     *  *
+     * @param DescribeClusterRequest $request DescribeClusterRequest
      *
-     * @return DescribeClusterResponse
+     * @return DescribeClusterResponse DescribeClusterResponse
      */
     public function describeCluster($request)
     {
@@ -372,10 +395,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeInvocationsRequest $request
-     * @param RuntimeOptions             $runtime
+     * @summary 查询运维助手命令的执行列表和状态
+     *  *
+     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInvocationsResponse
+     * @return DescribeInvocationsResponse DescribeInvocationsResponse
      */
     public function describeInvocationsWithOptions($request, $runtime)
     {
@@ -412,9 +437,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeInvocationsRequest $request
+     * @summary 查询运维助手命令的执行列表和状态
+     *  *
+     * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      *
-     * @return DescribeInvocationsResponse
+     * @return DescribeInvocationsResponse DescribeInvocationsResponse
      */
     public function describeInvocations($request)
     {
@@ -424,10 +451,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 查询节点列表
+     *  *
+     * @param DescribeNodeRequest $request DescribeNodeRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeNodeResponse
+     * @return DescribeNodeResponse DescribeNodeResponse
      */
     public function describeNodeWithOptions($request, $runtime)
     {
@@ -455,9 +484,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeNodeRequest $request
+     * @summary 查询节点列表
+     *  *
+     * @param DescribeNodeRequest $request DescribeNodeRequest
      *
-     * @return DescribeNodeResponse
+     * @return DescribeNodeResponse DescribeNodeResponse
      */
     public function describeNode($request)
     {
@@ -467,10 +498,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @summary 区域列表
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -498,9 +531,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @summary 区域列表
+     *  *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -510,10 +545,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeSendFileResultsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @summary 查询运维助手下发文件列表及状态
+     *  *
+     * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSendFileResultsResponse
+     * @return DescribeSendFileResultsResponse DescribeSendFileResultsResponse
      */
     public function describeSendFileResultsWithOptions($request, $runtime)
     {
@@ -544,9 +581,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeSendFileResultsRequest $request
+     * @summary 查询运维助手下发文件列表及状态
+     *  *
+     * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      *
-     * @return DescribeSendFileResultsResponse
+     * @return DescribeSendFileResultsResponse DescribeSendFileResultsResponse
      */
     public function describeSendFileResults($request)
     {
@@ -556,10 +595,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 查询任务详情
+     *  *
+     * @param DescribeTaskRequest $request DescribeTaskRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTaskResponse
+     * @return DescribeTaskResponse DescribeTaskResponse
      */
     public function describeTaskWithOptions($request, $runtime)
     {
@@ -587,9 +628,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeTaskRequest $request
+     * @summary 查询任务详情
+     *  *
+     * @param DescribeTaskRequest $request DescribeTaskRequest
      *
-     * @return DescribeTaskResponse
+     * @return DescribeTaskResponse DescribeTaskResponse
      */
     public function describeTask($request)
     {
@@ -599,10 +642,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 可用区列表
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZonesWithOptions($request, $runtime)
     {
@@ -630,9 +675,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param DescribeZonesRequest $request
+     * @summary 可用区列表
+     *  *
+     * @param DescribeZonesRequest $request DescribeZonesRequest
      *
-     * @return DescribeZonesResponse
+     * @return DescribeZonesResponse DescribeZonesResponse
      */
     public function describeZones($request)
     {
@@ -642,10 +689,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ExtendClusterRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 集群扩容
+     *  *
+     * @param ExtendClusterRequest $tmpReq  ExtendClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExtendClusterResponse
+     * @return ExtendClusterResponse ExtendClusterResponse
      */
     public function extendClusterWithOptions($tmpReq, $runtime)
     {
@@ -699,9 +748,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ExtendClusterRequest $request
+     * @summary 集群扩容
+     *  *
+     * @param ExtendClusterRequest $request ExtendClusterRequest
      *
-     * @return ExtendClusterResponse
+     * @return ExtendClusterResponse ExtendClusterResponse
      */
     public function extendCluster($request)
     {
@@ -711,10 +762,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ListClusterNodesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 集群下的主机分组列表，分组下的主机列表
+     *  *
+     * @param ListClusterNodesRequest $request ListClusterNodesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClusterNodesResponse
+     * @return ListClusterNodesResponse ListClusterNodesResponse
      */
     public function listClusterNodesWithOptions($request, $runtime)
     {
@@ -751,9 +804,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ListClusterNodesRequest $request
+     * @summary 集群下的主机分组列表，分组下的主机列表
+     *  *
+     * @param ListClusterNodesRequest $request ListClusterNodesRequest
      *
-     * @return ListClusterNodesResponse
+     * @return ListClusterNodesResponse ListClusterNodesResponse
      */
     public function listClusterNodes($request)
     {
@@ -763,10 +818,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ListClustersRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 获取集群实例列表
+     *  *
+     * @param ListClustersRequest $request ListClustersRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListClustersResponse
+     * @return ListClustersResponse ListClustersResponse
      */
     public function listClustersWithOptions($request, $runtime)
     {
@@ -800,9 +857,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ListClustersRequest $request
+     * @summary 获取集群实例列表
+     *  *
+     * @param ListClustersRequest $request ListClustersRequest
      *
-     * @return ListClustersResponse
+     * @return ListClustersResponse ListClustersResponse
      */
     public function listClusters($request)
     {
@@ -812,10 +871,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ListFreeNodesRequest $request
-     * @param RuntimeOptions       $runtime
+     * @summary 可用物理机列表
+     *  *
+     * @param ListFreeNodesRequest $request ListFreeNodesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFreeNodesResponse
+     * @return ListFreeNodesResponse ListFreeNodesResponse
      */
     public function listFreeNodesWithOptions($request, $runtime)
     {
@@ -855,9 +916,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ListFreeNodesRequest $request
+     * @summary 可用物理机列表
+     *  *
+     * @param ListFreeNodesRequest $request ListFreeNodesRequest
      *
-     * @return ListFreeNodesResponse
+     * @return ListFreeNodesResponse ListFreeNodesResponse
      */
     public function listFreeNodes($request)
     {
@@ -867,10 +930,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @summary 查询资源标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -910,9 +975,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @summary 查询资源标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -922,10 +989,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param RebootNodesRequest $tmpReq
-     * @param RuntimeOptions     $runtime
+     * @summary 重启机器
+     *  *
+     * @param RebootNodesRequest $tmpReq  RebootNodesRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return RebootNodesResponse
+     * @return RebootNodesResponse RebootNodesResponse
      */
     public function rebootNodesWithOptions($tmpReq, $runtime)
     {
@@ -964,9 +1033,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param RebootNodesRequest $request
+     * @summary 重启机器
+     *  *
+     * @param RebootNodesRequest $request RebootNodesRequest
      *
-     * @return RebootNodesResponse
+     * @return RebootNodesResponse RebootNodesResponse
      */
     public function rebootNodes($request)
     {
@@ -976,10 +1047,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ReimageNodesRequest $tmpReq
-     * @param RuntimeOptions      $runtime
+     * @summary 机器重装
+     *  *
+     * @param ReimageNodesRequest $tmpReq  ReimageNodesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReimageNodesResponse
+     * @return ReimageNodesResponse ReimageNodesResponse
      */
     public function reimageNodesWithOptions($tmpReq, $runtime)
     {
@@ -1021,9 +1094,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ReimageNodesRequest $request
+     * @summary 机器重装
+     *  *
+     * @param ReimageNodesRequest $request ReimageNodesRequest
      *
-     * @return ReimageNodesResponse
+     * @return ReimageNodesResponse ReimageNodesResponse
      */
     public function reimageNodes($request)
     {
@@ -1033,10 +1108,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param RunCommandRequest $tmpReq
-     * @param RuntimeOptions    $runtime
+     * @summary 一台或多台灵骏机器中执行一段Shell的脚本
+     *  *
+     * @param RunCommandRequest $tmpReq  RunCommandRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return RunCommandResponse
+     * @return RunCommandResponse RunCommandResponse
      */
     public function runCommandWithOptions($tmpReq, $runtime)
     {
@@ -1108,9 +1185,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param RunCommandRequest $request
+     * @summary 一台或多台灵骏机器中执行一段Shell的脚本
+     *  *
+     * @param RunCommandRequest $request RunCommandRequest
      *
-     * @return RunCommandResponse
+     * @return RunCommandResponse RunCommandResponse
      */
     public function runCommand($request)
     {
@@ -1120,10 +1199,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param SendFileRequest $tmpReq
-     * @param RuntimeOptions  $runtime
+     * @summary 一台或多台灵骏机器下发远程文件
+     *  *
+     * @param SendFileRequest $tmpReq  SendFileRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendFileResponse
+     * @return SendFileResponse SendFileResponse
      */
     public function sendFileWithOptions($tmpReq, $runtime)
     {
@@ -1186,9 +1267,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param SendFileRequest $request
+     * @summary 一台或多台灵骏机器下发远程文件
+     *  *
+     * @param SendFileRequest $request SendFileRequest
      *
-     * @return SendFileResponse
+     * @return SendFileResponse SendFileResponse
      */
     public function sendFile($request)
     {
@@ -1198,10 +1281,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ShrinkClusterRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * @summary 缩容
+     *  *
+     * @param ShrinkClusterRequest $tmpReq  ShrinkClusterRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ShrinkClusterResponse
+     * @return ShrinkClusterResponse ShrinkClusterResponse
      */
     public function shrinkClusterWithOptions($tmpReq, $runtime)
     {
@@ -1240,9 +1325,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param ShrinkClusterRequest $request
+     * @summary 缩容
+     *  *
+     * @param ShrinkClusterRequest $request ShrinkClusterRequest
      *
-     * @return ShrinkClusterResponse
+     * @return ShrinkClusterResponse ShrinkClusterResponse
      */
     public function shrinkCluster($request)
     {
@@ -1252,10 +1339,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param StopInvocationRequest $tmpReq
-     * @param RuntimeOptions        $runtime
+     * @summary 停止运维助手命令进程
+     *  *
+     * @param StopInvocationRequest $tmpReq  StopInvocationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopInvocationResponse
+     * @return StopInvocationResponse StopInvocationResponse
      */
     public function stopInvocationWithOptions($tmpReq, $runtime)
     {
@@ -1291,9 +1380,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param StopInvocationRequest $request
+     * @summary 停止运维助手命令进程
+     *  *
+     * @param StopInvocationRequest $request StopInvocationRequest
      *
-     * @return StopInvocationResponse
+     * @return StopInvocationResponse StopInvocationResponse
      */
     public function stopInvocation($request)
     {
@@ -1303,10 +1394,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @summary 资源打用户标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -1343,9 +1436,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @summary 资源打用户标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1355,10 +1450,12 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * @summary 资源去除用户标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -1398,9 +1495,11 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @summary 资源去除用户标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {

@@ -78,6 +78,11 @@ class DescribeClusterResponseBody extends Model
     public $nodeGroupCount;
 
     /**
+     * @var string
+     */
+    public $openEniJumboFrame;
+
+    /**
      * @example running
      *
      * @var string
@@ -128,6 +133,7 @@ class DescribeClusterResponseBody extends Model
         'networks'           => 'Networks',
         'nodeCount'          => 'NodeCount',
         'nodeGroupCount'     => 'NodeGroupCount',
+        'openEniJumboFrame'  => 'OpenEniJumboFrame',
         'operatingState'     => 'OperatingState',
         'requestId'          => 'RequestId',
         'resourceGroupId'    => 'ResourceGroupId',
@@ -187,6 +193,9 @@ class DescribeClusterResponseBody extends Model
         }
         if (null !== $this->nodeGroupCount) {
             $res['NodeGroupCount'] = $this->nodeGroupCount;
+        }
+        if (null !== $this->openEniJumboFrame) {
+            $res['OpenEniJumboFrame'] = $this->openEniJumboFrame;
         }
         if (null !== $this->operatingState) {
             $res['OperatingState'] = $this->operatingState;
@@ -262,6 +271,9 @@ class DescribeClusterResponseBody extends Model
         }
         if (isset($map['NodeGroupCount'])) {
             $model->nodeGroupCount = $map['NodeGroupCount'];
+        }
+        if (isset($map['OpenEniJumboFrame'])) {
+            $model->openEniJumboFrame = $map['OpenEniJumboFrame'];
         }
         if (isset($map['OperatingState'])) {
             $model->operatingState = $map['OperatingState'];

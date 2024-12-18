@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterNodesRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example i15b480fbd2fcdbc2869cd80
      *
      * @var string

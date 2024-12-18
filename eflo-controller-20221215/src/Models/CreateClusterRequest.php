@@ -64,6 +64,11 @@ class CreateClusterRequest extends Model
     public $nodeGroups;
 
     /**
+     * @var bool
+     */
+    public $openEniJumboFrame;
+
+    /**
      * @example rg-aek2xdkc6icwfha
      *
      * @var string
@@ -84,6 +89,7 @@ class CreateClusterRequest extends Model
         'networks'              => 'Networks',
         'nimizVSwitches'        => 'NimizVSwitches',
         'nodeGroups'            => 'NodeGroups',
+        'openEniJumboFrame'     => 'OpenEniJumboFrame',
         'resourceGroupId'       => 'ResourceGroupId',
         'tag'                   => 'Tag',
     ];
@@ -133,6 +139,9 @@ class CreateClusterRequest extends Model
                     $res['NodeGroups'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->openEniJumboFrame) {
+            $res['OpenEniJumboFrame'] = $this->openEniJumboFrame;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -198,6 +207,9 @@ class CreateClusterRequest extends Model
                     $model->nodeGroups[$n++] = null !== $item ? nodeGroups::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['OpenEniJumboFrame'])) {
+            $model->openEniJumboFrame = $map['OpenEniJumboFrame'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

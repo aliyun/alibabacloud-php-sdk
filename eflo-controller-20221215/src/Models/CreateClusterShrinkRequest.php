@@ -61,6 +61,11 @@ class CreateClusterShrinkRequest extends Model
     public $nodeGroupsShrink;
 
     /**
+     * @var bool
+     */
+    public $openEniJumboFrame;
+
+    /**
      * @example rg-aek2xdkc6icwfha
      *
      * @var string
@@ -81,6 +86,7 @@ class CreateClusterShrinkRequest extends Model
         'networksShrink'        => 'Networks',
         'nimizVSwitchesShrink'  => 'NimizVSwitches',
         'nodeGroupsShrink'      => 'NodeGroups',
+        'openEniJumboFrame'     => 'OpenEniJumboFrame',
         'resourceGroupId'       => 'ResourceGroupId',
         'tag'                   => 'Tag',
     ];
@@ -118,6 +124,9 @@ class CreateClusterShrinkRequest extends Model
         }
         if (null !== $this->nodeGroupsShrink) {
             $res['NodeGroups'] = $this->nodeGroupsShrink;
+        }
+        if (null !== $this->openEniJumboFrame) {
+            $res['OpenEniJumboFrame'] = $this->openEniJumboFrame;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -169,6 +178,9 @@ class CreateClusterShrinkRequest extends Model
         }
         if (isset($map['NodeGroups'])) {
             $model->nodeGroupsShrink = $map['NodeGroups'];
+        }
+        if (isset($map['OpenEniJumboFrame'])) {
+            $model->openEniJumboFrame = $map['OpenEniJumboFrame'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

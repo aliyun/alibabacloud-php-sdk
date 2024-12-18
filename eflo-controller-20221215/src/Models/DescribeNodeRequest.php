@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example mock-sn-2060
      *
      * @var string
