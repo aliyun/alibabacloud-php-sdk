@@ -19,6 +19,10 @@ class performanceKey extends Model
     public $key;
 
     /**
+     * @description The service dimension.
+     *
+     * @example reserve_3
+     *
      * @var string
      */
     public $service;

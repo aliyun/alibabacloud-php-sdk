@@ -81,6 +81,27 @@ class ModifyDBInstanceConfigRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description The update time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2022-05-06T09:24:00Z
+     *
+     * @var string
+     */
+    public $switchTime;
+
+    /**
+     * @description The time at which the modification takes effect. Valid values:
+     *
+     * - **Immediate**: immediately modifies the parameter. This is the default value.
+     * - **MaintainTime**: modifies the parameter during the maintenance window of the instance. You can call the ModifyDBInstanceMaintainTime operation to change the maintenance window.
+     * - **ScheduleTime**: modifies the parameter at the point in time that you specify. If you specify this value, you must also specify **SwitchTime**.
+     * @example Immediate
+     *
+     * @var string
+     */
+    public $switchTimeMode;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'configName'           => 'ConfigName',
@@ -91,6 +112,8 @@ class ModifyDBInstanceConfigRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'switchTime'           => 'SwitchTime',
+        'switchTimeMode'       => 'SwitchTimeMode',
     ];
 
     public function validate()
@@ -126,6 +149,12 @@ class ModifyDBInstanceConfigRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->switchTime) {
+            $res['SwitchTime'] = $this->switchTime;
+        }
+        if (null !== $this->switchTimeMode) {
+            $res['SwitchTimeMode'] = $this->switchTimeMode;
         }
 
         return $res;
@@ -165,6 +194,12 @@ class ModifyDBInstanceConfigRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SwitchTime'])) {
+            $model->switchTime = $map['SwitchTime'];
+        }
+        if (isset($map['SwitchTimeMode'])) {
+            $model->switchTimeMode = $map['SwitchTimeMode'];
         }
 
         return $model;

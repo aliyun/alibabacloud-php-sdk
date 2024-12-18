@@ -6,13 +6,9 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeRCInstanceAttributeRequest extends Model
+class SyncRCSecurityGroupRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example rc-dh2jf9n6j4s14926****
-     *
      * @var string
      */
     public $instanceId;
@@ -20,20 +16,16 @@ class DescribeRCInstanceAttributeRequest extends Model
     /**
      * @var string
      */
-    public $privateIpAddress;
+    public $regionId;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
-    public $regionId;
+    public $securityGroupId;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
-        'privateIpAddress' => 'PrivateIpAddress',
-        'regionId'         => 'RegionId',
+        'instanceId'      => 'InstanceId',
+        'regionId'        => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
     ];
 
     public function validate()
@@ -46,11 +38,11 @@ class DescribeRCInstanceAttributeRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->privateIpAddress) {
-            $res['PrivateIpAddress'] = $this->privateIpAddress;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         return $res;
@@ -59,7 +51,7 @@ class DescribeRCInstanceAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeRCInstanceAttributeRequest
+     * @return SyncRCSecurityGroupRequest
      */
     public static function fromMap($map = [])
     {
@@ -67,11 +59,11 @@ class DescribeRCInstanceAttributeRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['PrivateIpAddress'])) {
-            $model->privateIpAddress = $map['PrivateIpAddress'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         return $model;

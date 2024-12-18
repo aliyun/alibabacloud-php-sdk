@@ -23,6 +23,13 @@ class TransformDBInstancePayTypeRequest extends Model
     public $autoRenew;
 
     /**
+     * @description Specifies whether to use vouchers to offset fees. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoUseCoupon;
@@ -92,6 +99,10 @@ class TransformDBInstancePayTypeRequest extends Model
     public $period;
 
     /**
+     * @description The coupon code.
+     *
+     * @example 726702810223
+     *
      * @var string
      */
     public $promotionCode;

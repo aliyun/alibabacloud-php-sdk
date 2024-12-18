@@ -567,6 +567,11 @@ class DBInstanceAttribute extends Model
     public $multipleTempUpgrade;
 
     /**
+     * @description OptimizedWritesInfo contains two fields:
+     *
+     * - init_optimized_writes: Whether write optimization can be enabled for the instance. Some instances do not display the write optimization switch in the console because init_optimized_writes is false.
+     * @example {"optimized_writes":true,"init_optimized_writes":true}
+     *
      * @var string
      */
     public $optimizedWritesInfo;

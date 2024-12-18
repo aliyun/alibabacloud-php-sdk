@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBod
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\operationLocks;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\publicIpAddress;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\securityGroupIds;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\tags;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\vpcAttributes;
 use AlibabaCloud\Tea\Model;
 
@@ -365,6 +366,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $stoppedMode;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @description The virtual LAN (VLAN) ID of the instance.
      *
      * >  This parameter will be deprecated. We recommend that you use other parameters to ensure compatibility.
@@ -429,6 +435,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'spotStrategy'            => 'SpotStrategy',
         'status'                  => 'Status',
         'stoppedMode'             => 'StoppedMode',
+        'tags'                    => 'Tags',
         'vlanId'                  => 'VlanId',
         'vpcAttributes'           => 'VpcAttributes',
         'zoneId'                  => 'ZoneId',
@@ -557,6 +564,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->stoppedMode) {
             $res['StoppedMode'] = $this->stoppedMode;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vlanId) {
             $res['VlanId'] = $this->vlanId;
@@ -695,6 +705,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (isset($map['StoppedMode'])) {
             $model->stoppedMode = $map['StoppedMode'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VlanId'])) {
             $model->vlanId = $map['VlanId'];

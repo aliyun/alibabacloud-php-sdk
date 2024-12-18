@@ -56,6 +56,15 @@ class ModifyResourceGroupRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description The resource type.
+     *
+     * @example Instance
+     *
+     * @var string
+     */
+    public $resourceType;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'DBInstanceId'         => 'DBInstanceId',
@@ -64,6 +73,7 @@ class ModifyResourceGroupRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceType'         => 'ResourceType',
     ];
 
     public function validate()
@@ -93,6 +103,9 @@ class ModifyResourceGroupRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         return $res;
@@ -126,6 +139,9 @@ class ModifyResourceGroupRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         return $model;

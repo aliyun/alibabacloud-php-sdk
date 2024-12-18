@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateInstancePublicConnectionReques
 use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateReadWriteSplittingConnectionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateReadWriteSplittingConnectionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AssociateEipAddressWithRCInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AssociateEipAddressWithRCInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AttachRCDiskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AttachRCDiskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AttachRCInstancesRequest;
@@ -668,12 +670,16 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceVpcRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SwitchDBInstanceVpcResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SyncRCKeyPairRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\SyncRCKeyPairResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\SyncRCSecurityGroupRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\SyncRCSecurityGroupResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TerminateMigrateTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TerminateMigrateTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TransformDBInstancePayTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\TransformDBInstancePayTypeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UnassociateEipAddressWithRCInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UnassociateEipAddressWithRCInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UnlockAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UnlockAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UntagResourcesRequest;
@@ -1155,6 +1161,59 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateReadWriteSplittingConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 绑定弹性网卡到RDS Custom实例
+     *  *
+     * @param AssociateEipAddressWithRCInstanceRequest $request AssociateEipAddressWithRCInstanceRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AssociateEipAddressWithRCInstanceResponse AssociateEipAddressWithRCInstanceResponse
+     */
+    public function associateEipAddressWithRCInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allocationId)) {
+            $query['AllocationId'] = $request->allocationId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AssociateEipAddressWithRCInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssociateEipAddressWithRCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 绑定弹性网卡到RDS Custom实例
+     *  *
+     * @param AssociateEipAddressWithRCInstanceRequest $request AssociateEipAddressWithRCInstanceRequest
+     *
+     * @return AssociateEipAddressWithRCInstanceResponse AssociateEipAddressWithRCInstanceResponse
+     */
+    public function associateEipAddressWithRCInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->associateEipAddressWithRCInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -15195,6 +15254,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -19943,6 +20005,12 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
+        }
+        if (!Utils::isUnset($request->switchTimeMode)) {
+            $query['SwitchTimeMode'] = $request->switchTimeMode;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -23658,6 +23726,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -26797,6 +26868,59 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 同步RDS Custom的安全组
+     *  *
+     * @param SyncRCSecurityGroupRequest $request SyncRCSecurityGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SyncRCSecurityGroupResponse SyncRCSecurityGroupResponse
+     */
+    public function syncRCSecurityGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SyncRCSecurityGroup',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SyncRCSecurityGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 同步RDS Custom的安全组
+     *  *
+     * @param SyncRCSecurityGroupRequest $request SyncRCSecurityGroupRequest
+     *
+     * @return SyncRCSecurityGroupResponse SyncRCSecurityGroupResponse
+     */
+    public function syncRCSecurityGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->syncRCSecurityGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates and adds tags to one or more instances.
      *  *
      * @description ### [](#)Supported database engines
@@ -27055,6 +27179,59 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->transformDBInstancePayTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 解绑RDS Custom实例的弹性公网
+     *  *
+     * @param UnassociateEipAddressWithRCInstanceRequest $request UnassociateEipAddressWithRCInstanceRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnassociateEipAddressWithRCInstanceResponse UnassociateEipAddressWithRCInstanceResponse
+     */
+    public function unassociateEipAddressWithRCInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allocationId)) {
+            $query['AllocationId'] = $request->allocationId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnassociateEipAddressWithRCInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnassociateEipAddressWithRCInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解绑RDS Custom实例的弹性公网
+     *  *
+     * @param UnassociateEipAddressWithRCInstanceRequest $request UnassociateEipAddressWithRCInstanceRequest
+     *
+     * @return UnassociateEipAddressWithRCInstanceResponse UnassociateEipAddressWithRCInstanceResponse
+     */
+    public function unassociateEipAddressWithRCInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unassociateEipAddressWithRCInstanceWithOptions($request, $runtime);
     }
 
     /**

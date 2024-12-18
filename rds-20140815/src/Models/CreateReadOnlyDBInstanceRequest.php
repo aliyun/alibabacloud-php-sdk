@@ -48,6 +48,13 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $autoRenew;
 
     /**
+     * @description Specifies whether to use a coupon. Valid values:
+     *
+     *   **true**: uses a coupon.
+     *   **false** (default): does not use a coupon.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoUseCoupon;
@@ -283,6 +290,10 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
+     * @description The coupon code.
+     *
+     * @example 717446260784
+     *
      * @var string
      */
     public $promotionCode;

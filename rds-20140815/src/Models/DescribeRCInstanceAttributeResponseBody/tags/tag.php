@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\deploymentSets\deploymentSet\tagResources;
+namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\tags;
 
 use AlibabaCloud\Tea\Model;
 
-class tagResources extends Model
+class tag extends Model
 {
     /**
      * @var string
@@ -60,7 +60,7 @@ class tagResources extends Model
     /**
      * @param array $map
      *
-     * @return tagResources
+     * @return tag
      */
     public static function fromMap($map = [])
     {

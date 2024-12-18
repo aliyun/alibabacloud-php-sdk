@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody;
 
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody\RCInstances\tagResources;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstancesResponseBody\RCInstances\tags;
 use AlibabaCloud\Tea\Model;
 
 class RCInstances extends Model
@@ -118,6 +119,11 @@ class RCInstances extends Model
     public $tagResources;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The VPC ID.
      *
      * @example vpc-uf6f7l4fg90****
@@ -144,6 +150,7 @@ class RCInstances extends Model
         'spotStrategy'       => 'SpotStrategy',
         'status'             => 'Status',
         'tagResources'       => 'TagResources',
+        'tags'               => 'Tags',
         'vpcId'              => 'VpcId',
         'zoneId'             => 'ZoneId',
     ];
@@ -197,6 +204,15 @@ class RCInstances extends Model
                 $n = 0;
                 foreach ($this->tagResources as $item) {
                     $res['TagResources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -260,6 +276,15 @@ class RCInstances extends Model
                 $n                   = 0;
                 foreach ($map['TagResources'] as $item) {
                     $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
         }

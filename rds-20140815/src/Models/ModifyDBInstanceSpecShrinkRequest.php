@@ -194,6 +194,14 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $ioAccelerationEnabled;
 
     /**
+     * @description Specifies whether to enable the write optimization feature.
+     *
+     *   **optimized**: enables the feature.
+     *   **none**: disables the feature.
+     *
+     * >  For more information about the write optimization feature, see [Write optimization](https://help.aliyun.com/document_detail/2858761.html).
+     * @example optimized
+     *
      * @var string
      */
     public $optimizedWrites;
@@ -222,6 +230,10 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $payType;
 
     /**
+     * @description The coupon code.
+     *
+     * @example 723298850895
+     *
      * @var string
      */
     public $promotionCode;

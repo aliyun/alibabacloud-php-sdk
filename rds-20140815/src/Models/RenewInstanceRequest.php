@@ -43,6 +43,13 @@ class RenewInstanceRequest extends Model
     public $autoRenew;
 
     /**
+     * @description Specifies whether to use a coupon. Valid values:
+     *
+     *   **true**: uses a coupon.
+     *   **false** (default): does not use a coupon.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoUseCoupon;
@@ -89,6 +96,10 @@ class RenewInstanceRequest extends Model
     public $period;
 
     /**
+     * @description The coupon code.
+     *
+     * @example 726702810223
+     *
      * @var string
      */
     public $promotionCode;

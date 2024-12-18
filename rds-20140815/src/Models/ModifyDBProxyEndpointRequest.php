@@ -75,6 +75,10 @@ class ModifyDBProxyEndpointRequest extends Model
     public $dbEndpointAliases;
 
     /**
+     * @description The minimum number of reserved instances.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $dbEndpointMinSlaveCount;
@@ -158,9 +162,14 @@ class ModifyDBProxyEndpointRequest extends Model
     public $readOnlyInstanceDistributionType;
 
     /**
-     * @description The latency threshold that is allowed for read/write splitting. If the latency on a read-only instance exceeds the threshold that you specified, the system no longer forwards read requests to the read-only instance. Unit: seconds If you do not specify this parameter, the original value of this parameter is retained. Valid values: **0** to **3600**. Default value: **30**.
+     * @description The maximum latency threshold that is allowed for read/write splitting. If the latency on a read-only instance exceeds the threshold that you specified, the system no longer forwards read requests to the read-only instance. If you do not specify this parameter, the original value of this parameter is retained. Valid values: **0** to **3600**.
      *
-     * > You must specify this parameter only when the read/write splitting feature is enabled.
+     * >
+     *
+     *   You must specify this parameter only when read/write splitting is enabled.
+     *
+     *   If the database proxy endpoint has the read and write attributes, the default value of this parameter is **30** and read/write splitting is supported. If the database proxy endpoint has the read-only attribute, the default value of this parameter is **-1** and read/write splitting is not supported. Unit: seconds.
+     *
      * @example 30
      *
      * @var string

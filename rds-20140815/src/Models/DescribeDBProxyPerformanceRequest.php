@@ -40,6 +40,10 @@ class DescribeDBProxyPerformanceRequest extends Model
     public $DBProxyInstanceType;
 
     /**
+     * @description Dimension.
+     *
+     * @example service
+     *
      * @var string
      */
     public $dimension;

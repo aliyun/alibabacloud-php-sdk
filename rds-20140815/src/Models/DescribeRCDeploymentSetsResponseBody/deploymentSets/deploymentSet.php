@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponse
 
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\deploymentSets\deploymentSet\capacities;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\deploymentSets\deploymentSet\instanceIds;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\deploymentSets\deploymentSet\tagResources;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCDeploymentSetsResponseBody\deploymentSets\deploymentSet\tags;
 use AlibabaCloud\Tea\Model;
 
 class deploymentSet extends Model
@@ -117,9 +117,9 @@ class deploymentSet extends Model
     public $strategy;
 
     /**
-     * @var tagResources
+     * @var tags
      */
-    public $tagResources;
+    public $tags;
     protected $_name = [
         'capacities'               => 'Capacities',
         'createTime'               => 'CreateTime',
@@ -133,7 +133,7 @@ class deploymentSet extends Model
         'instanceAmount'           => 'InstanceAmount',
         'instanceIds'              => 'InstanceIds',
         'strategy'                 => 'Strategy',
-        'tagResources'             => 'TagResources',
+        'tags'                     => 'Tags',
     ];
 
     public function validate()
@@ -179,8 +179,8 @@ class deploymentSet extends Model
         if (null !== $this->strategy) {
             $res['Strategy'] = $this->strategy;
         }
-        if (null !== $this->tagResources) {
-            $res['TagResources'] = null !== $this->tagResources ? $this->tagResources->toMap() : null;
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -230,8 +230,8 @@ class deploymentSet extends Model
         if (isset($map['Strategy'])) {
             $model->strategy = $map['Strategy'];
         }
-        if (isset($map['TagResources'])) {
-            $model->tagResources = tagResources::fromMap($map['TagResources']);
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;
