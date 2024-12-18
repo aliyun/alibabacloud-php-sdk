@@ -182,6 +182,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkReplStatementRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkReplStatementResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetCreateTableSQLRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetCreateTableSQLResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetDatabaseObjectsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetDatabaseObjectsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkAppAttemptLogRequest;
@@ -5841,6 +5843,74 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->existRunningSQLEngineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the table creation statement for tables.
+     *  *
+     * @param GetCreateTableSQLRequest $request GetCreateTableSQLRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCreateTableSQLResponse GetCreateTableSQLResponse
+     */
+    public function getCreateTableSQLWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCreateTableSQL',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCreateTableSQLResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the table creation statement for tables.
+     *  *
+     * @param GetCreateTableSQLRequest $request GetCreateTableSQLRequest
+     *
+     * @return GetCreateTableSQLResponse GetCreateTableSQLResponse
+     */
+    public function getCreateTableSQL($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCreateTableSQLWithOptions($request, $runtime);
     }
 
     /**
