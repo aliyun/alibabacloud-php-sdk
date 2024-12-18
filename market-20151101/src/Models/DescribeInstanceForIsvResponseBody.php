@@ -10,6 +10,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceForIsvResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $activeAddress;
+
+    /**
+     * @var string
+     */
+    public $appJson;
+
+    /**
+     * @var string
+     */
+    public $autoRenewal;
+
+    /**
      * @example 1570634021000
      *
      * @var int
@@ -43,6 +58,16 @@ class DescribeInstanceForIsvResponseBody extends Model
     public $extendJson;
 
     /**
+     * @var string
+     */
+    public $hostJson;
+
+    /**
+     * @var string
+     */
+    public $imageJson;
+
+    /**
      * @example 1551111111
      *
      * @var int
@@ -55,6 +80,11 @@ class DescribeInstanceForIsvResponseBody extends Model
      * @var bool
      */
     public $isTrial;
+
+    /**
+     * @var string
+     */
+    public $licenseCode;
 
     /**
      * @example 204211111111111
@@ -113,13 +143,19 @@ class DescribeInstanceForIsvResponseBody extends Model
      */
     public $supplierName;
     protected $_name = [
+        'activeAddress'  => 'ActiveAddress',
+        'appJson'        => 'AppJson',
+        'autoRenewal'    => 'AutoRenewal',
         'beganOn'        => 'BeganOn',
         'componentJson'  => 'ComponentJson',
         'createdOn'      => 'CreatedOn',
         'endOn'          => 'EndOn',
         'extendJson'     => 'ExtendJson',
+        'hostJson'       => 'HostJson',
+        'imageJson'      => 'ImageJson',
         'instanceId'     => 'InstanceId',
         'isTrial'        => 'IsTrial',
+        'licenseCode'    => 'LicenseCode',
         'orderId'        => 'OrderId',
         'productCode'    => 'ProductCode',
         'productName'    => 'ProductName',
@@ -138,6 +174,15 @@ class DescribeInstanceForIsvResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->activeAddress) {
+            $res['ActiveAddress'] = $this->activeAddress;
+        }
+        if (null !== $this->appJson) {
+            $res['AppJson'] = $this->appJson;
+        }
+        if (null !== $this->autoRenewal) {
+            $res['AutoRenewal'] = $this->autoRenewal;
+        }
         if (null !== $this->beganOn) {
             $res['BeganOn'] = $this->beganOn;
         }
@@ -153,11 +198,20 @@ class DescribeInstanceForIsvResponseBody extends Model
         if (null !== $this->extendJson) {
             $res['ExtendJson'] = $this->extendJson;
         }
+        if (null !== $this->hostJson) {
+            $res['HostJson'] = $this->hostJson;
+        }
+        if (null !== $this->imageJson) {
+            $res['ImageJson'] = $this->imageJson;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->isTrial) {
             $res['IsTrial'] = $this->isTrial;
+        }
+        if (null !== $this->licenseCode) {
+            $res['LicenseCode'] = $this->licenseCode;
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
@@ -198,6 +252,15 @@ class DescribeInstanceForIsvResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ActiveAddress'])) {
+            $model->activeAddress = $map['ActiveAddress'];
+        }
+        if (isset($map['AppJson'])) {
+            $model->appJson = $map['AppJson'];
+        }
+        if (isset($map['AutoRenewal'])) {
+            $model->autoRenewal = $map['AutoRenewal'];
+        }
         if (isset($map['BeganOn'])) {
             $model->beganOn = $map['BeganOn'];
         }
@@ -213,11 +276,20 @@ class DescribeInstanceForIsvResponseBody extends Model
         if (isset($map['ExtendJson'])) {
             $model->extendJson = $map['ExtendJson'];
         }
+        if (isset($map['HostJson'])) {
+            $model->hostJson = $map['HostJson'];
+        }
+        if (isset($map['ImageJson'])) {
+            $model->imageJson = $map['ImageJson'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['IsTrial'])) {
             $model->isTrial = $map['IsTrial'];
+        }
+        if (isset($map['LicenseCode'])) {
+            $model->licenseCode = $map['LicenseCode'];
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
