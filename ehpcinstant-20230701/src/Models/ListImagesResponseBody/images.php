@@ -73,6 +73,11 @@ class images extends Model
      * @var string
      */
     public $version;
+
+    /**
+     * @var int
+     */
+    public $weight;
     protected $_name = [
         'appId'       => 'AppId',
         'createTime'  => 'CreateTime',
@@ -84,6 +89,7 @@ class images extends Model
         'osTag'       => 'OsTag',
         'updateTime'  => 'UpdateTime',
         'version'     => 'Version',
+        'weight'      => 'Weight',
     ];
 
     public function validate()
@@ -122,6 +128,9 @@ class images extends Model
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
+        }
+        if (null !== $this->weight) {
+            $res['Weight'] = $this->weight;
         }
 
         return $res;
@@ -164,6 +173,9 @@ class images extends Model
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+        if (isset($map['Weight'])) {
+            $model->weight = $map['Weight'];
         }
 
         return $model;
