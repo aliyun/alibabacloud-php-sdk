@@ -71,6 +71,13 @@ class GetFeatureViewResponseBody extends Model
     public $lastSyncConfig;
 
     /**
+     * @example item_table_mock_1
+     *
+     * @var string
+     */
+    public $mockTableName;
+
+    /**
      * @example featureView1
      *
      * @var string
@@ -180,6 +187,7 @@ class GetFeatureViewResponseBody extends Model
         'gmtSyncTime'            => 'GmtSyncTime',
         'joinId'                 => 'JoinId',
         'lastSyncConfig'         => 'LastSyncConfig',
+        'mockTableName'          => 'MockTableName',
         'name'                   => 'Name',
         'owner'                  => 'Owner',
         'projectId'              => 'ProjectId',
@@ -236,6 +244,9 @@ class GetFeatureViewResponseBody extends Model
         }
         if (null !== $this->lastSyncConfig) {
             $res['LastSyncConfig'] = $this->lastSyncConfig;
+        }
+        if (null !== $this->mockTableName) {
+            $res['MockTableName'] = $this->mockTableName;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -326,6 +337,9 @@ class GetFeatureViewResponseBody extends Model
         }
         if (isset($map['LastSyncConfig'])) {
             $model->lastSyncConfig = $map['LastSyncConfig'];
+        }
+        if (isset($map['MockTableName'])) {
+            $model->mockTableName = $map['MockTableName'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

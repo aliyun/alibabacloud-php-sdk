@@ -22,10 +22,16 @@ class FeatureViewConfigValue extends Model
      * @var bool
      */
     public $equal;
+
+    /**
+     * @var bool
+     */
+    public $useMock;
     protected $_name = [
         'partitions' => 'Partitions',
         'eventTime'  => 'EventTime',
         'equal'      => 'Equal',
+        'useMock'    => 'UseMock',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class FeatureViewConfigValue extends Model
         if (null !== $this->equal) {
             $res['Equal'] = $this->equal;
         }
+        if (null !== $this->useMock) {
+            $res['UseMock'] = $this->useMock;
+        }
 
         return $res;
     }
@@ -69,6 +78,9 @@ class FeatureViewConfigValue extends Model
         }
         if (isset($map['Equal'])) {
             $model->equal = $map['Equal'];
+        }
+        if (isset($map['UseMock'])) {
+            $model->useMock = $map['UseMock'];
         }
 
         return $model;
