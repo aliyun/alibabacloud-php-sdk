@@ -3,6 +3,11 @@
 - Update API DescribeBackendInfo: update response param.
 
 
+2024-12-19 Version: 4.5.2
+- Update API DescribeApi: update response param.
+- Update API DescribeBackendInfo: update response param.
+
+
 2024-12-06 Version: 4.5.1
 - Update API CreateLogConfig: add param CreateSlr.
 - Update API DescribeApiGroup: update response param.
