@@ -45,6 +45,11 @@ class data extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $reportStatus;
+
+    /**
      * @description Report generation time.
      *
      * @example 2023-03-21 17:26:34
@@ -57,6 +62,7 @@ class data extends Model
         'documentName' => 'DocumentName',
         'documentType' => 'DocumentType',
         'id'           => 'Id',
+        'reportStatus' => 'ReportStatus',
         'uploadTime'   => 'UploadTime',
     ];
 
@@ -78,6 +84,9 @@ class data extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->reportStatus) {
+            $res['ReportStatus'] = $this->reportStatus;
         }
         if (null !== $this->uploadTime) {
             $res['UploadTime'] = $this->uploadTime;
@@ -105,6 +114,9 @@ class data extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['ReportStatus'])) {
+            $model->reportStatus = $map['ReportStatus'];
         }
         if (isset($map['UploadTime'])) {
             $model->uploadTime = $map['UploadTime'];

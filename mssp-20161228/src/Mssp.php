@@ -6,8 +6,16 @@ namespace AlibabaCloud\SDK\Mssp\V20161228;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\ConfirmDjbhReportRequest;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\ConfirmDjbhReportResponse;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\CreateServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\CreateServiceWorkOrderRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\CreateServiceWorkOrderResponse;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\DeleteDjbhReportRequest;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\DeleteDjbhReportResponse;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\DescribeServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Mssp\V20161228\Models\DescribeServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeServiceWorkOrderRequest;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeServiceWorkOrderResponse;
 use AlibabaCloud\SDK\Mssp\V20161228\Models\DisposeWorkTaskRequest;
@@ -90,6 +98,103 @@ class Mssp extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary Confirm Receipt of Security Assessment Report
+     *  *
+     * @param ConfirmDjbhReportRequest $request ConfirmDjbhReportRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConfirmDjbhReportResponse ConfirmDjbhReportResponse
+     */
+    public function confirmDjbhReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfirmDjbhReport',
+            'version'     => '2016-12-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfirmDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Confirm Receipt of Security Assessment Report
+     *  *
+     * @param ConfirmDjbhReportRequest $request ConfirmDjbhReportRequest
+     *
+     * @return ConfirmDjbhReportResponse ConfirmDjbhReportResponse
+     */
+    public function confirmDjbhReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmDjbhReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Create Service-Linked Role
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceLinkedRole',
+            'version'     => '2016-12-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Create Service-Linked Role
+     *  *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     *
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceLinkedRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -185,6 +290,103 @@ class Mssp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createServiceWorkOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Delete Security Assessment Report
+     *  *
+     * @param DeleteDjbhReportRequest $request DeleteDjbhReportRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDjbhReportResponse DeleteDjbhReportResponse
+     */
+    public function deleteDjbhReportWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDjbhReport',
+            'version'     => '2016-12-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDjbhReportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Delete Security Assessment Report
+     *  *
+     * @param DeleteDjbhReportRequest $request DeleteDjbhReportRequest
+     *
+     * @return DeleteDjbhReportResponse DeleteDjbhReportResponse
+     */
+    public function deleteDjbhReport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDjbhReportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Query Service-Linked Role
+     *  *
+     * @param DescribeServiceLinkedRoleRequest $request DescribeServiceLinkedRoleRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeServiceLinkedRoleResponse DescribeServiceLinkedRoleResponse
+     */
+    public function describeServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceLinkedRole',
+            'version'     => '2016-12-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Query Service-Linked Role
+     *  *
+     * @param DescribeServiceLinkedRoleRequest $request DescribeServiceLinkedRoleRequest
+     *
+     * @return DescribeServiceLinkedRoleResponse DescribeServiceLinkedRoleResponse
+     */
+    public function describeServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServiceLinkedRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -608,6 +810,9 @@ class Mssp extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->id)) {
             $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->reportType)) {
+            $body['ReportType'] = $request->reportType;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),

@@ -6,25 +6,18 @@ namespace AlibabaCloud\SDK\Mssp\V20161228\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetDocumentDownloadUrlRequest extends Model
+class ConfirmDjbhReportRequest extends Model
 {
     /**
-     * @description Document management ID.
+     * @description Primary key ID of the report.
      *
-     * This parameter is required.
-     * @example 175815
+     * @example 24563
      *
      * @var int
      */
     public $id;
-
-    /**
-     * @var string
-     */
-    public $reportType;
     protected $_name = [
-        'id'         => 'Id',
-        'reportType' => 'ReportType',
+        'id' => 'Id',
     ];
 
     public function validate()
@@ -37,9 +30,6 @@ class GetDocumentDownloadUrlRequest extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->reportType) {
-            $res['ReportType'] = $this->reportType;
-        }
 
         return $res;
     }
@@ -47,16 +37,13 @@ class GetDocumentDownloadUrlRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetDocumentDownloadUrlRequest
+     * @return ConfirmDjbhReportRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['ReportType'])) {
-            $model->reportType = $map['ReportType'];
         }
 
         return $model;
