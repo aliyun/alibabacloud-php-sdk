@@ -53,9 +53,9 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
     /**
      * @description The type of the service resource. Valid values:
      *
-     *   **slb**: a Classic Load Balancer (CLB) instance
-     *   **alb**: an Application Load Balancer (ALB) instance
-     *   **nlb**: a Network Load Balancer (NLB) instance
+     *   **slb**: Classic Load Balancer (CLB) instance
+     *   **alb**: Application Load Balancer (ALB) instance
+     *   **nlb**: Network Load Balancer (NLB) instance
      *
      * This parameter is required.
      * @example slb

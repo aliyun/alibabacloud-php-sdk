@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetVpcEndpointServiceAttributeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description Indicates whether endpoint connection requests are automatically accepted. Valid values:
      *
      *   **true**
@@ -96,10 +101,10 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The service state of the endpoint service. Valid values:
+     * @description The service status of the endpoint service. Valid values:
      *
      *   **Normal**: The endpoint service runs as expected.
-     *   **FinacialLocked**: The endpoint service is locked due to overdue payments.
+     *   **FinancialLocked**: The endpoint service is locked due to overdue payments.
      *
      * @example Normal
      *
@@ -171,12 +176,14 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
     public $serviceStatus;
 
     /**
-     * @description Indicates whether IPv6 is enabled for the endpoint service. Valid values:
+     * @description Specifies whether the endpoint service supports IPv6. Valid values:
      *
      *   **true**
      *   **false** (default)
      *
      * @example false
+     *
+     * @deprecated
      *
      * @var bool
      */
@@ -211,6 +218,7 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
      */
     public $zones;
     protected $_name = [
+        'addressIpVersion'      => 'AddressIpVersion',
         'autoAcceptEnabled'     => 'AutoAcceptEnabled',
         'connectBandwidth'      => 'ConnectBandwidth',
         'createTime'            => 'CreateTime',
@@ -240,6 +248,9 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->autoAcceptEnabled) {
             $res['AutoAcceptEnabled'] = $this->autoAcceptEnabled;
         }
@@ -312,6 +323,9 @@ class GetVpcEndpointServiceAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['AutoAcceptEnabled'])) {
             $model->autoAcceptEnabled = $map['AutoAcceptEnabled'];
         }

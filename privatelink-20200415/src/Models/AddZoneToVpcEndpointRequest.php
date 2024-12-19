@@ -41,6 +41,11 @@ class AddZoneToVpcEndpointRequest extends Model
     public $endpointId;
 
     /**
+     * @var string
+     */
+    public $ipv6Address;
+
+    /**
      * @description The region ID of the endpoint.
      *
      * This parameter is required.
@@ -82,6 +87,7 @@ class AddZoneToVpcEndpointRequest extends Model
         'clientToken' => 'ClientToken',
         'dryRun'      => 'DryRun',
         'endpointId'  => 'EndpointId',
+        'ipv6Address' => 'Ipv6Address',
         'regionId'    => 'RegionId',
         'vSwitchId'   => 'VSwitchId',
         'zoneId'      => 'ZoneId',
@@ -103,6 +109,9 @@ class AddZoneToVpcEndpointRequest extends Model
         }
         if (null !== $this->endpointId) {
             $res['EndpointId'] = $this->endpointId;
+        }
+        if (null !== $this->ipv6Address) {
+            $res['Ipv6Address'] = $this->ipv6Address;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -136,6 +145,9 @@ class AddZoneToVpcEndpointRequest extends Model
         }
         if (isset($map['EndpointId'])) {
             $model->endpointId = $map['EndpointId'];
+        }
+        if (isset($map['Ipv6Address'])) {
+            $model->ipv6Address = $map['Ipv6Address'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

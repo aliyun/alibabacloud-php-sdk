@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description The bandwidth of the endpoint connection. Unit: Mbit/s.
      *
      * @example 1024
@@ -107,9 +112,11 @@ class endpoints extends Model
     public $endpointStatus;
 
     /**
-     * @description The type of the endpoint.
+     * @description The type of the endpoint. Valid values:
      *
-     * Only **Interface** may be returned, which indicates an interface endpoint. You can specify Application Load Balancer (ALB) instances, Classic Load Balancer (CLB) instances, and Network Load Balancer (NLB) instances as service resources.
+     *   **Interface**: interface endpoint
+     *   **Reverse**: reverse endpoint
+     *
      * @example Interface
      *
      * @var string
@@ -117,6 +124,10 @@ class endpoints extends Model
     public $endpointType;
 
     /**
+     * @description The Resource Access Management (RAM) policy. For more information about policy definitions, see [Policy elements](https://help.aliyun.com/document_detail/93738.html).
+     *
+     * @example {\\n  \\"Version\\": \\"1\\",\\n  \\"Statement\\": [\\n    {\\n      \\"Effect\\": \\"Allow\\",\\n      \\"Action\\": \\"*\\",\\n      \\"Principal\\": \\"*\\",\\n      \\"Resource\\": \\"*\\"\\n    }\\n  ]\\n}
+     *
      * @var string
      */
     public $policyDocument;
@@ -197,6 +208,7 @@ class endpoints extends Model
      */
     public $zoneAffinityEnabled;
     protected $_name = [
+        'addressIpVersion'       => 'AddressIpVersion',
         'bandwidth'              => 'Bandwidth',
         'connectionStatus'       => 'ConnectionStatus',
         'createTime'             => 'CreateTime',
@@ -225,6 +237,9 @@ class endpoints extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
@@ -300,6 +315,9 @@ class endpoints extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }

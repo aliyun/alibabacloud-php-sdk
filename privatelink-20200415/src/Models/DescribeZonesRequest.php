@@ -17,8 +17,14 @@ class DescribeZonesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $serviceResourceType;
     protected $_name = [
-        'regionId' => 'RegionId',
+        'regionId'            => 'RegionId',
+        'serviceResourceType' => 'ServiceResourceType',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class DescribeZonesRequest extends Model
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->serviceResourceType) {
+            $res['ServiceResourceType'] = $this->serviceResourceType;
         }
 
         return $res;
@@ -45,6 +54,9 @@ class DescribeZonesRequest extends Model
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ServiceResourceType'])) {
+            $model->serviceResourceType = $map['ServiceResourceType'];
         }
 
         return $model;

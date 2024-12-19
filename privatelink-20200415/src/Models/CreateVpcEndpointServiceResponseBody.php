@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointServiceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description Indicates whether the endpoint service automatically accepts endpoint connection requests. Valid values:
      *
      *   **true**
@@ -133,6 +138,7 @@ class CreateVpcEndpointServiceResponseBody extends Model
      */
     public $zoneAffinityEnabled;
     protected $_name = [
+        'addressIpVersion'      => 'AddressIpVersion',
         'autoAcceptEnabled'     => 'AutoAcceptEnabled',
         'createTime'            => 'CreateTime',
         'requestId'             => 'RequestId',
@@ -154,6 +160,9 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->autoAcceptEnabled) {
             $res['AutoAcceptEnabled'] = $this->autoAcceptEnabled;
         }
@@ -202,6 +211,9 @@ class CreateVpcEndpointServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['AutoAcceptEnabled'])) {
             $model->autoAcceptEnabled = $map['AutoAcceptEnabled'];
         }

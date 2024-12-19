@@ -51,12 +51,12 @@ class DisableVpcEndpointZoneConnectionRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to disconnect the endpoint from the previous connection after the service resource is smoothly migrated. Valid values:
+     * @description Specifies whether to close connections in the endpoint zone after migration. Valid values:
      *
-     *   **true**
-     *   **false** (default)
+     *   **true**: yes
+     *   **false** (default): no
      *
-     * > Set the value to true if you want to disconnect the endpoint from the previous connection in the zone after the service resource is smoothly migrated.
+     * >  Set the value to true if you want to close connections in the endpoint zone after migration.
      * @example false
      *
      * @var bool

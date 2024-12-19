@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
+     * @var string
+     */
+    public $ipv6Address;
+
+    /**
      * @description The ID of the vSwitch where you want to create the endpoint ENI in the zone. You can specify up to 10 vSwitch IDs.
      *
      * @example vsw-hp3uf6045ljdhd5zr****
@@ -37,9 +42,10 @@ class zone extends Model
      */
     public $ip;
     protected $_name = [
-        'vSwitchId' => 'VSwitchId',
-        'zoneId'    => 'ZoneId',
-        'ip'        => 'ip',
+        'ipv6Address' => 'Ipv6Address',
+        'vSwitchId'   => 'VSwitchId',
+        'zoneId'      => 'ZoneId',
+        'ip'          => 'ip',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class zone extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ipv6Address) {
+            $res['Ipv6Address'] = $this->ipv6Address;
+        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -70,6 +79,9 @@ class zone extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ipv6Address'])) {
+            $model->ipv6Address = $map['Ipv6Address'];
+        }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }

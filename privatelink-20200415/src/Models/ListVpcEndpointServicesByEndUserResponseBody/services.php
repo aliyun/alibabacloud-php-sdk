@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description The payer. Valid values:
      *
      *   **Endpoint**: the service consumer
@@ -106,6 +111,7 @@ class services extends Model
      */
     public $zones;
     protected $_name = [
+        'addressIpVersion'    => 'AddressIpVersion',
         'payer'               => 'Payer',
         'resourceGroupId'     => 'ResourceGroupId',
         'serviceDomain'       => 'ServiceDomain',
@@ -125,6 +131,9 @@ class services extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->payer) {
             $res['Payer'] = $this->payer;
         }
@@ -173,6 +182,9 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['Payer'])) {
             $model->payer = $map['Payer'];
         }

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models\DescribeRegionsResponseBody\regions;
 
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\DescribeRegionsResponseBody\regions\region\serviceResourceTypes;
 use AlibabaCloud\Tea\Model;
 
 class region extends Model
@@ -34,10 +35,16 @@ class region extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var serviceResourceTypes
+     */
+    public $serviceResourceTypes;
     protected $_name = [
-        'localName'      => 'LocalName',
-        'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
+        'localName'            => 'LocalName',
+        'regionEndpoint'       => 'RegionEndpoint',
+        'regionId'             => 'RegionId',
+        'serviceResourceTypes' => 'ServiceResourceTypes',
     ];
 
     public function validate()
@@ -55,6 +62,9 @@ class region extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->serviceResourceTypes) {
+            $res['ServiceResourceTypes'] = null !== $this->serviceResourceTypes ? $this->serviceResourceTypes->toMap() : null;
         }
 
         return $res;
@@ -76,6 +86,9 @@ class region extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ServiceResourceTypes'])) {
+            $model->serviceResourceTypes = serviceResourceTypes::fromMap($map['ServiceResourceTypes']);
         }
 
         return $model;

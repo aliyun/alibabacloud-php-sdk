@@ -11,10 +11,10 @@ class UntagResourcesRequest extends Model
     /**
      * @description Specifies whether to remove all tags from the resource. Valid values:
      *
-     *   **true**: removes all tags from the resource.
-     *   **false**: does not remove all tags from the resource.
+     *   **true**
+     *   **false**
      *
-     * >  If you specify both this parameter and **TagKey**, this parameter is invalid.
+     * >  If you specify both the All and TagKey.N parameters, the All parameter does not take effect.
      * @example true
      *
      * @var bool
@@ -77,7 +77,7 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The keys of the tags that you want to remove from the resource. You can specify up to 20 tag keys.
+     * @description The keys of the tags that you want to remove from the resources. You can specify up to 20 tag keys.
      *
      * @var string[]
      */

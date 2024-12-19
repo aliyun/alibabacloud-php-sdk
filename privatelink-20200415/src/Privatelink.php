@@ -220,6 +220,9 @@ class Privatelink extends OpenApiClient
         if (!Utils::isUnset($request->endpointId)) {
             $query['EndpointId'] = $request->endpointId;
         }
+        if (!Utils::isUnset($request->ipv6Address)) {
+            $query['Ipv6Address'] = $request->ipv6Address;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -524,6 +527,9 @@ class Privatelink extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressIpVersion)) {
+            $query['AddressIpVersion'] = $request->addressIpVersion;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -628,6 +634,9 @@ class Privatelink extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressIpVersion)) {
+            $query['AddressIpVersion'] = $request->addressIpVersion;
+        }
         if (!Utils::isUnset($request->autoAcceptEnabled)) {
             $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
         }
@@ -862,6 +871,9 @@ class Privatelink extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->serviceResourceType)) {
+            $query['ServiceResourceType'] = $request->serviceResourceType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -911,6 +923,9 @@ class Privatelink extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceResourceType)) {
+            $query['ServiceResourceType'] = $request->serviceResourceType;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1163,7 +1178,7 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Disconnects an endpoint from a connection in the specified zone.
+     * @summary Closes connections in an endpoint zone.
      *  *
      * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the zone associated with the endpoint is **Connected** or **Migrated**.
      * *   **DisableVpcEndpointZoneConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the status of the task.
@@ -1223,7 +1238,7 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Disconnects an endpoint from a connection in the specified zone.
+     * @summary Closes connections in an endpoint zone.
      *  *
      * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the zone associated with the endpoint is **Connected** or **Migrated**.
      * *   **DisableVpcEndpointZoneConnection** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to query the status of the task.
@@ -1318,7 +1333,7 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Accepts a connection request from an endpoint in the specified zone.
+     * @summary Allows connections to endpoint zones.
      *  *
      * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
      * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
@@ -1375,7 +1390,7 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Accepts a connection request from an endpoint in the specified zone.
+     * @summary Allows connections to endpoint zones.
      *  *
      * @description *   You can call this operation only when the state of the endpoint is **Connected** and the state of the associated zone is **Disconnected**.
      * *   **EnableVpcEndpointZoneConnection** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [ListVpcEndpointZones](https://help.aliyun.com/document_detail/183560.html) operation to check whether the endpoint service accepts a connection request from the endpoint in the associated zone.
@@ -1847,6 +1862,9 @@ class Privatelink extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressIpVersion)) {
+            $query['AddressIpVersion'] = $request->addressIpVersion;
+        }
         if (!Utils::isUnset($request->autoAcceptEnabled)) {
             $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
         }
@@ -2063,6 +2081,9 @@ class Privatelink extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressIpVersion)) {
+            $query['AddressIpVersion'] = $request->addressIpVersion;
+        }
         if (!Utils::isUnset($request->connectionStatus)) {
             $query['ConnectionStatus'] = $request->connectionStatus;
         }
@@ -2393,7 +2414,7 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources. You can call the UntagResources operation to remove tags from one or more endpoints or endpoint services.
+     * @summary Removes tags from one or more endpoints or endpoint services at a time.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2449,7 +2470,7 @@ class Privatelink extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources. You can call the UntagResources operation to remove tags from one or more endpoints or endpoint services.
+     * @summary Removes tags from one or more endpoints or endpoint services at a time.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -2476,6 +2497,9 @@ class Privatelink extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressIpVersion)) {
+            $query['AddressIpVersion'] = $request->addressIpVersion;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -2617,6 +2641,9 @@ class Privatelink extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressIpVersion)) {
+            $query['AddressIpVersion'] = $request->addressIpVersion;
+        }
         if (!Utils::isUnset($request->autoAcceptEnabled)) {
             $query['AutoAcceptEnabled'] = $request->autoAcceptEnabled;
         }

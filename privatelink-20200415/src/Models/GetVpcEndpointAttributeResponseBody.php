@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetVpcEndpointAttributeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description The bandwidth of the endpoint connection. Unit: Mbit/s.
      *
      * @example 1024
@@ -128,6 +133,14 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public $payer;
 
     /**
+     * @example {
+     * "Action": [
+     * "oss:List*",
+     * "Resource": [
+     * "acs:oss:oss-*:*:pvl-policy-test/policy-test.txt"
+     * "RAM": [
+     * "acs:ram::14199xxxxxx:*"
+     * }
      * @var string
      */
     public $policyDocument;
@@ -219,6 +232,7 @@ class GetVpcEndpointAttributeResponseBody extends Model
      */
     public $zonePrivateIpAddressCount;
     protected $_name = [
+        'addressIpVersion'          => 'AddressIpVersion',
         'bandwidth'                 => 'Bandwidth',
         'connectionStatus'          => 'ConnectionStatus',
         'createTime'                => 'CreateTime',
@@ -249,6 +263,9 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
@@ -324,6 +341,9 @@ class GetVpcEndpointAttributeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }

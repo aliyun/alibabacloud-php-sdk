@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointServiceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description Specifies whether to automatically accept endpoint connection requests. Valid values:
      *
      *   **true**
@@ -45,12 +50,11 @@ class CreateVpcEndpointServiceRequest extends Model
     public $dryRun;
 
     /**
-     * @description The payer of the endpoint service. Valid values:
+     * @description The payer. Valid values:
      *
-     *   **Endpoint**: the service consumer
-     *   **EndpointService**: the service provider
+     *   **Endpoint**: service consumer
+     *   **EndpointService**: service provider
      *
-     * > By default, the feature of allowing the service provider to pay is unavailable. To use this feature, log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/privatelink/quotas) and click Privileges in the left-side navigation pane. On the **Privileges** page, enter the quota ID `privatelink_whitelist/epsvc_payer_mode`, and click Apply in the Actions column.
      * @example Endpoint
      *
      * @var string
@@ -95,10 +99,11 @@ class CreateVpcEndpointServiceRequest extends Model
     /**
      * @description The type of the service resource. Valid values:
      *
-     *   **slb**: a Classic Load Balancer (CLB) instance
-     *   **alb**: an Application Load Balancer (ALB) instance
-     *   **nlb**: a Network Load Balancer (NLB) instance
+     *   **slb**: Classic Load Balancer (CLB) instance
+     *   **alb**: Application Load Balancer (ALB) instance
+     *   **nlb**: Network Load Balancer (NLB) instance
      *
+     * >  You cannot access TCP/SSL listeners configured for NLB instances.
      * @example slb
      *
      * @var string
@@ -112,6 +117,8 @@ class CreateVpcEndpointServiceRequest extends Model
      *   **false** (default)
      *
      * @example false
+     *
+     * @deprecated
      *
      * @var bool
      */
@@ -136,6 +143,7 @@ class CreateVpcEndpointServiceRequest extends Model
      */
     public $zoneAffinityEnabled;
     protected $_name = [
+        'addressIpVersion'    => 'AddressIpVersion',
         'autoAcceptEnabled'   => 'AutoAcceptEnabled',
         'clientToken'         => 'ClientToken',
         'dryRun'              => 'DryRun',
@@ -157,6 +165,9 @@ class CreateVpcEndpointServiceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->autoAcceptEnabled) {
             $res['AutoAcceptEnabled'] = $this->autoAcceptEnabled;
         }
@@ -217,6 +228,9 @@ class CreateVpcEndpointServiceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['AutoAcceptEnabled'])) {
             $model->autoAcceptEnabled = $map['AutoAcceptEnabled'];
         }

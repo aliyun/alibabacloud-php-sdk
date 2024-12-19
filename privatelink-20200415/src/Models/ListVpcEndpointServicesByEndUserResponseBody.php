@@ -40,7 +40,7 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The endpoint services.
+     * @description The information about endpoint services.
      *
      * @var services[]
      */

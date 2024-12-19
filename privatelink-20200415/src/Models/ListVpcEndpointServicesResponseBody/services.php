@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description Indicates whether endpoint connection requests are automatically accepted. Valid values:
      *
      *   **true**: Endpoint connection requests are automatically accepted.
@@ -170,6 +175,8 @@ class services extends Model
      *
      * @example false
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $serviceSupportIPv6;
@@ -204,6 +211,7 @@ class services extends Model
      */
     public $zoneAffinityEnabled;
     protected $_name = [
+        'addressIpVersion'      => 'AddressIpVersion',
         'autoAcceptEnabled'     => 'AutoAcceptEnabled',
         'connectBandwidth'      => 'ConnectBandwidth',
         'createTime'            => 'CreateTime',
@@ -232,6 +240,9 @@ class services extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->autoAcceptEnabled) {
             $res['AutoAcceptEnabled'] = $this->autoAcceptEnabled;
         }
@@ -307,6 +318,9 @@ class services extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['AutoAcceptEnabled'])) {
             $model->autoAcceptEnabled = $map['AutoAcceptEnabled'];
         }

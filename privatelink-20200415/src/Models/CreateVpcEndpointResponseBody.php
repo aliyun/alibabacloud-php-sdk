@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description The bandwidth of the endpoint connection. Unit: Mbit/s.
      *
      * @example 200
@@ -140,6 +145,7 @@ class CreateVpcEndpointResponseBody extends Model
      */
     public $vpcId;
     protected $_name = [
+        'addressIpVersion'       => 'AddressIpVersion',
         'bandwidth'              => 'Bandwidth',
         'connectionStatus'       => 'ConnectionStatus',
         'createTime'             => 'CreateTime',
@@ -162,6 +168,9 @@ class CreateVpcEndpointResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
@@ -213,6 +222,9 @@ class CreateVpcEndpointResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }

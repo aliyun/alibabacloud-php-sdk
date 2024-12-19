@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
@@ -53,9 +58,12 @@ class CreateVpcEndpointRequest extends Model
     public $endpointName;
 
     /**
-     * @description The type of the endpoint.
+     * @description The endpoint type. Valid values:
      *
-     * Set the value to **Interface**. Then, you can specify Application Load Balancer (ALB) and Classic Load Balancer (CLB) instances as service resources for the endpoint service.
+     *   **Interface** You can specify an Application Load Balancer (ALB) instance, a Classic Load Balancer (CLB) instance, or a Network Load Balancer (NLB) instance.
+     *   **Reverse** You can specify a Virtual Private Cloud (VPC) NAT gateway.
+     *
+     * >  Services that support reverse endpoints are provided by Alibaba Cloud or Alibaba Cloud partners. To create such a service on your own, contact your account manager.
      * @example Interface
      *
      * @var string
@@ -63,6 +71,14 @@ class CreateVpcEndpointRequest extends Model
     public $endpointType;
 
     /**
+     * @example {
+     * "Action": [
+     * "oss:List*",
+     * "Resource": [
+     * "acs:oss:oss-*:*:pvl-policy-test/policy-test.txt"
+     * "RAM": [
+     * "acs:ram::14199xxxxxx:*"
+     * }
      * @var string
      */
     public $policyDocument;
@@ -158,6 +174,7 @@ class CreateVpcEndpointRequest extends Model
      */
     public $zonePrivateIpAddressCount;
     protected $_name = [
+        'addressIpVersion'          => 'AddressIpVersion',
         'clientToken'               => 'ClientToken',
         'dryRun'                    => 'DryRun',
         'endpointDescription'       => 'EndpointDescription',
@@ -183,6 +200,9 @@ class CreateVpcEndpointRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -255,6 +275,9 @@ class CreateVpcEndpointRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

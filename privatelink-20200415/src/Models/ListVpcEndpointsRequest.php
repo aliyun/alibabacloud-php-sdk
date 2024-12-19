@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
      * @description The state of the endpoint connection. Valid values:
      *
      *   **Pending**: The endpoint connection is being modified.
@@ -59,9 +64,11 @@ class ListVpcEndpointsRequest extends Model
     public $endpointStatus;
 
     /**
-     * @description The type of the endpoint.
+     * @description The type of the endpoint. Valid values:
      *
-     * Set the value to **Interface**. Then, you can specify Application Load Balancer (ALB) and Classic Load Balancer (CLB) instances as service resources for the endpoint service.
+     *   **Interface**: interface endpoint
+     *   **Reverse**: reverse endpoint
+     *
      * @example Interface
      *
      * @var string
@@ -133,6 +140,7 @@ class ListVpcEndpointsRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'addressIpVersion' => 'AddressIpVersion',
         'connectionStatus' => 'ConnectionStatus',
         'endpointId'       => 'EndpointId',
         'endpointName'     => 'EndpointName',
@@ -154,6 +162,9 @@ class ListVpcEndpointsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
+        }
         if (null !== $this->connectionStatus) {
             $res['ConnectionStatus'] = $this->connectionStatus;
         }
@@ -208,6 +219,9 @@ class ListVpcEndpointsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['ConnectionStatus'])) {
             $model->connectionStatus = $map['ConnectionStatus'];
         }
