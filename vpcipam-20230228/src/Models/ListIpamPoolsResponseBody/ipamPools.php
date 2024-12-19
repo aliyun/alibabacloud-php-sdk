@@ -139,6 +139,11 @@ class ipamPools extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example ipam-pool-lfnwi4jok1ss0g****
      *
      * @var string
@@ -176,6 +181,7 @@ class ipamPools extends Model
         'poolDepth'                 => 'PoolDepth',
         'poolRegionId'              => 'PoolRegionId',
         'regionId'                  => 'RegionId',
+        'resourceGroupId'           => 'ResourceGroupId',
         'sourceIpamPoolId'          => 'SourceIpamPoolId',
         'status'                    => 'Status',
         'tags'                      => 'Tags',
@@ -244,6 +250,9 @@ class ipamPools extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourceIpamPoolId) {
             $res['SourceIpamPoolId'] = $this->sourceIpamPoolId;
@@ -328,6 +337,9 @@ class ipamPools extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SourceIpamPoolId'])) {
             $model->sourceIpamPoolId = $map['SourceIpamPoolId'];

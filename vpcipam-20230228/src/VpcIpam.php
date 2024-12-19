@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamScopeRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\DeleteIpamScopeResponse;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetIpamPoolAllocationRequest;
+use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetIpamPoolAllocationResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusRequest;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\GetVpcIpamServiceStatusResponse;
 use AlibabaCloud\SDK\VpcIpam\V20230228\Models\ListIpamDiscoveredResourceRequest;
@@ -352,6 +354,9 @@ class VpcIpam extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -494,6 +499,9 @@ class VpcIpam extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -831,6 +839,50 @@ class VpcIpam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteIpamScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询指定IPAM地址池CIDR分配的信息
+     *  *
+     * @param GetIpamPoolAllocationRequest $request GetIpamPoolAllocationRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetIpamPoolAllocationResponse GetIpamPoolAllocationResponse
+     */
+    public function getIpamPoolAllocationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetIpamPoolAllocation',
+            'version'     => '2023-02-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetIpamPoolAllocationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定IPAM地址池CIDR分配的信息
+     *  *
+     * @param GetIpamPoolAllocationRequest $request GetIpamPoolAllocationRequest
+     *
+     * @return GetIpamPoolAllocationResponse GetIpamPoolAllocationResponse
+     */
+    public function getIpamPoolAllocation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getIpamPoolAllocationWithOptions($request, $runtime);
     }
 
     /**

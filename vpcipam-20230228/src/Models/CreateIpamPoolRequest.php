@@ -108,6 +108,11 @@ class CreateIpamPoolRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -141,6 +146,7 @@ class CreateIpamPoolRequest extends Model
         'ownerId'                   => 'OwnerId',
         'poolRegionId'              => 'PoolRegionId',
         'regionId'                  => 'RegionId',
+        'resourceGroupId'           => 'ResourceGroupId',
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
         'resourceOwnerId'           => 'ResourceOwnerId',
         'sourceIpamPoolId'          => 'SourceIpamPoolId',
@@ -195,6 +201,9 @@ class CreateIpamPoolRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -267,6 +276,9 @@ class CreateIpamPoolRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -80,6 +80,11 @@ class ipamScopes extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example Created
      *
      * @var string
@@ -101,6 +106,7 @@ class ipamScopes extends Model
         'ownerId'              => 'OwnerId',
         'poolCount'            => 'PoolCount',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'status'               => 'Status',
         'tags'                 => 'Tags',
     ];
@@ -141,6 +147,9 @@ class ipamScopes extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -195,6 +204,9 @@ class ipamScopes extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
