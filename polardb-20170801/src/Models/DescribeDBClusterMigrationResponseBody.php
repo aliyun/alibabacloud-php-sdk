@@ -91,7 +91,7 @@ class DescribeDBClusterMigrationResponseBody extends Model
     public $migrationStatus;
 
     /**
-     * @description The port number.
+     * @description The endpoints of the ApsaraDB RDS instance.
      *
      * @var rdsEndpointList[]
      */
@@ -125,6 +125,10 @@ class DescribeDBClusterMigrationResponseBody extends Model
     public $sourceRDSDBInstanceId;
 
     /**
+     * @description The type of the source database. Valid values:
+     *
+     * - **PolarDBMySQL**: The source database is a PolarDB for MySQL database when the major version of your PolarDB cluster is upgraded.
+     * - **RDS**: The source database is an ApsaraDB RDS database when data is migrated from ApsaraDB RDS to PolarDB for MySQL.
      * @example PolarDBMySQL
      *
      * @var string

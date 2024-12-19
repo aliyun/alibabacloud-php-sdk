@@ -17,6 +17,8 @@ class rdsEndpointList extends Model
     public $addressItems;
 
     /**
+     * @description The instance type.
+     *
      * @example ReadOnly
      * Primary
      * @var string
@@ -24,6 +26,8 @@ class rdsEndpointList extends Model
     public $custinsType;
 
     /**
+     * @description The ID of the endpoint.
+     *
      * @example rm-************-normal
      *
      * @var string
@@ -31,6 +35,10 @@ class rdsEndpointList extends Model
     public $DBEndpointId;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     * - **Normal**: the standard endpoint
+     * - **ReadWriteSplitting**: the read/write splitting endpoint
      * @example Normal
      *
      * @var string

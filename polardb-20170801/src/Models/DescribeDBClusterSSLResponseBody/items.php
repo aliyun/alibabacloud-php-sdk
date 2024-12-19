@@ -18,6 +18,11 @@ class items extends Model
     public $DBEndpointId;
 
     /**
+     * @var string
+     */
+    public $SSLAutoRotate;
+
+    /**
      * @description The SSL connection string.
      *
      * @example pc-************.mysql.polardb.rds.aliyuncs.com
@@ -48,6 +53,7 @@ class items extends Model
     public $SSLExpireTime;
     protected $_name = [
         'DBEndpointId'        => 'DBEndpointId',
+        'SSLAutoRotate'       => 'SSLAutoRotate',
         'SSLConnectionString' => 'SSLConnectionString',
         'SSLEnabled'          => 'SSLEnabled',
         'SSLExpireTime'       => 'SSLExpireTime',
@@ -62,6 +68,9 @@ class items extends Model
         $res = [];
         if (null !== $this->DBEndpointId) {
             $res['DBEndpointId'] = $this->DBEndpointId;
+        }
+        if (null !== $this->SSLAutoRotate) {
+            $res['SSLAutoRotate'] = $this->SSLAutoRotate;
         }
         if (null !== $this->SSLConnectionString) {
             $res['SSLConnectionString'] = $this->SSLConnectionString;
@@ -86,6 +95,9 @@ class items extends Model
         $model = new self();
         if (isset($map['DBEndpointId'])) {
             $model->DBEndpointId = $map['DBEndpointId'];
+        }
+        if (isset($map['SSLAutoRotate'])) {
+            $model->SSLAutoRotate = $map['SSLAutoRotate'];
         }
         if (isset($map['SSLConnectionString'])) {
             $model->SSLConnectionString = $map['SSLConnectionString'];

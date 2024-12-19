@@ -38,8 +38,8 @@ class CreateAccountRequest extends Model
     /**
      * @description The password of the account. The password must meet the following requirements:
      *
-     *   It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-     *   It must be 8 to 32 characters in length.
+     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *   The password must be 8 to 32 characters in length.
      *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *
      * This parameter is required.
@@ -76,14 +76,15 @@ class CreateAccountRequest extends Model
      * @description The type of the account. Valid values:
      *
      *   **Normal**: standard account
-     *   **Super**: privileged account
+     *   **Super**: privileged account.
      *
      * >
      *
      *   If you leave this parameter empty, the default value **Super** is used.
      *
-     *   You can create multiple privileged accounts for a PolarDB for Oracle or PolarDB for PostgreSQL cluster. A privileged account is granted more permissions than a standard account. For more information about how to create a database account, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
-     *   You can create only one privileged account for a PolarDB for MySQL cluster. A privileged account is granted more permissions than a standard account. For more information about how to create a database account, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
+     *   You can create multiple privileged accounts for a PolarDB for PostgreSQL (Compatible with Oracle) cluster or a PolarDB for PostgreSQL cluster. A privileged account has more permissions than a standard account. For more information, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
+     *
+     *   You can create only one privileged account for a PolarDB for MySQL cluster. A privileged account has more permissions than a standard account. For more information, see [Create a database account](https://help.aliyun.com/document_detail/68508.html).
      *
      * @example Normal
      *
@@ -131,19 +132,6 @@ class CreateAccountRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to grant the specified account required permissions on all existing databases in the current cluster and databases that will be further created for the current cluster. Valid values:
-     *
-     *   **0 or unspecified**: does not grant required permissions.
-     *   **1**: grants required permissions.
-     *
-     * >
-     *
-     *   The parameter is valid only after you configure the `AccountPrivilege` parameter.
-     *
-     *   If you set the parameter to `1`, the current account is granted to the required permissions on all databases in the current cluster that are specified by the `AccountPrivilege` parameter.
-     *
-     * @example 0
-     *
      * @var string
      */
     public $privForAllDB;

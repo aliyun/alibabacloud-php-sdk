@@ -54,6 +54,10 @@ class addressItems extends Model
     public $port;
 
     /**
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     * - **Enabled**
+     * - **Disabled**
      * @example Enabled
      *
      * @var string

@@ -107,18 +107,24 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $standbyClusterIdListNeedToSync;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'DBNodeIds'            => 'DBNodeIds',
-        'fromTimeService'      => 'FromTimeService',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'parameterGroupId'     => 'ParameterGroupId',
-        'parameters'           => 'Parameters',
-        'plannedEndTime'       => 'PlannedEndTime',
-        'plannedStartTime'     => 'PlannedStartTime',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'DBClusterId'                    => 'DBClusterId',
+        'DBNodeIds'                      => 'DBNodeIds',
+        'fromTimeService'                => 'FromTimeService',
+        'ownerAccount'                   => 'OwnerAccount',
+        'ownerId'                        => 'OwnerId',
+        'parameterGroupId'               => 'ParameterGroupId',
+        'parameters'                     => 'Parameters',
+        'plannedEndTime'                 => 'PlannedEndTime',
+        'plannedStartTime'               => 'PlannedStartTime',
+        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
+        'resourceOwnerId'                => 'ResourceOwnerId',
+        'standbyClusterIdListNeedToSync' => 'StandbyClusterIdListNeedToSync',
     ];
 
     public function validate()
@@ -160,6 +166,9 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->standbyClusterIdListNeedToSync) {
+            $res['StandbyClusterIdListNeedToSync'] = $this->standbyClusterIdListNeedToSync;
         }
 
         return $res;
@@ -205,6 +214,9 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['StandbyClusterIdListNeedToSync'])) {
+            $model->standbyClusterIdListNeedToSync = $map['StandbyClusterIdListNeedToSync'];
         }
 
         return $model;

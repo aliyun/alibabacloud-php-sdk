@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Polardb\V20170801;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CancelScheduleTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameRequest;
@@ -82,6 +84,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodeDetailsReque
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodeDetailsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActivationCodesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAITaskStatusResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeAutoRenewAttributeRequest;
@@ -210,6 +214,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountPasswordRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountPasswordResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationTasksRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAutoRenewAttributeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAutoRenewAttributeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyBackupPolicyRequest;
@@ -387,6 +393,71 @@ class Polardb extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 用户侧取消任务
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelActiveOperationTasks',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用户侧取消任务
+     *  *
+     * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
+     *
+     * @return CancelActiveOperationTasksResponse CancelActiveOperationTasksResponse
+     */
+    public function cancelActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelActiveOperationTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -3232,6 +3303,95 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @summary 用户侧查询运维任务
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowCancel)) {
+            $query['AllowCancel'] = $request->allowCancel;
+        }
+        if (!Utils::isUnset($request->allowChange)) {
+            $query['AllowChange'] = $request->allowChange;
+        }
+        if (!Utils::isUnset($request->changeLevel)) {
+            $query['ChangeLevel'] = $request->changeLevel;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->DBType)) {
+            $query['DBType'] = $request->DBType;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeActiveOperationTasks',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用户侧查询运维任务
+     *  *
+     * @param DescribeActiveOperationTasksRequest $request DescribeActiveOperationTasksRequest
+     *
+     * @return DescribeActiveOperationTasksResponse DescribeActiveOperationTasksResponse
+     */
+    public function describeActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the auto-renewal attributes of a subscription PolarDB cluster.
      *  *
      * @param DescribeAutoRenewAttributeRequest $request DescribeAutoRenewAttributeRequest
@@ -4435,7 +4595,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a serverless cluster.
+     * @summary Query serverless configuration.
      *  *
      * @param DescribeDBClusterServerlessConfRequest $request DescribeDBClusterServerlessConfRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -4480,7 +4640,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of a serverless cluster.
+     * @summary Query serverless configuration.
      *  *
      * @param DescribeDBClusterServerlessConfRequest $request DescribeDBClusterServerlessConfRequest
      *
@@ -7623,6 +7783,77 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @summary 用户侧修改任务
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->immediateStart)) {
+            $query['ImmediateStart'] = $request->immediateStart;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->switchTime)) {
+            $query['SwitchTime'] = $request->switchTime;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyActiveOperationTasks',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 用户侧修改任务
+     *  *
+     * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
+     *
+     * @return ModifyActiveOperationTasksResponse ModifyActiveOperationTasksResponse
+     */
+    public function modifyActiveOperationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the auto-renewal attributes of a subscription PolarDB cluster.
      *  *
      * @param ModifyAutoRenewAttributeRequest $request ModifyAutoRenewAttributeRequest
@@ -8002,6 +8233,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->standbyClusterIdListNeedToSync)) {
+            $query['StandbyClusterIdListNeedToSync'] = $request->standbyClusterIdListNeedToSync;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

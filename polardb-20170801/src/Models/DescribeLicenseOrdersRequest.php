@@ -82,6 +82,8 @@ class DescribeLicenseOrdersRequest extends Model
     /**
      * @description Specifies whether to query only virtual orders.
      *
+     * @example true
+     *
      * @var bool
      */
     public $virtualOrder;

@@ -14,11 +14,11 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $agileScaleMax;
 
     /**
-     * @description Indicates whether the no-activity suspension feature is enabled. Default value: false. Valid values:
+     * @description Whether to enable idle shutdown. Values:
      *
-     *   **true**
-     *   **false**
+     * - **true**: Enable
      *
+     * - **false**: Disable (default)
      * @example true
      *
      * @var string
@@ -26,7 +26,7 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $allowShutDown;
 
     /**
-     * @description The ID of the serverless cluster.
+     * @description Serverless cluster ID.
      *
      * @example pc-bp10gr51qasnl****
      *
@@ -35,7 +35,7 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description The ID of the request.
+     * @description Request ID.
      *
      * @example 5E71541A-6007-4DCC-A38A-F872C31FEB45
      *
@@ -44,17 +44,25 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Maximum limit for the number of read-only column storage nodes. Range: 0~7.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $scaleApRoNumMax;
 
     /**
+     * @description Minimum limit for the number of read-only column storage nodes. Range: 0~7.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $scaleApRoNumMin;
 
     /**
-     * @description The maximum number of PCUs per node for scaling. Valid values: 1 PCU to 32 PCUs.
+     * @description Maximum scaling limit for a single node. Range: 1 PCU~32 PCU.
      *
      * @example 3
      *
@@ -63,7 +71,7 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $scaleMax;
 
     /**
-     * @description The minimum number of PCUs per node for scaling. Valid values: 1 PCU to 31 PCUs.
+     * @description Minimum scaling limit for a single node. Range: 1 PCU~31 PCU.
      *
      * @example 1
      *
@@ -72,7 +80,7 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $scaleMin;
 
     /**
-     * @description The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
+     * @description Maximum scaling limit for the number of read-only nodes. Range: 0~15.
      *
      * @example 4
      *
@@ -81,7 +89,7 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $scaleRoNumMax;
 
     /**
-     * @description The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
+     * @description Minimum scaling limit for the number of read-only nodes. Range: 0~15.
      *
      * @example 2
      *
@@ -90,7 +98,7 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $scaleRoNumMin;
 
     /**
-     * @description The detection period for no-activity suspension. Valid values: 300 to 86400. Unit: seconds. The value must be a multiple of 300.
+     * @description Detection duration for idle shutdown. Range: 300~86,400. Unit: seconds. The detection duration must be a multiple of 300 seconds.
      *
      * @example 10
      *
@@ -99,21 +107,39 @@ class DescribeDBClusterServerlessConfResponseBody extends Model
     public $secondsUntilAutoPause;
 
     /**
+     * @description CPU upscale threshold.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $serverlessRuleCpuEnlargeThreshold;
 
     /**
+     * @description CPU downscale threshold.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $serverlessRuleCpuShrinkThreshold;
 
     /**
+     * @description Elasticity sensitivity. Values:
+     *
+     * - flexible: Sensitive
+     * @example normal
+     *
      * @var string
      */
     public $serverlessRuleMode;
 
     /**
+     * @description Whether steady state is enabled. Values:
+     *
+     * 0: Disabled
+     * @example 1
+     *
      * @var string
      */
     public $switchs;
