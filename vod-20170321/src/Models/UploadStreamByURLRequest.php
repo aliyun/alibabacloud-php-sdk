@@ -71,6 +71,11 @@ class UploadStreamByURLRequest extends Model
     public $streamURL;
 
     /**
+     * @var string
+     */
+    public $uploadMetadata;
+
+    /**
      * @description The user-defined parameter. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](https://help.aliyun.com/document_detail/86952.html) topic.
      *
      * >  The callback configurations you specify for this parameter take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](https://help.aliyun.com/document_detail/86071.html).
@@ -80,12 +85,13 @@ class UploadStreamByURLRequest extends Model
      */
     public $userData;
     protected $_name = [
-        'definition'    => 'Definition',
-        'fileExtension' => 'FileExtension',
-        'HDRType'       => 'HDRType',
-        'mediaId'       => 'MediaId',
-        'streamURL'     => 'StreamURL',
-        'userData'      => 'UserData',
+        'definition'     => 'Definition',
+        'fileExtension'  => 'FileExtension',
+        'HDRType'        => 'HDRType',
+        'mediaId'        => 'MediaId',
+        'streamURL'      => 'StreamURL',
+        'uploadMetadata' => 'UploadMetadata',
+        'userData'       => 'UserData',
     ];
 
     public function validate()
@@ -109,6 +115,9 @@ class UploadStreamByURLRequest extends Model
         }
         if (null !== $this->streamURL) {
             $res['StreamURL'] = $this->streamURL;
+        }
+        if (null !== $this->uploadMetadata) {
+            $res['UploadMetadata'] = $this->uploadMetadata;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -139,6 +148,9 @@ class UploadStreamByURLRequest extends Model
         }
         if (isset($map['StreamURL'])) {
             $model->streamURL = $map['StreamURL'];
+        }
+        if (isset($map['UploadMetadata'])) {
+            $model->uploadMetadata = $map['UploadMetadata'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
