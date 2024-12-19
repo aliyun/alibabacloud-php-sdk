@@ -59,11 +59,6 @@ class WafRuleConfig extends Model
     public $managedRulesets;
 
     /**
-     * @var WafRuleMatch
-     */
-    public $match;
-
-    /**
      * @var string
      */
     public $name;
@@ -112,7 +107,6 @@ class WafRuleConfig extends Model
         'managedGroupId'  => 'ManagedGroupId',
         'managedList'     => 'ManagedList',
         'managedRulesets' => 'ManagedRulesets',
-        'match'           => 'Match',
         'name'            => 'Name',
         'notes'           => 'Notes',
         'rateLimit'       => 'RateLimit',
@@ -162,9 +156,6 @@ class WafRuleConfig extends Model
                     $res['ManagedRulesets'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->match) {
-            $res['Match'] = null !== $this->match ? $this->match->toMap() : null;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -234,9 +225,6 @@ class WafRuleConfig extends Model
                     $model->managedRulesets[$n++] = null !== $item ? managedRulesets::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Match'])) {
-            $model->match = WafRuleMatch::fromMap($map['Match']);
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

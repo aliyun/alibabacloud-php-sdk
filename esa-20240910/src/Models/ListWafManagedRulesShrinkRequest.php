@@ -30,7 +30,7 @@ class ListWafManagedRulesShrinkRequest extends Model
     public $attackType;
 
     /**
-     * @description The ID of the WAF rule, which can be obtained by calling the [ListWafRules](~~ListWafRules~~) operation.
+     * @description The ID of the WAF rule, which can be obtained by calling the [ListWafRules](https://help.aliyun.com/document_detail/2850237.html) operation.
      *
      * This parameter is required.
      * @example 10000001
@@ -82,7 +82,7 @@ class ListWafManagedRulesShrinkRequest extends Model
     public $queryArgsShrink;
 
     /**
-     * @description The website ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
      *
      * This parameter is required.
      * @example 1

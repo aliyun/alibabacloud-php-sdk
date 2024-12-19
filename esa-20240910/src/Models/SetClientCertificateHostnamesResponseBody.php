@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetClientCertificateHostnamesResponseBody extends Model
 {
     /**
+     * @description The ID of the client CA certificate.
+     *
      * @example babab9db65ee5efcca9f3d41d4b50d66
      *
      * @var string
@@ -16,6 +18,8 @@ class SetClientCertificateHostnamesResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example ET5BF670-09D5-4D0B-BEBY-D96A2A528000
      *
      * @var string
@@ -23,6 +27,8 @@ class SetClientCertificateHostnamesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -30,6 +36,8 @@ class SetClientCertificateHostnamesResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string

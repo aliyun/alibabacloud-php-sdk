@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SetClientCertificateHostnamesShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The domain names to associate.
      *
+     * This parameter is required.
      * @var string
      */
     public $hostnamesShrink;
 
     /**
+     * @description The ID of the client CA certificate.
+     *
      * @example babab9db65ee5efcca9f3d41d4b50d66
      *
      * @var string
@@ -23,8 +26,9 @@ class SetClientCertificateHostnamesShrinkRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The website ID.
      *
+     * This parameter is required.
      * @example 1234567890123
      *
      * @var int

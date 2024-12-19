@@ -11,9 +11,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsShrinkRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateWafRulesRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateWafRulesResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateWafRulesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchDeleteKvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchDeleteKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchDeleteKvShrinkRequest;
@@ -29,9 +26,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\BatchPutKvShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchPutKvWithHighCapacityAdvanceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchPutKvWithHighCapacityRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchPutKvWithHighCapacityResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\BatchUpdateWafRulesRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\BatchUpdateWafRulesResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\BatchUpdateWafRulesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectShrinkRequest;
@@ -90,9 +84,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskShrinkRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWafRuleRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWafRuleResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWafRuleShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomEventRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomEventResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateWaitingRoomRequest;
@@ -144,10 +135,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteSiteResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteUserDeliveryTaskResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRuleRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRuleResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRulesetRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWafRulesetResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWaitingRoomEventRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWaitingRoomEventResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteWaitingRoomRequest;
@@ -249,10 +236,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafFilterResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRuleRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRuleResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafRulesetResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCiphersRequest;
@@ -313,12 +296,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafManagedRulesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafPhasesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafPhasesResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafRulesetsRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafRulesetsResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafRulesetsShrinkRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafRulesRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafRulesResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafRulesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafTemplateRulesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafTemplateRulesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWafTemplateRulesShrinkRequest;
@@ -405,11 +382,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateUserDeliveryTaskStatusResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRuleRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRuleResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRulesetRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRulesetResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWafRuleShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomEventRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomEventResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateWaitingRoomRequest;
@@ -574,75 +546,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchCreateRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Creates multiple rules of a specific Web Application Firewall (WAF) rule category at a time. You can also configure shared settings for the rules.
-     *  *
-     * @param BatchCreateWafRulesRequest $tmpReq  BatchCreateWafRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return BatchCreateWafRulesResponse BatchCreateWafRulesResponse
-     */
-    public function batchCreateWafRulesWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new BatchCreateWafRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configs)) {
-            $request->configsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configs, 'Configs', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->shared)) {
-            $request->sharedShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->shared, 'Shared', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->configsShrink)) {
-            $body['Configs'] = $request->configsShrink;
-        }
-        if (!Utils::isUnset($request->phase)) {
-            $body['Phase'] = $request->phase;
-        }
-        if (!Utils::isUnset($request->sharedShrink)) {
-            $body['Shared'] = $request->sharedShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCreateWafRules',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchCreateWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Creates multiple rules of a specific Web Application Firewall (WAF) rule category at a time. You can also configure shared settings for the rules.
-     *  *
-     * @param BatchCreateWafRulesRequest $request BatchCreateWafRulesRequest
-     *
-     * @return BatchCreateWafRulesResponse BatchCreateWafRulesResponse
-     */
-    public function batchCreateWafRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchCreateWafRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -1235,78 +1138,6 @@ class ESA extends OpenApiClient
         }
 
         return $this->batchPutKvWithHighCapacityWithOptions($batchPutKvWithHighCapacityReq, $runtime);
-    }
-
-    /**
-     * @summary Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
-     *  *
-     * @param BatchUpdateWafRulesRequest $tmpReq  BatchUpdateWafRulesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return BatchUpdateWafRulesResponse BatchUpdateWafRulesResponse
-     */
-    public function batchUpdateWafRulesWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new BatchUpdateWafRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->configs)) {
-            $request->configsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configs, 'Configs', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->shared)) {
-            $request->sharedShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->shared, 'Shared', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->configsShrink)) {
-            $body['Configs'] = $request->configsShrink;
-        }
-        if (!Utils::isUnset($request->phase)) {
-            $body['Phase'] = $request->phase;
-        }
-        if (!Utils::isUnset($request->rulesetId)) {
-            $body['RulesetId'] = $request->rulesetId;
-        }
-        if (!Utils::isUnset($request->sharedShrink)) {
-            $body['Shared'] = $request->sharedShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchUpdateWafRules',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return BatchUpdateWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Modifies multiple rules in a specific Web Application Firewall (WAF) ruleset at a time.
-     *  *
-     * @param BatchUpdateWafRulesRequest $request BatchUpdateWafRulesRequest
-     *
-     * @return BatchUpdateWafRulesResponse BatchUpdateWafRulesResponse
-     */
-    public function batchUpdateWafRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->batchUpdateWafRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -2860,69 +2691,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Web Application Firewall (WAF) rule. This allows you to configure fine-grained WAF settings to improve the security of your website or application.
-     *  *
-     * @param CreateWafRuleRequest $tmpReq  CreateWafRuleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateWafRuleResponse CreateWafRuleResponse
-     */
-    public function createWafRuleWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new CreateWafRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->config)) {
-            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->configShrink)) {
-            $body['Config'] = $request->configShrink;
-        }
-        if (!Utils::isUnset($request->phase)) {
-            $body['Phase'] = $request->phase;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateWafRule',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateWafRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Creates a Web Application Firewall (WAF) rule. This allows you to configure fine-grained WAF settings to improve the security of your website or application.
-     *  *
-     * @param CreateWafRuleRequest $request CreateWafRuleRequest
-     *
-     * @return CreateWafRuleResponse CreateWafRuleResponse
-     */
-    public function createWafRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createWafRuleWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Creates a waiting room for a website.
      *  *
      * @param CreateWaitingRoomRequest $tmpReq  CreateWaitingRoomRequest
@@ -4259,116 +4027,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Web Application Firewall (WAF) rule, including its configurations and match conditions.
-     *  *
-     * @param DeleteWafRuleRequest $request DeleteWafRuleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteWafRuleResponse DeleteWafRuleResponse
-     */
-    public function deleteWafRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteWafRule',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteWafRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Deletes a Web Application Firewall (WAF) rule, including its configurations and match conditions.
-     *  *
-     * @param DeleteWafRuleRequest $request DeleteWafRuleRequest
-     *
-     * @return DeleteWafRuleResponse DeleteWafRuleResponse
-     */
-    public function deleteWafRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteWafRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Deletes a Web Application Firewall (WAF) ruleset that is no longer needed.
-     *  *
-     * @param DeleteWafRulesetRequest $request DeleteWafRulesetRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteWafRulesetResponse DeleteWafRulesetResponse
-     */
-    public function deleteWafRulesetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteWafRuleset',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteWafRulesetResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Deletes a Web Application Firewall (WAF) ruleset that is no longer needed.
-     *  *
-     * @param DeleteWafRulesetRequest $request DeleteWafRulesetRequest
-     *
-     * @return DeleteWafRulesetResponse DeleteWafRulesetResponse
-     */
-    public function deleteWafRuleset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteWafRulesetWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Deletes a waiting room.
      *  *
      * @param DeleteWaitingRoomRequest $request DeleteWaitingRoomRequest
@@ -5220,7 +4878,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户端证书绑定的域名列表
+     * @summary Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
      *  *
      * @param GetClientCertificateHostnamesRequest $request GetClientCertificateHostnamesRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -5250,7 +4908,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户端证书绑定的域名列表
+     * @summary Queries domain names associated with a client CA certificate. If no certificate is specified, domain names associated with an Edge Security Acceleration(ESA)-managed CA certificate are returned.
      *  *
      * @param GetClientCertificateHostnamesRequest $request GetClientCertificateHostnamesRequest
      *
@@ -6823,109 +6481,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a Web Application Firewall (WAF) rule, such as its configuration and status.
-     *  *
-     * @param GetWafRuleRequest $request GetWafRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetWafRuleResponse GetWafRuleResponse
-     */
-    public function getWafRuleWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetWafRule',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetWafRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the details of a Web Application Firewall (WAF) rule, such as its configuration and status.
-     *  *
-     * @param GetWafRuleRequest $request GetWafRuleRequest
-     *
-     * @return GetWafRuleResponse GetWafRuleResponse
-     */
-    public function getWafRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWafRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the details of a Web Application Firewall (WAF) ruleset, such as the configuration and status.
-     *  *
-     * @param GetWafRulesetRequest $request GetWafRulesetRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetWafRulesetResponse GetWafRulesetResponse
-     */
-    public function getWafRulesetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->id)) {
-            $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->phase)) {
-            $query['Phase'] = $request->phase;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetWafRuleset',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetWafRulesetResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the details of a Web Application Firewall (WAF) ruleset, such as the configuration and status.
-     *  *
-     * @param GetWafRulesetRequest $request GetWafRulesetRequest
-     *
-     * @return GetWafRulesetResponse GetWafRulesetResponse
-     */
-    public function getWafRuleset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getWafRulesetWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Queries the cache reserve instances in your Alibaba Cloud account.
      *  *
      * @param ListCacheReserveInstancesRequest $request ListCacheReserveInstancesRequest
@@ -8349,140 +7904,6 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary Lists all Web Application Firewall (WAF) rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
-     *  *
-     * @param ListWafRulesRequest $tmpReq  ListWafRulesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListWafRulesResponse ListWafRulesResponse
-     */
-    public function listWafRulesWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ListWafRulesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queryArgs)) {
-            $request->queryArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->phase)) {
-            $query['Phase'] = $request->phase;
-        }
-        if (!Utils::isUnset($request->queryArgsShrink)) {
-            $query['QueryArgs'] = $request->queryArgsShrink;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListWafRules',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListWafRulesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Lists all Web Application Firewall (WAF) rules or some of them based on specific conditions. You can call this operation to query the details of WAF rules by page.
-     *  *
-     * @param ListWafRulesRequest $request ListWafRulesRequest
-     *
-     * @return ListWafRulesResponse ListWafRulesResponse
-     */
-    public function listWafRules($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listWafRulesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Lists the rulesets in a Web Application Firewall (WAF) rule category. You can call this operation to query the basic information about and status of rulesets by page.
-     *  *
-     * @param ListWafRulesetsRequest $tmpReq  ListWafRulesetsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListWafRulesetsResponse ListWafRulesetsResponse
-     */
-    public function listWafRulesetsWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ListWafRulesetsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->queryArgs)) {
-            $request->queryArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->phase)) {
-            $query['Phase'] = $request->phase;
-        }
-        if (!Utils::isUnset($request->queryArgsShrink)) {
-            $query['QueryArgs'] = $request->queryArgsShrink;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListWafRulesets',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListWafRulesetsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Lists the rulesets in a Web Application Firewall (WAF) rule category. You can call this operation to query the basic information about and status of rulesets by page.
-     *  *
-     * @param ListWafRulesetsRequest $request ListWafRulesetsRequest
-     *
-     * @return ListWafRulesetsResponse ListWafRulesetsResponse
-     */
-    public function listWafRulesets($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listWafRulesetsWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Queries template rules in Web Application Firewall (WAF). In most cases, these rules are pre-defined rulesets that are used to quickly enable protection against common types of attacks.
      *  *
      * @param ListWafTemplateRulesRequest $tmpReq  ListWafTemplateRulesRequest
@@ -9544,7 +8965,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 为客户端证书绑定域名
+     * @summary Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
      *  *
      * @param SetClientCertificateHostnamesRequest $tmpReq  SetClientCertificateHostnamesRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -9590,7 +9011,7 @@ class ESA extends OpenApiClient
     }
 
     /**
-     * @summary 为客户端证书绑定域名
+     * @summary Associates domain names with a client CA certificate. If no certificate is specified, domain names are associated with an Edge Security Acceleration (ESA)-managed CA certificate.
      *  *
      * @param SetClientCertificateHostnamesRequest $request SetClientCertificateHostnamesRequest
      *
@@ -10782,133 +10203,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateUserDeliveryTaskStatusWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Modifies the configuration or status of a Web Application Firewall (WAF) rule.
-     *  *
-     * @param UpdateWafRuleRequest $tmpReq  UpdateWafRuleRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdateWafRuleResponse UpdateWafRuleResponse
-     */
-    public function updateWafRuleWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateWafRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->config)) {
-            $request->configShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->config, 'Config', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->configShrink)) {
-            $body['Config'] = $request->configShrink;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->position)) {
-            $body['Position'] = $request->position;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateWafRule',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateWafRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Modifies the configuration or status of a Web Application Firewall (WAF) rule.
-     *  *
-     * @param UpdateWafRuleRequest $request UpdateWafRuleRequest
-     *
-     * @return UpdateWafRuleResponse UpdateWafRuleResponse
-     */
-    public function updateWafRule($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateWafRuleWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Updates a WAF ruleset based on its ID.
-     *  *
-     * @param UpdateWafRulesetRequest $request UpdateWafRulesetRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdateWafRulesetResponse UpdateWafRulesetResponse
-     */
-    public function updateWafRulesetWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        if (!Utils::isUnset($request->siteVersion)) {
-            $query['SiteVersion'] = $request->siteVersion;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateWafRuleset',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateWafRulesetResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Updates a WAF ruleset based on its ID.
-     *  *
-     * @param UpdateWafRulesetRequest $request UpdateWafRulesetRequest
-     *
-     * @return UpdateWafRulesetResponse UpdateWafRulesetResponse
-     */
-    public function updateWafRuleset($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateWafRulesetWithOptions($request, $runtime);
     }
 
     /**

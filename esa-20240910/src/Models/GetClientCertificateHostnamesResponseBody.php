@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetClientCertificateHostnamesResponseBody extends Model
 {
     /**
+     * @description The domain names with which the certificate is associated.
+     *
      * @var string[]
      */
     public $hostnames;
 
     /**
+     * @description The ID of the client CA certificate.
+     *
      * @example baba39055622c008b90285a8838ed09a
      *
      * @var string
@@ -21,6 +25,8 @@ class GetClientCertificateHostnamesResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
      *
      * @var string
@@ -28,6 +34,8 @@ class GetClientCertificateHostnamesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The website ID.
+     *
      * @example 1234567890123
      *
      * @var int
@@ -35,6 +43,8 @@ class GetClientCertificateHostnamesResponseBody extends Model
     public $siteId;
 
     /**
+     * @description The website name.
+     *
      * @example example.com
      *
      * @var string

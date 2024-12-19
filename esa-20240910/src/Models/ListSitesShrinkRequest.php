@@ -43,6 +43,8 @@ class ListSitesShrinkRequest extends Model
     public $onlyEnterprise;
 
     /**
+     * @example visitTime
+     *
      * @var string
      */
     public $orderBy;

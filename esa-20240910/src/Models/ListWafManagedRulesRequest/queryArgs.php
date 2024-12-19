@@ -34,7 +34,7 @@ class queryArgs extends Model
     public $protectionLevels;
 
     /**
-     * @description The status.
+     * @description The status of the rule.
      *
      * @example on
      *
