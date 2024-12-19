@@ -16,13 +16,7 @@ class DescribeInstancesRequest extends Model
     public $filter;
 
     /**
-     * @description The additional attributes. Valid values of N: 1 to 20. Valid values:
-     *
-     *   META_OPTIONS: instance metadata.
-     *   DDH_CLUSTER: dedicated host cluster.
-     *   NETWORK_PRIMARY_ENI_IP: secondary IP address associated with the primary ENI.
-     *   CPU_OPTIONS_TOPOLOGY_TYPE: CPU topology type of the instance.
-     *   CURRENT_OS_NVME_SUPPORTED: specifies whether the operating system supports access to disks over the Non-Volatile Memory Express (NVMe) protocol.
+     * @description Additional instance attributes.
      *
      * @example META_OPTIONS
      *
@@ -282,9 +276,8 @@ class DescribeInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -292,9 +285,8 @@ class DescribeInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int

@@ -49,7 +49,7 @@ class DescribeImagesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The list of filter conditions used to query resources.
+     * @description The filter conditions used to query resources.
      *
      * @var filter[]
      */

@@ -159,7 +159,7 @@ class reservedInstance extends Model
     public $status;
 
     /**
-     * @description Details about the tags of the reserved instance.
+     * @description The tags of the reserved instance.
      *
      * @var tags
      */

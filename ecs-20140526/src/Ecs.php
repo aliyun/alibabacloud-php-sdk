@@ -3651,7 +3651,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for cloud disks on a regular basis to back up data. The policies can be applied to both system disks and data disks. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region.
+     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for system disks or data disks on a regular basis to back up disk data. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region.
      *  *
      * @description ## [](#)Usage notes
      * When you call this operation to create an automatic snapshot policy, you can specify the days of the week on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the policy to meet your diverse data backup requirements. After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
@@ -3733,7 +3733,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for cloud disks on a regular basis to back up data. The policies can be applied to both system disks and data disks. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region.
+     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for system disks or data disks on a regular basis to back up disk data. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region.
      *  *
      * @description ## [](#)Usage notes
      * When you call this operation to create an automatic snapshot policy, you can specify the days of the week on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the policy to meet your diverse data backup requirements. After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
@@ -8503,6 +8503,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 删除hpc集群
+     *  *
      * @param DeleteHpcClusterRequest $request DeleteHpcClusterRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
@@ -8555,6 +8557,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 删除hpc集群
+     *  *
      * @param DeleteHpcClusterRequest $request DeleteHpcClusterRequest
      *
      * @return DeleteHpcClusterResponse DeleteHpcClusterResponse
@@ -9321,7 +9325,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteNetworkInterfacePermission is deprecated, please use Ecs::2014-05-26::DeleteNetworkInterface instead.
+     * @deprecated openAPI DeleteNetworkInterfacePermission is deprecated, please use Ecs::2014-05-26::DeleteNetworkInterface instead
+     *  *
+     * @summary 删除操作弹性网卡的权限
      *  *
      * Deprecated
      *
@@ -9377,7 +9383,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DeleteNetworkInterfacePermission is deprecated, please use Ecs::2014-05-26::DeleteNetworkInterface instead.
+     * @deprecated openAPI DeleteNetworkInterfacePermission is deprecated, please use Ecs::2014-05-26::DeleteNetworkInterface instead
+     *  *
+     * @summary 删除操作弹性网卡的权限
      *  *
      * Deprecated
      *
@@ -9824,7 +9832,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary Deletes a snapshot-consistent group.
      *  *
-     * @description If you have custom images that were created from a disk snapshot contained in a snapshot-consistent group, the disk snapshot is retained when the snapshot-consistent group is deleted. Before you can delete the disk snapshot, you must call the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation to delete the custom images. After the custom images are deleted, you can call the [DeleteSnapshot](https://help.aliyun.com/document_detail/25525.html) operation to delete the disk snapshot.
+     * @description ## [](#)Usage notes
+     * If a disk snapshot that is contained in a snapshot-consistent group has been used to create a custom image, the disk snapshot is retained after the snapshot-consistent group is deleted. Before you can delete the disk snapshot, you must call the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation to delete the custom image. Then, you can call the [DeleteSnapshot](https://help.aliyun.com/document_detail/25525.html) operation to delete the disk snapshot.
      *  *
      * @param DeleteSnapshotGroupRequest $request DeleteSnapshotGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -9874,7 +9883,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary Deletes a snapshot-consistent group.
      *  *
-     * @description If you have custom images that were created from a disk snapshot contained in a snapshot-consistent group, the disk snapshot is retained when the snapshot-consistent group is deleted. Before you can delete the disk snapshot, you must call the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation to delete the custom images. After the custom images are deleted, you can call the [DeleteSnapshot](https://help.aliyun.com/document_detail/25525.html) operation to delete the disk snapshot.
+     * @description ## [](#)Usage notes
+     * If a disk snapshot that is contained in a snapshot-consistent group has been used to create a custom image, the disk snapshot is retained after the snapshot-consistent group is deleted. Before you can delete the disk snapshot, you must call the [DeleteImage](https://help.aliyun.com/document_detail/25537.html) operation to delete the custom image. Then, you can call the [DeleteSnapshot](https://help.aliyun.com/document_detail/25525.html) operation to delete the disk snapshot.
      *  *
      * @param DeleteSnapshotGroupRequest $request DeleteSnapshotGroupRequest
      *
@@ -13615,6 +13625,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 查询镜像族系内可用镜像
+     *  *
      * @description ## Description
      * *   This API operation only returns the available custom images that are newly created in the specified image family. Public images, Alibaba Cloud Marketplace images, community images, or shared images are not queried.
      * *   If no available custom images exist in the specified image family, the response is empty.
@@ -13665,6 +13677,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 查询镜像族系内可用镜像
+     *  *
      * @description ## Description
      * *   This API operation only returns the available custom images that are newly created in the specified image family. Public images, Alibaba Cloud Marketplace images, community images, or shared images are not queried.
      * *   If no available custom images exist in the specified image family, the response is empty.
@@ -15278,17 +15292,12 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries Elastic Compute Service (ECS) instances by various filter conditions. The details of the queried ECS instances are returned in the response.
      *  *
-     * @description *   **Instructions**
-     *     *   When you call the API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter formats](https://help.aliyun.com/document_detail/110340.html).
-     *     *   If you use a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned.
-     * *   **Suggestions**
-     *     *   Specify DryRun in the request to perform a dry run. In the dry run, the system checks the validity and authorization status of the parameters.
-     *     *   You can use one of the following methods to check the responses:
-     *         *   Method 1: During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, use `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *         *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number.
-     *         You can use only one of the preceding methods. If a large number of entries are returned, we recommend that you use Method 1.
-     *         **
-     *         **Note** If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * @description ### [](#)Limits
+     * *   When you call the API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
+     * *   If you use a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned.
+     * ### [](#)Suggestions
+     * *   Specify DryRun in the request to perform a dry run. In the dry run, the system checks the validity and authorization status of the parameters.
+     * *   During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -15446,17 +15455,12 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries Elastic Compute Service (ECS) instances by various filter conditions. The details of the queried ECS instances are returned in the response.
      *  *
-     * @description *   **Instructions**
-     *     *   When you call the API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter formats](https://help.aliyun.com/document_detail/110340.html).
-     *     *   If you use a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned.
-     * *   **Suggestions**
-     *     *   Specify DryRun in the request to perform a dry run. In the dry run, the system checks the validity and authorization status of the parameters.
-     *     *   You can use one of the following methods to check the responses:
-     *         *   Method 1: During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, use `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *         *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number.
-     *         You can use only one of the preceding methods. If a large number of entries are returned, we recommend that you use Method 1.
-     *         **
-     *         **Note** If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * @description ### [](#)Limits
+     * *   When you call the API operation by using Alibaba Cloud CLI, you must specify request parameter values of different data types in the required formats. For more information, see [Parameter format overview](https://help.aliyun.com/document_detail/110340.html).
+     * *   If you use a Resource Access Management (RAM) user or RAM role that does not have the permissions to call this operation, an empty list is returned.
+     * ### [](#)Suggestions
+     * *   Specify DryRun in the request to perform a dry run. In the dry run, the system checks the validity and authorization status of the parameters.
+     * *   During a paged query, when you call the DescribeInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeInstancesRequest $request DescribeInstancesRequest
      *
@@ -17455,7 +17459,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries purchased reserved instances.
+     * @summary Queries the details of reserved instances that you have purchased. You can query the details of reserved instances based on parameters, such as tags and reserved instance attributes.
      *  *
      * @param DescribeReservedInstancesRequest $request DescribeReservedInstancesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -17542,7 +17546,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries purchased reserved instances.
+     * @summary Queries the details of reserved instances that you have purchased. You can query the details of reserved instances based on parameters, such as tags and reserved instance attributes.
      *  *
      * @param DescribeReservedInstancesRequest $request DescribeReservedInstancesRequest
      *
@@ -24284,6 +24288,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 修改hpc集群属性
+     *  *
      * @param ModifyHpcClusterAttributeRequest $request ModifyHpcClusterAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
@@ -24342,6 +24348,8 @@ class Ecs extends OpenApiClient
     }
 
     /**
+     * @summary 修改hpc集群属性
+     *  *
      * @param ModifyHpcClusterAttributeRequest $request ModifyHpcClusterAttributeRequest
      *
      * @return ModifyHpcClusterAttributeResponse ModifyHpcClusterAttributeResponse
@@ -24437,7 +24445,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyImageShareGroupPermission is deprecated
+     * @deprecated openAPI ModifyImageShareGroupPermission is deprecated, please use Ecs::2014-05-26::ModifyImageSharePermission instead
+     *  *
+     * @summary 修改镜像共享组权限
      *  *
      * Deprecated
      *
@@ -24493,7 +24503,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifyImageShareGroupPermission is deprecated
+     * @deprecated openAPI ModifyImageShareGroupPermission is deprecated, please use Ecs::2014-05-26::ModifyImageSharePermission instead
+     *  *
+     * @summary 修改镜像共享组权限
      *  *
      * Deprecated
      *
@@ -25357,12 +25369,10 @@ class Ecs extends OpenApiClient
      * @summary Modifies the bandwidth configurations of an Elastic Compute Service (ECS) instance. You can modify the bandwidth configurations of ECS instances to improve network performance. You can call this operation to upgrade or downgrade the bandwidth configurations of ECS instances.
      *  *
      * @description Take note of the following items:
-     * *   Starting November 27, 2020, the maximum bandwidth value that is available for you to create ECS instances or change ECS instance configurations is subject to the throttling policies of your account. To increase the bandwidth limit, submit a ticket. The following throttling policies apply:
-     *     *   In each region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
-     *     *   In each region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
      * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a subscription (PrePaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, a public IP address is automatically assigned to the instance.
      * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is automatically assigned to the instance. In this case, you can set `AllocatePublicIp` to `true` or call the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address to the instance.
      * *   You can upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of an instance in the classic network from 0 Mbit/s only if the instance is in the Stopped state.
+     * >  For the limits on the sum of maximum public bandwidths of ECS instances that use the pay-by-bandwidth billing method for network usage per region per Alibaba Cloud account, see the [Public bandwidth limits](~~25412#BandwidthQuota~~) section of the "Limits" topic.
      * *   Billing:
      *     *   After the bandwidth is upgraded, AutoPay is set to true by default and the payment is automatically made. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set AutoPay to false. In this case, when you call the ModifyInstanceNetworkSpec operation, an unpaid order is generated. Then, you can log on to the ECS console to pay for the order.
      *     *   After the bandwidth is downgraded, the price difference is refunded to the payment account that you used. Vouchers or coupons that have been redeemed are not refundable.
@@ -25440,12 +25450,10 @@ class Ecs extends OpenApiClient
      * @summary Modifies the bandwidth configurations of an Elastic Compute Service (ECS) instance. You can modify the bandwidth configurations of ECS instances to improve network performance. You can call this operation to upgrade or downgrade the bandwidth configurations of ECS instances.
      *  *
      * @description Take note of the following items:
-     * *   Starting November 27, 2020, the maximum bandwidth value that is available for you to create ECS instances or change ECS instance configurations is subject to the throttling policies of your account. To increase the bandwidth limit, submit a ticket. The following throttling policies apply:
-     *     *   In each region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-traffic billing method for network usage cannot exceed 5 Gbit/s.
-     *     *   In each region, the sum of actual maximum bandwidths of all ECS instances that use the pay-by-bandwidth billing method for network usage cannot exceed 50 Gbit/s.
      * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a subscription (PrePaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, a public IP address is automatically assigned to the instance.
      * *   If you upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of a pay-as-you-go (PostPaid) instance from 0 Mbit/s when you modify the bandwidth configurations of the instance, no public IP address is automatically assigned to the instance. In this case, you can set `AllocatePublicIp` to `true` or call the [AllocatePublicIpAddress](https://help.aliyun.com/document_detail/25544.html) operation to assign a public IP address to the instance.
      * *   You can upgrade the outbound public bandwidth (InternetMaxBandwidthOut) of an instance in the classic network from 0 Mbit/s only if the instance is in the Stopped state.
+     * >  For the limits on the sum of maximum public bandwidths of ECS instances that use the pay-by-bandwidth billing method for network usage per region per Alibaba Cloud account, see the [Public bandwidth limits](~~25412#BandwidthQuota~~) section of the "Limits" topic.
      * *   Billing:
      *     *   After the bandwidth is upgraded, AutoPay is set to true by default and the payment is automatically made. Make sure that your account balance is sufficient. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set AutoPay to false. In this case, when you call the ModifyInstanceNetworkSpec operation, an unpaid order is generated. Then, you can log on to the ECS console to pay for the order.
      *     *   After the bandwidth is downgraded, the price difference is refunded to the payment account that you used. Vouchers or coupons that have been redeemed are not refundable.
@@ -26451,7 +26459,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of a reserved instance, such as its name and description.
+     * @summary Modifies the attributes of a reserved instance, such as the name and description of the instance.
      *  *
      * @param ModifyReservedInstanceAttributeRequest $request ModifyReservedInstanceAttributeRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -26505,7 +26513,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the attributes of a reserved instance, such as its name and description.
+     * @summary Modifies the attributes of a reserved instance, such as the name and description of the instance.
      *  *
      * @param ModifyReservedInstanceAttributeRequest $request ModifyReservedInstanceAttributeRequest
      *
@@ -26519,7 +26527,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables auto-renewal for one or more reserved instances.
+     * @summary Modifies the auto-renewal attributes of reserved instances. You can disable the auto-renewal feature for reserved instances.
      *  *
      * @param ModifyReservedInstanceAutoRenewAttributeRequest $request ModifyReservedInstanceAutoRenewAttributeRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
@@ -26576,7 +26584,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables auto-renewal for one or more reserved instances.
+     * @summary Modifies the auto-renewal attributes of reserved instances. You can disable the auto-renewal feature for reserved instances.
      *  *
      * @param ModifyReservedInstanceAutoRenewAttributeRequest $request ModifyReservedInstanceAutoRenewAttributeRequest
      *
@@ -26592,8 +26600,55 @@ class Ecs extends OpenApiClient
     /**
      * @summary Modifies the configurations of a reserved instance, such as the instance type, quantity, and zone, to split, merge, or change the scope of the reserved instance.
      *  *
-     * @description The region ID of the reserved instance.
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
+     * @description This operation is an asynchronous operation. After you call this operation to modify a reserved instance, the operation starts the modification process and returns the ID of the resulting new reserved instance. The original reserved instance enters the Updating state and then the Inactive state. At the same time, the resulting new reserved instance is generated and enters the Creating state and then the Active state. You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/2679781.html) operation to query the states of the reserved instance.
+     * *   You can modify the configurations of a reserved instance only when the reserved instance is in the **Active** state.
+     * *   Make sure that the [computing power](~~140660#2742f3844abzz~~) of the reserved instance remains unchanged before and after the modification. Otherwise, the modification fails.
+     * *   You cannot split, merge, or change the scope of a reserved instance at the same time.
+     * For more information, see [Split, merge, or modify reserved instances](https://help.aliyun.com/document_detail/100375.html).
+     * ## [](#)Sample requests
+     * *   **Sample request to split a reserved instance**: Split a regional reserved instance that is scoped to the China (Hangzhou) region and can match two pay-as-you-go instances of the ecs.g5.xlarge instance type into two regional reserved instances that are scoped to the China (Hangzhou) region and each can match one pay-as-you-go instance of the ecs.g5.large instance type:
+     * <!---->
+     *     "RegionId":"cn-hangzhou", //The ID of the region.
+     *     "ReservedInstanceId":["ecsri-bp1hd03e9uv19e75****"], //The ID of the reserved instance that you want to split.
+     *     "Configuration":[
+     *       {
+     *         "ReservedInstanceName":"testReservedInstanceName1", //The name of the new reserved instance.
+     *         "InstanceType":"ecs.g5.large", //The instance type that the new reserved instance can match.
+     *         "Scope":"Region", //The scope level of the new reserved instance, which must be the same as the scope level of the original reserved instance.
+     *         "InstanceAmount":1 //The number of pay-as-you-go instances of the specified instance type that each new reserved instance can match.
+     *       },
+     *       {
+     *         "ReservedInstanceName":"testReservedInstanceName2",
+     *         "InstanceType":"ecs.g5.large",
+     *         "Scope":"Region",
+     *         "InstanceAmount":1
+     *       }
+     *     ]
+     * *   **Sample request to merge reserved instance:**: Merge two zonal reserved instances that are scoped to Hangzhou Zone H and can match four pay-as-you-go instances of the ecs.g5.xlarge instance type into one zonal reserved instance that is scoped to Hangzhou Zone H and can match two pay-as-you-go instance of the ecs.g5.4xlarge instance type:
+     * <!---->
+     *     "RegionId":"cn-hangzhou", //The ID of the region.
+     *     "ReservedInstanceId":["ecsri-bp1hd03e9uv16b75****",""ecsri-bp1hd03e9uv16b76****""], //The IDs of the reserved instances that you want to merge.
+     *     "Configuration":[
+     *       {
+     *         "ReservedInstanceName":"testReservedInstanceName", //The name of the new reserved instance.
+     *         "InstanceType":"ecs.g5.4xlarge", //The instance type that the new reserved instance can match.
+     *         "Scope":"Zone", //The scope level of the new reserved instance, which must be the same as the scope level of the original reserved instances.
+     *         "ZoneId":"cn-hangzhou-h", //
+     *         "InstanceAmount":2 //The number of pay-as-you-go instances of the specified instance type that the new reserved instance can match.
+     *       }
+     *     ]
+     * *   **Sample request to change the scope of a reserved instance**: Change a regional reserved instance that is scoped to Hangzhou Zone H and can match six pay-as-you-go instances of the ecs.g5.xlarge instance type to a regional reserved instance that is scoped to the China (Hangzhou) region and can match three pay-as-you-go instances of the ecs.g5.2xlarge instance type.
+     * <!---->
+     *     "RegionId":"cn-hangzhou", //The ID of the region.
+     *     "ReservedInstanceId":["ecsri-bp1hd03e9uv16b77****"], //The ID of the reserved instance whose scope you want to change.
+     *     "Configuration":[
+     *       {
+     *         "ReservedInstanceName":"testReservedInstanceName", //The name of the new reserved instance.
+     *         "InstanceType":"ecs.g5.2xlarge", //The instance type that the new reserved instance can match.
+     *         "Scope":"Region", //The scope level of the new reserved instance.
+     *         "InstanceAmount":3 //The number of pay-as-you-go instances of the specified instance type that the new reserved instance can match.
+     *       }
+     *     ]
      *  *
      * @param ModifyReservedInstancesRequest $request ModifyReservedInstancesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -26646,8 +26701,55 @@ class Ecs extends OpenApiClient
     /**
      * @summary Modifies the configurations of a reserved instance, such as the instance type, quantity, and zone, to split, merge, or change the scope of the reserved instance.
      *  *
-     * @description The region ID of the reserved instance.
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent list of regions.
+     * @description This operation is an asynchronous operation. After you call this operation to modify a reserved instance, the operation starts the modification process and returns the ID of the resulting new reserved instance. The original reserved instance enters the Updating state and then the Inactive state. At the same time, the resulting new reserved instance is generated and enters the Creating state and then the Active state. You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/2679781.html) operation to query the states of the reserved instance.
+     * *   You can modify the configurations of a reserved instance only when the reserved instance is in the **Active** state.
+     * *   Make sure that the [computing power](~~140660#2742f3844abzz~~) of the reserved instance remains unchanged before and after the modification. Otherwise, the modification fails.
+     * *   You cannot split, merge, or change the scope of a reserved instance at the same time.
+     * For more information, see [Split, merge, or modify reserved instances](https://help.aliyun.com/document_detail/100375.html).
+     * ## [](#)Sample requests
+     * *   **Sample request to split a reserved instance**: Split a regional reserved instance that is scoped to the China (Hangzhou) region and can match two pay-as-you-go instances of the ecs.g5.xlarge instance type into two regional reserved instances that are scoped to the China (Hangzhou) region and each can match one pay-as-you-go instance of the ecs.g5.large instance type:
+     * <!---->
+     *     "RegionId":"cn-hangzhou", //The ID of the region.
+     *     "ReservedInstanceId":["ecsri-bp1hd03e9uv19e75****"], //The ID of the reserved instance that you want to split.
+     *     "Configuration":[
+     *       {
+     *         "ReservedInstanceName":"testReservedInstanceName1", //The name of the new reserved instance.
+     *         "InstanceType":"ecs.g5.large", //The instance type that the new reserved instance can match.
+     *         "Scope":"Region", //The scope level of the new reserved instance, which must be the same as the scope level of the original reserved instance.
+     *         "InstanceAmount":1 //The number of pay-as-you-go instances of the specified instance type that each new reserved instance can match.
+     *       },
+     *       {
+     *         "ReservedInstanceName":"testReservedInstanceName2",
+     *         "InstanceType":"ecs.g5.large",
+     *         "Scope":"Region",
+     *         "InstanceAmount":1
+     *       }
+     *     ]
+     * *   **Sample request to merge reserved instance:**: Merge two zonal reserved instances that are scoped to Hangzhou Zone H and can match four pay-as-you-go instances of the ecs.g5.xlarge instance type into one zonal reserved instance that is scoped to Hangzhou Zone H and can match two pay-as-you-go instance of the ecs.g5.4xlarge instance type:
+     * <!---->
+     *     "RegionId":"cn-hangzhou", //The ID of the region.
+     *     "ReservedInstanceId":["ecsri-bp1hd03e9uv16b75****",""ecsri-bp1hd03e9uv16b76****""], //The IDs of the reserved instances that you want to merge.
+     *     "Configuration":[
+     *       {
+     *         "ReservedInstanceName":"testReservedInstanceName", //The name of the new reserved instance.
+     *         "InstanceType":"ecs.g5.4xlarge", //The instance type that the new reserved instance can match.
+     *         "Scope":"Zone", //The scope level of the new reserved instance, which must be the same as the scope level of the original reserved instances.
+     *         "ZoneId":"cn-hangzhou-h", //
+     *         "InstanceAmount":2 //The number of pay-as-you-go instances of the specified instance type that the new reserved instance can match.
+     *       }
+     *     ]
+     * *   **Sample request to change the scope of a reserved instance**: Change a regional reserved instance that is scoped to Hangzhou Zone H and can match six pay-as-you-go instances of the ecs.g5.xlarge instance type to a regional reserved instance that is scoped to the China (Hangzhou) region and can match three pay-as-you-go instances of the ecs.g5.2xlarge instance type.
+     * <!---->
+     *     "RegionId":"cn-hangzhou", //The ID of the region.
+     *     "ReservedInstanceId":["ecsri-bp1hd03e9uv16b77****"], //The ID of the reserved instance whose scope you want to change.
+     *     "Configuration":[
+     *       {
+     *         "ReservedInstanceName":"testReservedInstanceName", //The name of the new reserved instance.
+     *         "InstanceType":"ecs.g5.2xlarge", //The instance type that the new reserved instance can match.
+     *         "Scope":"Region", //The scope level of the new reserved instance.
+     *         "InstanceAmount":3 //The number of pay-as-you-go instances of the specified instance type that the new reserved instance can match.
+     *       }
+     *     ]
      *  *
      * @param ModifyReservedInstancesRequest $request ModifyReservedInstancesRequest
      *
@@ -27288,7 +27390,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 修改快照分组
+     * @summary Modifies the name and description of a snapshot-consistent group.
      *  *
      * @param ModifySnapshotGroupRequest $request ModifySnapshotGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -27342,7 +27444,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 修改快照分组
+     * @summary Modifies the name and description of a snapshot-consistent group.
      *  *
      * @param ModifySnapshotGroupRequest $request ModifySnapshotGroupRequest
      *
@@ -27959,11 +28061,22 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Purchases a reserved instance. When you call this operation, you can specify parameters, such as InstanceType and Scope, in the request. Reserved instances can be applied to automatically offset fees for pay-as-you-go Elastic Compute Service (ECS) instances.
+     * @summary Purchases a regional or zonal reserved instance to offset the bills of pay-as-you-go Elastic Compute Service (ECS) instances.
      *  *
-     * @description ## [](#)Usage notes
-     * *   Before you call this operation, make sure that you fully understand the billing method of reserved instances. For more information, see [Reserved instances](https://help.aliyun.com/document_detail/100371.html).
-     * *   Before you purchase a reserved instance, you can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to query available instance resources.
+     * @description **Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of reserved instances.**
+     * *   Before you call this operation, make sure that you are familiar with the billing rules of reserved instances. For more information, see [Reserved instances](https://help.aliyun.com/document_detail/100371.html).
+     * *   You can retain up to 20 regional reserved instances in all regions per Alibaba Cloud account.
+     * *   You can retain up to 20 zonal reserved instances per zone per Alibaba Cloud account.
+     * ## [](#)Sample requests
+     * *   Purchase a one-year regional reserved instance in the China (Hangzhou) region to offset the bills of three ecs.g5.large Linux pay-as-you-go instances.
+     * <!---->
+     *     "RegionId":"cn-hangzhou", // Specify the China (Hangzhou) region."InstanceType":"ecs.g5.large", // Specify the instance type."Scope":"Region", // Set the scope of the reserved instance to regional."InstanceAmount":3, // Specify the reserved instance to match three pay-as-you-go instances of the same instance type."OfferingType":"All Upfront", // Specify the payment option. In this example, the default value is used, which is All Upfront."Platform":"Linux", // Specify the operating system platform of the ECS instances eligible for the reserved instance. In this example, the Linux or Unix-like operating system is used."Period":1, // Specify the term of the reserved instance. In this example, the one-year duration is used."PeriodUnit":"Year", // Set the unit of the term to year.
+     * *   Purchase a two-year zonal reserved instance in Hangzhou Zone H to offset the bills of five ecs.g5.large Windows pay-as-you-go instances.
+     * <!---->
+     *     "RegionId":"cn-hangzhou",
+     *     "ZoneId":"cn-hangzhou-h", // Specify Hangzhou Zone H."InstanceType":"ecs.g5.large",
+     *     "Scope":"Zone", // Set the scope of the reserved instance to zonal."InstanceAmount":5, // Specify the reserved instance to match five pay-as-you-go instances of the same instance type."OfferingType":"All Upfront",
+     *     "Platform":"Windows", // Specify the operating system platform of the ECS instances eligible for the reserved instance. In this example, the Windows operating system is used."Period":2, // Specify the term of the reserved instance. In this example, the two-year duration is used."PeriodUnit":"Year", // Set the unit of the term to year.
      *  *
      * @param PurchaseReservedInstancesOfferingRequest $request PurchaseReservedInstancesOfferingRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -28056,11 +28169,22 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Purchases a reserved instance. When you call this operation, you can specify parameters, such as InstanceType and Scope, in the request. Reserved instances can be applied to automatically offset fees for pay-as-you-go Elastic Compute Service (ECS) instances.
+     * @summary Purchases a regional or zonal reserved instance to offset the bills of pay-as-you-go Elastic Compute Service (ECS) instances.
      *  *
-     * @description ## [](#)Usage notes
-     * *   Before you call this operation, make sure that you fully understand the billing method of reserved instances. For more information, see [Reserved instances](https://help.aliyun.com/document_detail/100371.html).
-     * *   Before you purchase a reserved instance, you can call the [DescribeAvailableResource](https://help.aliyun.com/document_detail/66186.html) operation to query available instance resources.
+     * @description **Before you call this operation, make sure that you are familiar with the billing methods and [pricing](https://www.alibabacloud.com/zh/pricing-calculator#/commodity/vm_intl) of reserved instances.**
+     * *   Before you call this operation, make sure that you are familiar with the billing rules of reserved instances. For more information, see [Reserved instances](https://help.aliyun.com/document_detail/100371.html).
+     * *   You can retain up to 20 regional reserved instances in all regions per Alibaba Cloud account.
+     * *   You can retain up to 20 zonal reserved instances per zone per Alibaba Cloud account.
+     * ## [](#)Sample requests
+     * *   Purchase a one-year regional reserved instance in the China (Hangzhou) region to offset the bills of three ecs.g5.large Linux pay-as-you-go instances.
+     * <!---->
+     *     "RegionId":"cn-hangzhou", // Specify the China (Hangzhou) region."InstanceType":"ecs.g5.large", // Specify the instance type."Scope":"Region", // Set the scope of the reserved instance to regional."InstanceAmount":3, // Specify the reserved instance to match three pay-as-you-go instances of the same instance type."OfferingType":"All Upfront", // Specify the payment option. In this example, the default value is used, which is All Upfront."Platform":"Linux", // Specify the operating system platform of the ECS instances eligible for the reserved instance. In this example, the Linux or Unix-like operating system is used."Period":1, // Specify the term of the reserved instance. In this example, the one-year duration is used."PeriodUnit":"Year", // Set the unit of the term to year.
+     * *   Purchase a two-year zonal reserved instance in Hangzhou Zone H to offset the bills of five ecs.g5.large Windows pay-as-you-go instances.
+     * <!---->
+     *     "RegionId":"cn-hangzhou",
+     *     "ZoneId":"cn-hangzhou-h", // Specify Hangzhou Zone H."InstanceType":"ecs.g5.large",
+     *     "Scope":"Zone", // Set the scope of the reserved instance to zonal."InstanceAmount":5, // Specify the reserved instance to match five pay-as-you-go instances of the same instance type."OfferingType":"All Upfront",
+     *     "Platform":"Windows", // Specify the operating system platform of the ECS instances eligible for the reserved instance. In this example, the Windows operating system is used."Period":2, // Specify the term of the reserved instance. In this example, the two-year duration is used."PeriodUnit":"Year", // Set the unit of the term to year.
      *  *
      * @param PurchaseReservedInstancesOfferingRequest $request PurchaseReservedInstancesOfferingRequest
      *
@@ -31090,6 +31214,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->templateTag)) {
             $query['TemplateTag'] = $request->templateTag;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionRequest\tag;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\StartImagePipelineExecutionRequest\templateTag;
 use AlibabaCloud\Tea\Model;
 
@@ -59,7 +60,14 @@ class StartImagePipelineExecutionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description > This parameter is deprecated.
+     *
+     * @deprecated
      *
      * @var templateTag[]
      */
@@ -72,6 +80,7 @@ class StartImagePipelineExecutionRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
         'templateTag'          => 'TemplateTag',
     ];
 
@@ -102,6 +111,15 @@ class StartImagePipelineExecutionRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateTag) {
             $res['TemplateTag'] = [];
@@ -144,6 +162,15 @@ class StartImagePipelineExecutionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateTag'])) {
             if (!empty($map['TemplateTag'])) {

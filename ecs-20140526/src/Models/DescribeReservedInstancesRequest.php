@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeReservedInstancesRequest extends Model
 {
     /**
-     * @description The allocation type. Valid values:
+     * @description The allocation type of the reserved instances. Valid values:
      *
      *   Normal: queries all reserved instances that belong to the current account.
-     *   Shared: queries reserved instances that are shared between the main account and linked accounts.
+     *   Shared: queries the reserved instances that are shared between the current main account and linked accounts.
      *
      * Default value: Normal.
      * @example Normal
@@ -41,10 +41,10 @@ class DescribeReservedInstancesRequest extends Model
     public $instanceTypeFamily;
 
     /**
-     * @description The reason why the instance is locked. Valid values:
+     * @description The reason why the reserved instance is locked. Valid values:
      *
-     *   financial: You have an overdue payment in your account, or the reserved instance has expired.
-     *   security: The reserved instance is locked for security reasons.
+     *   financial: The reserved instance is locked because the account has overdue payments or the service expires.
+     *   security: The reserved instance is locked due to security reasons.
      *
      * @example security
      *
@@ -53,7 +53,7 @@ class DescribeReservedInstancesRequest extends Model
     public $lockReason;
 
     /**
-     * @description The payment option of the reserved instances. Valid values:
+     * @description The payment option of the reserved instance. Valid values:
      *
      *   No Upfront
      *   Partial Upfront
@@ -86,7 +86,7 @@ class DescribeReservedInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 50
@@ -106,7 +106,7 @@ class DescribeReservedInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of reserved instance N. Valid values of N: 1 to 100.
+     * @description The IDs of reserved instances. You can specify up to 100 IDs of reserved instances.
      *
      * @example ri-bpzhex2ulpzf53****
      *
@@ -134,10 +134,10 @@ class DescribeReservedInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The scope of the reserved instances. Valid values:
+     * @description The scope of the reserved instance. Valid values:
      *
-     *   Region
-     *   Zone
+     *   Region: regional
+     *   Zone: zonal
      *
      * Default value: Region.
      * @example Region
@@ -147,12 +147,7 @@ class DescribeReservedInstancesRequest extends Model
     public $scope;
 
     /**
-     * @description The status of reserved instance N. Valid values of N: 1 to 100. Valid values:
-     *
-     *   Creating
-     *   Active
-     *   Expired
-     *   Updating
+     * @description The statuses of the reserved instances.
      *
      * @example Active
      *
@@ -161,7 +156,7 @@ class DescribeReservedInstancesRequest extends Model
     public $status;
 
     /**
-     * @description The tags to add to the instances.
+     * @description The tags of the reserved instance. You can specify up to 20 tags.
      *
      * @var tag[]
      */

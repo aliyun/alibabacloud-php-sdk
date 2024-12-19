@@ -66,10 +66,16 @@ class dataDisk extends Model
      * @var int
      */
     public $size;
+
+    /**
+     * @var int
+     */
+    public $provisionedIops;
     protected $_name = [
         'category'         => 'Category',
         'performanceLevel' => 'PerformanceLevel',
         'size'             => 'Size',
+        'provisionedIops'  => 'ProvisionedIops',
     ];
 
     public function validate()
@@ -87,6 +93,9 @@ class dataDisk extends Model
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class dataDisk extends Model
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
 
         return $model;

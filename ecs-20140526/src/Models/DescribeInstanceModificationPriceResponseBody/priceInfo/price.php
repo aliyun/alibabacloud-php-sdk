@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPriceResponseBody\priceInfo;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeInstanceModificationPriceResponseBody\priceInfo\price\detailInfos;
 use AlibabaCloud\Tea\Model;
 
 class price extends Model
@@ -17,6 +18,11 @@ class price extends Model
      * @var string
      */
     public $currency;
+
+    /**
+     * @var detailInfos
+     */
+    public $detailInfos;
 
     /**
      * @description The discount.
@@ -46,6 +52,7 @@ class price extends Model
     public $tradePrice;
     protected $_name = [
         'currency'      => 'Currency',
+        'detailInfos'   => 'DetailInfos',
         'discountPrice' => 'DiscountPrice',
         'originalPrice' => 'OriginalPrice',
         'tradePrice'    => 'TradePrice',
@@ -60,6 +67,9 @@ class price extends Model
         $res = [];
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
+        }
+        if (null !== $this->detailInfos) {
+            $res['DetailInfos'] = null !== $this->detailInfos ? $this->detailInfos->toMap() : null;
         }
         if (null !== $this->discountPrice) {
             $res['DiscountPrice'] = $this->discountPrice;
@@ -84,6 +94,9 @@ class price extends Model
         $model = new self();
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
+        }
+        if (isset($map['DetailInfos'])) {
+            $model->detailInfos = detailInfos::fromMap($map['DetailInfos']);
         }
         if (isset($map['DiscountPrice'])) {
             $model->discountPrice = $map['DiscountPrice'];

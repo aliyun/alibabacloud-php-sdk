@@ -51,9 +51,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $description;
 
     /**
-     * @description The number of pay-as-you-go instances of the same instance type that the reserved instance can match at the same time. Valid values: 1 to 50.
+     * @description The number of pay-as-you-go instances of the same instance type that the reserved instance can match. Valid values: 1 to 50.
      *
-     * For example, if you set the InstanceAmount parameter to 3 and the InstanceType parameter to ecs.g5.large, the reserved instance can be matched three ecs.g5.large pay-as-you-go instances at the same time.
+     * Default value: 1.
      * @example 3
      *
      * @var int
@@ -61,7 +61,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description The type of the reserved instance. For more information, see [Instance family](https://help.aliyun.com/document_detail/25378.html).
+     * @description The instance type that the reserved instance can match.
      *
      * This parameter is required.
      * @example ecs.g5.large
@@ -138,7 +138,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
+     * @description The name of the reserved instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example testReservedInstanceName
      *
@@ -181,6 +181,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     /**
      * @description The time when the reserved instance takes effect. Specify the time in the [ISO 8601 standard](https://help.aliyun.com/document_detail/25696.html) in the `yyyy-MM-ddTHHZ` format. The time must be in UTC.
      *
+     * >  If you do not specify this parameter, the reserved instance takes effect starting on the hour when the reserved instance is purchased. For example, if you purchased a reserved instance at 13:45:35 on November 1, 2024, the instance took effect starting 13:00:00 on November 1, 2024.
      * @example 2024-07-04T15Z
      *
      * @var string
@@ -188,14 +189,14 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $startTime;
 
     /**
-     * @description The list of tags.
+     * @description The tags to add to the reserved instance. You can add up to 20 tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID of the instance. This parameter is required when `Scope` is set to `Zone`. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+     * @description The ID of the zone in which to purchase the reserved instance. This parameter is required when `Scope` is set to `Zone`. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *
