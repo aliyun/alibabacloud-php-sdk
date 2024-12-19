@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBod
 
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\accessKeyPreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\loginProfilePreference;
+use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\maxIdleDays;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\MFAPreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\personalInfoPreference;
 use AlibabaCloud\SDK\Ims\V20190815\Models\SetSecurityPreferenceResponseBody\securityPreference\verificationPreference;
@@ -35,6 +36,11 @@ class securityPreference extends Model
     public $MFAPreference;
 
     /**
+     * @var maxIdleDays
+     */
+    public $maxIdleDays;
+
+    /**
      * @description The personal information preference.
      *
      * @var personalInfoPreference
@@ -51,6 +57,7 @@ class securityPreference extends Model
         'accessKeyPreference'    => 'AccessKeyPreference',
         'loginProfilePreference' => 'LoginProfilePreference',
         'MFAPreference'          => 'MFAPreference',
+        'maxIdleDays'            => 'MaxIdleDays',
         'personalInfoPreference' => 'PersonalInfoPreference',
         'verificationPreference' => 'VerificationPreference',
     ];
@@ -70,6 +77,9 @@ class securityPreference extends Model
         }
         if (null !== $this->MFAPreference) {
             $res['MFAPreference'] = null !== $this->MFAPreference ? $this->MFAPreference->toMap() : null;
+        }
+        if (null !== $this->maxIdleDays) {
+            $res['MaxIdleDays'] = null !== $this->maxIdleDays ? $this->maxIdleDays->toMap() : null;
         }
         if (null !== $this->personalInfoPreference) {
             $res['PersonalInfoPreference'] = null !== $this->personalInfoPreference ? $this->personalInfoPreference->toMap() : null;
@@ -97,6 +107,9 @@ class securityPreference extends Model
         }
         if (isset($map['MFAPreference'])) {
             $model->MFAPreference = MFAPreference::fromMap($map['MFAPreference']);
+        }
+        if (isset($map['MaxIdleDays'])) {
+            $model->maxIdleDays = maxIdleDays::fromMap($map['MaxIdleDays']);
         }
         if (isset($map['PersonalInfoPreference'])) {
             $model->personalInfoPreference = personalInfoPreference::fromMap($map['PersonalInfoPreference']);

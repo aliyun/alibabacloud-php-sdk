@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class loginProfile extends Model
 {
     /**
+     * @var string
+     */
+    public $autoDisableLoginStatus;
+
+    /**
      * @description The time of the most recent logon. The time is displayed in UTC.
      *
      * @example 2020-10-14T07:25:25Z
@@ -71,12 +76,13 @@ class loginProfile extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'lastLoginTime'         => 'LastLoginTime',
-        'MFABindRequired'       => 'MFABindRequired',
-        'passwordResetRequired' => 'PasswordResetRequired',
-        'status'                => 'Status',
-        'updateDate'            => 'UpdateDate',
-        'userPrincipalName'     => 'UserPrincipalName',
+        'autoDisableLoginStatus' => 'AutoDisableLoginStatus',
+        'lastLoginTime'          => 'LastLoginTime',
+        'MFABindRequired'        => 'MFABindRequired',
+        'passwordResetRequired'  => 'PasswordResetRequired',
+        'status'                 => 'Status',
+        'updateDate'             => 'UpdateDate',
+        'userPrincipalName'      => 'UserPrincipalName',
     ];
 
     public function validate()
@@ -86,6 +92,9 @@ class loginProfile extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoDisableLoginStatus) {
+            $res['AutoDisableLoginStatus'] = $this->autoDisableLoginStatus;
+        }
         if (null !== $this->lastLoginTime) {
             $res['LastLoginTime'] = $this->lastLoginTime;
         }
@@ -116,6 +125,9 @@ class loginProfile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoDisableLoginStatus'])) {
+            $model->autoDisableLoginStatus = $map['AutoDisableLoginStatus'];
+        }
         if (isset($map['LastLoginTime'])) {
             $model->lastLoginTime = $map['LastLoginTime'];
         }

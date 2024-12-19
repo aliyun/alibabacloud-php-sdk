@@ -72,6 +72,11 @@ class summaryMap extends Model
     public $attachedSystemPoliciesPerUserQuota;
 
     /**
+     * @var int
+     */
+    public $conditionsPerAKPolicyQuota;
+
+    /**
      * @description The number of RAM user groups.
      *
      * @example 7
@@ -97,6 +102,11 @@ class summaryMap extends Model
      * @var int
      */
     public $groupsQuota;
+
+    /**
+     * @var int
+     */
+    public $IPItemsPerAKPolicyQuota;
 
     /**
      * @description The number of virtual multi-factor authentication (MFA) devices.
@@ -204,9 +214,11 @@ class summaryMap extends Model
         'attachedSystemPoliciesPerGroupQuota' => 'AttachedSystemPoliciesPerGroupQuota',
         'attachedSystemPoliciesPerRoleQuota'  => 'AttachedSystemPoliciesPerRoleQuota',
         'attachedSystemPoliciesPerUserQuota'  => 'AttachedSystemPoliciesPerUserQuota',
+        'conditionsPerAKPolicyQuota'          => 'ConditionsPerAKPolicyQuota',
         'groups'                              => 'Groups',
         'groupsPerUserQuota'                  => 'GroupsPerUserQuota',
         'groupsQuota'                         => 'GroupsQuota',
+        'IPItemsPerAKPolicyQuota'             => 'IPItemsPerAKPolicyQuota',
         'MFADevices'                          => 'MFADevices',
         'MFADevicesInUse'                     => 'MFADevicesInUse',
         'policies'                            => 'Policies',
@@ -248,6 +260,9 @@ class summaryMap extends Model
         if (null !== $this->attachedSystemPoliciesPerUserQuota) {
             $res['AttachedSystemPoliciesPerUserQuota'] = $this->attachedSystemPoliciesPerUserQuota;
         }
+        if (null !== $this->conditionsPerAKPolicyQuota) {
+            $res['ConditionsPerAKPolicyQuota'] = $this->conditionsPerAKPolicyQuota;
+        }
         if (null !== $this->groups) {
             $res['Groups'] = $this->groups;
         }
@@ -256,6 +271,9 @@ class summaryMap extends Model
         }
         if (null !== $this->groupsQuota) {
             $res['GroupsQuota'] = $this->groupsQuota;
+        }
+        if (null !== $this->IPItemsPerAKPolicyQuota) {
+            $res['IPItemsPerAKPolicyQuota'] = $this->IPItemsPerAKPolicyQuota;
         }
         if (null !== $this->MFADevices) {
             $res['MFADevices'] = $this->MFADevices;
@@ -323,6 +341,9 @@ class summaryMap extends Model
         if (isset($map['AttachedSystemPoliciesPerUserQuota'])) {
             $model->attachedSystemPoliciesPerUserQuota = $map['AttachedSystemPoliciesPerUserQuota'];
         }
+        if (isset($map['ConditionsPerAKPolicyQuota'])) {
+            $model->conditionsPerAKPolicyQuota = $map['ConditionsPerAKPolicyQuota'];
+        }
         if (isset($map['Groups'])) {
             $model->groups = $map['Groups'];
         }
@@ -331,6 +352,9 @@ class summaryMap extends Model
         }
         if (isset($map['GroupsQuota'])) {
             $model->groupsQuota = $map['GroupsQuota'];
+        }
+        if (isset($map['IPItemsPerAKPolicyQuota'])) {
+            $model->IPItemsPerAKPolicyQuota = $map['IPItemsPerAKPolicyQuota'];
         }
         if (isset($map['MFADevices'])) {
             $model->MFADevices = $map['MFADevices'];

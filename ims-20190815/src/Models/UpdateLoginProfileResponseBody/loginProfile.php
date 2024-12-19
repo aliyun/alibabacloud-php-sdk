@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class loginProfile extends Model
 {
     /**
+     * @var string
+     */
+    public $autoDisableLoginStatus;
+
+    /**
      * @description Indicates whether MFA must be enabled.
      *
      * @example false
@@ -53,11 +58,12 @@ class loginProfile extends Model
      */
     public $userPrincipalName;
     protected $_name = [
-        'MFABindRequired'       => 'MFABindRequired',
-        'passwordResetRequired' => 'PasswordResetRequired',
-        'status'                => 'Status',
-        'updateDate'            => 'UpdateDate',
-        'userPrincipalName'     => 'UserPrincipalName',
+        'autoDisableLoginStatus' => 'AutoDisableLoginStatus',
+        'MFABindRequired'        => 'MFABindRequired',
+        'passwordResetRequired'  => 'PasswordResetRequired',
+        'status'                 => 'Status',
+        'updateDate'             => 'UpdateDate',
+        'userPrincipalName'      => 'UserPrincipalName',
     ];
 
     public function validate()
@@ -67,6 +73,9 @@ class loginProfile extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoDisableLoginStatus) {
+            $res['AutoDisableLoginStatus'] = $this->autoDisableLoginStatus;
+        }
         if (null !== $this->MFABindRequired) {
             $res['MFABindRequired'] = $this->MFABindRequired;
         }
@@ -94,6 +103,9 @@ class loginProfile extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoDisableLoginStatus'])) {
+            $model->autoDisableLoginStatus = $map['AutoDisableLoginStatus'];
+        }
         if (isset($map['MFABindRequired'])) {
             $model->MFABindRequired = $map['MFABindRequired'];
         }
