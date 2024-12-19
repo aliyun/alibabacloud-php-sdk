@@ -2480,11 +2480,8 @@ class Oos extends OpenApiClient
     public function getServiceSettingsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        $req = new OpenApiRequest([
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2492,7 +2489,7 @@ class Oos extends OpenApiClient
             'version'     => '2019-06-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'POST',
+            'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',

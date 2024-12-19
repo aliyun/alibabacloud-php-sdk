@@ -18,6 +18,10 @@ class applicationGroup extends Model
     public $applicationName;
 
     /**
+     * @description The source of application.
+     *
+     * @example {"Platform":"github","RepoName":"wenle/springboot-ecs-sourcecode-demo","Owner":"wenle","Branch":"main","CommitHash":"8559ff3ac7568fc7951ff63f841883ee3f06c6fe","CommitMessage":"Init computenest project"}
+     *
      * @var string
      */
     public $applicationSource;
@@ -104,9 +108,9 @@ class applicationGroup extends Model
     public $name;
 
     /**
-     * @description The operation metadata.
+     * @description The hosted O\\&M configurations.
      *
-     * @example {\\"PrometheusConfigMap\\":{\\"模板1\\":{\\"EnablePrometheus\\":false}}}
+     * @example {\\\\"PrometheusConfigMap\\\\":{\\\\"Template 1\\\\":{\\\\"EnablePrometheus\\\\":false}}}
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateParameterConstraintsResponseBody extends Model
 {
     /**
+     * @description The constraints of the parameters.
+     *
      * @example [
      * ]
      * @var mixed[]
@@ -16,6 +18,8 @@ class GetTemplateParameterConstraintsResponseBody extends Model
     public $parameterConstraints;
 
     /**
+     * @description The request ID.
+     *
      * @example CBEC8072-BEC2-478E-8EAE-E723BA79CF19
      *
      * @var string

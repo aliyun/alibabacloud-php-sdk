@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateParameterConstraintsRequest extends Model
 {
     /**
+     * @description The information about the parameters.
+     *
      * @example {\\"endDate\\": \\"2022-04-13T03:31:20Z\\", \\"Status\\": \\"Stopped\\"}
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTemplateParameterConstraintsRequest extends Model
     public $parameters;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class GetTemplateParameterConstraintsRequest extends Model
     public $regionId;
 
     /**
+     * @description The content of the template in the JSON or YAML format. This parameter is the same as the Content parameter that you can specify when you call the CreateTemplate operation. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+     *
      * @example {
      * }
      * @var string
@@ -30,6 +36,8 @@ class GetTemplateParameterConstraintsRequest extends Model
     public $templateContent;
 
     /**
+     * @description The name of the template.
+     *
      * @example MyTemplate
      *
      * @var string
@@ -37,6 +45,8 @@ class GetTemplateParameterConstraintsRequest extends Model
     public $templateName;
 
     /**
+     * @description The URL that is used to store the content of the Operation Orchestration Service (OOS) template in the Alibaba Cloud Object Storage Service (OSS). Only the public-read URL is supported. You can use this parameter to specify the tasks that you want to run. This way, you do not need to create a template before you start an execution. If you select an existing template, you do not need to specify this parameter.
+     *
      * @example http://oos-template.cn-hangzhou.oss.aliyun-inc.com/oos-test-template.json
      *
      * @var string
@@ -44,6 +54,8 @@ class GetTemplateParameterConstraintsRequest extends Model
     public $templateURL;
 
     /**
+     * @description The version of the template. The default value is the latest version of the template.
+     *
      * @example v1
      *
      * @var string

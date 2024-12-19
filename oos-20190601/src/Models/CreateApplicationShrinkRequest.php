@@ -16,6 +16,10 @@ class CreateApplicationShrinkRequest extends Model
     public $alarmConfigShrink;
 
     /**
+     * @description The source of application.
+     *
+     * @example {"Platform":"github","Owner":"githubUser","RepoName":"githubUser/repoName"}
+     *
      * @var string
      */
     public $applicationSource;
@@ -67,7 +71,7 @@ class CreateApplicationShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the service.
+     * @description The ID of the Compute Nest service that corresponds to the application template.
      *
      * @example service-79538e30e44541b699d8
      *
