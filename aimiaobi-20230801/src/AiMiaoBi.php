@@ -43,6 +43,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DeleteMaterialByIdResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\DocumentExtractionShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportAnalysisTagDetailByTaskIdShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportGeneratedContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\ExportHotTopicPlanningProposalsRequest;
@@ -1224,6 +1227,64 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->documentExtractionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 导出企业VOC分析任务明细列表
+     *  *
+     * @param ExportAnalysisTagDetailByTaskIdRequest $tmpReq  ExportAnalysisTagDetailByTaskIdRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExportAnalysisTagDetailByTaskIdResponse ExportAnalysisTagDetailByTaskIdResponse
+     */
+    public function exportAnalysisTagDetailByTaskIdWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExportAnalysisTagDetailByTaskIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->categories)) {
+            $request->categoriesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->categories, 'Categories', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoriesShrink)) {
+            $body['Categories'] = $request->categoriesShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExportAnalysisTagDetailByTaskId',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExportAnalysisTagDetailByTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 导出企业VOC分析任务明细列表
+     *  *
+     * @param ExportAnalysisTagDetailByTaskIdRequest $request ExportAnalysisTagDetailByTaskIdRequest
+     *
+     * @return ExportAnalysisTagDetailByTaskIdResponse ExportAnalysisTagDetailByTaskIdResponse
+     */
+    public function exportAnalysisTagDetailByTaskId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->exportAnalysisTagDetailByTaskIdWithOptions($request, $runtime);
     }
 
     /**
