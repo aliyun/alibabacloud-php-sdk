@@ -4,11 +4,23 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody;
 
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody\fileSystems\appInstanceGroups;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody\fileSystems\desktopGroups;
+use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody\fileSystems\officeSites;
 use AlibabaCloud\Tea\Model;
 
 class fileSystems extends Model
 {
+    /**
+     * @var bool
+     */
+    public $allowOperateUserDrive;
+
+    /**
+     * @var appInstanceGroups[]
+     */
+    public $appInstanceGroups;
+
     /**
      * @description The total capacity of the NAS file system. Unit: GiB.
      *
@@ -150,6 +162,11 @@ class fileSystems extends Model
     public $officeSiteName;
 
     /**
+     * @var officeSites[]
+     */
+    public $officeSites;
+
+    /**
      * @description Indicates whether the User Profile Management (UPM) feature is supported.
      *
      * @example false
@@ -166,6 +183,11 @@ class fileSystems extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $scene;
 
     /**
      * @description The storage type of the NAS file system. Valid values:
@@ -197,25 +219,29 @@ class fileSystems extends Model
      */
     public $zoneId;
     protected $_name = [
-        'capacity'          => 'Capacity',
-        'createTime'        => 'CreateTime',
-        'description'       => 'Description',
-        'desktopGroups'     => 'DesktopGroups',
-        'encryptionEnabled' => 'EncryptionEnabled',
-        'fileSystemId'      => 'FileSystemId',
-        'fileSystemName'    => 'FileSystemName',
-        'fileSystemStatus'  => 'FileSystemStatus',
-        'fileSystemType'    => 'FileSystemType',
-        'meteredSize'       => 'MeteredSize',
-        'mountTargetDomain' => 'MountTargetDomain',
-        'mountTargetStatus' => 'MountTargetStatus',
-        'officeSiteId'      => 'OfficeSiteId',
-        'officeSiteName'    => 'OfficeSiteName',
-        'profileCompatible' => 'ProfileCompatible',
-        'regionId'          => 'RegionId',
-        'storageType'       => 'StorageType',
-        'supportAcl'        => 'SupportAcl',
-        'zoneId'            => 'ZoneId',
+        'allowOperateUserDrive' => 'AllowOperateUserDrive',
+        'appInstanceGroups'     => 'AppInstanceGroups',
+        'capacity'              => 'Capacity',
+        'createTime'            => 'CreateTime',
+        'description'           => 'Description',
+        'desktopGroups'         => 'DesktopGroups',
+        'encryptionEnabled'     => 'EncryptionEnabled',
+        'fileSystemId'          => 'FileSystemId',
+        'fileSystemName'        => 'FileSystemName',
+        'fileSystemStatus'      => 'FileSystemStatus',
+        'fileSystemType'        => 'FileSystemType',
+        'meteredSize'           => 'MeteredSize',
+        'mountTargetDomain'     => 'MountTargetDomain',
+        'mountTargetStatus'     => 'MountTargetStatus',
+        'officeSiteId'          => 'OfficeSiteId',
+        'officeSiteName'        => 'OfficeSiteName',
+        'officeSites'           => 'OfficeSites',
+        'profileCompatible'     => 'ProfileCompatible',
+        'regionId'              => 'RegionId',
+        'scene'                 => 'Scene',
+        'storageType'           => 'StorageType',
+        'supportAcl'            => 'SupportAcl',
+        'zoneId'                => 'ZoneId',
     ];
 
     public function validate()
@@ -225,6 +251,18 @@ class fileSystems extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allowOperateUserDrive) {
+            $res['AllowOperateUserDrive'] = $this->allowOperateUserDrive;
+        }
+        if (null !== $this->appInstanceGroups) {
+            $res['AppInstanceGroups'] = [];
+            if (null !== $this->appInstanceGroups && \is_array($this->appInstanceGroups)) {
+                $n = 0;
+                foreach ($this->appInstanceGroups as $item) {
+                    $res['AppInstanceGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->capacity) {
             $res['Capacity'] = $this->capacity;
         }
@@ -273,11 +311,23 @@ class fileSystems extends Model
         if (null !== $this->officeSiteName) {
             $res['OfficeSiteName'] = $this->officeSiteName;
         }
+        if (null !== $this->officeSites) {
+            $res['OfficeSites'] = [];
+            if (null !== $this->officeSites && \is_array($this->officeSites)) {
+                $n = 0;
+                foreach ($this->officeSites as $item) {
+                    $res['OfficeSites'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->profileCompatible) {
             $res['ProfileCompatible'] = $this->profileCompatible;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
@@ -300,6 +350,18 @@ class fileSystems extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllowOperateUserDrive'])) {
+            $model->allowOperateUserDrive = $map['AllowOperateUserDrive'];
+        }
+        if (isset($map['AppInstanceGroups'])) {
+            if (!empty($map['AppInstanceGroups'])) {
+                $model->appInstanceGroups = [];
+                $n                        = 0;
+                foreach ($map['AppInstanceGroups'] as $item) {
+                    $model->appInstanceGroups[$n++] = null !== $item ? appInstanceGroups::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Capacity'])) {
             $model->capacity = $map['Capacity'];
         }
@@ -348,11 +410,23 @@ class fileSystems extends Model
         if (isset($map['OfficeSiteName'])) {
             $model->officeSiteName = $map['OfficeSiteName'];
         }
+        if (isset($map['OfficeSites'])) {
+            if (!empty($map['OfficeSites'])) {
+                $model->officeSites = [];
+                $n                  = 0;
+                foreach ($map['OfficeSites'] as $item) {
+                    $model->officeSites[$n++] = null !== $item ? officeSites::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['ProfileCompatible'])) {
             $model->profileCompatible = $map['ProfileCompatible'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];

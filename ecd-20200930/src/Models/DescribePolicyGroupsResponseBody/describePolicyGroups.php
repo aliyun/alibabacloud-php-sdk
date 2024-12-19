@@ -147,6 +147,16 @@ class describePolicyGroups extends Model
     public $cpuSingleRateLimit;
 
     /**
+     * @var int
+     */
+    public $desktopCount;
+
+    /**
+     * @var int
+     */
+    public $desktopGroupCount;
+
+    /**
      * @var deviceRedirects[]
      */
     public $deviceRedirects;
@@ -349,6 +359,16 @@ class describePolicyGroups extends Model
      * @var int
      */
     public $memorySingleRateLimit;
+
+    /**
+     * @var string
+     */
+    public $mobileRestart;
+
+    /**
+     * @var string
+     */
+    public $mobileShutdown;
 
     /**
      * @description The policy name.
@@ -583,6 +603,11 @@ class describePolicyGroups extends Model
     public $remoteCoordinate;
 
     /**
+     * @var int
+     */
+    public $resourceGroupCount;
+
+    /**
      * @var string
      */
     public $resourceRegionId;
@@ -610,6 +635,11 @@ class describePolicyGroups extends Model
      * @var string
      */
     public $smoothEnhancement;
+
+    /**
+     * @var string
+     */
+    public $statusMonitor;
 
     /**
      * @var string
@@ -849,6 +879,8 @@ class describePolicyGroups extends Model
         'cpuRateLimit'                  => 'CpuRateLimit',
         'cpuSampleDuration'             => 'CpuSampleDuration',
         'cpuSingleRateLimit'            => 'CpuSingleRateLimit',
+        'desktopCount'                  => 'DesktopCount',
+        'desktopGroupCount'             => 'DesktopGroupCount',
         'deviceRedirects'               => 'DeviceRedirects',
         'deviceRules'                   => 'DeviceRules',
         'displayMode'                   => 'DisplayMode',
@@ -870,6 +902,8 @@ class describePolicyGroups extends Model
         'memoryRateLimit'               => 'MemoryRateLimit',
         'memorySampleDuration'          => 'MemorySampleDuration',
         'memorySingleRateLimit'         => 'MemorySingleRateLimit',
+        'mobileRestart'                 => 'MobileRestart',
+        'mobileShutdown'                => 'MobileShutdown',
         'name'                          => 'Name',
         'netRedirect'                   => 'NetRedirect',
         'netRedirectRule'               => 'NetRedirectRule',
@@ -892,10 +926,12 @@ class describePolicyGroups extends Model
         'recordingUserNotify'           => 'RecordingUserNotify',
         'recordingUserNotifyMessage'    => 'RecordingUserNotifyMessage',
         'remoteCoordinate'              => 'RemoteCoordinate',
+        'resourceGroupCount'            => 'ResourceGroupCount',
         'resourceRegionId'              => 'ResourceRegionId',
         'scope'                         => 'Scope',
         'scopeValue'                    => 'ScopeValue',
         'smoothEnhancement'             => 'SmoothEnhancement',
+        'statusMonitor'                 => 'StatusMonitor',
         'streamingMode'                 => 'StreamingMode',
         'targetFps'                     => 'TargetFps',
         'usbRedirect'                   => 'UsbRedirect',
@@ -990,6 +1026,12 @@ class describePolicyGroups extends Model
         if (null !== $this->cpuSingleRateLimit) {
             $res['CpuSingleRateLimit'] = $this->cpuSingleRateLimit;
         }
+        if (null !== $this->desktopCount) {
+            $res['DesktopCount'] = $this->desktopCount;
+        }
+        if (null !== $this->desktopGroupCount) {
+            $res['DesktopGroupCount'] = $this->desktopGroupCount;
+        }
         if (null !== $this->deviceRedirects) {
             $res['DeviceRedirects'] = [];
             if (null !== $this->deviceRedirects && \is_array($this->deviceRedirects)) {
@@ -1071,6 +1113,12 @@ class describePolicyGroups extends Model
         if (null !== $this->memorySingleRateLimit) {
             $res['MemorySingleRateLimit'] = $this->memorySingleRateLimit;
         }
+        if (null !== $this->mobileRestart) {
+            $res['MobileRestart'] = $this->mobileRestart;
+        }
+        if (null !== $this->mobileShutdown) {
+            $res['MobileShutdown'] = $this->mobileShutdown;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -1143,6 +1191,9 @@ class describePolicyGroups extends Model
         if (null !== $this->remoteCoordinate) {
             $res['RemoteCoordinate'] = $this->remoteCoordinate;
         }
+        if (null !== $this->resourceGroupCount) {
+            $res['ResourceGroupCount'] = $this->resourceGroupCount;
+        }
         if (null !== $this->resourceRegionId) {
             $res['ResourceRegionId'] = $this->resourceRegionId;
         }
@@ -1154,6 +1205,9 @@ class describePolicyGroups extends Model
         }
         if (null !== $this->smoothEnhancement) {
             $res['SmoothEnhancement'] = $this->smoothEnhancement;
+        }
+        if (null !== $this->statusMonitor) {
+            $res['StatusMonitor'] = $this->statusMonitor;
         }
         if (null !== $this->streamingMode) {
             $res['StreamingMode'] = $this->streamingMode;
@@ -1310,6 +1364,12 @@ class describePolicyGroups extends Model
         if (isset($map['CpuSingleRateLimit'])) {
             $model->cpuSingleRateLimit = $map['CpuSingleRateLimit'];
         }
+        if (isset($map['DesktopCount'])) {
+            $model->desktopCount = $map['DesktopCount'];
+        }
+        if (isset($map['DesktopGroupCount'])) {
+            $model->desktopGroupCount = $map['DesktopGroupCount'];
+        }
         if (isset($map['DeviceRedirects'])) {
             if (!empty($map['DeviceRedirects'])) {
                 $model->deviceRedirects = [];
@@ -1393,6 +1453,12 @@ class describePolicyGroups extends Model
         if (isset($map['MemorySingleRateLimit'])) {
             $model->memorySingleRateLimit = $map['MemorySingleRateLimit'];
         }
+        if (isset($map['MobileRestart'])) {
+            $model->mobileRestart = $map['MobileRestart'];
+        }
+        if (isset($map['MobileShutdown'])) {
+            $model->mobileShutdown = $map['MobileShutdown'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
@@ -1467,6 +1533,9 @@ class describePolicyGroups extends Model
         if (isset($map['RemoteCoordinate'])) {
             $model->remoteCoordinate = $map['RemoteCoordinate'];
         }
+        if (isset($map['ResourceGroupCount'])) {
+            $model->resourceGroupCount = $map['ResourceGroupCount'];
+        }
         if (isset($map['ResourceRegionId'])) {
             $model->resourceRegionId = $map['ResourceRegionId'];
         }
@@ -1480,6 +1549,9 @@ class describePolicyGroups extends Model
         }
         if (isset($map['SmoothEnhancement'])) {
             $model->smoothEnhancement = $map['SmoothEnhancement'];
+        }
+        if (isset($map['StatusMonitor'])) {
+            $model->statusMonitor = $map['StatusMonitor'];
         }
         if (isset($map['StreamingMode'])) {
             $model->streamingMode = $map['StreamingMode'];
