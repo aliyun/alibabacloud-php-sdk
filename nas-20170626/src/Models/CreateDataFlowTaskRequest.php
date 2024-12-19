@@ -25,7 +25,7 @@ class CreateDataFlowTaskRequest extends Model
      *   KEEP_LATEST: compares the update time and keeps the latest version.
      *   OVERWRITE_EXISTING: forcibly overwrites the existing file.
      *
-     * >  This parameter does not take effect for CPFS file systems.
+     * >  This parameter is required for CPFS for LINGJUN file systems.
      * @example SKIP_THE_FILE
      *
      * @var string
@@ -33,6 +33,14 @@ class CreateDataFlowTaskRequest extends Model
     public $conflictPolicy;
 
     /**
+     * @description Specifies whether to automatically create a directory if no directory exists. Valid values:
+     *
+     *   true: automatically creates a directory.
+     *   false (default): does not automatically create a directory.
+     *
+     * > - Only CPFS for LINGJUN V2.6.0 and later support this parameter.
+     * @example false
+     *
      * @var bool
      */
     public $createDirIfNotExist;
@@ -41,7 +49,7 @@ class CreateDataFlowTaskRequest extends Model
      * @description The dataflow ID.
      *
      * This parameter is required.
-     * @example dfid-123456
+     * @example df-194433a5be31****
      *
      * @var string
      */
@@ -63,7 +71,7 @@ class CreateDataFlowTaskRequest extends Model
     public $dataType;
 
     /**
-     * @description The directory in which the data flow task is executed.
+     * @description The source directory of the data.
      *
      * Limits:
      *
@@ -73,7 +81,10 @@ class CreateDataFlowTaskRequest extends Model
      *   Only one directory can be listed at a time.
      *   If the TaskAction parameter is set to Export, the directory must be a relative path within the FileSystemPath.
      *   If the TaskAction parameter is set to Import, the directory must be a relative path within the SourceStoragePath.
+     *   If the TaskAction parameter is set to StreamExport, the directory must be a relative path within the FileSystemPath.
+     *   If the TaskAction parameter is set to StreamImport, the directory must be a relative path within the SourceStoragePath.
      *
+     * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
      * @example /path_in_cpfs/
      *
      * @var string
@@ -85,8 +96,8 @@ class CreateDataFlowTaskRequest extends Model
      *
      * Valid values:
      *
-     *   true: performs a dry run. The system checks the required parameters, request syntax, limits, and available NAS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the FileSystemId parameter.
-     *   false (default): performs a dry run and sends the request. If the request passes the dry run, a file system is created.
+     *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available File Storage NAS (NAS) resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the TaskId parameter.
+     *   false (default): performs a dry run and sends the request. If the request passes the dry run, a data flow task is created.
      *
      * @example false
      *
@@ -95,6 +106,20 @@ class CreateDataFlowTaskRequest extends Model
     public $dryRun;
 
     /**
+     * @description The directory mapped to the data flow task. Limits:
+     *
+     *   The directory must start and end with a forward slash (/). The directory cannot be /../.
+     *   The directory must be 1 to 1,023 characters in length.
+     *   The directory must be encoded in UTF-8.
+     *   Only one directory can be listed at a time.
+     *   If the TaskAction parameter is set to Export, the directory must be a relative path within the SourceStoragePath.
+     *   If the TaskAction parameter is set to Import, the directory must be a relative path within the FileSystemPath.
+     *   If the TaskAction parameter is set to StreamExport, the directory must be a relative path within the SourceStoragePath.
+     *   If the TaskAction parameter is set to StreamImport, the directory must be a relative path within the FileSystemPath.
+     *
+     * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
+     * @example /path_in_cpfs/
+     *
      * @var string
      */
     public $dstDirectory;
@@ -124,7 +149,7 @@ class CreateDataFlowTaskRequest extends Model
      *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
      *
      * This parameter is required.
-     * @example cpfs-12345678
+     * @example bmcpfs-290w65p03ok64ya****
      *
      * @var string
      */
@@ -133,7 +158,7 @@ class CreateDataFlowTaskRequest extends Model
     /**
      * @description If you specify SrcTaskId, the configurations of the TaskAction, DataType, and EntryList parameters are copied from the desired dataflow task. You do not need to specify them.
      *
-     * @example task-xxxx
+     * @example task-27aa8e890f45****
      *
      * @var string
      */
@@ -146,10 +171,10 @@ class CreateDataFlowTaskRequest extends Model
      *
      *   Import: imports data stored in the source storage to a CPFS file system.
      *   Export: exports specified data from a CPFS file system to the source storage.
-     *   Evict: releases the data blocks of a file in a CPFS file system. After the eviction, only the metadata of the file is retained in the CPFS file system. You can still query the file. However, the data blocks of the file are cleared and do not occupy the storage space in the CPFS file system. When you access the file data, the file is loaded from the source storage as required.
-     *   Inventory: obtains the inventory list managed by a data flow from the CPFS file system, providing the cache status of inventories in the data flow.
+     *   StreamImport: batch imports the specified data from the source storage to a CPFS file system.
+     *   StreamExport: batch exports specified data from a CPFS file system to the source storage.
      *
-     * >  CPFS for LINGJUN supports only the Import and Export tasks.
+     * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
      * @example Import
      *
      * @var string

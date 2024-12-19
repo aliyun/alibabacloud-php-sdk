@@ -20,7 +20,7 @@ class entrie extends Model
     public $createTime;
 
     /**
-     * @description Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation. Valid values:
+     * @description Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation. Valid values:
      *
      *   true
      *   false
@@ -42,11 +42,24 @@ class entrie extends Model
     public $description;
 
     /**
+     * @description The usage of the file quantity.
+     *
+     * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+     * @example 1024
+     *
      * @var int
      */
     public $fileCountUsage;
 
     /**
+     * @description The ID of the file system.
+     *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+     *
+     * >  CPFS is not supported on the international site.
+     * @example bmcpfs-290w65p03ok64ya****
+     *
      * @var string
      */
     public $fileSystemId;
@@ -70,11 +83,19 @@ class entrie extends Model
     public $fsetId;
 
     /**
+     * @description The quota information.
+     *
+     * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
      * @var quota
      */
     public $quota;
 
     /**
+     * @description The capacity usage. Unit: bytes.
+     *
+     * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
+     * @example 1024
+     *
      * @var int
      */
     public $spaceUsage;

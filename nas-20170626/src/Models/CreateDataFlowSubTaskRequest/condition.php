@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class condition extends Model
 {
     /**
+     * @description The modification time. The value must be a UNIX timestamp. Unit: ns.
+     *
      * @example 1725897600000000000
      *
      * @var int
@@ -16,6 +18,8 @@ class condition extends Model
     public $modifyTime;
 
     /**
+     * @description The file size. Unit: bytes.
+     *
      * @example 68
      *
      * @var int

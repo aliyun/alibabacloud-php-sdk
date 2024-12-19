@@ -20,7 +20,7 @@ class CreateDataFlowTaskResponseBody extends Model
     /**
      * @description The ID of the dataflow task.
      *
-     * @example taskId-12345678
+     * @example task-38aa8e890f45****
      *
      * @var string
      */

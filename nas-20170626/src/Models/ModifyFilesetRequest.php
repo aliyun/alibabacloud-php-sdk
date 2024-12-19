@@ -19,7 +19,7 @@ class ModifyFilesetRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+     * @description Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation.
      *
      *   true: enables release protection.
      *   false: disables release protection.
@@ -57,8 +57,11 @@ class ModifyFilesetRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+     *
      * This parameter is required.
-     * @example cpfs-099394bd928c****
+     * @example bmcpfs-290w65p03ok64ya****
      *
      * @var string
      */

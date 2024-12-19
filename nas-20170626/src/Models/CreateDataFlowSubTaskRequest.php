@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDataFlowSubTaskRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -17,29 +20,40 @@ class CreateDataFlowSubTaskRequest extends Model
     public $clientToken;
 
     /**
+     * @description The check conditions. The check must be passed after the following conditions are specified.
+     *
      * @var condition
      */
     public $condition;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the data flow.
      *
-     * @example dfid-194433a5be31****
+     * This parameter is required.
+     * @example df-194433a5be31****
      *
      * @var string
      */
     public $dataFlowId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the data flow task.
      *
-     * @example taskId-12345678
+     * This parameter is required.
+     * @example task-38aa8e890f45****
      *
      * @var string
      */
     public $dataFlowTaskId;
 
     /**
+     * @description Specifies whether to perform a dry run.
+     *
+     * Valid values:
+     *
+     *   true: performs a dry run. The system checks the required parameters, request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned. No value is returned for the DataFlowSubTaskId parameter.
+     *   false (default): performs a dry run and sends the request. If the request passes the dry run, a data streaming subtask is created.
+     *
      * @example false
      *
      * @var bool
@@ -47,8 +61,14 @@ class CreateDataFlowSubTaskRequest extends Model
     public $dryRun;
 
     /**
-     * @description This parameter is required.
+     * @description The path of the destination file. Limits:
      *
+     *   The path must be 1 to 1,023 characters in length.
+     *   The path must be encoded in UTF-8.
+     *   The path must start with a forward slash (/).
+     *   The path must end with the file name.
+     *
+     * This parameter is required.
      * @example /mnt/file.png
      *
      * @var string
@@ -56,8 +76,9 @@ class CreateDataFlowSubTaskRequest extends Model
     public $dstFilePath;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the file system.
      *
+     * This parameter is required.
      * @example bmcpfs-370lx1ev9ss27o0****
      *
      * @var string
@@ -65,8 +86,14 @@ class CreateDataFlowSubTaskRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description This parameter is required.
+     * @description The path of the source file. Limits:
      *
+     *   The path must be 1 to 1,023 characters in length.
+     *   The path must be encoded in UTF-8.
+     *   The path must start with a forward slash (/).
+     *   The path must end with the file name.
+     *
+     * This parameter is required.
      * @example /test/file.png
      *
      * @var string

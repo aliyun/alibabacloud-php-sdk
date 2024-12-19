@@ -53,7 +53,7 @@ class CancelDataFlowSubTaskRequest extends Model
      *
      * Valid values:
      *
-     *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available Apsara File Storage NAS (NAS) resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
+     *   true: performs a dry run. The system checks the required parameters, request syntax, service limits, and available File Storage NAS (NAS) resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
      *   false (default): performs a dry run and sends the request. If the request passes the dry run, a data streaming task is created.
      *
      * @example false

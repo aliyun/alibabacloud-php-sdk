@@ -20,7 +20,7 @@ class CreateFilesetRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+     * @description Specifies whether to enable deletion protection to allow you to release the fileset by using the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2838077.html) operation.
      *
      *   true: enables release protection.
      *   false (default): disables release protection.
@@ -62,8 +62,11 @@ class CreateFilesetRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+     *
      * This parameter is required.
-     * @example cpfs-099394bd928c****
+     * @example bmcpfs-290w65p03ok64ya****
      *
      * @var string
      */
@@ -72,9 +75,12 @@ class CreateFilesetRequest extends Model
     /**
      * @description The absolute path of the fileset.
      *
-     *   The parent directory of the path that you specify must be an existing directory in the file system.
-     *   The path must be 2 to 1,024 characters in length.
+     *   The path must be 2 to 1024 characters in length.
      *   The path must start and end with a forward slash (/).
+     *   The fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
+     *   The maximum depth supported by a fileset path is eight levels. The depth of the root directory / is 0 levels. For example, the fileset path /test/aaa/ccc/ has three levels.
+     *   If the fileset path is a multi-level path, the parent directory must be an existing directory.
+     *   Nested filesets are not supported. If a fileset is specified as a parent directory, its subdirectory cannot be a fileset. A fileset path supports only one quota.
      *
      * This parameter is required.
      * @example /test/
@@ -84,6 +90,9 @@ class CreateFilesetRequest extends Model
     public $fileSystemPath;
 
     /**
+     * @description The quota information.
+     *
+     * >  Only CPFS for LINGJUN V2.7.0 and later support this parameter.
      * @var quota
      */
     public $quota;

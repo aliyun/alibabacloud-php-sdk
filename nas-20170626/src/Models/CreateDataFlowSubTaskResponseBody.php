@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataFlowSubTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the data streaming task.
+     *
      * @example subTaskId-370kyfmyknxcyzw****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDataFlowSubTaskResponseBody extends Model
     public $dataFlowSubTaskId;
 
     /**
+     * @description The request ID.
+     *
      * @example A70BEE5D-76D3-49FB-B58F-1F398211A5C3
      *
      * @var string

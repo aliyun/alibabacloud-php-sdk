@@ -25,6 +25,10 @@ class fileSystem extends Model
     public $accessPointCount;
 
     /**
+     * @description The ID of the automatic snapshot policy.
+     *
+     * @example sp-extreme-233e6****
+     *
      * @var string
      */
     public $autoSnapshotPolicyId;
@@ -205,6 +209,10 @@ class fileSystem extends Model
     public $protocolType;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-2ze37k6jh8ums2fw2****
+     *
      * @var string
      */
     public $quorumVswId;
@@ -272,11 +280,17 @@ class fileSystem extends Model
     public $version;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp1cbv1ljve4j5hlw****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description A collection of vSwitch IDs.
+     *
      * @var vswIds
      */
     public $vswIds;

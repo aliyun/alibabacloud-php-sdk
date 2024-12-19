@@ -11,6 +11,12 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The conflict policy for files with the same name. Valid values:
+     *
+     *   SKIP_THE_FILE: skips files with the same name.
+     *   KEEP_LATEST: compares the update time and keeps the latest version.
+     *   OVERWRITE_EXISTING: forcibly overwrites the existing file.
+     *
      * @example KEEP_LATEST
      *
      * @var string
@@ -27,6 +33,8 @@ class task extends Model
     public $createTime;
 
     /**
+     * @description The ID of the data flow.
+     *
      * @example dfid-194433a5be3****
      *
      * @var string
@@ -34,12 +42,13 @@ class task extends Model
     public $dataFlowId;
 
     /**
-     * @description null Valid values:
+     * @description The type of data on which operations are performed by the data flow task. Valid values:
      *
-     *   null null
-     *   null
-     *   null
+     *   Metadata: the metadata of a file, including the timestamp, ownership, and permission information of the file. If you select Metadata, only the metadata of the file is imported. You can only query the file. When you access the file data, the file is loaded from the source storage as required.
+     *   Data: the data blocks of the file.
+     *   MetaAndData: the metadata and data blocks of the file.
      *
+     * >  CPFS for LINGJUN supports only the MetaAndData type.
      * @example Metadata
      *
      * @var string
@@ -47,11 +56,19 @@ class task extends Model
     public $dataType;
 
     /**
+     * @description The directory in which the data flow task is executed.
+     *
+     * @example /path_in_cpfs/
+     *
      * @var string
      */
     public $directory;
 
     /**
+     * @description The directory mapped to the data flow task.
+     *
+     * @example /path_in_cpfs/
+     *
      * @var string
      */
     public $dstDirectory;
@@ -66,15 +83,24 @@ class task extends Model
     public $endTime;
 
     /**
+     * @description The cause of the task exception.
+     *
+     * >  If this parameter is not returned or the return value is empty, no error occurs.
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @description *
+     * @description The directory of the fileset in the CPFS file system.
      *
-     *   null
+     * Limits:
      *
+     *   The directory must be 2 to 1024 characters in length.
+     *   The directory must be encoded in UTF-8.
+     *   The directory must start and end with a forward slash (/).
+     *   The directory must be a fileset directory in the CPFS file system.
+     *
+     * >  Only CPFS supports this parameter.
      * @example /a/b/c/
      *
      * @var string
@@ -82,6 +108,8 @@ class task extends Model
     public $fileSystemPath;
 
     /**
+     * @description The ID of the file system.
+     *
      * @example cpfs-099394bd928c****
      *
      * @var string
@@ -89,7 +117,7 @@ class task extends Model
     public $filesystemId;
 
     /**
-     * @description null
+     * @description The path of the smart directory.
      *
      * @example /aa/
      *
@@ -98,11 +126,12 @@ class task extends Model
     public $fsPath;
 
     /**
-     * @description null Valid values:
+     * @description The initiator of the data flow task. Valid values:
      *
-     *   null
-     *   null
+     *   User: The task is initiated by a user.
+     *   System: The task is automatically initiated by CPFS based on the automatic update interval.
      *
+     * >  Only CPFS supports this parameter.
      * @example User
      *
      * @var string
@@ -110,7 +139,7 @@ class task extends Model
     public $originator;
 
     /**
-     * @description null null
+     * @description The progress of the data flow task. The number of operations that have been performed by the data flow task.
      *
      * @example 240
      *
@@ -119,17 +148,17 @@ class task extends Model
     public $progress;
 
     /**
+     * @description The progress of the data flow task.
+     *
      * @var progressStats
      */
     public $progressStats;
 
     /**
-     * @description null
+     * @description The save path of data flow task reports in the CPFS file system.
      *
-     * Limits:
-     *
-     *   null
-     *   The name must be encoded in UTF-8.
+     *   The task reports for a CPFS file system are generated in the `.dataflow_report` directory of the CPFS file system.
+     *   CPFS for LINGJUN returns an OSS download link for you to download the task reports.
      *
      * @example /path_in_cpfs/reportfile.cvs
      *
@@ -140,17 +169,34 @@ class task extends Model
     public $reportPath;
 
     /**
+     * @description The reports.
+     *
+     * >  Streaming tasks do not support reports.
      * @var reports
      */
     public $reports;
 
     /**
-     * @description ://
+     * @description The access path of the source storage. Format: `<storage type>://[<account id>:]<path>`.
      *
+     * Parameters:
      *
-     *   [](http://https://。)
+     *   storage type: Only Object Storage Service (OSS) is supported.
      *
-     ****
+     *   account id: the UID of the account of the source storage.
+     *
+     *   path: the name of the OSS bucket. Limits:
+     *
+     *   The name can contain only lowercase letters, digits, and hyphens (-). The name must start and end with a lowercase letter or digit.
+     *   The name can be up to 128 characters in length.
+     *   The name must be encoded in UTF-8.
+     *
+     * >
+     *
+     *   The OSS bucket must be an existing bucket in the region.
+     *
+     *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
+     *
      * @example oss://bucket1
      *
      * @var string
@@ -158,7 +204,7 @@ class task extends Model
     public $sourceStorage;
 
     /**
-     * @description null
+     * @description The time when the task started.
      *
      * @example 2021-08-04 18:27:35
      *
@@ -167,14 +213,14 @@ class task extends Model
     public $startTime;
 
     /**
-     * @description null Valid values:
+     * @description The status of the data flow task. Valid values:
      *
-     *   null
-     *   null
-     *   null
-     *   null
-     *   null
-     *   null
+     *   Pending: The data flow task has been created and has not started.
+     *   Executing: The data flow task is being executed.
+     *   Failed: The data flow task failed to be executed. You can view the cause of the failure in the data flow task report.
+     *   Completed: The data flow task is completed. You can check that all the files have been correctly transferred in the data flow task report.
+     *   Canceled: The data flow task is canceled and is not completed.
+     *   Canceling: The data flow task is being canceled.
      *
      * @example Executing
      *
@@ -183,13 +229,16 @@ class task extends Model
     public $status;
 
     /**
-     * @description null Valid values:
+     * @description The type of the data flow task. Valid values:
      *
-     *   null
-     *   null
-     *   null null
-     *   null
+     *   Import: imports data stored in the source storage to a CPFS file system.
+     *   Export: exports specified data from a CPFS file system to the source storage.
+     *   StreamImport: imports the specified data from the source storage to a CPFS file system in streaming mode.
+     *   StreamExport: exports specified data from a CPFS file system to the source storage in streaming mode.
+     *   Evict: releases the data blocks of a file in a CPFS file system. After the eviction, only the metadata of the file is retained in the CPFS file system. You can still query the file. However, the data blocks of the file are cleared and do not occupy the storage space in the CPFS file system. When you access the file data, the file is loaded from the source storage as required.
+     *   Inventory: obtains the inventory list managed by a data flow from the CPFS file system, providing the cache status of inventories in the data flow.
      *
+     * >  Only CPFS for LINGJUN V2.6.0 and later support StreamImport and StreamExport.
      * @example Import
      *
      * @var string
@@ -197,6 +246,8 @@ class task extends Model
     public $taskAction;
 
     /**
+     * @description The ID of the data flow task.
+     *
      * @example taskId-12345678
      *
      * @var string

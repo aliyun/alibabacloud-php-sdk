@@ -16,7 +16,7 @@ class DescribeDataFlowsRequest extends Model
      *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
      *
      * This parameter is required.
-     * @example cpfs-12345678
+     * @example bmcpfs-290w65p03ok64ya****
      *
      * @var string
      */

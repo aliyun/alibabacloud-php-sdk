@@ -136,7 +136,7 @@ class CreateDataFlowRequest extends Model
      *
      *   storage type: Only OSS is supported.
      *
-     *   account id (optional): the UID of the account of the source storage.
+     *   account id (optional): the UID of the account of the source storage. This parameter is required when you use OSS buckets across accounts.
      *
      *   path: the name of the OSS bucket. Limits:
      *
@@ -144,13 +144,8 @@ class CreateDataFlowRequest extends Model
      *   The name can be up to 128 characters in length.
      *   The name must be encoded in UTF-8.
      *
-     * >
-     *
-     *   The OSS bucket must be an existing bucket in the region.
-     *
-     *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
-     *
-     *   The account id parameter is optional. This parameter is required when you use OSS buckets across accounts.
+     * > *   The OSS bucket must be an existing bucket in the region.
+     * > *   Only CPFS for LINGJUN V2.6.0 and later support the account id parameter.
      *
      * This parameter is required.
      * @example oss://bucket1

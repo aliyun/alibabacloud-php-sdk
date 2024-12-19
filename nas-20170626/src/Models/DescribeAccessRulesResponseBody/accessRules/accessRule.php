@@ -31,7 +31,7 @@ class accessRule extends Model
      *
      * Valid values:
      *
-     *   standard: General-purpose Apsara File Storage NAS (NAS) file system
+     *   standard: General-purpose File Storage NAS (NAS) file system
      *   extreme: Extreme NAS file system
      *
      * @example standard

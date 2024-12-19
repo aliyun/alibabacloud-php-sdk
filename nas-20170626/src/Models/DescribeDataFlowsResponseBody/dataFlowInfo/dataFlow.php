@@ -53,7 +53,7 @@ class dataFlow extends Model
     /**
      * @description The dataflow ID.
      *
-     * @example dfid-123456
+     * @example df-194433a5be31****
      *
      * @var string
      */
@@ -90,7 +90,7 @@ class dataFlow extends Model
     /**
      * @description The ID of the file system.
      *
-     * @example cpfs-12345678
+     * @example cpfs-099394bd928c****
      *
      * @var string
      */
@@ -126,7 +126,7 @@ class dataFlow extends Model
     /**
      * @description The fileset ID.
      *
-     * @example fset-123456
+     * @example fset-1902718ea0ae****
      *
      * @var string
      */

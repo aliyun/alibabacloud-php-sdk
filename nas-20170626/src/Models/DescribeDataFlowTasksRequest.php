@@ -10,8 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataFlowTasksRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the file system.
      *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+     *
+     * This parameter is required.
      * @example cpfs-099394bd928c****
      *
      * @var string
@@ -19,11 +23,16 @@ class DescribeDataFlowTasksRequest extends Model
     public $fileSystemId;
 
     /**
+     * @description The details about filters.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The number of results for each query.
+     *
+     * Default value: 20.
      * @example 20
      *
      * @var int
@@ -31,6 +40,8 @@ class DescribeDataFlowTasksRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
      *
      * @var string

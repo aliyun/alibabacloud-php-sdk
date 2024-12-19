@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
+     * @var string
+     */
+    public $completedTime;
+
+    /**
      * @description The time when the snapshot was created.
      *
      * The time follows the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) standard in UTC. The time is displayed in the `yyyy-MM-ddThh:mmZ` format.
@@ -158,6 +163,7 @@ class snapshot extends Model
      */
     public $status;
     protected $_name = [
+        'completedTime'           => 'CompletedTime',
         'createTime'              => 'CreateTime',
         'description'             => 'Description',
         'encryptType'             => 'EncryptType',
@@ -181,6 +187,9 @@ class snapshot extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->completedTime) {
+            $res['CompletedTime'] = $this->completedTime;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -235,6 +244,9 @@ class snapshot extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CompletedTime'])) {
+            $model->completedTime = $map['CompletedTime'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

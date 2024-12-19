@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class report extends Model
 {
     /**
+     * @description The name of the report.
+     *
+     *   CPFS:
+     *
+     * TotalFilesReport: task reports.
+     *
+     *   CPFS for LINGJUN:
+     *
+     *   FailedFilesReport: failed file reports.
+     *   SkippedFilesReport: skipped file reports.
+     *   SuccessFilesReport: successful file reports.
+     *
+     * @example TotalFilesReport
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The report URL.
+     *
      * @var string
      */
     public $path;

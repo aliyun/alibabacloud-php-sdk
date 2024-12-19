@@ -12,8 +12,11 @@ class DescribeFilesetsRequest extends Model
     /**
      * @description The ID of the file system.
      *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+     *
      * This parameter is required.
-     * @example cpfs-099394bd928c****
+     * @example bmcpfs-290w65p03ok64ya****
      *
      * @var string
      */

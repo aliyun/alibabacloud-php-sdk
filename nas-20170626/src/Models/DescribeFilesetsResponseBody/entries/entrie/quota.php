@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class quota extends Model
 {
     /**
+     * @description The limit of the file quantity of the quota. Valid values:
+     *
+     * Maximum value: 10000000000.
+     * @example 10000
+     *
      * @var int
      */
     public $fileCountLimit;
 
     /**
+     * @description The limit of the quota capacity. Unit: bytes.
+     *
+     * Step size: 1073741824 (1 GiB).
+     * @example 10737418240
+     *
      * @var int
      */
     public $sizeLimit;

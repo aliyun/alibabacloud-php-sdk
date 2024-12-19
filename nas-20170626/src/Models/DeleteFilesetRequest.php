@@ -19,12 +19,12 @@ class DeleteFilesetRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request.
+     * @description Specifies whether to perform a dry run.
      *
      * Valid values:
      *
      *   true: performs only a dry run. The system checks the required parameters, request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the HTTP status code 200 is returned.
-     *   false (default): performs a dry run and sends the request. If the request passes the dry run, a fileset is deleted.
+     *   false (default): performs a dry run and sends the request. If the request passes the dry run, the fileset is deleted.
      *
      * @example false
      *
@@ -34,6 +34,9 @@ class DeleteFilesetRequest extends Model
 
     /**
      * @description The ID of the file system.
+     *
+     *   The IDs of CPFS file systems must start with `cpfs-`. Example: cpfs-099394bd928c\\*\\*\\*\\*.
+     *   The IDs of CPFS for LINGJUN file systems must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
      *
      * This parameter is required.
      * @example cpfs-099394bd928c****

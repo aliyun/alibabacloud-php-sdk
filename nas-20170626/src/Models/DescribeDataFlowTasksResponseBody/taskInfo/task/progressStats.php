@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class progressStats extends Model
 {
     /**
+     * @description The actual amount of data for which the data flow task is complete. Unit: bytes.
+     *
+     * @example 131092971520
+     *
      * @var int
      */
     public $actualBytes;
 
     /**
+     * @description The actual number of files for which the data flow task is complete.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $actualFiles;
 
     /**
+     * @description The average flow velocity. Unit: bytes/s.
+     *
+     * @example 342279299
+     *
      * @var int
      */
     public $averageSpeed;
 
     /**
+     * @description The amount of data (including skipped data) for which the data flow task is complete. Unit: bytes.
+     *
+     * @example 131092971520
+     *
      * @var int
      */
     public $bytesDone;
 
     /**
+     * @description The amount of data scanned on the source. Unit: bytes.
+     *
+     * @example 131092971520
+     *
      * @var int
      */
     public $bytesTotal;
 
     /**
+     * @description The number of files (including skipped files) for which the data flow task is complete.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $filesDone;
 
     /**
+     * @description The number of files scanned on the source.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $filesTotal;
 
     /**
+     * @description The estimated remaining execution time. Unit: seconds.
+     *
+     * @example 437
+     *
      * @var int
      */
     public $remainTime;
