@@ -1,3 +1,9 @@
+2024-12-19 Version: 3.7.0
+- Support API SendAIAgentDataChannelMessage.
+- Support API TakeoverAIAgentCall.
+- Update API GetSmartHandleJob: update response param.
+
+
 2024-12-13 Version: 3.7.0
 - Support API SendAIAgentDataChannelMessage.
 - Support API TakeoverAIAgentCall.

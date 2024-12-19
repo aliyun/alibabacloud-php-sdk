@@ -27,6 +27,11 @@ class jobResult extends Model
     public $mediaId;
 
     /**
+     * @var string
+     */
+    public $mediaUrl;
+
+    /**
      * @description The token usage. This parameter is returned only for keyword-based text generation jobs.
      *
      * @example {"total_tokens":100}
@@ -37,6 +42,7 @@ class jobResult extends Model
     protected $_name = [
         'aiResult' => 'AiResult',
         'mediaId'  => 'MediaId',
+        'mediaUrl' => 'MediaUrl',
         'usage'    => 'Usage',
     ];
 
@@ -52,6 +58,9 @@ class jobResult extends Model
         }
         if (null !== $this->mediaId) {
             $res['MediaId'] = $this->mediaId;
+        }
+        if (null !== $this->mediaUrl) {
+            $res['MediaUrl'] = $this->mediaUrl;
         }
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
@@ -73,6 +82,9 @@ class jobResult extends Model
         }
         if (isset($map['MediaId'])) {
             $model->mediaId = $map['MediaId'];
+        }
+        if (isset($map['MediaUrl'])) {
+            $model->mediaUrl = $map['MediaUrl'];
         }
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
