@@ -119,6 +119,11 @@ class functionComputeConfig extends Model
      * @var string
      */
     public $serviceName;
+
+    /**
+     * @var string
+     */
+    public $triggerName;
     protected $_name = [
         'contentTypeCatagory' => 'ContentTypeCatagory',
         'contentTypeValue'    => 'ContentTypeValue',
@@ -132,6 +137,7 @@ class functionComputeConfig extends Model
         'regionId'            => 'RegionId',
         'roleArn'             => 'RoleArn',
         'serviceName'         => 'ServiceName',
+        'triggerName'         => 'TriggerName',
     ];
 
     public function validate()
@@ -176,6 +182,9 @@ class functionComputeConfig extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->triggerName) {
+            $res['TriggerName'] = $this->triggerName;
         }
 
         return $res;
@@ -224,6 +233,9 @@ class functionComputeConfig extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['TriggerName'])) {
+            $model->triggerName = $map['TriggerName'];
         }
 
         return $model;
