@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateAnnualDocSummaryTaskResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateFinReportSummaryTaskRequest;
@@ -26,7 +28,11 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteLibraryRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\DeleteLibraryResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\EvictTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\EvictTaskResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GenDocQaResultRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GenDocQaResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetAppConfigResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetChatQuestionRespRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetChatQuestionRespResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentListRequest;
@@ -67,10 +73,14 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\SubmitChatQuestionRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\SubmitChatQuestionResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateLibraryRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateLibraryResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateQaLibraryRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateQaLibraryResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UploadDocumentAdvanceRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UploadDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UploadDocumentResponse;
@@ -183,6 +193,70 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->createAnnualDocSummaryTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 创建外呼会话
+     *  *
+     * @param string              $workspaceId
+     * @param CreateDialogRequest $request     CreateDialogRequest
+     * @param string[]            $headers     map
+     * @param RuntimeOptions      $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return CreateDialogResponse CreateDialogResponse
+     */
+    public function createDialogWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->channel)) {
+            $body['channel'] = $request->channel;
+        }
+        if (!Utils::isUnset($request->metaData)) {
+            $body['metaData'] = $request->metaData;
+        }
+        if (!Utils::isUnset($request->playCode)) {
+            $body['playCode'] = $request->playCode;
+        }
+        if (!Utils::isUnset($request->qaLibraryList)) {
+            $body['qaLibraryList'] = $request->qaLibraryList;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDialog',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/virtualHuman/dialog/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDialogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建外呼会话
+     *  *
+     * @param string              $workspaceId
+     * @param CreateDialogRequest $request     CreateDialogRequest
+     *
+     * @return CreateDialogResponse CreateDialogResponse
+     */
+    public function createDialog($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDialogWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -729,6 +803,64 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * @summary 根据文档解析问答QA
+     *  *
+     * @param string                $workspaceId
+     * @param GenDocQaResultRequest $request     GenDocQaResultRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GenDocQaResultResponse GenDocQaResultResponse
+     */
+    public function genDocQaResultWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['docId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->libraryId)) {
+            $body['libraryId'] = $request->libraryId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenDocQaResult',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/virtualHuman/qa/parse',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenDocQaResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据文档解析问答QA
+     *  *
+     * @param string                $workspaceId
+     * @param GenDocQaResultRequest $request     GenDocQaResultRequest
+     *
+     * @return GenDocQaResultResponse GenDocQaResultResponse
+     */
+    public function genDocQaResult($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->genDocQaResultWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取app配置
      *  *
      * @param string         $workspaceId
@@ -770,6 +902,61 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->getAppConfigWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取问答结果
+     *  *
+     * @param string                     $workspaceId
+     * @param GetChatQuestionRespRequest $request     GetChatQuestionRespRequest
+     * @param string[]                   $headers     map
+     * @param RuntimeOptions             $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetChatQuestionRespResponse GetChatQuestionRespResponse
+     */
+    public function getChatQuestionRespWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->batchId)) {
+            $body['batchId'] = $request->batchId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChatQuestionResp',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/virtualHuman/chat/query',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetChatQuestionRespResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取问答结果
+     *  *
+     * @param string                     $workspaceId
+     * @param GetChatQuestionRespRequest $request     GetChatQuestionRespRequest
+     *
+     * @return GetChatQuestionRespResponse GetChatQuestionRespResponse
+     */
+    public function getChatQuestionResp($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getChatQuestionRespWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -1984,6 +2171,73 @@ class DianJin extends OpenApiClient
     }
 
     /**
+     * @summary 提交问题列表
+     *  *
+     * @param string                    $workspaceId
+     * @param SubmitChatQuestionRequest $request     SubmitChatQuestionRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return SubmitChatQuestionResponse SubmitChatQuestionResponse
+     */
+    public function submitChatQuestionWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->gmtService)) {
+            $body['gmtService'] = $request->gmtService;
+        }
+        if (!Utils::isUnset($request->liveScriptContent)) {
+            $body['liveScriptContent'] = $request->liveScriptContent;
+        }
+        if (!Utils::isUnset($request->openSmallTalk)) {
+            $body['openSmallTalk'] = $request->openSmallTalk;
+        }
+        if (!Utils::isUnset($request->questionList)) {
+            $body['questionList'] = $request->questionList;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitChatQuestion',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/virtualHuman/chat/submit',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitChatQuestionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交问题列表
+     *  *
+     * @param string                    $workspaceId
+     * @param SubmitChatQuestionRequest $request     SubmitChatQuestionRequest
+     *
+     * @return SubmitChatQuestionResponse SubmitChatQuestionResponse
+     */
+    public function submitChatQuestion($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitChatQuestionWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 更新文档
      *  *
      * @param string                $workspaceId
@@ -2103,6 +2357,64 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->updateLibraryWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新QA问答库
+     *  *
+     * @param string                 $workspaceId
+     * @param UpdateQaLibraryRequest $request     UpdateQaLibraryRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateQaLibraryResponse UpdateQaLibraryResponse
+     */
+    public function updateQaLibraryWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->parseQaResults)) {
+            $body['parseQaResults'] = $request->parseQaResults;
+        }
+        if (!Utils::isUnset($request->qaLibraryId)) {
+            $body['qaLibraryId'] = $request->qaLibraryId;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateQaLibrary',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/virtualHuman/qa/upload',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateQaLibraryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新QA问答库
+     *  *
+     * @param string                 $workspaceId
+     * @param UpdateQaLibraryRequest $request     UpdateQaLibraryRequest
+     *
+     * @return UpdateQaLibraryResponse UpdateQaLibraryResponse
+     */
+    public function updateQaLibrary($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateQaLibraryWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
