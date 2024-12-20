@@ -16,6 +16,21 @@ class accountInfo extends Model
     public $accountId;
 
     /**
+     * @var bool
+     */
+    public $dohEnabled;
+
+    /**
+     * @var bool
+     */
+    public $dohResolveAllEnabled;
+
+    /**
+     * @var int
+     */
+    public $monthDohResolveCount;
+
+    /**
      * @example 1500000
      *
      * @var int
@@ -79,6 +94,9 @@ class accountInfo extends Model
     public $userStatus;
     protected $_name = [
         'accountId'              => 'AccountId',
+        'dohEnabled'             => 'DohEnabled',
+        'dohResolveAllEnabled'   => 'DohResolveAllEnabled',
+        'monthDohResolveCount'   => 'MonthDohResolveCount',
         'monthFreeCount'         => 'MonthFreeCount',
         'monthHttpsResolveCount' => 'MonthHttpsResolveCount',
         'monthResolveCount'      => 'MonthResolveCount',
@@ -99,6 +117,15 @@ class accountInfo extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['AccountId'] = $this->accountId;
+        }
+        if (null !== $this->dohEnabled) {
+            $res['DohEnabled'] = $this->dohEnabled;
+        }
+        if (null !== $this->dohResolveAllEnabled) {
+            $res['DohResolveAllEnabled'] = $this->dohResolveAllEnabled;
+        }
+        if (null !== $this->monthDohResolveCount) {
+            $res['MonthDohResolveCount'] = $this->monthDohResolveCount;
         }
         if (null !== $this->monthFreeCount) {
             $res['MonthFreeCount'] = $this->monthFreeCount;
@@ -141,6 +168,15 @@ class accountInfo extends Model
         $model = new self();
         if (isset($map['AccountId'])) {
             $model->accountId = $map['AccountId'];
+        }
+        if (isset($map['DohEnabled'])) {
+            $model->dohEnabled = $map['DohEnabled'];
+        }
+        if (isset($map['DohResolveAllEnabled'])) {
+            $model->dohResolveAllEnabled = $map['DohResolveAllEnabled'];
+        }
+        if (isset($map['MonthDohResolveCount'])) {
+            $model->monthDohResolveCount = $map['MonthDohResolveCount'];
         }
         if (isset($map['MonthFreeCount'])) {
             $model->monthFreeCount = $map['MonthFreeCount'];

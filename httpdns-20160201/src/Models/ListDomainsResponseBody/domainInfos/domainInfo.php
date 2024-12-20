@@ -30,6 +30,11 @@ class domainInfo extends Model
     public $resolved6;
 
     /**
+     * @var int
+     */
+    public $resolvedDoh;
+
+    /**
      * @example 10
      *
      * @var int
@@ -51,6 +56,7 @@ class domainInfo extends Model
         'domainName'     => 'DomainName',
         'resolved'       => 'Resolved',
         'resolved6'      => 'Resolved6',
+        'resolvedDoh'    => 'ResolvedDoh',
         'resolvedHttps'  => 'ResolvedHttps',
         'resolvedHttps6' => 'ResolvedHttps6',
         'timeModified'   => 'TimeModified',
@@ -71,6 +77,9 @@ class domainInfo extends Model
         }
         if (null !== $this->resolved6) {
             $res['Resolved6'] = $this->resolved6;
+        }
+        if (null !== $this->resolvedDoh) {
+            $res['ResolvedDoh'] = $this->resolvedDoh;
         }
         if (null !== $this->resolvedHttps) {
             $res['ResolvedHttps'] = $this->resolvedHttps;
@@ -101,6 +110,9 @@ class domainInfo extends Model
         }
         if (isset($map['Resolved6'])) {
             $model->resolved6 = $map['Resolved6'];
+        }
+        if (isset($map['ResolvedDoh'])) {
+            $model->resolvedDoh = $map['ResolvedDoh'];
         }
         if (isset($map['ResolvedHttps'])) {
             $model->resolvedHttps = $map['ResolvedHttps'];

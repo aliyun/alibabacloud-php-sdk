@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resolveSummary extends Model
 {
     /**
+     * @var int
+     */
+    public $doh;
+
+    /**
      * @example 123
      *
      * @var int
@@ -36,6 +41,7 @@ class resolveSummary extends Model
      */
     public $https6;
     protected $_name = [
+        'doh'    => 'Doh',
         'http'   => 'Http',
         'http6'  => 'Http6',
         'https'  => 'Https',
@@ -49,6 +55,9 @@ class resolveSummary extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->doh) {
+            $res['Doh'] = $this->doh;
+        }
         if (null !== $this->http) {
             $res['Http'] = $this->http;
         }
@@ -73,6 +82,9 @@ class resolveSummary extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Doh'])) {
+            $model->doh = $map['Doh'];
+        }
         if (isset($map['Http'])) {
             $model->http = $map['Http'];
         }

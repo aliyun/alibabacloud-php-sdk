@@ -59,6 +59,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 添加域名
+     *  *
      * @param AddDomainRequest $request AddDomainRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
@@ -93,6 +95,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 添加域名
+     *  *
      * @param AddDomainRequest $request AddDomainRequest
      *
      * @return AddDomainResponse AddDomainResponse
@@ -105,6 +109,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 删除域名
+     *  *
      * @param DeleteDomainRequest $request DeleteDomainRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -139,6 +145,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 删除域名
+     *  *
      * @param DeleteDomainRequest $request DeleteDomainRequest
      *
      * @return DeleteDomainResponse DeleteDomainResponse
@@ -200,6 +208,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户信息包含配置项
+     *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
      * @return GetAccountInfoResponse GetAccountInfoResponse
@@ -223,6 +233,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 获取用户信息包含配置项
+     *  *
      * @return GetAccountInfoResponse GetAccountInfoResponse
      */
     public function getAccountInfo()
@@ -233,6 +245,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 解析次数概览
+     *  *
      * @param GetResolveCountSummaryRequest $request GetResolveCountSummaryRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
@@ -267,6 +281,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 解析次数概览
+     *  *
      * @param GetResolveCountSummaryRequest $request GetResolveCountSummaryRequest
      *
      * @return GetResolveCountSummaryResponse GetResolveCountSummaryResponse
@@ -331,6 +347,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 列举域名以及解析统计信息
+     *  *
      * @param ListDomainsRequest $request ListDomainsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
@@ -371,6 +389,8 @@ class Httpdns extends OpenApiClient
     }
 
     /**
+     * @summary 列举域名以及解析统计信息
+     *  *
      * @param ListDomainsRequest $request ListDomainsRequest
      *
      * @return ListDomainsResponse ListDomainsResponse
