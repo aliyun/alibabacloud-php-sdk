@@ -33,7 +33,7 @@ class DeleteRulesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the forwarding rule. Valid values of N: **1** to **5**.
+     * @description The forwarding rules.
      *
      * This parameter is required.
      * @var string[]

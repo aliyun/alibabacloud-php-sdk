@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
+     * @description The supported language. Valid values:
      *
      *   **zh-CN** (default): Chinese
      *   **en-US**: English

@@ -44,7 +44,10 @@ class serverGroups extends Model
     public $createTime;
 
     /**
-     * @description 是否开启跨可用区转发。（默认开启）
+     * @description Indicates whether cross-zone load balancing is enabled. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *

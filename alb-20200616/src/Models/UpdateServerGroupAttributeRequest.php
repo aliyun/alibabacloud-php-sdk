@@ -37,6 +37,21 @@ class UpdateServerGroupAttributeRequest extends Model
     public $connectionDrainConfig;
 
     /**
+     * @description Indicates whether cross-zone load balancing is enabled for the server group. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
+     * >
+     *
+     *   Basic ALB instances do not support server groups that have cross-zone load balancing disabled. Only Standard and WAF-enabled ALB instances support server groups that have cross-zone load balancing.
+     *
+     *   Cross-zone load balancing can be disabled for server groups of the server and IP type, but not for server groups of the Function Compute type.
+     *
+     *   When cross-zone load balancing is disabled, session persistence cannot be enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $crossZoneEnabled;

@@ -150,6 +150,16 @@ class XForwardedForConfig extends Model
     public $XForwardedForEnabled;
 
     /**
+     * @var bool
+     */
+    public $XForwardedForHostEnabled;
+
+    /**
+     * @var string
+     */
+    public $XForwardedForProcessingMode;
+
+    /**
      * @description Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listening protocol. Valid values:
      *
      *   **true**
@@ -200,6 +210,8 @@ class XForwardedForConfig extends Model
         'XForwardedForClientSourceIpsTrusted'        => 'XForwardedForClientSourceIpsTrusted',
         'XForwardedForClientSrcPortEnabled'          => 'XForwardedForClientSrcPortEnabled',
         'XForwardedForEnabled'                       => 'XForwardedForEnabled',
+        'XForwardedForHostEnabled'                   => 'XForwardedForHostEnabled',
+        'XForwardedForProcessingMode'                => 'XForwardedForProcessingMode',
         'XForwardedForProtoEnabled'                  => 'XForwardedForProtoEnabled',
         'XForwardedForSLBIdEnabled'                  => 'XForwardedForSLBIdEnabled',
         'XForwardedForSLBPortEnabled'                => 'XForwardedForSLBPortEnabled',
@@ -247,6 +259,12 @@ class XForwardedForConfig extends Model
         }
         if (null !== $this->XForwardedForEnabled) {
             $res['XForwardedForEnabled'] = $this->XForwardedForEnabled;
+        }
+        if (null !== $this->XForwardedForHostEnabled) {
+            $res['XForwardedForHostEnabled'] = $this->XForwardedForHostEnabled;
+        }
+        if (null !== $this->XForwardedForProcessingMode) {
+            $res['XForwardedForProcessingMode'] = $this->XForwardedForProcessingMode;
         }
         if (null !== $this->XForwardedForProtoEnabled) {
             $res['XForwardedForProtoEnabled'] = $this->XForwardedForProtoEnabled;
@@ -304,6 +322,12 @@ class XForwardedForConfig extends Model
         }
         if (isset($map['XForwardedForEnabled'])) {
             $model->XForwardedForEnabled = $map['XForwardedForEnabled'];
+        }
+        if (isset($map['XForwardedForHostEnabled'])) {
+            $model->XForwardedForHostEnabled = $map['XForwardedForHostEnabled'];
+        }
+        if (isset($map['XForwardedForProcessingMode'])) {
+            $model->XForwardedForProcessingMode = $map['XForwardedForProcessingMode'];
         }
         if (isset($map['XForwardedForProtoEnabled'])) {
             $model->XForwardedForProtoEnabled = $map['XForwardedForProtoEnabled'];
