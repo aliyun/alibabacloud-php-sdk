@@ -36,6 +36,11 @@ class GetRumExceptionStackRequest extends Model
     public $exceptionThreadId;
 
     /**
+     * @var string
+     */
+    public $extraInfo;
+
+    /**
      * @description The application ID.
      *
      * This parameter is required.
@@ -67,6 +72,7 @@ class GetRumExceptionStackRequest extends Model
         'exceptionBinaryImages' => 'ExceptionBinaryImages',
         'exceptionStack'        => 'ExceptionStack',
         'exceptionThreadId'     => 'ExceptionThreadId',
+        'extraInfo'             => 'ExtraInfo',
         'pid'                   => 'Pid',
         'regionId'              => 'RegionId',
         'sourcemapType'         => 'SourcemapType',
@@ -87,6 +93,9 @@ class GetRumExceptionStackRequest extends Model
         }
         if (null !== $this->exceptionThreadId) {
             $res['ExceptionThreadId'] = $this->exceptionThreadId;
+        }
+        if (null !== $this->extraInfo) {
+            $res['ExtraInfo'] = $this->extraInfo;
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
@@ -117,6 +126,9 @@ class GetRumExceptionStackRequest extends Model
         }
         if (isset($map['ExceptionThreadId'])) {
             $model->exceptionThreadId = $map['ExceptionThreadId'];
+        }
+        if (isset($map['ExtraInfo'])) {
+            $model->extraInfo = $map['ExtraInfo'];
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];

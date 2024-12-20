@@ -1,3 +1,7 @@
+2024-12-20 Version: 7.3.4
+- Update API GetRumExceptionStack: add param ExtraInfo.
+
+
 2024-12-13 Version: 7.3.3
 - Update API CreatePrometheusInstance: add param PaymentType.
 - Update API GetPrometheusInstance: update response param.

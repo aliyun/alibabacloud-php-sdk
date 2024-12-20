@@ -8086,6 +8086,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->exceptionThreadId)) {
             $query['ExceptionThreadId'] = $request->exceptionThreadId;
         }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $query['ExtraInfo'] = $request->extraInfo;
+        }
         if (!Utils::isUnset($request->pid)) {
             $query['Pid'] = $request->pid;
         }
