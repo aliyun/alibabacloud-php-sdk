@@ -24,6 +24,8 @@ class GetQualityResultRequest extends Model
     public $hitStatus;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -49,11 +51,15 @@ class GetQualityResultRequest extends Model
     public $qualityRuleIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $touchEndTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $touchStartTime;

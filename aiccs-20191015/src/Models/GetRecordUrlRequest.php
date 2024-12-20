@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRecordUrlRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1001067****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRecordUrlRequest extends Model
     public $acid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-****
      *
      * @var string
@@ -23,6 +27,8 @@ class GetRecordUrlRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example DUP_CALL
      *
      * @var string

@@ -26,6 +26,8 @@ class UpdateSkillGroupRequest extends Model
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -33,6 +35,8 @@ class UpdateSkillGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

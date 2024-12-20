@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCallSoundRecordRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 125165515022^11195613****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCallSoundRecordRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-10-15 08:56:23
      *
      * @var string

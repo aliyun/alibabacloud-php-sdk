@@ -39,6 +39,8 @@ class QueryOutboundTaskRequest extends Model
     public $groupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

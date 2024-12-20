@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EditQualityProjectRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $analysisIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $channelTouchType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $checkFreqType;
@@ -34,26 +40,36 @@ class EditQualityProjectRequest extends Model
     public $groupList;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $projectVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $scopeType;

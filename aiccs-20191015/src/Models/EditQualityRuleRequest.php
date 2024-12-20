@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class EditQualityRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string[]
      */
     public $keyWords;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $matchType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $qualityRuleId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $ruleTag;

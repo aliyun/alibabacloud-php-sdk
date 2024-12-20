@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetNumLocationRequest extends Model
 {
     /**
+     * @example 46c1341e-2648-447a-9b11-70b6a298d94d
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1360987****
+     *
      * @var string
      */
     public $phoneNum;

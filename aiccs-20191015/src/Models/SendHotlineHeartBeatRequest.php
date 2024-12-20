@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendHotlineHeartBeatRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123@123.com
      *
      * @var string
@@ -23,6 +25,8 @@ class SendHotlineHeartBeatRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -30,6 +34,8 @@ class SendHotlineHeartBeatRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0079e7a845e373****
      *
      * @var string

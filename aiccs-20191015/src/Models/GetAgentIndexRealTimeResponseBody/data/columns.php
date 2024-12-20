@@ -14,6 +14,8 @@ class columns extends Model
     public $key;
 
     /**
+     * @example servicerId
+     *
      * @var string
      */
     public $title;

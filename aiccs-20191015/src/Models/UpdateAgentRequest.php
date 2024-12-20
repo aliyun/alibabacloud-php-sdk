@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAgentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123@123.com
      *
      * @var string
@@ -23,11 +25,15 @@ class UpdateAgentRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

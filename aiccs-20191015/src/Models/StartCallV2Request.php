@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartCallV2Request extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123@123.com
      *
      * @var string
@@ -16,6 +18,8 @@ class StartCallV2Request extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 136****1111
      *
      * @var string
@@ -23,6 +27,8 @@ class StartCallV2Request extends Model
     public $callee;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 9065****
      *
      * @var string
@@ -30,6 +36,8 @@ class StartCallV2Request extends Model
     public $caller;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +52,8 @@ class StartCallV2Request extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

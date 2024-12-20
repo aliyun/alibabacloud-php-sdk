@@ -51,6 +51,8 @@ class GetHotlineCallActionRequest extends Model
     public $fromSource;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

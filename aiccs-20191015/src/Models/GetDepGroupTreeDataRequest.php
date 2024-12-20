@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDepGroupTreeDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int
@@ -16,6 +18,8 @@ class GetDepGroupTreeDataRequest extends Model
     public $agentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

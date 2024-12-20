@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MakeDoubleCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 12345
      *
      * @var string
@@ -23,6 +25,8 @@ class MakeDoubleCallRequest extends Model
     public $bizData;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string
@@ -30,6 +34,8 @@ class MakeDoubleCallRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1502123****
      *
      * @var string
@@ -37,6 +43,8 @@ class MakeDoubleCallRequest extends Model
     public $memberPhone;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0571000****
      *
      * @var string

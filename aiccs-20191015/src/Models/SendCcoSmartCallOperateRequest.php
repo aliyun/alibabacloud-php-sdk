@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendCcoSmartCallOperateRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 116012854210^102814279****
      *
      * @var string
@@ -16,6 +18,8 @@ class SendCcoSmartCallOperateRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example parallelBridge
      *
      * @var string

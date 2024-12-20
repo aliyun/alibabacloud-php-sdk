@@ -66,6 +66,8 @@ class ListTaskDetailRequest extends Model
     public $statusCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
+     * @example skillGroupName
+     *
      * @var string
      */
     public $key;

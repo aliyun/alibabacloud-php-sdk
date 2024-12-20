@@ -23,6 +23,8 @@ class AddSkillGroupRequest extends Model
     public $outerDepartmentType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -30,11 +32,15 @@ class AddSkillGroupRequest extends Model
     public $outerGroupId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $outerGroupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example mybank
      *
      * @var string

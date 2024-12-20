@@ -63,6 +63,8 @@ class QueryTicketsShrinkRequest extends Model
     public $extraShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

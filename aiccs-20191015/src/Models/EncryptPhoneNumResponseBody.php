@@ -16,8 +16,6 @@ class EncryptPhoneNumResponseBody extends Model
     public $code;
 
     /**
-     * @example 20nJ****\/9Fl/kxx/***7
-     *
      * @var string
      */
     public $data;

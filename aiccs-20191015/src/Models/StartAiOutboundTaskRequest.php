@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartAiOutboundTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example agent_****
      *
      * @var string
@@ -16,6 +18,8 @@ class StartAiOutboundTaskRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1763****
      *
      * @var int

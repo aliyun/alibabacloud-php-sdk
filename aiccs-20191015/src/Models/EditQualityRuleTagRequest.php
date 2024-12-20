@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class EditQualityRuleTagRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var analysisTypes[]
      */
     public $analysisTypes;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

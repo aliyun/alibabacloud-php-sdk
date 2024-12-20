@@ -34,6 +34,8 @@ class QueryTaskDetailRequest extends Model
     public $endReasonList;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

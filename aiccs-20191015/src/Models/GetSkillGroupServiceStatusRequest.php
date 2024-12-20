@@ -73,6 +73,8 @@ class GetSkillGroupServiceStatusRequest extends Model
     public $groupIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetQualityProjectDetailRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre***
      *
      * @var string
@@ -16,6 +18,8 @@ class GetQualityProjectDetailRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 15977801
      *
      * @var int

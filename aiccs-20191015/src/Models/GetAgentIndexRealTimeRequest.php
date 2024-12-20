@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAgentIndexRealTimeRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -24,11 +26,17 @@ class GetAgentIndexRealTimeRequest extends Model
     public $groupIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

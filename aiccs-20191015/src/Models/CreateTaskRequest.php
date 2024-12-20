@@ -14,6 +14,8 @@ class CreateTaskRequest extends Model
     public $callString;
 
     /**
+     * @description This parameter is required.
+     *
      * @example JSON
      *
      * @var string
@@ -21,6 +23,8 @@ class CreateTaskRequest extends Model
     public $callStringType;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0571****5678,0571****5679
      *
      * @var string
@@ -71,6 +75,8 @@ class CreateTaskRequest extends Model
     public $retryStatusCode;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -78,6 +84,8 @@ class CreateTaskRequest extends Model
     public $robotId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 3
      *
      * @var string
@@ -90,11 +98,15 @@ class CreateTaskRequest extends Model
     public $startNow;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var string
@@ -102,6 +114,8 @@ class CreateTaskRequest extends Model
     public $workDay;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10:00-12:00,13:00-14:00
      *
      * @var string

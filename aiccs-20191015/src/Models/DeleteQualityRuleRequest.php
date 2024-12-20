@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteQualityRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;

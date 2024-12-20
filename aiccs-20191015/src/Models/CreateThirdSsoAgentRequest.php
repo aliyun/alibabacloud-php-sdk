@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateThirdSsoAgentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example accountId1
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateThirdSsoAgentRequest extends Model
     public $accountId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example accountName1
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateThirdSsoAgentRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 46c1341e-2648-447a-9b11-70b6a298d94d
      *
      * @var string
@@ -42,6 +48,8 @@ class CreateThirdSsoAgentRequest extends Model
     public $displayName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre***
      *
      * @var string

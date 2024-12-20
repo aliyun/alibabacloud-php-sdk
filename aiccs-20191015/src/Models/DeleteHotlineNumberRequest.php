@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHotlineNumberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 05710000****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteHotlineNumberRequest extends Model
     public $hotlineNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

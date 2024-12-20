@@ -23,6 +23,8 @@ class GetAiOutboundTaskListRequest extends Model
     public $createTimeStart;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +32,8 @@ class GetAiOutboundTaskListRequest extends Model
     public $currentPage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_****
      *
      * @var string
@@ -37,6 +41,8 @@ class GetAiOutboundTaskListRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +64,8 @@ class GetAiOutboundTaskListRequest extends Model
     public $status;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2
      *
      * @var int

@@ -17,11 +17,15 @@ class InsertAiOutboundPhoneNumsRequest extends Model
     public $batchVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @var details[]
      */
     public $details;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string
@@ -29,6 +33,8 @@ class InsertAiOutboundPhoneNumsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int

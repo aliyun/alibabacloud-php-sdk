@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class HoldCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123@123.com
      *
      * @var string
@@ -37,6 +39,8 @@ class HoldCallRequest extends Model
     public $connectionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

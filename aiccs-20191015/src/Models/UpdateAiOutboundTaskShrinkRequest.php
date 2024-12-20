@@ -21,6 +21,8 @@ class UpdateAiOutboundTaskShrinkRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example {"TUESDAY":[{"start":"06:00","end":"06:05"}],"MONDAY":[{"start":"09:00","end":"18:00"},{"start":"20:30","end":"21:45"},{"start":"22:30","end":"22:50"}],"WEDNESDAY":[{"start":"09:00","end":"18:00"}],"THURSDAY":[{"start":"09:00","end":"18:00"}],"FRIDAY":[{"start":"09:00","end":"18:00"}],"SATURDAY":[{"start":"09:00","end":"18:00"}],"SUNDAY":[{"start":"17:00","end":"23:45"}]}
      *
      * @var string
@@ -35,6 +37,8 @@ class UpdateAiOutboundTaskShrinkRequest extends Model
     public $forecastCallRate;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int
@@ -42,6 +46,8 @@ class UpdateAiOutboundTaskShrinkRequest extends Model
     public $handlerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string
@@ -49,6 +55,8 @@ class UpdateAiOutboundTaskShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example xx外呼任务
      *
      * @var string
@@ -56,6 +64,8 @@ class UpdateAiOutboundTaskShrinkRequest extends Model
     public $name;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +73,8 @@ class UpdateAiOutboundTaskShrinkRequest extends Model
     public $numRepeated;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $outboundNumsShrink;
@@ -73,6 +85,8 @@ class UpdateAiOutboundTaskShrinkRequest extends Model
     public $recallRuleShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int

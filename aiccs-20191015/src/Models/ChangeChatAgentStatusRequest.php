@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeChatAgentStatusRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example account1
      *
      * @var string
@@ -23,6 +25,8 @@ class ChangeChatAgentStatusRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -30,6 +34,8 @@ class ChangeChatAgentStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example requestLogout
      *
      * @var string

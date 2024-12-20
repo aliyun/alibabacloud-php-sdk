@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class JoinThirdCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123@123.com
      *
      * @var string
@@ -44,6 +46,8 @@ class JoinThirdCallRequest extends Model
     public $holdConnectionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

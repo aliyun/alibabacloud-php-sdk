@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartHotlineServiceRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example username@example.com
      *
      * @var string
@@ -23,6 +25,8 @@ class StartHotlineServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

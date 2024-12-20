@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartChatWorkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123@123.com
      *
      * @var string
@@ -16,6 +18,8 @@ class StartChatWorkRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre***
      *
      * @var string

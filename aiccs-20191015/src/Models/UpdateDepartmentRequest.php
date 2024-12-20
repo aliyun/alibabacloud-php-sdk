@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDepartmentRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int
@@ -16,11 +18,15 @@ class UpdateDepartmentRequest extends Model
     public $departmentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $departmentName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

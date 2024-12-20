@@ -44,6 +44,8 @@ class GetAiOutboundTaskExecDetailRequest extends Model
     public $createTimeStart;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +53,8 @@ class GetAiOutboundTaskExecDetailRequest extends Model
     public $currentPage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string
@@ -58,6 +62,8 @@ class GetAiOutboundTaskExecDetailRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int
@@ -72,6 +78,8 @@ class GetAiOutboundTaskExecDetailRequest extends Model
     public $phoneNum;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

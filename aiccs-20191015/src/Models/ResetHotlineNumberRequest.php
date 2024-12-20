@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ResetHotlineNumberRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example desc
      *
      * @var string
@@ -17,6 +19,8 @@ class ResetHotlineNumberRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +28,8 @@ class ResetHotlineNumberRequest extends Model
     public $enableInbound;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -31,6 +37,8 @@ class ResetHotlineNumberRequest extends Model
     public $enableInboundEvaluation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -38,6 +46,8 @@ class ResetHotlineNumberRequest extends Model
     public $enableOutbound;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -52,6 +62,8 @@ class ResetHotlineNumberRequest extends Model
     public $evaluationLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0571********
      *
      * @var string
@@ -66,6 +78,8 @@ class ResetHotlineNumberRequest extends Model
     public $inboundFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -73,6 +87,8 @@ class ResetHotlineNumberRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

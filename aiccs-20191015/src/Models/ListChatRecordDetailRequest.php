@@ -37,6 +37,8 @@ class ListChatRecordDetailRequest extends Model
     public $currentPage;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre***
      *
      * @var string

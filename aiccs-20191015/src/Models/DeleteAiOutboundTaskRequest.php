@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAiOutboundTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteAiOutboundTaskRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

@@ -21,6 +21,8 @@ class GetHotlineAgentDetailReportRequest extends Model
     public $depIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1614824972
      *
      * @var int
@@ -33,6 +35,8 @@ class GetHotlineAgentDetailReportRequest extends Model
     public $groupIds;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -47,6 +51,8 @@ class GetHotlineAgentDetailReportRequest extends Model
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1614824872
      *
      * @var int

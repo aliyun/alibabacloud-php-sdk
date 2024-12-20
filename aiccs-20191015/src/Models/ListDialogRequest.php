@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDialogRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 130****0000
      *
      * @var string
@@ -31,6 +33,8 @@ class ListDialogRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

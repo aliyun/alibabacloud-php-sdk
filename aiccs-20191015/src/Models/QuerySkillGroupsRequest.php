@@ -30,6 +30,8 @@ class QuerySkillGroupsRequest extends Model
     public $departmentId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -37,6 +39,8 @@ class QuerySkillGroupsRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +48,8 @@ class QuerySkillGroupsRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 20
      *
      * @var int

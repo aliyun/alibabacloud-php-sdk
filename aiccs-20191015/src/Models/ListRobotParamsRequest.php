@@ -24,6 +24,8 @@ class ListRobotParamsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

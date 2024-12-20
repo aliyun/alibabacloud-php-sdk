@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRtcTokenRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example username@example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRtcTokenRequest extends Model
     public $accountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string

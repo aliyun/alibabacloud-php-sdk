@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetHotlineGroupDetailReportResponseBody extends Model
 {
     /**
+     * @example Success
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class GetHotlineGroupDetailReportResponseBody extends Model
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example EE338D98-9BD3-4413-B165
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Public
+     *
      * @var string
      */
     public $success;

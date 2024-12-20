@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RobotCallRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 131****2204
      *
      * @var string
@@ -16,6 +18,8 @@ class RobotCallRequest extends Model
     public $calledNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0571****5678
      *
      * @var string
@@ -64,6 +68,8 @@ class RobotCallRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 350000****
      *
      * @var int

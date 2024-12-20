@@ -15,11 +15,15 @@ class data extends Model
     public $columns;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -30,6 +34,8 @@ class data extends Model
     public $rows;
 
     /**
+     * @example 9
+     *
      * @var int
      */
     public $total;

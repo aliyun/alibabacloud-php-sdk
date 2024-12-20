@@ -21,6 +21,8 @@ class UpdateOuterAccountRequest extends Model
     public $ext;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -33,6 +35,8 @@ class UpdateOuterAccountRequest extends Model
     public $outerAccountName;
 
     /**
+     * @description This parameter is required.
+     *
      * @example alipay
      *
      * @var string

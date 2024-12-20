@@ -16,7 +16,7 @@ class StartMicroOutboundResponseBody extends Model
     public $code;
 
     /**
-     * @example {\"caseId\":2323****}
+     * @example {\\"caseId\\":2323****}
      *
      * @var string
      */

@@ -16,11 +16,15 @@ class InsertAiOutboundPhoneNumsShrinkRequest extends Model
     public $batchVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $detailsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string
@@ -28,6 +32,8 @@ class InsertAiOutboundPhoneNumsShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123
      *
      * @var int

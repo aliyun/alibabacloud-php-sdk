@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddHotlineNumberShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example desc
      *
      * @var string
@@ -16,6 +18,8 @@ class AddHotlineNumberShrinkRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class AddHotlineNumberShrinkRequest extends Model
     public $enableInbound;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class AddHotlineNumberShrinkRequest extends Model
     public $enableInboundEvaluation;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class AddHotlineNumberShrinkRequest extends Model
     public $enableOutbound;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +61,8 @@ class AddHotlineNumberShrinkRequest extends Model
     public $evaluationLevel;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 05710000****
      *
      * @var string
@@ -65,6 +77,8 @@ class AddHotlineNumberShrinkRequest extends Model
     public $inboundFlowId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -72,6 +86,8 @@ class AddHotlineNumberShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example true
      *
      * @var bool

@@ -24,6 +24,8 @@ class ListRobotNodeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100002674****
      *
      * @var int

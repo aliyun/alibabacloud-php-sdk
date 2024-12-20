@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TransferCallToSkillGroupRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example username@example.com
      *
      * @var string
@@ -44,6 +46,8 @@ class TransferCallToSkillGroupRequest extends Model
     public $holdConnectionId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -65,6 +69,8 @@ class TransferCallToSkillGroupRequest extends Model
     public $jobId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 356543
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCustomerInfoRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCustomerInfoRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 82345678****
      *
      * @var int

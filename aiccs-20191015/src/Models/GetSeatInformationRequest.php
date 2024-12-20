@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSeatInformationRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

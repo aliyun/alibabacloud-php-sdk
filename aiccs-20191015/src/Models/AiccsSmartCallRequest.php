@@ -72,6 +72,8 @@ class AiccsSmartCallRequest extends Model
     public $backgroundVolume;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1862222****
      *
      * @var string
@@ -79,6 +81,8 @@ class AiccsSmartCallRequest extends Model
     public $calledNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 0571000****
      *
      * @var string
@@ -206,6 +210,8 @@ class AiccsSmartCallRequest extends Model
     public $ttsVolume;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2d4c-4e78-8d2a-afbb06cf****.wav,$name$
      *
      * @var string

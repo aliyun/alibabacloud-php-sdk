@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateQualityProjectRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var int[]
      */
     public $analysisIds;
@@ -19,6 +21,8 @@ class CreateQualityProjectRequest extends Model
     public $channelTouchType;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $checkFreqType;
@@ -34,16 +38,22 @@ class CreateQualityProjectRequest extends Model
     public $groupList;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $scopeType;

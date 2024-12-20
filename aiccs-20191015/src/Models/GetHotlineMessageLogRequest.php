@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHotlineMessageLogRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 100****2077
      *
      * @var string
@@ -16,6 +18,8 @@ class GetHotlineMessageLogRequest extends Model
     public $acid;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

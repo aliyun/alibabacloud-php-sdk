@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetQualityProjectListRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre***
      *
      * @var string

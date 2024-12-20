@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOutboundTaskRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $ani;
@@ -29,11 +31,15 @@ class CreateOutboundTaskRequest extends Model
     public $description;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $endTime;
@@ -49,6 +55,8 @@ class CreateOutboundTaskRequest extends Model
     public $groupName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $instanceId;
@@ -69,26 +77,36 @@ class CreateOutboundTaskRequest extends Model
     public $retryTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $skillGroup;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description This parameter is required.
+     *
      * @var int
      */
     public $taskType;

@@ -6,37 +6,41 @@ namespace AlibabaCloud\SDK\Aiccs\V20191015\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListOuterOrderedNumbersResponseBody extends Model
+class LlmSmartCallResponseBody extends Model
 {
     /**
-     * @example 200
+     * @example 125165515***^11195613****
+     *
+     * @var string
+     */
+    public $callId;
+
+    /**
+     * @example OK
      *
      * @var string
      */
     public $code;
 
     /**
-     * @example successful
+     * @example OK
      *
      * @var string
      */
     public $message;
 
     /**
-     * @var string[]
-     */
-    public $numbers;
-
-    /**
-     * @example 28A0160D-FE11-5318-A1FC-335E871BB254
+     * @description Id of the request
+     *
+     * @example EE338D98-9BD3-XX13-B165
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'callId'    => 'CallId',
         'code'      => 'Code',
         'message'   => 'Message',
-        'numbers'   => 'Numbers',
         'requestId' => 'RequestId',
     ];
 
@@ -47,14 +51,14 @@ class ListOuterOrderedNumbersResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->callId) {
+            $res['CallId'] = $this->callId;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
-        }
-        if (null !== $this->numbers) {
-            $res['Numbers'] = $this->numbers;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -66,21 +70,19 @@ class ListOuterOrderedNumbersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListOuterOrderedNumbersResponseBody
+     * @return LlmSmartCallResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CallId'])) {
+            $model->callId = $map['CallId'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
-        }
-        if (isset($map['Numbers'])) {
-            if (!empty($map['Numbers'])) {
-                $model->numbers = $map['Numbers'];
-            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

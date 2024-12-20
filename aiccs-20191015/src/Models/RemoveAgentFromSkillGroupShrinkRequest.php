@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RemoveAgentFromSkillGroupShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
     public $agentIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string
@@ -21,6 +25,8 @@ class RemoveAgentFromSkillGroupShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1146****
      *
      * @var int

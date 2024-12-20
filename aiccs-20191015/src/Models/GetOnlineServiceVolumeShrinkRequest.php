@@ -59,6 +59,8 @@ class GetOnlineServiceVolumeShrinkRequest extends Model
     public $groupIdsShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string

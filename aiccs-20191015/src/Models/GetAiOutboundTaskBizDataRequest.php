@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAiOutboundTaskBizDataRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
@@ -16,6 +18,8 @@ class GetAiOutboundTaskBizDataRequest extends Model
     public $channelId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string

@@ -16,6 +16,8 @@ class GetAiOutboundTaskProgressRequest extends Model
     public $batchVersion;
 
     /**
+     * @description This parameter is required.
+     *
      * @example agent_***
      *
      * @var string
@@ -23,6 +25,8 @@ class GetAiOutboundTaskProgressRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var int

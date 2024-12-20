@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryHotlineNumberShrinkRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +37,8 @@ class QueryHotlineNumberShrinkRequest extends Model
     public $hotlineNumber;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -42,6 +46,8 @@ class QueryHotlineNumberShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 10
      *
      * @var int

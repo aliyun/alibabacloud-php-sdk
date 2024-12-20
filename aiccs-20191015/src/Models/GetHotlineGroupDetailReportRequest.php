@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetHotlineGroupDetailReportRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -19,6 +21,10 @@ class GetHotlineGroupDetailReportRequest extends Model
     public $depIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1614824972
+     *
      * @var int
      */
     public $endDate;
@@ -29,16 +35,26 @@ class GetHotlineGroupDetailReportRequest extends Model
     public $groupIds;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example ccc_xp_pre-cn-***
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description This parameter is required.
+     *
+     * @example 1614824872
+     *
      * @var int
      */
     public $startDate;

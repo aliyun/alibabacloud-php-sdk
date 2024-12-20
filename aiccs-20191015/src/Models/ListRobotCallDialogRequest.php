@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListRobotCallDialogRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 125165515022^11195613****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListRobotCallDialogRequest extends Model
     public $callId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 2021-05-20 00:00:00
      *
      * @var string

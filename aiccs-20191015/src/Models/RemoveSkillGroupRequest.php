@@ -16,6 +16,8 @@ class RemoveSkillGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @example ccc_xp_pre-cn-***
      *
      * @var string
@@ -23,6 +25,8 @@ class RemoveSkillGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 123456
      *
      * @var string
