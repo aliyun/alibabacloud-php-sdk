@@ -14,6 +14,11 @@ class GenericSearchResult extends Model
     public $pageItems;
 
     /**
+     * @var QueryContext
+     */
+    public $queryContext;
+
+    /**
      * @example 123456
      *
      * @var string
@@ -36,6 +41,7 @@ class GenericSearchResult extends Model
     public $weiboItems;
     protected $_name = [
         'pageItems'         => 'pageItems',
+        'queryContext'      => 'queryContext',
         'requestId'         => 'requestId',
         'sceneItems'        => 'sceneItems',
         'searchInformation' => 'searchInformation',
@@ -57,6 +63,9 @@ class GenericSearchResult extends Model
                     $res['pageItems'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->queryContext) {
+            $res['queryContext'] = null !== $this->queryContext ? $this->queryContext->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -102,6 +111,9 @@ class GenericSearchResult extends Model
                     $model->pageItems[$n++] = null !== $item ? ScorePageItem::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['queryContext'])) {
+            $model->queryContext = QueryContext::fromMap($map['queryContext']);
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];

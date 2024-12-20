@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponseBody;
 
+use AlibabaCloud\SDK\IQS\V20241111\Models\AiSearchResponseBody\header\queryContext;
 use AlibabaCloud\Tea\Model;
 
 class header extends Model
@@ -23,6 +24,11 @@ class header extends Model
     public $eventId;
 
     /**
+     * @var queryContext
+     */
+    public $queryContext;
+
+    /**
      * @example 1293
      *
      * @var int
@@ -31,6 +37,7 @@ class header extends Model
     protected $_name = [
         'event'        => 'event',
         'eventId'      => 'eventId',
+        'queryContext' => 'queryContext',
         'responseTime' => 'responseTime',
     ];
 
@@ -46,6 +53,9 @@ class header extends Model
         }
         if (null !== $this->eventId) {
             $res['eventId'] = $this->eventId;
+        }
+        if (null !== $this->queryContext) {
+            $res['queryContext'] = null !== $this->queryContext ? $this->queryContext->toMap() : null;
         }
         if (null !== $this->responseTime) {
             $res['responseTime'] = $this->responseTime;
@@ -67,6 +77,9 @@ class header extends Model
         }
         if (isset($map['eventId'])) {
             $model->eventId = $map['eventId'];
+        }
+        if (isset($map['queryContext'])) {
+            $model->queryContext = queryContext::fromMap($map['queryContext']);
         }
         if (isset($map['responseTime'])) {
             $model->responseTime = $map['responseTime'];
