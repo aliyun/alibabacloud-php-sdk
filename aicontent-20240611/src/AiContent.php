@@ -6,6 +6,10 @@ namespace AlibabaCloud\SDK\AiContent\V20240611;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherExpansionPracticeTaskGenerateRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherExpansionPracticeTaskGenerateResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerateRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerateResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobRequest;
@@ -62,6 +66,148 @@ class AiContent extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 拓展练问答对生成
+     *  *
+     * @param AITeacherExpansionPracticeTaskGenerateRequest $request AITeacherExpansionPracticeTaskGenerateRequest
+     * @param string[]                                      $headers map
+     * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AITeacherExpansionPracticeTaskGenerateResponse AITeacherExpansionPracticeTaskGenerateResponse
+     */
+    public function aITeacherExpansionPracticeTaskGenerateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->grade)) {
+            $body['grade'] = $request->grade;
+        }
+        if (!Utils::isUnset($request->keySentences)) {
+            $body['keySentences'] = $request->keySentences;
+        }
+        if (!Utils::isUnset($request->keyWords)) {
+            $body['keyWords'] = $request->keyWords;
+        }
+        if (!Utils::isUnset($request->learningObject)) {
+            $body['learningObject'] = $request->learningObject;
+        }
+        if (!Utils::isUnset($request->textContent)) {
+            $body['textContent'] = $request->textContent;
+        }
+        if (!Utils::isUnset($request->textbook)) {
+            $body['textbook'] = $request->textbook;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AITeacherExpansionPracticeTaskGenerate',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/expansionPractice/generateTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AITeacherExpansionPracticeTaskGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 拓展练问答对生成
+     *  *
+     * @param AITeacherExpansionPracticeTaskGenerateRequest $request AITeacherExpansionPracticeTaskGenerateRequest
+     *
+     * @return AITeacherExpansionPracticeTaskGenerateResponse AITeacherExpansionPracticeTaskGenerateResponse
+     */
+    public function aITeacherExpansionPracticeTaskGenerate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aITeacherExpansionPracticeTaskGenerateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 同步基础练问答对生成
+     *  *
+     * @param AITeacherSyncPracticeTaskGenerateRequest $request AITeacherSyncPracticeTaskGenerateRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AITeacherSyncPracticeTaskGenerateResponse AITeacherSyncPracticeTaskGenerateResponse
+     */
+    public function aITeacherSyncPracticeTaskGenerateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->grade)) {
+            $body['grade'] = $request->grade;
+        }
+        if (!Utils::isUnset($request->keySentences)) {
+            $body['keySentences'] = $request->keySentences;
+        }
+        if (!Utils::isUnset($request->keyWords)) {
+            $body['keyWords'] = $request->keyWords;
+        }
+        if (!Utils::isUnset($request->learningObject)) {
+            $body['learningObject'] = $request->learningObject;
+        }
+        if (!Utils::isUnset($request->textContent)) {
+            $body['textContent'] = $request->textContent;
+        }
+        if (!Utils::isUnset($request->textbook)) {
+            $body['textbook'] = $request->textbook;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AITeacherSyncPracticeTaskGenerate',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/syncPractice/generateTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AITeacherSyncPracticeTaskGenerateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 同步基础练问答对生成
+     *  *
+     * @param AITeacherSyncPracticeTaskGenerateRequest $request AITeacherSyncPracticeTaskGenerateRequest
+     *
+     * @return AITeacherSyncPracticeTaskGenerateResponse AITeacherSyncPracticeTaskGenerateResponse
+     */
+    public function aITeacherSyncPracticeTaskGenerate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->aITeacherSyncPracticeTaskGenerateWithOptions($request, $headers, $runtime);
     }
 
     /**
