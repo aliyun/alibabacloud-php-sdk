@@ -76,6 +76,9 @@ class ContactCenterAI extends OpenApiClient
         if (!Utils::isUnset($request->categoryTags)) {
             $body['categoryTags'] = $request->categoryTags;
         }
+        if (!Utils::isUnset($request->customPrompt)) {
+            $body['customPrompt'] = $request->customPrompt;
+        }
         if (!Utils::isUnset($request->dialogue)) {
             $body['dialogue'] = $request->dialogue;
         }

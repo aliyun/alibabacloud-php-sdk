@@ -20,8 +20,11 @@ class AnalyzeConversationRequest extends Model
     public $categoryTags;
 
     /**
-     * @description This parameter is required.
-     *
+     * @var string
+     */
+    public $customPrompt;
+
+    /**
      * @var dialogue
      */
     public $dialogue;
@@ -85,6 +88,7 @@ class AnalyzeConversationRequest extends Model
     public $userProfiles;
     protected $_name = [
         'categoryTags'       => 'categoryTags',
+        'customPrompt'       => 'customPrompt',
         'dialogue'           => 'dialogue',
         'examples'           => 'examples',
         'fields'             => 'fields',
@@ -113,6 +117,9 @@ class AnalyzeConversationRequest extends Model
                     $res['categoryTags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->customPrompt) {
+            $res['customPrompt'] = $this->customPrompt;
         }
         if (null !== $this->dialogue) {
             $res['dialogue'] = null !== $this->dialogue ? $this->dialogue->toMap() : null;
@@ -185,6 +192,9 @@ class AnalyzeConversationRequest extends Model
                     $model->categoryTags[$n++] = null !== $item ? categoryTags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['customPrompt'])) {
+            $model->customPrompt = $map['customPrompt'];
         }
         if (isset($map['dialogue'])) {
             $model->dialogue = dialogue::fromMap($map['dialogue']);
