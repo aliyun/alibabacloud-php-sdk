@@ -1041,6 +1041,9 @@ class Edsaic extends OpenApiClient
         if (!Utils::isUnset($request->androidInstanceName)) {
             $query['AndroidInstanceName'] = $request->androidInstanceName;
         }
+        if (!Utils::isUnset($request->bizRegionId)) {
+            $query['BizRegionId'] = $request->bizRegionId;
+        }
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
@@ -1067,6 +1070,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

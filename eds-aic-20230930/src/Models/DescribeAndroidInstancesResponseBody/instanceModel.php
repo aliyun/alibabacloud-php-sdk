@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody;
 
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\disks;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesResponseBody\instanceModel\tags;
 use AlibabaCloud\Tea\Model;
 
 class instanceModel extends Model
@@ -170,6 +171,11 @@ class instanceModel extends Model
      * @var string
      */
     public $renderingType;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'androidInstanceGroupId'   => 'AndroidInstanceGroupId',
         'androidInstanceGroupName' => 'AndroidInstanceGroupName',
@@ -197,6 +203,7 @@ class instanceModel extends Model
         'rate'                     => 'Rate',
         'regionId'                 => 'RegionId',
         'renderingType'            => 'RenderingType',
+        'tags'                     => 'Tags',
     ];
 
     public function validate()
@@ -289,6 +296,15 @@ class instanceModel extends Model
         }
         if (null !== $this->renderingType) {
             $res['RenderingType'] = $this->renderingType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -385,6 +401,15 @@ class instanceModel extends Model
         }
         if (isset($map['RenderingType'])) {
             $model->renderingType = $map['RenderingType'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

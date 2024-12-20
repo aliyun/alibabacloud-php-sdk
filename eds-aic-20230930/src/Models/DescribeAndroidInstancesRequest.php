@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeAndroidInstancesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeAndroidInstancesRequest extends Model
@@ -19,6 +20,11 @@ class DescribeAndroidInstancesRequest extends Model
      * @var string
      */
     public $androidInstanceName;
+
+    /**
+     * @var string
+     */
+    public $bizRegionId;
 
     /**
      * @var string
@@ -76,9 +82,15 @@ class DescribeAndroidInstancesRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'androidInstanceIds'  => 'AndroidInstanceIds',
         'androidInstanceName' => 'AndroidInstanceName',
+        'bizRegionId'         => 'BizRegionId',
         'chargeType'          => 'ChargeType',
         'instanceGroupId'     => 'InstanceGroupId',
         'instanceGroupIds'    => 'InstanceGroupIds',
@@ -88,6 +100,7 @@ class DescribeAndroidInstancesRequest extends Model
         'nextToken'           => 'NextToken',
         'saleMode'            => 'SaleMode',
         'status'              => 'Status',
+        'tag'                 => 'Tag',
     ];
 
     public function validate()
@@ -102,6 +115,9 @@ class DescribeAndroidInstancesRequest extends Model
         }
         if (null !== $this->androidInstanceName) {
             $res['AndroidInstanceName'] = $this->androidInstanceName;
+        }
+        if (null !== $this->bizRegionId) {
+            $res['BizRegionId'] = $this->bizRegionId;
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
@@ -130,6 +146,15 @@ class DescribeAndroidInstancesRequest extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -149,6 +174,9 @@ class DescribeAndroidInstancesRequest extends Model
         }
         if (isset($map['AndroidInstanceName'])) {
             $model->androidInstanceName = $map['AndroidInstanceName'];
+        }
+        if (isset($map['BizRegionId'])) {
+            $model->bizRegionId = $map['BizRegionId'];
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
@@ -178,6 +206,15 @@ class DescribeAndroidInstancesRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
