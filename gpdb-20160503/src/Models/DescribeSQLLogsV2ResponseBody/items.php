@@ -36,6 +36,24 @@ class items extends Model
     public $DBRole;
 
     /**
+     * @description The error code.
+     *
+     * @example InternalError
+     *
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @description The error message.
+     *
+     * @example User not authorized to operate on the specified resource.
+     *
+     * @var string
+     */
+    public $errorMsg;
+
+    /**
      * @description The execution duration of the SQL statement.
      *
      * @example 2
@@ -84,6 +102,15 @@ class items extends Model
     public $operationType;
 
     /**
+     * @description The query ID.
+     *
+     * @example 2548026401648157601713924318883
+     *
+     * @var string
+     */
+    public $queryId;
+
+    /**
      * @description The number of entries returned.
      *
      * @example 1
@@ -111,6 +138,15 @@ class items extends Model
     public $scanRowCounts;
 
     /**
+     * @description The ID of the session.
+     *
+     * @example efc33bd7-f1dc-4b24-b4fb-ab0d5329b7bb
+     *
+     * @var string
+     */
+    public $sessionId;
+
+    /**
      * @description The source IP address.
      *
      * @example 100.**.**.90
@@ -131,14 +167,18 @@ class items extends Model
         'accountName'          => 'AccountName',
         'DBName'               => 'DBName',
         'DBRole'               => 'DBRole',
+        'errorCode'            => 'ErrorCode',
+        'errorMsg'             => 'ErrorMsg',
         'executeCost'          => 'ExecuteCost',
         'executeState'         => 'ExecuteState',
         'operationClass'       => 'OperationClass',
         'operationExecuteTime' => 'OperationExecuteTime',
         'operationType'        => 'OperationType',
+        'queryId'              => 'QueryId',
         'returnRowCounts'      => 'ReturnRowCounts',
         'SQLText'              => 'SQLText',
         'scanRowCounts'        => 'ScanRowCounts',
+        'sessionId'            => 'SessionId',
         'sourceIP'             => 'SourceIP',
         'sourcePort'           => 'SourcePort',
     ];
@@ -159,6 +199,12 @@ class items extends Model
         if (null !== $this->DBRole) {
             $res['DBRole'] = $this->DBRole;
         }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->errorMsg) {
+            $res['ErrorMsg'] = $this->errorMsg;
+        }
         if (null !== $this->executeCost) {
             $res['ExecuteCost'] = $this->executeCost;
         }
@@ -174,6 +220,9 @@ class items extends Model
         if (null !== $this->operationType) {
             $res['OperationType'] = $this->operationType;
         }
+        if (null !== $this->queryId) {
+            $res['QueryId'] = $this->queryId;
+        }
         if (null !== $this->returnRowCounts) {
             $res['ReturnRowCounts'] = $this->returnRowCounts;
         }
@@ -182,6 +231,9 @@ class items extends Model
         }
         if (null !== $this->scanRowCounts) {
             $res['ScanRowCounts'] = $this->scanRowCounts;
+        }
+        if (null !== $this->sessionId) {
+            $res['SessionId'] = $this->sessionId;
         }
         if (null !== $this->sourceIP) {
             $res['SourceIP'] = $this->sourceIP;
@@ -210,6 +262,12 @@ class items extends Model
         if (isset($map['DBRole'])) {
             $model->DBRole = $map['DBRole'];
         }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['ErrorMsg'])) {
+            $model->errorMsg = $map['ErrorMsg'];
+        }
         if (isset($map['ExecuteCost'])) {
             $model->executeCost = $map['ExecuteCost'];
         }
@@ -225,6 +283,9 @@ class items extends Model
         if (isset($map['OperationType'])) {
             $model->operationType = $map['OperationType'];
         }
+        if (isset($map['QueryId'])) {
+            $model->queryId = $map['QueryId'];
+        }
         if (isset($map['ReturnRowCounts'])) {
             $model->returnRowCounts = $map['ReturnRowCounts'];
         }
@@ -233,6 +294,9 @@ class items extends Model
         }
         if (isset($map['ScanRowCounts'])) {
             $model->scanRowCounts = $map['ScanRowCounts'];
+        }
+        if (isset($map['SessionId'])) {
+            $model->sessionId = $map['SessionId'];
         }
         if (isset($map['SourceIP'])) {
             $model->sourceIP = $map['SourceIP'];

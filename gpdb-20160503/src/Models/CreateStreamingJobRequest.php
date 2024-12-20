@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateStreamingJobRequest extends Model
 {
     /**
-     * @description The name of the database account.
+     * @description Target database account.
      *
      * @example test-account
      *
@@ -18,12 +18,7 @@ class CreateStreamingJobRequest extends Model
     public $account;
 
     /**
-     * @description The delivery guarantee setting.
-     *
-     * Valid values:
-     *
-     *   ATLEAST
-     *   EXACTLY
+     * @description Delivery guarantee.
      *
      * @example ATLEAST / EXACTLY
      *
@@ -32,7 +27,7 @@ class CreateStreamingJobRequest extends Model
     public $consistency;
 
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
      * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
@@ -42,7 +37,7 @@ class CreateStreamingJobRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The data source ID.
+     * @description Data source ID.
      *
      * This parameter is required.
      * @example 1
@@ -52,14 +47,14 @@ class CreateStreamingJobRequest extends Model
     public $dataSourceId;
 
     /**
-     * @description The destination fields.
+     * @description Target data table mapping field list.
      *
      * @var string[]
      */
     public $destColumns;
 
     /**
-     * @description The name of the destination database.
+     * @description Target database name.
      *
      * @example dest-db
      *
@@ -68,6 +63,8 @@ class CreateStreamingJobRequest extends Model
     public $destDatabase;
 
     /**
+     * @description Target namespace.
+     *
      * @example dest-schema
      *
      * @var string
@@ -75,7 +72,7 @@ class CreateStreamingJobRequest extends Model
     public $destSchema;
 
     /**
-     * @description The name of the destination table.
+     * @description Target table name.
      *
      * @example dest-table
      *
@@ -84,7 +81,7 @@ class CreateStreamingJobRequest extends Model
     public $destTable;
 
     /**
-     * @description The number of allowed error rows. Write failures occur when Kafka data does not match the destination table in AnalyticDB for PostgreSQL. If the specified value is exceeded, the job fails.
+     * @description When data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
      *
      * @example 5
      *
@@ -93,21 +90,26 @@ class CreateStreamingJobRequest extends Model
     public $errorLimitCount;
 
     /**
-     * @example earliest /  latest
+     * @description FallbackOffset, fallback offset
+     *
+     * - The FallbackOffset parameter defines the behavior when the consumer does not request a specific offset or the requested offset exceeds the current Kafka cluster\\"s recorded offset information. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
+     * @example EARLIEST /  LATEST
      *
      * @var string
      */
     public $fallbackOffset;
 
     /**
-     * @example group_name。
+     * @description Kafka group name
+     *
+     * @example group_name.
      *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The YAML configuration file of the job. This parameter must be specified when Mode is set to professional.
+     * @description Job configuration file, required for professional mode.
      *
      * @example DATABASE: adbpgss_test
      * group.id: testgroup
@@ -116,7 +118,7 @@ class CreateStreamingJobRequest extends Model
     public $jobConfig;
 
     /**
-     * @description The description of the job.
+     * @description Job description.
      *
      * @example test-job
      *
@@ -125,7 +127,7 @@ class CreateStreamingJobRequest extends Model
     public $jobDescription;
 
     /**
-     * @description The name of the job.
+     * @description Job name.
      *
      * This parameter is required.
      * @example test-job
@@ -135,16 +137,15 @@ class CreateStreamingJobRequest extends Model
     public $jobName;
 
     /**
-     * @description The update condition columns that are used to join the source data and the destination table. Typically, the columns are all the primary key columns of the destination table. If the values of all columns specified by this parameter in different rows are the same, the rows are considered duplicates.
+     * @description Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
      *
      * @var string[]
      */
     public $matchColumns;
 
     /**
-     * @description The configuration mode. Valid values:
-     *
-     * 2.  professional: In professional mode, you can submit a YAML configuration file.
+     * @description Configuration mode
+     * 1. Professional mode supports submitting a YAML file
      * @example basic / professional
      *
      * @var string
@@ -152,7 +153,7 @@ class CreateStreamingJobRequest extends Model
     public $mode;
 
     /**
-     * @description The password of the database account.
+     * @description Target database password.
      *
      * @example pwd123
      *
@@ -161,6 +162,9 @@ class CreateStreamingJobRequest extends Model
     public $password;
 
     /**
+     * @description Region ID.
+     *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
      * @example cn-beijing
      *
      * @var string
@@ -168,17 +172,14 @@ class CreateStreamingJobRequest extends Model
     public $regionId;
 
     /**
-     * @description The source fields.
+     * @description Source data field list.
      *
      * @var string[]
      */
     public $srcColumns;
 
     /**
-     * @description Specifies whether to test the real-time job. Valid values:
-     *
-     *   true
-     *   false
+     * @description Whether to test the real-time task, values:
      *
      * Default value: false.
      * @example true
@@ -188,22 +189,16 @@ class CreateStreamingJobRequest extends Model
     public $tryRun;
 
     /**
-     * @description The columns to be updated if a row of data meets the update condition. Typically, the columns are all non-primary key columns of the destination table. When the columns specified by the MatchColumns parameter are used as conditions to join the source data and the destination table, data in columns of the UpdateColumns type is updated if data is matched.
+     * @description Update columns, usually all non-primary key columns of the target table. When data is determined to be duplicate through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
      *
      * @var string[]
      */
     public $updateColumns;
 
     /**
-     * @description The write mode.
+     * @description Write mode.
      *
-     * Valid values:
-     *
-     *   insert
-     *   update
-     *   merge
-     *
-     * @example insert/update/merge
+     * @example INSERT/UPDATE/MERGE
      *
      * @var string
      */

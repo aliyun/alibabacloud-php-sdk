@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyStreamingJobShrinkRequest extends Model
 {
     /**
-     * @description The name of the database account.
+     * @description Account name.
      *
      * @example test-account
      *
@@ -18,12 +18,7 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $account;
 
     /**
-     * @description The delivery guarantee setting.
-     *
-     * Valid values:
-     *
-     *   ATLEAST
-     *   EXACTLY
+     * @description Delivery guarantee.
      *
      * @example ATLEAST / EXACTLY
      *
@@ -32,7 +27,7 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $consistency;
 
     /**
-     * @description The instance ID.
+     * @description Instance ID
      *
      * This parameter is required.
      * @example ModifyStreamingJob
@@ -42,14 +37,14 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The destination fields.
+     * @description Target data table mapping field list.
      *
      * @var string
      */
     public $destColumnsShrink;
 
     /**
-     * @description The name of the destination database.
+     * @description Target database name.
      *
      * @example dest-db
      *
@@ -58,6 +53,8 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $destDatabase;
 
     /**
+     * @description Target schema.
+     *
      * @example dest-schema
      *
      * @var string
@@ -65,7 +62,7 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $destSchema;
 
     /**
-     * @description The name of the destination table.
+     * @description Target table name.
      *
      * @example dest-table
      *
@@ -74,6 +71,8 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $destTable;
 
     /**
+     * @description When the data in Kafka does not match the ADBPG target table, it will cause a write failure. This value is the number of error rows allowed; exceeding this will cause the task to fail.
+     *
      * @example 5
      *
      * @var int
@@ -81,13 +80,18 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $errorLimitCount;
 
     /**
-     * @example earliest /  latest
+     * @description FallbackOffset rollback position, offset rollback
+     *
+     * - The FallbackOffset parameter defines the behavior when the consumer does not request a specific consumption point or the requested consumption point exceeds the current Kafka cluster\\"s recorded points. You can choose to start consuming from the earliest (newest) or latest (oldest) point.
+     * @example EARLIEST /  LATEST
      *
      * @var string
      */
     public $fallbackOffset;
 
     /**
+     * @description Kafka group name
+     *
      * @example group_name
      *
      * @var string
@@ -95,7 +99,7 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $groupName;
 
     /**
-     * @description The YAML configuration file of the job. This parameter must be specified when Mode is set to professional.
+     * @description Job configuration file, required for professional mode.
      *
      * @example DATABASE: adbpgss_test
      * group.id: testgroup
@@ -104,7 +108,7 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $jobConfig;
 
     /**
-     * @description The description of the job.
+     * @description Job description.
      *
      * @example test-job
      *
@@ -113,7 +117,7 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $jobDescription;
 
     /**
-     * @description The job ID.
+     * @description Job ID.
      *
      * This parameter is required.
      * @example 1
@@ -123,12 +127,14 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $jobId;
 
     /**
+     * @description Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+     *
      * @var string
      */
     public $matchColumnsShrink;
 
     /**
-     * @description The password of the database account.
+     * @description Password.
      *
      * @example pwd123
      *
@@ -137,6 +143,9 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $password;
 
     /**
+     * @description Region ID.
+     *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
      * @example cn-beijing
      *
      * @var string
@@ -144,17 +153,14 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description The source fields.
+     * @description Source data field list.
      *
      * @var string
      */
     public $srcColumnsShrink;
 
     /**
-     * @description Specifies whether to test the real-time job. Valid values:
-     *
-     *   true
-     *   false
+     * @description Whether to test the real-time task, values:
      *
      * Default value: false.
      * @example true
@@ -164,18 +170,14 @@ class ModifyStreamingJobShrinkRequest extends Model
     public $tryRun;
 
     /**
+     * @description Update columns, usually all non-primary key columns of the target table. When data duplication is determined through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+     *
      * @var string
      */
     public $updateColumnsShrink;
 
     /**
-     * @description The write mode.
-     *
-     * Valid values:
-     *
-     *   insert
-     *   update
-     *   merge
+     * @description Write mode.
      *
      * @example INSERT/UPDATE/MERGE
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class relationalTableFilter extends Model
 {
     /**
+     * @description The Metadata field of the vector collection, used to associate with the fields in the vector table.
+     *
      * @example doc_id
      *
      * @var string
@@ -16,6 +18,8 @@ class relationalTableFilter extends Model
     public $collectionMetadataField;
 
     /**
+     * @description The filtering condition for the relational table.
+     *
      * @example tags @> ARRAY[\\"art\\"]
      *
      * @var string
@@ -23,6 +27,8 @@ class relationalTableFilter extends Model
     public $condition;
 
     /**
+     * @description The field in the relational table, used to associate with the Metadata field of the vector collection.
+     *
      * @example id
      *
      * @var string
@@ -30,6 +36,8 @@ class relationalTableFilter extends Model
     public $tableField;
 
     /**
+     * @description The name of the relational table.
+     *
      * @example my_rds_table
      *
      * @var string

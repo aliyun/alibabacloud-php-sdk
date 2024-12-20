@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeJDBCDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxx
      *
      * @var string

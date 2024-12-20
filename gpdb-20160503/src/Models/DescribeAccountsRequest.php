@@ -18,6 +18,10 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
+     * @description The type of the database account that you want to query. Valid values: Super, Normal, and All. Default value: Super. If you set this parameter to Super, the information about the privileged account is returned. If you set this parameter to Normal, the information about all standard accounts is returned. If you set this parameter to All, the information about all database accounts is returned.
+     *
+     * @example Super
+     *
      * @var string
      */
     public $accountType;

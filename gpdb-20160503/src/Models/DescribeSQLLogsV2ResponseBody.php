@@ -10,7 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogsV2ResponseBody extends Model
 {
     /**
-     * @description Details of the SQL logs.
+     * @description The details about the access denial.
+     *
+     * @example account name invalid
+     *
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
+     * @description The queried SQL execution logs.
      *
      * @var items[]
      */
@@ -43,10 +52,11 @@ class DescribeSQLLogsV2ResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'items'           => 'Items',
-        'pageNumber'      => 'PageNumber',
-        'pageRecordCount' => 'PageRecordCount',
-        'requestId'       => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'items'              => 'Items',
+        'pageNumber'         => 'PageNumber',
+        'pageRecordCount'    => 'PageRecordCount',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -56,6 +66,9 @@ class DescribeSQLLogsV2ResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->items) {
             $res['Items'] = [];
             if (null !== $this->items && \is_array($this->items)) {
@@ -86,6 +99,9 @@ class DescribeSQLLogsV2ResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];

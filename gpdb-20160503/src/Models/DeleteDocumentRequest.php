@@ -9,7 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDocumentRequest extends Model
 {
     /**
-     * @description The name of the document collection.
+     * @description Document collection name.
+     *
      *
      * This parameter is required.
      * @example document
@@ -19,8 +20,9 @@ class DeleteDocumentRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -28,7 +30,7 @@ class DeleteDocumentRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The name of the document.
+     * @description File name.
      *
      * This parameter is required.
      * @example music.txt
@@ -38,9 +40,9 @@ class DeleteDocumentRequest extends Model
     public $fileName;
 
     /**
-     * @description The name of the namespace. Default value: public.
+     * @description Namespace, default is public.
      *
-     * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
      * @example mynamespace
      *
      * @var string
@@ -48,7 +50,7 @@ class DeleteDocumentRequest extends Model
     public $namespace;
 
     /**
-     * @description The password of the namespace.
+     * @description Password for the namespace.
      *
      * This parameter is required.
      * @example testpassword
@@ -63,8 +65,9 @@ class DeleteDocumentRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID where the instance is located.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

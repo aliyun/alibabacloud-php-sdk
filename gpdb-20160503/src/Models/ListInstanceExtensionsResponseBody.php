@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceExtensionsResponseBody extends Model
 {
     /**
+     * @description The queried extensions.
+     *
      * @var items[]
      */
     public $items;

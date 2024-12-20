@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamingDataSourceResponseBody extends Model
 {
     /**
+     * @description Creation time.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Data source configuration information.
+     *
      * @example {"brokers":"broker0:9091,broker1:9091","topic":"topic"}
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $dataSourceConfig;
 
     /**
+     * @description Data source description.
+     *
      * @example test-kafka
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $dataSourceDescription;
 
     /**
+     * @description Data source ID.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $dataSourceId;
 
     /**
+     * @description Data source name.
+     *
      * @example test-kafka
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $dataSourceName;
 
     /**
+     * @description Data source type, values include:
+     * -  kafka
      * @example kafka
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $dataSourceType;
 
     /**
+     * @description Service status message, for example, in case of an exception, it will show the reason for the exception. In normal Running state, this value is empty.
+     *
      * @example ""
      *
      * @var string
@@ -58,6 +72,8 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -65,6 +81,8 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description External data service ID.
+     *
      * @example 1
      *
      * @var int
@@ -72,12 +90,9 @@ class DescribeStreamingDataSourceResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description The status of the service. Valid values:
+     * @description Service status:
      *
-     *   init
-     *   running
-     *   exception
-     *
+     * - Exception exception
      * @example running
      *
      * @var string

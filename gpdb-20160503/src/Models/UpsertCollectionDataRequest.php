@@ -30,8 +30,9 @@ class UpsertCollectionDataRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The name of the namespace.
+     * @description The name of the namespace. Default value: public.
      *
+     * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -69,6 +70,10 @@ class UpsertCollectionDataRequest extends Model
     public $rows;
 
     /**
+     * @description The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+     *
+     * @example gp-ws-*****
+     *
      * @var string
      */
     public $workspaceId;

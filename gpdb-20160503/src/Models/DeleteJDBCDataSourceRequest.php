@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteJDBCDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteJDBCDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The data source ID.
+     * @description Data source ID.
      *
      * This parameter is required.
      * @example 123
@@ -28,9 +29,9 @@ class DeleteJDBCDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
-     * @description The region ID.
+     * @description Region ID.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
      * @example cn-hangzhou
      *
      * @var string

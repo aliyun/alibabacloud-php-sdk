@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class windowMatch extends Model
 {
     /**
+     * @description Text content.
+     *
+     * @example AnalyticDB for PostgreSQL is a cloud-native data warehouse service that provides large-scale parallel processing (MPP) capabilities for massive online data analysis.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description File name.
+     *
      * @example my_doc.txt
      *
      * @var string
@@ -21,6 +27,8 @@ class windowMatch extends Model
     public $fileName;
 
     /**
+     * @description Unique ID of the vector data.
+     *
      * @example doca-2345
      *
      * @var string
@@ -28,6 +36,8 @@ class windowMatch extends Model
     public $id;
 
     /**
+     * @description Metadata information when the document loader was loaded.
+     *
      * @example {"page_pos": 2}
      *
      * @var string
@@ -35,6 +45,8 @@ class windowMatch extends Model
     public $loaderMetadata;
 
     /**
+     * @description Metadata map.
+     *
      * @var string[]
      */
     public $metadata;

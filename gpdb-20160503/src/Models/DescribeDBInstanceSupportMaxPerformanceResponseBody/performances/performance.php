@@ -20,12 +20,16 @@ class performance extends Model
     /**
      * @description The name of the performance metric.
      *
+     * @example adbpg_status,adbpg_disk_status,adbpg_connection_status,adbgp_segment_disk_usage_percent_max,adbpg_master_disk_usage_percent_max,adbpg_disk_usage_percent
+     *
      * @var string
      */
     public $key;
 
     /**
      * @description The unit of the performance metric.
+     *
+     * @example %
      *
      * @var string
      */

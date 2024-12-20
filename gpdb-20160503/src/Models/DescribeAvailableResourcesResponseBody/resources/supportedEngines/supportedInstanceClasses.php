@@ -25,6 +25,8 @@ class supportedInstanceClasses extends Model
     /**
      * @description The description of compute node specifications.
      *
+     * @example 2C16G
+     *
      * @var string
      */
     public $description;

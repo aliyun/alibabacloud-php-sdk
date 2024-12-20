@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateStreamingDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example CreateExternalDataSource
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateStreamingDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description Data source configuration information.
      *
+     * This parameter is required.
      * @example {"broker_list":"broker0:9091,broker1:9091","topic":"topic"}
      *
      * @var string
@@ -27,6 +29,8 @@ class CreateStreamingDataSourceRequest extends Model
     public $dataSourceConfig;
 
     /**
+     * @description Data source description.
+     *
      * @example test-kafka
      *
      * @var string
@@ -34,8 +38,9 @@ class CreateStreamingDataSourceRequest extends Model
     public $dataSourceDescription;
 
     /**
-     * @description This parameter is required.
+     * @description Data source name.
      *
+     * This parameter is required.
      * @example test-kafka
      *
      * @var string
@@ -43,8 +48,8 @@ class CreateStreamingDataSourceRequest extends Model
     public $dataSourceName;
 
     /**
-     * @description This parameter is required.
-     *
+     * @description Data source type. Values:
+     * This parameter is required.
      * @example kafka
      *
      * @var string
@@ -52,6 +57,9 @@ class CreateStreamingDataSourceRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description Region ID.
+     *
+     * > You can view available region IDs through the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface.
      * @example cn-beijing
      *
      * @var string
@@ -59,7 +67,7 @@ class CreateStreamingDataSourceRequest extends Model
     public $regionId;
 
     /**
-     * @description The real-time data service ID.
+     * @description Real-time data service ID.
      *
      * This parameter is required.
      * @example 1

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVectorIndexResponseBody extends Model
 {
     /**
+     * @description Detailed information returned by the API.
+     *
      * @example Successful
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVectorIndexResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -23,6 +27,9 @@ class CreateVectorIndexResponseBody extends Model
     public $requestId;
 
     /**
+     * @description API execution status. Value description:
+     * - **success**: Execution succeeded.
+     * - **fail**: Execution failed.
      * @example success
      *
      * @var string

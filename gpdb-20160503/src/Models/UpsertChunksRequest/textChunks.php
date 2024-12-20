@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class textChunks extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Document content.
+     *
+     * This parameter is required.
+     * @example Cloud-native data warehouse AnalyticDB PostgreSQL Edition provides a simple, fast, and cost-effective PB-level cloud data warehouse solution.
      *
      * @var string
      */
     public $content;
 
     /**
+     * @description Metadata.
+     *
      * @example {"title":"test"}
      *
      * @var mixed[]

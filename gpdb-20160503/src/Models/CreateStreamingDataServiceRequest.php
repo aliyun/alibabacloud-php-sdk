@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateStreamingDataServiceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -20,7 +21,7 @@ class CreateStreamingDataServiceRequest extends Model
     /**
      * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent list of regions.
      * @example cn-beijing
      *
      * @var string
@@ -28,6 +29,8 @@ class CreateStreamingDataServiceRequest extends Model
     public $regionId;
 
     /**
+     * @description The description of the service.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -35,8 +38,9 @@ class CreateStreamingDataServiceRequest extends Model
     public $serviceDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the service.
      *
+     * This parameter is required.
      * @example test-adbpgss
      *
      * @var string
@@ -44,8 +48,9 @@ class CreateStreamingDataServiceRequest extends Model
     public $serviceName;
 
     /**
-     * @description This parameter is required.
+     * @description The specifications of the service.
      *
+     * This parameter is required.
      * @example 2
      *
      * @var string

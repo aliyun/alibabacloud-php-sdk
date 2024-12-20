@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpsertChunksRequest extends Model
 {
     /**
-     * @description The name of the document collection.
+     * @description Document collection name.
      *
      * This parameter is required.
      * @example document
@@ -20,8 +20,9 @@ class UpsertChunksRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -29,6 +30,9 @@ class UpsertChunksRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description File name.
+     *
+     * > If a file name is specified and not empty, it will overwrite the data for this file name; if empty, the chunks data will be appended directly to the document collection.
      * @example mydoc.txt
      *
      * @var string
@@ -36,9 +40,9 @@ class UpsertChunksRequest extends Model
     public $fileName;
 
     /**
-     * @description The name of the namespace. Default value: public.
+     * @description Namespace, default is public.
      *
-     * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     * > You can create it using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
      * @example mynamespace
      *
      * @var string
@@ -46,7 +50,7 @@ class UpsertChunksRequest extends Model
     public $namespace;
 
     /**
-     * @description The password of the namespace.
+     * @description Password corresponding to the namespace.
      *
      * This parameter is required.
      * @example testpassword
@@ -61,8 +65,9 @@ class UpsertChunksRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID where the instance is located.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -70,6 +75,8 @@ class UpsertChunksRequest extends Model
     public $regionId;
 
     /**
+     * @description List of split documents.
+     *
      * @var textChunks[]
      */
     public $textChunks;

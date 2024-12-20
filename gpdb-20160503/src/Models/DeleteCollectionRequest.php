@@ -31,6 +31,7 @@ class DeleteCollectionRequest extends Model
     /**
      * @description The name of the namespace.
      *
+     * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -63,6 +64,10 @@ class DeleteCollectionRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+     *
+     * @example gp-ws-*****
+     *
      * @var string
      */
     public $workspaceId;

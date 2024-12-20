@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamingJobResponseBody extends Model
 {
     /**
-     * @description The username of the account.
+     * @description Target database account.
      *
      * @example test-account
      *
@@ -18,6 +18,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $account;
 
     /**
+     * @description Delivery guarantee.
+     *
      * @example ATLEAST / EXACTLY
      *
      * @var string
@@ -25,7 +27,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $consistency;
 
     /**
-     * @description The time when the job was created.
+     * @description Creation time.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
      * @example 2019-09-08T16:00:00Z
@@ -35,15 +37,17 @@ class DescribeStreamingJobResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The name of the data source.
+     * @description Data source ID.
      *
-     * @example test-kafka
+     * @example 2
      *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @description Data source name.
+     *
      * @example test_kafka
      *
      * @var string
@@ -51,14 +55,14 @@ class DescribeStreamingJobResponseBody extends Model
     public $dataSourceName;
 
     /**
-     * @description The destination fields.
+     * @description Target data table mapping field list.
      *
      * @var string[]
      */
     public $destColumns;
 
     /**
-     * @description The name of the destination database.
+     * @description Target database name.
      *
      * @example dest-db
      *
@@ -67,6 +71,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $destDatabase;
 
     /**
+     * @description Target namespace.
+     *
      * @example dest-schema
      *
      * @var string
@@ -74,7 +80,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $destSchema;
 
     /**
-     * @description The name of the destination table.
+     * @description Target table name.
      *
      * @example dest-table
      *
@@ -83,6 +89,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $destTable;
 
     /**
+     * @description When data in Kafka does not match the ADBPG target table, it can cause write failures. This value represents the number of error rows allowed; if exceeded, the task will fail.
+     *
      * @example 5
      *
      * @var int
@@ -90,7 +98,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $errorLimitCount;
 
     /**
-     * @description The information about the job status. For example, if the job is in the Exception state, the cause of the exception is displayed. If the job is in the Running state, this parameter is left empty.
+     * @description Service status information, such as the reason for an exception. It is empty in the normal Running state.
      *
      * @example ""
      *
@@ -99,6 +107,9 @@ class DescribeStreamingJobResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Fallback offset, which is the fallback position
+     *
+     * - The FallbackOffset parameter defines the behavior when the consumer has not requested a specific offset to consume or the requested offset exceeds the current record\\"s offset information in the Kafka cluster. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
      * @example EARLIEST /  LATEST
      *
      * @var string
@@ -106,6 +117,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $fallbackOffset;
 
     /**
+     * @description Kafka group name
+     *
      * @example test_group
      *
      * @var string
@@ -113,6 +126,8 @@ class DescribeStreamingJobResponseBody extends Model
     public $groupName;
 
     /**
+     * @description Job configuration file.
+     *
      * @example DATABASE: adbpgss_test
      * group.id: testgroup
      * @var string
@@ -120,7 +135,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $jobConfig;
 
     /**
-     * @description The description of the job.
+     * @description Job description.
      *
      * @example test_job
      *
@@ -129,7 +144,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $jobDescription;
 
     /**
-     * @description The job ID.
+     * @description Job ID.
      *
      * @example 1
      *
@@ -138,7 +153,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description The name of the job.
+     * @description Job name.
      *
      * @example test-job
      *
@@ -147,11 +162,15 @@ class DescribeStreamingJobResponseBody extends Model
     public $jobName;
 
     /**
+     * @description Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+     *
      * @var string[]
      */
     public $matchColumns;
 
     /**
+     * @description Configuration mode
+     * 1. Professional mode supports submitting YAML files
      * @example basic/professional
      *
      * @var string
@@ -159,7 +178,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $mode;
 
     /**
-     * @description The time when the job was last modified.
+     * @description Last modified time.
      *
      * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
      * @example 2019-09-08T17:00:00Z
@@ -169,7 +188,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $modifyTime;
 
     /**
-     * @description The password of the account.
+     * @description Target database password.
      *
      * @example pwd123
      *
@@ -178,7 +197,7 @@ class DescribeStreamingJobResponseBody extends Model
     public $password;
 
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
@@ -187,20 +206,16 @@ class DescribeStreamingJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The source fields.
+     * @description Source field list.
      *
      * @var string[]
      */
     public $srcColumns;
 
     /**
-     * @description The status of the job. Valid values:
+     * @description Service status, with possible values:
      *
-     *   Init: The job is being initialized.
-     *   Running: The job is running.
-     *   Exception: The job encounters an exception.
-     *   Paused: The job is paused.
-     *
+     * - Paused: Paused
      * @example Running
      *
      * @var string
@@ -208,12 +223,14 @@ class DescribeStreamingJobResponseBody extends Model
     public $status;
 
     /**
+     * @description Update columns, usually all non-primary key columns of the target table. When data duplication is determined through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+     *
      * @var string[]
      */
     public $updateColumns;
 
     /**
-     * @description The write mode.
+     * @description Write mode.
      *
      * @example INSERT/UPDATE/MERGE
      *

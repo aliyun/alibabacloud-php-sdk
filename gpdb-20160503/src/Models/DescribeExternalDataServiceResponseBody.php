@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeExternalDataServiceResponseBody extends Model
 {
     /**
+     * @description The time when the service was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeExternalDataServiceResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The time when the service was last modified.
+     *
      * @example 2019-09-08T17:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeExternalDataServiceResponseBody extends Model
     public $modifyTime;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -39,6 +45,8 @@ class DescribeExternalDataServiceResponseBody extends Model
     public $serviceDescription;
 
     /**
+     * @description The service ID.
+     *
      * @example 1
      *
      * @var string
@@ -64,6 +72,8 @@ class DescribeExternalDataServiceResponseBody extends Model
     public $serviceSpec;
 
     /**
+     * @description The status of the operation.
+     *
      * @example Running
      *
      * @var string

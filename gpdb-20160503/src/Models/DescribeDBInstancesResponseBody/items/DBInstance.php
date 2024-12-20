@@ -200,6 +200,8 @@ class DBInstance extends Model
     public $payType;
 
     /**
+     * @description product type
+     *
      * @example standard
      *
      * @var string

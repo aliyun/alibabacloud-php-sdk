@@ -19,14 +19,14 @@ class match extends Model
     public $id;
 
     /**
-     * @description The metadata.
+     * @description Metadata.
      *
      * @var string[]
      */
     public $metadata;
 
     /**
-     * @description The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
+     * @description The similarity score of this data, which is related to the algorithm `(l2/ip/cosine)` specified when creating the index.
      *
      * @example 0.12345
      *
@@ -35,7 +35,7 @@ class match extends Model
     public $score;
 
     /**
-     * @description The retrieved vector data.
+     * @description List of vector data.
      *
      * @var values
      */

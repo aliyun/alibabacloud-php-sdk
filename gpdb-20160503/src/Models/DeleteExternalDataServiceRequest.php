@@ -9,19 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteExternalDataServiceRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
      * This parameter is required.
-     * @example gp-bp10g78o9807yv9h3
+     * @example gp-xxx
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The region ID.
+     * @description Region ID.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
      * @example cn-hangzhou
      *
      * @var string
@@ -29,8 +29,9 @@ class DeleteExternalDataServiceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description Service ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

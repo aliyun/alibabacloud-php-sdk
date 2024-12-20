@@ -77,15 +77,6 @@ class CreateAccountRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @description This parameter is no longer used.
-     *
-     * @example rg-bp67acfmxazb4p****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName'        => 'AccountName',
@@ -94,7 +85,6 @@ class CreateAccountRequest extends Model
         'DBInstanceId'       => 'DBInstanceId',
         'databaseName'       => 'DatabaseName',
         'ownerId'            => 'OwnerId',
-        'resourceGroupId'    => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -124,9 +114,6 @@ class CreateAccountRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -160,9 +147,6 @@ class CreateAccountRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

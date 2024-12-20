@@ -9,22 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CheckHadoopNetConnectionRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
      * This parameter is required.
-     * @example CheckHadoopNetConnection
+     * @example gp-xxxxxxx
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description 1. Either DataSourceId or EmrInstanceId must be specified as input, otherwise an error will occur.
+     * 3. If the data source specified by DataSourceId is a self-built Hadoop cluster, an error will occur directly.
+     * @example 126
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
-     * @description The E-MapReduce (EMR) Hadoop cluster ID.
+     * @description EMR instance ID.
      *
      * @example c-xxx
      *
@@ -33,6 +37,8 @@ class CheckHadoopNetConnectionRequest extends Model
     public $emrInstanceId;
 
     /**
+     * @description Region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

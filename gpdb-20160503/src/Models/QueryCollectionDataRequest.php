@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QueryCollectionDataRequest extends Model
 {
     /**
-     * @description The name of the collection.
+     * @description Collection name.
      *
      * This parameter is required.
      * @example document
@@ -20,9 +20,9 @@ class QueryCollectionDataRequest extends Model
     public $collection;
 
     /**
-     * @description The content that is used for full-text search. If you leave this parameter empty, only vector search is used. If you do not leave this parameter empty, two-way retrieval based on vector search and full-text search is used.
+     * @description Content for full-text search. When this value is empty, only vector search is used; when it is not empty, both vector and full-text search are used.
      *
-     * >  You must specify at least one of the Content and Vector parameters.
+     * > The Vector parameter cannot be empty at the same time.
      * @example hello_world
      *
      * @var string
@@ -30,9 +30,9 @@ class QueryCollectionDataRequest extends Model
     public $content;
 
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -40,12 +40,9 @@ class QueryCollectionDataRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+     * @description Filter conditions for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). Conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), as well as conditions using keywords like IN, BETWEEN, and LIKE.
      *
-     * >
-     *
-     *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
-     *
+     * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
      * @example response > 200
      *
      * @var string
@@ -53,14 +50,9 @@ class QueryCollectionDataRequest extends Model
     public $filter;
 
     /**
-     * @description The two-way retrieval algorithm. This parameter is empty by default, which specifies that scores of vector search and full-text search are directly compared and sorted without additional weighting or adjustments.
+     * @description Dual-path recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full-text).
      *
-     * Valid values:
-     *
-     *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
-     *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
-     *   Cascaded: This algorithm performs first full-text search and then vector search.
-     *
+     * - Cascaded: Perform full-text search first, then vector search based on the full-text results;
      * @example RRF
      *
      * @var string
@@ -82,7 +74,7 @@ class QueryCollectionDataRequest extends Model
     public $hybridSearchArgs;
 
     /**
-     * @description The metadata fields to be returned. Separate multiple fields with commas (,). This parameter is empty by default.
+     * @description Defaults to empty, indicating the metadata fields to return. Multiple fields should be separated by commas.
      *
      * @example title,content
      *
@@ -91,11 +83,9 @@ class QueryCollectionDataRequest extends Model
     public $includeMetadataFields;
 
     /**
-     * @description Specifies whether to return vector data. Valid values:
-     *
-     *   **true**: returns vector data.
-     *   **false**: does not return vector data. In full-text search scenarios, set this parameter to false.
-     *
+     * @description Whether to return vector data. Value descriptions:
+     * - **true**: Return vector data.
+     * - **false**: Do not return vector data, used for full-text search scenarios.
      * @example true
      *
      * @var bool
@@ -103,13 +93,12 @@ class QueryCollectionDataRequest extends Model
     public $includeValues;
 
     /**
-     * @description The similarity algorithm for search. Valid values:
+     * @description Similarity algorithm used during retrieval. Value descriptions:
+     * - **l2**: Euclidean distance.
+     * - **ip**: Inner product (dot product) distance.
+     * - **cosine**: Cosine similarity.
      *
-     *   **l2**: Euclidean distance.
-     *   **ip**: inner product distance.
-     *   **cosine**: cosine similarity.
-     *
-     * >  If you leave this parameter empty, the l2, ip, or cosine algorithm that is specified when you create an index is used.
+     * > If this value is empty, the algorithm specified during index creation is used.
      * @example cosine
      *
      * @var string
@@ -117,9 +106,9 @@ class QueryCollectionDataRequest extends Model
     public $metrics;
 
     /**
-     * @description The name of the namespace.
+     * @description Namespace.
      *
-     * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
      * @example mynamespace
      *
      * @var string
@@ -127,8 +116,9 @@ class QueryCollectionDataRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description Password for the namespace.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -136,14 +126,9 @@ class QueryCollectionDataRequest extends Model
     public $namespacePassword;
 
     /**
-     * @description The starting point for paginated queries. This parameter is empty by default. This parameter does not support two-way retrieval scenarios.
+     * @description Defaults to empty, indicating the starting point for pagination queries. Does not support hybrid search scenarios.
      *
-     * The value must be greater than or equal to 0. If you do not leave this parameter empty, the Total parameter is returned to indicate the total number of matched entries. You must specify this parameter and the TopK parameter in pairs. For example, to paginate 20 chunks at a time for a total of 45 chunks whose chunk_id values are 0 to 44, three requests are involved:
-     *
-     *   First request: Set the Offset value to 0 and the TopK value to 20. The chunks whose chunk_id values are 0 to 19 are returned.
-     *   Second request: Set the Offset value to 20 and the TopK value to 20. The chunks whose chunk_id values are 20 to 39 are returned.
-     *   Third request: Set the Offset value to 30 and the TopK value to 20. The chunks whose chunk_id values are 40 to 44 are returned.
-     *
+     * - `Offset=30, TopK=20` returns `chunk_id` 40~44
      * @example 0
      *
      * @var int
@@ -151,14 +136,9 @@ class QueryCollectionDataRequest extends Model
     public $offset;
 
     /**
-     * @description The fields by which to sort the results. This parameter is empty by default. This parameter does not support two-way retrieval scenarios.
+     * @description Defaults to empty, indicating the field for sorting. Does not support hybrid search scenarios.
      *
-     * You must specify the default fields in the metadata or the table, such as id. You can specify the following number of fields:
-     *
-     *   One field, such as chunk_id.
-     *   Multiple fields that are sorted in ascending order and separated by commas (,), such as block_id and chunk_id.
-     *   Multiple fields that are sorted in descending order and separated by commas (,), such as block_id DESC, chunk_id DESC.
-     *
+     * - Supports reverse order, e.g., `block_id DESC, chunk_id DESC`;
      * @example chunk_id
      *
      * @var string
@@ -171,7 +151,7 @@ class QueryCollectionDataRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance.
+     * @description Region ID where the instance is located.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -181,13 +161,17 @@ class QueryCollectionDataRequest extends Model
     public $regionId;
 
     /**
+     * @description Uses another relational table to filter vector data (similar to a Join function).
+     *
+     * > Data from the relational table can be returned by setting the `IncludeMetadataFields` parameter. For example, `rds_table_name.id` indicates returning the `id` field from the relational table.
      * @var relationalTableFilter
      */
     public $relationalTableFilter;
 
     /**
-     * @description This parameter is required.
+     * @description Set the number of top results to return.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -195,14 +179,15 @@ class QueryCollectionDataRequest extends Model
     public $topK;
 
     /**
-     * @description The vector data. The length of the value must be the same as that of the Dimension parameter in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
-     *
-     * >  If you leave this parameter empty, only full-text search results are returned.
+     * @description Vector data, with the same dimension as specified in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) API.
+     * > When the vector is empty, only full-text search results are returned.
      * @var float[]
      */
     public $vector;
 
     /**
+     * @description The ID of the Workspace composed of multiple database instances. This parameter and `DBInstanceId` cannot both be empty. If both are specified, this parameter takes precedence.
+     *
      * @example gp-ws-*****
      *
      * @var string

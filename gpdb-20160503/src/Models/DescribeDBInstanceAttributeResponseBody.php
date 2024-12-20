@@ -17,7 +17,7 @@ class DescribeDBInstanceAttributeResponseBody extends Model
     public $items;
 
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
      * @example 5E6EDEB8-D73E-5F2D-B948-86C8AEB05A68
      *

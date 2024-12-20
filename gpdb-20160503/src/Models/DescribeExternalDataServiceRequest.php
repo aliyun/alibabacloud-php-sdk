@@ -29,8 +29,9 @@ class DescribeExternalDataServiceRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string

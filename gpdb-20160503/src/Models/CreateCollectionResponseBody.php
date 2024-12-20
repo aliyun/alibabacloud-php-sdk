@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCollectionResponseBody extends Model
 {
     /**
+     * @description Return message.
+     *
      * @example create successfully
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCollectionResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string

@@ -42,6 +42,8 @@ class ListExternalDataSourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-shanghai
      *
      * @var string

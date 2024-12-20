@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class usage extends Model
 {
     /**
+     * @description The number of entries used for vectorization.
+     * > An entry refers to the number of processing items when performing vectorization on text or images. For example, processing one piece of text counts as 1 entry, while processing one image counts as 2 entries.
      * @example 10
      *
      * @var string
@@ -16,6 +18,9 @@ class usage extends Model
     public $embeddingEntries;
 
     /**
+     * @description Number of tokens used for vectorization.
+     *
+     * > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
      * @example 100
      *
      * @var string

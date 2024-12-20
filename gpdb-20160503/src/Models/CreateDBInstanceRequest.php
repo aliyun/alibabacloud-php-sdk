@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the backup set.
+     * @description Backup set ID.
      *
-     * >  You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets in the instance.
+     * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) interface to view the backup set IDs of all backup sets under the target instance.
      * @example 1111111111
      *
      * @var string
@@ -20,7 +20,7 @@ class CreateDBInstanceRequest extends Model
     public $backupId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/327176.html).
+     * @description Idempotence check. For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/327176.html).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88**********
      *
@@ -29,12 +29,12 @@ class CreateDBInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to load a sample dataset after the instance is created. Valid values:
+     * @description Whether to load sample datasets after the instance is created. The values are as follows:
      *
-     *   **true**
-     *   **false**
+     * - **true**: Load sample datasets.
+     * - **false**: Do not load sample datasets.
      *
-     * >  If you do not specify this parameter, no sample dataset is loaded.
+     * > If this parameter is not specified, it defaults to not loading sample datasets.
      * @example false
      *
      * @var bool
@@ -42,12 +42,12 @@ class CreateDBInstanceRequest extends Model
     public $createSampleData;
 
     /**
-     * @description The edition of the instance. Valid values:
+     * @description Instance series. The value description is as follows:
      *
-     * - **HighAvailability**: High-availability Edition.
-     * - **Basic**: Basic Edition.
+     * - **HighAvailability**: High availability version.
+     * - **Basic**: Basic version.
      *
-     * > This parameter must be specified when you create an instance in elastic storage mode.
+     * > This parameter is required when creating an instance in the storage elastic mode.
      * @example HighAvailability
      *
      * @var string
@@ -55,9 +55,9 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceCategory;
 
     /**
-     * @description The instance type of the instance. For information, see [Instance types](https://help.aliyun.com/document_detail/86942.html).
+     * @description Instance type. For more details, see the supplementary description of the DBInstanceClass parameter.
      *
-     * > This parameter must be specified when you create an instance in reserved storage mode.
+     * > This parameter is required when creating a reserved storage mode instance.
      * @example gpdb.group.segsdx1
      *
      * @var string
@@ -65,7 +65,7 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The description of the instance.
+     * @description Instance description.
      *
      * @example test
      *
@@ -74,9 +74,9 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The number of compute groups. Valid values: 2, 4, 8, 12, 16, 24, 32, 64, 96, and 128.
+     * @description Number of compute groups. The values are: 2, 4, 8, 12, 16, 24, 32, 64, 96, 128.
      *
-     * > This parameter must be specified when you create an instance in reserved storage mode.
+     * > This parameter is required when creating a reserved storage mode instance.
      * @example 2
      *
      * @var string
@@ -84,11 +84,11 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceGroupCount;
 
     /**
-     * @description The resource type of the instance. Valid values:
+     * @description Instance resource type. The value description is as follows:
      *
-     * - **StorageElastic**: elastic storage mode.
+     * - **StorageElastic**: Storage elastic mode.
      * - **Serverless**: Serverless mode.
-     * - **Classic**: reserved storage mode.
+     * - **Classic**: Storage reserved mode.
      *
      * This parameter is required.
      * @example StorageElastic
@@ -98,14 +98,28 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceMode;
 
     /**
+     * @description Deployment mode. The values are as follows:
+     * > - Currently, only single-zone deployment is supported.
+     * @example single
+     *
+     * @var string
+     */
+    public $deployMode;
+
+    /**
+     * @description Indicates whether to enable SSL encryption. The values are as follows:
+     * - **true**: Enable SSL encryption.
+     * - **false** (default): Do not enable SSL encryption.
+     * @example false
+     *
      * @var bool
      */
     public $enableSSL;
 
     /**
-     * @description The ID of the encryption key.
+     * @description Key ID.
      *
-     * > If EncryptionType is set to CloudDisk, you must specify an encryption key that resides in the same region as the cloud disk that is specified by EncryptionType. Otherwise, leave this parameter empty.
+     * > If the value of the **EncryptionType** parameter is **CloudDisk**, you need to specify the encryption key ID within the same region through this parameter; otherwise, it should be empty.
      * @example 0d2470df-da7b-4786-b981-88888888****
      *
      * @var string
@@ -113,12 +127,12 @@ class CreateDBInstanceRequest extends Model
     public $encryptionKey;
 
     /**
-     * @description The encryption type. Valid values:
+     * @description Encryption type. The value description is as follows:
      *
-     * - **NULL** (default): Encryption is disabled.
-     * - **CloudDisk**: Encryption is enabled on cloud disks, and EncryptionKey is used to specify an encryption key.
+     * - **NULL**: No encryption (default).
+     * - **CloudDisk**: Enable cloud disk encryption and specify the key through the **EncryptionKey** parameter.
      *
-     * > Disk encryption cannot be disabled after it is enabled.
+     * > Once cloud disk encryption is enabled, it cannot be disabled.
      * @example CloudDisk
      *
      * @var string
@@ -126,7 +140,7 @@ class CreateDBInstanceRequest extends Model
     public $encryptionType;
 
     /**
-     * @description The database engine of the instance. Set the value to gpdb.
+     * @description Database engine, with the value **gpdb**.
      *
      * This parameter is required.
      * @example gpdb
@@ -136,7 +150,9 @@ class CreateDBInstanceRequest extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine. Valid values:
+     * @description Engine version. The values are as follows:
+     * - **6.0**: Version 6.0.
+     * - **7.0**: Version 7.0.
      *
      * This parameter is required.
      * @example 6.0
@@ -146,9 +162,9 @@ class CreateDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
-     * @description The wait time for the instance that has no traffic to become idle. Minimum value: 60. Default value: 600. Unit: seconds.
+     * @description The idle release wait time. When the duration without business traffic reaches the specified time, the instance will enter the idle state. The unit is seconds, with a minimum value of 60, and the default value is 600.
      *
-     * > This parameter must be specified only when you create an instance in automatic Serverless mode.
+     * > This parameter is required only for Serverless auto-scheduling mode instances.
      * @example 600
      *
      * @var int
@@ -156,14 +172,9 @@ class CreateDBInstanceRequest extends Model
     public $idleTime;
 
     /**
-     * @description The network type of the instance. Set the value to **VPC**.
+     * @description Instance network type, with the value **VPC**.
      *
-     * >
-     *
-     *   Only the Virtual Private Cloud (VPC) type is supported in Alibaba Cloud public cloud.
-     *
-     *   If you do not specify this parameter, VPC is used.
-     *
+     * > - If not specified, it defaults to VPC type.
      * @example VPC
      *
      * @var string
@@ -171,27 +182,24 @@ class CreateDBInstanceRequest extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The specifications of compute nodes.
+     * @description Compute node specifications.
      *
-     * Valid values for High-availability Edition instances in elastic storage mode:
-     *
+     * For high-availability versions of the elastic storage mode, the values are as follows:
      * - **2C16G**
      * - **4C32G**
      * - **16C128G**
      *
-     * Valid values for Basic Edition instances in elastic storage mode:
-     *
+     * For basic versions of the elastic storage mode, the values are as follows:
      * - **2C8G**
      * - **4C16G**
      * - **8C32G**
      * - **16C64G**
      *
-     * Valid values for instances in Serverless mode:
-     *
+     * For Serverless mode, the values are as follows:
      * - **4C16G**
      * - **8C32G**
      *
-     * > This parameter must be specified when you create an instance in elastic storage mode or Serverless mode.
+     * > This parameter is required when creating an elastic storage mode instance or a Serverless mode instance.
      * @example 2C16G
      *
      * @var string
@@ -199,15 +207,8 @@ class CreateDBInstanceRequest extends Model
     public $instanceSpec;
 
     /**
-     * @description The amount of coordinator node resources. Valid values:
-     *
-     *   2 CU
-     *   4 CU
-     *   8 CU
-     *   16 CU
-     *   32 CU
-     *
-     * >  You are charged for coordinator node resources of more than 8 CUs.
+     * @description Master resources, with the following values:
+     * > Master resources above 8 CU will incur charges.
      * @example 8 CU
      *
      * @var int
@@ -215,9 +216,9 @@ class CreateDBInstanceRequest extends Model
     public $masterCU;
 
     /**
-     * @description This parameter is no longer used.
+     * @description This parameter is deprecated and should not be passed.
      *
-     * @example 1
+     * @example null
      *
      * @var string
      */
@@ -229,17 +230,12 @@ class CreateDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description Billing type. The values are as follows:
      *
-     *   **Postpaid**: pay-as-you-go.
-     *   **Prepaid**: subscription.
+     * - **Postpaid**: Pay-as-you-go
+     * - **Prepaid**: Subscription
      *
-     * >
-     *
-     *   If you do not specify this parameter, Postpaid is used.
-     *
-     *   You can obtain more cost savings if you create a subscription instance for one year or longer. We recommend that you select the billing method that best suits your needs.
-     *
+     * > - When using the subscription billing model, there may be discounts for purchasing one year or longer at once. It is recommended to choose the billing type according to your needs.
      * @example Prepaid
      *
      * @var string
@@ -247,11 +243,11 @@ class CreateDBInstanceRequest extends Model
     public $payType;
 
     /**
-     * @description The unit of the subscription duration. Valid values:
+     * @description Unit of the duration for which resources are purchased. The values are as follows:
+     * - **Month**: Month
+     * - **Year**: Year
      *
-     * - **Month**
-     * - **Year**
-     * > This parameter must be specified when PayType is set to Prepaid.
+     * > This parameter is required when creating a subscription-billed instance.
      * @example Month
      *
      * @var string
@@ -259,21 +255,28 @@ class CreateDBInstanceRequest extends Model
     public $period;
 
     /**
-     * @description This parameter is no longer used.
+     * @description This parameter is deprecated and should not be passed.
      *
-     * @example 1.1.1.*
+     * @example null
      *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description Product type. The values are as follows:
+     * - **standard**: Standard Edition.
+     * - **cost-effective**: Cost-Effective Edition.
+     *
+     * > If this parameter is not specified, the default value is Standard Edition.
+     * @example standard
+     *
      * @var string
      */
     public $prodType;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * @description Region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -283,7 +286,7 @@ class CreateDBInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description The ID of the enterprise resource group where the instance is located.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -292,9 +295,9 @@ class CreateDBInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The IP address whitelist of the instance.
+     * @description IP whitelist.
      *
-     * A value of 127.0.0.1 denies access from any external IP address. You can call the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) operation to modify the IP address whitelist after you create an instance.
+     * 127.0.0.1 indicates that no external IP addresses are allowed to access. You can modify the IP whitelist by calling the [ModifySecurityIps](https://help.aliyun.com/document_detail/86928.html) interface after the instance is created.
      * @example 127.0.0.1
      *
      * @var string
@@ -302,18 +305,13 @@ class CreateDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
-     * @description The performance level of ESSDs. Valid values:
+     * @description ESSD cloud disk performance level. The values are as follows:
      *
-     *   **pl0**
-     *   **pl1**
-     *   **pl2**
+     * - **pl0**: PL0 level.
+     * - **pl1**: PL1 level.
+     * - **pl2**: PL2 level.
      *
-     * >
-     *
-     *   This parameter takes effect only when SegStorageType is set to cloud_essd.
-     *
-     *   If you do not specify this parameter, pl1 is used.
-     *
+     * > - If not specified, it defaults to PL1 level.
      * @example pl1
      *
      * @var string
@@ -321,9 +319,9 @@ class CreateDBInstanceRequest extends Model
     public $segDiskPerformanceLevel;
 
     /**
-     * @description The number of compute nodes.
+     * @description The number of compute nodes. The value description is as follows:
      *
-     * > This parameter must be specified when you create an instance in elastic storage mode or Serverless mode.
+     * > This parameter is required when creating instances in the storage elastic mode or Serverless mode.
      * @example 4
      *
      * @var string
@@ -331,9 +329,9 @@ class CreateDBInstanceRequest extends Model
     public $segNodeNum;
 
     /**
-     * @description The disk storage type of the instance. Only enhanced SSDs (ESSDs) are supported. Set the value to cloud_essd.
+     * @description Disk storage type, currently only ESSD cloud disks are supported, with the value **cloud_essd**.
      *
-     * > This parameter must be specified when you create an instance in elastic storage mode.
+     * > This parameter is required when creating an elastic storage mode instance.
      * @example cloud_essd
      *
      * @var string
@@ -341,12 +339,12 @@ class CreateDBInstanceRequest extends Model
     public $segStorageType;
 
     /**
-     * @description The type of the Serverless mode. Valid values:
+     * @description The mode of the Serverless instance. The values are as follows:
      *
-     * - **Manual** (default): manual scheduling.
-     * - **Auto**: automatic scheduling.
+     * - **Manual**: Manual scheduling (default).
+     * - **Auto**: Auto scheduling.
      *
-     * > This parameter must be specified only when you create an instance in Serverless mode.
+     * > This parameter is required only for Serverless mode instances.
      * @example Auto
      *
      * @var string
@@ -354,9 +352,9 @@ class CreateDBInstanceRequest extends Model
     public $serverlessMode;
 
     /**
-     * @description The threshold of computing resources. Unit: AnalyticDB compute unit (ACU). Valid values: 8 to 32. The value must be in increments of 8 ACUs. Default value: 32.
+     * @description The threshold for computing resources. The value range is 8 to 32, with a step of 8, and the unit is ACU. The default value is 32.
      *
-     * > This parameter must be specified only when you create an instance in automatic Serverless mode.
+     * > This parameter is required only for Serverless auto-scheduling mode instances.
      * @example 32
      *
      * @var int
@@ -364,9 +362,9 @@ class CreateDBInstanceRequest extends Model
     public $serverlessResource;
 
     /**
-     * @description The ID of the source instance.
+     * @description ID of the source instance to be cloned.
      *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) interface to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
      * @example gp-bp***************
      *
      * @var string
@@ -374,9 +372,29 @@ class CreateDBInstanceRequest extends Model
     public $srcDbInstanceName;
 
     /**
-     * @description The storage capacity of the instance. Unit: GB. Valid values: 50 to 6000.
+     * @description VSwitch ID of the standby zone.
      *
-     * >  This parameter must be specified when you create an instance in elastic storage mode.
+     * > - The VSwitch ID of the standby zone must be in the same zone as the StandbyZoneId.
+     * @example vsw-bp1cpq8mr64paltkb****
+     *
+     * @var string
+     */
+    public $standbyVSwitchId;
+
+    /**
+     * @description ID of the standby zone.
+     *
+     * > - The ID of the standby zone must be different from the ID of the primary zone.
+     * @example cn-hangzhou-j
+     *
+     * @var string
+     */
+    public $standbyZoneId;
+
+    /**
+     * @description The size of the storage space, in GB, with a value range of <props="china">50~8000<props="intl">50~6000.
+     *
+     * > This parameter is required when creating an instance in the storage elastic mode.
      * @example 200
      *
      * @var int
@@ -384,7 +402,7 @@ class CreateDBInstanceRequest extends Model
     public $storageSize;
 
     /**
-     * @description This parameter is no longer used.
+     * @description This parameter is deprecated and should not be passed.
      *
      * @example null
      *
@@ -393,16 +411,18 @@ class CreateDBInstanceRequest extends Model
     public $storageType;
 
     /**
-     * @description The list of tags.
+     * @description The Nth tag. The value of N ranges from 1 to 20.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The subscription duration.
+     * @description Duration for which resources are purchased. The values are as follows:
+     * - When **Period** is **Month**, the value ranges from 1 to 9.
+     * - When **Period** is **Year**, the value ranges from 1 to 3.
      *
-     * > This parameter must be specified when PayType is set to Prepaid.
+     * > This parameter is required when creating a subscription-billed instance.
      * @example 1
      *
      * @var string
@@ -410,47 +430,34 @@ class CreateDBInstanceRequest extends Model
     public $usedTime;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description VPC ID.
      *
-     * >
-     *
-     *   **This parameter** must be specified.
-     *
-     *   The region where the **VPC** resides must be the same as the region that is specified by **RegionId**.
-     *
-     * @example vpc-bp*******************
+     * > - **VPCId** is required.
+     * > - The region of the **VPC** must be consistent with **RegionId**.
+     * @example vpc-bp19ame5m1r3oejns****
      *
      * @var string
      */
     public $VPCId;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @description vSwitch ID.
      *
-     * >
-     *
-     *   **This parameter** must be specified.
-     *
-     *   The zone where the **vSwitch** resides must be the same as the zone that is specified by **ZoneId**.
-     *
-     * @example vsw-bp*******************
+     * > - **vSwitchId** is required.
+     * > - The availability zone of the **vSwitch** must be consistent with **ZoneId**.
+     * @example vsw-bp1cpq8mr64paltkb****
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description Specifies whether to enable vector search engine optimization. Valid values:
+     * @description Whether to enable vector engine optimization. The value description is as follows:
+     * - **enabled**: Enable vector engine optimization.
+     * - **disabled** (default): Do not enable vector engine optimization.
      *
-     *   **enabled**
-     *   **disabled** (default)
-     *
-     * >
-     *
-     *   We recommend that you **do not enable** vector search engine optimization in mainstream analysis, data warehousing, and real-time data warehousing scenarios.
-     *
-     *   We recommend that you **enable** vector search engine optimization in AI-generated content (AIGC) and vector retrieval scenarios that require the vector analysis engine.
-     *
+     * > - For mainstream analysis scenarios, data warehouse scenarios, and real-time data warehouse scenarios, it is recommended to **not enable** vector engine optimization.
+     * > - For users using the vector analysis engine for AIGC, vector retrieval, and other scenarios, it is recommended to **enable** vector engine optimization.
      * @example enabled
      *
      * @var string
@@ -458,7 +465,7 @@ class CreateDBInstanceRequest extends Model
     public $vectorConfigurationStatus;
 
     /**
-     * @description The zone ID of the read-only instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent zone list.
+     * @description Zone ID.
      *
      * This parameter is required.
      * @example cn-hangzhou-i
@@ -475,6 +482,7 @@ class CreateDBInstanceRequest extends Model
         'DBInstanceDescription'     => 'DBInstanceDescription',
         'DBInstanceGroupCount'      => 'DBInstanceGroupCount',
         'DBInstanceMode'            => 'DBInstanceMode',
+        'deployMode'                => 'DeployMode',
         'enableSSL'                 => 'EnableSSL',
         'encryptionKey'             => 'EncryptionKey',
         'encryptionType'            => 'EncryptionType',
@@ -499,6 +507,8 @@ class CreateDBInstanceRequest extends Model
         'serverlessMode'            => 'ServerlessMode',
         'serverlessResource'        => 'ServerlessResource',
         'srcDbInstanceName'         => 'SrcDbInstanceName',
+        'standbyVSwitchId'          => 'StandbyVSwitchId',
+        'standbyZoneId'             => 'StandbyZoneId',
         'storageSize'               => 'StorageSize',
         'storageType'               => 'StorageType',
         'tag'                       => 'Tag',
@@ -539,6 +549,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceMode) {
             $res['DBInstanceMode'] = $this->DBInstanceMode;
+        }
+        if (null !== $this->deployMode) {
+            $res['DeployMode'] = $this->deployMode;
         }
         if (null !== $this->enableSSL) {
             $res['EnableSSL'] = $this->enableSSL;
@@ -612,6 +625,12 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->srcDbInstanceName) {
             $res['SrcDbInstanceName'] = $this->srcDbInstanceName;
         }
+        if (null !== $this->standbyVSwitchId) {
+            $res['StandbyVSwitchId'] = $this->standbyVSwitchId;
+        }
+        if (null !== $this->standbyZoneId) {
+            $res['StandbyZoneId'] = $this->standbyZoneId;
+        }
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
         }
@@ -677,6 +696,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['DBInstanceMode'])) {
             $model->DBInstanceMode = $map['DBInstanceMode'];
+        }
+        if (isset($map['DeployMode'])) {
+            $model->deployMode = $map['DeployMode'];
         }
         if (isset($map['EnableSSL'])) {
             $model->enableSSL = $map['EnableSSL'];
@@ -749,6 +771,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['SrcDbInstanceName'])) {
             $model->srcDbInstanceName = $map['SrcDbInstanceName'];
+        }
+        if (isset($map['StandbyVSwitchId'])) {
+            $model->standbyVSwitchId = $map['StandbyVSwitchId'];
+        }
+        if (isset($map['StandbyZoneId'])) {
+            $model->standbyZoneId = $map['StandbyZoneId'];
         }
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];

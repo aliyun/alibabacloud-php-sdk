@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringRequest extends Model
 {
     /**
+     * @description Idempotence check. For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/327176.html).
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88**********
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The endpoint prefix of the instance.
      *
      * This parameter is required.
@@ -48,6 +57,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      */
     public $port;
     protected $_name = [
+        'clientToken'             => 'ClientToken',
         'connectionStringPrefix'  => 'ConnectionStringPrefix',
         'currentConnectionString' => 'CurrentConnectionString',
         'DBInstanceId'            => 'DBInstanceId',
@@ -61,6 +71,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
         if (null !== $this->connectionStringPrefix) {
             $res['ConnectionStringPrefix'] = $this->connectionStringPrefix;
         }
@@ -85,6 +98,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
         if (isset($map['ConnectionStringPrefix'])) {
             $model->connectionStringPrefix = $map['ConnectionStringPrefix'];
         }

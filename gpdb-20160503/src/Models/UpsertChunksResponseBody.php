@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpsertChunksResponseBody extends Model
 {
     /**
+     * @description Number of tokens used during vectorization.
+     *
+     * > A token refers to the smallest unit into which the input text is divided. A token can be a word, a phrase, a punctuation mark, a character, etc.
      * @example 100
      *
      * @var string
@@ -16,6 +19,8 @@ class UpsertChunksResponseBody extends Model
     public $embeddingTokens;
 
     /**
+     * @description Return message.
+     *
      * @example Successful
      *
      * @var string
@@ -23,6 +28,8 @@ class UpsertChunksResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -30,6 +37,9 @@ class UpsertChunksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description API execution status, with the following values:
+     * - **success**: Execution succeeded.
+     * - **fail**: Execution failed.
      * @example success
      *
      * @var string

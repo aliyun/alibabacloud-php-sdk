@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVectorIndexRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
+     * @description Collection name.
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -18,8 +18,9 @@ class CreateVectorIndexRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -27,8 +28,8 @@ class CreateVectorIndexRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
-     *
+     * @description Vector dimension.
+     * This parameter is required.
      * @example 1024
      *
      * @var int
@@ -36,12 +37,9 @@ class CreateVectorIndexRequest extends Model
     public $dimension;
 
     /**
-     * @description Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
+     * @description Whether to use mmap to build the HNSW index, default is 0. If the data does not need to be deleted and there are performance requirements for uploading data, it is recommended to set this to 1.
      *
-     *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
-     *
-     *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
-     *
+     * > - When set to 1, the index is built using mmap, which does not support deletion and update operations.
      * @example 0
      *
      * @var int
@@ -49,18 +47,9 @@ class CreateVectorIndexRequest extends Model
     public $externalStorage;
 
     /**
-     * @description The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
+     * @description The maximum number of neighbors in the HNSW algorithm, ranging from 1 to 1000. The API will automatically set this value based on the vector dimension, and it generally does not need to be manually set.
      *
-     * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
-     *
-     *   If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
-     *
-     *   If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
-     *
-     *   If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
-     *
-     *   If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
-     *
+     * > - Greater than 1024: 128
      * @example 64
      *
      * @var int
@@ -68,8 +57,9 @@ class CreateVectorIndexRequest extends Model
     public $hnswM;
 
     /**
-     * @description This parameter is required.
+     * @description Name of the management account with rds_superuser permissions.
      *
+     * This parameter is required.
      * @example testaccount
      *
      * @var string
@@ -77,8 +67,9 @@ class CreateVectorIndexRequest extends Model
     public $managerAccount;
 
     /**
-     * @description This parameter is required.
+     * @description Management account password.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -86,9 +77,8 @@ class CreateVectorIndexRequest extends Model
     public $managerAccountPassword;
 
     /**
-     * @description The method that is used to create vector indexes.Valid values:
-     *
-     * - cosine: cosine similarity.
+     * @description Method used for building the vector index. Value description:
+     * - cosine: Cosine similarity.
      * @example cosine
      *
      * @var string
@@ -96,6 +86,9 @@ class CreateVectorIndexRequest extends Model
     public $metrics;
 
     /**
+     * @description Namespace, default is public.
+     *
+     * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
      * @example mynamespace
      *
      * @var string
@@ -108,11 +101,8 @@ class CreateVectorIndexRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
-     *
-     *   0: no.
-     *   1 (default): yes.
-     *
+     * @description Whether to enable PQ (Product Quantization) algorithm acceleration for the index. It is recommended to enable this when the data volume exceeds 500,000. Value description:
+     * - 1: Enabled (default).
      * @example 1
      *
      * @var int
@@ -120,8 +110,9 @@ class CreateVectorIndexRequest extends Model
     public $pqEnable;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID where the instance is located.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

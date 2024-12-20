@@ -26,6 +26,8 @@ class ListDocumentsResponseBody extends Model
     public $items;
 
     /**
+     * @description The returned message.
+     *
      * @example Successful
      *
      * @var string
@@ -42,6 +44,8 @@ class ListDocumentsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string

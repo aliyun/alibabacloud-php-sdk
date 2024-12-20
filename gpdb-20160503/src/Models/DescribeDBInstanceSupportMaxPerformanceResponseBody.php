@@ -19,6 +19,8 @@ class DescribeDBInstanceSupportMaxPerformanceResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The queried performance metric.
+     *
      * @var performances
      */
     public $performances;

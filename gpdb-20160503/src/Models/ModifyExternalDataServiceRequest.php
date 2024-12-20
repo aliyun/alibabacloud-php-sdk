@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyExternalDataServiceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,9 +19,9 @@ class ModifyExternalDataServiceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The region ID.
+     * @description Region ID.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
      * @example cn-hangzhou
      *
      * @var string
@@ -28,17 +29,18 @@ class ModifyExternalDataServiceRequest extends Model
     public $regionId;
 
     /**
-     * @description The description of the service.
+     * @description Service description.
      *
-     * @example test-adbpgss
+     * @example pxf test
      *
      * @var string
      */
     public $serviceDescription;
 
     /**
-     * @description This parameter is required.
+     * @description Service ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var string
@@ -46,12 +48,10 @@ class ModifyExternalDataServiceRequest extends Model
     public $serviceId;
 
     /**
-     * @description The specifications of the service. Unit: compute units (CUs). Valid values:
-     *
-     *   8
+     * @description Service specification (in CU), value:
      *
      * This parameter is required.
-     * @example 2
+     * @example 8
      *
      * @var string
      */

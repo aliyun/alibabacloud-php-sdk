@@ -64,6 +64,8 @@ class DescribeNamespaceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+     *
      * @example gp-ws-*****
      *
      * @var string

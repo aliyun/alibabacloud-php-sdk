@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serviceItems extends Model
 {
     /**
+     * @description Creation time.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class serviceItems extends Model
     public $createTime;
 
     /**
+     * @description Last modified time
+     *
      * @example 2019-09-08T17:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class serviceItems extends Model
     public $modifyTime;
 
     /**
+     * @description Service description.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -30,6 +36,8 @@ class serviceItems extends Model
     public $serviceDescription;
 
     /**
+     * @description Service ID.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class serviceItems extends Model
     public $serviceId;
 
     /**
+     * @description Service IP.
+     *
      * @example 192.168.0.1
      *
      * @var string
@@ -44,11 +54,17 @@ class serviceItems extends Model
     public $serviceIp;
 
     /**
+     * @description Whether it is a managed service.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @description Service name.
+     *
      * @example test-adbpgss
      *
      * @var string
@@ -56,11 +72,17 @@ class serviceItems extends Model
     public $serviceName;
 
     /**
+     * @description Service owner ID.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $serviceOwnerId;
 
     /**
+     * @description Service port.
+     *
      * @example 5432
      *
      * @var string
@@ -68,13 +90,18 @@ class serviceItems extends Model
     public $servicePort;
 
     /**
-     * @example 2
+     * @description Service specification (in CU).
+     *
+     * @example 8
      *
      * @var string
      */
     public $serviceSpec;
 
     /**
+     * @description Service type, with the following value:
+     *
+     * - **adbpgss**
      * @example adbpgss
      *
      * @var string
@@ -82,6 +109,9 @@ class serviceItems extends Model
     public $serviceType;
 
     /**
+     * @description Service status, with the following values:
+     *
+     * - Paused: Suspended
      * @example Running
      *
      * @var string

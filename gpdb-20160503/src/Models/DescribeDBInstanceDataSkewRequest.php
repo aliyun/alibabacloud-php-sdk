@@ -19,11 +19,19 @@ class DescribeDBInstanceDataSkewRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description order by condition
+     *
+     * @example {Field: TableSkew, Type: Desc}
+     *
      * @var string
      */
     public $orderBy;

@@ -45,6 +45,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateRemoteADBDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateRemoteADBDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSecretRequest;
@@ -86,6 +88,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteJDBCDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteRemoteADBDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteRemoteADBDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSecretRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteStreamingDataServiceRequest;
@@ -262,6 +266,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListInstanceExtensionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListRemoteADBDataSourcesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListRemoteADBDataSourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSchemasRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSchemasResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListSecretsRequest;
@@ -288,6 +294,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceDescriptionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceMaintainTimeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceMaintainTimeResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceNetworkTypeRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceNetworkTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstancePayTypeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstancePayTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupRequest;
@@ -307,6 +315,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyMasterSpecRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyMasterSpecResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyRemoteADBDataSourceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyRemoteADBDataSourceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyRequest;
@@ -357,6 +367,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\SwitchDBInstanceNetTypeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\SwitchDBInstanceNetTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\TextEmbeddingShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnbindDBResourceGroupWithRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnbindDBResourceGroupWithRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnbindDBResourceGroupWithRoleShrinkRequest;
@@ -790,7 +803,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 检查hadoop集群网络连通性
+     * @summary Check Hadoop Cluster Network Connectivity
      *  *
      * @param CheckHadoopNetConnectionRequest $request CheckHadoopNetConnectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -832,7 +845,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 检查hadoop集群网络连通性
+     * @summary Check Hadoop Cluster Network Connectivity
      *  *
      * @param CheckHadoopNetConnectionRequest $request CheckHadoopNetConnectionRequest
      *
@@ -846,7 +859,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Checks the network connectivity of a connection specified by a Java Database Connectivity (JDBC) connection string.
+     * @summary Check the network connectivity of the JDBC connection string
      *  *
      * @param CheckJDBCSourceNetConnectionRequest $request CheckJDBCSourceNetConnectionRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -888,7 +901,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Checks the network connectivity of a connection specified by a Java Database Connectivity (JDBC) connection string.
+     * @summary Check the network connectivity of the JDBC connection string
      *  *
      * @param CheckJDBCSourceNetConnectionRequest $request CheckJDBCSourceNetConnectionRequest
      *
@@ -986,9 +999,6 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1065,6 +1075,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->metadata)) {
             $query['Metadata'] = $request->metadata;
         }
+        if (!Utils::isUnset($request->metadataIndices)) {
+            $query['MetadataIndices'] = $request->metadataIndices;
+        }
         if (!Utils::isUnset($request->metrics)) {
             $query['Metrics'] = $request->metrics;
         }
@@ -1119,12 +1132,9 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates an AnalyticDB for PostgreSQL instance.
+     * @summary Create Instance
      *  *
-     * @description You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
-     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     * @description Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
      *  *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1158,6 +1168,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceMode)) {
             $query['DBInstanceMode'] = $request->DBInstanceMode;
+        }
+        if (!Utils::isUnset($request->deployMode)) {
+            $query['DeployMode'] = $request->deployMode;
         }
         if (!Utils::isUnset($request->enableSSL)) {
             $query['EnableSSL'] = $request->enableSSL;
@@ -1231,6 +1244,12 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->srcDbInstanceName)) {
             $query['SrcDbInstanceName'] = $request->srcDbInstanceName;
         }
+        if (!Utils::isUnset($request->standbyVSwitchId)) {
+            $query['StandbyVSwitchId'] = $request->standbyVSwitchId;
+        }
+        if (!Utils::isUnset($request->standbyZoneId)) {
+            $query['StandbyZoneId'] = $request->standbyZoneId;
+        }
         if (!Utils::isUnset($request->storageSize)) {
             $query['StorageSize'] = $request->storageSize;
         }
@@ -1274,12 +1293,9 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates an AnalyticDB for PostgreSQL instance.
+     * @summary Create Instance
      *  *
-     * @description You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
-     * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     * @description Before using this interface, please make sure you have fully understood the [billing method](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of the AnalyticDB for PostgreSQL product.
      *  *
      * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
@@ -1428,7 +1444,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a document collection.
+     * @summary Create Knowledge Base
      *  *
      * @param CreateDocumentCollectionRequest $request CreateDocumentCollectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1465,6 +1481,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->metadata)) {
             $query['Metadata'] = $request->metadata;
+        }
+        if (!Utils::isUnset($request->metadataIndices)) {
+            $query['MetadataIndices'] = $request->metadataIndices;
         }
         if (!Utils::isUnset($request->metrics)) {
             $query['Metrics'] = $request->metrics;
@@ -1503,7 +1522,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a document collection.
+     * @summary Create Knowledge Base
      *  *
      * @param CreateDocumentCollectionRequest $request CreateDocumentCollectionRequest
      *
@@ -1573,7 +1592,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates an external data service.
+     * @summary Create External Data Service
      *  *
      * @param CreateExternalDataServiceRequest $request CreateExternalDataServiceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -1618,7 +1637,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates an external data service.
+     * @summary Create External Data Service
      *  *
      * @param CreateExternalDataServiceRequest $request CreateExternalDataServiceRequest
      *
@@ -1632,7 +1651,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates the configurations for a Hadoop data source.
+     * @summary Create Hadoop data source configuration
      *  *
      * @param CreateHadoopDataSourceRequest $request CreateHadoopDataSourceRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1701,7 +1720,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates the configurations for a Hadoop data source.
+     * @summary Create Hadoop data source configuration
      *  *
      * @param CreateHadoopDataSourceRequest $request CreateHadoopDataSourceRequest
      *
@@ -1715,7 +1734,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Java Database Connectivity (JDBC) data source.
+     * @summary Creates a JDBC data source.
      *  *
      * @param CreateJDBCDataSourceRequest $request CreateJDBCDataSourceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1769,7 +1788,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a Java Database Connectivity (JDBC) data source.
+     * @summary Creates a JDBC data source.
      *  *
      * @param CreateJDBCDataSourceRequest $request CreateJDBCDataSourceRequest
      *
@@ -1848,6 +1867,80 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Create Homogeneous Data Source
+     *  *
+     * @param CreateRemoteADBDataSourceRequest $request CreateRemoteADBDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRemoteADBDataSourceResponse CreateRemoteADBDataSourceResponse
+     */
+    public function createRemoteADBDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
+        }
+        if (!Utils::isUnset($request->localDBInstanceId)) {
+            $query['LocalDBInstanceId'] = $request->localDBInstanceId;
+        }
+        if (!Utils::isUnset($request->localDatabase)) {
+            $query['LocalDatabase'] = $request->localDatabase;
+        }
+        if (!Utils::isUnset($request->managerUserName)) {
+            $query['ManagerUserName'] = $request->managerUserName;
+        }
+        if (!Utils::isUnset($request->managerUserPassword)) {
+            $query['ManagerUserPassword'] = $request->managerUserPassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->remoteDBInstanceId)) {
+            $query['RemoteDBInstanceId'] = $request->remoteDBInstanceId;
+        }
+        if (!Utils::isUnset($request->remoteDatabase)) {
+            $query['RemoteDatabase'] = $request->remoteDatabase;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->userPassword)) {
+            $query['UserPassword'] = $request->userPassword;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRemoteADBDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRemoteADBDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Create Homogeneous Data Source
+     *  *
+     * @param CreateRemoteADBDataSourceRequest $request CreateRemoteADBDataSourceRequest
+     *
+     * @return CreateRemoteADBDataSourceResponse CreateRemoteADBDataSourceResponse
+     */
+    public function createRemoteADBDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRemoteADBDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -2025,7 +2118,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a real-time data service.
+     * @summary Create External Data Source Configuration
      *  *
      * @param CreateStreamingDataServiceRequest $request CreateStreamingDataServiceRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2070,7 +2163,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a real-time data service.
+     * @summary Create External Data Source Configuration
      *  *
      * @param CreateStreamingDataServiceRequest $request CreateStreamingDataServiceRequest
      *
@@ -2084,7 +2177,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a real-time data source.
+     * @summary Create External Data Source Configuration
      *  *
      * @param CreateStreamingDataSourceRequest $request CreateStreamingDataSourceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2135,7 +2228,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a real-time data source.
+     * @summary Create External Data Source Configuration
      *  *
      * @param CreateStreamingDataSourceRequest $request CreateStreamingDataSourceRequest
      *
@@ -2149,7 +2242,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates the configurations for an external data source.
+     * @summary Create External Data Source Configuration
      *  *
      * @param CreateStreamingJobRequest $tmpReq  CreateStreamingJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -2259,7 +2352,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates the configurations for an external data source.
+     * @summary Create External Data Source Configuration
      *  *
      * @param CreateStreamingJobRequest $request CreateStreamingJobRequest
      *
@@ -2273,7 +2366,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a vector index.
+     * @summary Create Vector Index
      *  *
      * @param CreateVectorIndexRequest $request CreateVectorIndexRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2339,7 +2432,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Creates a vector index.
+     * @summary Create Vector Index
      *  *
      * @param CreateVectorIndexRequest $request CreateVectorIndexRequest
      *
@@ -2719,7 +2812,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a document from a document collection.
+     * @summary Delete Document
      *  *
      * @param DeleteDocumentRequest $request DeleteDocumentRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2770,7 +2863,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a document from a document collection.
+     * @summary Delete Document
      *  *
      * @param DeleteDocumentRequest $request DeleteDocumentRequest
      *
@@ -2784,7 +2877,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a document collection.
+     * @summary Delete Knowledge Base
      *  *
      * @param DeleteDocumentCollectionRequest $request DeleteDocumentCollectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2832,7 +2925,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a document collection.
+     * @summary Delete Knowledge Base
      *  *
      * @param DeleteDocumentCollectionRequest $request DeleteDocumentCollectionRequest
      *
@@ -2902,7 +2995,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an external data service.
+     * @summary Delete External Data Service
      *  *
      * @param DeleteExternalDataServiceRequest $request DeleteExternalDataServiceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2941,7 +3034,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an external data service.
+     * @summary Delete External Data Service
      *  *
      * @param DeleteExternalDataServiceRequest $request DeleteExternalDataServiceRequest
      *
@@ -3008,7 +3101,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Java Database Connectivity (JDBC) data source.
+     * @summary Delete JDBC data source
      *  *
      * @param DeleteJDBCDataSourceRequest $request DeleteJDBCDataSourceRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3047,7 +3140,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a Java Database Connectivity (JDBC) data source.
+     * @summary Delete JDBC data source
      *  *
      * @param DeleteJDBCDataSourceRequest $request DeleteJDBCDataSourceRequest
      *
@@ -3123,6 +3216,59 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Deletes a remote AnalyticDB data source.
+     *  *
+     * @param DeleteRemoteADBDataSourceRequest $request DeleteRemoteADBDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRemoteADBDataSourceResponse DeleteRemoteADBDataSourceResponse
+     */
+    public function deleteRemoteADBDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->localDBInstanceId)) {
+            $query['LocalDBInstanceId'] = $request->localDBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRemoteADBDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRemoteADBDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Deletes a remote AnalyticDB data source.
+     *  *
+     * @param DeleteRemoteADBDataSourceRequest $request DeleteRemoteADBDataSourceRequest
+     *
+     * @return DeleteRemoteADBDataSourceResponse DeleteRemoteADBDataSourceResponse
+     */
+    public function deleteRemoteADBDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRemoteADBDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -3847,12 +3993,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an AnalyticDB for PostgreSQL instance.
+     * @summary Query detailed information about the instance
      *  *
-     * @description ##
-     * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description ## Usage Instructions
+     * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
+     * ## QPS Limitation
+     * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
+     * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *  *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3891,12 +4038,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about an AnalyticDB for PostgreSQL instance.
+     * @summary Query detailed information about the instance
      *  *
-     * @description ##
-     * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
-     * ## Limits
-     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description ## Usage Instructions
+     * This interface is generally used to view information such as the specifications, network type, and instance status of AnalyticDB for PostgreSQL instances.
+     * ## QPS Limitation
+     * The default single-user QPS limit for this interface is 1000 times/second. If the limit is exceeded, API calls will be throttled, which may affect your business. Please use it reasonably.
+     * <props="china">The QPS in this document is only a default reference value. For accurate information, please refer to the [API Rate Quota List](https://quotas.console.aliyun.com/flow-control-products/gpdb/quotas).
      *  *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
@@ -5393,7 +5541,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a document.
+     * @summary Get Document Details
      *  *
      * @param DescribeDocumentRequest $request DescribeDocumentRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -5444,7 +5592,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a document.
+     * @summary Get Document Details
      *  *
      * @param DescribeDocumentRequest $request DescribeDocumentRequest
      *
@@ -5511,7 +5659,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
+     * @summary Get download records
      *  *
      * @param DescribeDownloadSQLLogsRequest $request DescribeDownloadSQLLogsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -5544,7 +5692,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the last five download records of slow query logs for an AnalyticDB for PostgreSQL instance.
+     * @summary Get download records
      *  *
      * @param DescribeDownloadSQLLogsRequest $request DescribeDownloadSQLLogsRequest
      *
@@ -5661,7 +5809,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 获取hadoop配置信息
+     * @summary Queries the configuration information about a Hadoop cluster.
      *  *
      * @param DescribeHadoopConfigsRequest $request DescribeHadoopConfigsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -5703,7 +5851,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 获取hadoop配置信息
+     * @summary Queries the configuration information about a Hadoop cluster.
      *  *
      * @param DescribeHadoopConfigsRequest $request DescribeHadoopConfigsRequest
      *
@@ -6813,7 +6961,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries a real-time data source.
+     * @summary Get external data source configuration information
      *  *
      * @param DescribeStreamingDataSourceRequest $request DescribeStreamingDataSourceRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6852,7 +7000,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries a real-time data source.
+     * @summary Get external data source configuration information
      *  *
      * @param DescribeStreamingDataSourceRequest $request DescribeStreamingDataSourceRequest
      *
@@ -6866,7 +7014,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries a real-time data service.
+     * @summary Delete External Data Source Configuration
      *  *
      * @param DescribeStreamingJobRequest $request DescribeStreamingJobRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -6905,7 +7053,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries a real-time data service.
+     * @summary Delete External Data Source Configuration
      *  *
      * @param DescribeStreamingJobRequest $request DescribeStreamingJobRequest
      *
@@ -8365,7 +8513,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of external data sources.
+     * @summary Queries a list of external data services.
      *  *
      * @param ListExternalDataServicesRequest $request ListExternalDataServicesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -8407,7 +8555,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of external data sources.
+     * @summary Queries a list of external data services.
      *  *
      * @param ListExternalDataServicesRequest $request ListExternalDataServicesRequest
      *
@@ -8601,6 +8749,59 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary Get Homogeneous Data Source
+     *  *
+     * @param ListRemoteADBDataSourcesRequest $request ListRemoteADBDataSourcesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRemoteADBDataSourcesResponse ListRemoteADBDataSourcesResponse
+     */
+    public function listRemoteADBDataSourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRemoteADBDataSources',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRemoteADBDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Get Homogeneous Data Source
+     *  *
+     * @param ListRemoteADBDataSourcesRequest $request ListRemoteADBDataSourcesRequest
+     *
+     * @return ListRemoteADBDataSourcesResponse ListRemoteADBDataSourcesResponse
+     */
+    public function listRemoteADBDataSources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRemoteADBDataSourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of schemas.
      *  *
      * @param ListSchemasRequest $request ListSchemasRequest
@@ -8722,7 +8923,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about real-time data services.
+     * @summary Create External Data Source Configuration
      *  *
      * @param ListStreamingDataServicesRequest $request ListStreamingDataServicesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -8764,7 +8965,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about real-time data services.
+     * @summary Create External Data Source Configuration
      *  *
      * @param ListStreamingDataServicesRequest $request ListStreamingDataServicesRequest
      *
@@ -8834,7 +9035,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries real-time data service jobs.
+     * @summary Queries real-time data synchronization jobs.
      *  *
      * @param ListStreamingJobsRequest $request ListStreamingJobsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8876,7 +9077,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Queries real-time data service jobs.
+     * @summary Queries real-time data synchronization jobs.
      *  *
      * @param ListStreamingJobsRequest $request ListStreamingJobsRequest
      *
@@ -9049,6 +9250,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->accountName)) {
             $query['AccountName'] = $request->accountName;
         }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -9217,6 +9421,9 @@ class Gpdb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
         if (!Utils::isUnset($request->connectionStringPrefix)) {
             $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
         }
@@ -9384,6 +9591,75 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceMaintainTimeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Changes the network type of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
+     * This operation is available only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+     * ## QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBInstanceNetworkTypeResponse ModifyDBInstanceNetworkTypeResponse
+     */
+    public function modifyDBInstanceNetworkTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->instanceNetworkType)) {
+            $query['InstanceNetworkType'] = $request->instanceNetworkType;
+        }
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceNetworkType',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Changes the network type of an AnalyticDB for PostgreSQL instance.
+     *  *
+     * @description ##
+     * This operation is available only for AnalyticDB for PostgreSQL instances in reserved storage mode.
+     * ## QPS limits
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *  *
+     * @param ModifyDBInstanceNetworkTypeRequest $request ModifyDBInstanceNetworkTypeRequest
+     *
+     * @return ModifyDBInstanceNetworkTypeResponse ModifyDBInstanceNetworkTypeResponse
+     */
+    public function modifyDBInstanceNetworkType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceNetworkTypeWithOptions($request, $runtime);
     }
 
     /**
@@ -9623,7 +9899,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an external data service.
+     * @summary Modify External Data Service
      *  *
      * @param ModifyExternalDataServiceRequest $request ModifyExternalDataServiceRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -9668,7 +9944,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Modifies an external data service.
+     * @summary Modify External Data Service
      *  *
      * @param ModifyExternalDataServiceRequest $request ModifyExternalDataServiceRequest
      *
@@ -9956,6 +10232,68 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary Modify Homogeneous Data Source
+     *  *
+     * @param ModifyRemoteADBDataSourceRequest $request ModifyRemoteADBDataSourceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyRemoteADBDataSourceResponse ModifyRemoteADBDataSourceResponse
+     */
+    public function modifyRemoteADBDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['DataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $query['DataSourceName'] = $request->dataSourceName;
+        }
+        if (!Utils::isUnset($request->localDBInstanceId)) {
+            $query['LocalDBInstanceId'] = $request->localDBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->userPassword)) {
+            $query['UserPassword'] = $request->userPassword;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRemoteADBDataSource',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyRemoteADBDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modify Homogeneous Data Source
+     *  *
+     * @param ModifyRemoteADBDataSourceRequest $request ModifyRemoteADBDataSourceRequest
+     *
+     * @return ModifyRemoteADBDataSourceResponse ModifyRemoteADBDataSourceResponse
+     */
+    public function modifyRemoteADBDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRemoteADBDataSourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Enables or disables the SQL Explorer feature for an AnalyticDB for PostgreSQL instance.
      *  *
      * @description *   You can call this operation only for AnalyticDB for PostgreSQL instances in reserved storage mode.
@@ -10200,7 +10538,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建外部数据源配置
+     * @summary Create External Data Source Configuration
      *  *
      * @param ModifyStreamingJobRequest $tmpReq  ModifyStreamingJobRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -10304,7 +10642,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 创建外部数据源配置
+     * @summary Create External Data Source Configuration
      *  *
      * @param ModifyStreamingJobRequest $request ModifyStreamingJobRequest
      *
@@ -10483,7 +10821,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Retrieves vector data.
+     * @summary Query Vector Data
      *  *
      * @param QueryCollectionDataRequest $tmpReq  QueryCollectionDataRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -10581,7 +10919,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Retrieves vector data.
+     * @summary Query Vector Data
      *  *
      * @param QueryCollectionDataRequest $request QueryCollectionDataRequest
      *
@@ -10595,7 +10933,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Retrieves vector data and metadata from a document collection by using natural statements.
+     * @summary Query
      *  *
      * @param QueryContentRequest $tmpReq  QueryContentRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -10693,7 +11031,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Retrieves vector data and metadata from a document collection by using natural statements.
+     * @summary Query
      *  *
      * @param QueryContentRequest $request QueryContentRequest
      *
@@ -10889,7 +11227,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 通过模型对文档进行打分和重排序
+     * @summary Score and re-order documents using a model
      *  *
      * @param RerankRequest  $tmpReq  RerankRequest
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -10953,7 +11291,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary 通过模型对文档进行打分和重排序
+     * @summary Score and re-order documents using a model
      *  *
      * @param RerankRequest $request RerankRequest
      *
@@ -11498,6 +11836,72 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 通过模型对文本文档进行向量化
+     *  *
+     * @param TextEmbeddingRequest $tmpReq  TextEmbeddingRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TextEmbeddingResponse TextEmbeddingResponse
+     */
+    public function textEmbeddingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TextEmbeddingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->input)) {
+            $request->inputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->input, 'Input', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->inputShrink)) {
+            $body['Input'] = $request->inputShrink;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $body['Model'] = $request->model;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'TextEmbedding',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TextEmbeddingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 通过模型对文本文档进行向量化
+     *  *
+     * @param TextEmbeddingRequest $request TextEmbeddingRequest
+     *
+     * @return TextEmbeddingResponse TextEmbeddingResponse
+     */
+    public function textEmbedding($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->textEmbeddingWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Unbinds database roles from a resource group.
      *  *
      * @param UnbindDBResourceGroupWithRoleRequest $tmpReq  UnbindDBResourceGroupWithRoleRequest
@@ -11617,7 +12021,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+     * @summary Remove resource tags
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -11674,7 +12078,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from AnalyticDB for PostgreSQL instances. If the tags that you remove are not added to other instances, the tags are automatically deleted.
+     * @summary Remove resource tags
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -11688,7 +12092,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Updates metadata in the vector data.
+     * @summary Update Metadata of Collection Data
      *  *
      * @param UpdateCollectionDataMetadataRequest $tmpReq  UpdateCollectionDataMetadataRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -11756,7 +12160,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Updates metadata in the vector data.
+     * @summary Update Metadata of Collection Data
      *  *
      * @param UpdateCollectionDataMetadataRequest $request UpdateCollectionDataMetadataRequest
      *
@@ -12017,6 +12421,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
+        if (!Utils::isUnset($request->databaseName)) {
+            $query['DatabaseName'] = $request->databaseName;
+        }
         if (!Utils::isUnset($request->extensions)) {
             $query['Extensions'] = $request->extensions;
         }
@@ -12056,7 +12463,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a document in an asynchronous manner by using an on-premises file or an Internet-accessible file URL. After a document is uploaded, the server loads, chunks, embeds, and stores the document. A document can be up to 200 MB in size.
+     * @summary Asynchronous Document Upload
      *  *
      * @description The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
      * Related operations:
@@ -12153,7 +12560,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Uploads a document in an asynchronous manner by using an on-premises file or an Internet-accessible file URL. After a document is uploaded, the server loads, chunks, embeds, and stores the document. A document can be up to 200 MB in size.
+     * @summary Asynchronous Document Upload
      *  *
      * @description The server loads and chunks a document based on the file extension, performs vectorization by using the embedding model that is specified when you call the CreateDocumentCollection operation, and then writes the document to the specified document collection. This operation supports multi-modal embedding for various formats of text and images.
      * Related operations:
@@ -12255,7 +12662,9 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Splits a document into chunks and uploads the vectorized chunks to a document collection.
+     * @summary Upload split text
+     *  *
+     * @description The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
      *  *
      * @param UpsertChunksRequest $tmpReq  UpsertChunksRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -12316,7 +12725,9 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Splits a document into chunks and uploads the vectorized chunks to a document collection.
+     * @summary Upload split text
+     *  *
+     * @description The vectorization algorithm for the document is specified by the CreateDocumentCollection API.
      *  *
      * @param UpsertChunksRequest $request UpsertChunksRequest
      *

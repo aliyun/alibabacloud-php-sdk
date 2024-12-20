@@ -10,8 +10,9 @@ use GuzzleHttp\Psr7\Stream;
 class QueryContentAdvanceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Document collection name.
      *
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -19,13 +20,18 @@ class QueryContentAdvanceRequest extends Model
     public $collection;
 
     /**
+     * @description Text content for retrieval.
+     *
+     * @example What is ADBPG?
+     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -33,6 +39,9 @@ class QueryContentAdvanceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description In image search scenarios, the source file name of the image to be searched.
+     *
+     * > The image file must have a file extension. Currently supported image extensions: bmp, jpg, jpeg, png, tiff.
      * @example test.jpg
      *
      * @var string
@@ -40,6 +49,9 @@ class QueryContentAdvanceRequest extends Model
     public $fileName;
 
     /**
+     * @description In image search scenarios, the publicly accessible URL of the image file.
+     *
+     * > The image file must have a file extension. Currently supported image extensions: bmp, jpg, jpeg, png, tiff.
      * @example https://xx/myImage.jpg
      *
      * @var Stream
@@ -47,27 +59,19 @@ class QueryContentAdvanceRequest extends Model
     public $fileUrlObject;
 
     /**
-     * @description The filter condition that is used to query data. Specify the parameter in the WHERE clause format. The parameter is an expression that returns a Boolean value of TRUE or FALSE. The parameter can contain comparison operators, such as Equal To (=), Not Equal To (<> or !=), Greater Than (>), Less Than (<), Greater Than or Equal To (>=), and Less Than or Equal To (<=), logical operators, such as AND, OR, and NOT, and keywords, such as IN, BETWEEN, and LIKE.
+     * @description Filter condition for the data to be queried, in SQL WHERE format. It is an expression that returns a boolean value (true or false). The conditions can be simple comparison operators such as equal (=), not equal (<> or !=), greater than (>), less than (<), greater than or equal to (>=), less than or equal to (<=), or more complex expressions combined with logical operators (AND, OR, NOT), and conditions using keywords like IN, BETWEEN, LIKE, etc.
      *
-     * >
-     *
-     *   For more information, see https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/.
-     *
-     * @example title = \\"test\\"
+     * > - For detailed syntax, refer to: https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-where/
+     * @example title = \\"test\\" AND name like \\"test%\\"
      *
      * @var string
      */
     public $filter;
 
     /**
-     * @description The two-way retrieval algorithm. This parameter is empty by default, which specifies that scores of vector search and full-text search are directly compared and sorted without additional weighting or adjustments.
+     * @description Dual recall algorithm, default is empty (i.e., directly compare and sort the scores of vectors and full text).
      *
-     * Valid values:
-     *
-     *   RRF: The reciprocal rank fusion (RRF) algorithm uses a constant k to control the fusion effect. For more information, see the description of the HybridSearchArgs parameter.
-     *   Weight: This algorithm uses the alpha parameter to specify the proportion of the vector search score and the full-text search score and then sorts by weight. For more information, see the description of the HybridSearchArgs parameter.
-     *   Cascaded: This algorithm performs first full-text search and then vector search.
-     *
+     * - Cascaded: Perform full-text retrieval first, then vector retrieval on top of it;
      * @example RRF
      *
      * @var string
@@ -107,6 +111,9 @@ class QueryContentAdvanceRequest extends Model
     public $includeMetadataFields;
 
     /**
+     * @description Whether to return vectors. Default is false.
+     * > - **false**: Do not return vectors.
+     * > - **true**: Return vectors.
      * @example true
      *
      * @var bool
@@ -114,6 +121,12 @@ class QueryContentAdvanceRequest extends Model
     public $includeVector;
 
     /**
+     * @description Similarity algorithm used during retrieval. If this value is empty, the algorithm specified at the time of knowledge base creation is used. It is recommended not to set this unless there is a specific need.
+     *
+     * > Value description:
+     * > - **l2**: Euclidean distance.
+     * > - **ip**: Inner product (dot product) distance.
+     * > - **cosine**: Cosine similarity.
      * @example cosine
      *
      * @var string
@@ -121,9 +134,9 @@ class QueryContentAdvanceRequest extends Model
     public $metrics;
 
     /**
-     * @description The name of the namespace. Default value: public.
+     * @description Namespace, default is public.
      *
-     * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+     * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list of namespaces using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
      * @example mynamespace
      *
      * @var string
@@ -131,8 +144,9 @@ class QueryContentAdvanceRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description Password for the namespace.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -145,21 +159,16 @@ class QueryContentAdvanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The recall window. If you specify this parameter, the context of the search result is returned. Format: List\\<A, B>. Valid values: -10<=A<=0 and 0<=B<=10.
-     *
-     * >
-     *
-     *   We recommend that you specify this parameter if the source document is segmented into large numbers of pieces and you may fail to obtain the context.
-     *
-     *   The context of the search result is retrieved based on the recall window after the search result is reranked.
-     *
+     * @description Recall window. When this value is not empty, it adds context to the returned search results. The format is an array of 2 elements: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
+     * > - Re-ranking takes precedence over windowing, i.e., re-rank first, then apply windowing.
      * @var int[]
      */
     public $recallWindow;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID where the instance is located.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -167,6 +176,9 @@ class QueryContentAdvanceRequest extends Model
     public $regionId;
 
     /**
+     * @description Re-ranking factor. When this value is not empty, it will re-rank the vector search results. The value range is 1 < RerankFactor <= 5.
+     * > - Re-ranking is slower when documents are sparsely split.
+     * > - It is recommended that the re-ranked count (TopK * Factor, rounded up) does not exceed 50.
      * @example 2
      *
      * @var float
@@ -174,6 +186,8 @@ class QueryContentAdvanceRequest extends Model
     public $rerankFactor;
 
     /**
+     * @description Set the number of top results to return.
+     *
      * @example 10
      *
      * @var int
@@ -181,7 +195,7 @@ class QueryContentAdvanceRequest extends Model
     public $topK;
 
     /**
-     * @description Specifies whether to use full-text search to implement two-way retrieval. The default value is false, which specifies that only vector search is used.
+     * @description Whether to use full-text retrieval (dual recall). Default is false, which means only vector retrieval is used.
      *
      * @example true
      *

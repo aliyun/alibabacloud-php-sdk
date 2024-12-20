@@ -63,6 +63,10 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $serviceIp;
 
     /**
+     * @description The service is managed by other aliyun product or not.
+     *
+     * @example False
+     *
      * @var bool
      */
     public $serviceManaged;
@@ -77,6 +81,10 @@ class DescribeStreamingDataServiceResponseBody extends Model
     public $serviceName;
 
     /**
+     * @description The service account uid of the aliyun product
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $serviceOwnerId;

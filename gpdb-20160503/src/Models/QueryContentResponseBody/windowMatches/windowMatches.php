@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class windowMatches extends Model
 {
     /**
+     * @description List of individual top windowed matches.
+     *
      * @var windowMatch
      */
     public $windowMatch;

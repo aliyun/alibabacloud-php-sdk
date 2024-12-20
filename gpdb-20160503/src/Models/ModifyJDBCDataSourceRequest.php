@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyJDBCDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class ModifyJDBCDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Data source description.
+     *
      * @example test
      *
      * @var string
@@ -25,8 +28,9 @@ class ModifyJDBCDataSourceRequest extends Model
     public $dataSourceDescription;
 
     /**
-     * @description This parameter is required.
+     * @description Data source ID.
      *
+     * This parameter is required.
      * @example 123
      *
      * @var string
@@ -34,6 +38,8 @@ class ModifyJDBCDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description Database type: - mysql - postgresql - sqlserver
+     *
      * @example mysql
      *
      * @var string

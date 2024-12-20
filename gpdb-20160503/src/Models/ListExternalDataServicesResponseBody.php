@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListExternalDataServicesResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListExternalDataServicesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -31,6 +35,8 @@ class ListExternalDataServicesResponseBody extends Model
     public $serviceItems;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

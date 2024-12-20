@@ -19,6 +19,8 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
      * @example testdb
      *
      * @var string
@@ -26,6 +28,8 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $database;
 
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The end time must be later than the start time.
+     *
      * @example 2022-05-07T07:59Z
      *
      * @var string
@@ -33,6 +37,8 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $endTime;
 
     /**
+     * @description The keyword used to filter queries.
+     *
      * @example SELECT
      *
      * @var string
@@ -40,6 +46,8 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $keyword;
 
     /**
+     * @description The maxmum amount of time consumed by traces. Unit: milliseconds.
+     *
      * @example 600
      *
      * @var string
@@ -47,6 +55,8 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $maxDuration;
 
     /**
+     * @description The minimum amount of time consumed by traces. Unit: milliseconds.
+     *
      * @example 300
      *
      * @var string
@@ -54,6 +64,9 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $minDuration;
 
     /**
+     * @description The field used to sort lock diagnostics records and the sorting order.
+     *
+     * Default value: `{"Field":"StartTime","Type":"Desc"}`, which indicates that lock diagnostics records are sorted by the start time in descending order. No other values are supported.
      * @example {"Field":"StartTime","Type":"Desc"}
      *
      * @var string
@@ -61,6 +74,8 @@ class DescribeActiveSQLRecordsRequest extends Model
     public $order;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
      * @example 2021-08-03T09:30Z
      *
      * @var string

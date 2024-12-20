@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class usage extends Model
 {
     /**
+     * @description The count of embedding entries.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $embeddingEntries;

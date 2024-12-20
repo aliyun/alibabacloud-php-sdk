@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamingDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeStreamingDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description Data source ID.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -27,6 +29,9 @@ class DescribeStreamingDataSourceRequest extends Model
     public $dataSourceId;
 
     /**
+     * @description Region ID.
+     *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to view available region IDs.
      * @example cn-beijing
      *
      * @var string

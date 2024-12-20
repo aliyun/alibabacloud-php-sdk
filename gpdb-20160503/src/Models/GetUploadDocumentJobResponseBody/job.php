@@ -36,6 +36,15 @@ class job extends Model
     public $error;
 
     /**
+     * @description The error code.
+     *
+     * @example InternalError
+     *
+     * @var string
+     */
+    public $errorCode;
+
+    /**
      * @description The job ID.
      *
      * @example 231460f8-75dc-405e-a669-0c5204887e91
@@ -82,6 +91,7 @@ class job extends Model
         'completed'  => 'Completed',
         'createTime' => 'CreateTime',
         'error'      => 'Error',
+        'errorCode'  => 'ErrorCode',
         'id'         => 'Id',
         'progress'   => 'Progress',
         'status'     => 'Status',
@@ -103,6 +113,9 @@ class job extends Model
         }
         if (null !== $this->error) {
             $res['Error'] = $this->error;
+        }
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -136,6 +149,9 @@ class job extends Model
         }
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
+        }
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

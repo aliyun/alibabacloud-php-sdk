@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class matchList extends Model
 {
     /**
+     * @description The content that is used for full-text search. If you leave this parameter empty, only vector search is used. If you do not leave this parameter empty, two-way retrieval based on vector search and full-text search is used.
+     *
+     * >  You must specify at least one of the Content and Vector parameters.
+     * @example Cloud-native data warehouse AnalyticDB PostgreSQL Edition provides a simple, fast, and cost-effective PB-level cloud data warehouse solution.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The name of the document.
+     *
+     * >  You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) operation to query a list of documents.
      * @example my_doc.txt
      *
      * @var string
@@ -22,6 +30,8 @@ class matchList extends Model
     public $fileName;
 
     /**
+     * @description The public URL of the query result image, valid for 2 hours
+     *
      * @example https://xxx-cn-beijing.aliyuncs.com/image/test.png
      *
      * @var string
@@ -29,6 +39,8 @@ class matchList extends Model
     public $fileURL;
 
     /**
+     * @description The unique ID of the vector data.
+     *
      * @example doca-1234
      *
      * @var string
@@ -36,6 +48,8 @@ class matchList extends Model
     public $id;
 
     /**
+     * @description Metadata during document loader loading.
+     *
      * @example {"page_pos": 1}
      *
      * @var string
@@ -43,11 +57,15 @@ class matchList extends Model
     public $loaderMetadata;
 
     /**
+     * @description The metadata.
+     *
      * @var string[]
      */
     public $metadata;
 
     /**
+     * @description Re-ranking score.
+     *
      * @example 6.2345
      *
      * @var float
@@ -55,6 +73,9 @@ class matchList extends Model
     public $rerankScore;
 
     /**
+     * @description Source of the retrieval results:
+     *
+     * - 3 indicates dual-path recall
      * @example 1
      *
      * @var int
@@ -62,6 +83,8 @@ class matchList extends Model
     public $retrievalSource;
 
     /**
+     * @description The similarity score of the data. It is related to the `l2, ip, or cosine` algorithm that is specified when you create an index.
+     *
      * @example 0.12345
      *
      * @var float
@@ -69,6 +92,9 @@ class matchList extends Model
     public $score;
 
     /**
+     * @description The vector data. The length of the value must be the same as that of the Dimension parameter in the [CreateCollection](https://help.aliyun.com/document_detail/2401497.html) operation.
+     *
+     * >  If you leave this parameter empty, only full-text search results are returned.
      * @var vector
      */
     public $vector;

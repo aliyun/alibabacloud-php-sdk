@@ -19,6 +19,15 @@ class UpgradeExtensionsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Database name.
+     *
+     * @example test01
+     *
+     * @var string
+     */
+    public $databaseName;
+
+    /**
      * @description The extensions that you want to update. Separate multiple extensions with commas (,).
      *
      * This parameter is required.
@@ -38,6 +47,7 @@ class UpgradeExtensionsRequest extends Model
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
+        'databaseName' => 'DatabaseName',
         'extensions'   => 'Extensions',
         'regionId'     => 'RegionId',
     ];
@@ -51,6 +61,9 @@ class UpgradeExtensionsRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->databaseName) {
+            $res['DatabaseName'] = $this->databaseName;
         }
         if (null !== $this->extensions) {
             $res['Extensions'] = $this->extensions;
@@ -72,6 +85,9 @@ class UpgradeExtensionsRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DatabaseName'])) {
+            $model->databaseName = $map['DatabaseName'];
         }
         if (isset($map['Extensions'])) {
             $model->extensions = $map['Extensions'];

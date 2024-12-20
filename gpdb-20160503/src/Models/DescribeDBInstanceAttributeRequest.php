@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceAttributeRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
      * This parameter is required.
      * @example gp-bp13ue79qk8y1****
@@ -24,9 +24,9 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is no longer used.
+     * @description This parameter is deprecated and should not be passed.
      *
-     * @example rg-bp67acfmxazb4p****
+     * @example null
      *
      * @var string
      */

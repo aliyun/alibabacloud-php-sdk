@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description Re-ordered document information.
+     *
+     * @example ADBPG is the OLAP database of Alibaba Cloud.
+     *
      * @var string
      */
     public $document;
 
     /**
+     * @description Index of this document in the request parameter Documents, starting from 0.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +27,8 @@ class results extends Model
     public $index;
 
     /**
+     * @description Rerank similarity score.
+     *
      * @example 2.31412
      *
      * @var float

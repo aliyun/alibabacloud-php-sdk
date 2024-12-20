@@ -56,9 +56,9 @@ class DescribeHadoopDataSourceResponseBody extends Model
     /**
      * @description The status of the service. Valid values:
      *
-     *   init
-     *   running
-     *   exception
+     *   Init
+     *   Running
+     *   Exception
      *
      * @example Running
      *
@@ -67,6 +67,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $dataSourceStatus;
 
     /**
+     * @description The type of the data source.
+     *
      * @example hive
      *
      * @var string
@@ -83,6 +85,10 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $emrInstanceId;
 
     /**
+     * @description The Id of External Data Service
+     *
+     * @example 2988
+     *
      * @var string
      */
     public $externalDataServiceId;
@@ -108,8 +114,8 @@ class DescribeHadoopDataSourceResponseBody extends Model
     /**
      * @description The type of the external service. Valid values:
      *
-     *   HDFS
-     *   HIVE
+     *   emr
+     *   selfCreate
      *
      * @example HDFS
      *
@@ -118,7 +124,7 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $hadoopCreateType;
 
     /**
-     * @description *   The address and hostname of the Hadoop cluster (data source) in the /etc/hosts directory.
+     * @description The IP address and hostname of the Hadoop cluster (data source) in the /etc/hosts file.
      *
      * @example 127.0.0.1 localhost
      *
@@ -136,7 +142,7 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $hiveConf;
 
     /**
-     * @description The content of the Hadoop MapReduceConf file.
+     * @description The content of the Hadoop mapred-site.xml file.
      *
      * @example xxxxxx
      *
@@ -145,6 +151,10 @@ class DescribeHadoopDataSourceResponseBody extends Model
     public $mapReduceConf;
 
     /**
+     * @description The time when the service was last modified.
+     *
+     * @example 2024-08-23T02:11:47Z
+     *
      * @var string
      */
     public $modifyTime;

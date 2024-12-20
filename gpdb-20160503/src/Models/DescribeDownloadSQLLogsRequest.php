@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadSQLLogsRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
      * This parameter is required.
      * @example gp-bp12ga6v69h86****

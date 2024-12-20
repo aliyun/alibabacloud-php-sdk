@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RerankResponseBody extends Model
 {
     /**
+     * @description Detailed information returned by the interface.
+     *
      * @example success
      *
      * @var string
@@ -17,6 +19,8 @@ class RerankResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -24,11 +28,16 @@ class RerankResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Rerank results.
+     *
      * @var results
      */
     public $results;
 
     /**
+     * @description API execution status, value description:
+     * - **success**: Execution succeeded.
+     * - **fail**: Execution failed.
      * @example success
      *
      * @var string
@@ -36,6 +45,8 @@ class RerankResponseBody extends Model
     public $status;
 
     /**
+     * @description Number of consumed tokens.
+     *
      * @example 100
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateCollectionDataMetadataResponseBody extends Model
 {
     /**
-     * @description The number of effective rows.
+     * @description Number of effective entries.
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class UpdateCollectionDataMetadataResponseBody extends Model
     public $appliedRows;
 
     /**
-     * @description The error message returned.
+     * @description Detailed information when the request fails.
      *
      * @example failed to connect database, detailMsg: getConnection fail::SQL State: 28P01, Error Code: 0, Error Message: FATAL: password
      *
@@ -27,7 +27,7 @@ class UpdateCollectionDataMetadataResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
@@ -36,11 +36,10 @@ class UpdateCollectionDataMetadataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Status, with the following values:
      *
-     *   **success**
-     *   **fail**
-     *
+     * - **success**: Success.
+     * - **fail**: Failure.
      * @example success
      *
      * @var string

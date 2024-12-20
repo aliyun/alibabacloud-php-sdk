@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UploadDocumentAsyncResponseBody extends Model
 {
     /**
+     * @description The job ID.
+     *
      * @example 231460f8-75dc-405e-a669-0c5204887e91
      *
      * @var string
@@ -16,6 +18,8 @@ class UploadDocumentAsyncResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class UploadDocumentAsyncResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -30,6 +36,9 @@ class UploadDocumentAsyncResponseBody extends Model
     public $requestId;
 
     /**
+     * @description API execution status, with the following values:
+     * - **success**: Execution succeeded.
+     * - **fail**: Execution failed.
      * @example success
      *
      * @var string

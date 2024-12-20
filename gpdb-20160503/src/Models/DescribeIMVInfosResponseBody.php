@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeIMVInfosResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -24,6 +27,8 @@ class DescribeIMVInfosResponseBody extends Model
     public $imvInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string

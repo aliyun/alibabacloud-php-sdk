@@ -17,6 +17,8 @@ class ListStreamingJobsResponseBody extends Model
     public $jobItems;
 
     /**
+     * @description Current page number.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +26,8 @@ class ListStreamingJobsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description Number of records per page.
+     *
      * @example 2
      *
      * @var int
@@ -31,6 +35,8 @@ class ListStreamingJobsResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @description Request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -38,6 +44,8 @@ class ListStreamingJobsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Total number of records.
+     *
      * @example 2
      *
      * @var int

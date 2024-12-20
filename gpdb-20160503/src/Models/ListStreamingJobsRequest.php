@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStreamingJobsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,6 +19,8 @@ class ListStreamingJobsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Page number, greater than 0 and not exceeding the maximum value of Integer. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,9 @@ class ListStreamingJobsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description Number of records per page, with the following options:
+     * - **30** - **50** - **100**
+     * Default value: 30.
      * @example kafka
      *
      * @var int

@@ -12,6 +12,9 @@ use AlibabaCloud\Tea\Model;
 class QueryContentResponseBody extends Model
 {
     /**
+     * @description Number of tokens used for vectorization.
+     *
+     * > A token refers to the smallest unit into which the input text is divided; a token can be a word, a phrase, a punctuation mark, or a character, etc.
      * @example 100
      *
      * @var string
@@ -19,11 +22,15 @@ class QueryContentResponseBody extends Model
     public $embeddingTokens;
 
     /**
+     * @description The retrieved data.
+     *
      * @var matches
      */
     public $matches;
 
     /**
+     * @description Return message.
+     *
      * @example success
      *
      * @var string
@@ -31,6 +38,8 @@ class QueryContentResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -38,6 +47,11 @@ class QueryContentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The execution state of the operation. Valid values:
+     *
+     *   **false**: The operation fails.
+     *   **true**: The operation is successful.
+     *
      * @example success
      *
      * @var string
@@ -45,11 +59,15 @@ class QueryContentResponseBody extends Model
     public $status;
 
     /**
+     * @description Resource usage for this query.
+     *
      * @var usage
      */
     public $usage;
 
     /**
+     * @description List of windowed matches.
+     *
      * @var windowMatches
      */
     public $windowMatches;

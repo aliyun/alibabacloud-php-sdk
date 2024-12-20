@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListExternalDataServicesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,6 +19,8 @@ class ListExternalDataServicesRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class ListExternalDataServicesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 50
      *
      * @var int

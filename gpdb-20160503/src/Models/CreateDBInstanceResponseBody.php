@@ -9,26 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceResponseBody extends Model
 {
     /**
-     * @description An invalid parameter. It is no longer returned when you call this operation.
+     * @description This parameter is deprecated and will not return a value.
      *
-     * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the endpoint that is used to connect to the instance.
-     * @example gp-bp***************.gpdb.rds.aliyuncs.com
+     * You can use the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) interface to view the connection address of the instance.
+     * @example gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com
      *
      * @var string
      */
     public $connectionString;
 
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
-     * @example gp-bp***************
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The order ID.
+     * @description Order ID.
      *
      * @example 111111111111
      *
@@ -37,17 +37,17 @@ class CreateDBInstanceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description An invalid parameter. It is no longer returned when you call this operation.
+     * @description This parameter is deprecated and will not return a value.
      *
-     * You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) operation to query the port number that is used to connect to the instance.
-     * @example 5432
+     * You can use the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/86910.html) interface to view the port number of the instance.
+     * @example 3432
      *
      * @var string
      */
     public $port;
 
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
      * @example 5414A4E5-4C36-4461-95FC-************
      *

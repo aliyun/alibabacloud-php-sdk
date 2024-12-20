@@ -89,7 +89,7 @@ class UpgradeDBInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The performance level of enhanced SSDs (ESSDs). Valid values:
+     * @description The performance level of Enterprise SSDs (ESSDs). Valid values:
      *
      *   **pl0**
      *   **pl1**
@@ -143,7 +143,7 @@ class UpgradeDBInstanceRequest extends Model
      *
      * >
      *
-     *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "[Usage notes](https://help.aliyun.com/document_detail/50956.html)" section of the Change compute node configurations topic.
+     *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "Usage notes" section of the [Change compute node configurations](https://help.aliyun.com/document_detail/50956.html) topic.
      *
      *   After you specify a change type, only the corresponding parameters take effect. For example, if you set **UpgradeType** to 0, the parameter that is used to change the number of compute nodes takes effect, but the parameter that is used to change the number of coordinator nodes does not.
      *   The number of coordinator nodes can be changed only on the China site (aliyun.com).

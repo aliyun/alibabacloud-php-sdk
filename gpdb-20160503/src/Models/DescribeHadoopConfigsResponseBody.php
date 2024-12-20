@@ -24,6 +24,8 @@ class DescribeHadoopConfigsResponseBody extends Model
     public $configName;
 
     /**
+     * @description The configuration value.
+     *
      * @example <?xml version="1.0"?>
      * <property>
      * @var string

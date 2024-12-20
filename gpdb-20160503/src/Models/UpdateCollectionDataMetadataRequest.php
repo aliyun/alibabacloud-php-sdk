@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateCollectionDataMetadataRequest extends Model
 {
     /**
-     * @description The name of the collection.
+     * @description Collection name.
      *
      * This parameter is required.
      * @example document
@@ -19,17 +19,17 @@ class UpdateCollectionDataMetadataRequest extends Model
     public $collection;
 
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
-     * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-     * @example gp-xxxxxxxxx
+     * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB for PostgreSQL instances in the target region, including the instance ID.
+     * @example gp-j788ghhjjxxxx
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The condition that is used to filter the data to be updated. Specify this parameter in a format that is the same as the WHERE clause. You cannot leave both this parameter and Ids empty.
+     * @description Filter condition for the data to be updated, in SQL WHERE format. This field cannot be empty at the same time as the Ids field.
      *
      * @example business_value = \\"chat_file_1\\"
      *
@@ -38,14 +38,14 @@ class UpdateCollectionDataMetadataRequest extends Model
     public $filter;
 
     /**
-     * @description The row IDs of the data to be updated. You cannot leave both this parameter and Filter empty.
+     * @description ID list of the data to be updated, i.e., the Row.Id specified when uploading the data. This field cannot be empty at the same time as the Filter field.
      *
      * @var string[]
      */
     public $ids;
 
     /**
-     * @description The data to be updated, which is a JSON string in the MAP format. In the JSON string, key specifies the field name and value specifies the new data value.
+     * @description Data to be updated, in a JSON string of MAP format. The key is the field name, and the value is the new data value.
      *
      * This parameter is required.
      * @example {
@@ -55,8 +55,9 @@ class UpdateCollectionDataMetadataRequest extends Model
     public $metadata;
 
     /**
-     * @description The name of the namespace.
+     * @description Namespace.
      *
+     * > You can use the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API to view the list.
      * @example mynamespace
      *
      * @var string
@@ -64,7 +65,7 @@ class UpdateCollectionDataMetadataRequest extends Model
     public $namespace;
 
     /**
-     * @description The password of the namespace.
+     * @description Password corresponding to the namespace.
      *
      * This parameter is required.
      * @example testpassword
@@ -79,7 +80,7 @@ class UpdateCollectionDataMetadataRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
+     * @description Region ID where the instance is located.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -89,6 +90,10 @@ class UpdateCollectionDataMetadataRequest extends Model
     public $regionId;
 
     /**
+     * @description ID of the Workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. When both are specified, this parameter takes precedence.
+     *
+     * @example gp-ws-*****
+     *
      * @var string
      */
     public $workspaceId;

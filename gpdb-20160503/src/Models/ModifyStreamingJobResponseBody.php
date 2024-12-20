@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyStreamingJobResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *

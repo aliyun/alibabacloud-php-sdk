@@ -19,11 +19,19 @@ class DescribeDBInstanceDataBloatRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The sorting order.
+     *
+     * @example {Field: TableName, Type: Desc}
+     *
      * @var string
      */
     public $orderBy;

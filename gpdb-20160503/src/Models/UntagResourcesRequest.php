@@ -9,12 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to unbind all tags from an instance. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
+     * @description Whether to untag all tags on the instance. This parameter is only effective when TagKey.N is not set in the request. The value range is:
      *
-     *   true
-     *   false
-     *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -32,7 +29,7 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * @description Region ID, you can view available region IDs through the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -42,8 +39,9 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description Instance ID. N\\"s value range: 1~50
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
@@ -59,11 +57,7 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The storage mode of the instance. Valid values:
-     *
-     *   `instance`: reserved storage mode
-     *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
-     *
+     * @description Resource type. The value range is:
      * This parameter is required.
      * @example instance
      *
@@ -72,6 +66,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description Resource tag key. N\\"s value range: 1~20
+     *
      * @var string[]
      */
     public $tagKey;

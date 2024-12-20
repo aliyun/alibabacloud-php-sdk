@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListStreamingDataServicesResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -17,11 +19,15 @@ class ListStreamingDataServicesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Returns real-time data service items
+     *
      * @var serviceItems[]
      */
     public $serviceItems;
 
     /**
+     * @description Total record count.
+     *
      * @example 1
      *
      * @var int

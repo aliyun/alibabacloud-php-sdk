@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeJDBCDataSourceResponseBody extends Model
 {
     /**
+     * @description The time when the service was created.
+     *
      * @example 2019-09-08T16:00:00Z
      *
      * @var string
@@ -25,6 +27,8 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $dataSourceDescription;
 
     /**
+     * @description The data source ID.
+     *
      * @example 123
      *
      * @var string
@@ -32,6 +36,8 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $dataSourceId;
 
     /**
+     * @description The name of data soruce
+     *
      * @example hdfs_pxf
      *
      * @var string
@@ -61,6 +67,10 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $dataSourceType;
 
     /**
+     * @description The id of the external data service
+     *
+     * @example 2989
+     *
      * @var string
      */
     public $externalDataServiceId;
@@ -93,11 +103,17 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $JDBCUserName;
 
     /**
+     * @description The time when the data source was last modified.
+     *
+     * @example 2024-08-27T02:01:10Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -105,6 +121,8 @@ class DescribeJDBCDataSourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The message of the status
+     *
      * @example ""
      *
      * @var string

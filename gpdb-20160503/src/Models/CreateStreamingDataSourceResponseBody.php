@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateStreamingDataSourceResponseBody extends Model
 {
     /**
+     * @description Data source ID.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateStreamingDataSourceResponseBody extends Model
     public $dataSourceId;
 
     /**
+     * @description Request ID.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string

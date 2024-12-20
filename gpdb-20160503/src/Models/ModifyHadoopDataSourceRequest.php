@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyHadoopDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class ModifyHadoopDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Service description, with a maximum length of 256 characters.
+     *
      * @example pxf for hdfs data source
      *
      * @var string
@@ -50,6 +53,8 @@ class ModifyHadoopDataSourceRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description When HadoopCreateType is Emr, the value of this field is the EMR instance ID.
+     *
      * @example c-1234567
      *
      * @var string

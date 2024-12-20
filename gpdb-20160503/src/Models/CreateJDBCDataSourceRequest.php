@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateJDBCDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateJDBCDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Data source description.
+     *
      * @example test
      *
      * @var string
@@ -25,6 +28,8 @@ class CreateJDBCDataSourceRequest extends Model
     public $dataSourceDescription;
 
     /**
+     * @description The name of data soruce
+     *
      * @example jdbc_pxf
      *
      * @var string
@@ -32,6 +37,8 @@ class CreateJDBCDataSourceRequest extends Model
     public $dataSourceName;
 
     /**
+     * @description The type of the data source.
+     *
      * @example mysql
      *
      * @var string

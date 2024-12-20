@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class QueryCollectionDataResponseBody extends Model
 {
     /**
-     * @description The retrieved data.
+     * @description Data list.
      *
      * @var matches
      */
     public $matches;
 
     /**
+     * @description Detailed information when the request fails.
+     *
      * @example 0.1234
      *
      * @var string
@@ -24,6 +26,8 @@ class QueryCollectionDataResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -31,6 +35,9 @@ class QueryCollectionDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Status, with the following values:
+     * - **success**: Success.
+     * - **fail**: Failure.
      * @example success
      *
      * @var string
@@ -38,7 +45,7 @@ class QueryCollectionDataResponseBody extends Model
     public $status;
 
     /**
-     * @description The total number of entries that match the search conditions. This parameter is returned only when the Offset parameter is not 0.
+     * @description Only returned when the Offset is not 0, this value represents the total number of hits for the search criteria.
      *
      * @example 100
      *

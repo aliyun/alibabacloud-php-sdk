@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDocumentResponseBody extends Model
 {
     /**
+     * @description Detailed information returned by the API.
+     *
      * @example success
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteDocumentResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteDocumentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Creation status, value description: - **success**: Success - **fail**: Fail
+     *
      * @example success
      *
      * @var string

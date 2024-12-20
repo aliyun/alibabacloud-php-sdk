@@ -54,6 +54,8 @@ class CreateCollectionRequest extends Model
     public $externalStorage;
 
     /**
+     * @description Fields used for full-text search, separated by commas (,). These fields must be keys defined in Metadata.
+     *
      * @example title,content
      *
      * @var string
@@ -80,8 +82,9 @@ class CreateCollectionRequest extends Model
     public $hnswM;
 
     /**
-     * @description This parameter is required.
+     * @description Name of the management account with rds_superuser permissions.
      *
+     * This parameter is required.
      * @example testaccount
      *
      * @var string
@@ -89,8 +92,9 @@ class CreateCollectionRequest extends Model
     public $managerAccount;
 
     /**
-     * @description This parameter is required.
+     * @description The password of the manager account.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string
@@ -100,15 +104,16 @@ class CreateCollectionRequest extends Model
     /**
      * @description The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
      *
-     * >
+     * >  Supported data types:
      *
-     *   For information about the supported data types, see [Data types](https://help.aliyun.com/zh/analyticdb-for-postgresql/developer-reference/data-types-1/?spm=a2c4g.11186623.0.0.43e567a1C35QRD).
+     *   For information about the supported data types, see [Data types](https://www.alibabacloud.com/help/zh/analyticdb/analyticdb-for-postgresql/developer-reference/data-types-1/).
      *
      *   The money data type is not supported.
      *
      **
      *
-     **Warning**
+     **Warning** Reserved fields such as id, vector, to_tsvector, and source cannot be used.
+     *
      * This parameter is required.
      * @example {"title":"text","content":"text","response":"int"}
      *
@@ -117,6 +122,17 @@ class CreateCollectionRequest extends Model
     public $metadata;
 
     /**
+     * @var string
+     */
+    public $metadataIndices;
+
+    /**
+     * @description Method used when building the vector index.
+     *
+     * Value description:
+     * - **l2**: Euclidean distance.
+     * - **ip**: Inner product (dot product) distance.
+     * - **cosine** (default): Cosine similarity.
      * @example cosine
      *
      * @var string
@@ -139,6 +155,8 @@ class CreateCollectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The analyzer that is used for full-text search.
+     *
      * @example zh_cn
      *
      * @var string
@@ -168,6 +186,8 @@ class CreateCollectionRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+     *
      * @example gp-ws-*****
      *
      * @var string
@@ -183,6 +203,7 @@ class CreateCollectionRequest extends Model
         'managerAccount'          => 'ManagerAccount',
         'managerAccountPassword'  => 'ManagerAccountPassword',
         'metadata'                => 'Metadata',
+        'metadataIndices'         => 'MetadataIndices',
         'metrics'                 => 'Metrics',
         'namespace'               => 'Namespace',
         'ownerId'                 => 'OwnerId',
@@ -225,6 +246,9 @@ class CreateCollectionRequest extends Model
         }
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
+        }
+        if (null !== $this->metadataIndices) {
+            $res['MetadataIndices'] = $this->metadataIndices;
         }
         if (null !== $this->metrics) {
             $res['Metrics'] = $this->metrics;
@@ -285,6 +309,9 @@ class CreateCollectionRequest extends Model
         }
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
+        }
+        if (isset($map['MetadataIndices'])) {
+            $model->metadataIndices = $map['MetadataIndices'];
         }
         if (isset($map['Metrics'])) {
             $model->metrics = $map['Metrics'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateHadoopDataSourceResponseBody extends Model
 {
     /**
+     * @description Data source ID.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateHadoopDataSourceResponseBody extends Model
     public $dataSourceId;
 
     /**
+     * @description Request ID.
+     *
      * @example 2C125605-266F-41CA-8AC5-3A643D4F42C5
      *
      * @var string

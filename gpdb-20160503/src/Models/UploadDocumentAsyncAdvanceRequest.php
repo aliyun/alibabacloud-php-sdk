@@ -20,6 +20,8 @@ class UploadDocumentAsyncAdvanceRequest extends Model
     public $chunkOverlap;
 
     /**
+     * @description Strategy for processing large data: the size of each chunk when the data is split into smaller parts. Maximum value is 2048.
+     *
      * @example 250
      *
      * @var int
@@ -27,8 +29,8 @@ class UploadDocumentAsyncAdvanceRequest extends Model
     public $chunkSize;
 
     /**
-     * @description This parameter is required.
-     *
+     * @description The name of the document library.
+     * This parameter is required.
      * @example document
      *
      * @var string
@@ -36,8 +38,9 @@ class UploadDocumentAsyncAdvanceRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
+     * @description Instance ID with vector engine optimization acceleration enabled. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
      *
+     * This parameter is required.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -93,8 +96,8 @@ class UploadDocumentAsyncAdvanceRequest extends Model
     public $fileName;
 
     /**
-     * @description This parameter is required.
-     *
+     * @description The URL of the publicly accessible document.
+     * This parameter is required.
      * @example https://xx/mydoc.txt
      *
      * @var Stream
@@ -109,6 +112,8 @@ class UploadDocumentAsyncAdvanceRequest extends Model
     public $metadata;
 
     /**
+     * @description Namespace, default is public. You can create one through the CreateNamespace interface and view the list via the ListNamespaces interface.
+     *
      * @example mynamespace
      *
      * @var string
@@ -116,8 +121,9 @@ class UploadDocumentAsyncAdvanceRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required.
+     * @description The password corresponding to the namespace.  > This value is specified by the CreateNamespace interface.
      *
+     * This parameter is required.
      * @example testpassword
      *
      * @var string

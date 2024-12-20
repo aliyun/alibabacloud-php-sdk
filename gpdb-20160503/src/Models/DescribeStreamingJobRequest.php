@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeStreamingJobRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description Instance ID.
      *
      * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
@@ -19,7 +19,7 @@ class DescribeStreamingJobRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The job ID.
+     * @description Job ID.
      *
      * This parameter is required.
      * @example 1
@@ -29,6 +29,9 @@ class DescribeStreamingJobRequest extends Model
     public $jobId;
 
     /**
+     * @description Region ID.
+     *
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
      * @example cn-beijing
      *
      * @var string

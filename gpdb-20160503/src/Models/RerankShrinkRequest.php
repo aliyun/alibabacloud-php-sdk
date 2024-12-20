@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RerankShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -18,11 +19,15 @@ class RerankShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description List of documents to be re-ordered.
+     *
      * @var string
      */
     public $documentsShrink;
 
     /**
+     * @description Maximum number of chunks allowed when the text exceeds the model window:
+     * > - If using the bge-reranker-v2-minicpm-layerwise model, the maximum single inference window is 2048 tokens. If the query is 48 tokens and the content of a single document parameter is 9000 tokens, it will be divided as follows: 1-2000 for the first, 2001-4000 for the second, and so on. If the number of splits exceeds MaxChunksPerDoc, the remaining sentences will be discarded.
      * @example 10
      *
      * @var int
@@ -30,6 +35,8 @@ class RerankShrinkRequest extends Model
     public $maxChunksPerDoc;
 
     /**
+     * @description Rerank model, currently supports:
+     * - bge-reranker-v2-minicpm-layerwise: better performance than v2-m3, supports 2048 tokens per inference, if exceeded, it will be split, which may reduce the effect.
      * @example bge-reranker-v2-m3
      *
      * @var string
@@ -42,13 +49,18 @@ class RerankShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description Query statement for Rerank.
+     *
+     * @example What is ADBPG?
+     *
      * @var string
      */
     public $query;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID where the instance is located.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -56,6 +68,8 @@ class RerankShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description If set to false, does not return the Documents text, only returns the index of the document order and the rerank score.
+     *
      * @example false
      *
      * @var bool
@@ -63,6 +77,8 @@ class RerankShrinkRequest extends Model
     public $returnDocuments;
 
     /**
+     * @description Number of most relevant documents to return.
+     *
      * @example 3
      *
      * @var int

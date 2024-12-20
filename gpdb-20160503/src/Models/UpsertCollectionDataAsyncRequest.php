@@ -37,7 +37,7 @@ class UpsertCollectionDataAsyncRequest extends Model
      *
      *   Data format of each line: `{String Id; Map<String, Object> Metadata; List<Double> Vector}`. Example: `{"Id":"myid", "Metadata": {"my_meta_key": "my_meta_value"}, "Vector": [1.234, -0.123]}`.
      *
-     *   We recommend that you SDKs to call this operation. SDKs encapsulate the UpsertCollectionDataAsyncAdvance method to upload on-premises files as data sources.
+     *   We recommend that you use SDKs to call this operation. SDKs encapsulate the UpsertCollectionDataAsyncAdvance method to upload on-premises files as data sources.
      *
      * This parameter is required.
      * @example https://xx/vectors.jsonl
@@ -82,6 +82,10 @@ class UpsertCollectionDataAsyncRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Workspace composed of multiple database instances. This parameter and the DBInstanceId parameter cannot both be empty. When both are specified, this parameter takes precedence.
+     *
+     * @example gp-ws-*****
+     *
      * @var string
      */
     public $workspaceId;

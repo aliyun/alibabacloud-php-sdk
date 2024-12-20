@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateHadoopDataSourceRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateHadoopDataSourceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Service description.
+     *
      * @example pxf for hdfs data source
      *
      * @var string
@@ -25,6 +28,8 @@ class CreateHadoopDataSourceRequest extends Model
     public $dataSourceDescription;
 
     /**
+     * @description Service name.
+     *
      * @example hdfs_pxf
      *
      * @var string
@@ -32,6 +37,9 @@ class CreateHadoopDataSourceRequest extends Model
     public $dataSourceName;
 
     /**
+     * @description Type of Hadoop external table to be enabled, with values:
+     *
+     * - Hive
      * @example HDFS
      *
      * @var string
@@ -39,6 +47,8 @@ class CreateHadoopDataSourceRequest extends Model
     public $dataSourceType;
 
     /**
+     * @description When HadoopCreateType=Emr, this field should contain the EMR instance ID.
+     *
      * @example c-1234567
      *
      * @var string
@@ -46,24 +56,27 @@ class CreateHadoopDataSourceRequest extends Model
     public $emrInstanceId;
 
     /**
-     * @description The string that specifies the content of the Hadoop hdfs-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+     * @description Content string of the Hadoop hdfs-site.xml file. This field is required when enabling an HDFS external table.
      *
-     * @example xxxxxx
-     *
+     * @example <?xml version="1.0" ?>
+     * </configuration>
      * @var string
      */
     public $HDFSConf;
 
     /**
-     * @description The string that specifies the content of the Hadoop core-site.xml file.
+     * @description Content string of the Hadoop core-site.xml file.
      *
-     * @example xxxxxx
-     *
+     * @example <?xml version="1.0" ?>
+     * </configuration>
      * @var string
      */
     public $hadoopCoreConf;
 
     /**
+     * @description External service type:
+     *
+     * - hadoop: Self-built Hadoop
      * @example emr
      *
      * @var string
@@ -71,24 +84,26 @@ class CreateHadoopDataSourceRequest extends Model
     public $hadoopCreateType;
 
     /**
-     * @description The IP address and hostname of the Hadoop cluster (data source) in the /etc/hosts file.
+     * @description Address and hostname of the Hadoop cluster\\"s source node in the /etc/hosts file.
      *
-     * @example 127.0.0.1 localhost
-     *
+     * @example 192.168.220.128 master-1-1.c-xxx.cn-shanghai.emr.aliyuncs.com
+     * 192.168.220.130 core-1-2.c-xxx.cn-shanghai.emr.aliyuncs.com
      * @var string
      */
     public $hadoopHostsAddress;
 
     /**
-     * @description The string that specifies the content of the Hadoop hive-site.xml file. This parameter must be specified when DataSourceType is set to Hive.
+     * @description Content string of the Hadoop hive-site.xml file. This field is required when enabling a HIVE external table.
      *
-     * @example xxxxxx
-     *
+     * @example <?xml version="1.0" ?>
+     * </configuration>
      * @var string
      */
     public $hiveConf;
 
     /**
+     * @description Content string of the Hadoop mapred-site.xml file. This field is required when enabling an HDFS external table.
+     *
      * @example xxxxxx
      *
      * @var string
@@ -96,9 +111,9 @@ class CreateHadoopDataSourceRequest extends Model
     public $mapReduceConf;
 
     /**
-     * @description The region ID.
+     * @description Region ID.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
      * @example cn-hangzhou
      *
      * @var string
@@ -106,10 +121,10 @@ class CreateHadoopDataSourceRequest extends Model
     public $regionId;
 
     /**
-     * @description The string that specifies the content of the Hadoop yarn-site.xml file. This parameter must be specified when DataSourceType is set to HDFS.
+     * @description Content string of the Hadoop yarn-site.xml file. This field is required when enabling an HDFS external table.
      *
-     * @example xxxxxx
-     *
+     * @example <?xml version="1.0" ?>
+     * </configuration>
      * @var string
      */
     public $yarnConf;

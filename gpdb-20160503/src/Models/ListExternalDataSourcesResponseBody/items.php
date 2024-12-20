@@ -76,6 +76,8 @@ class items extends Model
     public $dataSourceType;
 
     /**
+     * @description The Id of external data service
+     *
      * @example 123
      *
      * @var int

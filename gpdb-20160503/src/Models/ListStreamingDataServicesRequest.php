@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListStreamingDataServicesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Instance ID.
      *
+     * This parameter is required.
      * @example gp-bp10g78o9807yv9h3
      *
      * @var string
@@ -18,6 +19,8 @@ class ListStreamingDataServicesRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Page number, greater than 0 and not exceeding the maximum value of Integer, default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class ListStreamingDataServicesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description Number of records per page, with the following values:
+     * - 100
      * @example 50
      *
      * @var int
@@ -32,7 +37,7 @@ class ListStreamingDataServicesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description Region ID
      *
      * @example cn-beijing
      *

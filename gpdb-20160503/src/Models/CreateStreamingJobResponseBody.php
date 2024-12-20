@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateStreamingJobResponseBody extends Model
 {
     /**
-     * @description The job ID.
+     * @description Job ID.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class CreateStreamingJobResponseBody extends Model
     public $jobId;
 
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *

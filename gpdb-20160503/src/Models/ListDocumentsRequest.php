@@ -19,8 +19,9 @@ class ListDocumentsRequest extends Model
     public $collection;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example gp-xxxxxxxxx
      *
      * @var string

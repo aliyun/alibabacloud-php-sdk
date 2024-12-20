@@ -9,20 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CheckJDBCSourceNetConnectionResponseBody extends Model
 {
     /**
-     * @description The returned message. If the connection failed, an error message is returned. Otherwise, a pair of double quotation marks ("") is returned.
+     * @description Return message: Error message returned when the connection fails, otherwise returns an empty string ("").
      *
-     * @example xxx
+     * @example connection timeout
      *
      * @var string
      */
     public $connectionMessage;
 
     /**
-     * @description The connection status. Valid values:
+     * @description Service status:
      *
-     *   Success
-     *   Failed
-     *
+     * - Network not connected: Failed
      * @example Success
      *
      * @var string
@@ -30,7 +28,7 @@ class CheckJDBCSourceNetConnectionResponseBody extends Model
     public $connectionStatus;
 
     /**
-     * @description The request ID.
+     * @description Request ID.
      *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *

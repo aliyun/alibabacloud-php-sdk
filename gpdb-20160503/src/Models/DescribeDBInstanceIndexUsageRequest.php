@@ -19,11 +19,19 @@ class DescribeDBInstanceIndexUsageRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description order by search condition
+     *
+     * @example {Field: TableName, Type: Desc}
+     *
      * @var string
      */
     public $orderBy;

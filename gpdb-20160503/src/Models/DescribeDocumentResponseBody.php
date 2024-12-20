@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDocumentResponseBody extends Model
 {
     /**
+     * @description URL of the split file, valid for 2 hours. The file format is JSONL, with each line formatted as `{"page_content":"*****", "metadata": {"**":"***","**":"***"}`.
+     *
      * @example http://oss.xxx/music_chunk.jsonl
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDocumentResponseBody extends Model
     public $chunkFileUrl;
 
     /**
+     * @description Number of documents after splitting.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeDocumentResponseBody extends Model
     public $docsCount;
 
     /**
+     * @description Name of the document loader.
+     *
      * @example RapidOCRPDFLoader
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDocumentResponseBody extends Model
     public $documentLoader;
 
     /**
+     * @description File extension.
+     *
      * @example txt
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeDocumentResponseBody extends Model
     public $fileExt;
 
     /**
+     * @description MD5 value of the file.
+     *
      * @example b8078c9591413550f8963e37e24abcea
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeDocumentResponseBody extends Model
     public $fileMd5;
 
     /**
+     * @description The last modified time of the document.
+     *
      * @example 2023-11-01 10:01:01.123456
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeDocumentResponseBody extends Model
     public $fileMtime;
 
     /**
+     * @description File name.
+     *
      * @example music.txt
      *
      * @var string
@@ -58,6 +72,8 @@ class DescribeDocumentResponseBody extends Model
     public $fileName;
 
     /**
+     * @description File size, in bytes.
+     *
      * @example 10000
      *
      * @var int
@@ -65,6 +81,8 @@ class DescribeDocumentResponseBody extends Model
     public $fileSize;
 
     /**
+     * @description Download URL of the document, valid for 2 hours.
+     *
      * @example http://oss.xxx/music.txt
      *
      * @var string
@@ -72,6 +90,8 @@ class DescribeDocumentResponseBody extends Model
     public $fileUrl;
 
     /**
+     * @description Document version. This value increments by 1 each time the same document is updated and uploaded.
+     *
      * @example 1
      *
      * @var int
@@ -79,6 +99,8 @@ class DescribeDocumentResponseBody extends Model
     public $fileVersion;
 
     /**
+     * @description Detailed information returned by the API.
+     *
      * @example success
      *
      * @var string
@@ -86,6 +108,8 @@ class DescribeDocumentResponseBody extends Model
     public $message;
 
     /**
+     * @description Download URL for the plain text (without metadata) after splitting, each line is a chunk, valid for 2 hours.
+     *
      * @example http://oss.xxx/music_plain_chunk.txt
      *
      * @var string
@@ -93,6 +117,8 @@ class DescribeDocumentResponseBody extends Model
     public $plainChunkFileUrl;
 
     /**
+     * @description Request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -100,13 +126,18 @@ class DescribeDocumentResponseBody extends Model
     public $requestId;
 
     /**
-     * @example http://oss.xxx/music.txt
+     * @description Source of the document.
+     *
+     * @example OSS
      *
      * @var string
      */
     public $source;
 
     /**
+     * @description API execution status, with values as follows:
+     * - **success**: Execution succeeded.
+     * - **fail**: Execution failed.
      * @example success
      *
      * @var string
@@ -114,6 +145,8 @@ class DescribeDocumentResponseBody extends Model
     public $status;
 
     /**
+     * @description Name of the text splitter.
+     *
      * @example ChineseRecursiveTextSplitter
      *
      * @var string

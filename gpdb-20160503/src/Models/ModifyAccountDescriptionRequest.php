@@ -16,7 +16,6 @@ class ModifyAccountDescriptionRequest extends Model
      *   The description can contain letters, underscores (_), hyphens (-), and digits.
      *   The description must be 2 to 256 characters in length.
      *
-     * This parameter is required.
      * @example testAccoutdescribe
      *
      * @var string
@@ -34,6 +33,15 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountName;
 
     /**
+     * @description Idempotence check. For more information, see [How to Ensure Idempotence](https://help.aliyun.com/document_detail/327176.html).
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88**********
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The instance ID.
      *
      * This parameter is required.
@@ -45,6 +53,7 @@ class ModifyAccountDescriptionRequest extends Model
     protected $_name = [
         'accountDescription' => 'AccountDescription',
         'accountName'        => 'AccountName',
+        'clientToken'        => 'ClientToken',
         'DBInstanceId'       => 'DBInstanceId',
     ];
 
@@ -60,6 +69,9 @@ class ModifyAccountDescriptionRequest extends Model
         }
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
@@ -81,6 +93,9 @@ class ModifyAccountDescriptionRequest extends Model
         }
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];

@@ -67,7 +67,7 @@ class ModifySecurityIpsRequest extends Model
      *   10.23.12.24/24. This is a CIDR block. The value `/24` indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value in the range of `1 to 32`.
      *
      * This parameter is required.
-     * @example 10.10.\*\*.**
+     * @example ``10.10.**.**``
      *
      * @var string
      */

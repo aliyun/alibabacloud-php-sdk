@@ -40,6 +40,10 @@ class DBInstanceAccount extends Model
     public $accountStatus;
 
     /**
+     * @description The type of the database account. Valid values: Super and Normal. Super indicates a privileged account and Normal indicates a standard account.
+     *
+     * @example Super
+     *
      * @var string
      */
     public $accountType;
