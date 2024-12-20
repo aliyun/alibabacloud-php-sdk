@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponseBody\data;
 
+use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponseBody\data\instances\sidecarContainersStatus;
 use AlibabaCloud\Tea\Model;
 
 class instances extends Model
@@ -135,6 +136,11 @@ class instances extends Model
     public $packageVersion;
 
     /**
+     * @var sidecarContainersStatus[]
+     */
+    public $sidecarContainersStatus;
+
+    /**
      * @description The ID of the zone where the instance is deployed.
      *
      * @example vsw-***
@@ -155,6 +161,7 @@ class instances extends Model
         'instanceHealthStatus'      => 'InstanceHealthStatus',
         'instanceId'                => 'InstanceId',
         'packageVersion'            => 'PackageVersion',
+        'sidecarContainersStatus'   => 'SidecarContainersStatus',
         'vSwitchId'                 => 'VSwitchId',
     ];
 
@@ -200,6 +207,15 @@ class instances extends Model
         }
         if (null !== $this->packageVersion) {
             $res['PackageVersion'] = $this->packageVersion;
+        }
+        if (null !== $this->sidecarContainersStatus) {
+            $res['SidecarContainersStatus'] = [];
+            if (null !== $this->sidecarContainersStatus && \is_array($this->sidecarContainersStatus)) {
+                $n = 0;
+                foreach ($this->sidecarContainersStatus as $item) {
+                    $res['SidecarContainersStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -251,6 +267,15 @@ class instances extends Model
         }
         if (isset($map['PackageVersion'])) {
             $model->packageVersion = $map['PackageVersion'];
+        }
+        if (isset($map['SidecarContainersStatus'])) {
+            if (!empty($map['SidecarContainersStatus'])) {
+                $model->sidecarContainersStatus = [];
+                $n                              = 0;
+                foreach ($map['SidecarContainersStatus'] as $item) {
+                    $model->sidecarContainersStatus[$n++] = null !== $item ? sidecarContainersStatus::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

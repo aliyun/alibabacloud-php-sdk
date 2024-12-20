@@ -1,3 +1,7 @@
+2024-12-20 Version: 1.24.1
+- Update API DescribeApplicationInstances: update response param.
+
+
 2024-12-17 Version: 1.24.0
 - Support API GetWebshellToken.
 - Update API CreateApplication: add param EnableSidecarResourceIsolated.
