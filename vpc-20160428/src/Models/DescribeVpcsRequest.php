@@ -31,6 +31,11 @@ class DescribeVpcsRequest extends Model
     public $dryRun;
 
     /**
+     * @description Query for VPCs in the specified region that have enabled IPv6 CIDR blocks. The value is empty by default, which means no filtering based on IPv6 availability is conducted. Valid values:
+     *
+     * - true: enabled
+     * @example false
+     *
      * @var bool
      */
     public $enableIpv6;
@@ -58,7 +63,7 @@ class DescribeVpcsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *

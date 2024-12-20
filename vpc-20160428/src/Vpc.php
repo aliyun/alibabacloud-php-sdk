@@ -733,6 +733,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\TerminatePhysicalConnectionRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TerminatePhysicalConnectionResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TerminateVirtualBorderRouterRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\TerminateVirtualBorderRouterResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\TransformEipSegmentToPublicIpAddressPoolRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\TransformEipSegmentToPublicIpAddressPoolResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnassociateEipAddressRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnassociateEipAddressResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\UnassociateGlobalAccelerationInstanceRequest;
@@ -30152,6 +30154,68 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->terminateVirtualBorderRouterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 连续EIP组转换为公网IP地址池
+     *  *
+     * @param TransformEipSegmentToPublicIpAddressPoolRequest $request TransformEipSegmentToPublicIpAddressPoolRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TransformEipSegmentToPublicIpAddressPoolResponse TransformEipSegmentToPublicIpAddressPoolResponse
+     */
+    public function transformEipSegmentToPublicIpAddressPoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransformEipSegmentToPublicIpAddressPool',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransformEipSegmentToPublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 连续EIP组转换为公网IP地址池
+     *  *
+     * @param TransformEipSegmentToPublicIpAddressPoolRequest $request TransformEipSegmentToPublicIpAddressPoolRequest
+     *
+     * @return TransformEipSegmentToPublicIpAddressPoolResponse TransformEipSegmentToPublicIpAddressPoolResponse
+     */
+    public function transformEipSegmentToPublicIpAddressPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->transformEipSegmentToPublicIpAddressPoolWithOptions($request, $runtime);
     }
 
     /**

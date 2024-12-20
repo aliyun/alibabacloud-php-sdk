@@ -75,11 +75,20 @@ class vpc extends Model
     public $dhcpOptionsSetStatus;
 
     /**
+     * @description Indicates whether the Domain Name System (DNS) feature is enabled.
+     *
+     * @example DISABLED
+     *
      * @var string
      */
     public $dnsHostnameStatus;
 
     /**
+     * @description Indicates whether the IPv6 is enabled.
+     *
+     * - true: true
+     * @example false
+     *
      * @var bool
      */
     public $enabledIpv6;

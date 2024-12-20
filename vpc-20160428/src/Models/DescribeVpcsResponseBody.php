@@ -46,7 +46,7 @@ class DescribeVpcsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The details about the VPC.
+     * @description The details of the VPC.
      *
      * @var vpcs
      */
