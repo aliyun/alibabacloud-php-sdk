@@ -54,6 +54,13 @@ class ImportServicesShrinkRequest extends Model
     public $serviceListShrink;
 
     /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $sourceId;
+
+    /**
      * @description The service source. Valid values:
      *
      *   MSE: MSE Nacos instance
@@ -90,6 +97,7 @@ class ImportServicesShrinkRequest extends Model
         'fcVersion'         => 'FcVersion',
         'gatewayUniqueId'   => 'GatewayUniqueId',
         'serviceListShrink' => 'ServiceList',
+        'sourceId'          => 'SourceId',
         'sourceType'        => 'SourceType',
         'tlsSetting'        => 'TlsSetting',
     ];
@@ -118,6 +126,9 @@ class ImportServicesShrinkRequest extends Model
         }
         if (null !== $this->serviceListShrink) {
             $res['ServiceList'] = $this->serviceListShrink;
+        }
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -154,6 +165,9 @@ class ImportServicesShrinkRequest extends Model
         }
         if (isset($map['ServiceList'])) {
             $model->serviceListShrink = $map['ServiceList'];
+        }
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

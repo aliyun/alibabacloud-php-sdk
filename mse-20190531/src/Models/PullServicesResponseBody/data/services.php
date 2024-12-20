@@ -45,6 +45,11 @@ class services extends Model
     public $sourceId;
 
     /**
+     * @var int[]
+     */
+    public $sourceIdList;
+
+    /**
      * @description The type of the service source.
      *
      * @example MSE
@@ -53,11 +58,12 @@ class services extends Model
      */
     public $sourceType;
     protected $_name = [
-        'groupName'  => 'GroupName',
-        'name'       => 'Name',
-        'namespace'  => 'Namespace',
-        'sourceId'   => 'SourceId',
-        'sourceType' => 'SourceType',
+        'groupName'    => 'GroupName',
+        'name'         => 'Name',
+        'namespace'    => 'Namespace',
+        'sourceId'     => 'SourceId',
+        'sourceIdList' => 'SourceIdList',
+        'sourceType'   => 'SourceType',
     ];
 
     public function validate()
@@ -78,6 +84,9 @@ class services extends Model
         }
         if (null !== $this->sourceId) {
             $res['SourceId'] = $this->sourceId;
+        }
+        if (null !== $this->sourceIdList) {
+            $res['SourceIdList'] = $this->sourceIdList;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -105,6 +114,11 @@ class services extends Model
         }
         if (isset($map['SourceId'])) {
             $model->sourceId = $map['SourceId'];
+        }
+        if (isset($map['SourceIdList'])) {
+            if (!empty($map['SourceIdList'])) {
+                $model->sourceIdList = $map['SourceIdList'];
+            }
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

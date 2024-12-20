@@ -7548,6 +7548,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->serviceListShrink)) {
             $query['ServiceList'] = $request->serviceListShrink;
         }
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
+        }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;
         }
@@ -10943,6 +10946,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $query['SourceId'] = $request->sourceId;
         }
         if (!Utils::isUnset($request->sourceType)) {
             $query['SourceType'] = $request->sourceType;

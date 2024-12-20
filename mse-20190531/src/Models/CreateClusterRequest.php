@@ -110,17 +110,13 @@ class CreateClusterRequest extends Model
     public $diskType;
 
     /**
-     * @description Specifies whether to enable Internet access (Elastic IP Address) if ConnectionType is set to `single_eni`.
+     * @description Specifies whether to enable elastic IP addresses. This parameter is valid only if the ConnectionType parameter is set to `single_eni`.
      *
      * Valid values:
      *
      *   true
-     *
-     * <!-- -->
-     *
      *   false
      *
-     * <!-- -->
      * @var bool
      */
     public $eipEnabled;
@@ -245,11 +241,6 @@ class CreateClusterRequest extends Model
 
     /**
      * @description The type of the security group to which the instance belongs. This parameter is valid only if the ConnectionType parameter is set to `single_eni`.
-     *
-     * Valid values:
-     *
-     *   enterprise
-     *   normal
      *
      * @example enterprise
      *

@@ -39,6 +39,13 @@ class PullServicesRequest extends Model
     public $namespace;
 
     /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $sourceId;
+
+    /**
      * @description The type of the service source.
      *
      * @example K8s
@@ -50,6 +57,7 @@ class PullServicesRequest extends Model
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'namespace'       => 'Namespace',
+        'sourceId'        => 'SourceId',
         'sourceType'      => 'SourceType',
     ];
 
@@ -68,6 +76,9 @@ class PullServicesRequest extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -92,6 +103,9 @@ class PullServicesRequest extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];

@@ -55,6 +55,13 @@ class ImportServicesRequest extends Model
     public $serviceList;
 
     /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $sourceId;
+
+    /**
      * @description The service source. Valid values:
      *
      *   MSE: MSE Nacos instance
@@ -91,6 +98,7 @@ class ImportServicesRequest extends Model
         'fcVersion'       => 'FcVersion',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'serviceList'     => 'ServiceList',
+        'sourceId'        => 'SourceId',
         'sourceType'      => 'SourceType',
         'tlsSetting'      => 'TlsSetting',
     ];
@@ -125,6 +133,9 @@ class ImportServicesRequest extends Model
                     $res['ServiceList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
         }
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
@@ -167,6 +178,9 @@ class ImportServicesRequest extends Model
                     $model->serviceList[$n++] = null !== $item ? serviceList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
         }
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
