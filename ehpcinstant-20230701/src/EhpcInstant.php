@@ -12,9 +12,14 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\AddImageShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreateJobShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\CreatePoolShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeleteJobsShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeletePoolRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DeletePoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricDataRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricDataResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\DescribeJobMetricDataShrinkRequest;
@@ -27,6 +32,8 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetImageResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetJobResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\GetPoolResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListExecutorsShrinkRequest;
@@ -38,6 +45,9 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobExecutorsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListJobsShrinkRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListPoolsRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListPoolsResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListPoolsShrinkRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\RemoveImageRequest;
@@ -46,6 +56,9 @@ use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UnTagResourcesResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolRequest;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolResponse;
+use AlibabaCloud\SDK\EhpcInstant\V20230701\Models\UpdatePoolShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -223,6 +236,64 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
+     * @summary 创建资源池
+     *  *
+     * @param CreatePoolRequest $tmpReq  CreatePoolRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePoolResponse CreatePoolResponse
+     */
+    public function createPoolWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePoolShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceLimits)) {
+            $request->resourceLimitsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceLimits, 'ResourceLimits', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->poolName)) {
+            $query['PoolName'] = $request->poolName;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceLimitsShrink)) {
+            $query['ResourceLimits'] = $request->resourceLimitsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePool',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建资源池
+     *  *
+     * @param CreatePoolRequest $request CreatePoolRequest
+     *
+     * @return CreatePoolResponse CreatePoolResponse
+     */
+    public function createPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPoolWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 删除作业
      *  *
      * @param DeleteJobsRequest $tmpReq  DeleteJobsRequest
@@ -278,6 +349,53 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除资源池
+     *  *
+     * @param DeletePoolRequest $request DeletePoolRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeletePoolResponse DeletePoolResponse
+     */
+    public function deletePoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->poolName)) {
+            $query['PoolName'] = $request->poolName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePool',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除资源池
+     *  *
+     * @param DeletePoolRequest $request DeletePoolRequest
+     *
+     * @return DeletePoolResponse DeletePoolResponse
+     */
+    public function deletePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePoolWithOptions($request, $runtime);
     }
 
     /**
@@ -559,6 +677,53 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
+     * @summary 查询队列详细信息
+     *  *
+     * @param GetPoolRequest $request GetPoolRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetPoolResponse GetPoolResponse
+     */
+    public function getPoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->poolName)) {
+            $query['PoolName'] = $request->poolName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPool',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询队列详细信息
+     *  *
+     * @param GetPoolRequest $request GetPoolRequest
+     *
+     * @return GetPoolResponse GetPoolResponse
+     */
+    public function getPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPoolWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询全局Executor信息
      *  *
      * @param ListExecutorsRequest $tmpReq  ListExecutorsRequest
@@ -810,6 +975,64 @@ class EhpcInstant extends OpenApiClient
     }
 
     /**
+     * @summary 查询资源池列表
+     *  *
+     * @param ListPoolsRequest $tmpReq  ListPoolsRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPoolsResponse ListPoolsResponse
+     */
+    public function listPoolsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListPoolsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filter)) {
+            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->filterShrink)) {
+            $query['Filter'] = $request->filterShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPools',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询资源池列表
+     *  *
+     * @param ListPoolsRequest $request ListPoolsRequest
+     *
+     * @return ListPoolsResponse ListPoolsResponse
+     */
+    public function listPools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPoolsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询一个或多个资源已经绑定的标签列表
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
@@ -1025,5 +1248,63 @@ class EhpcInstant extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新资源池
+     *  *
+     * @param UpdatePoolRequest $tmpReq  UpdatePoolRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdatePoolResponse UpdatePoolResponse
+     */
+    public function updatePoolWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdatePoolShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceLimits)) {
+            $request->resourceLimitsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceLimits, 'ResourceLimits', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->poolName)) {
+            $query['PoolName'] = $request->poolName;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $query['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->resourceLimitsShrink)) {
+            $query['ResourceLimits'] = $request->resourceLimitsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePool',
+            'version'     => '2023-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新资源池
+     *  *
+     * @param UpdatePoolRequest $request UpdatePoolRequest
+     *
+     * @return UpdatePoolResponse UpdatePoolResponse
+     */
+    public function updatePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePoolWithOptions($request, $runtime);
     }
 }
