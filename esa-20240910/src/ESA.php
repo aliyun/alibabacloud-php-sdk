@@ -351,9 +351,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateListShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionIpWhiteListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionIpWhiteListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionRequest;
@@ -9396,67 +9393,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateKvNamespaceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Updates a custom list.
-     *  *
-     * @param UpdateListRequest $tmpReq  UpdateListRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdateListResponse UpdateListResponse
-     */
-    public function updateListWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateListShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->items)) {
-            $request->itemsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->items, 'Items', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->id)) {
-            $body['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->itemsShrink)) {
-            $body['Items'] = $request->itemsShrink;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateList',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Updates a custom list.
-     *  *
-     * @param UpdateListRequest $request UpdateListRequest
-     *
-     * @return UpdateListResponse UpdateListResponse
-     */
-    public function updateList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateListWithOptions($request, $runtime);
     }
 
     /**
