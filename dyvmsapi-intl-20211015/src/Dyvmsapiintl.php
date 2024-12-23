@@ -16,6 +16,11 @@ use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\GroupCallResponse;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\GroupCallShrinkRequest;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\SignalCallRequest;
 use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\SignalCallResponse;
+use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceGroupCallRequest;
+use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceGroupCallResponse;
+use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceGroupCallShrinkRequest;
+use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceSingleCallRequest;
+use AlibabaCloud\SDK\Dyvmsapiintl\V20211015\Models\VoiceSingleCallResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -56,10 +61,12 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @param BackendCallGroupRequest $tmpReq
-     * @param RuntimeOptions          $runtime
+     * @summary Initiates a voice group call to multiple phone numbers. The content of the group call is that of approved templates. You can log on to the VMS console and choose Voice Call Template to view the template ID. This feature enqueues the phone numbers to be called. The time when the phone numbers are called is uncertain.
+     *  *
+     * @param BackendCallGroupRequest $tmpReq  BackendCallGroupRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return BackendCallGroupResponse
+     * @return BackendCallGroupResponse BackendCallGroupResponse
      */
     public function backendCallGroupWithOptions($tmpReq, $runtime)
     {
@@ -134,9 +141,11 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @param BackendCallGroupRequest $request
+     * @summary Initiates a voice group call to multiple phone numbers. The content of the group call is that of approved templates. You can log on to the VMS console and choose Voice Call Template to view the template ID. This feature enqueues the phone numbers to be called. The time when the phone numbers are called is uncertain.
+     *  *
+     * @param BackendCallGroupRequest $request BackendCallGroupRequest
      *
-     * @return BackendCallGroupResponse
+     * @return BackendCallGroupResponse BackendCallGroupResponse
      */
     public function backendCallGroup($request)
     {
@@ -146,10 +155,12 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @param BackendCallSignalRequest $request
-     * @param RuntimeOptions           $runtime
+     * @summary Sends a voice verification code and voice notification with variables to a phone number.
+     *  *
+     * @param BackendCallSignalRequest $request BackendCallSignalRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return BackendCallSignalResponse
+     * @return BackendCallSignalResponse BackendCallSignalResponse
      */
     public function backendCallSignalWithOptions($request, $runtime)
     {
@@ -210,9 +221,11 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @param BackendCallSignalRequest $request
+     * @summary Sends a voice verification code and voice notification with variables to a phone number.
+     *  *
+     * @param BackendCallSignalRequest $request BackendCallSignalRequest
      *
-     * @return BackendCallSignalResponse
+     * @return BackendCallSignalResponse BackendCallSignalResponse
      */
     public function backendCallSignal($request)
     {
@@ -222,10 +235,12 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @param GroupCallRequest $tmpReq
-     * @param RuntimeOptions   $runtime
+     * @summary 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
+     *  *
+     * @param GroupCallRequest $tmpReq  GroupCallRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GroupCallResponse
+     * @return GroupCallResponse GroupCallResponse
      */
     public function groupCallWithOptions($tmpReq, $runtime)
     {
@@ -312,9 +327,11 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @param GroupCallRequest $request
+     * @summary 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
+     *  *
+     * @param GroupCallRequest $request GroupCallRequest
      *
-     * @return GroupCallResponse
+     * @return GroupCallResponse GroupCallResponse
      */
     public function groupCall($request)
     {
@@ -324,10 +341,12 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @param SignalCallRequest $request
-     * @param RuntimeOptions    $runtime
+     * @summary 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
+     *  *
+     * @param SignalCallRequest $request SignalCallRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SignalCallResponse
+     * @return SignalCallResponse SignalCallResponse
      */
     public function signalCallWithOptions($request, $runtime)
     {
@@ -409,14 +428,205 @@ class Dyvmsapiintl extends OpenApiClient
     }
 
     /**
-     * @param SignalCallRequest $request
+     * @summary 向指定号码发送语音验证码和带参数变量的语音通知，支持语音文件模板或文本转语音模板
+     *  *
+     * @param SignalCallRequest $request SignalCallRequest
      *
-     * @return SignalCallResponse
+     * @return SignalCallResponse SignalCallResponse
      */
     public function signalCall($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->signalCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 国际语音api-语音群呼
+     *  *
+     * @param VoiceGroupCallRequest $tmpReq  VoiceGroupCallRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return VoiceGroupCallResponse VoiceGroupCallResponse
+     */
+    public function voiceGroupCallWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new VoiceGroupCallShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->calledNumber)) {
+            $request->calledNumberShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->calledNumber, 'CalledNumber', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->calledNumberShrink)) {
+            $query['CalledNumber'] = $request->calledNumberShrink;
+        }
+        if (!Utils::isUnset($request->callerIdNumber)) {
+            $query['CallerIdNumber'] = $request->callerIdNumber;
+        }
+        if (!Utils::isUnset($request->countryId)) {
+            $query['CountryId'] = $request->countryId;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playTimes)) {
+            $query['PlayTimes'] = $request->playTimes;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sendType)) {
+            $query['SendType'] = $request->sendType;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->timingStart)) {
+            $query['TimingStart'] = $request->timingStart;
+        }
+        if (!Utils::isUnset($request->ttsCode)) {
+            $query['TtsCode'] = $request->ttsCode;
+        }
+        if (!Utils::isUnset($request->ttsParam)) {
+            $query['TtsParam'] = $request->ttsParam;
+        }
+        if (!Utils::isUnset($request->voiceCode)) {
+            $query['VoiceCode'] = $request->voiceCode;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $query['Volume'] = $request->volume;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VoiceGroupCall',
+            'version'     => '2021-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VoiceGroupCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 国际语音api-语音群呼
+     *  *
+     * @param VoiceGroupCallRequest $request VoiceGroupCallRequest
+     *
+     * @return VoiceGroupCallResponse VoiceGroupCallResponse
+     */
+    public function voiceGroupCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->voiceGroupCallWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 国际语音api-语音单呼
+     *  *
+     * @param VoiceSingleCallRequest $request VoiceSingleCallRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return VoiceSingleCallResponse VoiceSingleCallResponse
+     */
+    public function voiceSingleCallWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->calledNumber)) {
+            $query['CalledNumber'] = $request->calledNumber;
+        }
+        if (!Utils::isUnset($request->callerIdNumber)) {
+            $query['CallerIdNumber'] = $request->callerIdNumber;
+        }
+        if (!Utils::isUnset($request->countryId)) {
+            $query['CountryId'] = $request->countryId;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->playTimes)) {
+            $query['PlayTimes'] = $request->playTimes;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sendType)) {
+            $query['SendType'] = $request->sendType;
+        }
+        if (!Utils::isUnset($request->speed)) {
+            $query['Speed'] = $request->speed;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $query['TaskName'] = $request->taskName;
+        }
+        if (!Utils::isUnset($request->timingStart)) {
+            $query['TimingStart'] = $request->timingStart;
+        }
+        if (!Utils::isUnset($request->ttsCode)) {
+            $query['TtsCode'] = $request->ttsCode;
+        }
+        if (!Utils::isUnset($request->ttsParam)) {
+            $query['TtsParam'] = $request->ttsParam;
+        }
+        if (!Utils::isUnset($request->voiceCode)) {
+            $query['VoiceCode'] = $request->voiceCode;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $query['Volume'] = $request->volume;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'VoiceSingleCall',
+            'version'     => '2021-10-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VoiceSingleCallResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 国际语音api-语音单呼
+     *  *
+     * @param VoiceSingleCallRequest $request VoiceSingleCallRequest
+     *
+     * @return VoiceSingleCallResponse VoiceSingleCallResponse
+     */
+    public function voiceSingleCall($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->voiceSingleCallWithOptions($request, $runtime);
     }
 }
