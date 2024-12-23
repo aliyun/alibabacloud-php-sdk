@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class scripts extends Model
 {
     /**
-     * @description The name of the API operation.
+     * @description API name.
      *
      * @example ListScripts
      *
@@ -19,7 +19,7 @@ class scripts extends Model
     public $action;
 
     /**
-     * @description The time when the system finishes the running of the script. This parameter is returned only if the ScriptType parameter is set to NORMAL.
+     * @description End execution time. This value is returned only when `ScriptType` is `NORMAL`.
      *
      * @example 1639715635819
      *
@@ -28,11 +28,9 @@ class scripts extends Model
     public $endTime;
 
     /**
-     * @description The policy that is used to handle execution failures of the script. Valid values:
+     * @description Execution failure strategy. Possible values:
      *
-     *   FAILED_CONTINUE
-     *   FAILED_BLOCK
-     *
+     * - FAILED_BLOCK: Block after failure.
      * @example FAILED_CONTINUE
      *
      * @var string
@@ -40,11 +38,9 @@ class scripts extends Model
     public $executionFailStrategy;
 
     /**
-     * @description The time based on which the system runs the script. Valid values:
+     * @description Execution timing. Possible values:
      *
-     *   BEFORE_INSTALL
-     *   AFTER_STARTED
-     *
+     * - AFTER_STARTED: After application startup.
      * @example BEFORE_INSTALL
      *
      * @var string
@@ -52,12 +48,9 @@ class scripts extends Model
     public $executionMoment;
 
     /**
-     * @description The status of the script. This parameter is returned only if the `ScriptType` parameter is set to `NORMAL`. Valid values:
+     * @description Script execution state. This value is returned only when `ScriptType` is `NORMAL`. Possible values:
      *
-     *   SCRIPT_COMPLETED
-     *   SCRIPT_SUBMISSION_FAILED
-     *   SCRIPT_RUNNING
-     *
+     * - SCRIPT_RUNNING: Script is running.
      * @example SCRIPT_COMPLETED
      *
      * @var string
@@ -65,7 +58,7 @@ class scripts extends Model
     public $executionState;
 
     /**
-     * @description The time when the script was last modified.
+     * @description Time of the last update.
      *
      * @example 1639714634819
      *
@@ -74,14 +67,14 @@ class scripts extends Model
     public $lastUpdateTime;
 
     /**
-     * @description The node selector.
+     * @description Node selector.
      *
      * @var NodeSelector
      */
     public $nodeSelector;
 
     /**
-     * @description The region ID.
+     * @description Region ID.
      *
      * @example cn-hangzhou
      *
@@ -90,7 +83,7 @@ class scripts extends Model
     public $regionId;
 
     /**
-     * @description The runtime parameters of the script.
+     * @description Script execution parameters.
      *
      * @example --mode=client -h -p
      *
@@ -99,7 +92,7 @@ class scripts extends Model
     public $scriptArgs;
 
     /**
-     * @description The script ID.
+     * @description Script ID.
      *
      * @example cs-bf25219d103043a0820613e32781****
      *
@@ -108,7 +101,7 @@ class scripts extends Model
     public $scriptId;
 
     /**
-     * @description The name of the script.
+     * @description Script name.
      *
      * @example check_env
      *
@@ -117,7 +110,7 @@ class scripts extends Model
     public $scriptName;
 
     /**
-     * @description The path in which the script is stored.
+     * @description Script path.
      *
      * @example oss://bucket1/check_evn.sh
      *
@@ -126,7 +119,7 @@ class scripts extends Model
     public $scriptPath;
 
     /**
-     * @description The time when the system starts to run the script. This parameter is returned only if the ScriptType parameter is set to NORMAL.
+     * @description Start execution time. This value is returned only when `ScriptType` is `NORMAL`.
      *
      * @example 1639714634000
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
-     * @description The service configurations. Number of elements in the array: 1 to 1000.
+     * @description The application configurations. Number of elements in the array: 1 to 1000.
      *
      * @var ApplicationConfig[]
      */
@@ -84,6 +84,8 @@ class CreateClusterRequest extends Model
     public $deployMode;
 
     /**
+     * @description The cluster description.
+     *
      * @example Emr cluster for ETL
      *
      * @var string
@@ -91,7 +93,7 @@ class CreateClusterRequest extends Model
     public $description;
 
     /**
-     * @description The attributes of all ECS instances. The basic attributes of all ECS instances in the cluster.
+     * @description The attributes of all ECS instances.
      *
      * This parameter is required.
      * @var NodeAttributes
@@ -132,7 +134,7 @@ class CreateClusterRequest extends Model
     public $regionId;
 
     /**
-     * @description The version of EMR. You can view the EMR release version on the EMR cluster purchase page.
+     * @description The EMR version. You can query available E-MapReduce (EMR) versions in the EMR console.
      *
      * This parameter is required.
      * @example EMR-5.8.0
@@ -163,14 +165,14 @@ class CreateClusterRequest extends Model
     public $securityMode;
 
     /**
-     * @description The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+     * @description The subscription configurations. This parameter takes effect only if you set the PaymentType parameter to Subscription.
      *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
-     * @description The list of tags. Number of elements in the array: 0 to 20.
+     * @description The tags. Number of elements in the array: 0 to 20.
      *
      * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
      *

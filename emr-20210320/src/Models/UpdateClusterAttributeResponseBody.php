@@ -6,30 +6,18 @@ namespace AlibabaCloud\SDK\Emr\V20210320\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteApiTemplateResponseBody extends Model
+class UpdateClusterAttributeResponseBody extends Model
 {
     /**
-     * @description Request ID.
+     * @description 请求ID。
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description Whether the call was successful: - true: Call succeeded - false: Call failed.
-     *
-     * @example true
-     *
-     * @deprecated
-     *
-     * @var bool
-     */
-    public $success;
     protected $_name = [
         'requestId' => 'RequestId',
-        'success'   => 'Success',
     ];
 
     public function validate()
@@ -42,9 +30,6 @@ class DeleteApiTemplateResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
 
         return $res;
     }
@@ -52,16 +37,13 @@ class DeleteApiTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteApiTemplateResponseBody
+     * @return UpdateClusterAttributeResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
         }
 
         return $model;

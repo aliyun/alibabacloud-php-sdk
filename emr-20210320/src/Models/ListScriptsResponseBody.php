@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListScriptsResponseBody extends Model
 {
     /**
-     * @description 本次请求所返回的最大记录条数。
+     * @description The maximum number of records returned in this request.
      *
      * @example 10
      *
@@ -19,7 +19,7 @@ class ListScriptsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description 返回读取到的数据位置，空代表数据已经读取完毕。
+     * @description The position of the data read.
      *
      * @example dd6b1b2a-5837-5237-abe4-ff0c89568982
      *
@@ -28,7 +28,7 @@ class ListScriptsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description 请求ID。
+     * @description Request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -37,14 +37,14 @@ class ListScriptsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The scripts.
+     * @description List of scripts.
      *
      * @var scripts[]
      */
     public $scripts;
 
     /**
-     * @description 本次请求条件下的数据总量。
+     * @description The total amount of data under the conditions of this request.
      *
      * @example 200
      *

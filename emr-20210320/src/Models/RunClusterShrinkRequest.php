@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class RunClusterShrinkRequest extends Model
 {
     /**
-     * @description The service configurations. Number of elements in the array: 1 to 1,000.
+     * @description The application configurations. Number of elements in the array: 1 to 1000.
      *
      * @var string
      */
     public $applicationConfigsShrink;
 
     /**
-     * @description The list of services. Number of elements in the array: 1 to 100.
+     * @description The services. Number of elements in the array: 1 to 100.
      *
      * This parameter is required.
      * @var string
@@ -93,7 +93,7 @@ class RunClusterShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The basic attributes of all ECS instances in the cluster.
+     * @description The attributes of all ECS instances.
      *
      * @var string
      */
@@ -162,14 +162,14 @@ class RunClusterShrinkRequest extends Model
     public $securityMode;
 
     /**
-     * @description The subscription configurations. This parameter is required only if you set the PaymentType parameter to Subscription.
+     * @description The subscription configurations. This parameter takes effect only if you set the PaymentType parameter to Subscription.
      *
      * @var string
      */
     public $subscriptionConfigShrink;
 
     /**
-     * @description The list of tags. Number of elements in the array: 0 to 20.
+     * @description The tags. Number of elements in the array: 0 to 20.
      *
      * @var string
      */

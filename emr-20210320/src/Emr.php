@@ -137,6 +137,8 @@ use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApiTemplateRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApiTemplateResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateApplicationConfigsResponse;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAttributeRequest;
+use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateClusterAttributeResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptRequest;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptResponse;
 use AlibabaCloud\SDK\Emr\V20210320\Models\UpdateScriptShrinkRequest;
@@ -3657,7 +3659,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bootstrap actions or common scripts of an E-MapReduce (EMR) cluster.
+     * @summary Query EMR cluster bootstrap scripts or regular scripts.
      *  *
      * @param ListScriptsRequest $request ListScriptsRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3702,7 +3704,7 @@ class Emr extends OpenApiClient
     }
 
     /**
-     * @summary Queries the bootstrap actions or common scripts of an E-MapReduce (EMR) cluster.
+     * @summary Query EMR cluster bootstrap scripts or regular scripts.
      *  *
      * @param ListScriptsRequest $request ListScriptsRequest
      *
@@ -4011,7 +4013,7 @@ class Emr extends OpenApiClient
     /**
      * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
      *  *
-     * @description RunCluster is an upgraded version of CreateCluster and supports more parameters. Parameters of the object and array types are in the JSON format, which are friendly for users who use CLI.
+     * @description RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
      *  *
      * @param RunClusterRequest $tmpReq  RunClusterRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -4122,7 +4124,7 @@ class Emr extends OpenApiClient
     /**
      * @summary Creates a pay-as-you-go or subscription E-MapReduce (EMR) cluster.
      *  *
-     * @description RunCluster is an upgraded version of CreateCluster and supports more parameters. Parameters of the object and array types are in the JSON format, which are friendly for users who use CLI.
+     * @description RunCluster is an upgraded version of CreateCluster. RunCluster uses HTTPS POST requests and supports more parameters. Complex parameters, such as parameters of the object and array types, are in the JSON format and are more friendly for users who use CLI.
      *  *
      * @param RunClusterRequest $request RunClusterRequest
      *
@@ -4388,6 +4390,61 @@ class Emr extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateApplicationConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateClusterAttributeRequest $request UpdateClusterAttributeRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateClusterAttributeResponse UpdateClusterAttributeResponse
+     */
+    public function updateClusterAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->deletionProtection)) {
+            $query['DeletionProtection'] = $request->deletionProtection;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateClusterAttribute',
+            'version'     => '2021-03-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateClusterAttributeRequest $request UpdateClusterAttributeRequest
+     *
+     * @return UpdateClusterAttributeResponse UpdateClusterAttributeResponse
+     */
+    public function updateClusterAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateClusterAttributeWithOptions($request, $runtime);
     }
 
     /**

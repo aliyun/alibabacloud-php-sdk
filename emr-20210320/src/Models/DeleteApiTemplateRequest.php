@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteApiTemplateRequest extends Model
 {
     /**
-     * @description 接口名。
+     * @description Interface name.
      *
      * This parameter is required.
      * @example CreateCluster
@@ -19,7 +19,7 @@ class DeleteApiTemplateRequest extends Model
     public $apiName;
 
     /**
-     * @description 区域ID。
+     * @description Region ID
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -29,7 +29,7 @@ class DeleteApiTemplateRequest extends Model
     public $regionId;
 
     /**
-     * @description 资源组ID。
+     * @description Resource group ID.
      *
      * @example rg-acfmzabjyop****
      *
@@ -38,7 +38,7 @@ class DeleteApiTemplateRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description 集群模板id。
+     * @description Cluster template ID.
      *
      * This parameter is required.
      * @example at-****

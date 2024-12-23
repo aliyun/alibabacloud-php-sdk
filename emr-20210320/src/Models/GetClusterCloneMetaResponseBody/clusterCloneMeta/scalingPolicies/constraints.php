@@ -18,6 +18,8 @@ class constraints extends Model
     public $maxCapacity;
 
     /**
+     * @description The maximum number of nodes that you can configure based on your business requirements.
+     *
      * @var int
      */
     public $maxOnDemandCapacity;

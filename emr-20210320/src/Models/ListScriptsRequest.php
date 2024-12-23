@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListScriptsRequest extends Model
 {
     /**
-     * @description 集群ID。
+     * @description Cluster ID.
      *
      * This parameter is required.
      * @example c-b933c5aac8fe****
@@ -19,7 +19,7 @@ class ListScriptsRequest extends Model
     public $clusterId;
 
     /**
-     * @description 一次获取的最大记录数。取值范围：1~100。
+     * @description The maximum number of records to retrieve at once.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class ListScriptsRequest extends Model
     public $maxResults;
 
     /**
-     * @description 标记当前开始读取的位置，置空表示从头开始。
+     * @description Marks the current position to start reading from.
      *
      * @example dd6b1b2a-5837-5237-abe4-ff0c89568980
      *
@@ -37,7 +37,7 @@ class ListScriptsRequest extends Model
     public $nextToken;
 
     /**
-     * @description 区域ID。
+     * @description Region ID.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -47,7 +47,7 @@ class ListScriptsRequest extends Model
     public $regionId;
 
     /**
-     * @description 集群脚本类型。
+     * @description Type of cluster script. Possible values:
      *
      * This parameter is required.
      * @example BOOTSTRAP

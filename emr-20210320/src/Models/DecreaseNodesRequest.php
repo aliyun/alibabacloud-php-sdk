@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DecreaseNodesRequest extends Model
 {
     /**
+     * @description The cooldown interval between two batches.
+     *
      * @var int
      */
     public $batchInterval;
 
     /**
+     * @description The number of nodes to be removed in a single batch.
+     *
      * @var int
      */
     public $batchSize;

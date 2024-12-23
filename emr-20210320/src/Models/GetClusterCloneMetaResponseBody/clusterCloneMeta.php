@@ -126,7 +126,7 @@ class clusterCloneMeta extends Model
     public $existCloneConfig;
 
     /**
-     * @description The attributes of all ECS instances.
+     * @description The node attributes.
      *
      * @var NodeAttributes
      */
@@ -205,7 +205,7 @@ class clusterCloneMeta extends Model
     public $subscriptionConfig;
 
     /**
-     * @description The list of tags.
+     * @description The tags.
      *
      * @var Tag[]
      */
