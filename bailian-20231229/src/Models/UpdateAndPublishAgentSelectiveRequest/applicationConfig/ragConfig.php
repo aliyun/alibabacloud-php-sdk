@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest\applicationConfig;
+namespace AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveRequest\applicationConfig;
 
 use AlibabaCloud\Tea\Model;
 
@@ -24,7 +24,7 @@ class ragConfig extends Model
     public $enableSearch;
 
     /**
-     * @var bool
+     * @var string
      */
     public $enableWebSearch;
 

@@ -71,6 +71,9 @@ use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\SubmitIndexJobResponse;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveRequest;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveResponse;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentShrinkRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagRequest;
 use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateFileTagResponse;
@@ -175,11 +178,11 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Imports an unstructured document stored in the temporary storage space to Data Management.
+     * @summary Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
      *  *
-     * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://help.aliyun.com/zh/model-studio/developer-reference/upload-files-by-calling-api).
+     * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
      * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
-     * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+     * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
      * *   After you call this operation, the system parses and imports your document. The process takes some time.
      * *   This interface is not idempotent.
      *  *
@@ -231,11 +234,11 @@ class Bailian extends OpenApiClient
     }
 
     /**
-     * @summary Imports an unstructured document stored in the temporary storage space to Data Management.
+     * @summary Imports an unstructured document stored in the temporary storage space to Data Management. You cannot use the API to import structured documents. Use the console instead.
      *  *
-     * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://help.aliyun.com/zh/model-studio/developer-reference/upload-files-by-calling-api).
+     * @description *   Before you call this operation, make sure that you have obtained the lease and uploaded the document to the temporary storage space by using the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. For more information, see [Upload files by calling API](https://www.alibabacloud.com/help/en/model-studio/developer-reference/upload-files-by-calling-api).
      * >  After you call this operation, the used lease ID expires immediately. Do not use the same lease ID to submit new requests.
-     * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://help.aliyun.com/zh/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
+     * *   You must call this operation within 12 hours after you call the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation. Otherwise, the lease expires and the request fails.
      * *   After you call this operation, the system parses and imports your document. The process takes some time.
      * *   This interface is not idempotent.
      *  *
@@ -340,6 +343,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($tmpReq->applicationConfig)) {
             $request->applicationConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->sampleLibrary)) {
+            $request->sampleLibraryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->applicationConfigShrink)) {
             $body['applicationConfig'] = $request->applicationConfigShrink;
@@ -352,6 +358,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sampleLibraryShrink)) {
+            $body['sampleLibrary'] = $request->sampleLibraryShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2223,6 +2232,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($tmpReq->applicationConfig)) {
             $request->applicationConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
         }
+        if (!Utils::isUnset($tmpReq->sampleLibrary)) {
+            $request->sampleLibraryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->applicationConfigShrink)) {
             $body['applicationConfig'] = $request->applicationConfigShrink;
@@ -2235,6 +2247,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sampleLibraryShrink)) {
+            $body['sampleLibrary'] = $request->sampleLibraryShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2270,6 +2285,80 @@ class Bailian extends OpenApiClient
         $headers = [];
 
         return $this->updateAndPublishAgentWithOptions($workspaceId, $appCode, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 选择更新并发布智能体应用
+     *  *
+     * @param string                                $workspaceId
+     * @param string                                $appCode
+     * @param UpdateAndPublishAgentSelectiveRequest $tmpReq      UpdateAndPublishAgentSelectiveRequest
+     * @param string[]                              $headers     map
+     * @param RuntimeOptions                        $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAndPublishAgentSelectiveResponse UpdateAndPublishAgentSelectiveResponse
+     */
+    public function updateAndPublishAgentSelectiveWithOptions($workspaceId, $appCode, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateAndPublishAgentSelectiveShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->applicationConfig)) {
+            $request->applicationConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationConfig, 'applicationConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sampleLibrary)) {
+            $request->sampleLibraryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sampleLibrary, 'sampleLibrary', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->applicationConfigShrink)) {
+            $body['applicationConfig'] = $request->applicationConfigShrink;
+        }
+        if (!Utils::isUnset($request->instructions)) {
+            $body['instructions'] = $request->instructions;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sampleLibraryShrink)) {
+            $body['sampleLibrary'] = $request->sampleLibraryShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAndPublishAgentSelective',
+            'version'     => '2023-12-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/application/agents/' . OpenApiUtilClient::getEncodeParam($appCode) . '/updateAndPublishAgentSelective',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAndPublishAgentSelectiveResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 选择更新并发布智能体应用
+     *  *
+     * @param string                                $workspaceId
+     * @param string                                $appCode
+     * @param UpdateAndPublishAgentSelectiveRequest $request     UpdateAndPublishAgentSelectiveRequest
+     *
+     * @return UpdateAndPublishAgentSelectiveResponse UpdateAndPublishAgentSelectiveResponse
+     */
+    public function updateAndPublishAgentSelective($workspaceId, $appCode, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAndPublishAgentSelectiveWithOptions($workspaceId, $appCode, $request, $headers, $runtime);
     }
 
     /**

@@ -4,16 +4,14 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest\applicationConfig;
-use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest\sampleLibrary;
 use AlibabaCloud\Tea\Model;
 
-class CreateAndPulishAgentRequest extends Model
+class UpdateAndPublishAgentSelectiveShrinkRequest extends Model
 {
     /**
-     * @var applicationConfig
+     * @var string
      */
-    public $applicationConfig;
+    public $applicationConfigShrink;
 
     /**
      * @var string
@@ -31,15 +29,15 @@ class CreateAndPulishAgentRequest extends Model
     public $name;
 
     /**
-     * @var sampleLibrary
+     * @var string
      */
-    public $sampleLibrary;
+    public $sampleLibraryShrink;
     protected $_name = [
-        'applicationConfig' => 'applicationConfig',
-        'instructions'      => 'instructions',
-        'modelId'           => 'modelId',
-        'name'              => 'name',
-        'sampleLibrary'     => 'sampleLibrary',
+        'applicationConfigShrink' => 'applicationConfig',
+        'instructions'            => 'instructions',
+        'modelId'                 => 'modelId',
+        'name'                    => 'name',
+        'sampleLibraryShrink'     => 'sampleLibrary',
     ];
 
     public function validate()
@@ -49,8 +47,8 @@ class CreateAndPulishAgentRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->applicationConfig) {
-            $res['applicationConfig'] = null !== $this->applicationConfig ? $this->applicationConfig->toMap() : null;
+        if (null !== $this->applicationConfigShrink) {
+            $res['applicationConfig'] = $this->applicationConfigShrink;
         }
         if (null !== $this->instructions) {
             $res['instructions'] = $this->instructions;
@@ -61,8 +59,8 @@ class CreateAndPulishAgentRequest extends Model
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
-        if (null !== $this->sampleLibrary) {
-            $res['sampleLibrary'] = null !== $this->sampleLibrary ? $this->sampleLibrary->toMap() : null;
+        if (null !== $this->sampleLibraryShrink) {
+            $res['sampleLibrary'] = $this->sampleLibraryShrink;
         }
 
         return $res;
@@ -71,13 +69,13 @@ class CreateAndPulishAgentRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateAndPulishAgentRequest
+     * @return UpdateAndPublishAgentSelectiveShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['applicationConfig'])) {
-            $model->applicationConfig = applicationConfig::fromMap($map['applicationConfig']);
+            $model->applicationConfigShrink = $map['applicationConfig'];
         }
         if (isset($map['instructions'])) {
             $model->instructions = $map['instructions'];
@@ -89,7 +87,7 @@ class CreateAndPulishAgentRequest extends Model
             $model->name = $map['name'];
         }
         if (isset($map['sampleLibrary'])) {
-            $model->sampleLibrary = sampleLibrary::fromMap($map['sampleLibrary']);
+            $model->sampleLibraryShrink = $map['sampleLibrary'];
         }
 
         return $model;

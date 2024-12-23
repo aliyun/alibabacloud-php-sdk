@@ -27,11 +27,17 @@ class CreateAndPulishAgentShrinkRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $sampleLibraryShrink;
     protected $_name = [
         'applicationConfigShrink' => 'applicationConfig',
         'instructions'            => 'instructions',
         'modelId'                 => 'modelId',
         'name'                    => 'name',
+        'sampleLibraryShrink'     => 'sampleLibrary',
     ];
 
     public function validate()
@@ -52,6 +58,9 @@ class CreateAndPulishAgentShrinkRequest extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->sampleLibraryShrink) {
+            $res['sampleLibrary'] = $this->sampleLibraryShrink;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class CreateAndPulishAgentShrinkRequest extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['sampleLibrary'])) {
+            $model->sampleLibraryShrink = $map['sampleLibrary'];
         }
 
         return $model;

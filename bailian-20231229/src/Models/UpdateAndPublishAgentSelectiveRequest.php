@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\Bailian\V20231229\Models;
 
-use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest\applicationConfig;
-use AlibabaCloud\SDK\Bailian\V20231229\Models\CreateAndPulishAgentRequest\sampleLibrary;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveRequest\applicationConfig;
+use AlibabaCloud\SDK\Bailian\V20231229\Models\UpdateAndPublishAgentSelectiveRequest\sampleLibrary;
 use AlibabaCloud\Tea\Model;
 
-class CreateAndPulishAgentRequest extends Model
+class UpdateAndPublishAgentSelectiveRequest extends Model
 {
     /**
      * @var applicationConfig
@@ -71,7 +71,7 @@ class CreateAndPulishAgentRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateAndPulishAgentRequest
+     * @return UpdateAndPublishAgentSelectiveRequest
      */
     public static function fromMap($map = [])
     {
