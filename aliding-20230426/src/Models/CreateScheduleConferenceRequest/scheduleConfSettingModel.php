@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsRequest;
+namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest;
 
-use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsRequest\scheduleConfSettingModel\moziConfOpenRecordSetting;
-use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsRequest\scheduleConfSettingModel\moziConfVirtualExtraSetting;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel\moziConfOpenRecordSetting;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel\moziConfVirtualExtraSetting;
 use AlibabaCloud\Tea\Model;
 
 class scheduleConfSettingModel extends Model
@@ -16,21 +16,21 @@ class scheduleConfSettingModel extends Model
     public $cohostUserIds;
 
     /**
-     * @example ding********
+     * @example dingc02f685fa06381c44ac5d6980864d335
      *
      * @var string
      */
     public $confAllowedCorpId;
 
     /**
-     * @example 012345
+     * @example 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
      *
      * @var string
      */
     public $hostUserId;
 
     /**
-     * @example 1
+     * @example 0
      *
      * @var int
      */
@@ -54,7 +54,7 @@ class scheduleConfSettingModel extends Model
     public $muteOnJoin;
 
     /**
-     * @example 1
+     * @example 0
      *
      * @var int
      */

@@ -18,6 +18,11 @@ class CreateScheduleConferenceShrinkRequest extends Model
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $scheduleConfSettingModelShrink;
+
+    /**
      * @description This parameter is required.
      *
      * @example 1687924800000L
@@ -40,10 +45,11 @@ class CreateScheduleConferenceShrinkRequest extends Model
      */
     public $title;
     protected $_name = [
-        'endTime'             => 'EndTime',
-        'startTime'           => 'StartTime',
-        'tenantContextShrink' => 'TenantContext',
-        'title'               => 'Title',
+        'endTime'                        => 'EndTime',
+        'scheduleConfSettingModelShrink' => 'ScheduleConfSettingModel',
+        'startTime'                      => 'StartTime',
+        'tenantContextShrink'            => 'TenantContext',
+        'title'                          => 'Title',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class CreateScheduleConferenceShrinkRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->scheduleConfSettingModelShrink) {
+            $res['ScheduleConfSettingModel'] = $this->scheduleConfSettingModelShrink;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -79,6 +88,9 @@ class CreateScheduleConferenceShrinkRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['ScheduleConfSettingModel'])) {
+            $model->scheduleConfSettingModelShrink = $map['ScheduleConfSettingModel'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

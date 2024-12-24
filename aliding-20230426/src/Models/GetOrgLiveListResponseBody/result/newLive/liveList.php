@@ -16,6 +16,11 @@ class liveList extends Model
     public $anchorNickname;
 
     /**
+     * @var string
+     */
+    public $anchorUnionId;
+
+    /**
      * @example ersqqdddf
      *
      * @var string
@@ -58,6 +63,7 @@ class liveList extends Model
     public $title;
     protected $_name = [
         'anchorNickname'           => 'AnchorNickname',
+        'anchorUnionId'            => 'AnchorUnionId',
         'anchorUserId'             => 'AnchorUserId',
         'liveEndTime'              => 'LiveEndTime',
         'liveStartTime'            => 'LiveStartTime',
@@ -75,6 +81,9 @@ class liveList extends Model
         $res = [];
         if (null !== $this->anchorNickname) {
             $res['AnchorNickname'] = $this->anchorNickname;
+        }
+        if (null !== $this->anchorUnionId) {
+            $res['AnchorUnionId'] = $this->anchorUnionId;
         }
         if (null !== $this->anchorUserId) {
             $res['AnchorUserId'] = $this->anchorUserId;
@@ -108,6 +117,9 @@ class liveList extends Model
         $model = new self();
         if (isset($map['AnchorNickname'])) {
             $model->anchorNickname = $map['AnchorNickname'];
+        }
+        if (isset($map['AnchorUnionId'])) {
+            $model->anchorUnionId = $map['AnchorUnionId'];
         }
         if (isset($map['AnchorUserId'])) {
             $model->anchorUserId = $map['AnchorUserId'];

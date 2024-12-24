@@ -492,6 +492,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgLiveListShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgOrWebOpenDocContentTaskIdHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgOrWebOpenDocContentTaskIdRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgOrWebOpenDocContentTaskIdResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgOrWebOpenDocContentTaskIdShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetOrgOrWebOpenDocContentTaskIdShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetProcessDefinitionResponse;
@@ -713,6 +718,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryCloudRecordVideoRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryCloudRecordVideoResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryCloudRecordVideoShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryCloudRecordVideoShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceInfoByRoomCodeHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceInfoByRoomCodeRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceInfoByRoomCodeResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceInfoByRoomCodeShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceInfoByRoomCodeShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceInfoHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceInfoRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryConferenceInfoResponse;
@@ -4044,12 +4054,18 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($tmpHeader->accountContext)) {
             $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
         }
+        if (!Utils::isUnset($tmpReq->scheduleConfSettingModel)) {
+            $request->scheduleConfSettingModelShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scheduleConfSettingModel, 'ScheduleConfSettingModel', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tenantContext)) {
             $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->scheduleConfSettingModelShrink)) {
+            $body['ScheduleConfSettingModel'] = $request->scheduleConfSettingModelShrink;
         }
         if (!Utils::isUnset($request->startTime)) {
             $body['StartTime'] = $request->startTime;
@@ -9265,6 +9281,82 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @summary 委托权限获取组织或者互联网公开文档内容taskId
+     *  *
+     * @param GetOrgOrWebOpenDocContentTaskIdRequest $tmpReq    GetOrgOrWebOpenDocContentTaskIdRequest
+     * @param GetOrgOrWebOpenDocContentTaskIdHeaders $tmpHeader GetOrgOrWebOpenDocContentTaskIdHeaders
+     * @param RuntimeOptions                         $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return GetOrgOrWebOpenDocContentTaskIdResponse GetOrgOrWebOpenDocContentTaskIdResponse
+     */
+    public function getOrgOrWebOpenDocContentTaskIdWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetOrgOrWebOpenDocContentTaskIdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new GetOrgOrWebOpenDocContentTaskIdShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->dentryUuid)) {
+            $body['DentryUuid'] = $request->dentryUuid;
+        }
+        if (!Utils::isUnset($request->generateCp)) {
+            $body['GenerateCp'] = $request->generateCp;
+        }
+        if (!Utils::isUnset($request->targetFormat)) {
+            $body['TargetFormat'] = $request->targetFormat;
+        }
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOrgOrWebOpenDocContentTaskId',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v2/documents/getOrgOrWebOpenDocContentTaskId',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOrgOrWebOpenDocContentTaskIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 委托权限获取组织或者互联网公开文档内容taskId
+     *  *
+     * @param GetOrgOrWebOpenDocContentTaskIdRequest $request GetOrgOrWebOpenDocContentTaskIdRequest
+     *
+     * @return GetOrgOrWebOpenDocContentTaskIdResponse GetOrgOrWebOpenDocContentTaskIdResponse
+     */
+    public function getOrgOrWebOpenDocContentTaskId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetOrgOrWebOpenDocContentTaskIdHeaders([]);
+
+        return $this->getOrgOrWebOpenDocContentTaskIdWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取流程定义
      *  *
      * @param GetProcessDefinitionRequest $request   GetProcessDefinitionRequest
@@ -12901,6 +12993,82 @@ class Aliding extends OpenApiClient
         $headers = new QueryConferenceInfoHeaders([]);
 
         return $this->queryConferenceInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 根据会议码查询视频会议信息
+     *  *
+     * @param QueryConferenceInfoByRoomCodeRequest $tmpReq    QueryConferenceInfoByRoomCodeRequest
+     * @param QueryConferenceInfoByRoomCodeHeaders $tmpHeader QueryConferenceInfoByRoomCodeHeaders
+     * @param RuntimeOptions                       $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return QueryConferenceInfoByRoomCodeResponse QueryConferenceInfoByRoomCodeResponse
+     */
+    public function queryConferenceInfoByRoomCodeWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryConferenceInfoByRoomCodeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryConferenceInfoByRoomCodeShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->roomCode)) {
+            $body['roomCode'] = $request->roomCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryConferenceInfoByRoomCode',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/ysp/queryConferenceInfoByRoomCode',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryConferenceInfoByRoomCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据会议码查询视频会议信息
+     *  *
+     * @param QueryConferenceInfoByRoomCodeRequest $request QueryConferenceInfoByRoomCodeRequest
+     *
+     * @return QueryConferenceInfoByRoomCodeResponse QueryConferenceInfoByRoomCodeResponse
+     */
+    public function queryConferenceInfoByRoomCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryConferenceInfoByRoomCodeHeaders([]);
+
+        return $this->queryConferenceInfoByRoomCodeWithOptions($request, $headers, $runtime);
     }
 
     /**

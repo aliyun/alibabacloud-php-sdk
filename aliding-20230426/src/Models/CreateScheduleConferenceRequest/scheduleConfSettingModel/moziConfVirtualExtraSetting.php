@@ -2,20 +2,22 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsRequest\scheduleConfSettingModel;
+namespace AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel;
 
-use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateScheduleConfSettingsRequest\scheduleConfSettingModel\moziConfVirtualExtraSetting\moziConfExtensionAppSettings;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateScheduleConferenceRequest\scheduleConfSettingModel\moziConfVirtualExtraSetting\moziConfExtensionAppSettings;
 use AlibabaCloud\Tea\Model;
 
 class moziConfVirtualExtraSetting extends Model
 {
     /**
+     * @example 2iPOLbpUNMLzB5LuwggiiqiPwiEiE
+     *
      * @var string
      */
     public $cloudRecordOwnerUserId;
 
     /**
-     * @example 1
+     * @example 0
      *
      * @var int
      */
@@ -27,21 +29,21 @@ class moziConfVirtualExtraSetting extends Model
     public $enableWebAnonymousJoin;
 
     /**
-     * @example 1
+     * @example 0
      *
      * @var int
      */
     public $joinBeforeHost;
 
     /**
-     * @example 1
+     * @example 0
      *
      * @var int
      */
     public $lockMediaStatusMicMute;
 
     /**
-     * @example 1
+     * @example 0
      *
      * @var int
      */
