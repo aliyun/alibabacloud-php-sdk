@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class autoStopConfiguration extends Model
 {
     /**
+     * @description Indicates whether automatic termination is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class autoStopConfiguration extends Model
     public $enable;
 
     /**
+     * @description The idle timeout period. The session is automatically terminated when the idle timeout period is exceeded.
+     *
      * @example 60
      *
      * @var int

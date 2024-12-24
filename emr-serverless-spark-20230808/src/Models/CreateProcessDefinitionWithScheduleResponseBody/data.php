@@ -2,32 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetSessionClusterResponseBody\sessionCluster;
+namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class stateChangeReason extends Model
+class data extends Model
 {
     /**
-     * @description The status change code.
+     * @example 160************
      *
-     * @example 1000000
-     *
-     * @var string
+     * @var int
      */
     public $code;
 
     /**
-     * @description The status change message.
+     * @example 12342
      *
-     * @example ok
-     *
-     * @var string
+     * @var int
      */
-    public $message;
+    public $id;
     protected $_name = [
-        'code'    => 'code',
-        'message' => 'message',
+        'code' => 'code',
+        'id'   => 'id',
     ];
 
     public function validate()
@@ -40,8 +36,8 @@ class stateChangeReason extends Model
         if (null !== $this->code) {
             $res['code'] = $this->code;
         }
-        if (null !== $this->message) {
-            $res['message'] = $this->message;
+        if (null !== $this->id) {
+            $res['id'] = $this->id;
         }
 
         return $res;
@@ -50,7 +46,7 @@ class stateChangeReason extends Model
     /**
      * @param array $map
      *
-     * @return stateChangeReason
+     * @return data
      */
     public static function fromMap($map = [])
     {
@@ -58,8 +54,8 @@ class stateChangeReason extends Model
         if (isset($map['code'])) {
             $model->code = $map['code'];
         }
-        if (isset($map['message'])) {
-            $model->message = $map['message'];
+        if (isset($map['id'])) {
+            $model->id = $map['id'];
         }
 
         return $model;

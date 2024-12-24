@@ -10,6 +10,9 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\AddMembersResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CancelJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleShrinkRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateSqlStatementResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\GetJobRunRequest;
@@ -37,12 +40,17 @@ use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\ListWorkspacesResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartJobRunResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartProcessInstanceRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartProcessInstanceResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StartSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\StopSessionClusterResponse;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementRequest;
 use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\TerminateSqlStatementResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleRequest;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleResponse;
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\UpdateProcessDefinitionWithScheduleShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -195,6 +203,117 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 创建工作流定义
+     *  *
+     * @param string                                     $bizId
+     * @param CreateProcessDefinitionWithScheduleRequest $tmpReq  CreateProcessDefinitionWithScheduleRequest
+     * @param string[]                                   $headers map
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateProcessDefinitionWithScheduleResponse CreateProcessDefinitionWithScheduleResponse
+     */
+    public function createProcessDefinitionWithScheduleWithOptions($bizId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateProcessDefinitionWithScheduleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->schedule)) {
+            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'schedule', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->taskDefinitionJson)) {
+            $request->taskDefinitionJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskDefinitionJson, 'taskDefinitionJson', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->taskRelationJson)) {
+            $request->taskRelationJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskRelationJson, 'taskRelationJson', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->alertEmailAddress)) {
+            $query['alertEmailAddress'] = $request->alertEmailAddress;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executionType)) {
+            $query['executionType'] = $request->executionType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->productNamespace)) {
+            $query['productNamespace'] = $request->productNamespace;
+        }
+        if (!Utils::isUnset($request->publish)) {
+            $query['publish'] = $request->publish;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceQueue)) {
+            $query['resourceQueue'] = $request->resourceQueue;
+        }
+        if (!Utils::isUnset($request->retryTimes)) {
+            $query['retryTimes'] = $request->retryTimes;
+        }
+        if (!Utils::isUnset($request->runAs)) {
+            $query['runAs'] = $request->runAs;
+        }
+        if (!Utils::isUnset($request->scheduleShrink)) {
+            $query['schedule'] = $request->scheduleShrink;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->taskDefinitionJsonShrink)) {
+            $query['taskDefinitionJson'] = $request->taskDefinitionJsonShrink;
+        }
+        if (!Utils::isUnset($request->taskParallelism)) {
+            $query['taskParallelism'] = $request->taskParallelism;
+        }
+        if (!Utils::isUnset($request->taskRelationJsonShrink)) {
+            $query['taskRelationJson'] = $request->taskRelationJsonShrink;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['timeout'] = $request->timeout;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProcessDefinitionWithSchedule',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dolphinscheduler/projects/' . OpenApiUtilClient::getEncodeParam($bizId) . '/process-definition',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProcessDefinitionWithScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建工作流定义
+     *  *
+     * @param string                                     $bizId
+     * @param CreateProcessDefinitionWithScheduleRequest $request CreateProcessDefinitionWithScheduleRequest
+     *
+     * @return CreateProcessDefinitionWithScheduleResponse CreateProcessDefinitionWithScheduleResponse
+     */
+    public function createProcessDefinitionWithSchedule($bizId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createProcessDefinitionWithScheduleWithOptions($bizId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Creates an SQL query task.
      *  *
      * @param string                    $workspaceId
@@ -318,7 +437,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查询SessionCluster集群
+     * @summary Queries a list of sessions.
      *  *
      * @param string                   $workspaceId
      * @param string                   $sessionClusterId
@@ -355,7 +474,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 查询SessionCluster集群
+     * @summary Queries a list of sessions.
      *  *
      * @param string                   $workspaceId
      * @param string                   $sessionClusterId
@@ -426,7 +545,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务模板
+     * @summary Queries task templates.
      *  *
      * @param string             $workspaceBizId
      * @param GetTemplateRequest $request        GetTemplateRequest
@@ -465,7 +584,7 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
-     * @summary 获取任务模板
+     * @summary Queries task templates.
      *  *
      * @param string             $workspaceBizId
      * @param GetTemplateRequest $request        GetTemplateRequest
@@ -1035,6 +1154,76 @@ class Emrserverlessspark extends OpenApiClient
     }
 
     /**
+     * @summary 启动工作流实例
+     *  *
+     * @param string                      $bizId
+     * @param StartProcessInstanceRequest $request StartProcessInstanceRequest
+     * @param string[]                    $headers map
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartProcessInstanceResponse StartProcessInstanceResponse
+     */
+    public function startProcessInstanceWithOptions($bizId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isProd)) {
+            $query['isProd'] = $request->isProd;
+        }
+        if (!Utils::isUnset($request->processDefinitionCode)) {
+            $query['processDefinitionCode'] = $request->processDefinitionCode;
+        }
+        if (!Utils::isUnset($request->productNamespace)) {
+            $query['productNamespace'] = $request->productNamespace;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->runtimeQueue)) {
+            $query['runtimeQueue'] = $request->runtimeQueue;
+        }
+        if (!Utils::isUnset($request->versionHashCode)) {
+            $query['versionHashCode'] = $request->versionHashCode;
+        }
+        if (!Utils::isUnset($request->versionNumber)) {
+            $query['versionNumber'] = $request->versionNumber;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartProcessInstance',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dolphinscheduler/projects/' . OpenApiUtilClient::getEncodeParam($bizId) . '/executors/start-process-instance',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartProcessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动工作流实例
+     *  *
+     * @param string                      $bizId
+     * @param StartProcessInstanceRequest $request StartProcessInstanceRequest
+     *
+     * @return StartProcessInstanceResponse StartProcessInstanceResponse
+     */
+    public function startProcessInstance($bizId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startProcessInstanceWithOptions($bizId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Starts a session.
      *  *
      * @param string                     $workspaceId
@@ -1206,5 +1395,121 @@ class Emrserverlessspark extends OpenApiClient
         $headers = [];
 
         return $this->terminateSqlStatementWithOptions($workspaceId, $statementId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 更新工作流定义和定时调度
+     *  *
+     * @param string                                     $bizId
+     * @param string                                     $code
+     * @param UpdateProcessDefinitionWithScheduleRequest $tmpReq  UpdateProcessDefinitionWithScheduleRequest
+     * @param string[]                                   $headers map
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateProcessDefinitionWithScheduleResponse UpdateProcessDefinitionWithScheduleResponse
+     */
+    public function updateProcessDefinitionWithScheduleWithOptions($bizId, $code, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateProcessDefinitionWithScheduleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->schedule)) {
+            $request->scheduleShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedule, 'schedule', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->taskDefinitionJson)) {
+            $request->taskDefinitionJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskDefinitionJson, 'taskDefinitionJson', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->taskRelationJson)) {
+            $request->taskRelationJsonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskRelationJson, 'taskRelationJson', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->alertEmailAddress)) {
+            $query['alertEmailAddress'] = $request->alertEmailAddress;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executionType)) {
+            $query['executionType'] = $request->executionType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->productNamespace)) {
+            $query['productNamespace'] = $request->productNamespace;
+        }
+        if (!Utils::isUnset($request->publish)) {
+            $query['publish'] = $request->publish;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['regionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->releaseState)) {
+            $query['releaseState'] = $request->releaseState;
+        }
+        if (!Utils::isUnset($request->resourceQueue)) {
+            $query['resourceQueue'] = $request->resourceQueue;
+        }
+        if (!Utils::isUnset($request->retryTimes)) {
+            $query['retryTimes'] = $request->retryTimes;
+        }
+        if (!Utils::isUnset($request->runAs)) {
+            $query['runAs'] = $request->runAs;
+        }
+        if (!Utils::isUnset($request->scheduleShrink)) {
+            $query['schedule'] = $request->scheduleShrink;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->taskDefinitionJsonShrink)) {
+            $query['taskDefinitionJson'] = $request->taskDefinitionJsonShrink;
+        }
+        if (!Utils::isUnset($request->taskParallelism)) {
+            $query['taskParallelism'] = $request->taskParallelism;
+        }
+        if (!Utils::isUnset($request->taskRelationJsonShrink)) {
+            $query['taskRelationJson'] = $request->taskRelationJsonShrink;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['timeout'] = $request->timeout;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProcessDefinitionWithSchedule',
+            'version'     => '2023-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dolphinscheduler/projects/' . OpenApiUtilClient::getEncodeParam($bizId) . '/process-definition/' . OpenApiUtilClient::getEncodeParam($code) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateProcessDefinitionWithScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新工作流定义和定时调度
+     *  *
+     * @param string                                     $bizId
+     * @param string                                     $code
+     * @param UpdateProcessDefinitionWithScheduleRequest $request UpdateProcessDefinitionWithScheduleRequest
+     *
+     * @return UpdateProcessDefinitionWithScheduleResponse UpdateProcessDefinitionWithScheduleResponse
+     */
+    public function updateProcessDefinitionWithSchedule($bizId, $code, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateProcessDefinitionWithScheduleWithOptions($bizId, $code, $request, $headers, $runtime);
     }
 }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,11 @@ class GetTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description The template type.
+     *
+     *   TASK
+     *   SESSION
+     *
      * @example TASK
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListJobRunsResponseBody extends Model
 {
     /**
-     * @description The list of Spark jobs.
+     * @description The Spark jobs.
      *
      * @var jobRuns[]
      */

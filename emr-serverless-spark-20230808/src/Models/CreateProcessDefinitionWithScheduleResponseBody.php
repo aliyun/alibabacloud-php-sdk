@@ -4,68 +4,63 @@
 
 namespace AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models;
 
+use AlibabaCloud\SDK\Emrserverlessspark\V20230808\Models\CreateProcessDefinitionWithScheduleResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetTemplateResponseBody extends Model
+class CreateProcessDefinitionWithScheduleResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @example 1400009
      *
-     * @var Template
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var data
      */
     public $data;
 
     /**
-     * @description *   If the value of success was false, an error code was returned.
-     *   If the value of success was true, a null value was returned.
-     *
-     * @example 040003
+     * @example false
      *
      * @var string
      */
-    public $errorCode;
+    public $failed;
 
     /**
-     * @description *   If the value of success was false, an error message was returned.
-     *   If the value of success was true, a null value was returned.
-     *
-     * @example InvalidUser.NotFound
-     *
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @description The HTTP status code.
-     *
      * @example 200
      *
-     * @var string
+     * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The request ID.
+     * @example No permission for resource action
      *
-     * @example 484D9DDA-300D-525E-AF7A-0CCCA5C64A7A
+     * @var string
+     */
+    public $msg;
+
+    /**
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @example true
      *
-     * @example True
-     *
-     * @var bool
+     * @var string
      */
     public $success;
     protected $_name = [
+        'code'           => 'code',
         'data'           => 'data',
-        'errorCode'      => 'errorCode',
-        'errorMessage'   => 'errorMessage',
+        'failed'         => 'failed',
         'httpStatusCode' => 'httpStatusCode',
+        'msg'            => 'msg',
         'requestId'      => 'requestId',
         'success'        => 'success',
     ];
@@ -77,17 +72,20 @@ class GetTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
         if (null !== $this->data) {
             $res['data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-        if (null !== $this->errorCode) {
-            $res['errorCode'] = $this->errorCode;
-        }
-        if (null !== $this->errorMessage) {
-            $res['errorMessage'] = $this->errorMessage;
+        if (null !== $this->failed) {
+            $res['failed'] = $this->failed;
         }
         if (null !== $this->httpStatusCode) {
             $res['httpStatusCode'] = $this->httpStatusCode;
+        }
+        if (null !== $this->msg) {
+            $res['msg'] = $this->msg;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -102,22 +100,25 @@ class GetTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetTemplateResponseBody
+     * @return CreateProcessDefinitionWithScheduleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
         if (isset($map['data'])) {
-            $model->data = Template::fromMap($map['data']);
+            $model->data = data::fromMap($map['data']);
         }
-        if (isset($map['errorCode'])) {
-            $model->errorCode = $map['errorCode'];
-        }
-        if (isset($map['errorMessage'])) {
-            $model->errorMessage = $map['errorMessage'];
+        if (isset($map['failed'])) {
+            $model->failed = $map['failed'];
         }
         if (isset($map['httpStatusCode'])) {
             $model->httpStatusCode = $map['httpStatusCode'];
+        }
+        if (isset($map['msg'])) {
+            $model->msg = $map['msg'];
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];

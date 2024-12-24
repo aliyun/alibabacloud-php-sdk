@@ -19,7 +19,7 @@ class ListSessionClustersResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     * @description A pagination token.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
      *
@@ -37,7 +37,7 @@ class ListSessionClustersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of sessions.
+     * @description The sessions.
      *
      * @var sessionClusters[]
      */

@@ -101,7 +101,7 @@ class StartJobRunRequest extends Model
     public $resourceQueueId;
 
     /**
-     * @description The tags of the job.
+     * @description The tags.
      *
      * @var Tag[]
      */

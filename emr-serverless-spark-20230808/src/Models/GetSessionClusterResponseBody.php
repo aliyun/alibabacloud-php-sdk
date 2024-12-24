@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSessionClusterResponseBody extends Model
 {
     /**
-     * @description 请求ID。
+     * @description The request ID.
      *
      * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
      *
@@ -19,6 +19,8 @@ class GetSessionClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The session.
+     *
      * @var sessionCluster
      */
     public $sessionCluster;

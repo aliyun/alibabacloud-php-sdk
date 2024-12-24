@@ -36,16 +36,26 @@ class sessionClusters extends Model
     /**
      * @description The version of the Spark engine.
      *
+     * @example esr-4.0.0 (Spark 3.5.2, Scala 2.12)
+     *
      * @var string
      */
     public $displayReleaseVersion;
 
     /**
+     * @description The public endpoint of the Thrift server.
+     *
+     * @example emr-spark-gateway-cn-hangzhou.data.aliyun.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The internal endpoint of the Thrift server.
+     *
+     * @example emr-spark-gateway-cn-hangzhou-internal.data.aliyuncs.com
+     *
      * @var string
      */
     public $domainInner;
@@ -69,6 +79,10 @@ class sessionClusters extends Model
     public $fusion;
 
     /**
+     * @description The creation time.
+     *
+     * @example 1732267598000
+     *
      * @var int
      */
     public $gmtCreate;
@@ -125,12 +139,22 @@ class sessionClusters extends Model
     public $sessionClusterId;
 
     /**
+     * @description The start time.
+     *
+     * @example 1732267598000
+     *
      * @var int
      */
     public $startTime;
 
     /**
      * @description The status of the session.
+     *
+     *   Starting
+     *   Running
+     *   Stopping
+     *   Stopped
+     *   Error
      *
      * @example Running
      *

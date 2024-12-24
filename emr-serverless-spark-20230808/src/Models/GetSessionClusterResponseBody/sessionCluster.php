@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class sessionCluster extends Model
 {
     /**
+     * @description The Spark configurations.
+     *
      * @var applicationConfigs[]
      */
     public $applicationConfigs;
 
     /**
+     * @description The automatic startup configurations.
+     *
      * @var autoStartConfiguration
      */
     public $autoStartConfiguration;
 
     /**
+     * @description The automatic termination configurations.
+     *
      * @var autoStopConfiguration
      */
     public $autoStopConfiguration;
 
     /**
+     * @description The version of the Spark engine.
+     *
      * @example esr-2.2(Java Runtime)
      *
      * @var string
@@ -35,6 +43,8 @@ class sessionCluster extends Model
     public $displayReleaseVersion;
 
     /**
+     * @description The domain name to which the Spark UI of the session belongs.
+     *
      * @example your.domain.com
      *
      * @var string
@@ -42,11 +52,17 @@ class sessionCluster extends Model
     public $domain;
 
     /**
+     * @description The internal endpoint.
+     *
+     * @example emr-spark-gateway-cn-hangzhou-internal.data.aliyuncs.com
+     *
      * @var string
      */
     public $domainInner;
 
     /**
+     * @description The ID of the job that is associated with the session.
+     *
      * @example TSK-xxxxxxxx
      *
      * @var string
@@ -54,6 +70,8 @@ class sessionCluster extends Model
     public $draftId;
 
     /**
+     * @description The environment ID.
+     *
      * @example env-cpv569tlhtgndjl86t40
      *
      * @var string
@@ -61,6 +79,8 @@ class sessionCluster extends Model
     public $envId;
 
     /**
+     * @description Indicates whether the Fusion engine is used for acceleration.
+     *
      * @example false
      *
      * @var bool
@@ -68,11 +88,21 @@ class sessionCluster extends Model
     public $fusion;
 
     /**
+     * @description The creation time.
+     *
+     * @example 2024-09-01 06:23:01
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description The type of the job. This parameter is required and cannot be modified after the deployment is created. Valid values:
+     *
+     *   SQLSCRIPT
+     *   JAR
+     *   PYTHON
+     *
      * @example SQL
      *
      * @var string
@@ -80,6 +110,8 @@ class sessionCluster extends Model
     public $kind;
 
     /**
+     * @description The name of the session.
+     *
      * @example test
      *
      * @var string
@@ -87,7 +119,7 @@ class sessionCluster extends Model
     public $name;
 
     /**
-     * @description 作业实例名称。
+     * @description The queue name.
      *
      * @example jobName
      *
@@ -96,14 +128,16 @@ class sessionCluster extends Model
     public $queueName;
 
     /**
-     * @example esr-2.2（Java Runtime）
+     * @description The version of E-MapReduce (EMR) Serverless Spark.
+     *
+     * @example esr-2.2(Java Runtime)
      *
      * @var string
      */
     public $releaseVersion;
 
     /**
-     * @description 交互式作业会话id。
+     * @description The session ID.
      *
      * @example 1234abcd-12ab-34cd-56ef-1234567890ab
      *
@@ -112,12 +146,16 @@ class sessionCluster extends Model
     public $sessionClusterId;
 
     /**
+     * @description The start time.
+     *
+     * @example 2024-09-01 06:23:01
+     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @description 作业状态。
+     * @description The job status.
      *
      * @example Running
      *
@@ -126,12 +164,14 @@ class sessionCluster extends Model
     public $state;
 
     /**
+     * @description The reason of the job status change.
+     *
      * @var stateChangeReason
      */
     public $stateChangeReason;
 
     /**
-     * @description 任务实例ID。
+     * @description The user ID.
      *
      * @example jr-231231
      *
@@ -140,6 +180,8 @@ class sessionCluster extends Model
     public $userId;
 
     /**
+     * @description The name of the account that is used to create the session.
+     *
      * @example user1
      *
      * @var string
@@ -147,6 +189,8 @@ class sessionCluster extends Model
     public $userName;
 
     /**
+     * @description The Spark UI of the session.
+     *
      * @example https://spark-ui/link
      *
      * @var string
@@ -154,7 +198,7 @@ class sessionCluster extends Model
     public $webUI;
 
     /**
-     * @description 工作空间id。
+     * @description The workspace ID.
      *
      * @example w-1234abcd
      *

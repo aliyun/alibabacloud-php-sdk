@@ -40,11 +40,15 @@ class jobRuns extends Model
     public $creator;
 
     /**
+     * @example 2.059
+     *
      * @var int
      */
     public $cuHours;
 
     /**
+     * @example esr-3.0.0 (Spark 3.4.3, Scala 2.12)
+     *
      * @var string
      */
     public $displayReleaseVersion;
@@ -68,6 +72,8 @@ class jobRuns extends Model
     public $executionTimeoutSeconds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $fusion;
@@ -96,6 +102,8 @@ class jobRuns extends Model
     public $log;
 
     /**
+     * @example 33030784
+     *
      * @var int
      */
     public $mbSeconds;
@@ -144,13 +152,15 @@ class jobRuns extends Model
     public $submitTime;
 
     /**
-     * @description The tags of the job.
+     * @description The tags.
      *
      * @var Tag[]
      */
     public $tags;
 
     /**
+     * @example 8236
+     *
      * @var int
      */
     public $vcoreSeconds;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class applicationConfigs extends Model
 {
     /**
+     * @description The name of the configuration file.
+     *
      * @example spark-defaults.conf
      *
      * @var string
@@ -16,6 +18,8 @@ class applicationConfigs extends Model
     public $configFileName;
 
     /**
+     * @description The key of the configuration.
+     *
      * @example spark.app.name
      *
      * @var string
@@ -23,6 +27,8 @@ class applicationConfigs extends Model
     public $configItemKey;
 
     /**
+     * @description The configuration value.
+     *
      * @example test
      *
      * @var string

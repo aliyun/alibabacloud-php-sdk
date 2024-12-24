@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSqlStatementResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The response parameters.
      *
      * @var data
      */

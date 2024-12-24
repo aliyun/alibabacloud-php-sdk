@@ -151,7 +151,7 @@ class jobRun extends Model
     public $submitTime;
 
     /**
-     * @description The tags of the job.
+     * @description The tags.
      *
      * @var Tag[]
      */
