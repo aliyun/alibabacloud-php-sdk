@@ -82,6 +82,11 @@ class data extends Model
     public $measureConfig;
 
     /**
+     * @var string
+     */
+    public $nodeType;
+
+    /**
      * @example true
      *
      * @var bool
@@ -190,6 +195,7 @@ class data extends Model
         'instanceId'      => 'InstanceId',
         'instanceStatus'  => 'InstanceStatus',
         'measureConfig'   => 'MeasureConfig',
+        'nodeType'        => 'NodeType',
         'openPublicNet'   => 'OpenPublicNet',
         'packageType'     => 'PackageType',
         'payType'         => 'PayType',
@@ -245,6 +251,9 @@ class data extends Model
         }
         if (null !== $this->measureConfig) {
             $res['MeasureConfig'] = null !== $this->measureConfig ? $this->measureConfig->toMap() : null;
+        }
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
         if (null !== $this->openPublicNet) {
             $res['OpenPublicNet'] = $this->openPublicNet;
@@ -332,6 +341,9 @@ class data extends Model
         }
         if (isset($map['MeasureConfig'])) {
             $model->measureConfig = measureConfig::fromMap($map['MeasureConfig']);
+        }
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
         if (isset($map['OpenPublicNet'])) {
             $model->openPublicNet = $map['OpenPublicNet'];

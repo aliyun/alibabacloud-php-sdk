@@ -23,6 +23,11 @@ class milvusResourceInfoList extends Model
     public $cuNum;
 
     /**
+     * @var int
+     */
+    public $cuRatio;
+
+    /**
      * @example 100
      *
      * @var int
@@ -45,6 +50,7 @@ class milvusResourceInfoList extends Model
     protected $_name = [
         'componentType' => 'ComponentType',
         'cuNum'         => 'CuNum',
+        'cuRatio'       => 'CuRatio',
         'diskSize'      => 'DiskSize',
         'diskType'      => 'DiskType',
         'replica'       => 'Replica',
@@ -62,6 +68,9 @@ class milvusResourceInfoList extends Model
         }
         if (null !== $this->cuNum) {
             $res['CuNum'] = $this->cuNum;
+        }
+        if (null !== $this->cuRatio) {
+            $res['CuRatio'] = $this->cuRatio;
         }
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
@@ -89,6 +98,9 @@ class milvusResourceInfoList extends Model
         }
         if (isset($map['CuNum'])) {
             $model->cuNum = $map['CuNum'];
+        }
+        if (isset($map['CuRatio'])) {
+            $model->cuRatio = $map['CuRatio'];
         }
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
