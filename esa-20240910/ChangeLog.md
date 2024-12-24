@@ -2,6 +2,10 @@
 - Update API GetOriginProtection: update param SiteId.
 
 
+2024-12-24 Version: 2.7.6
+- Update API GetOriginProtection: update param SiteId.
+
+
 2024-12-20 Version: 2.7.5
 - Generated php 2024-09-10 for ESA.
 
