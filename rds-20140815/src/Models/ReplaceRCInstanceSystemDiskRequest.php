@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ReplaceRCInstanceSystemDiskRequest extends Model
 {
     /**
+     * @example m-2zec4lvlhcdkyd13****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example rc-m5ei7b1w38w2l91x****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example None
+     *
      * @var bool
      */
     public $isLocalDisk;
 
     /**
+     * @example testKeyPairName
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @example testPassword
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

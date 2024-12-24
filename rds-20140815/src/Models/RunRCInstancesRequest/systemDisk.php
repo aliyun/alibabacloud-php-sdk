@@ -18,6 +18,11 @@ class systemDisk extends Model
     public $category;
 
     /**
+     * @var string
+     */
+    public $performanceLevel;
+
+    /**
      * @description The size of the system disk. Unit: GiB. Only performance level 1 (PL1) ESSDs are supported. Valid values: 20 to 2048.
      *
      * @example 20
@@ -26,8 +31,9 @@ class systemDisk extends Model
      */
     public $size;
     protected $_name = [
-        'category' => 'Category',
-        'size'     => 'Size',
+        'category'         => 'Category',
+        'performanceLevel' => 'PerformanceLevel',
+        'size'             => 'Size',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class systemDisk extends Model
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
+        }
+        if (null !== $this->performanceLevel) {
+            $res['PerformanceLevel'] = $this->performanceLevel;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -57,6 +66,9 @@ class systemDisk extends Model
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
+        }
+        if (isset($map['PerformanceLevel'])) {
+            $model->performanceLevel = $map['PerformanceLevel'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

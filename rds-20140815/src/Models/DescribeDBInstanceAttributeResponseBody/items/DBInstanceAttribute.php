@@ -127,6 +127,16 @@ class DBInstanceAttribute extends Model
     public $collation;
 
     /**
+     * @var string
+     */
+    public $compressionMode;
+
+    /**
+     * @var string
+     */
+    public $compressionRatio;
+
+    /**
      * @description The connection mode of the instance. Valid values:
      *
      *   **Standard**: standard mode
@@ -703,6 +713,11 @@ class DBInstanceAttribute extends Model
     public $superPermissionMode;
 
     /**
+     * @var bool
+     */
+    public $supportCompression;
+
+    /**
      * @description The ID of the temporary instance that is attached to the primary instance.
      *
      * @example rm-uf64zsu*****
@@ -819,6 +834,8 @@ class DBInstanceAttribute extends Model
         'category'                       => 'Category',
         'coldDataEnabled'                => 'ColdDataEnabled',
         'collation'                      => 'Collation',
+        'compressionMode'                => 'CompressionMode',
+        'compressionRatio'               => 'CompressionRatio',
         'connectionMode'                 => 'ConnectionMode',
         'connectionString'               => 'ConnectionString',
         'consoleVersion'                 => 'ConsoleVersion',
@@ -877,6 +894,7 @@ class DBInstanceAttribute extends Model
         'serverlessConfig'               => 'ServerlessConfig',
         'slaveZones'                     => 'SlaveZones',
         'superPermissionMode'            => 'SuperPermissionMode',
+        'supportCompression'             => 'SupportCompression',
         'tempDBInstanceId'               => 'TempDBInstanceId',
         'tempUpgradeTimeEnd'             => 'TempUpgradeTimeEnd',
         'tempUpgradeTimeStart'           => 'TempUpgradeTimeStart',
@@ -929,6 +947,12 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->collation) {
             $res['Collation'] = $this->collation;
+        }
+        if (null !== $this->compressionMode) {
+            $res['CompressionMode'] = $this->compressionMode;
+        }
+        if (null !== $this->compressionRatio) {
+            $res['CompressionRatio'] = $this->compressionRatio;
         }
         if (null !== $this->connectionMode) {
             $res['ConnectionMode'] = $this->connectionMode;
@@ -1104,6 +1128,9 @@ class DBInstanceAttribute extends Model
         if (null !== $this->superPermissionMode) {
             $res['SuperPermissionMode'] = $this->superPermissionMode;
         }
+        if (null !== $this->supportCompression) {
+            $res['SupportCompression'] = $this->supportCompression;
+        }
         if (null !== $this->tempDBInstanceId) {
             $res['TempDBInstanceId'] = $this->tempDBInstanceId;
         }
@@ -1181,6 +1208,12 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['Collation'])) {
             $model->collation = $map['Collation'];
+        }
+        if (isset($map['CompressionMode'])) {
+            $model->compressionMode = $map['CompressionMode'];
+        }
+        if (isset($map['CompressionRatio'])) {
+            $model->compressionRatio = $map['CompressionRatio'];
         }
         if (isset($map['ConnectionMode'])) {
             $model->connectionMode = $map['ConnectionMode'];
@@ -1355,6 +1388,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['SuperPermissionMode'])) {
             $model->superPermissionMode = $map['SuperPermissionMode'];
+        }
+        if (isset($map['SupportCompression'])) {
+            $model->supportCompression = $map['SupportCompression'];
         }
         if (isset($map['TempDBInstanceId'])) {
             $model->tempDBInstanceId = $map['TempDBInstanceId'];

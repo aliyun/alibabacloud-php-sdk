@@ -21354,6 +21354,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->coldDataEnabled)) {
             $query['ColdDataEnabled'] = $request->coldDataEnabled;
         }
+        if (!Utils::isUnset($request->compressionMode)) {
+            $query['CompressionMode'] = $request->compressionMode;
+        }
         if (!Utils::isUnset($request->DBInstanceClass)) {
             $query['DBInstanceClass'] = $request->DBInstanceClass;
         }

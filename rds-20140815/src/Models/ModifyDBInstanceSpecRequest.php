@@ -78,6 +78,11 @@ class ModifyDBInstanceSpecRequest extends Model
     public $coldDataEnabled;
 
     /**
+     * @var string
+     */
+    public $compressionMode;
+
+    /**
      * @description The new instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html). You can also call the DescribeAvailableClasses operation to query the instance types that are supported by an instance.
      *
      * > *   You must specify at least one of DBInstanceClass and **DBInstanceStorage**.
@@ -354,6 +359,7 @@ class ModifyDBInstanceSpecRequest extends Model
         'burstingEnabled'          => 'BurstingEnabled',
         'category'                 => 'Category',
         'coldDataEnabled'          => 'ColdDataEnabled',
+        'compressionMode'          => 'CompressionMode',
         'DBInstanceClass'          => 'DBInstanceClass',
         'DBInstanceId'             => 'DBInstanceId',
         'DBInstanceStorage'        => 'DBInstanceStorage',
@@ -403,6 +409,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->coldDataEnabled) {
             $res['ColdDataEnabled'] = $this->coldDataEnabled;
+        }
+        if (null !== $this->compressionMode) {
+            $res['CompressionMode'] = $this->compressionMode;
         }
         if (null !== $this->DBInstanceClass) {
             $res['DBInstanceClass'] = $this->DBInstanceClass;
@@ -508,6 +517,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['ColdDataEnabled'])) {
             $model->coldDataEnabled = $map['ColdDataEnabled'];
+        }
+        if (isset($map['CompressionMode'])) {
+            $model->compressionMode = $map['CompressionMode'];
         }
         if (isset($map['DBInstanceClass'])) {
             $model->DBInstanceClass = $map['DBInstanceClass'];
