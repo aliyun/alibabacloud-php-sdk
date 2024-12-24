@@ -191,6 +191,9 @@ class SysOM extends OpenApiClient
         if (!Utils::isUnset($request->pod)) {
             $query['pod'] = $request->pod;
         }
+        if (!Utils::isUnset($request->showPod)) {
+            $query['showPod'] = $request->showPod;
+        }
         if (!Utils::isUnset($request->start)) {
             $query['start'] = $request->start;
         }

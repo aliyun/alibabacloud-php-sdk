@@ -46,6 +46,11 @@ class GetAbnormalEventsCountRequest extends Model
     public $pod;
 
     /**
+     * @var int
+     */
+    public $showPod;
+
+    /**
      * @example 1725797727754
      *
      * @var float
@@ -57,6 +62,7 @@ class GetAbnormalEventsCountRequest extends Model
         'instance'  => 'instance',
         'namespace' => 'namespace',
         'pod'       => 'pod',
+        'showPod'   => 'showPod',
         'start'     => 'start',
     ];
 
@@ -81,6 +87,9 @@ class GetAbnormalEventsCountRequest extends Model
         }
         if (null !== $this->pod) {
             $res['pod'] = $this->pod;
+        }
+        if (null !== $this->showPod) {
+            $res['showPod'] = $this->showPod;
         }
         if (null !== $this->start) {
             $res['start'] = $this->start;
@@ -111,6 +120,9 @@ class GetAbnormalEventsCountRequest extends Model
         }
         if (isset($map['pod'])) {
             $model->pod = $map['pod'];
+        }
+        if (isset($map['showPod'])) {
+            $model->showPod = $map['showPod'];
         }
         if (isset($map['start'])) {
             $model->start = $map['start'];
