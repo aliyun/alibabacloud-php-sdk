@@ -186,8 +186,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusReq
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerStagingDeployStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerTerminalResponse;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\GetErServiceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvAccountResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvNamespaceResponse;
@@ -5236,50 +5234,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEdgeContainerTerminalWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Checks the status of Edge Routine.
-     *  *
-     * @param GetErServiceRequest $request GetErServiceRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetErServiceResponse GetErServiceResponse
-     */
-    public function getErServiceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetErService',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetErServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Checks the status of Edge Routine.
-     *  *
-     * @param GetErServiceRequest $request GetErServiceRequest
-     *
-     * @return GetErServiceResponse GetErServiceResponse
-     */
-    public function getErService($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getErServiceWithOptions($request, $runtime);
     }
 
     /**
