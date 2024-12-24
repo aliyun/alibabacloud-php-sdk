@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\Httpdns\V20160201\Models\GetResolveStatisticsRequest;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\GetResolveStatisticsResponse;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Httpdns\V20160201\Models\ListDomainsResponse;
+use AlibabaCloud\SDK\Httpdns\V20160201\Models\RefreshResolveCacheRequest;
+use AlibabaCloud\SDK\Httpdns\V20160201\Models\RefreshResolveCacheResponse;
+use AlibabaCloud\SDK\Httpdns\V20160201\Models\RefreshResolveCacheShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -400,5 +403,57 @@ class Httpdns extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 刷新域名缓存
+     *  *
+     * @param RefreshResolveCacheRequest $tmpReq  RefreshResolveCacheRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RefreshResolveCacheResponse RefreshResolveCacheResponse
+     */
+    public function refreshResolveCacheWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RefreshResolveCacheShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->domains)) {
+            $request->domainsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->domains, 'Domains', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->domainsShrink)) {
+            $query['Domains'] = $request->domainsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RefreshResolveCache',
+            'version'     => '2016-02-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RefreshResolveCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 刷新域名缓存
+     *  *
+     * @param RefreshResolveCacheRequest $request RefreshResolveCacheRequest
+     *
+     * @return RefreshResolveCacheResponse RefreshResolveCacheResponse
+     */
+    public function refreshResolveCache($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->refreshResolveCacheWithOptions($request, $runtime);
     }
 }
