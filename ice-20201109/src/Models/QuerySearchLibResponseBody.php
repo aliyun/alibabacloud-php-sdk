@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchLibResponseBody\indexInfo;
 use AlibabaCloud\Tea\Model;
 
 class QuerySearchLibResponseBody extends Model
@@ -16,6 +17,11 @@ class QuerySearchLibResponseBody extends Model
      * @var string
      */
     public $code;
+
+    /**
+     * @var indexInfo[]
+     */
+    public $indexInfo;
 
     /**
      * @description The ID of the request.
@@ -63,6 +69,7 @@ class QuerySearchLibResponseBody extends Model
     public $success;
     protected $_name = [
         'code'          => 'Code',
+        'indexInfo'     => 'IndexInfo',
         'requestId'     => 'RequestId',
         'searchLibName' => 'SearchLibName',
         'status'        => 'Status',
@@ -78,6 +85,15 @@ class QuerySearchLibResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->indexInfo) {
+            $res['IndexInfo'] = [];
+            if (null !== $this->indexInfo && \is_array($this->indexInfo)) {
+                $n = 0;
+                foreach ($this->indexInfo as $item) {
+                    $res['IndexInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -105,6 +121,15 @@ class QuerySearchLibResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['IndexInfo'])) {
+            if (!empty($map['IndexInfo'])) {
+                $model->indexInfo = [];
+                $n                = 0;
+                foreach ($map['IndexInfo'] as $item) {
+                    $model->indexInfo[$n++] = null !== $item ? indexInfo::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

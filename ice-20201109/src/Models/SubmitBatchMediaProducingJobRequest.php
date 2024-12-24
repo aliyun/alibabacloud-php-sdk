@@ -43,7 +43,7 @@ class SubmitBatchMediaProducingJobRequest extends Model
     public $outputConfig;
 
     /**
-     * @description The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html?spm=a2c4g.439285.0.i1#section-urj-v3f-0s1).
+     * @description The user-defined data, including the business and callback configurations. For more information, see [UserData](https://help.aliyun.com/document_detail/357745.html).
      *
      * @var string
      */

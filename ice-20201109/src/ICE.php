@@ -3002,8 +3002,8 @@ class ICE extends OpenApiClient
      * @summary Deletes templates.
      *  *
      * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      *  *
      * @param DeleteTemplateRequest $request DeleteTemplateRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -3036,8 +3036,8 @@ class ICE extends OpenApiClient
      * @summary Deletes templates.
      *  *
      * @description A template is an encapsulation of the timeline of a media editing and production job. You can define a common timeline as a template. When you have the same requirements, you need to only specify key parameters and materials to produce videos.
-     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/270942.html).
-     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/291418.html).
+     * *   For more information about how to use a regular template, see [Create and use a regular template](https://help.aliyun.com/document_detail/445399.html).
+     * *   For more information about how to use an advanced template, see [Create and use advanced templates](https://help.aliyun.com/document_detail/445389.html).
      *  *
      * @param DeleteTemplateRequest $request DeleteTemplateRequest
      *
