@@ -52,11 +52,11 @@ class rule extends Model
     public $healthCheck;
 
     /**
-     * @description The port of the backend server that is used for health check.
+     * @description The backend port that is used for health checks.
      *
      * Valid values: **1 to 65535**.
      *
-     * >  If you set the **HealthCheck** parameter to **on**, this parameter is required. If you left this parameter empty and the **HealthCheck** parameter is set to **on**, the backend port configuration of the listener is used by default.
+     * >  If you set the **HealthCheck** parameter to **on**, this parameter is required. If this parameter is empty but **HealthCheck** is set to **on**, the listener port is used for health checks.
      * @example 45
      *
      * @var int
@@ -104,11 +104,11 @@ class rule extends Model
     public $healthCheckInterval;
 
     /**
-     * @description The timeout period for a health check response. If the backend Elastic Compute Service (ECS) instance does not send an expected response within the specified period of time, the health check fails.
+     * @description The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. Unit: seconds
      *
-     * Valid values: **1 to 300**. Unit: seconds.
+     * Valid values: **1 to 300**.
      *
-     * >  If the value of the **HealthCHeckTimeout** parameter is smaller than that of the **HealthCheckInterval** parameter, the value of the **HealthCHeckTimeout** parameter is ignored and the value of the **HealthCheckInterval** parameter is regarded as the waiting period. If you set the **HealthCheck** parameter to **on**, this parameter is required.
+     * >  When you set the **HealthCheck** parameter to **on**, this parameter takes effect.
      * @example 34
      *
      * @var int

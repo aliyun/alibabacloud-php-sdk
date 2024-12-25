@@ -32,7 +32,7 @@ class relatedListener extends Model
     /**
      * @description The CLB instance ID.
      *
-     * @example lb-bp13j********1miup
+     * @example lb-bp1qpzldlm38bnexl****
      *
      * @var string
      */

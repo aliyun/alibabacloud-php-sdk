@@ -42,7 +42,7 @@ class SetServerCertificateNameRequest extends Model
      * @description The ID of the server certificate.
      *
      * This parameter is required.
-     * @example 139a00604ad-cn-east-hangzhou-01
+     * @example 139a0******-cn-east-hangzhou-01
      *
      * @var string
      */

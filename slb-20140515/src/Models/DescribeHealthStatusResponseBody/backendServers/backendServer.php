@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class backendServer extends Model
 {
     /**
-     * @description The frontend port that is used by the CLB instance.
+     * @description The frontend port that is used by the SLB instance.
      *
      * @example 80
      *
@@ -18,7 +18,7 @@ class backendServer extends Model
     public $listenerPort;
 
     /**
-     * @description The backend port that is used by the CLB instance.
+     * @description The backend port that is used by the SLB instance.
      *
      * @example 70
      *
@@ -27,7 +27,7 @@ class backendServer extends Model
     public $port;
 
     /**
-     * @description The frontend protocol that is used by the CLB instance.
+     * @description The frontend protocol that is used by the SLB instance.
      *
      * @example https
      *
@@ -38,9 +38,9 @@ class backendServer extends Model
     /**
      * @description The health status of the backend server. Valid values:
      *
-     *   **normal**: The backend server is healthy.
-     *   **abnormal**: The backend server is unhealthy.
-     *   **unavailable**: The health check is not complete.
+     *   normal: The backend server is healthy.
+     *   abnormal: The backend server is unhealthy.
+     *   unavailable: The health check is not completed.
      *
      * @example abnormal
      *
@@ -49,7 +49,7 @@ class backendServer extends Model
     public $serverHealthStatus;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance or elastic network interface (ENI).
+     * @description The ID of the backend server.
      *
      * @example i-bp1h5u3fv54ytf***
      *
@@ -58,7 +58,7 @@ class backendServer extends Model
     public $serverId;
 
     /**
-     * @description The IP address of the ECS instance.
+     * @description The IP address of the backend server.
      *
      * @example 192.XX.XX.11
      *

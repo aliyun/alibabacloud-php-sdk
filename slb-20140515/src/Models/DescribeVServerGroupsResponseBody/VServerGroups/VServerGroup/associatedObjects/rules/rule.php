@@ -36,7 +36,7 @@ class rule extends Model
     public $ruleName;
 
     /**
-     * @description The request path.
+     * @description The request URL.
      *
      * @example /example
      *

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class VServerGroup extends Model
 {
     /**
-     * @description The items associated with the server groups.
+     * @description The associated resources.
      *
      * @var associatedObjects
      */
@@ -29,7 +29,7 @@ class VServerGroup extends Model
     /**
      * @description The number of servers.
      *
-     * >  The feature corresponding to this parameter is not available by default. If you want to use this feature, [submit a ticket](https://ticket-intl.console.aliyun.com/#/ticket/createIndex).
+     * This parameter is unavailable by default. To use this parameter, submit a ticket or contact your account manager.
      * @example 1
      *
      * @var int
@@ -44,16 +44,16 @@ class VServerGroup extends Model
     public $tags;
 
     /**
-     * @description The ID of the server group.
+     * @description The server group ID.
      *
-     * @example rsp-0bfucwuotx
+     * @example rsp-0bfuc*****
      *
      * @var string
      */
     public $VServerGroupId;
 
     /**
-     * @description The name of the server group.
+     * @description The server group name.
      *
      * @example Group3
      *

@@ -31,7 +31,7 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details about the resource to which the tags are added.
+     * @description The resources to which the tags are added.
      *
      * @var tagResources
      */

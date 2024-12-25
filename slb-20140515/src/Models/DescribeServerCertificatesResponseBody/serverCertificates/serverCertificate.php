@@ -29,7 +29,7 @@ class serverCertificate extends Model
     public $aliCloudCertificateName;
 
     /**
-     * @description The domain name of the certificate. The domain name is specified in the `CommonName` field.
+     * @description The domain name of the server certificate. The domain name is specified in the `CommonName` field.
      *
      * @example www.example.com
      *
@@ -38,7 +38,7 @@ class serverCertificate extends Model
     public $commonName;
 
     /**
-     * @description The time when the server certificate is uploaded.
+     * @description The time when the server certificate was uploaded.
      *
      * @example 2021-08-31T02:49:05Z
      *
@@ -47,7 +47,7 @@ class serverCertificate extends Model
     public $createTime;
 
     /**
-     * @description The timestamp generated when the server certificate is uploaded.
+     * @description The timestamp when the server certificate was uploaded.
      *
      * @example 1504147745000
      *
@@ -56,7 +56,7 @@ class serverCertificate extends Model
     public $createTimeStamp;
 
     /**
-     * @description The expiration time.
+     * @description The time when the server certificate expires.
      *
      * @example 2023-01-26T23:59:59Z
      *
@@ -65,7 +65,7 @@ class serverCertificate extends Model
     public $expireTime;
 
     /**
-     * @description The timestamp that indicates when the certificate expires.
+     * @description The timestamp when the server certificate expires.
      *
      * @example 15041477450
      *
@@ -95,7 +95,7 @@ class serverCertificate extends Model
     public $isAliCloudCertificate;
 
     /**
-     * @description The ID of the region where the server certificate is created.
+     * @description The region ID of the server certificate.
      *
      * @example cn-hangzhou
      *
@@ -104,7 +104,7 @@ class serverCertificate extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-atstuj3rtop****
      *
@@ -113,7 +113,7 @@ class serverCertificate extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the server certificate.
+     * @description The server certificate ID.
      *
      * @example 123157********_166f8204689_1714763408_709981430-cn-east-hangzhou-02
      *
@@ -131,7 +131,7 @@ class serverCertificate extends Model
     public $serverCertificateName;
 
     /**
-     * @description The list of alternative domain names of the server certificate. The alternative domain names are specified in the `Subject Alternative Name` field of the server certificate.
+     * @description The alternative domain names of the server certificate. The alternative domain names are specified in the Subject Alternative Name field of the server certificate.
      *
      * @var subjectAlternativeNames
      */

@@ -9,27 +9,45 @@ use AlibabaCloud\Tea\Model;
 class RemoveVServerGroupBackendServersRequest extends Model
 {
     /**
-     * @description The list of backend servers that you want to remove from the vServer group.
+     * @description The backend servers that you want to remove. Configure the following parameters:
      *
-     * The value of this parameter is a JSON list of the STRING type. You can specify at most 20 elements in a list for each request.
+     *   **ServerId**: Required. The ID of the backend server. Specify the value in a string. You can specify the ID of an Elastic Compute Service (ECS) instance, an elastic network interface (ENI), or an elastic container instance. If you set **ServerId** to the ID of an ENI or an elastic container instance, you must configure the **Type** parameter.
      *
-     *   **ServerId**: the ID of the Elastic Compute Service (ECS) instance or elastic network interface (ENI) that serves as a backend server.
+     *   **Weight**: the weight of the backend server. Valid values: **0** to **100**. Default value: **100**. If you set the weight of a backend server to 0, no requests are forwarded to the backend server.
      *
-     *   **Port**: the port that is used by the backend server. Valid values: **1 to 65535**.
+     *   **Description**: Optional. The description of the backend server. Specify the value in a string. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      *
-     *   **Weight**: the weight of the backend server. Valid values: **0 to 100**.
+     *   **Type**: the type of the backend server. Valid values:
      *
-     *   **Description**: the description of the backend server. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.),and underscores (_).
+     *   **ecs**: ECS instance
+     *   **eni**: ENI
+     *   **eci**: elastic container instance
      *
-     *   **Type**: the type of backend server. Valid values:
+     * >  You can specify ENIs and elastic container instances as backend servers only for high-performance SLB instances.
      *
-     *   **ecs**: an ECS instance. This is the default value.
-     *   **eni**: an ENI.
+     *   **ServerIp**: the IP address of an ENI or an elastic container instance.
+     *   **Port**: the backend port.
      *
-     *   **ServerIp**: the IP address of the ECS instance or ENI.
+     * Examples:
+     *
+     *   Add ECS instances:
+     *
+     * `[{ "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs", "Port":"80","Description":"test-112" }]`
+     *
+     *   Add ENIs:
+     *
+     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``192.168.**.**``", "Port":"80","Description":"test-112" }]`
+     *
+     *   Add ENIs with multiple IP addresses:
+     *
+     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``192.168.**.**``", "Port":"80","Description":"test-113" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``172.166.**.**``", "Port":"80","Description":"test-113" }]`
+     *
+     *   Add elastic container instances:
+     *
+     * `[{ "ServerId": "eci-xxxxxxxxx", "Weight": "100", "Type": "eci", "ServerIp": "``192.168.**.**``", "Port":"80","Description":"test-114" }]`
      *
      * This parameter is required.
-     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.\*\*.**", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "172.166.\*\*.**", "Port":"80","Description":"test-113" }]
+     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``192.168.**.**``", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``172.166.**.**``", "Port":"80","Description":"test-113" }]
      *
      * @var string
      */
@@ -46,7 +64,7 @@ class RemoveVServerGroupBackendServersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the Classic Load Balancer (CLB) instance is deployed.
+     * @description The region ID of the Server Load Balancer (SLB) instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

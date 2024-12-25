@@ -18,7 +18,7 @@ class backendServer extends Model
     public $port;
 
     /**
-     * @description The ID of the ECS instance or ENI.
+     * @description The ID of the backend server.
      *
      * @example vm-230
      *
@@ -27,10 +27,11 @@ class backendServer extends Model
     public $serverId;
 
     /**
-     * @description The type of backend server. Valid values:
+     * @description The type of the backend server. Valid values:
      *
-     *   **ecs**: an ECS instance
-     *   **eni**: an ENI
+     *   **ecs** (default): ECS instance
+     *   **eni**: ENI
+     *   **eci**: elastic container instance
      *
      * @example ecs
      *

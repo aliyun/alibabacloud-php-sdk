@@ -19,7 +19,7 @@ class CreateLoadBalancerRequest extends Model
     public $address;
 
     /**
-     * @description The IP version that is used by the CLB instance. Valid values: **ipv4** and **ipv6**.
+     * @description The IP version of the CLB instance. Valid values: **ipv4** and **ipv6**.
      *
      * @example ipv4
      *
@@ -30,8 +30,8 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The network type of the CLB instance. Valid values:
      *
-     *   **internet**: After an Internet-facing CLB instance is created, the system assigns a public IP address to the CLB instance. Then, the CLB instance can forward requests over the Internet.
-     *   **intranet**: After an internal-facing CLB instance is created, the system assigns a private IP address to the CLB instance. Then, the CLB instance can forward requests only over the internal networks.
+     *   **internet**: After an Internet-facing CLB instance is created, the system allocates a public IP address to the instance. The CLB instance can forward requests over the Internet.
+     *   **intranet**: After an internal-facing CLB instance is created, the system allocates a private IP address to the CLB instance. The CLB instance can forward requests only within the VPC.
      *
      * @example internet
      *
@@ -40,13 +40,15 @@ class CreateLoadBalancerRequest extends Model
     public $addressType;
 
     /**
-     * @description Specifies whether to automatically pay for the subscription Internet-facing CLB instance. Valid values:
+     * @description Specifies whether to automatically pay the subscription fee of the Internet-facing CLB instance. Valid values:
      *
-     *   **true**: automatically pays for the CLB instance. After you call this operation, the system automatically completes the payment and creates the CLB instance.
-     *   **false** (default): After you call the operation, the order is created but the payment is not completed. You can view the pending order in the console. The CLB instance will not be created until you complete the payment.
+     *   **true**: yes. The CLB instance is created after you call the API operation.
+     *   **false** (default): After you call the operation, the order is created but the payment is not completed. You can view pending orders in the console. The CLB instance will not be created until you complete the payment.
      *
-     * >  This parameter is supported only by subscription instances created on the Alibaba Cloud China site.
+     * >  This parameter takes effect only for subscription CLB instances created on the Alibaba Cloud China site.
      * @example true
+     *
+     * @deprecated
      *
      * @var bool
      */
@@ -55,7 +57,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The maximum bandwidth of the listener. Unit: Mbit/s.
      *
-     * Valid values: **1** to **5120**. For a pay-by-bandwidth Internet-facing CLB instance, you can specify the maximum bandwidth of each listener. The sum of the maximum bandwidth of all listeners cannot exceed the maximum bandwidth of the CLB instance.
+     * Valid values: **1** to **5120**. For a pay-by-bandwidth Internet-facing CLB instance, you can specify a maximum bandwidth for each listener. The sum of the maximum bandwidth of all listeners cannot exceed the maximum bandwidth of the CLB instance.
      * @example 10
      *
      * @var int
@@ -95,6 +97,8 @@ class CreateLoadBalancerRequest extends Model
      * >  This parameter is supported only by subscription instances created on the Alibaba Cloud China site.
      * @example 1
      *
+     * @deprecated
+     *
      * @var int
      */
     public $duration;
@@ -115,13 +119,13 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The metering method of the Internet-facing CLB instance. Valid values:
      *
-     *   **paybytraffic** (default)
+     *   **paybytraffic** (default): pay-by-data-transfer
      *
-     * > If you set the value to **paybytraffic**, you do not need to specify **Bandwidth**. Even if you specify **Bandwidth**, the value does not take effect.
+     * >  If you set InternetChargeType to **paybytraffic**, you do not need to configure the **Bandwidth** parameter. The value of **Bandwidth** does not take effect even if you specify one.
      *
      *   **paybybandwidth**: pay-by-bandwidth
      *
-     * >  If you set **PayType** to **PayOnDemand** and set **InstanceChargeType** to **PayByCLCU**, you must set InternetChargeType to **paybytraffic**.
+     * >  If you set **PayType** to **PayOnDemand** and **InstanceChargeType** to **PayByCLCU**, the only valid value for InternetChargeType is **paybytraffic**.
      * @example paybytraffic
      *
      * @var string
@@ -153,9 +157,8 @@ class CreateLoadBalancerRequest extends Model
      *
      *   **slb.s3.large**
      *
-     **
      *
-     **Note** If you do not specify this parameter, a shared-resource CLB instance is created. Shared-resource CLB instances are no longer available for purchase. Therefore, you must specify this parameter.
+     * >   If you do not specify this parameter, a shared-resource CLB instance is created. Shared-resource CLB instances are no longer available for purchase. Therefore, you must specify this parameter.
      *
      * If **InstanceChargeType** is set to **PayByCLCU**, this parameter is invalid and you do not need to specify this parameter.
      * @example slb.s1.small
@@ -167,7 +170,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The ID of the primary zone to which the CLB instance belongs.
      *
-     * You can call the [DescribeZone](~~DescribeZone~~) operation to query the primary and secondary zones in the region where you want to create the CLB instance.
+     * You can call the [DescribeZone](https://help.aliyun.com/document_detail/2401683.html) operation to query the primary and secondary zones in the region where you want to create the CLB instance.
      * @example cn-hangzhou-b
      *
      * @var string
@@ -208,11 +211,14 @@ class CreateLoadBalancerRequest extends Model
     public $ownerId;
 
     /**
-     * @description The billing method of the CLB instance. Set the value to
+     * @description The billing method of the CLB instance. Valid values:
      *
-     **PayOnDemand**, which specifies the pay-as-you-go billing method.
+     **PayOnDemand**: pay-as-you-go.
      *
+     * >  The Alibaba Cloud International site supports only pay-as-you-go CLB instances.
      * @example PayOnDemand
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -226,6 +232,8 @@ class CreateLoadBalancerRequest extends Model
      *
      * >  This parameter is supported only by subscription instances created on the Alibaba Cloud China site.
      * @example month
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -263,7 +271,7 @@ class CreateLoadBalancerRequest extends Model
     /**
      * @description The ID of the secondary zone to which the CLB instance belongs.
      *
-     * You can call the [DescribeZone](~~DescribeZone~~) operation to query the primary and secondary zones in the region where you want to create the CLB instance.
+     * You can call the [DescribeZone](https://help.aliyun.com/document_detail/2401683.html) operation to query the primary and secondary zones in the region where you want to create the CLB instance.
      * @example cn-hangzhou-d
      *
      * @var string

@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class listeners extends Model
 {
     /**
-     * @description The ID of the network ACL.
+     * @description The ID of the access control list (ACL).
      *
      * @example nacl-a2do9e413e0spzasx****
      *
@@ -23,6 +23,8 @@ class listeners extends Model
     public $aclId;
 
     /**
+     * @description The IDs of the ACLs.
+     *
      * @var string[]
      */
     public $aclIds;
@@ -30,8 +32,8 @@ class listeners extends Model
     /**
      * @description Indicates whether access control is enabled. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example off
      *
@@ -40,15 +42,15 @@ class listeners extends Model
     public $aclStatus;
 
     /**
-     * @description The type of the network access control list (ACL). Valid values:
+     * @description The type of access control. Valid values:
      *
-     *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the network ACL are forwarded. Whitelists apply to scenarios in which you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. After a whitelist is configured, only requests from IP addresses that are added to the whitelist are forwarded by the listener.
+     *   **white**: The listener forwards requests only from IP addresses and CIDR blocks on the whitelist. Your service may be adversely affected if the whitelist is not properly configured. If a whitelist is configured, the listener forwards requests only from IP addresses that are added to the whitelist.
      *
-     * If you enable a whitelist but do not add an IP address to the whitelist, the listener forwards all requests.
+     * If you configure a whitelist but no IP address is added to the whitelist, the listener forwards all requests.
      *
-     *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the network ACL are denied. A blacklist applies to scenarios in which you want to deny access from specific IP addresses.
+     *   **black**: The listener blocks requests from IP addresses and CIDR blocks on the blacklist.
      *
-     * If a blacklist is configured for a listener but no IP address is added to the blacklist, the listener forwards all requests.
+     * If you configure a blacklist but no IP address is added to the blacklist, the listener forwards all requests.
      * @example white
      *
      * @var string
@@ -58,7 +60,7 @@ class listeners extends Model
     /**
      * @description The port of the backend server.
      *
-     * >  This parameter takes effect when the `VServerGroupId` parameter and the `MasterSlaveServerGroupId` parameter are empty.
+     * >  This parameter takes effect only when the `VServerGroupId` and `MasterSlaveServerGroupId` parameters are both empty.
      * @example 80
      *
      * @var int
@@ -66,10 +68,7 @@ class listeners extends Model
     public $backendServerPort;
 
     /**
-     * @description The maximum bandwidth of the listener. Unit: Mbit/s. Valid values:
-     *
-     *   **-1**: If -1 is returned, it indicates that the bandwidth of the listener is unlimited.
-     *   **1 to 5120**: If a value from 1 to 5120 is returned, the value indicates the maximum bandwidth of the listener. The sum of the maximum bandwidth of all listeners added to a CLB instance does not exceed the maximum bandwidth of the CLB instance.
+     * @description The maximum bandwidth of the listener. Unit: Mbit/s.
      *
      * @example -1
      *
@@ -87,21 +86,21 @@ class listeners extends Model
     public $description;
 
     /**
-     * @description The configuration of the HTTP listener.
+     * @description The configurations of the HTTP listener.
      *
      * @var HTTPListenerConfig
      */
     public $HTTPListenerConfig;
 
     /**
-     * @description The configuration of the HTTPS listener.
+     * @description The configurations of the HTTPS listener.
      *
      * @var HTTPSListenerConfig
      */
     public $HTTPSListenerConfig;
 
     /**
-     * @description The listening port.
+     * @description The listener port.
      *
      * @example 80
      *
@@ -132,7 +131,11 @@ class listeners extends Model
      *
      *   **wrr**: Backend servers with higher weights receive more requests than those with lower weights.
      *   **rr**: Requests are distributed to backend servers in sequence.
+     *   **sch**: consistent hashing that is based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
+     *   **tch**: specifies consistent hashing based on the source IP address, destination IP address, source port, and destination port. Requests that have the same four factors are distributed to the same backend server.
+     *   **qch**: specifies consistent hashing based on Quick UDP Internet Connection (QUIC) IDs. Requests that contain the same QUIC ID are scheduled to the same backend server.
      *
+     * >  Only high-performance CLB instances support the **sch**, **tch**, and **qch** consistent hashing algorithms.
      * @example wrr
      *
      * @var string
@@ -142,8 +145,8 @@ class listeners extends Model
     /**
      * @description The status of the listener. Valid values:
      *
-     *   **running**: The listener runs as expected.
-     *   **stopped**: The listener is disabled.
+     *   **running**
+     *   **stopped**
      *
      * @example running
      *
@@ -152,28 +155,28 @@ class listeners extends Model
     public $status;
 
     /**
-     * @description The configuration of the TCP listener.
+     * @description The configurations of the TCP listener.
      *
      * @var TCPListenerConfig
      */
     public $TCPListenerConfig;
 
     /**
-     * @description The tags.
+     * @description A list of tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The configuration of the UDP listener.
+     * @description The configurations of the UDP listener.
      *
      * @var UDPListenerConfig
      */
     public $UDPListenerConfig;
 
     /**
-     * @description The ID of the vServer group that is associated with the listener.
+     * @description The ID of the vServer group associated with the listener.
      *
      * @example rsp-cige6j****
      *

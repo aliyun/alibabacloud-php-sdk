@@ -14,13 +14,15 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
      * @description The ID of the network ACL that is associated with the listener.
      *
      * If **AclStatus** is set to **on**, this parameter is returned.
-     * @example 12
+     * @example acl-uf60jwfi******
      *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The IDs of the ACLs.
+     *
      * @var aclIds
      */
     public $aclIds;
@@ -277,7 +279,10 @@ class DescribeLoadBalancerTCPListenerAttributeResponseBody extends Model
      *
      *   **wrr** (default): Backend servers with higher weights receive more requests than backend servers with lower weights.
      *   **rr**: Requests are distributed to backend servers in sequence.
+     *   **sch**: specifies consistent hashing that is based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
+     *   **tch**: specifies consistent hashing that is based on four factors: source IP address, destination IP address, source port, and destination port. Requests that contain the same information based on the four factors are distributed to the same backend server.
      *
+     * > Only high-performance CLB instances support the sch and tch algorithms.
      * @example wrr
      *
      * @var string

@@ -40,10 +40,7 @@ class loadBalancer extends Model
     public $addressType;
 
     /**
-     * @description The maximum bandwidth of the listener. Unit: Mbit/s. Valid values:
-     *
-     *   **-1:** For a pay-by-data-transfer Internet-facing CLB instance, this value is set to -1. This indicates that the bandwidth is unlimited.
-     *   **1 to 5120:** For a pay-by-bandwidth Internet-facing CLB instance, you can specify the maximum bandwidth for each listener. The sum of the maximum bandwidth of all listeners cannot exceed the maximum bandwidth of the CLB instance.
+     * @description The maximum bandwidth of the listener. Unit: Mbit/s.
      *
      * @example -1
      *
@@ -139,6 +136,7 @@ class loadBalancer extends Model
     /**
      * @description The specification of the CLB instance.
      *
+     * >  Pay-as-you-go CLB instances are not subject to specifications. **slb.lcu.elastic** is returned by default.
      * @example slb.s1.small
      *
      * @var string

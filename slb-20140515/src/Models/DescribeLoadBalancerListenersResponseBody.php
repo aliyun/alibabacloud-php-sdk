@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadBalancerListenersResponseBody extends Model
 {
     /**
-     * @description The list of listeners on the CLB instance.
+     * @description A list of listeners of the CLB instance.
      *
-     * >  This parameter is not returned if no listener is created on the CLB instance.
+     * >  This parameter is not returned if the CLB instance does not have a listener.
      * @var listeners[]
      */
     public $listeners;

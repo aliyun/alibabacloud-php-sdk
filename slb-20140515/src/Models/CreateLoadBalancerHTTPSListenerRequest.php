@@ -12,7 +12,7 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     /**
      * @description The ID of the network access control list (ACL) that is associated with the listener.
      *
-     * >  If **AclStatus** is set to **on**, this parameter is required.
+     * >  This parameter is required if **AclStatus** is set to **on**.
      * @example nacl-a2do9e413e0spzasx****
      *
      * @var string
@@ -62,10 +62,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     /**
      * @description The maximum bandwidth of the listener. Unit: Mbit/s.
      *
-     * Valid values: **-1** and **1** to **5120**.
+     * The URL must meet the following requirements:
      *
-     *   **-1**: For a pay-by-data-transfer Internet-facing CLB instance, you can set this parameter to **-1**. This way, the bandwidth of the listener is unlimited.
-     *   **1** to **5120**: For a pay-by-bandwidth Internet-facing SLB instance, you can specify the bandwidth limit of each listener. The sum of bandwidth limits that you set for all listeners cannot exceed the bandwidth limit of the SLB instance.
+     *   **-1**: For a pay-by-data-transfer Internet-facing CLB instance, this parameter is set to -1. This indicates that the bandwidth of the listener is unlimited.
      *
      * This parameter is required.
      * @example -1
@@ -85,11 +84,11 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $CACertificateId;
 
     /**
-     * @description The cookie that is configured on the server.
+     * @description The cookie that you configure for the server.
      *
-     * The cookie must be 1 to 200 characters in length and can contain only ASCII characters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
+     * The cookie must be 1 to 200 characters in length, and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), spaces, or start with a dollar sign ($).
      *
-     * >  This parameter is required if the **StickySession** parameter is set to **on** and the **StickySessionType** parameter is set to **server**.
+     * >  This parameter is required when the **StickySession** parameter is set to **on** and the **StickySessionType** parameter is set to **server**.
      * @example B490B5EBF6F3CD402E515D22BCDA****
      *
      * @var string
@@ -215,14 +214,9 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The timeout period of a health check response. If a backend server, such as an Elastic Compute Service (ECS) instance, does not return a health check response within the specified timeout period, the server fails the health check. Unit: seconds.
+     * @description The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. Unit: seconds Valid values: **1** to **300**.
      *
-     * Valid values: **1** to **300**.
-     *
-     * >
-     *   If the value of the **HealthCheckTimeout** parameter is smaller than that of the **HealthCheckInterval** parameter, the timeout period specified by the **HealthCheckTimeout** parameter is ignored and the period of time specified by the **HealthCheckInterval** parameter is used as the timeout period.
-     *   This parameter takes effect only if the **HealthCheck** parameter is set to **on**.
-     *
+     * >  This parameter takes effect only if the **HealthCheck** parameter is set to **on**.
      * @example 3
      *
      * @var int
@@ -352,7 +346,6 @@ class CreateLoadBalancerHTTPSListenerRequest extends Model
      *   **on**: yes
      *   **off**: no
      *
-     * This parameter is required.
      * @example on
      *
      * @var string

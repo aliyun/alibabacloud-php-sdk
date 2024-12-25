@@ -19,7 +19,7 @@ class DescribeTagsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description Default value: 50. Maximum value: 100.
+     * @description The number of entries returned per page. Default value: 50. Maximum value: 100.
      *
      * @example 50
      *
@@ -28,7 +28,7 @@ class DescribeTagsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
@@ -37,7 +37,7 @@ class DescribeTagsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description A list of tags.
+     * @description The tags that are queried.
      *
      * @var tagSets
      */

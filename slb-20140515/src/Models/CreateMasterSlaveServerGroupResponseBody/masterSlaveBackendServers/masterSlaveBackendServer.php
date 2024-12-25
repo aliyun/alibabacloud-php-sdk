@@ -27,7 +27,7 @@ class masterSlaveBackendServer extends Model
     public $port;
 
     /**
-     * @description The ID of the ECS instance or ENI that is added.
+     * @description The ID of the backend server that you want to add.
      *
      * @example i-bp1fq61enf4loa5i****
      *
@@ -36,7 +36,7 @@ class masterSlaveBackendServer extends Model
     public $serverId;
 
     /**
-     * @description The type of the backend server.
+     * @description The type of backend server.
      *
      * Valid values: **Master** and **Slave**.
      * @example Master
@@ -46,10 +46,11 @@ class masterSlaveBackendServer extends Model
     public $serverType;
 
     /**
-     * @description The service type of the backend server. Valid values:
+     * @description The type of backend server. Valid values:
      *
-     *   **ecs**
-     *   **eni**
+     *   **ecs**: ECS instance
+     *   **eni**: ENI
+     *   **eci**: elastic container instance
      *
      * @example ecs
      *

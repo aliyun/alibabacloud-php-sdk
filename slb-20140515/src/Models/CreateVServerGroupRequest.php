@@ -10,32 +10,37 @@ use AlibabaCloud\Tea\Model;
 class CreateVServerGroupRequest extends Model
 {
     /**
-     * @description The list of backend servers to be added.
+     * @description The backend servers that you want to add. Configure the following parameters:
      *
-     * The value of this parameter must be a STRING list in the JSON format. You can specify up to 20 elements in each request.
+     *   **ServerId**:  required. The ID of the backend server. Specify the ID in a string. You can specify the ID of an Elastic Compute Service (ECS) instance, an elastic network interface (ENI), or an elastic container instance. If you set ServerId to the ID of an ENI or an elastic container instance, you must configure the Type parameter.
      *
-     *   **ServerId**: Required. Specify the ID of an Elastic Compute Service (ECS) instance or an Elastic Network Interface (ENI). This parameter must be of the STRING type.
+     *   **Weight**: the weight of the backend server. Valid values: 0 to 100. Default value: 100. If you set the weight of a backend server to 0, no requests are forwarded to the backend server.
      *
-     *   **Port**: Required. Specify the port that is used by the backend server. This parameter must be of the INTEGER type. Valid values: **1** to **65535**.
+     *   **Description**: optional. The description of the backend server. Specify the description in a string. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      *
-     *   **Weight**: Required. Specify the weight of the backend server. This parameter must be of the INTEGER type. Valid values: **0** to **100**.
+     *   **Type**: the type of the backend server. Valid values:
      *
-     *   **Description**: Optional. Specify the description of the backend server. This parameter must be of the STRING type. The description must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.),and underscores (_).
+     *   **ecs (default)**: ECS instance
+     *   **eni**: ENI.
+     *   **eni**: elastic container instance.
      *
-     *   **Type**: Specify the type of the backend server. This parameter must be of the STRING type. Valid values:
-     *
-     *   **ecs**: an ECS instance. This is the default value.
-     *   **eni**: an ENI.
+     * > You can specify ENIs and elastic container instances as backend servers only for high-performance SLB instances.
      *
      *   **ServerIp**: The IP address of the ECS instance or ENI.
+     *   **Port**: the backend port.
      *
-     * Examples:
+     * - Add an ENI:
      *
-     *   ECS instance:`  [{ "ServerId": "i-xxxxxxxxx", "Weight": "100", "Type": "ecs", "Port": "80", "Description": "test-112" }]. `
-     *   ENI:`  [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.\*\*.**", "Port":"80","Description":"test-112" }] `
-     *   ENI with multiple IP addresses:`  [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.\*\*.**", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "172.166.\*\*.**", "Port":"80","Description":"test-113" }] `
+     * ` [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``192.168.**.**``", "Port":"80","Description":"test-112" }]`
+     * - Add an ENI with multiple IP addresses:
      *
-     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.\*\*.**", "Port":"80","Description":"test-112"  }, { "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "192.168.\*\*.**", "Port":"80","Description":"test-112"  }]
+     * `[{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``192.168.**.**``", "Port":"80","Description":"test-113" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``172.166.**.**``", "Port":"80","Description":"test-113" }]`
+     * - Add an elastic container instance:
+     *
+     * ` [{ "ServerId": "eci-xxxxxxxxx", "Weight": "100", "Type": "eci", "ServerIp": "``192.168.**.**``", "Port":"80","Description":"test-114" }]`
+     *
+     * > You can add only running backend servers to SLB instances. You can specify at most 20 backend servers.
+     * @example [{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``192.168.**.**``", "Port":"80","Description":"test-112" },{ "ServerId": "eni-xxxxxxxxx", "Weight": "100", "Type": "eni", "ServerIp": "``172.166.**.**``", "Port":"80","Description":"test-113" }]
      *
      * @var string
      */
@@ -82,7 +87,7 @@ class CreateVServerGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 标签列表。
+     * @description The tags.
      *
      * @var tag[]
      */

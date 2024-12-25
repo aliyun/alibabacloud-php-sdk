@@ -20,6 +20,8 @@ class DescribeLoadBalancerUDPListenerAttributeResponseBody extends Model
     public $aclId;
 
     /**
+     * @description The ID of the access control list (ACL).
+     *
      * @var aclIds
      */
     public $aclIds;

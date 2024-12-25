@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SetAccessControlListAttributeRequest extends Model
 {
     /**
-     * @description The ID of the network ACL.
+     * @description The ACL ID.
      *
      * This parameter is required.
-     * @example acl-bp1l0kk4gxce43kzet04s
+     * @example acl-bp1l0kk4gxce43k******
      *
      * @var string
      */
     public $aclId;
 
     /**
-     * @description The new name of the network ACL. The name must be 1 to 80 characters in length, and can contain only letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name of the network ACL must be unique within each region.
+     * @description The ACL name.
      *
      * This parameter is required.
      * @example test1
@@ -39,7 +39,7 @@ class SetAccessControlListAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the network ACL is created.
+     * @description The region ID of the ACL.
      *
      * This parameter is required.
      * @example cn-hangzhou

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class backendServer extends Model
 {
     /**
-     * @description The description of the vServer group.
+     * @description The description of the server group.
      *
      * @example Backend server group description
      *
@@ -27,7 +27,7 @@ class backendServer extends Model
     public $port;
 
     /**
-     * @description The ID of the ECS instance or ENI.
+     * @description The ID of the backend server.
      *
      * @example i-bp1ek6yd7jvkx****
      *
@@ -38,8 +38,9 @@ class backendServer extends Model
     /**
      * @description The type of backend server. Valid values:
      *
-     *   **ecs**: an ECS instance
-     *   **eni**: an ENI
+     *   **ecs** (default): ECS instance
+     *   **eni**: ENI
+     *   **eci**: elastic container instance
      *
      * @example ecs
      *

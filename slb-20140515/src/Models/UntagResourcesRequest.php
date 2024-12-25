@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags from the specified one or more resources. This parameter takes effect only if the **TagKey.N** parameter is not set.
+     * @description Specifies whether to remove all tags from the specified resource. This parameter takes effect only if **TagKey.N** is empty.
      *
      * Valid values: **true** and **false**.
      * @example true
@@ -29,7 +29,7 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the Server Load Balancer (SLB) instance is created.
+     * @description The region ID of the Classic Load Balancer (CLB) instance.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -39,7 +39,9 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource. Valid values of N: 1 to 20.
+     * @description The ID of the resource. You can specify at most 20 resources.
+     *
+     * >  Set **ResourceId** of the **listener** to **LoadBalancerId_Listener protocol_Port**. Set LoadBalancerId to the ID of the CLB instance, and Port to the listener port.
      *
      * This parameter is required.
      * @example lb-bp16qjewdsunr41m1****
@@ -59,11 +61,14 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The type of resource. Valid values:
      *
-     *   **instance**: an SLB instance
-     *   **certificate**: a certificate
-     *   **acl**: a network access control list (ACL)
+     *   **instance**: CLB instance
+     *   **certificate**: certificate
+     *   **acl**: access control list (ACL)
+     *   **listener**: listener
+     *   **vservergroup**: vServer group
+     *   **masterslaveservergroup**: primary/secondary server group
      *
      * This parameter is required.
      * @example instance
@@ -73,11 +78,11 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tag value. Valid values of N: **1** to **20**.
+     * @description The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
      *
-     * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:` or `aliyun`.
+     * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `aliyun` or `acs:`.
      *
-     * >  If you do not set **TagKey**, all tags of the specified instance are removed.
+     * >  If you do not specify **TagKey**, all tags are removed from the instance.
      * @example FinanceDept
      *
      * @var string[]

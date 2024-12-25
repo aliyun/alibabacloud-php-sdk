@@ -178,6 +178,7 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     /**
      * @description The specification of the CLB instance.
      *
+     * >  Pay-as-you-go CLB instances are not subject to specifications. By default, **slb.lcu.elastic** is returned.
      * @example slb.s1.small
      *
      * @var string
@@ -280,9 +281,9 @@ class DescribeLoadBalancerAttributeResponseBody extends Model
     /**
      * @description The auto-renewal duration. This parameter is valid only if **RenewalStatus** is set to **AutoRenewal**.
      *
-     *   Valid values when **PeriodUnit** is set to **Year**: **1**, **2**, and **3**.
+     *   Valid values when **PeriodUnit** is set to **Year**: **1**~**5**.
      *
-     *   Valid values when **PeriodUnit** is set to **Month**: **1**, **2**, **3**, and **6**.
+     *   Valid values when **PeriodUnit** is set to **Month**: **1**~ **9**.
      *
      * > This parameter is valid only when you create a subscription CLB instance on the Alibaba Cloud China site. In this case, the **PayType** parameter must be set to **PrePay**.
      * @example 1

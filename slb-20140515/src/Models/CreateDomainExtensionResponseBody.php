@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainExtensionResponseBody extends Model
 {
     /**
-     * @description The ID of the created domain name extension.
+     * @description The ID of the additional domain name.
      *
      * @example de-bp1rp7ta19******
      *
@@ -18,7 +18,7 @@ class CreateDomainExtensionResponseBody extends Model
     public $domainExtensionId;
 
     /**
-     * @description The frontend port used by the SLB instance.
+     * @description The frontend port that is used by the SLB instance.
      *
      * @example 80
      *
@@ -27,7 +27,7 @@ class CreateDomainExtensionResponseBody extends Model
     public $listenerPort;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A6E7EFC9-0938-40CA-877D-9BEDBD21D357
      *

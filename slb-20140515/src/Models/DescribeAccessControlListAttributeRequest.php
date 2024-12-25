@@ -11,7 +11,6 @@ class DescribeAccessControlListAttributeRequest extends Model
     /**
      * @description The remarks of the ACL entry.
      *
-     * It must be 2 to 100 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter.
      * @example test
      *
      * @var string
@@ -19,10 +18,10 @@ class DescribeAccessControlListAttributeRequest extends Model
     public $aclEntryComment;
 
     /**
-     * @description The ID of the ACL.
+     * @description The ID of the ACL that you want to query.
      *
      * This parameter is required.
-     * @example acl-bp1l0k********kzet04s
+     * @example acl-bp1ut10zzvh1y8dfs****
      *
      * @var string
      */
@@ -39,7 +38,7 @@ class DescribeAccessControlListAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -48,7 +47,7 @@ class DescribeAccessControlListAttributeRequest extends Model
     public $page;
 
     /**
-     * @description The number of entries returned on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -57,7 +56,7 @@ class DescribeAccessControlListAttributeRequest extends Model
     public $pageSize;
 
     /**
-     * @description The time when the network ACL was created. The time follows the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The region ID of the ACL.
      *
      * This parameter is required.
      * @example cn-hangzhou

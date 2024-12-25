@@ -18,7 +18,7 @@ class masterSlaveBackendServer extends Model
     public $description;
 
     /**
-     * @description The port used by the backend server.
+     * @description The port that is used by the backend server.
      *
      * @example 90
      *
@@ -27,7 +27,7 @@ class masterSlaveBackendServer extends Model
     public $port;
 
     /**
-     * @description The ID of the ECS instance or ENI.
+     * @description The ID of the backend server.
      *
      * @example vm-hrf******
      *
@@ -36,7 +36,7 @@ class masterSlaveBackendServer extends Model
     public $serverId;
 
     /**
-     * @description The type of backend server. Valid values: **Master and Slave. Default value: Master.
+     * @description The type of backend server. Valid values: **Master** and **Slave**.
      *
      * @example Slave
      *
@@ -47,8 +47,9 @@ class masterSlaveBackendServer extends Model
     /**
      * @description The type of the backend server. Valid values:
      *
-     *   **ecs** (default): an Elastic Compute Service (ECS) instance
-     *   **eni**: an elastic network interface (ENI)
+     *   **ecs** (default): Elastic Compute Service (ECS) instance
+     *   **eni**: elastic network interface (ENI)
+     *   **eci**: elastic container instance
      *
      * @example ecs
      *

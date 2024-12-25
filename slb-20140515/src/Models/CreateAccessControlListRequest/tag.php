@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the bastion host. Valid values of N: **1 to 20**. The tag key cannot be an empty string.
+     * @description The key of tag N. Valid values of N: **1** to **20**. The tag key cannot be an empty string. The tag key can be up to 128 characters in length, and cannot contain `http://` or `https://`. It cannot start with `acs:` or `aliyun`.
      *
-     * The tag key can be at most 64 characters in length, and cannot contain `http://` or `https://`. It must not start with `aliyun` or `acs:`.
      * @example TestKey
      *
      * @var string
@@ -19,9 +18,8 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value. You can specify at most 20 tag values. The tag value cannot be an empty string.
+     * @description The value of tag N. Valid values of N: **1** to **20**. The tag value can be an empty string. The tag value must be 0 to 128 characters in length, and cannot start with `acs:`. It cannot contain `http://` or `https://`.
      *
-     * The tag value must be 1 to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      * @example TestValue
      *
      * @var string

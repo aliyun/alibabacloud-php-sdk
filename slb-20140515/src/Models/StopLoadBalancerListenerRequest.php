@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StopLoadBalancerListenerRequest extends Model
 {
     /**
-     * @description The frontend listening port used by the listener.
+     * @description The frontend port that is used by the CLB instance.
      *
-     * Value range: **1 to 65535**
+     * Valid values: **1 to 65535**.
      *
      * This parameter is required.
      * @example 80
@@ -21,9 +21,9 @@ class StopLoadBalancerListenerRequest extends Model
     public $listenerPort;
 
     /**
-     * @description The frontend listening protocol used by the SLB instance.
+     * @description The frontend protocol that is used by the CLB instance.
      *
-     * >  This parameter is required when listeners with different protocols use the same port.
+     * > This parameter is required if the same port is used by listeners of different protocols.
      * @example https
      *
      * @var string
@@ -31,10 +31,10 @@ class StopLoadBalancerListenerRequest extends Model
     public $listenerProtocol;
 
     /**
-     * @description The ID of the SLB instance to which the listener belongs.
+     * @description The CLB instance ID.
      *
      * This parameter is required.
-     * @example lb-bp13jaf5qli5xmgl1miup
+     * @example lb-bp13jaf5qli5xmg******
      *
      * @var string
      */
@@ -53,7 +53,7 @@ class StopLoadBalancerListenerRequest extends Model
     /**
      * @description The ID of the region to which the SLB instance belongs.
      *
-     * To query the region ID, refer to the list of [regions and zones](https://help.aliyun.com/document_detail/40654.html) or call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html).
+     * To query the region ID, refer to the list of  [regions and zones](https://help.aliyun.com/document_detail/40654.html) or call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html).
      * @example cn-hangzhou
      *
      * @var string

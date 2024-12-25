@@ -30,9 +30,9 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource ID. You can specify up to 20 IDs.
+     * @description The ID of the resource. You can specify at most 20 resources.
      *
-     * >  The value of **ResourceId** of a **listener** is **LoadBalancerId_ Listener protocol_Port**, where LoadBalancerId is the SLB instance ID and port is the listener port. Example: lb-bp1snb10sbml4mqty_http_80.
+     * >  Set **ResourceId** of the **listener** to **LoadBalancerId_Listener protocol_Port**. Set LoadBalancerId to the ID of the SLB instance, and Port to the listener port. Example: lb-bp1snb10sbml4\\*\\*\\*\\*_http_80.
      *
      * This parameter is required.
      * @example lb-bp16qjewdsunr41m1****

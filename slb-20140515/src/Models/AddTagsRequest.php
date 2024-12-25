@@ -9,12 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddTagsRequest extends Model
 {
     /**
-     * @description The name of this action.
-     *
-     * Value: **AddTags**
+     * @description The ID of the Server Load Balancer (SLB) instance.
      *
      * This parameter is required.
-     * @example 139a00604ad-cn-east-hangzhou-
+     * @example lb-bp1kuzyb******
      *
      * @var string
      */
@@ -51,7 +49,7 @@ class AddTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the region to which the SLB instance belongs.
+     * @description The list of tags that need to be added.
      *
      * This parameter is required.
      * @example [{"TagKey":"Key1","TagValue":"Value1"},{"TagKey":"Key2","TagValue":"Value2"}]

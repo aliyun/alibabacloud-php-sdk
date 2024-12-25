@@ -20,8 +20,8 @@ class SetAccessLogsDownloadAttributeRequest extends Model
     /**
      * @description The access log forwarding rule. Parameters:
      *
-     *   **LogProject**: the name of the project.
-     *   **LogStore**: the name of the Logstore.
+     *   **LogProject**: the name of the project of Simple Log Service.
+     *   **LogStore**: the name of the Logstore of Simple Log Service.
      *   **LoadBalancerId**: the ID of the CLB instance.
      *
      * This parameter is required.
@@ -42,7 +42,7 @@ class SetAccessLogsDownloadAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the CLB instance is deployed.
+     * @description The region ID of the CLB instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

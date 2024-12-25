@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessControlListRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **CreateAccessControlList**.
+     * @description The name of the ACL. The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name of the ACL that you create must be unique within each region.
      *
      * This parameter is required.
      * @example rule1
@@ -20,7 +20,7 @@ class CreateAccessControlListRequest extends Model
     public $aclName;
 
     /**
-     * @description The ID of the region where you want to create the ACL.
+     * @description The IP version. Valid values: **ipv4** and **ipv6**.
      *
      * @example ipv4
      *
@@ -39,7 +39,7 @@ class CreateAccessControlListRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the ACL.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -49,7 +49,7 @@ class CreateAccessControlListRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the ACL. The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name of the ACL that you create must be unique within each region.
+     * @description The resource group ID.
      *
      * @example rg-atstuj3rt******
      *

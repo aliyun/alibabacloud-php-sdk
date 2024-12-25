@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerHTTPListenerRequest extends Model
 {
     /**
-     * @description The ID of the network ACL that is associated with the listener.
+     * @description The ID of the network access control list (ACL) that is associated with the listener.
      *
      * >  If **AclStatus** is set to **on**, this parameter is required.
      * @example 123
@@ -32,17 +32,17 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public $aclStatus;
 
     /**
-     * @description The type of the network ACL. Valid values:
+     * @description The type of access control. Valid values:
      *
-     *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the network ACL are forwarded. Whitelists apply to scenarios where you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. If a whitelist is configured, only requests from IP addresses that are added to the whitelist are forwarded by the listener.
+     *   **white**: Only requests from IP addresses and CIDR blocks on the whitelist are forwarded by the listener. Your service may be adversely affected if the whitelist is not properly configured. If a whitelist is configured, the listener forwards only requests from IP addresses that are added to the whitelist.
      *
-     * If you enable a whitelist but do not add an IP address to the ACL, the listener forwards all requests.
+     * If you configure a whitelist but do not add an IP address to the whitelist, the listener forwards all requests.
      *
-     *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are rejected. Blacklists apply to scenarios where you want to block access from specified IP addresses to an application.
+     *   **black**: Requests from the IP addresses and CIDR blocks on the blacklist are blocked.
      *
-     * If a blacklist is configured for a listener but no IP address is added to the blacklist, the listener forwards all requests.
+     * If you configure a blacklist but do not add an IP address to the blacklist, the listener forwards all requests.
      *
-     * >  If **AclStatus** is set to **on**, this parameter is required.
+     * >  When **AclStatus** is set to **on**, this parameter takes effect.
      * @example white
      *
      * @var string
@@ -54,7 +54,7 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      *
      * Valid values: **1** to **65535**.
      *
-     * >  If the VServerGroupId parameter is not set, this parameter is required.
+     * >  If the VServerGroupId parameter is not specified, this parameter is required.
      * @example 80
      *
      * @var int
@@ -64,10 +64,8 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     /**
      * @description The maximum bandwidth of the listener. Unit: Mbit/s. Valid values:
      *
-     *   **-1**: If -1 is returned, the bandwidth of the listener is unlimited.
-     *   **1** to **5120**: The sum of the maximum bandwidth that you specify for all listeners of the CLB instance cannot exceed the maximum bandwidth of the CLB instance.
+     **-1**: specifies that the bandwidth of the listener is unlimited.
      *
-     * >  This parameter is available only in the Chinese mainland.
      * @example -1
      *
      * @var int
@@ -75,11 +73,11 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public $bandwidth;
 
     /**
-     * @description The cookie that is configured on the server.
+     * @description The cookie configured for the server.
      *
-     * The cookie must be 1 to 200 characters in length and can contain only ASCII characters and digits. It cannot contain commas (,), semicolons (;), or space characters. It cannot start with a dollar sign ($).
+     * The cookie must be 1 to 200 characters in length, and can contain only ASCII letters and digits. It cannot contain commas (,), semicolons (;), space characters, or start with a dollar sign ($).
      *
-     * >  This parameter is required if the **StickySession** parameter is set to **on** and the **StickySessionType** parameter is set to **server**.
+     * >  This parameter is required when the **StickySession** parameter is set to **on** and the **StickySessionType** parameter is set to **server**.
      * @example B490B5EBF6F3CD402E515D22BCDA1598
      *
      * @var string
@@ -157,8 +155,8 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     /**
      * @description The domain name that is used for health checks. Valid values:
      *
-     *   **$_ip**: the private IP address of a backend server. If you do not set the HealthCheckDomain parameter or set the parameter to $_ip, the CLB instance uses the private IP address of each backend server for health checks.
-     *   **domain**: The domain name must be 1 to 80 characters in length and can contain letters, digits, periods (.), and hyphens (-).
+     *   **$_ip**: the private IP address of a backend server. If an IP address is specified, or this parameter is not specified, the CLB instance uses the private IP address of each backend server as the domain name for health checks.
+     *   **domain**: The domain name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), and hyphens (-).
      *
      * >  This parameter takes effect only if the **HealthCheck** parameter is set to **on**.
      * @example 172.16.0.0/12
@@ -202,14 +200,11 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The timeout period of a health check response. If a backend server, such as an Elastic Compute Service (ECS) instance, does not respond to a probe packet within the specified timeout period, the server fails the health check. Unit: seconds.
+     * @description The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. Unit: seconds
      *
      * Valid values: **1** to **300**.
      *
-     * >
-     *   If the value of the **HealthCheckTimeout** parameter is smaller than that of the **HealthCheckInterval** parameter, the timeout period specified by the **HealthCheckTimeout** parameter is ignored and the period of time specified by the **HealthCheckInterval** parameter is used as the timeout period.
-     *   This parameter takes effect only if the **HealthCheck** parameter is set to **on**.
-     *
+     * >  This parameter takes effect only if the **HealthCheck** parameter is set to **on**.
      * @example 3
      *
      * @var int
@@ -346,7 +341,6 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
      *   **on**: yes
      *   **off** (default): no
      *
-     * This parameter is required.
      * @example off
      *
      * @var string
@@ -354,17 +348,17 @@ class CreateLoadBalancerHTTPListenerRequest extends Model
     public $stickySession;
 
     /**
-     * @description The method that is used to handle a cookie. Valid values:
+     * @description The method that is used to handle cookies. Valid values:
      *
      *   **insert**: inserts a cookie.
      *
-     * CLB inserts a cookie (SERVERID) into the first HTTP or HTTPS response that is sent to a client. The next request from the client carries this cookie, and the listener will forward this request to the recorded backend server.
+     * The first time a client accesses CLB, CLB inserts a cookie into the response packet. Subsequent requests from the client that carry the cookie are distributed to the same backend server as the first request.
      *
-     *   **server**: rewrites a cookie.
+     *   **server**: rewrites the original cookie.
      *
-     * When CLB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. The next request from the client carries the user-defined cookie, and the listener forwards this request to the recorded backend server.
+     * CLB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
      *
-     * > This parameter is required if the **StickySession** parameter is set to **on**.
+     * >  This parameter is required if the **StickySession** parameter is set to **on**.
      * @example insert
      *
      * @var string

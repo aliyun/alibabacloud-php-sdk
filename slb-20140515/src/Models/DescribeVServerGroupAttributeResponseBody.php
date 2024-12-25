@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVServerGroupAttributeResponseBody extends Model
 {
     /**
-     * @description The list of backend servers.
+     * @description The backend servers.
      *
      * @var backendServers
      */
@@ -36,7 +36,7 @@ class DescribeVServerGroupAttributeResponseBody extends Model
     public $loadBalancerId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9DEC9C28-AB05-4DDF-9A78-6B08EC9CE18C
      *
@@ -45,7 +45,7 @@ class DescribeVServerGroupAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tag list.
+     * @description The tags of the backend server.
      *
      * @var tags
      */

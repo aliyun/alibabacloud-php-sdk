@@ -173,9 +173,9 @@ class SetRuleRequest extends Model
     public $ruleId;
 
     /**
-     * @description The name of the forwarding rule. The name must be 1 to 80 characters in length and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
+     * @description The name of the forwarding rule. The name must be 1 to 40 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (_).
      *
-     * >  Forwarding rule names must be unique within the same listener.
+     * > On the same listener, the forwarding rule names must be unique.
      * @example doctest
      *
      * @var string

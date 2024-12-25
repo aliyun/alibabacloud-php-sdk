@@ -20,7 +20,7 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
     /**
      * @description The ID of the additional certificate.
      *
-     * @example de-bp1rp7ta191dv
+     * @example de-bp1rp7ta1****
      *
      * @var string
      */
@@ -45,7 +45,7 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
     public $loadBalancerId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 48C1B671-C6DB-4DDE-9B30-10557E36CDE0
      *
@@ -54,7 +54,7 @@ class DescribeDomainExtensionAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the server certificate that is used by the domain name.
+     * @description The ID of the server certificate used by the domain name.
      *
      * @example 231579085529123_166f82******_1714763408_709981430
      *

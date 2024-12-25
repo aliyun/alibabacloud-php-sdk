@@ -32,7 +32,7 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the Server Load Balancer (SLB) instance is created.
+     * @description The region ID of the CLB instance.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -42,8 +42,9 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of a resource. You can specify up to 20 resources.
+     * @description The resource ID. You can specify up to 20 resources.
      *
+     * >  The value of **ResourceId** of a **listener** is **LoadBalancerId_Listener protocol_Port**, where LoadBalancerId is the ID of the CLB instance and port is the listener port. Example: lb-bp1qnnvj18yy6h\\*\\*\\*\\*_http_80.
      * @example lb-bp1qnnvj18yy6h******
      *
      * @var string[]
@@ -63,9 +64,12 @@ class ListTagResourcesRequest extends Model
     /**
      * @description The type of the resource. Valid values:
      *
-     *   **instance**: an SLB instance
+     *   **instance**: a CLB instance
      *   **certificate**: a certificate
-     *   **acl**: a network access control list (ACL)
+     *   **acl**: an access control list (ACL)
+     *   **listener**: a listener
+     *   **vservergroup**: a vServer group
+     *   **masterslaveservergroup**: a primary/secondary server group
      *
      * This parameter is required.
      * @example instance

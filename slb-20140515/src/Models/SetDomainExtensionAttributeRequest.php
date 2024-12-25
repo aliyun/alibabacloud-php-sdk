@@ -29,7 +29,7 @@ class SetDomainExtensionAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the SLB instance is created.
+     * @description The region ID of the Server Load Balancer (SLB) instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

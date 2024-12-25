@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SetBackendServersResponseBody extends Model
 {
     /**
-     * @description The list of backend servers.
+     * @description The backend servers.
      *
      * @var backendServers
      */
@@ -26,7 +26,7 @@ class SetBackendServersResponseBody extends Model
     public $loadBalancerId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *

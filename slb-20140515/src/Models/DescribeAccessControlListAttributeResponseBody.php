@@ -12,26 +12,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListAttributeResponseBody extends Model
 {
     /**
-     * @description The IP entries that you want to remove from the network ACL. Valid values:
-     *
-     *   **entry**: the IP address or CIDR block that you want to remove from the network ACL. Separate multiple IP addresses or CIDR blocks with commas (,).
-     *   **comment**: the description of the network ACL.
+     * @description The information about the access control policy.
      *
      * @var aclEntrys
      */
     public $aclEntrys;
 
     /**
-     * @description The ID of the network ACL.
+     * @description The ACL ID.
      *
-     * @example acl-bp1l0k********kzet04s
+     * @example acl-bp1ut10zzvh1y8dfs****
      *
      * @var string
      */
     public $aclId;
 
     /**
-     * @description The ACL name. The name must be 1 to 80 characters in length, and can contain letters, digits, periods (.), hyphens (-), forward slashes (/), and underscores (_). The name of each ACL must be unique within a region. Fuzzy match is supported.
+     * @description The ACL name.
      *
      * @example doctest
      *
@@ -58,7 +55,7 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The listeners that are associated with the network ACL.
+     * @description The listeners with which the ACL is associated.
      *
      * @var relatedListeners
      */
@@ -76,21 +73,21 @@ class DescribeAccessControlListAttributeResponseBody extends Model
     /**
      * @description The resource group ID.
      *
-     * @example rg-******************
+     * @example rg-acfmz3jksig****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The tags.
+     * @description The tags added to the ACL.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The total number of access control entries.
+     * @description The total number of ACL entries.
      *
      * @example 200
      *

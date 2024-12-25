@@ -38,8 +38,9 @@ class backendServer extends Model
     /**
      * @description The type of backend server. Valid values:
      *
-     *   **ecs**: an ECS instance. This is the default value.
-     *   **eni**: an ENI.
+     *   **ecs** (default): ECS instance
+     *   **eni**: ENI
+     *   **eci**: elastic container instance
      *
      * @example ecs
      *

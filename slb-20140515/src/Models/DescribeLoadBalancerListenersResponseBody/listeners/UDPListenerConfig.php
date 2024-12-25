@@ -11,8 +11,8 @@ class UDPListenerConfig extends Model
     /**
      * @description Indicates whether connection draining is enabled. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example off
      *
@@ -33,8 +33,8 @@ class UDPListenerConfig extends Model
     /**
      * @description Indicates whether the health check feature is enabled. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -61,7 +61,7 @@ class UDPListenerConfig extends Model
     public $healthCheckConnectTimeout;
 
     /**
-     * @description The response string for UDP listener health checks.
+     * @description The response string of UDP health checks.
      *
      * @example ok
      *
@@ -79,7 +79,7 @@ class UDPListenerConfig extends Model
     public $healthCheckInterval;
 
     /**
-     * @description The request string for UDP listener health checks.
+     * @description The request string of UDP health checks.
      *
      * @example hello
      *
@@ -106,10 +106,10 @@ class UDPListenerConfig extends Model
     public $masterSlaveServerGroupId;
 
     /**
-     * @description Indicates whether the Proxy protocol is used to pass client IP addresses to backend servers. Valid values:
+     * @description Indicates whether the Proxy protocol is used to pass source client IP addresses to backend servers. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**: enables the burst feature for the data disk.
+     *   **false**: The task is not being retried.
      *
      * @example false
      *

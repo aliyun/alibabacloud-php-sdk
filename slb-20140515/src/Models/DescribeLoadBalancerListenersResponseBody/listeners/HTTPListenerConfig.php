@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class HTTPListenerConfig extends Model
 {
     /**
-     * @description The cookie that is configured on the server.
+     * @description The cookie configures for the server.
      *
      * @example B490B5EBF6F3CD402E515D22BCDA****
      *
@@ -18,7 +18,7 @@ class HTTPListenerConfig extends Model
     public $cookie;
 
     /**
-     * @description The timeout period of a cookie. Unit: seconds.
+     * @description The maximum amount of time to wait before the session cookie expires. Unit: seconds.
      *
      * Valid values: **1** to **86400**.
      * @example 500
@@ -28,9 +28,9 @@ class HTTPListenerConfig extends Model
     public $cookieTimeout;
 
     /**
-     * @description The listening port that is used to redirect HTTP requests to HTTPS.
+     * @description The listener port that is used for HTTP-to-HTTPS redirection.
      *
-     * >  If the **ListenerForward** parameter is set to **off**, this parameter is not displayed.
+     * >  If the **ListenerForward** parameter is set to **off**, this parameter is not returned.
      * @example 80
      *
      * @var int
@@ -38,10 +38,10 @@ class HTTPListenerConfig extends Model
     public $forwardPort;
 
     /**
-     * @description Indicates whether Gzip compression is enabled. Valid values:
+     * @description Indicates whether GZIP compression is enabled. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -52,8 +52,8 @@ class HTTPListenerConfig extends Model
     /**
      * @description Indicates whether the health check feature is enabled. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -64,7 +64,7 @@ class HTTPListenerConfig extends Model
     /**
      * @description The port that is used for health checks.
      *
-     * >  This parameter takes effect when the **HealthCheck** parameter is set to **on**.
+     * >  This parameter takes effect only when **HealthCheck** is set to **on**.
      * @example 8080
      *
      * @var int
@@ -81,7 +81,7 @@ class HTTPListenerConfig extends Model
     public $healthCheckDomain;
 
     /**
-     * @description The HTTP status codes that are used to determine whether the backend server passes the health check.
+     * @description The HTTP status code that indicates a healthy backend server.
      *
      * @example http_2xx,http_3xx
      *
@@ -90,7 +90,7 @@ class HTTPListenerConfig extends Model
     public $healthCheckHttpCode;
 
     /**
-     * @description The HTTP version that is used for health checks.
+     * @description The HTTP version for health checks.
      *
      * @example HTTP 1.0
      *
@@ -126,7 +126,7 @@ class HTTPListenerConfig extends Model
     public $healthCheckTimeout;
 
     /**
-     * @description The protocol that is used for health checks.
+     * @description The protocol that you want to use for health checks.
      *
      * @example tcp
      *
@@ -144,7 +144,7 @@ class HTTPListenerConfig extends Model
     public $healthCheckURI;
 
     /**
-     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
      *
      * Valid values: **2** to **10**.
      * @example 4
@@ -164,10 +164,10 @@ class HTTPListenerConfig extends Model
     public $idleTimeout;
 
     /**
-     * @description Indicates whether HTTP-to-HTTPS redirection is enabled. Valid values:
+     * @description Indicates whether HTTP-to-HTTPS redirection is enabled for the listener. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -188,8 +188,8 @@ class HTTPListenerConfig extends Model
     /**
      * @description Indicates whether session persistence is enabled. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -198,10 +198,10 @@ class HTTPListenerConfig extends Model
     public $stickySession;
 
     /**
-     * @description The method that is used to handle a cookie. Valid values:
+     * @description The method used to handle the cookie. Valid values:
      *
-     *   **insert**: inserts a cookie. CLB inserts a cookie (SERVERID) into the first HTTP or HTTPS response that is sent to a client. The next request from the client contains this cookie, and the listener forwards this request to the recorded backend server.
-     *   **server**: rewrites a cookie. When CLB detects a user-defined cookie, it overwrites the original cookie with the user-defined cookie. The next request from the client carries the user-defined cookie, and the listener will distribute the request to the recorded backend server.
+     *   **insert**: inserts a cookie. CLB inserts the SERVERID cookie to the HTTP or HTTPS response to the first request from a client. Subsequent requests that carry the SERVERID cookie from the client are forwarded to the same backend server as the first request.
+     *   **server**: rewrites the original cookie. CLB rewrites the custom cookies in requests from a client. Subsequent requests from the client that carry the new cookie are forwarded to the same backend server as the first request.
      *
      * @example insert
      *
@@ -210,7 +210,7 @@ class HTTPListenerConfig extends Model
     public $stickySessionType;
 
     /**
-     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
      *
      * Valid values: **2** to **10**.
      * @example 4
@@ -220,10 +220,10 @@ class HTTPListenerConfig extends Model
     public $unhealthyThreshold;
 
     /**
-     * @description Indicates whether the `XForwardedFor` header is used to retrieve client IP addresses. Valid values:
+     * @description Indicates whether the `X-Forwarded-For` header is used to preserve client IP addresses. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -234,8 +234,8 @@ class HTTPListenerConfig extends Model
     /**
      * @description Indicates whether the `XForwardedFor_ClientSrcPort` header is used to retrieve the client port. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -246,8 +246,8 @@ class HTTPListenerConfig extends Model
     /**
      * @description Indicates whether the `SLB-ID` header is used to retrieve the ID of the CLB instance. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -256,10 +256,10 @@ class HTTPListenerConfig extends Model
     public $XForwardedFor_SLBID;
 
     /**
-     * @description Indicates whether the `SLB-IP` header is used to retrieve the virtual IP address requested by the client. Valid values:
+     * @description Indicates whether the `SLB-IP` header is used to retrieve the VIP of the client. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -268,10 +268,10 @@ class HTTPListenerConfig extends Model
     public $XForwardedFor_SLBIP;
 
     /**
-     * @description Indicates whether the `XForwardedFor_SLBPORT` header is used to retrieve the listening port. Valid values:
+     * @description Indicates whether the `XForwardedFor_SLBPORT` header is used to retrieve the listener port of the CLB instance. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -280,10 +280,10 @@ class HTTPListenerConfig extends Model
     public $XForwardedFor_SLBPORT;
 
     /**
-     * @description Indicates whether the `X-Forwarded-Proto` header is used to retrieve the listening protocol. Valid values:
+     * @description Indicates whether the `X-Forwarded-Proto` header is used to obtain the listener protocol. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *

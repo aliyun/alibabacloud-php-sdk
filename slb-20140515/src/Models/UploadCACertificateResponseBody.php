@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UploadCACertificateResponseBody extends Model
 {
     /**
-     * @description The name of the CA certificate.
+     * @description The ID of the CA certificate.
      *
-     * @example 139a00604ad-cn-east-hangzhou-01
+     * @example 139a0******-cn-east-hangzhou-01
      *
      * @var string
      */
     public $CACertificateId;
 
     /**
-     * @description The domain name of the CA certificate.
+     * @description The CA certificate name.
      *
      * @example mycacert01
      *
@@ -27,7 +27,7 @@ class UploadCACertificateResponseBody extends Model
     public $CACertificateName;
 
     /**
-     * @description The fingerprint of the CA certificate.
+     * @description The domain name on the CA certificate.
      *
      * @example .example.com
      *
@@ -36,7 +36,7 @@ class UploadCACertificateResponseBody extends Model
     public $commonName;
 
     /**
-     * @description The time when the CA certificate expires.
+     * @description The time when the CA certificate was created.
      *
      * @example 2017-08-31T02:49:05Z
      *
@@ -45,7 +45,7 @@ class UploadCACertificateResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The name of the CA certificate.
+     * @description The timestamp when the CA certificate was created.
      *
      * @example 1504147745000
      *
@@ -54,7 +54,7 @@ class UploadCACertificateResponseBody extends Model
     public $createTimeStamp;
 
     /**
-     * @description The timestamp generated when the CA certificate is uploaded.
+     * @description The time when the CA certificate expires.
      *
      * @example 2024-11-21T06:04:25Z
      *
@@ -63,7 +63,7 @@ class UploadCACertificateResponseBody extends Model
     public $expireTime;
 
     /**
-     * @description The ID of the enterprise resource group.
+     * @description The timestamp when the server certificate expires.
      *
      * @example 1732169065000
      *
@@ -72,7 +72,7 @@ class UploadCACertificateResponseBody extends Model
     public $expireTimeStamp;
 
     /**
-     * @description The ID of the request.
+     * @description The fingerprint of the server certificate.
      *
      * @example 02:DF:AB:ED
      *
@@ -81,7 +81,7 @@ class UploadCACertificateResponseBody extends Model
     public $fingerprint;
 
     /**
-     * @description The ID of the enterprise resource group.
+     * @description The request ID.
      *
      * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
@@ -90,9 +90,9 @@ class UploadCACertificateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the CA certificate is uploaded.
+     * @description The ID of the resource group.
      *
-     * @example rg-atstuj3rtoptyui
+     * @example rg-atstuj3rt******
      *
      * @var string
      */

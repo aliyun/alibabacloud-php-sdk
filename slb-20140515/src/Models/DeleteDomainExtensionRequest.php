@@ -12,7 +12,7 @@ class DeleteDomainExtensionRequest extends Model
      * @description The ID of the additional domain name that you want to delete.
      *
      * This parameter is required.
-     * @example de-bp1rp7ta191dv
+     * @example de-bp1rp7ta1****
      *
      * @var string
      */

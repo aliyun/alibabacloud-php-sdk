@@ -19,7 +19,7 @@ class DescribeRulesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of forwarding rules.
+     * @description The forwarding rules.
      *
      * @var rules
      */

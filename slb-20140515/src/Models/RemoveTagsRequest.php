@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagsRequest extends Model
 {
     /**
-     * @description The ID of the SLB instance.
+     * @description The SLB instance ID.
      *
      * This parameter is required.
-     * @example 139a00604ad-cn-east-hangzhou-01
+     * @example lb-bp1l5j******
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class RemoveTagsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the SLB instance belongs.
+     * @description The ID of the region where the Server Load Balancer (SLB) instance is created.
      *
      * This parameter is required.
      * @example cn-hangzhou

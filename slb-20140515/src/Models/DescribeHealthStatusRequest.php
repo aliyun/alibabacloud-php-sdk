@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeHealthStatusRequest extends Model
 {
     /**
-     * @description The frontend port that is used by the CLB instance.
-     *
-     * Valid values: **1 to 65535**.
+     * @description The frontend port that is used by the SLB instance. Valid values: **1 to 65535**.
      *
      * >  If you do not specify this parameter, the health status of all ports is returned.
      * @example 80
@@ -21,7 +19,7 @@ class DescribeHealthStatusRequest extends Model
     public $listenerPort;
 
     /**
-     * @description The frontend protocol that is used by the CLB instance.
+     * @description The frontend protocol that is used by the SLB instance.
      *
      * @example https
      *
@@ -50,7 +48,7 @@ class DescribeHealthStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the CLB instance is deployed.
+     * @description The region ID of the SLB instance.
      *
      * @example cn-hangzhou
      *

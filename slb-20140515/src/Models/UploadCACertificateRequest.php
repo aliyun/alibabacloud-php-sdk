@@ -10,9 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UploadCACertificateRequest extends Model
 {
     /**
-     * @description The name of this action.
-     *
-     * Value: **UploadCACertificate**
+     * @description The information about the CA certificate.
      *
      * This parameter is required.
      * @example test
@@ -22,9 +20,8 @@ class UploadCACertificateRequest extends Model
     public $CACertificate;
 
     /**
-     * @description The ID of the region to which the CA certificate belongs.
+     * @description The CA certificate name.
      *
-     * To query the region ID, call [DescribeRegions](https://help.aliyun.com/document_detail/27584.html).
      * @example mycacert01
      *
      * @var string
@@ -42,7 +39,7 @@ class UploadCACertificateRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region id.
+     * @description The region of the CA certificates.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -52,9 +49,9 @@ class UploadCACertificateRequest extends Model
     public $regionId;
 
     /**
-     * @description The content of the CA certificate to be uploaded.
+     * @description The ID of the resource group.
      *
-     * @example rg-atstuj3rtoptyui
+     * @example rg-atstuj3rto*****
      *
      * @var string
      */

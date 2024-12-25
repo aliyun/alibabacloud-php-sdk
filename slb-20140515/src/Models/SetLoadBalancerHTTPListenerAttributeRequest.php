@@ -176,11 +176,9 @@ class SetLoadBalancerHTTPListenerAttributeRequest extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The timeout period of a health check response. If a backend server, such as an Elastic Compute Service (ECS) instance, does not respond to a probe packet within the specified timeout period, the server fails the health check. This parameter takes effect only if you set **HealthCheck** to **on**.
+     * @description The timeout period of a health check response. If a backend ECS instance does not respond within the specified timeout period, the ECS instance fails the health check. This parameter takes effect only if the **HealthCheck** parameter is set to **on**.
      *
      * Valid values: **1** to **300**. Unit: seconds.
-     *
-     * > If the value of **HealthCheckTimeout** is smaller than the value of **HealthCheckInterval**, the value of **HealthCheckTimeout** becomes invalid and the value of **HealthCheckInterval** is used as the timeout period.
      * @example 3
      *
      * @var int

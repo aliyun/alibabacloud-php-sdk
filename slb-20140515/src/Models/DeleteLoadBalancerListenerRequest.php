@@ -33,10 +33,8 @@ class DeleteLoadBalancerListenerRequest extends Model
     /**
      * @description The ID of the CLB instance.
      *
-     * >  If the endpoint of the selected region is slb.aliyuncs.com, the **RegionId** parameter is required.
-     *
      * This parameter is required.
-     * @example lb-bp13jaf5qli5xmgl1miup
+     * @example lb-bp13jaf5qli5xmg******
      *
      * @var string
      */
@@ -56,6 +54,8 @@ class DeleteLoadBalancerListenerRequest extends Model
      * @description The region ID of the Classic Load Balancer (CLB) instance.
      *
      * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/27584.html) operation to query the most recent region list.
+     *
+     * >  The **RegionId** parameter is required if the endpoint of the region is slb.aliyuncs.com.
      * @example cn-hangzhou
      *
      * @var string

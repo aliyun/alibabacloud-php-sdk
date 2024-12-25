@@ -17,7 +17,7 @@ class CreateMasterSlaveServerGroupResponseBody extends Model
     public $masterSlaveBackendServers;
 
     /**
-     * @description The primary/secondary server group ID.
+     * @description The ID of the active/standby server group.
      *
      * @example rsp-bp19au4******
      *

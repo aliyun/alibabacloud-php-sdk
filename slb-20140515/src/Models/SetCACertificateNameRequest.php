@@ -12,14 +12,14 @@ class SetCACertificateNameRequest extends Model
      * @description The ID of the CA certificate.
      *
      * This parameter is required.
-     * @example 139a00604ad-cn-east-hangzhou-01
+     * @example 139a0******-cn-east-hangzhou-01
      *
      * @var string
      */
     public $CACertificateId;
 
     /**
-     * @description The name of the CA certificate.
+     * @description The CA certificate name.
      *
      * This parameter is required.
      * @example mycacert02
@@ -39,7 +39,7 @@ class SetCACertificateNameRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region to which the CA certificate belongs.
+     * @description The region of the CA certificate.
      *
      * This parameter is required.
      * @example cn-hangzhou

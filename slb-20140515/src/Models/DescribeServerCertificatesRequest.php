@@ -20,9 +20,9 @@ class DescribeServerCertificatesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region where the CLB instances are deployed.
+     * @description The region where the CLB instance is deployed.
      *
-     * >  If the endpoint of the region is slb.aliyuncs.com, you must specify the `RegionId` parameter.
+     * >  If the endpoint of the selected region is slb.aliyuncs.com, you must specify `RegionId`.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,7 +30,7 @@ class DescribeServerCertificatesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-atstuj3rtop****
      *
@@ -49,7 +49,7 @@ class DescribeServerCertificatesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the server certificate.
+     * @description The server certificate ID.
      *
      * @example 12315790*******_166f8204689_1714763408_709981430
      *

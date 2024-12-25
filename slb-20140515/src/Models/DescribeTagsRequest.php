@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsRequest extends Model
 {
     /**
-     * @description Specifies whether the tag is DistinctKey.
+     * @description Specifies whether the tags contain distinct keys.
      *
-     * Valid values: **true and false**.
+     * Valid values: true and false.
      * @example false
      *
      * @var bool
@@ -19,9 +19,9 @@ class DescribeTagsRequest extends Model
     public $distinctKey;
 
     /**
-     * @description The ID of the SLB instance.
+     * @description The SLB instance ID.
      *
-     * @example 139a00604ad-cn-east-hangzhou-01
+     * @example lb-bp1kuzybm******
      *
      * @var string
      */
@@ -56,7 +56,7 @@ class DescribeTagsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the Server Load Balancer (SLB) instance is deployed.
+     * @description The region ID of the Server Load Balancer (SLB) instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

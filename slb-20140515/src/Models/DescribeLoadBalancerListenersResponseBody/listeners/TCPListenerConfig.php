@@ -11,8 +11,8 @@ class TCPListenerConfig extends Model
     /**
      * @description Indicates whether connection draining is enabled. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example off
      *
@@ -42,8 +42,8 @@ class TCPListenerConfig extends Model
     /**
      * @description Indicates whether the health check feature is enabled. Valid values:
      *
-     *   **on**: yes
-     *   **off**: no
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -80,7 +80,7 @@ class TCPListenerConfig extends Model
     public $healthCheckDomain;
 
     /**
-     * @description The HTTP status codes that are used to determine whether the backend server passes the health check.
+     * @description The HTTP status code that indicates a healthy backend server.
      *
      * @example http_2xx,http_3xx
      *
@@ -107,7 +107,7 @@ class TCPListenerConfig extends Model
     public $healthCheckMethod;
 
     /**
-     * @description The protocol that is used for health checks.
+     * @description The protocol that you want to use for health checks.
      *
      * @example tcp
      *
@@ -125,7 +125,7 @@ class TCPListenerConfig extends Model
     public $healthCheckURI;
 
     /**
-     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health check status of the backend server changes from **fail** to **success**.
      *
      * Valid values: **2** to **10**.
      * @example 4
@@ -135,7 +135,7 @@ class TCPListenerConfig extends Model
     public $healthyThreshold;
 
     /**
-     * @description The ID of the primary/secondary server group that is associated with the listener.
+     * @description The ID of the primary/secondary server group associated with the listener.
      *
      * @example rsp-0bfucw*****
      *
@@ -157,10 +157,10 @@ class TCPListenerConfig extends Model
     public $persistenceTimeout;
 
     /**
-     * @description Indicates whether the Proxy protocol is used to pass client IP addresses to backend servers. Valid values:
+     * @description Indicates whether the Proxy protocol is used to pass source client IP addresses to backend servers. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**: enables the burst feature for the data disk.
+     *   **false**: The task is not being retried.
      *
      * @example false
      *
@@ -169,7 +169,7 @@ class TCPListenerConfig extends Model
     public $proxyProtocolV2Enabled;
 
     /**
-     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health check status of the backend server changes from **success** to **fail**.
      *
      * Valid values: **2** to **10**.
      * @example 4
