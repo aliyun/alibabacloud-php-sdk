@@ -129,6 +129,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDeviceInternetPortResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEipRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEipResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleConditionControlRequest;
@@ -4253,6 +4255,53 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDiskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 调用DeleteEip删除后付费的弹性公网EIP实例。
+     *  *
+     * @param DeleteEipRequest $request DeleteEipRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteEipResponse DeleteEipResponse
+     */
+    public function deleteEipWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEip',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEipResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调用DeleteEip删除后付费的弹性公网EIP实例。
+     *  *
+     * @param DeleteEipRequest $request DeleteEipRequest
+     *
+     * @return DeleteEipResponse DeleteEipResponse
+     */
+    public function deleteEip($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEipWithOptions($request, $runtime);
     }
 
     /**
