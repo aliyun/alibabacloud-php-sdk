@@ -6,20 +6,8 @@ namespace AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RunDataAnalysisRequest extends Model
+class RunSqlGenerationRequest extends Model
 {
-    /**
-     * @var string[]
-     */
-    public $dataRole;
-
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $generateSqlOnly;
-
     /**
      * @description This parameter is required.
      *
@@ -28,7 +16,7 @@ class RunDataAnalysisRequest extends Model
     public $query;
 
     /**
-     * @example sessionID
+     * @example d5eced84-fd25-43ee-a245-adb4e4a8c3be
      *
      * @var string
      */
@@ -42,16 +30,18 @@ class RunDataAnalysisRequest extends Model
     public $specificationType;
 
     /**
-     * @var mixed[]
+     * @description This parameter is required.
+     *
+     * @example llm-2v3934xtp49esw64
+     *
+     * @var string
      */
-    public $userParams;
+    public $workspaceId;
     protected $_name = [
-        'dataRole'          => 'dataRole',
-        'generateSqlOnly'   => 'generateSqlOnly',
         'query'             => 'query',
         'sessionId'         => 'sessionId',
         'specificationType' => 'specificationType',
-        'userParams'        => 'userParams',
+        'workspaceId'       => 'workspaceId',
     ];
 
     public function validate()
@@ -61,12 +51,6 @@ class RunDataAnalysisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->dataRole) {
-            $res['dataRole'] = $this->dataRole;
-        }
-        if (null !== $this->generateSqlOnly) {
-            $res['generateSqlOnly'] = $this->generateSqlOnly;
-        }
         if (null !== $this->query) {
             $res['query'] = $this->query;
         }
@@ -76,8 +60,8 @@ class RunDataAnalysisRequest extends Model
         if (null !== $this->specificationType) {
             $res['specificationType'] = $this->specificationType;
         }
-        if (null !== $this->userParams) {
-            $res['userParams'] = $this->userParams;
+        if (null !== $this->workspaceId) {
+            $res['workspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -86,19 +70,11 @@ class RunDataAnalysisRequest extends Model
     /**
      * @param array $map
      *
-     * @return RunDataAnalysisRequest
+     * @return RunSqlGenerationRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['dataRole'])) {
-            if (!empty($map['dataRole'])) {
-                $model->dataRole = $map['dataRole'];
-            }
-        }
-        if (isset($map['generateSqlOnly'])) {
-            $model->generateSqlOnly = $map['generateSqlOnly'];
-        }
         if (isset($map['query'])) {
             $model->query = $map['query'];
         }
@@ -108,8 +84,8 @@ class RunDataAnalysisRequest extends Model
         if (isset($map['specificationType'])) {
             $model->specificationType = $map['specificationType'];
         }
-        if (isset($map['userParams'])) {
-            $model->userParams = $map['userParams'];
+        if (isset($map['workspaceId'])) {
+            $model->workspaceId = $map['workspaceId'];
         }
 
         return $model;

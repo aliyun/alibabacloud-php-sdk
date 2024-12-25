@@ -44,6 +44,10 @@ use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\ResyncTableRequest;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\ResyncTableResponse;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunDataAnalysisRequest;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunDataAnalysisResponse;
+use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunDataResultAnalysisRequest;
+use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunDataResultAnalysisResponse;
+use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunSqlGenerationRequest;
+use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\RunSqlGenerationResponse;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\SaveVirtualDatasourceDdlRequest;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\SaveVirtualDatasourceDdlResponse;
 use AlibabaCloud\SDK\DataAnalysisGBI\V20240823\Models\SyncRemoteTablesRequest;
@@ -1149,6 +1153,9 @@ class DataAnalysisGBI extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->dataRole)) {
+            $body['dataRole'] = $request->dataRole;
+        }
         if (!Utils::isUnset($request->generateSqlOnly)) {
             $body['generateSqlOnly'] = $request->generateSqlOnly;
         }
@@ -1160,6 +1167,9 @@ class DataAnalysisGBI extends OpenApiClient
         }
         if (!Utils::isUnset($request->specificationType)) {
             $body['specificationType'] = $request->specificationType;
+        }
+        if (!Utils::isUnset($request->userParams)) {
+            $body['userParams'] = $request->userParams;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1194,6 +1204,128 @@ class DataAnalysisGBI extends OpenApiClient
         $headers = [];
 
         return $this->runDataAnalysisWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 对结构化结果进行分析、可视化信息生成
+     *  *
+     * @param RunDataResultAnalysisRequest $request RunDataResultAnalysisRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunDataResultAnalysisResponse RunDataResultAnalysisResponse
+     */
+    public function runDataResultAnalysisWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->analysisMode)) {
+            $body['analysisMode'] = $request->analysisMode;
+        }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->sqlData)) {
+            $body['sqlData'] = $request->sqlData;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDataResultAnalysis',
+            'version'     => '2024-08-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gbi/runDataResultAnalysis',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunDataResultAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 对结构化结果进行分析、可视化信息生成
+     *  *
+     * @param RunDataResultAnalysisRequest $request RunDataResultAnalysisRequest
+     *
+     * @return RunDataResultAnalysisResponse RunDataResultAnalysisResponse
+     */
+    public function runDataResultAnalysis($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runDataResultAnalysisWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 运行sql生成
+     *  *
+     * @param RunSqlGenerationRequest $request RunSqlGenerationRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunSqlGenerationResponse RunSqlGenerationResponse
+     */
+    public function runSqlGenerationWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['workspaceId'] = $request->workspaceId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->specificationType)) {
+            $body['specificationType'] = $request->specificationType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunSqlGeneration',
+            'version'     => '2024-08-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/gbi/runSqlGeneration',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunSqlGenerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 运行sql生成
+     *  *
+     * @param RunSqlGenerationRequest $request RunSqlGenerationRequest
+     *
+     * @return RunSqlGenerationResponse RunSqlGenerationResponse
+     */
+    public function runSqlGeneration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runSqlGenerationWithOptions($request, $headers, $runtime);
     }
 
     /**
