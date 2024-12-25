@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\AuthorizeAndroidInstanceRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\AuthorizeAndroidInstanceResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\BackupFileResponse;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\BatchGetAcpConnectionTicketRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\BatchGetAcpConnectionTicketResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CheckResourceStockResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\CreateAndroidInstanceGroupRequest;
@@ -314,6 +316,62 @@ class Edsaic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->backupFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量获取ticket
+     *  *
+     * @param BatchGetAcpConnectionTicketRequest $request BatchGetAcpConnectionTicketRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchGetAcpConnectionTicketResponse BatchGetAcpConnectionTicketResponse
+     */
+    public function batchGetAcpConnectionTicketWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endUserId)) {
+            $query['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->instanceGroupId)) {
+            $query['InstanceGroupId'] = $request->instanceGroupId;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->instanceTasks)) {
+            $query['InstanceTasks'] = $request->instanceTasks;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchGetAcpConnectionTicket',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchGetAcpConnectionTicketResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量获取ticket
+     *  *
+     * @param BatchGetAcpConnectionTicketRequest $request BatchGetAcpConnectionTicketRequest
+     *
+     * @return BatchGetAcpConnectionTicketResponse BatchGetAcpConnectionTicketResponse
+     */
+    public function batchGetAcpConnectionTicket($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchGetAcpConnectionTicketWithOptions($request, $runtime);
     }
 
     /**
