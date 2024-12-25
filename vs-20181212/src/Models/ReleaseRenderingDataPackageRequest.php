@@ -6,14 +6,18 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateClusterResponseBody extends Model
+class ReleaseRenderingDataPackageRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
+     * @example dp-9f8c57355d224ad7beaf95e145f22111
+     *
      * @var string
      */
-    public $requestId;
+    public $dataPackageId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'dataPackageId' => 'DataPackageId',
     ];
 
     public function validate()
@@ -23,8 +27,8 @@ class UpdateClusterResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->dataPackageId) {
+            $res['DataPackageId'] = $this->dataPackageId;
         }
 
         return $res;
@@ -33,13 +37,13 @@ class UpdateClusterResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateClusterResponseBody
+     * @return ReleaseRenderingDataPackageRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DataPackageId'])) {
+            $model->dataPackageId = $map['DataPackageId'];
         }
 
         return $model;

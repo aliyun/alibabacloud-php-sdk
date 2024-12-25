@@ -11,8 +11,6 @@ class DeleteTemplateRequest extends Model
     /**
      * @description This parameter is required.
      *
-     * @example 323*****998-cn-qingdao
-     *
      * @var string
      */
     public $id;

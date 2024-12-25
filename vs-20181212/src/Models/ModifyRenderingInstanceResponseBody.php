@@ -4,23 +4,20 @@
 
 namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeContainerInstanceIdResponseBody\instanceDetail;
 use AlibabaCloud\Tea\Model;
 
-class DescribeContainerInstanceIdResponseBody extends Model
+class ModifyRenderingInstanceResponseBody extends Model
 {
     /**
-     * @var instanceDetail
-     */
-    public $instanceDetail;
-
-    /**
+     * @description Id of the request
+     *
+     * @example 6DFE7B89-8532-566F-B5CE-924B10FCE7AC
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'instanceDetail' => 'InstanceDetail',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -30,9 +27,6 @@ class DescribeContainerInstanceIdResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->instanceDetail) {
-            $res['InstanceDetail'] = null !== $this->instanceDetail ? $this->instanceDetail->toMap() : null;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,14 +37,11 @@ class DescribeContainerInstanceIdResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeContainerInstanceIdResponseBody
+     * @return ModifyRenderingInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceDetail'])) {
-            $model->instanceDetail = instanceDetail::fromMap($map['InstanceDetail']);
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

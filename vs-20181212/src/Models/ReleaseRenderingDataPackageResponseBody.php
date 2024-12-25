@@ -6,9 +6,13 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteClusterResponseBody extends Model
+class ReleaseRenderingDataPackageResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
+     * @example 5BEF36E7-3838-5B92-BA32-87DBF1425ABC
+     *
      * @var string
      */
     public $requestId;
@@ -33,7 +37,7 @@ class DeleteClusterResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteClusterResponseBody
+     * @return ReleaseRenderingDataPackageResponseBody
      */
     public static function fromMap($map = [])
     {

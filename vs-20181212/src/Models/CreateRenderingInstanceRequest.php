@@ -22,6 +22,11 @@ class CreateRenderingInstanceRequest extends Model
     public $clientInfo;
 
     /**
+     * @var string
+     */
+    public $instanceBillingCycle;
+
+    /**
      * @example PrePaid
      *
      * @var string
@@ -57,14 +62,21 @@ class CreateRenderingInstanceRequest extends Model
      * @var string
      */
     public $renderingSpec;
+
+    /**
+     * @var string
+     */
+    public $storageSize;
     protected $_name = [
         'autoRenew'            => 'AutoRenew',
         'clientInfo'           => 'ClientInfo',
+        'instanceBillingCycle' => 'InstanceBillingCycle',
         'instanceChargeType'   => 'InstanceChargeType',
         'internetChargeType'   => 'InternetChargeType',
         'internetMaxBandwidth' => 'InternetMaxBandwidth',
         'period'               => 'Period',
         'renderingSpec'        => 'RenderingSpec',
+        'storageSize'          => 'StorageSize',
     ];
 
     public function validate()
@@ -80,6 +92,9 @@ class CreateRenderingInstanceRequest extends Model
         if (null !== $this->clientInfo) {
             $res['ClientInfo'] = null !== $this->clientInfo ? $this->clientInfo->toMap() : null;
         }
+        if (null !== $this->instanceBillingCycle) {
+            $res['InstanceBillingCycle'] = $this->instanceBillingCycle;
+        }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
@@ -94,6 +109,9 @@ class CreateRenderingInstanceRequest extends Model
         }
         if (null !== $this->renderingSpec) {
             $res['RenderingSpec'] = $this->renderingSpec;
+        }
+        if (null !== $this->storageSize) {
+            $res['StorageSize'] = $this->storageSize;
         }
 
         return $res;
@@ -113,6 +131,9 @@ class CreateRenderingInstanceRequest extends Model
         if (isset($map['ClientInfo'])) {
             $model->clientInfo = clientInfo::fromMap($map['ClientInfo']);
         }
+        if (isset($map['InstanceBillingCycle'])) {
+            $model->instanceBillingCycle = $map['InstanceBillingCycle'];
+        }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
@@ -127,6 +148,9 @@ class CreateRenderingInstanceRequest extends Model
         }
         if (isset($map['RenderingSpec'])) {
             $model->renderingSpec = $map['RenderingSpec'];
+        }
+        if (isset($map['StorageSize'])) {
+            $model->storageSize = $map['StorageSize'];
         }
 
         return $model;

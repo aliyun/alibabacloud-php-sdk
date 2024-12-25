@@ -21,6 +21,11 @@ class CreateRenderingInstanceShrinkRequest extends Model
     public $clientInfoShrink;
 
     /**
+     * @var string
+     */
+    public $instanceBillingCycle;
+
+    /**
      * @example PrePaid
      *
      * @var string
@@ -56,14 +61,21 @@ class CreateRenderingInstanceShrinkRequest extends Model
      * @var string
      */
     public $renderingSpec;
+
+    /**
+     * @var string
+     */
+    public $storageSize;
     protected $_name = [
         'autoRenew'            => 'AutoRenew',
         'clientInfoShrink'     => 'ClientInfo',
+        'instanceBillingCycle' => 'InstanceBillingCycle',
         'instanceChargeType'   => 'InstanceChargeType',
         'internetChargeType'   => 'InternetChargeType',
         'internetMaxBandwidth' => 'InternetMaxBandwidth',
         'period'               => 'Period',
         'renderingSpec'        => 'RenderingSpec',
+        'storageSize'          => 'StorageSize',
     ];
 
     public function validate()
@@ -79,6 +91,9 @@ class CreateRenderingInstanceShrinkRequest extends Model
         if (null !== $this->clientInfoShrink) {
             $res['ClientInfo'] = $this->clientInfoShrink;
         }
+        if (null !== $this->instanceBillingCycle) {
+            $res['InstanceBillingCycle'] = $this->instanceBillingCycle;
+        }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
         }
@@ -93,6 +108,9 @@ class CreateRenderingInstanceShrinkRequest extends Model
         }
         if (null !== $this->renderingSpec) {
             $res['RenderingSpec'] = $this->renderingSpec;
+        }
+        if (null !== $this->storageSize) {
+            $res['StorageSize'] = $this->storageSize;
         }
 
         return $res;
@@ -112,6 +130,9 @@ class CreateRenderingInstanceShrinkRequest extends Model
         if (isset($map['ClientInfo'])) {
             $model->clientInfoShrink = $map['ClientInfo'];
         }
+        if (isset($map['InstanceBillingCycle'])) {
+            $model->instanceBillingCycle = $map['InstanceBillingCycle'];
+        }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
         }
@@ -126,6 +147,9 @@ class CreateRenderingInstanceShrinkRequest extends Model
         }
         if (isset($map['RenderingSpec'])) {
             $model->renderingSpec = $map['RenderingSpec'];
+        }
+        if (isset($map['StorageSize'])) {
+            $model->storageSize = $map['StorageSize'];
         }
 
         return $model;

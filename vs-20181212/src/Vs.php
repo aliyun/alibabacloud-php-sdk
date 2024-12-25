@@ -58,8 +58,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousAdjustRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousAdjustResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousMoveRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ContinuousMoveResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CreateClusterRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceAlarmResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateDeviceRequest;
@@ -70,6 +68,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateParentPlatformResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingDataPackageRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingDataPackageResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceGatewayRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceGatewayResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateRenderingInstanceRequest;
@@ -81,8 +81,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\CreateTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteCloudAppRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteCloudAppResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteClusterRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteDirectoryRequest;
@@ -110,14 +108,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsStreamsNotifyUrlConfigRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DeleteVsStreamsNotifyUrlConfigResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAccountStatRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeAccountStatResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterDevicesRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterDevicesResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClusterResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClustersRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeClustersResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeContainerInstanceIdRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeContainerInstanceIdResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceChannelsRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceChannelsResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeDeviceGatewayRequest;
@@ -169,8 +159,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeTemplatesResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeUserDevicesRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeUserDevicesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVodStreamURLRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVodStreamURLResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\DescribeVsCertificateDetailRequest;
@@ -261,6 +249,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyParentPlatformResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceBandwidthRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceBandwidthResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyRenderingInstanceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ModifyTemplateResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\OpenVsServiceResponse;
@@ -268,6 +258,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingInstanceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingInstanceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingDataPackageRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingDataPackageResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingInstanceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingInstanceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RenewRenderingInstanceRequest;
@@ -324,8 +316,6 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UnlockDeviceResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateCloudAppInfoRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateCloudAppInfoResponse;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateClusterRequest;
-use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateClusterResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateFileInfoRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateFileInfoResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\UpdateRenderingInstanceConfigurationRequest;
@@ -1737,64 +1727,6 @@ class Vs extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request CreateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateClusterResponse CreateClusterResponse
-     */
-    public function createClusterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->internalPorts)) {
-            $query['InternalPorts'] = $request->internalPorts;
-        }
-        if (!Utils::isUnset($request->maintainTime)) {
-            $query['MaintainTime'] = $request->maintainTime;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateCluster',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param CreateClusterRequest $request CreateClusterRequest
-     *
-     * @return CreateClusterResponse CreateClusterResponse
-     */
-    public function createCluster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createClusterWithOptions($request, $runtime);
-    }
-
-    /**
      * @param CreateDeviceRequest $request CreateDeviceRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2172,6 +2104,56 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @summary 创建云渲染数据包
+     *  *
+     * @param CreateRenderingDataPackageRequest $request CreateRenderingDataPackageRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRenderingDataPackageResponse CreateRenderingDataPackageResponse
+     */
+    public function createRenderingDataPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRenderingDataPackage',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRenderingDataPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建云渲染数据包
+     *  *
+     * @param CreateRenderingDataPackageRequest $request CreateRenderingDataPackageRequest
+     *
+     * @return CreateRenderingDataPackageResponse CreateRenderingDataPackageResponse
+     */
+    public function createRenderingDataPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRenderingDataPackageWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 申请云渲染资源实例
      *  *
      * @param CreateRenderingInstanceRequest $tmpReq  CreateRenderingInstanceRequest
@@ -2194,6 +2176,9 @@ class Vs extends OpenApiClient
         if (!Utils::isUnset($request->clientInfoShrink)) {
             $query['ClientInfo'] = $request->clientInfoShrink;
         }
+        if (!Utils::isUnset($request->instanceBillingCycle)) {
+            $query['InstanceBillingCycle'] = $request->instanceBillingCycle;
+        }
         if (!Utils::isUnset($request->instanceChargeType)) {
             $query['InstanceChargeType'] = $request->instanceChargeType;
         }
@@ -2208,6 +2193,9 @@ class Vs extends OpenApiClient
         }
         if (!Utils::isUnset($request->renderingSpec)) {
             $query['RenderingSpec'] = $request->renderingSpec;
+        }
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2488,52 +2476,6 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCloudAppWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteClusterRequest $request DeleteClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteClusterResponse DeleteClusterResponse
-     */
-    public function deleteClusterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteCluster',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteClusterRequest $request DeleteClusterRequest
-     *
-     * @return DeleteClusterResponse DeleteClusterResponse
-     */
-    public function deleteCluster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -3155,214 +3097,6 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccountStatWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeClusterRequest $request DescribeClusterRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeClusterResponse DescribeClusterResponse
-     */
-    public function describeClusterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeCluster',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeClusterRequest $request DescribeClusterRequest
-     *
-     * @return DescribeClusterResponse DescribeClusterResponse
-     */
-    public function describeCluster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeClusterWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeClusterDevicesRequest $request DescribeClusterDevicesRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeClusterDevicesResponse DescribeClusterDevicesResponse
-     */
-    public function describeClusterDevicesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->edgeNodeName)) {
-            $query['EdgeNodeName'] = $request->edgeNodeName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->platform)) {
-            $query['Platform'] = $request->platform;
-        }
-        if (!Utils::isUnset($request->specification)) {
-            $query['Specification'] = $request->specification;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeClusterDevices',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeClusterDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeClusterDevicesRequest $request DescribeClusterDevicesRequest
-     *
-     * @return DescribeClusterDevicesResponse DescribeClusterDevicesResponse
-     */
-    public function describeClusterDevices($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeClusterDevicesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeClustersRequest $request DescribeClustersRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeClustersResponse DescribeClustersResponse
-     */
-    public function describeClustersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeClusters',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeClustersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeClustersRequest $request DescribeClustersRequest
-     *
-     * @return DescribeClustersResponse DescribeClustersResponse
-     */
-    public function describeClusters($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeClustersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeContainerInstanceIdRequest $request DescribeContainerInstanceIdRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeContainerInstanceIdResponse DescribeContainerInstanceIdResponse
-     */
-    public function describeContainerInstanceIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->nodeName)) {
-            $query['NodeName'] = $request->nodeName;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->podIndex)) {
-            $query['PodIndex'] = $request->podIndex;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeContainerInstanceId',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeContainerInstanceIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeContainerInstanceIdRequest $request DescribeContainerInstanceIdRequest
-     *
-     * @return DescribeContainerInstanceIdResponse DescribeContainerInstanceIdResponse
-     */
-    public function describeContainerInstanceId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeContainerInstanceIdWithOptions($request, $runtime);
     }
 
     /**
@@ -4799,55 +4533,6 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTemplatesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeUserDevicesRequest $request DescribeUserDevicesRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeUserDevicesResponse DescribeUserDevicesResponse
-     */
-    public function describeUserDevicesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ensInstanceIds)) {
-            $query['EnsInstanceIds'] = $request->ensInstanceIds;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->serverName)) {
-            $query['ServerName'] = $request->serverName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeUserDevices',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeUserDevicesRequest $request DescribeUserDevicesRequest
-     *
-     * @return DescribeUserDevicesResponse DescribeUserDevicesResponse
-     */
-    public function describeUserDevices($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUserDevicesWithOptions($request, $runtime);
     }
 
     /**
@@ -7236,6 +6921,59 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @summary 变配云渲染资源实例
+     *  *
+     * @param ModifyRenderingInstanceRequest $request ModifyRenderingInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyRenderingInstanceResponse ModifyRenderingInstanceResponse
+     */
+    public function modifyRenderingInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        if (!Utils::isUnset($request->renderingSpec)) {
+            $query['RenderingSpec'] = $request->renderingSpec;
+        }
+        if (!Utils::isUnset($request->storageSize)) {
+            $query['StorageSize'] = $request->storageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyRenderingInstance',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyRenderingInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 变配云渲染资源实例
+     *  *
+     * @param ModifyRenderingInstanceRequest $request ModifyRenderingInstanceRequest
+     *
+     * @return ModifyRenderingInstanceResponse ModifyRenderingInstanceResponse
+     */
+    public function modifyRenderingInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyRenderingInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 修改云渲染实例限速带宽
      *  *
      * @param ModifyRenderingInstanceBandwidthRequest $request ModifyRenderingInstanceBandwidthRequest
@@ -7519,6 +7257,53 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebootRenderingInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 释放云渲染数据包
+     *  *
+     * @param ReleaseRenderingDataPackageRequest $request ReleaseRenderingDataPackageRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ReleaseRenderingDataPackageResponse ReleaseRenderingDataPackageResponse
+     */
+    public function releaseRenderingDataPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataPackageId)) {
+            $query['DataPackageId'] = $request->dataPackageId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReleaseRenderingDataPackage',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReleaseRenderingDataPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 释放云渲染数据包
+     *  *
+     * @param ReleaseRenderingDataPackageRequest $request ReleaseRenderingDataPackageRequest
+     *
+     * @return ReleaseRenderingDataPackageResponse ReleaseRenderingDataPackageResponse
+     */
+    public function releaseRenderingDataPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->releaseRenderingDataPackageWithOptions($request, $runtime);
     }
 
     /**
@@ -8949,70 +8734,6 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCloudAppInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UpdateClusterRequest $request UpdateClusterRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UpdateClusterResponse UpdateClusterResponse
-     */
-    public function updateClusterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clusterId)) {
-            $query['ClusterId'] = $request->clusterId;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->effectiveTime)) {
-            $query['EffectiveTime'] = $request->effectiveTime;
-        }
-        if (!Utils::isUnset($request->internalPorts)) {
-            $query['InternalPorts'] = $request->internalPorts;
-        }
-        if (!Utils::isUnset($request->maintainTime)) {
-            $query['MaintainTime'] = $request->maintainTime;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $query['SecurityGroupId'] = $request->securityGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateCluster',
-            'version'     => '2018-12-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param UpdateClusterRequest $request UpdateClusterRequest
-     *
-     * @return UpdateClusterResponse UpdateClusterResponse
-     */
-    public function updateCluster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->updateClusterWithOptions($request, $runtime);
     }
 
     /**

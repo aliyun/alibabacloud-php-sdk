@@ -44,6 +44,11 @@ class DescribeRenderingInstanceResponseBody extends Model
     public $renderingInstanceId;
 
     /**
+     * @var string
+     */
+    public $renderingSpec;
+
+    /**
      * @var renderingStatus
      */
     public $renderingStatus;
@@ -56,6 +61,11 @@ class DescribeRenderingInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $storageSize;
+
+    /**
      * @var systemInfo
      */
     public $systemInfo;
@@ -65,8 +75,10 @@ class DescribeRenderingInstanceResponseBody extends Model
         'hostname'            => 'Hostname',
         'portMappings'        => 'PortMappings',
         'renderingInstanceId' => 'RenderingInstanceId',
+        'renderingSpec'       => 'RenderingSpec',
         'renderingStatus'     => 'RenderingStatus',
         'requestId'           => 'RequestId',
+        'storageSize'         => 'StorageSize',
         'systemInfo'          => 'SystemInfo',
     ];
 
@@ -98,11 +110,17 @@ class DescribeRenderingInstanceResponseBody extends Model
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
+        if (null !== $this->renderingSpec) {
+            $res['RenderingSpec'] = $this->renderingSpec;
+        }
         if (null !== $this->renderingStatus) {
             $res['RenderingStatus'] = null !== $this->renderingStatus ? $this->renderingStatus->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->storageSize) {
+            $res['StorageSize'] = $this->storageSize;
         }
         if (null !== $this->systemInfo) {
             $res['SystemInfo'] = null !== $this->systemInfo ? $this->systemInfo->toMap() : null;
@@ -140,11 +158,17 @@ class DescribeRenderingInstanceResponseBody extends Model
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }
+        if (isset($map['RenderingSpec'])) {
+            $model->renderingSpec = $map['RenderingSpec'];
+        }
         if (isset($map['RenderingStatus'])) {
             $model->renderingStatus = renderingStatus::fromMap($map['RenderingStatus']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['StorageSize'])) {
+            $model->storageSize = $map['StorageSize'];
         }
         if (isset($map['SystemInfo'])) {
             $model->systemInfo = systemInfo::fromMap($map['SystemInfo']);

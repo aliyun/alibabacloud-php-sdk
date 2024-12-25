@@ -6,23 +6,11 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListRenderingInstancesRequest extends Model
+class ModifyRenderingInstanceRequest extends Model
 {
     /**
-     * @example 1
+     * @description This parameter is required.
      *
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @example 10
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
      * @example render-9f8c57355d224ad7beaf95e145f22111
      *
      * @var string
@@ -37,12 +25,12 @@ class ListRenderingInstancesRequest extends Model
     public $renderingSpec;
 
     /**
-     * @var int
+     * @example 20
+     *
+     * @var string
      */
     public $storageSize;
     protected $_name = [
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
         'renderingInstanceId' => 'RenderingInstanceId',
         'renderingSpec'       => 'RenderingSpec',
         'storageSize'         => 'StorageSize',
@@ -55,12 +43,6 @@ class ListRenderingInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->renderingInstanceId) {
             $res['RenderingInstanceId'] = $this->renderingInstanceId;
         }
@@ -77,17 +59,11 @@ class ListRenderingInstancesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListRenderingInstancesRequest
+     * @return ModifyRenderingInstanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['RenderingInstanceId'])) {
             $model->renderingInstanceId = $map['RenderingInstanceId'];
         }

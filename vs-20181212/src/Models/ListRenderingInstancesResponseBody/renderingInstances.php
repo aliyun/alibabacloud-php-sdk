@@ -28,10 +28,16 @@ class renderingInstances extends Model
      * @var string
      */
     public $renderingSpec;
+
+    /**
+     * @var int
+     */
+    public $storageSize;
     protected $_name = [
         'creationTime'        => 'CreationTime',
         'renderingInstanceId' => 'RenderingInstanceId',
         'renderingSpec'       => 'RenderingSpec',
+        'storageSize'         => 'StorageSize',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class renderingInstances extends Model
         }
         if (null !== $this->renderingSpec) {
             $res['RenderingSpec'] = $this->renderingSpec;
+        }
+        if (null !== $this->storageSize) {
+            $res['StorageSize'] = $this->storageSize;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class renderingInstances extends Model
         }
         if (isset($map['RenderingSpec'])) {
             $model->renderingSpec = $map['RenderingSpec'];
+        }
+        if (isset($map['StorageSize'])) {
+            $model->storageSize = $map['StorageSize'];
         }
 
         return $model;
