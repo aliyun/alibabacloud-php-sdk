@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $openingRemarks;
+
+    /**
      * @example 1728545917713234
      *
      * @var string
      */
     public $sessionId;
     protected $_name = [
-        'sessionId' => 'sessionId',
+        'openingRemarks' => 'openingRemarks',
+        'sessionId'      => 'sessionId',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->openingRemarks) {
+            $res['openingRemarks'] = $this->openingRemarks;
+        }
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
@@ -40,6 +49,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['openingRemarks'])) {
+            $model->openingRemarks = $map['openingRemarks'];
+        }
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }

@@ -18,6 +18,11 @@ class CreateDialogRequest extends Model
     public $channel;
 
     /**
+     * @var bool
+     */
+    public $enableLibrary;
+
+    /**
      * @example null
      *
      * @var mixed[]
@@ -34,8 +39,6 @@ class CreateDialogRequest extends Model
     public $playCode;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $qaLibraryList;
@@ -48,12 +51,19 @@ class CreateDialogRequest extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $selfDirected;
     protected $_name = [
         'channel'       => 'channel',
+        'enableLibrary' => 'enableLibrary',
         'metaData'      => 'metaData',
         'playCode'      => 'playCode',
         'qaLibraryList' => 'qaLibraryList',
         'requestId'     => 'requestId',
+        'selfDirected'  => 'selfDirected',
     ];
 
     public function validate()
@@ -66,6 +76,9 @@ class CreateDialogRequest extends Model
         if (null !== $this->channel) {
             $res['channel'] = $this->channel;
         }
+        if (null !== $this->enableLibrary) {
+            $res['enableLibrary'] = $this->enableLibrary;
+        }
         if (null !== $this->metaData) {
             $res['metaData'] = $this->metaData;
         }
@@ -77,6 +90,9 @@ class CreateDialogRequest extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->selfDirected) {
+            $res['selfDirected'] = $this->selfDirected;
         }
 
         return $res;
@@ -93,6 +109,9 @@ class CreateDialogRequest extends Model
         if (isset($map['channel'])) {
             $model->channel = $map['channel'];
         }
+        if (isset($map['enableLibrary'])) {
+            $model->enableLibrary = $map['enableLibrary'];
+        }
         if (isset($map['metaData'])) {
             $model->metaData = $map['metaData'];
         }
@@ -106,6 +125,9 @@ class CreateDialogRequest extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['selfDirected'])) {
+            $model->selfDirected = $map['selfDirected'];
         }
 
         return $model;

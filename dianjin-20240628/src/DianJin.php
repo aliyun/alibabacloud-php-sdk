@@ -61,6 +61,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\InvokePluginResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\PreviewDocumentResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RealTimeDialogRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\RealTimeDialogResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RebuildTaskRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RebuildTaskResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecallDocumentRequest;
@@ -212,6 +214,9 @@ class DianJin extends OpenApiClient
         if (!Utils::isUnset($request->channel)) {
             $body['channel'] = $request->channel;
         }
+        if (!Utils::isUnset($request->enableLibrary)) {
+            $body['enableLibrary'] = $request->enableLibrary;
+        }
         if (!Utils::isUnset($request->metaData)) {
             $body['metaData'] = $request->metaData;
         }
@@ -223,6 +228,9 @@ class DianJin extends OpenApiClient
         }
         if (!Utils::isUnset($request->requestId)) {
             $body['requestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->selfDirected)) {
+            $body['selfDirected'] = $request->selfDirected;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1809,6 +1817,79 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->reIndexWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 实时对话
+     *  *
+     * @param string                $workspaceId
+     * @param RealTimeDialogRequest $request     RealTimeDialogRequest
+     * @param string[]              $headers     map
+     * @param RuntimeOptions        $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RealTimeDialogResponse RealTimeDialogResponse
+     */
+    public function realTimeDialogWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->analysis)) {
+            $body['analysis'] = $request->analysis;
+        }
+        if (!Utils::isUnset($request->bizType)) {
+            $body['bizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->conversationModel)) {
+            $body['conversationModel'] = $request->conversationModel;
+        }
+        if (!Utils::isUnset($request->dialogMemoryTurns)) {
+            $body['dialogMemoryTurns'] = $request->dialogMemoryTurns;
+        }
+        if (!Utils::isUnset($request->metaData)) {
+            $body['metaData'] = $request->metaData;
+        }
+        if (!Utils::isUnset($request->recommend)) {
+            $body['recommend'] = $request->recommend;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['sessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->stream)) {
+            $body['stream'] = $request->stream;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RealTimeDialog',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/realtime/dialog/chat',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RealTimeDialogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 实时对话
+     *  *
+     * @param string                $workspaceId
+     * @param RealTimeDialogRequest $request     RealTimeDialogRequest
+     *
+     * @return RealTimeDialogResponse RealTimeDialogResponse
+     */
+    public function realTimeDialog($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->realTimeDialogWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
