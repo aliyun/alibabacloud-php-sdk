@@ -102,6 +102,8 @@ class gateways extends Model
     public $replicas;
 
     /**
+     * @description Specifies whether to enable HTTP to HTTPS redirection.
+     *
      * @example true
      *
      * @var bool

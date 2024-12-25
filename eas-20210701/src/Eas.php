@@ -73,6 +73,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskReportResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGatewayResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGroupEndpointsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGroupResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceLogResponse;
@@ -80,6 +81,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceAutoScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceCronScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceDiagnosisResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceEndpointsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceEventRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceEventResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceInstanceDiagnosisResponse;
@@ -2269,6 +2271,52 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @summary 获取群组端点列表
+     *  *
+     * @param string         $ClusterId
+     * @param string         $GroupName
+     * @param string[]       $headers   map
+     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DescribeGroupEndpointsResponse DescribeGroupEndpointsResponse
+     */
+    public function describeGroupEndpointsWithOptions($ClusterId, $GroupName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupEndpoints',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/groups/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($GroupName) . '/endpoints',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGroupEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取群组端点列表
+     *  *
+     * @param string $ClusterId
+     * @param string $GroupName
+     *
+     * @return DescribeGroupEndpointsResponse DescribeGroupEndpointsResponse
+     */
+    public function describeGroupEndpoints($ClusterId, $GroupName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeGroupEndpointsWithOptions($ClusterId, $GroupName, $headers, $runtime);
+    }
+
+    /**
      * @summary Queries the information about a resource group.
      *  *
      * @param string         $ClusterId
@@ -2588,6 +2636,52 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->describeServiceDiagnosisWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取服务端点列表
+     *  *
+     * @param string         $ClusterId
+     * @param string         $ServiceName
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DescribeServiceEndpointsResponse DescribeServiceEndpointsResponse
+     */
+    public function describeServiceEndpointsWithOptions($ClusterId, $ServiceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceEndpoints',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/endpoints',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServiceEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取服务端点列表
+     *  *
+     * @param string $ClusterId
+     * @param string $ServiceName
+     *
+     * @return DescribeServiceEndpointsResponse DescribeServiceEndpointsResponse
+     */
+    public function describeServiceEndpoints($ClusterId, $ServiceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeServiceEndpointsWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**
@@ -3365,7 +3459,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关内网支持的可用区
+     * @summary Obtains the zones supported by a gateway within an intranet.
      *  *
      * @param string         $GatewayId
      * @param string         $ClusterId
@@ -3395,7 +3489,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关内网支持的可用区
+     * @summary Obtains the zones supported by a gateway within an intranet.
      *  *
      * @param string $GatewayId
      * @param string $ClusterId

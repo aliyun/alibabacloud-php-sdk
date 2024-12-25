@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayIntranetSupportedZoneResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 40325405-579C-4D82****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListGatewayIntranetSupportedZoneResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The zones that are supported by the region.
+     *
      * @var string[]
      */
     public $zones;
