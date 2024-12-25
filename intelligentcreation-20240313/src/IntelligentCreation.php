@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CloseAICoachTaskSessio
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CloseAICoachTaskSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CountTextResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAICoachTaskSessionResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\CreateAnchorRequest;
@@ -56,6 +58,8 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTemplateRequest
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\GetTextTemplateResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\InteractTextRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\InteractTextResponse;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageRequest;
+use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskPageRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachTaskPageResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAnchorRequest;
@@ -102,7 +106,6 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleR
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -112,9 +115,6 @@ class IntelligentCreation extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'IntelligentCreation';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('intelligentcreation', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -180,11 +180,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddTextFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddTextFeedbackResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddTextFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -238,11 +235,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BatchGetProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchGetProjectTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchGetProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -296,11 +290,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BatchQueryIndividuationTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BatchQueryIndividuationTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return BatchQueryIndividuationTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -352,11 +343,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CheckSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CheckSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CheckSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -408,11 +396,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CloseAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CloseAICoachTaskSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CloseAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -470,11 +455,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CountTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CountTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return CountTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -490,6 +472,62 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->countTextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询剧本列表
+     *  *
+     * @param CreateAICoachTaskRequest $request CreateAICoachTaskRequest
+     * @param string[]                 $headers map
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAICoachTaskResponse CreateAICoachTaskResponse
+     */
+    public function createAICoachTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $body['requestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->scriptRecordId)) {
+            $body['scriptRecordId'] = $request->scriptRecordId;
+        }
+        if (!Utils::isUnset($request->studentId)) {
+            $body['studentId'] = $request->studentId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAICoachTask',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/createTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAICoachTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询剧本列表
+     *  *
+     * @param CreateAICoachTaskRequest $request CreateAICoachTaskRequest
+     *
+     * @return CreateAICoachTaskResponse CreateAICoachTaskResponse
+     */
+    public function createAICoachTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAICoachTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -526,11 +564,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAICoachTaskSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -591,11 +626,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAnchorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAnchorResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAnchorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -641,11 +673,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateIllustrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIllustrationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIllustrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -704,11 +733,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateIndividuationProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIndividuationProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIndividuationProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -763,11 +789,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateIndividuationTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIndividuationTextTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIndividuationTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -855,11 +878,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateRealisticPortraitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateRealisticPortraitResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateRealisticPortraitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -904,11 +924,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTextTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -957,11 +974,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteIndividuationProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIndividuationProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIndividuationProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1010,11 +1024,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteIndividuationTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIndividuationTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIndividuationTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1066,11 +1077,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return FinishAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return FinishAICoachTaskSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return FinishAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1128,11 +1136,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAICoachTaskSessionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAICoachTaskSessionHistoryResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAICoachTaskSessionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1184,11 +1189,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAICoachTaskSessionReportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAICoachTaskSessionReportResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAICoachTaskSessionReportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1232,11 +1234,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIllustrationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIllustrationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIllustrationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1281,11 +1280,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIllustrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIllustrationTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIllustrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1338,11 +1334,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOssUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOssUploadTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOssUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1394,11 +1387,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProjectTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1441,11 +1431,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1488,11 +1475,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTextTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1541,11 +1525,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTextTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTextTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTextTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1600,11 +1581,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return InteractTextResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InteractTextResponse::fromMap($this->execute($params, $req, $runtime));
+        return InteractTextResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1620,6 +1598,62 @@ class IntelligentCreation extends OpenApiClient
         $headers = [];
 
         return $this->interactTextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询剧本列表
+     *  *
+     * @param ListAICoachScriptPageRequest $request ListAICoachScriptPageRequest
+     * @param string[]                     $headers map
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAICoachScriptPageResponse ListAICoachScriptPageResponse
+     */
+    public function listAICoachScriptPageWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAICoachScriptPage',
+            'version'     => '2024-03-13',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/yic/yic-console/openService/v1/aicoach/pageScript',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAICoachScriptPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询剧本列表
+     *  *
+     * @param ListAICoachScriptPageRequest $request ListAICoachScriptPageRequest
+     *
+     * @return ListAICoachScriptPageResponse ListAICoachScriptPageResponse
+     */
+    public function listAICoachScriptPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAICoachScriptPageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1665,11 +1699,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAICoachTaskPageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAICoachTaskPageResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAICoachTaskPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1739,11 +1770,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAnchorResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAnchorResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAnchorResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1797,11 +1825,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAvatarProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1850,11 +1875,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTextThemesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTextThemesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTextThemesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1924,11 +1946,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTextsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTextsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTextsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1989,11 +2008,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListVoiceModelsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListVoiceModelsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListVoiceModelsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2051,11 +2067,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OperateAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OperateAvatarProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return OperateAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2104,11 +2117,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryAvatarProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2157,11 +2167,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryAvatarResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryAvatarResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryAvatarResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2210,11 +2217,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryIndividuationTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryIndividuationTextTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryIndividuationTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2277,11 +2281,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QuerySessionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QuerySessionInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return QuerySessionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2324,11 +2325,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryTextStreamResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryTextStreamResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryTextStreamResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2395,11 +2393,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SaveAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SaveAvatarProjectResponse::fromMap($this->execute($params, $req, $runtime));
+        return SaveAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2442,11 +2437,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SelectImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SelectImageTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SelectImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2495,11 +2487,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SelectResourceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SelectResourceResponse::fromMap($this->execute($params, $req, $runtime));
+        return SelectResourceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2557,11 +2546,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SendSdkMessageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendSdkMessageResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendSdkMessageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2622,11 +2608,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SendTextMsgResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SendTextMsgResponse::fromMap($this->execute($params, $req, $runtime));
+        return SendTextMsgResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2681,11 +2664,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StartAvatarSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartAvatarSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartAvatarSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2737,11 +2717,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopAvatarSessionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopAvatarSessionResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopAvatarSessionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2790,11 +2767,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopProjectTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2852,11 +2826,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitProjectTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2920,11 +2891,8 @@ class IntelligentCreation extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return TransferPortraitStyleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return TransferPortraitStyleResponse::fromMap($this->execute($params, $req, $runtime));
+        return TransferPortraitStyleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
