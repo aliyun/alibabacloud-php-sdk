@@ -148,6 +148,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $customImageNetworkType;
+
+    /**
+     * @var string
+     */
     public $dotnet;
 
     /**
@@ -780,6 +785,7 @@ class data extends Model
         'configMapMountDesc'            => 'ConfigMapMountDesc',
         'cpu'                           => 'Cpu',
         'customHostAlias'               => 'CustomHostAlias',
+        'customImageNetworkType'        => 'CustomImageNetworkType',
         'dotnet'                        => 'Dotnet',
         'edasContainerVersion'          => 'EdasContainerVersion',
         'enableAhas'                    => 'EnableAhas',
@@ -894,6 +900,9 @@ class data extends Model
         }
         if (null !== $this->customHostAlias) {
             $res['CustomHostAlias'] = $this->customHostAlias;
+        }
+        if (null !== $this->customImageNetworkType) {
+            $res['CustomImageNetworkType'] = $this->customImageNetworkType;
         }
         if (null !== $this->dotnet) {
             $res['Dotnet'] = $this->dotnet;
@@ -1164,6 +1173,9 @@ class data extends Model
         }
         if (isset($map['CustomHostAlias'])) {
             $model->customHostAlias = $map['CustomHostAlias'];
+        }
+        if (isset($map['CustomImageNetworkType'])) {
+            $model->customImageNetworkType = $map['CustomImageNetworkType'];
         }
         if (isset($map['Dotnet'])) {
             $model->dotnet = $map['Dotnet'];

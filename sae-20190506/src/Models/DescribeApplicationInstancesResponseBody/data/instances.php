@@ -127,6 +127,11 @@ class instances extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $mainContainerStatus;
+
+    /**
      * @description The version of the package.
      *
      * @example 1609939496200
@@ -139,6 +144,11 @@ class instances extends Model
      * @var sidecarContainersStatus[]
      */
     public $sidecarContainersStatus;
+
+    /**
+     * @var string
+     */
+    public $unhealthyMessage;
 
     /**
      * @description The ID of the zone where the instance is deployed.
@@ -160,8 +170,10 @@ class instances extends Model
         'instanceContainerStatus'   => 'InstanceContainerStatus',
         'instanceHealthStatus'      => 'InstanceHealthStatus',
         'instanceId'                => 'InstanceId',
+        'mainContainerStatus'       => 'MainContainerStatus',
         'packageVersion'            => 'PackageVersion',
         'sidecarContainersStatus'   => 'SidecarContainersStatus',
+        'unhealthyMessage'          => 'UnhealthyMessage',
         'vSwitchId'                 => 'VSwitchId',
     ];
 
@@ -205,6 +217,9 @@ class instances extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->mainContainerStatus) {
+            $res['MainContainerStatus'] = $this->mainContainerStatus;
+        }
         if (null !== $this->packageVersion) {
             $res['PackageVersion'] = $this->packageVersion;
         }
@@ -216,6 +231,9 @@ class instances extends Model
                     $res['SidecarContainersStatus'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->unhealthyMessage) {
+            $res['UnhealthyMessage'] = $this->unhealthyMessage;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -265,6 +283,9 @@ class instances extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['MainContainerStatus'])) {
+            $model->mainContainerStatus = $map['MainContainerStatus'];
+        }
         if (isset($map['PackageVersion'])) {
             $model->packageVersion = $map['PackageVersion'];
         }
@@ -276,6 +297,9 @@ class instances extends Model
                     $model->sidecarContainersStatus[$n++] = null !== $item ? sidecarContainersStatus::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UnhealthyMessage'])) {
+            $model->unhealthyMessage = $map['UnhealthyMessage'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

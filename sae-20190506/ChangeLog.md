@@ -1,3 +1,11 @@
+2024-12-26 Version: 1.24.2
+- Update API CreateApplication: add param CustomImageNetworkType.
+- Update API DeployApplication: add param CustomImageNetworkType.
+- Update API DescribeApplicationConfig: update response param.
+- Update API DescribeApplicationInstances: add param InstanceId.
+- Update API DescribeApplicationInstances: update response param.
+
+
 2024-12-20 Version: 1.24.1
 - Update API DescribeApplicationInstances: update response param.
 

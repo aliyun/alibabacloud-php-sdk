@@ -134,6 +134,11 @@ class DeployApplicationShrinkRequest extends Model
     public $customHostAlias;
 
     /**
+     * @var string
+     */
+    public $customImageNetworkType;
+
+    /**
      * @description This parameter takes effect only for applications that are in the Stopped state. If you call the **DeployApplication** operation to manage a running application, the application is immediately redeployed.
      *
      *   **true** (default): specifies that the system immediately deploys the application, enables new configurations, and pulls application instances.
@@ -720,6 +725,7 @@ class DeployApplicationShrinkRequest extends Model
         'configMapMountDesc'               => 'ConfigMapMountDesc',
         'cpu'                              => 'Cpu',
         'customHostAlias'                  => 'CustomHostAlias',
+        'customImageNetworkType'           => 'CustomImageNetworkType',
         'deploy'                           => 'Deploy',
         'dotnet'                           => 'Dotnet',
         'edasContainerVersion'             => 'EdasContainerVersion',
@@ -819,6 +825,9 @@ class DeployApplicationShrinkRequest extends Model
         }
         if (null !== $this->customHostAlias) {
             $res['CustomHostAlias'] = $this->customHostAlias;
+        }
+        if (null !== $this->customImageNetworkType) {
+            $res['CustomImageNetworkType'] = $this->customImageNetworkType;
         }
         if (null !== $this->deploy) {
             $res['Deploy'] = $this->deploy;
@@ -1032,6 +1041,9 @@ class DeployApplicationShrinkRequest extends Model
         }
         if (isset($map['CustomHostAlias'])) {
             $model->customHostAlias = $map['CustomHostAlias'];
+        }
+        if (isset($map['CustomImageNetworkType'])) {
+            $model->customImageNetworkType = $map['CustomImageNetworkType'];
         }
         if (isset($map['Deploy'])) {
             $model->deploy = $map['Deploy'];

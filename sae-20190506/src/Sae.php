@@ -664,6 +664,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->customHostAlias)) {
             $query['CustomHostAlias'] = $request->customHostAlias;
         }
+        if (!Utils::isUnset($request->customImageNetworkType)) {
+            $query['CustomImageNetworkType'] = $request->customImageNetworkType;
+        }
         if (!Utils::isUnset($request->deploy)) {
             $query['Deploy'] = $request->deploy;
         }
@@ -2282,6 +2285,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->customHostAlias)) {
             $query['CustomHostAlias'] = $request->customHostAlias;
         }
+        if (!Utils::isUnset($request->customImageNetworkType)) {
+            $query['CustomImageNetworkType'] = $request->customImageNetworkType;
+        }
         if (!Utils::isUnset($request->deploy)) {
             $query['Deploy'] = $request->deploy;
         }
@@ -2739,6 +2745,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;

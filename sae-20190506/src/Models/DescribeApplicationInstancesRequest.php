@@ -38,6 +38,11 @@ class DescribeApplicationInstancesRequest extends Model
     public $groupId;
 
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description 10
      *
      * @example 10
@@ -58,6 +63,7 @@ class DescribeApplicationInstancesRequest extends Model
         'appId'       => 'AppId',
         'currentPage' => 'CurrentPage',
         'groupId'     => 'GroupId',
+        'instanceId'  => 'InstanceId',
         'pageSize'    => 'PageSize',
         'reverse'     => 'Reverse',
     ];
@@ -77,6 +83,9 @@ class DescribeApplicationInstancesRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -104,6 +113,9 @@ class DescribeApplicationInstancesRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

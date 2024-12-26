@@ -119,6 +119,11 @@ class CreateApplicationShrinkRequest extends Model
     public $customHostAlias;
 
     /**
+     * @var string
+     */
+    public $customImageNetworkType;
+
+    /**
      * @description true
      *
      * @example true
@@ -566,6 +571,7 @@ class CreateApplicationShrinkRequest extends Model
         'configMapMountDesc'            => 'ConfigMapMountDesc',
         'cpu'                           => 'Cpu',
         'customHostAlias'               => 'CustomHostAlias',
+        'customImageNetworkType'        => 'CustomImageNetworkType',
         'deploy'                        => 'Deploy',
         'dotnet'                        => 'Dotnet',
         'edasContainerVersion'          => 'EdasContainerVersion',
@@ -668,6 +674,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (null !== $this->customHostAlias) {
             $res['CustomHostAlias'] = $this->customHostAlias;
+        }
+        if (null !== $this->customImageNetworkType) {
+            $res['CustomImageNetworkType'] = $this->customImageNetworkType;
         }
         if (null !== $this->deploy) {
             $res['Deploy'] = $this->deploy;
@@ -884,6 +893,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (isset($map['CustomHostAlias'])) {
             $model->customHostAlias = $map['CustomHostAlias'];
+        }
+        if (isset($map['CustomImageNetworkType'])) {
+            $model->customImageNetworkType = $map['CustomImageNetworkType'];
         }
         if (isset($map['Deploy'])) {
             $model->deploy = $map['Deploy'];
