@@ -6,6 +6,12 @@ namespace AlibabaCloud\SDK\AIMath\V20241114;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\AIMath\V20241114\Models\ChatMessageRequest;
+use AlibabaCloud\SDK\AIMath\V20241114\Models\ChatMessageResponse;
+use AlibabaCloud\SDK\AIMath\V20241114\Models\CreateConversationRequest;
+use AlibabaCloud\SDK\AIMath\V20241114\Models\CreateConversationResponse;
+use AlibabaCloud\SDK\AIMath\V20241114\Models\CreateRelatedConversationRequest;
+use AlibabaCloud\SDK\AIMath\V20241114\Models\CreateRelatedConversationResponse;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\GenAnalysisRequest;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\GenAnalysisResponse;
 use AlibabaCloud\SDK\AIMath\V20241114\Models\GenStepRequest;
@@ -53,6 +59,174 @@ class AIMath extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary 聊天消息API
+     *  *
+     * @param ChatMessageRequest $request ChatMessageRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ChatMessageResponse ChatMessageResponse
+     */
+    public function chatMessageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->conversationId)) {
+            $body['ConversationId'] = $request->conversationId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatMessage',
+            'version'     => '2024-11-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 聊天消息API
+     *  *
+     * @param ChatMessageRequest $request ChatMessageRequest
+     *
+     * @return ChatMessageResponse ChatMessageResponse
+     */
+    public function chatMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建试题相应的对话。
+     *  *
+     * @param CreateConversationRequest $request CreateConversationRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateConversationResponse CreateConversationResponse
+     */
+    public function createConversationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->exerciseAnalysis)) {
+            $body['ExerciseAnalysis'] = $request->exerciseAnalysis;
+        }
+        if (!Utils::isUnset($request->exerciseAnswer)) {
+            $body['ExerciseAnswer'] = $request->exerciseAnswer;
+        }
+        if (!Utils::isUnset($request->exerciseContent)) {
+            $body['ExerciseContent'] = $request->exerciseContent;
+        }
+        if (!Utils::isUnset($request->exerciseType)) {
+            $body['ExerciseType'] = $request->exerciseType;
+        }
+        if (!Utils::isUnset($request->outerBizId)) {
+            $body['OuterBizId'] = $request->outerBizId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConversation',
+            'version'     => '2024-11-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建试题相应的对话。
+     *  *
+     * @param CreateConversationRequest $request CreateConversationRequest
+     *
+     * @return CreateConversationResponse CreateConversationResponse
+     */
+    public function createConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createConversationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建关联的对话，输入试题code即可开启对话
+     *  *
+     * @param CreateRelatedConversationRequest $request CreateRelatedConversationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRelatedConversationResponse CreateRelatedConversationResponse
+     */
+    public function createRelatedConversationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->exerciseCode)) {
+            $body['ExerciseCode'] = $request->exerciseCode;
+        }
+        if (!Utils::isUnset($request->outerBizId)) {
+            $body['OuterBizId'] = $request->outerBizId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRelatedConversation',
+            'version'     => '2024-11-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRelatedConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建关联的对话，输入试题code即可开启对话
+     *  *
+     * @param CreateRelatedConversationRequest $request CreateRelatedConversationRequest
+     *
+     * @return CreateRelatedConversationResponse CreateRelatedConversationResponse
+     */
+    public function createRelatedConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRelatedConversationWithOptions($request, $runtime);
     }
 
     /**
