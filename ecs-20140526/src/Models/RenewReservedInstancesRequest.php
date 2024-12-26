@@ -71,8 +71,9 @@ class RenewReservedInstancesRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The region ID of the reserved instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The region ID of the reserved instance.
      *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

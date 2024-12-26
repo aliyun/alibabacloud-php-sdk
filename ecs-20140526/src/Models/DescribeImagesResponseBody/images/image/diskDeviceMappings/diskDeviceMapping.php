@@ -18,7 +18,7 @@ class diskDeviceMapping extends Model
     public $device;
 
     /**
-     * @var string
+     * @var bool
      */
     public $encrypted;
 

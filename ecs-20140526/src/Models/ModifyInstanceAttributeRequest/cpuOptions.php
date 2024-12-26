@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class cpuOptions extends Model
 {
     /**
+     * @var int
+     */
+    public $core;
+
+    /**
+     * @var int
+     */
+    public $threadsPerCore;
+
+    /**
      * @description The CPU topology type of the instance. Valid values:
      *
      *   `ContinuousCoreToHTMapping`: The Hyper-Threading (HT) technology allows continuous threads to run on the same core in the CPU topology of the instance.
@@ -26,7 +36,9 @@ class cpuOptions extends Model
      */
     public $topologyType;
     protected $_name = [
-        'topologyType' => 'TopologyType',
+        'core'           => 'Core',
+        'threadsPerCore' => 'ThreadsPerCore',
+        'topologyType'   => 'TopologyType',
     ];
 
     public function validate()
@@ -36,6 +48,12 @@ class cpuOptions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->core) {
+            $res['Core'] = $this->core;
+        }
+        if (null !== $this->threadsPerCore) {
+            $res['ThreadsPerCore'] = $this->threadsPerCore;
+        }
         if (null !== $this->topologyType) {
             $res['TopologyType'] = $this->topologyType;
         }
@@ -51,6 +69,12 @@ class cpuOptions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Core'])) {
+            $model->core = $map['Core'];
+        }
+        if (isset($map['ThreadsPerCore'])) {
+            $model->threadsPerCore = $map['ThreadsPerCore'];
+        }
         if (isset($map['TopologyType'])) {
             $model->topologyType = $map['TopologyType'];
         }

@@ -64,7 +64,7 @@ class DescribeSnapshotsRequest extends Model
     public $encrypted;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance whose cloud disk snapshots you want to query.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -111,9 +111,8 @@ class DescribeSnapshotsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Pages start from page 1.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -121,9 +120,8 @@ class DescribeSnapshotsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int

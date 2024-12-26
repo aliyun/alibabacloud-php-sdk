@@ -63,7 +63,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $ISP;
 
     /**
-     * @description The ID of the instance for which you want to modify bandwidth configurations.
+     * @description The ID of the instance for which you want to modify network configurations.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4****

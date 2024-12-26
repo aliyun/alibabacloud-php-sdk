@@ -53,7 +53,10 @@ class snapshot extends Model
     public $description;
 
     /**
-     * @description Indicates whether the snapshot is encrypted.
+     * @description Indicates whether the snapshot was encrypted. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example false
      *
@@ -266,9 +269,9 @@ class snapshot extends Model
     /**
      * @description The status of the snapshot. Valid values:
      *
-     *   progressing
-     *   accomplished
-     *   failed
+     *   progressing: The snapshot is being created.
+     *   accomplished: The snapshot is created.
+     *   failed: The snapshot failed to be created.
      *
      * @example accomplished
      *
@@ -284,12 +287,12 @@ class snapshot extends Model
     public $tags;
 
     /**
-     * @description Indicates whether the snapshot was used to create images or disks. Valid values:
+     * @description Indicates whether the snapshot was used to create images or cloud disks. Valid values:
      *
-     *   image
-     *   disk
-     *   image_disk
-     *   none
+     *   image: The snapshot was used to create custom images.
+     *   disk: The snapshot was used to create cloud disks.
+     *   image_disk: The snapshot was used to create custom images and data disks.
+     *   none: The snapshot was not used to create custom images or cloud disks.
      *
      * @example image
      *
