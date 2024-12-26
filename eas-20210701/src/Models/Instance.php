@@ -55,6 +55,13 @@ class Instance extends Model
     public $instancePort;
 
     /**
+     * @example ecs.c7.large
+     *
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @example false
      *
      * @var bool
@@ -165,6 +172,7 @@ class Instance extends Model
         'innerIP'              => 'InnerIP',
         'instanceName'         => 'InstanceName',
         'instancePort'         => 'InstancePort',
+        'instanceType'         => 'InstanceType',
         'isSpot'               => 'IsSpot',
         'isolated'             => 'Isolated',
         'lastState'            => 'LastState',
@@ -214,6 +222,9 @@ class Instance extends Model
         }
         if (null !== $this->instancePort) {
             $res['InstancePort'] = $this->instancePort;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->isSpot) {
             $res['IsSpot'] = $this->isSpot;
@@ -301,6 +312,9 @@ class Instance extends Model
         }
         if (isset($map['InstancePort'])) {
             $model->instancePort = $map['InstancePort'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['IsSpot'])) {
             $model->isSpot = $map['IsSpot'];

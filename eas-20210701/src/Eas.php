@@ -89,6 +89,8 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceMirrorResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceSignedUrlRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceSignedUrlResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeSpotDiscountHistoryResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeVirtualResourceResponse;
@@ -2923,6 +2925,66 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->describeServiceMirrorWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取服务监控签名地址
+     *  *
+     * @param string                          $ClusterId
+     * @param string                          $ServiceName
+     * @param DescribeServiceSignedUrlRequest $request     DescribeServiceSignedUrlRequest
+     * @param string[]                        $headers     map
+     * @param RuntimeOptions                  $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return DescribeServiceSignedUrlResponse DescribeServiceSignedUrlResponse
+     */
+    public function describeServiceSignedUrlWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expire)) {
+            $query['Expire'] = $request->expire;
+        }
+        if (!Utils::isUnset($request->internal)) {
+            $query['Internal'] = $request->internal;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceSignedUrl',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/signed_url',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServiceSignedUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取服务监控签名地址
+     *  *
+     * @param string                          $ClusterId
+     * @param string                          $ServiceName
+     * @param DescribeServiceSignedUrlRequest $request     DescribeServiceSignedUrlRequest
+     *
+     * @return DescribeServiceSignedUrlResponse DescribeServiceSignedUrlResponse
+     */
+    public function describeServiceSignedUrl($ClusterId, $ServiceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeServiceSignedUrlWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
     }
 
     /**
