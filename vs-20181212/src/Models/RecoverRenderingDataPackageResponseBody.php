@@ -6,9 +6,11 @@ namespace AlibabaCloud\SDK\Vs\V20181212\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteTemplateResponseBody extends Model
+class RecoverRenderingDataPackageResponseBody extends Model
 {
     /**
+     * @description Id of the request
+     *
      * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
      *
      * @var string
@@ -35,7 +37,7 @@ class DeleteTemplateResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteTemplateResponseBody
+     * @return RecoverRenderingDataPackageResponseBody
      */
     public static function fromMap($map = [])
     {

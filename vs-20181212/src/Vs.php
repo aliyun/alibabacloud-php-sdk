@@ -227,6 +227,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilesRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListFilesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListPublicKeysResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingDataPackagesRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingDataPackagesResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstanceGatewayRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstanceGatewayResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ListRenderingInstancesRequest;
@@ -258,6 +260,8 @@ use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\PushFileResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingInstanceRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\RebootRenderingInstanceResponse;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RecoverRenderingDataPackageRequest;
+use AlibabaCloud\SDK\Vs\V20181212\Models\RecoverRenderingDataPackageResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingDataPackageRequest;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingDataPackageResponse;
 use AlibabaCloud\SDK\Vs\V20181212\Models\ReleaseRenderingInstanceRequest;
@@ -6293,6 +6297,65 @@ class Vs extends OpenApiClient
     }
 
     /**
+     * @summary 查询所有云应用数据包信息，支持分页查询。
+     *  *
+     * @param ListRenderingDataPackagesRequest $request ListRenderingDataPackagesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRenderingDataPackagesResponse ListRenderingDataPackagesResponse
+     */
+    public function listRenderingDataPackagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataPackageId)) {
+            $query['DataPackageId'] = $request->dataPackageId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRenderingDataPackages',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRenderingDataPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询所有云应用数据包信息，支持分页查询。
+     *  *
+     * @param ListRenderingDataPackagesRequest $request ListRenderingDataPackagesRequest
+     *
+     * @return ListRenderingDataPackagesResponse ListRenderingDataPackagesResponse
+     */
+    public function listRenderingDataPackages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRenderingDataPackagesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询自定义网关
      *  *
      * @param ListRenderingInstanceGatewayRequest $request ListRenderingInstanceGatewayRequest
@@ -7257,6 +7320,56 @@ class Vs extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rebootRenderingInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 恢复数据到云渲染实例
+     *  *
+     * @param RecoverRenderingDataPackageRequest $request RecoverRenderingDataPackageRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RecoverRenderingDataPackageResponse RecoverRenderingDataPackageResponse
+     */
+    public function recoverRenderingDataPackageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataPackageId)) {
+            $query['DataPackageId'] = $request->dataPackageId;
+        }
+        if (!Utils::isUnset($request->renderingInstanceId)) {
+            $query['RenderingInstanceId'] = $request->renderingInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RecoverRenderingDataPackage',
+            'version'     => '2018-12-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecoverRenderingDataPackageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 恢复数据到云渲染实例
+     *  *
+     * @param RecoverRenderingDataPackageRequest $request RecoverRenderingDataPackageRequest
+     *
+     * @return RecoverRenderingDataPackageResponse RecoverRenderingDataPackageResponse
+     */
+    public function recoverRenderingDataPackage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recoverRenderingDataPackageWithOptions($request, $runtime);
     }
 
     /**
