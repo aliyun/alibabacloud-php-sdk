@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class operations extends Model
 {
     /**
+     * @description Operation time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -16,6 +18,8 @@ class operations extends Model
     public $operateTime;
 
     /**
+     * @description Operation type.
+     *
      * @example ADD
      *
      * @var string

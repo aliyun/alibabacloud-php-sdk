@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description Error code
+     *
      * @example Topic.NotFound
      *
      * @var string
@@ -17,11 +19,15 @@ class ListTagResourcesResponseBody extends Model
     public $code;
 
     /**
+     * @description Return result
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Dynamic error code
+     *
      * @example InstanceId
      *
      * @var string
@@ -29,6 +35,8 @@ class ListTagResourcesResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description Dynamic error message
+     *
      * @example instanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class ListTagResourcesResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description HTTP status code
+     *
      * @example 200
      *
      * @var int
@@ -43,6 +53,8 @@ class ListTagResourcesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Error message
+     *
      * @example The topic already exists.
      *
      * @var string
@@ -50,6 +62,8 @@ class ListTagResourcesResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID
+     *
      * @example F00C6A70-C782-5DD6-9D11-0CFC710100C7
      *
      * @var string
@@ -57,6 +71,8 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the operation was successful
+     *
      * @example true
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @description Client host.
+     *
      * @example xx.xx.xx.xx
      *
      * @var string
@@ -17,6 +19,8 @@ class records extends Model
     public $clientHost;
 
     /**
+     * @description Consume status.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -24,6 +28,8 @@ class records extends Model
     public $consumeStatus;
 
     /**
+     * @description Whether to consume fifo.
+     *
      * @example true
      *
      * @var bool
@@ -31,6 +37,8 @@ class records extends Model
     public $fifoEnable;
 
     /**
+     * @description Operation list.
+     *
      * @var operations[]
      */
     public $operations;
@@ -45,6 +53,8 @@ class records extends Model
     public $popCk;
 
     /**
+     * @description Consumer name.
+     *
      * @example test
      *
      * @var string

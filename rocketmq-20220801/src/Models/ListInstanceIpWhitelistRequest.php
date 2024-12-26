@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceIpWhitelistRequest extends Model
 {
     /**
+     * @description IP whitelist.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -16,8 +18,9 @@ class ListInstanceIpWhitelistRequest extends Model
     public $ipWhitelist;
 
     /**
-     * @description This parameter is required.
+     * @description The page number. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -25,8 +28,9 @@ class ListInstanceIpWhitelistRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries to return on each page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

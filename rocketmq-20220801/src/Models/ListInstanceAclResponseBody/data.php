@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 24
      *
      * @var int

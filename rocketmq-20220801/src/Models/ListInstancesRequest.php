@@ -60,6 +60,15 @@ class ListInstancesRequest extends Model
     public $seriesCodes;
 
     /**
+     * @description The storage encryption key.
+     *
+     * @example xxxxx
+     *
+     * @var string
+     */
+    public $storageSecretKey;
+
+    /**
      * @description The tags that are used to filter instances.
      *
      * @example [{"key": "rmq-test", "value": "test"}]
@@ -68,12 +77,13 @@ class ListInstancesRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'filter'          => 'filter',
-        'pageNumber'      => 'pageNumber',
-        'pageSize'        => 'pageSize',
-        'resourceGroupId' => 'resourceGroupId',
-        'seriesCodes'     => 'seriesCodes',
-        'tags'            => 'tags',
+        'filter'           => 'filter',
+        'pageNumber'       => 'pageNumber',
+        'pageSize'         => 'pageSize',
+        'resourceGroupId'  => 'resourceGroupId',
+        'seriesCodes'      => 'seriesCodes',
+        'storageSecretKey' => 'storageSecretKey',
+        'tags'             => 'tags',
     ];
 
     public function validate()
@@ -97,6 +107,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->seriesCodes) {
             $res['seriesCodes'] = $this->seriesCodes;
+        }
+        if (null !== $this->storageSecretKey) {
+            $res['storageSecretKey'] = $this->storageSecretKey;
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
@@ -129,6 +142,9 @@ class ListInstancesRequest extends Model
             if (!empty($map['seriesCodes'])) {
                 $model->seriesCodes = $map['seriesCodes'];
             }
+        }
+        if (isset($map['storageSecretKey'])) {
+            $model->storageSecretKey = $map['storageSecretKey'];
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];

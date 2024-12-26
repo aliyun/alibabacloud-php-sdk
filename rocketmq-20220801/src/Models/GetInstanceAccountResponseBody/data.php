@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The password of the account.
+     *
      * @example *************
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $password;
 
     /**
+     * @description The username of the account.
+     *
      * @example xxx
      *
      * @var string

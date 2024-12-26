@@ -11,10 +11,10 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set PaymentType to Subscription.
+     * @description Specifies whether to enable auto-renewal for the instance. This parameter takes effect only if you set paymentType to Subscription. Valid values:
      *
-     *   true: enable
-     *   false: disable
+     *   true
+     *   false
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class CreateInstanceRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The commodity code.
+     * @description The commodity code. Valid values:
      *
      *   ons_rmqpost_public_intl: pay-as-you-go
      *   ons_rmqsub_public_intl: subscription
@@ -50,7 +50,7 @@ class CreateInstanceRequest extends Model
     /**
      * @description The name of the instance that you want to create.
      *
-     * If you do not configure this parameter, the instance ID is used as the instance name.
+     * If you leave this parameter empty, the instance ID is used as the instance name.
      * @example rmq-cn-72u3048uxxx
      *
      * @var string
@@ -58,7 +58,7 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @description The network configurations.
+     * @description The information about the network.
      *
      * This parameter is required.
      * @var networkInfo
@@ -81,7 +81,7 @@ class CreateInstanceRequest extends Model
     public $paymentType;
 
     /**
-     * @description The subscription duration of the instance. This parameter takes effect only if you set PaymentType to Subscription.
+     * @description The subscription duration of the instance. This parameter takes effect only if you set paymentType to Subscription.
      *
      * Valid values:
      *
@@ -125,7 +125,7 @@ class CreateInstanceRequest extends Model
     public $remark;
 
     /**
-     * @description The resource group ID.
+     * @description The ID of the resource group.
      *
      * @example rg-aekzy6pist7uuna
      *
@@ -134,7 +134,7 @@ class CreateInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The primary edition of the instance. For information about the differences between primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
+     * @description The primary edition of the instance. For information about the differences among primary edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
      *
      * Valid values:
      *
@@ -160,13 +160,19 @@ class CreateInstanceRequest extends Model
     public $serviceCode;
 
     /**
-     * @description The sub-category edition of the instance. For information about the differences between sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
+     * @description The sub-category edition of the instance. For information about the differences among sub-category edition instances, see [Instance selection](https://help.aliyun.com/document_detail/444722.html).
      *
      * Valid values:
      *
-     *   cluster_ha: High-availability Cluster Edition
+     *   cluster_ha: Cluster High-availability Edition
      *   single_node: Standalone Edition
-     *   serverless: Serverless Edition
+     *   serverless: serverless
+     *
+     * Valid values:
+     *
+     *   serverless: serverless
+     *   cluster_ha: Cluster High-availability Edition
+     *   single_node: Standalone Edition
      *
      * This parameter is required.
      * @example cluster_ha

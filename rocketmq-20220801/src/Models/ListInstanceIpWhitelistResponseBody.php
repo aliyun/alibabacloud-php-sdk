@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceIpWhitelistResponseBody extends Model
 {
     /**
+     * @description The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+     *
      * @example xxx
      *
      * @var string
@@ -17,6 +19,8 @@ class ListInstanceIpWhitelistResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The error code.
+     *
      * @example Instance.NotFound
      *
      * @var string
@@ -24,11 +28,15 @@ class ListInstanceIpWhitelistResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class ListInstanceIpWhitelistResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -43,6 +53,8 @@ class ListInstanceIpWhitelistResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +62,8 @@ class ListInstanceIpWhitelistResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example Parameter instanceId is mandatory for this action .
      *
      * @var string
@@ -57,6 +71,8 @@ class ListInstanceIpWhitelistResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. Each request has a unique ID. You can use this ID to troubleshoot issues.
+     *
      * @example 7358418D-83BD-507A-8079-611C63E05674
      *
      * @var string
@@ -64,6 +80,8 @@ class ListInstanceIpWhitelistResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

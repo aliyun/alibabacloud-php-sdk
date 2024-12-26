@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetMessageDetailResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example Topic.NotFound
      *
      * @var string
@@ -17,11 +19,15 @@ class GetMessageDetailResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -29,6 +35,8 @@ class GetMessageDetailResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class GetMessageDetailResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -43,6 +53,8 @@ class GetMessageDetailResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example Parameter instanceId is mandatory for this action .
      *
      * @var string
@@ -50,6 +62,8 @@ class GetMessageDetailResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example FAEBD71F-E839-52F9-BD7B-8F1290525841
      *
      * @var string
@@ -57,6 +71,8 @@ class GetMessageDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

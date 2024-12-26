@@ -13,8 +13,8 @@ class productInfo extends Model
      *
      * Valid values:
      *
-     *   true: enable
-     *   false: disable
+     *   true
+     *   false
      *
      * >  The elastic TPS feature is supported only by instances of specific editions. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
      * @example true
@@ -57,7 +57,7 @@ class productInfo extends Model
     public $messageRetentionTime;
 
     /**
-     * @description The computing specification that specifies the messaging transactions per second (TPS) of the instance. For information about computing specification limits, see [Instance specifications](https://help.aliyun.com/document_detail/444715.html).
+     * @description The computing specification that specifies the messaging transactions per second (TPS) of the instance. For more information, see [Instance editions](https://help.aliyun.com/document_detail/444715.html).
      *
      * This parameter is required.
      * @example rmq.s2.2xlarge
@@ -67,7 +67,7 @@ class productInfo extends Model
     public $msgProcessSpec;
 
     /**
-     * @description The proportion of message sending TPS to the messaging TPS on the instance.
+     * @description The ratio of the message sending TPS to the messaging TPS of the instance.
      *
      * Valid values: 0 to 1. Default value: 0.5.
      * @example 0.5
@@ -75,6 +75,24 @@ class productInfo extends Model
      * @var float
      */
     public $sendReceiveRatio;
+
+    /**
+     * @description Indicates whether storage encryption is enabled.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $storageEncryption;
+
+    /**
+     * @description The storage encryption key.
+     *
+     * @example xxx
+     *
+     * @var string
+     */
+    public $storageSecretKey;
     protected $_name = [
         'autoScaling'          => 'autoScaling',
         'chargeType'           => 'chargeType',
@@ -82,6 +100,8 @@ class productInfo extends Model
         'messageRetentionTime' => 'messageRetentionTime',
         'msgProcessSpec'       => 'msgProcessSpec',
         'sendReceiveRatio'     => 'sendReceiveRatio',
+        'storageEncryption'    => 'storageEncryption',
+        'storageSecretKey'     => 'storageSecretKey',
     ];
 
     public function validate()
@@ -108,6 +128,12 @@ class productInfo extends Model
         }
         if (null !== $this->sendReceiveRatio) {
             $res['sendReceiveRatio'] = $this->sendReceiveRatio;
+        }
+        if (null !== $this->storageEncryption) {
+            $res['storageEncryption'] = $this->storageEncryption;
+        }
+        if (null !== $this->storageSecretKey) {
+            $res['storageSecretKey'] = $this->storageSecretKey;
         }
 
         return $res;
@@ -138,6 +164,12 @@ class productInfo extends Model
         }
         if (isset($map['sendReceiveRatio'])) {
             $model->sendReceiveRatio = $map['sendReceiveRatio'];
+        }
+        if (isset($map['storageEncryption'])) {
+            $model->storageEncryption = $map['storageEncryption'];
+        }
+        if (isset($map['storageSecretKey'])) {
+            $model->storageSecretKey = $map['storageSecretKey'];
         }
 
         return $model;

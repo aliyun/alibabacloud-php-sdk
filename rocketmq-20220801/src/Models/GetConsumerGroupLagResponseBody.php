@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerGroupLagResponseBody extends Model
 {
     /**
+     * @description Error code
+     *
      * @example Topic.NotFound
      *
      * @var string
@@ -17,11 +19,15 @@ class GetConsumerGroupLagResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Dynamic error code
+     *
      * @example InstanceId
      *
      * @var string
@@ -29,6 +35,8 @@ class GetConsumerGroupLagResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class GetConsumerGroupLagResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description HTTP status code
+     *
      * @example 200
      *
      * @var int
@@ -43,6 +53,8 @@ class GetConsumerGroupLagResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description Error message
+     *
      * @example Parameter instanceId is mandatory for this action .
      *
      * @var string
@@ -50,6 +62,8 @@ class GetConsumerGroupLagResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F5764C40-FB8C-53AE-B95D-96AB3D0E9375
      *
      * @var string
@@ -57,6 +71,8 @@ class GetConsumerGroupLagResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

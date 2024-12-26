@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @description Arrive time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -16,6 +18,8 @@ class records extends Model
     public $arriveTime;
 
     /**
+     * @description Client host.
+     *
      * @example xx.xx.xx.xx
      *
      * @var string
@@ -23,6 +27,8 @@ class records extends Model
     public $clientHost;
 
     /**
+     * @description Dead-letter queue message ID.
+     *
      * @example 0A79275A00207A4F0F2916C92F9A0B94
      *
      * @var string
@@ -30,6 +36,8 @@ class records extends Model
     public $dlqOriginMessageId;
 
     /**
+     * @description Dead-letter queue topic.
+     *
      * @example test_topic
      *
      * @var string
@@ -37,6 +45,8 @@ class records extends Model
     public $dlqOriginTopic;
 
     /**
+     * @description Message source.
+     *
      * @example CONSOLE
      *
      * @var string
@@ -44,6 +54,8 @@ class records extends Model
     public $messageSource;
 
     /**
+     * @description Producer duration.
+     *
      * @example 100
      *
      * @var int
@@ -51,6 +63,8 @@ class records extends Model
     public $produceDuration;
 
     /**
+     * @description Producer status.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -58,6 +72,8 @@ class records extends Model
     public $produceStatus;
 
     /**
+     * @description Producer time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -65,6 +81,8 @@ class records extends Model
     public $produceTime;
 
     /**
+     * @description Producer name.
+     *
      * @example xxx
      *
      * @var string

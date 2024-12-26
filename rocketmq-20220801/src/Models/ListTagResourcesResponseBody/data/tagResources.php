@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description UID of the resource owner.
+     *
      * @example 1876441048322426
      *
      * @var int
@@ -16,6 +18,8 @@ class tagResources extends Model
     public $aliUid;
 
     /**
+     * @description Tag category.
+     *
      * @example custom
      *
      * @var string
@@ -23,6 +27,8 @@ class tagResources extends Model
     public $category;
 
     /**
+     * @description Resource ID.
+     *
      * @example rmq-cn-pe334n08h08
      *
      * @var string
@@ -30,6 +36,8 @@ class tagResources extends Model
     public $resourceId;
 
     /**
+     * @description Resource type.
+     *
      * @example instance
      *
      * @var string
@@ -37,6 +45,8 @@ class tagResources extends Model
     public $resourceType;
 
     /**
+     * @description Visibility scope.
+     *
      * @example public
      *
      * @var string
@@ -44,6 +54,8 @@ class tagResources extends Model
     public $scope;
 
     /**
+     * @description Tag key.
+     *
      * @example key
      *
      * @var string
@@ -51,6 +63,8 @@ class tagResources extends Model
     public $tagKey;
 
     /**
+     * @description Tag value.
+     *
      * @example value
      *
      * @var string

@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceAclRequest extends Model
 {
     /**
+     * @description The following items describe the types of permissions that can be granted based on the resource type:
+     *
+     *   Topic: Pub, Sub, and Pub|Sub
+     *   Consumer group: Sub
+     *
+     * Valid values:
+     *
+     *   SUB: subscribe
+     *   Pub|Sub: publish and subscribe
+     *   Pub: publish
+     *
      * @example Pub
      *
      * @var string
@@ -16,6 +27,13 @@ class UpdateInstanceAclRequest extends Model
     public $actions;
 
     /**
+     * @description The decision result of the authorization.
+     *
+     * Valid values:
+     *
+     *   Deny
+     *   Allow
+     *
      * @example Allow
      *
      * @var string
@@ -23,13 +41,16 @@ class UpdateInstanceAclRequest extends Model
     public $decision;
 
     /**
+     * @description The IP address whitelists.
+     *
      * @var string[]
      */
     public $ipWhitelists;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the resource on which you want to grant permissions.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -37,8 +58,14 @@ class UpdateInstanceAclRequest extends Model
     public $resourceName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the resource on which you want to grant permissions.
      *
+     * Valid values:
+     *
+     *   Group
+     *   Topic
+     *
+     * This parameter is required.
      * @example Topic
      *
      * @var string

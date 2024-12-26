@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class producerInfo extends Model
 {
     /**
+     * @description Producer record list.
+     *
      * @var records[]
      */
     public $records;

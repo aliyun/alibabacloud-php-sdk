@@ -2,33 +2,31 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerStackResponseBody;
+namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models\AddDisasterRecoveryItemRequest;
 
-use AlibabaCloud\SDK\RocketMQ\V20220801\Models\GetConsumerStackResponseBody\data\stacks;
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class topics extends Model
 {
     /**
-     * @description The ID of the consumer group.
-     *
-     * @example CID-TEST
-     *
      * @var string
      */
     public $consumerGroupId;
 
     /**
-     * @description The instance ID.
-     *
-     * @example rmq-cn-7e22ody****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The region ID.
+     * @example ALIYUN_ROCKETMQ
+     *
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @description regionId
      *
      * @example cn-hangzhou
      *
@@ -37,16 +35,15 @@ class data extends Model
     public $regionId;
 
     /**
-     * @description Stack Information.
-     *
-     * @var stacks[]
+     * @var string
      */
-    public $stacks;
+    public $topicName;
     protected $_name = [
         'consumerGroupId' => 'consumerGroupId',
         'instanceId'      => 'instanceId',
+        'instanceType'    => 'instanceType',
         'regionId'        => 'regionId',
-        'stacks'          => 'stacks',
+        'topicName'       => 'topicName',
     ];
 
     public function validate()
@@ -62,17 +59,14 @@ class data extends Model
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
         }
+        if (null !== $this->instanceType) {
+            $res['instanceType'] = $this->instanceType;
+        }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
         }
-        if (null !== $this->stacks) {
-            $res['stacks'] = [];
-            if (null !== $this->stacks && \is_array($this->stacks)) {
-                $n = 0;
-                foreach ($this->stacks as $item) {
-                    $res['stacks'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->topicName) {
+            $res['topicName'] = $this->topicName;
         }
 
         return $res;
@@ -81,7 +75,7 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return topics
      */
     public static function fromMap($map = [])
     {
@@ -92,17 +86,14 @@ class data extends Model
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
+        if (isset($map['instanceType'])) {
+            $model->instanceType = $map['instanceType'];
+        }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
         }
-        if (isset($map['stacks'])) {
-            if (!empty($map['stacks'])) {
-                $model->stacks = [];
-                $n             = 0;
-                foreach ($map['stacks'] as $item) {
-                    $model->stacks[$n++] = null !== $item ? stacks::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['topicName'])) {
+            $model->topicName = $map['topicName'];
         }
 
         return $model;

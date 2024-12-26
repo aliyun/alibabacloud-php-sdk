@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceAclResponseBody extends Model
 {
     /**
+     * @description The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+     *
      * @example xxx
      *
      * @var string
@@ -17,6 +19,8 @@ class ListInstanceAclResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The error code.
+     *
      * @example MissingInstanceId
      *
      * @var string
@@ -24,11 +28,15 @@ class ListInstanceAclResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class ListInstanceAclResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example InstanceId
      *
      * @var string
@@ -43,6 +53,8 @@ class ListInstanceAclResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -50,6 +62,8 @@ class ListInstanceAclResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -57,6 +71,8 @@ class ListInstanceAclResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example DA4D2F89-E2C8-5F04-936B-60D55B055FA7
      *
      * @var string
@@ -64,6 +80,8 @@ class ListInstanceAclResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

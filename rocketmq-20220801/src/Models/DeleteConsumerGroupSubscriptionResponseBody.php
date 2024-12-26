@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerGroupSubscriptionResponseBody extends Model
 {
     /**
+     * @description The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The error code.
+     *
      * @example 200
      *
      * @var string
@@ -21,6 +27,8 @@ class DeleteConsumerGroupSubscriptionResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @example true
      *
      * @var bool
@@ -28,6 +36,8 @@ class DeleteConsumerGroupSubscriptionResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -35,6 +45,8 @@ class DeleteConsumerGroupSubscriptionResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -42,6 +54,8 @@ class DeleteConsumerGroupSubscriptionResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -49,6 +63,8 @@ class DeleteConsumerGroupSubscriptionResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example Parameter instanceId is mandatory for this action .
      *
      * @var string
@@ -56,6 +72,8 @@ class DeleteConsumerGroupSubscriptionResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 723CDA5C-E25C-5EAF-9601-08C286DF8A4D
      *
      * @var string
@@ -63,6 +81,8 @@ class DeleteConsumerGroupSubscriptionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

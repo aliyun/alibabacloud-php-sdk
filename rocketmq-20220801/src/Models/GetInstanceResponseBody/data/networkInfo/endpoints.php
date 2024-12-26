@@ -11,7 +11,11 @@ class endpoints extends Model
     /**
      * @description The type of the endpoint that is used to access the instance.
      *
-     * - TCP_INTERNET:public endpoint
+     * Valid values:
+     *
+     *   TCP_VPC: VPC endpoint
+     *   TCP_INTERNET: public endpoint
+     *
      * @example TCP_INTERNET
      *
      * @var string

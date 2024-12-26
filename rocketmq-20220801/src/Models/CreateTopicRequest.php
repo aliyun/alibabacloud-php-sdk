@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTopicRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $maxSendTps;
+
+    /**
      * @description The type of messages in the topic that you want to create.
      *
      * Valid values:
@@ -34,6 +39,7 @@ class CreateTopicRequest extends Model
      */
     public $remark;
     protected $_name = [
+        'maxSendTps'  => 'maxSendTps',
         'messageType' => 'messageType',
         'remark'      => 'remark',
     ];
@@ -45,6 +51,9 @@ class CreateTopicRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->maxSendTps) {
+            $res['maxSendTps'] = $this->maxSendTps;
+        }
         if (null !== $this->messageType) {
             $res['messageType'] = $this->messageType;
         }
@@ -63,6 +72,9 @@ class CreateTopicRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['maxSendTps'])) {
+            $model->maxSendTps = $map['maxSendTps'];
+        }
         if (isset($map['messageType'])) {
             $model->messageType = $map['messageType'];
         }

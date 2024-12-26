@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class consumerInfos extends Model
 {
     /**
+     * @description Consume status.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -18,6 +20,8 @@ class consumerInfos extends Model
     public $consumeStatus;
 
     /**
+     * @description The consumer group ID.
+     *
      * @example GID_inspector_group
      *
      * @var string
@@ -25,11 +29,15 @@ class consumerInfos extends Model
     public $consumerGroupId;
 
     /**
+     * @description Dead letter info.
+     *
      * @var deadLetterInfo
      */
     public $deadLetterInfo;
 
     /**
+     * @description Whether it is a dead letter message.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +45,8 @@ class consumerInfos extends Model
     public $deadMessage;
 
     /**
+     * @description Consumer record list.
+     *
      * @var records[]
      */
     public $records;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceAclResponseBody extends Model
 {
     /**
+     * @description The details about the access denial. This parameter is returned only if the access is denied due to the reason that the Resource Access Management (RAM) user does not have the required permissions.
+     *
      * @example xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteInstanceAclResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The error code.
+     *
      * @example MissingInstanceId
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteInstanceAclResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class DeleteInstanceAclResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -37,6 +45,8 @@ class DeleteInstanceAclResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -44,6 +54,8 @@ class DeleteInstanceAclResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -51,6 +63,8 @@ class DeleteInstanceAclResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -58,6 +72,8 @@ class DeleteInstanceAclResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 7358418D-83BD-507A-8079-611C63E05674
      *
      * @var string
@@ -65,6 +81,8 @@ class DeleteInstanceAclResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

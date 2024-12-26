@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class totalLag extends Model
 {
     /**
+     * @description Delivery delay time, in seconds
+     *
      * @example 12
      *
      * @var int
@@ -16,6 +18,8 @@ class totalLag extends Model
     public $deliveryDuration;
 
     /**
+     * @description The number of messages being consumed.
+     *
      * @example 1
      *
      * @var int
@@ -23,15 +27,23 @@ class totalLag extends Model
     public $inflightCount;
 
     /**
+     * @var int
+     */
+    public $lastConsumeTimestamp;
+
+    /**
+     * @description Ready message count
+     *
      * @example 1
      *
      * @var int
      */
     public $readyCount;
     protected $_name = [
-        'deliveryDuration' => 'deliveryDuration',
-        'inflightCount'    => 'inflightCount',
-        'readyCount'       => 'readyCount',
+        'deliveryDuration'     => 'deliveryDuration',
+        'inflightCount'        => 'inflightCount',
+        'lastConsumeTimestamp' => 'lastConsumeTimestamp',
+        'readyCount'           => 'readyCount',
     ];
 
     public function validate()
@@ -46,6 +58,9 @@ class totalLag extends Model
         }
         if (null !== $this->inflightCount) {
             $res['inflightCount'] = $this->inflightCount;
+        }
+        if (null !== $this->lastConsumeTimestamp) {
+            $res['lastConsumeTimestamp'] = $this->lastConsumeTimestamp;
         }
         if (null !== $this->readyCount) {
             $res['readyCount'] = $this->readyCount;
@@ -67,6 +82,9 @@ class totalLag extends Model
         }
         if (isset($map['inflightCount'])) {
             $model->inflightCount = $map['inflightCount'];
+        }
+        if (isset($map['lastConsumeTimestamp'])) {
+            $model->lastConsumeTimestamp = $map['lastConsumeTimestamp'];
         }
         if (isset($map['readyCount'])) {
             $model->readyCount = $map['readyCount'];

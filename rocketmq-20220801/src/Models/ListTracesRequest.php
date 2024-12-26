@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTracesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The end of the time range to query.
      *
+     * This parameter is required.
      * @example 2023-05-19 10:10:09
      *
      * @var string
@@ -18,6 +19,9 @@ class ListTracesRequest extends Model
     public $endTime;
 
     /**
+     * @description The message ID.
+     *
+     * This parameter is required if you set queryType to MESSAGE_ID.
      * @example 0100163E0EC1F1965C04C7906700000000
      *
      * @var string
@@ -25,6 +29,9 @@ class ListTracesRequest extends Model
     public $messageId;
 
     /**
+     * @description The message key.
+     *
+     * This parameter is required if you set queryType to MESSAGE_ID.
      * @example order_ceating
      *
      * @var string
@@ -32,8 +39,9 @@ class ListTracesRequest extends Model
     public $messageKey;
 
     /**
-     * @description This parameter is required.
+     * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -41,8 +49,9 @@ class ListTracesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -50,8 +59,15 @@ class ListTracesRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The query type.
      *
+     * Valid values:
+     *
+     *   MESSAGE_ID
+     *   MESSAGE_KEY
+     *   TOPIC
+     *
+     * This parameter is required.
      * @example MESSAGE_ID
      *
      * @var string
@@ -59,8 +75,9 @@ class ListTracesRequest extends Model
     public $queryType;
 
     /**
-     * @description This parameter is required.
+     * @description The beginning of the time range to query.
      *
+     * This parameter is required.
      * @example 2023-05-10 10:42:11
      *
      * @var string

@@ -52,6 +52,24 @@ class productInfo extends Model
     public $sendReceiveRatio;
 
     /**
+     * @description Indicates whether storage encryption is enabled.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $storageEncryption;
+
+    /**
+     * @description The storage encryption key.
+     *
+     * @example xxxxx
+     *
+     * @var string
+     */
+    public $storageSecretKey;
+
+    /**
      * @description Specifies whether to enable the elastic TPS feature for the instance.
      *
      * Valid values:
@@ -83,6 +101,8 @@ class productInfo extends Model
         'messageRetentionTime' => 'messageRetentionTime',
         'msgProcessSpec'       => 'msgProcessSpec',
         'sendReceiveRatio'     => 'sendReceiveRatio',
+        'storageEncryption'    => 'storageEncryption',
+        'storageSecretKey'     => 'storageSecretKey',
         'supportAutoScaling'   => 'supportAutoScaling',
         'traceOn'              => 'traceOn',
     ];
@@ -105,6 +125,12 @@ class productInfo extends Model
         }
         if (null !== $this->sendReceiveRatio) {
             $res['sendReceiveRatio'] = $this->sendReceiveRatio;
+        }
+        if (null !== $this->storageEncryption) {
+            $res['storageEncryption'] = $this->storageEncryption;
+        }
+        if (null !== $this->storageSecretKey) {
+            $res['storageSecretKey'] = $this->storageSecretKey;
         }
         if (null !== $this->supportAutoScaling) {
             $res['supportAutoScaling'] = $this->supportAutoScaling;
@@ -135,6 +161,12 @@ class productInfo extends Model
         }
         if (isset($map['sendReceiveRatio'])) {
             $model->sendReceiveRatio = $map['sendReceiveRatio'];
+        }
+        if (isset($map['storageEncryption'])) {
+            $model->storageEncryption = $map['storageEncryption'];
+        }
+        if (isset($map['storageSecretKey'])) {
+            $model->storageSecretKey = $map['storageSecretKey'];
         }
         if (isset($map['supportAutoScaling'])) {
             $model->supportAutoScaling = $map['supportAutoScaling'];

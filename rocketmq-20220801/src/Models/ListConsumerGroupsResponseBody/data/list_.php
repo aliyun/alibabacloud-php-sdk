@@ -36,6 +36,11 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $maxReceiveTps;
+
+    /**
      * @description The ID of the region in which the instance resides.
      *
      * @example cn-hangzhou
@@ -83,6 +88,7 @@ class list_ extends Model
         'consumerGroupId' => 'consumerGroupId',
         'createTime'      => 'createTime',
         'instanceId'      => 'instanceId',
+        'maxReceiveTps'   => 'maxReceiveTps',
         'regionId'        => 'regionId',
         'remark'          => 'remark',
         'status'          => 'status',
@@ -104,6 +110,9 @@ class list_ extends Model
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maxReceiveTps) {
+            $res['maxReceiveTps'] = $this->maxReceiveTps;
         }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
@@ -137,6 +146,9 @@ class list_ extends Model
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['maxReceiveTps'])) {
+            $model->maxReceiveTps = $map['maxReceiveTps'];
         }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class brokerInfo extends Model
 {
     /**
+     * @description Delay status.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -17,11 +19,15 @@ class brokerInfo extends Model
     public $delayStatus;
 
     /**
+     * @description Operation list.
+     *
      * @var operations[]
      */
     public $operations;
 
     /**
+     * @description Preset delivery time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string

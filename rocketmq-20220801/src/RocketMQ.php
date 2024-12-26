@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\AddDisasterRecoveryItemRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\AddDisasterRecoveryItemResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateConsumerGroupRequest;
@@ -126,6 +128,58 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary 添加容灾计划条目
+     *  *
+     * @param string                         $planId
+     * @param AddDisasterRecoveryItemRequest $request AddDisasterRecoveryItemRequest
+     * @param string[]                       $headers map
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddDisasterRecoveryItemResponse AddDisasterRecoveryItemResponse
+     */
+    public function addDisasterRecoveryItemWithOptions($planId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->topics)) {
+            $body['topics'] = $request->topics;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddDisasterRecoveryItem',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/disaster_recovery/' . OpenApiUtilClient::getEncodeParam($planId) . '/items',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 添加容灾计划条目
+     *  *
+     * @param string                         $planId
+     * @param AddDisasterRecoveryItemRequest $request AddDisasterRecoveryItemRequest
+     *
+     * @return AddDisasterRecoveryItemResponse AddDisasterRecoveryItemResponse
+     */
+    public function addDisasterRecoveryItem($planId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addDisasterRecoveryItemWithOptions($planId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary Changes the resource group to which a ApsaraMQ for RocketMQ instance belongs.
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
@@ -206,6 +260,9 @@ class RocketMQ extends OpenApiClient
         }
         if (!Utils::isUnset($request->deliveryOrderType)) {
             $body['deliveryOrderType'] = $request->deliveryOrderType;
+        }
+        if (!Utils::isUnset($request->maxReceiveTps)) {
+            $body['maxReceiveTps'] = $request->maxReceiveTps;
         }
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
@@ -347,7 +404,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 创建访问控制acl用户
+     * @summary Creates an account that is used to access an instance.
      *  *
      * @param string                       $instanceId
      * @param CreateInstanceAccountRequest $request    CreateInstanceAccountRequest
@@ -386,7 +443,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 创建访问控制acl用户
+     * @summary Creates an account that is used to access an instance.
      *  *
      * @param string                       $instanceId
      * @param CreateInstanceAccountRequest $request    CreateInstanceAccountRequest
@@ -402,7 +459,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 创建访问控制acl数据
+     * @summary Creates an access control list (ACL) in a specific instance.
      *  *
      * @param string                   $instanceId
      * @param string                   $username
@@ -451,7 +508,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 创建访问控制acl数据
+     * @summary Creates an access control list (ACL) in a specific instance.
      *  *
      * @param string                   $instanceId
      * @param string                   $username
@@ -468,7 +525,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 创建访问控制ip白名单
+     * @summary Creates an IP address whitelist.
      *  *
      * @param string                           $instanceId
      * @param CreateInstanceIpWhitelistRequest $request    CreateInstanceIpWhitelistRequest
@@ -504,7 +561,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 创建访问控制ip白名单
+     * @summary Creates an IP address whitelist.
      *  *
      * @param string                           $instanceId
      * @param CreateInstanceIpWhitelistRequest $request    CreateInstanceIpWhitelistRequest
@@ -534,6 +591,9 @@ class RocketMQ extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->maxSendTps)) {
+            $body['maxSendTps'] = $request->maxSendTps;
+        }
         if (!Utils::isUnset($request->messageType)) {
             $body['messageType'] = $request->messageType;
         }
@@ -629,7 +689,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 取消消费组订阅关系
+     * @summary Deletes the subscriptions of a consumer group.
      *  *
      * @param string                                 $instanceId
      * @param string                                 $consumerGroupId
@@ -672,7 +732,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 取消消费组订阅关系
+     * @summary Deletes the subscriptions of a consumer group.
      *  *
      * @param string                                 $instanceId
      * @param string                                 $consumerGroupId
@@ -741,7 +801,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 删除访问控制acl用户
+     * @summary Delete access control ACL user
      *  *
      * @param string         $instanceId
      * @param string         $username
@@ -771,7 +831,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 删除访问控制acl用户
+     * @summary Delete access control ACL user
      *  *
      * @param string $instanceId
      * @param string $username
@@ -787,7 +847,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 删除访问控制acl数据
+     * @summary Deletes the permissions of a specific account of an instance.
      *  *
      * @param string                   $instanceId
      * @param string                   $username
@@ -827,7 +887,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 删除访问控制acl数据
+     * @summary Deletes the permissions of a specific account of an instance.
      *  *
      * @param string                   $instanceId
      * @param string                   $username
@@ -844,7 +904,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 删除访问控制ip白名单
+     * @summary Deletes a specific IP address whitelist from an instance.
      *  *
      * @param string                           $instanceId
      * @param DeleteInstanceIpWhitelistRequest $request    DeleteInstanceIpWhitelistRequest
@@ -880,7 +940,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 删除访问控制ip白名单
+     * @summary Deletes a specific IP address whitelist from an instance.
      *  *
      * @param string                           $instanceId
      * @param DeleteInstanceIpWhitelistRequest $request    DeleteInstanceIpWhitelistRequest
@@ -996,7 +1056,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询消费者组堆积信息
+     * @summary Query Consumer Group Backlog Information
      *  *
      * @param string         $instanceId
      * @param string         $consumerGroupId
@@ -1026,7 +1086,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询消费者组堆积信息
+     * @summary Query Consumer Group Backlog Information
      *  *
      * @param string $instanceId
      * @param string $consumerGroupId
@@ -1042,7 +1102,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询消费组订阅关系列表客户端分布
+     * @summary Queries the subscriptions of a consumer group.
      *  *
      * @param string         $instanceId
      * @param string         $consumerGroupId
@@ -1073,7 +1133,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询消费组订阅关系列表客户端分布
+     * @summary Queries the subscriptions of a consumer group.
      *  *
      * @param string $instanceId
      * @param string $consumerGroupId
@@ -1090,7 +1150,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询消费者堆栈信息
+     * @summary Queries the stack information about a consumer.
      *  *
      * @param string                  $instanceId
      * @param string                  $consumerGroupId
@@ -1127,7 +1187,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询消费者堆栈信息
+     * @summary Queries the stack information about a consumer.
      *  *
      * @param string                  $instanceId
      * @param string                  $consumerGroupId
@@ -1192,7 +1252,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例账号
+     * @summary Obtains the account used to access a specific instance.
      *  *
      * @param string                    $instanceId
      * @param GetInstanceAccountRequest $request    GetInstanceAccountRequest
@@ -1228,7 +1288,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 获取实例账号
+     * @summary Obtains the account used to access a specific instance.
      *  *
      * @param string                    $instanceId
      * @param GetInstanceAccountRequest $request    GetInstanceAccountRequest
@@ -1244,7 +1304,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 消息详情
+     * @summary Obtains the details of a specific message.
      *  *
      * @param string         $instanceId
      * @param string         $topicName
@@ -1275,7 +1335,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 消息详情
+     * @summary Obtains the details of a specific message.
      *  *
      * @param string $instanceId
      * @param string $topicName
@@ -1338,7 +1398,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 轨迹查询
+     * @summary Queries the trace of a specific message in a specific topic.
      *  *
      * @param string         $instanceId
      * @param string         $topicName
@@ -1369,7 +1429,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 轨迹查询
+     * @summary Queries the trace of a specific message in a specific topic.
      *  *
      * @param string $instanceId
      * @param string $topicName
@@ -1581,7 +1641,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 访问控制acl用户列表
+     * @summary Queries the accounts that are used to access a specific instance.
      *  *
      * @param string                     $instanceId
      * @param ListInstanceAccountRequest $request    ListInstanceAccountRequest
@@ -1629,7 +1689,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 访问控制acl用户列表
+     * @summary Queries the accounts that are used to access a specific instance.
      *  *
      * @param string                     $instanceId
      * @param ListInstanceAccountRequest $request    ListInstanceAccountRequest
@@ -1645,7 +1705,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 访问控制acl数据列表
+     * @summary Queries the access control lists (ACLs) of an instance.
      *  *
      * @param string                 $instanceId
      * @param ListInstanceAclRequest $request    ListInstanceAclRequest
@@ -1687,7 +1747,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 访问控制acl数据列表
+     * @summary Queries the access control lists (ACLs) of an instance.
      *  *
      * @param string                 $instanceId
      * @param ListInstanceAclRequest $request    ListInstanceAclRequest
@@ -1703,7 +1763,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询访问控制ip白名单列表
+     * @summary Queries the IP address whitelists of an instance.
      *  *
      * @param string                         $instanceId
      * @param ListInstanceIpWhitelistRequest $request    ListInstanceIpWhitelistRequest
@@ -1745,7 +1805,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询访问控制ip白名单列表
+     * @summary Queries the IP address whitelists of an instance.
      *  *
      * @param string                         $instanceId
      * @param ListInstanceIpWhitelistRequest $request    ListInstanceIpWhitelistRequest
@@ -1795,6 +1855,9 @@ class RocketMQ extends OpenApiClient
         if (!Utils::isUnset($request->seriesCodesShrink)) {
             $query['seriesCodes'] = $request->seriesCodesShrink;
         }
+        if (!Utils::isUnset($request->storageSecretKey)) {
+            $query['storageSecretKey'] = $request->storageSecretKey;
+        }
         if (!Utils::isUnset($request->tags)) {
             $query['tags'] = $request->tags;
         }
@@ -1835,7 +1898,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询消息列表
+     * @summary Queries the list of messages.
      *  *
      * @param string              $instanceId
      * @param string              $topicName
@@ -1890,7 +1953,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询消息列表
+     * @summary Queries the list of messages.
      *  *
      * @param string              $instanceId
      * @param string              $topicName
@@ -1948,7 +2011,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询可见的资源标签关系
+     * @summary Query visible resource tag relationships
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param string[]                $headers map
@@ -1998,7 +2061,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 查询可见的资源标签关系
+     * @summary Query visible resource tag relationships
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -2125,7 +2188,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 轨迹消息列表
+     * @summary Queries the message traces of a specific topic.
      *  *
      * @param string            $instanceId
      * @param string            $topicName
@@ -2180,7 +2243,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 轨迹消息列表
+     * @summary Queries the message traces of a specific topic.
      *  *
      * @param string            $instanceId
      * @param string            $topicName
@@ -2256,7 +2319,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 用户创建标签资源关系（用户标签）
+     * @summary Creates resource tags.
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param string[]            $headers map
@@ -2300,7 +2363,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 用户创建标签资源关系（用户标签）
+     * @summary Creates resource tags.
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
@@ -2315,7 +2378,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 用户删除标签资源关系
+     * @summary Removes tags from resources.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param string[]              $headers map
@@ -2362,7 +2425,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 用户删除标签资源关系
+     * @summary Removes tags from resources.
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -2398,6 +2461,9 @@ class RocketMQ extends OpenApiClient
         }
         if (!Utils::isUnset($request->deliveryOrderType)) {
             $body['deliveryOrderType'] = $request->deliveryOrderType;
+        }
+        if (!Utils::isUnset($request->maxReceiveTps)) {
+            $body['maxReceiveTps'] = $request->maxReceiveTps;
         }
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
@@ -2509,7 +2575,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 修改访问控制acl用户
+     * @summary Updates the information about a specific account in a specific instance.
      *  *
      * @param string                       $instanceId
      * @param string                       $username
@@ -2549,7 +2615,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 修改访问控制acl用户
+     * @summary Updates the information about a specific account in a specific instance.
      *  *
      * @param string                       $instanceId
      * @param string                       $username
@@ -2566,7 +2632,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 删除访问控制acl数据
+     * @summary Updates the permissions on the resources of a specific instance for a specific user.
      *  *
      * @param string                   $instanceId
      * @param string                   $username
@@ -2615,7 +2681,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 删除访问控制acl数据
+     * @summary Updates the permissions on the resources of a specific instance for a specific user.
      *  *
      * @param string                   $instanceId
      * @param string                   $username
@@ -2646,6 +2712,9 @@ class RocketMQ extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->maxSendTps)) {
+            $body['maxSendTps'] = $request->maxSendTps;
+        }
         if (!Utils::isUnset($request->remark)) {
             $body['remark'] = $request->remark;
         }
@@ -2686,7 +2755,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 消费验证
+     * @summary Verifies the consumption status of a message in a specific topic on a specific instance.
      *  *
      * @param string                      $instanceId
      * @param string                      $topicName
@@ -2727,7 +2796,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 消费验证
+     * @summary Verifies the consumption status of a message in a specific topic on a specific instance.
      *  *
      * @param string                      $instanceId
      * @param string                      $topicName
@@ -2745,7 +2814,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 发送消息
+     * @summary Verifies the message sending feature of a specific topic on a specific instance.
      *  *
      * @param string                   $instanceId
      * @param string                   $topicName
@@ -2788,7 +2857,7 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
-     * @summary 发送消息
+     * @summary Verifies the message sending feature of a specific topic on a specific instance.
      *  *
      * @param string                   $instanceId
      * @param string                   $topicName

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceAccountRequest extends Model
 {
     /**
+     * @description The status of the account.
+     *
+     * Valid values:
+     *
+     *   DISABLE
+     *   ENABLE
+     *
      * @example ENABLE
      *
      * @var string
@@ -16,6 +23,8 @@ class UpdateInstanceAccountRequest extends Model
     public $accountStatus;
 
     /**
+     * @description The password of the account.
+     *
      * @example test
      *
      * @var string

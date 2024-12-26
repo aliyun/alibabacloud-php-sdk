@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Consumer Group ID
+     *
      * @example CID-TEST
      *
      * @var string
@@ -18,13 +20,8 @@ class data extends Model
     public $consumerGroupId;
 
     /**
-     * @example 2022-08-01 20:05:50
+     * @description Instance ID
      *
-     * @var string
-     */
-    public $createTime;
-
-    /**
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -32,6 +29,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description Region ID
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -39,29 +38,24 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description Backlog for each topic
+     *
      * @var DataTopicLagMapValue[]
      */
     public $topicLagMap;
 
     /**
+     * @description Total lag count
+     *
      * @var totalLag
      */
     public $totalLag;
-
-    /**
-     * @example 2022-08-01 20:05:50
-     *
-     * @var string
-     */
-    public $updateTime;
     protected $_name = [
         'consumerGroupId' => 'consumerGroupId',
-        'createTime'      => 'createTime',
         'instanceId'      => 'instanceId',
         'regionId'        => 'regionId',
         'topicLagMap'     => 'topicLagMap',
         'totalLag'        => 'totalLag',
-        'updateTime'      => 'updateTime',
     ];
 
     public function validate()
@@ -73,9 +67,6 @@ class data extends Model
         $res = [];
         if (null !== $this->consumerGroupId) {
             $res['consumerGroupId'] = $this->consumerGroupId;
-        }
-        if (null !== $this->createTime) {
-            $res['createTime'] = $this->createTime;
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -94,9 +85,6 @@ class data extends Model
         if (null !== $this->totalLag) {
             $res['totalLag'] = null !== $this->totalLag ? $this->totalLag->toMap() : null;
         }
-        if (null !== $this->updateTime) {
-            $res['updateTime'] = $this->updateTime;
-        }
 
         return $res;
     }
@@ -112,9 +100,6 @@ class data extends Model
         if (isset($map['consumerGroupId'])) {
             $model->consumerGroupId = $map['consumerGroupId'];
         }
-        if (isset($map['createTime'])) {
-            $model->createTime = $map['createTime'];
-        }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
         }
@@ -126,9 +111,6 @@ class data extends Model
         }
         if (isset($map['totalLag'])) {
             $model->totalLag = totalLag::fromMap($map['totalLag']);
-        }
-        if (isset($map['updateTime'])) {
-            $model->updateTime = $map['updateTime'];
         }
 
         return $model;

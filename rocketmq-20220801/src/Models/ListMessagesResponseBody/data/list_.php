@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description Message body.
+     *
      * @example {}
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $body;
 
     /**
+     * @description Message body size.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class list_ extends Model
     public $bodySize;
 
     /**
+     * @description The client on which messages are produced.
+     *
      * @example xx.xx.xx.xx
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $bornHost;
 
     /**
+     * @description Message born time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $bornTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -44,6 +54,8 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description The message group. This parameter is returned only for ordered messages.
+     *
      * @example xx
      *
      * @var string
@@ -51,6 +63,8 @@ class list_ extends Model
     public $messageGroup;
 
     /**
+     * @description Message Id.
+     *
      * @example 7F000001000114B4340C5ABF94500079
      *
      * @var string
@@ -58,11 +72,15 @@ class list_ extends Model
     public $messageId;
 
     /**
+     * @description Message keys.
+     *
      * @var string[]
      */
     public $messageKeys;
 
     /**
+     * @description The message tag.
+     *
      * @example xx
      *
      * @var string
@@ -70,6 +88,8 @@ class list_ extends Model
     public $messageTag;
 
     /**
+     * @description Message type.
+     *
      * @example NORMAL
      *
      * @var string
@@ -77,6 +97,8 @@ class list_ extends Model
     public $messageType;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -84,6 +106,8 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The broker on which messages are stored.
+     *
      * @example xx.xx.xx.xx
      *
      * @var string
@@ -91,6 +115,8 @@ class list_ extends Model
     public $storeHost;
 
     /**
+     * @description Message store time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -98,6 +124,8 @@ class list_ extends Model
     public $storeTime;
 
     /**
+     * @description The name of the topic.
+     *
      * @example topic_test
      *
      * @var string
@@ -105,6 +133,8 @@ class list_ extends Model
     public $topicName;
 
     /**
+     * @description Message user properties.
+     *
      * @var string[]
      */
     public $userProperties;

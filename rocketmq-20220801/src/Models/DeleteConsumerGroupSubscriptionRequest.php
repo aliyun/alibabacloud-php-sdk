@@ -9,22 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerGroupSubscriptionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The filter expression.
+     *
+     * This parameter is required.
+     * @example *
      *
      * @var string
      */
     public $filterExpression;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the filter expression. Valid values:
+     *
+     *   SQL: filters messages by using SQL expressions.
+     *   TAG: filters messages by using tags.
+     *
+     * Valid values:
+     *
+     *   TAG: filters messages by using SQL expressions.
+     *   SQL: filters messages by using SQL expressions.
+     *
+     * This parameter is required.
+     * @example TAG
      *
      * @var string
      */
     public $filterType;
 
     /**
-     * @description This parameter is required.
+     * @description The topic name.
      *
+     * This parameter is required.
      * @example topic_test
      *
      * @var string

@@ -13,16 +13,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Broker trace info.
+     *
      * @var brokerInfo
      */
     public $brokerInfo;
 
     /**
+     * @description Consumer trace info.
+     *
      * @var consumerInfos[]
      */
     public $consumerInfos;
 
     /**
+     * @description The instance ID.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -30,16 +36,22 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The message information.
+     *
      * @var messageInfo
      */
     public $messageInfo;
 
     /**
+     * @description Producer trace info.
+     *
      * @var producerInfo
      */
     public $producerInfo;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +59,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The topic name.
+     *
      * @example topic_test
      *
      * @var string

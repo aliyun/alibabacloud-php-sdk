@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class stacks extends Model
 {
     /**
+     * @description Thread id.
+     *
      * @example 123
      *
      * @var string
@@ -16,6 +18,8 @@ class stacks extends Model
     public $thread;
 
     /**
+     * @description Stack Information.
+     *
      * @var string[]
      */
     public $tracks;

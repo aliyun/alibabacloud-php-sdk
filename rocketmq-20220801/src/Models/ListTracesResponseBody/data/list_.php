@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description Message born time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $bornTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description Message id.
+     *
      * @example 7F00000100207A4F0F294A938F7807AE
      *
      * @var string
@@ -30,11 +36,15 @@ class list_ extends Model
     public $messageId;
 
     /**
+     * @description Message keys.
+     *
      * @var string[]
      */
     public $messageKeys;
 
     /**
+     * @description Message tag.
+     *
      * @example xx
      *
      * @var string
@@ -42,6 +52,8 @@ class list_ extends Model
     public $messageTag;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -49,6 +61,8 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The name of the topic.
+     *
      * @example topic_test
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceIpWhitelistRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IP address whitelists.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $ipWhitelists;

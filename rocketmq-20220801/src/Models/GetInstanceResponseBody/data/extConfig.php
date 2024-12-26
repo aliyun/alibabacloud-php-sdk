@@ -11,7 +11,7 @@ class extConfig extends Model
     /**
      * @description The authentication type of the instance.
      *
-     * Valid values:
+     * Valid value:
      *
      *   default: intelligent authentication
      *
@@ -46,7 +46,7 @@ class extConfig extends Model
     public $flowOutBandwidth;
 
     /**
-     * @description The metering method for Internet usage.
+     * @description The metering method of Internet usage.
      *
      * Valid values:
      *
@@ -61,14 +61,14 @@ class extConfig extends Model
     public $flowOutType;
 
     /**
-     * @description Specifies whether to enable the Internet access feature.
+     * @description Indicates whether Internet access is enabled.
      *
      * Valid values:
      *
      *   enable
      *   disable
      *
-     * By default, ApsaraMQ for RocketMQ instances are accessed in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fee](https://help.aliyun.com/document_detail/427240.html).
+     * By default, you can access ApsaraMQ for RocketMQ instances in virtual private clouds (VPCs). If you enable the Internet access feature, you are charged for Internet outbound bandwidth. For more information, see [Internet access fees](https://help.aliyun.com/document_detail/427240.html).
      * @example enable
      *
      * @var string

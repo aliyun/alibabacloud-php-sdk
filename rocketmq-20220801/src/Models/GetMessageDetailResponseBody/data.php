@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The message body.
+     *
      * @example {}
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $body;
 
     /**
+     * @description The size of the message body.
+     *
      * @example 123
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $bodySize;
 
     /**
+     * @description The client on which the message was produced.
+     *
      * @example xxx.xx.xxx.xx
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $bornHost;
 
     /**
+     * @description The time when the message was generated.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $bornTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The sharding key. This parameter is returned only for ordered messages.
+     *
      * @example xx
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $messageGroup;
 
     /**
+     * @description The message ID.
+     *
      * @example 01BE87E485F0C7808C04543CAF00000001
      *
      * @var string
@@ -58,11 +72,15 @@ class data extends Model
     public $messageId;
 
     /**
+     * @description The message keys.
+     *
      * @var string[]
      */
     public $messageKeys;
 
     /**
+     * @description The tags.
+     *
      * @example xx
      *
      * @var string
@@ -70,6 +88,8 @@ class data extends Model
     public $messageTag;
 
     /**
+     * @description The message type.
+     *
      * @example NORMAL
      *
      * @var string
@@ -77,6 +97,8 @@ class data extends Model
     public $messageType;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -84,6 +106,8 @@ class data extends Model
     public $regionId;
 
     /**
+     * @description The broker on which the message was stored.
+     *
      * @example xxx.xx.xxx.xx
      *
      * @var string
@@ -91,6 +115,8 @@ class data extends Model
     public $storeHost;
 
     /**
+     * @description The time when the message was stored.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -98,11 +124,15 @@ class data extends Model
     public $storeTime;
 
     /**
+     * @description The default system attributes.
+     *
      * @var string[]
      */
     public $systemProperties;
 
     /**
+     * @description The topic name.
+     *
      * @example topic_test
      *
      * @var string
@@ -110,6 +140,8 @@ class data extends Model
     public $topicName;
 
     /**
+     * @description The user attributes.
+     *
      * @var string[]
      */
     public $userProperties;

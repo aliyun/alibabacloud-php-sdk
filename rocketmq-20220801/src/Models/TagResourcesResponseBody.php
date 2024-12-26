@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example Topic.NotFound
      *
      * @var string
@@ -16,6 +18,8 @@ class TagResourcesResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned result.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +27,8 @@ class TagResourcesResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -30,6 +36,8 @@ class TagResourcesResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -37,6 +45,8 @@ class TagResourcesResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -44,6 +54,8 @@ class TagResourcesResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error code.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -51,6 +63,8 @@ class TagResourcesResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 0B962390-D84B-5D44-8C11-79DF40299D41
      *
      * @var string
@@ -58,6 +72,8 @@ class TagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

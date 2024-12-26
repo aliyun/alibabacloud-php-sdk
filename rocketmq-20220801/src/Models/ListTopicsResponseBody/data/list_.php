@@ -27,6 +27,11 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $maxSendTps;
+
+    /**
      * @description The message type of the topic.
      *
      * Valid values:
@@ -108,6 +113,7 @@ class list_ extends Model
     protected $_name = [
         'createTime'  => 'createTime',
         'instanceId'  => 'instanceId',
+        'maxSendTps'  => 'maxSendTps',
         'messageType' => 'messageType',
         'regionId'    => 'regionId',
         'remark'      => 'remark',
@@ -128,6 +134,9 @@ class list_ extends Model
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
+        }
+        if (null !== $this->maxSendTps) {
+            $res['maxSendTps'] = $this->maxSendTps;
         }
         if (null !== $this->messageType) {
             $res['messageType'] = $this->messageType;
@@ -164,6 +173,9 @@ class list_ extends Model
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];
+        }
+        if (isset($map['maxSendTps'])) {
+            $model->maxSendTps = $map['maxSendTps'];
         }
         if (isset($map['messageType'])) {
             $model->messageType = $map['messageType'];

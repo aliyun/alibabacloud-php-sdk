@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The position from which the next query starts.
+     *
      * @example d09e2b63e1b12d905b7080ff70
      *
      * @var string
@@ -16,8 +18,9 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -25,20 +28,27 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description Resource group ID.
+     *
+     * @example rg-acfmx7caj******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @example rmq-cn-lbj34bb2r0i
+     * @description List of resource IDs, in JSON format.
+     *
+     * @example ["rmq-cn-pe334n08h08"]
      *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description Resource type.
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string
@@ -46,6 +56,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description List of tags, in JSON format.
+     *
      * @example [{"key": "rmq-test", "value": "test"}]
      *
      * @var string

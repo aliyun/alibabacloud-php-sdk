@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListMessagesRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     * @example 2024-09-09 09:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description Message Id.
+     *
      * @example 7F00000100207A4F0F294A938F7807AE
      *
      * @var string
@@ -21,6 +27,8 @@ class ListMessagesRequest extends Model
     public $messageId;
 
     /**
+     * @description Message key.
+     *
      * @example XSCBillResult
      *
      * @var string
@@ -28,21 +36,38 @@ class ListMessagesRequest extends Model
     public $messageKey;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The scroll ID of the request.
+     *
+     * You do not need to configure this parameter for the first page. This parameter is included in the pagination request based on the result returned for the first page.
+     * @example B13D0B07-F24B-4790-88D8-D47A38063D00
+     *
      * @var string
      */
     public $scrollId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * @example 2024-09-09 08:00:00
+     *
      * @var string
      */
     public $startTime;

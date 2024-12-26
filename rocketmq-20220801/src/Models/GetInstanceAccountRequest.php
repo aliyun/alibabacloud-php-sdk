@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceAccountRequest extends Model
 {
     /**
+     * @description The username of the account.
+     *
+     * If you do not configure this parameter, the default username of the instance is used.
+     * @example test
+     *
      * @var string
      */
     public $username;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceAccountRequest extends Model
 {
     /**
+     * @description The status of the account.
+     *
+     * Valid values:
+     *
+     *   DISABLE
+     *   ENABLE
+     *
      * @example ENABLE
      *
      * @var string
@@ -16,6 +23,8 @@ class ListInstanceAccountRequest extends Model
     public $accountStatus;
 
     /**
+     * @description The account type.
+     * - DEFAULT
      * @example CUSTOMER
      *
      * @var string
@@ -23,8 +32,9 @@ class ListInstanceAccountRequest extends Model
     public $accountType;
 
     /**
-     * @description This parameter is required.
+     * @description The page number. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -32,8 +42,9 @@ class ListInstanceAccountRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Default value: 10.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int
@@ -41,6 +52,8 @@ class ListInstanceAccountRequest extends Model
     public $pageSize;
 
     /**
+     * @description The username of the account.
+     *
      * @example test
      *
      * @var string

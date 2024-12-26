@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class networkInfo extends Model
 {
     /**
-     * @description The information about endpoints.
+     * @description The endpoints.
      *
      * @var endpoints[]
      */

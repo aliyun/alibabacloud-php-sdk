@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceAccountResponseBody extends Model
 {
     /**
+     * @description No permission details
+     *
      * @example xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateInstanceAccountResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The error code returned if the call failed.
+     *
      * @example MissingInstanceId
      *
      * @var string
@@ -23,11 +27,17 @@ class CreateInstanceAccountResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned result.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -35,6 +45,8 @@ class CreateInstanceAccountResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example InstanceId
      *
      * @var string
@@ -42,6 +54,8 @@ class CreateInstanceAccountResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -49,6 +63,8 @@ class CreateInstanceAccountResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -56,6 +72,8 @@ class CreateInstanceAccountResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     *
      * @example 3AE0999C-8DBA-5CEE-8D9A-BE8D4A90DF8D
      *
      * @var string
@@ -63,6 +81,8 @@ class CreateInstanceAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

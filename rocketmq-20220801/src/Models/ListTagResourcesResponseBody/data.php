@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The position from which the next query starts.
+     *
      * @example d09e2b63e1b12d905b7080ff70
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $nextToken;
 
     /**
+     * @description Request ID.
+     *
      * @example F00C6A70-C782-5DD6-9D11-0CFC710100C7
      *
      * @var string
@@ -24,6 +28,8 @@ class data extends Model
     public $requestId;
 
     /**
+     * @description Resource tag relationships.
+     *
      * @var tagResources[]
      */
     public $tagResources;

@@ -19,9 +19,9 @@ class vpcInfo extends Model
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch with which you want to associate the instance, If there are multiple vSwitchs, please concatenate them using the "|" character.
+     * @description The ID of the vSwitch with which the instance is associated. If you want to specify multiple vSwitches, separate the vSwitches with vertical bars (|).
      *
-     * >  After an ApsaraMQ for RocketMQ instance is created, you cannot change the vSwitch with which the instance is associated. If you want to change the vSwitch with which the instance is associated, you must release the instance and purchase a new instance.
+     * >  We recommend that you configure vSwitches instead of this parameter.
      * @example vsw-uf6gwtbn6etadpv*******
      *
      * @deprecated
@@ -33,12 +33,13 @@ class vpcInfo extends Model
     /**
      * @description The vSwitches.
      *
+     * >  This parameter is required. We recommend that you configure this parameter instead of vSwitchId.
      * @var vSwitches[]
      */
     public $vSwitches;
 
     /**
-     * @description The ID of the VPC in which you want to deploy the instance.
+     * @description The ID of the VPC with which the instance to be created is associated.
      *
      * This parameter is required.
      * @example vpc-wz9qt50xhtj9krb******

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class operations extends Model
 {
     /**
+     * @description Whether it is a dead letter message.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class operations extends Model
     public $deadMessage;
 
     /**
+     * @description Invisible time, milliseconds.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class operations extends Model
     public $invisibleTime;
 
     /**
+     * @description Operation time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -30,6 +36,8 @@ class operations extends Model
     public $operateTime;
 
     /**
+     * @description Operation type.
+     *
      * @example ADD
      *
      * @var string

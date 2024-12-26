@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -18,8 +19,9 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource IDs, in the JSON format.
      *
+     * This parameter is required.
      * @example rmq-cn-pe3355cs707
      *
      * @var string
@@ -27,8 +29,11 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of resource.
      *
+     * Set this parameter to **instance**. The value of this parameter cannot be changed.
+     *
+     * This parameter is required.
      * @example instance
      *
      * @var string
@@ -36,8 +41,9 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description This parameter is required.
+     * @description tag, in JSON format.
      *
+     * This parameter is required.
      * @example [{"key": "rmq-test", "value": "test"}]
      *
      * @var string

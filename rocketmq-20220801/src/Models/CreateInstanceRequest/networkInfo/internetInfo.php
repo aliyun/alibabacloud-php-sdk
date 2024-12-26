@@ -23,9 +23,9 @@ class internetInfo extends Model
      *
      * Valid values:
      *
-     *   payByBandwidth: pay-by-bandwidth. If Internet access is enabled for an instance, specify this value for the parameter.
-     *   payByTraffic: pay-by-traffic. If Internet access is enabled for an instance, specify this value for the parameter.
-     *   uninvolved: No billing method is involved. If Internet access is disabled for an instance, specify this value for the parameter.
+     *   payByBandwidth: pay-by-bandwidth. This value is valid only if you enable Internet access.
+     *   payByTraffic: pay-by-traffic. This value is valid only if you enable Internet access.
+     *   uninvolved: No billing method is involved. This value is valid only if you disable Internet access.
      *
      * This parameter is required.
      * @example uninvolved
@@ -50,10 +50,12 @@ class internetInfo extends Model
     public $internetSpec;
 
     /**
-     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use a public endpoint to access the instance.
+     * @description The whitelist that includes the IP addresses that are allowed to access the ApsaraMQ for RocketMQ broker over the Internet. This parameter can be configured only if you use the public endpoint to access the instance.
      *
      *   If you do not configure an IP address whitelist, all CIDR blocks are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
-     *   If configure an IP address whitlist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+     *   If you configure an IP address whitelist, only the IP addresses in the whitelist are allowed to access the ApsaraMQ for RocketMQ broker over the Internet.
+     *
+     * @deprecated
      *
      * @var string[]
      */

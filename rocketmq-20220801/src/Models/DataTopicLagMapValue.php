@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DataTopicLagMapValue extends Model
 {
     /**
+     * @description Ready message count
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DataTopicLagMapValue extends Model
     public $readyCount;
 
     /**
+     * @description The number of messages being consumed.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DataTopicLagMapValue extends Model
     public $inflightCount;
 
     /**
+     * @description Delivery delay time, in seconds
+     *
      * @example 12
      *
      * @var int

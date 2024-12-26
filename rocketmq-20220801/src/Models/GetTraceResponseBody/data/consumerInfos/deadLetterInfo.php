@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deadLetterInfo extends Model
 {
     /**
+     * @description MessageId.
+     *
      * @example 7F000001001F7A4F0F29463F0376047D
      *
      * @var string
@@ -16,6 +18,8 @@ class deadLetterInfo extends Model
     public $messageId;
 
     /**
+     * @description Arrival time in the dead letter queue.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -23,6 +27,8 @@ class deadLetterInfo extends Model
     public $toDlqTime;
 
     /**
+     * @description The topic name.
+     *
      * @example Register_Sync
      *
      * @var string

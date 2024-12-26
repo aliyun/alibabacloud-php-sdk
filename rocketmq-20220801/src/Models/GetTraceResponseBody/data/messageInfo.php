@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class messageInfo extends Model
 {
     /**
+     * @description Message body.
+     *
      * @example {}
      *
      * @var string
@@ -16,6 +18,8 @@ class messageInfo extends Model
     public $body;
 
     /**
+     * @description Message born host.
+     *
      * @example x.x.x.x
      *
      * @var string
@@ -23,6 +27,8 @@ class messageInfo extends Model
     public $bornHost;
 
     /**
+     * @description Message born time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -30,6 +36,8 @@ class messageInfo extends Model
     public $bornTime;
 
     /**
+     * @description The instance ID.
+     *
      * @example rmq-cn-u0t2ygjq505
      *
      * @var string
@@ -37,6 +45,8 @@ class messageInfo extends Model
     public $instanceId;
 
     /**
+     * @description Message grpup.
+     *
      * @example xx
      *
      * @var string
@@ -44,6 +54,8 @@ class messageInfo extends Model
     public $messageGroup;
 
     /**
+     * @description The message ID.
+     *
      * @example 0A79275A00207A4F0F2916C92F9A0B94
      *
      * @var string
@@ -51,11 +63,15 @@ class messageInfo extends Model
     public $messageId;
 
     /**
+     * @description Message keys.
+     *
      * @var string[]
      */
     public $messageKeys;
 
     /**
+     * @description Message tag.
+     *
      * @example xx
      *
      * @var string
@@ -63,6 +79,8 @@ class messageInfo extends Model
     public $messageTag;
 
     /**
+     * @description Message type.
+     *
      * @example NORMAL
      *
      * @var string
@@ -70,6 +88,8 @@ class messageInfo extends Model
     public $messageType;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -77,13 +97,8 @@ class messageInfo extends Model
     public $regionId;
 
     /**
-     * @example true
+     * @description Message store host.
      *
-     * @var bool
-     */
-    public $setted;
-
-    /**
      * @example x.x.x.x
      *
      * @var string
@@ -91,6 +106,8 @@ class messageInfo extends Model
     public $storeHost;
 
     /**
+     * @description Message store time.
+     *
      * @example 2023-03-22 12:17:08
      *
      * @var string
@@ -98,6 +115,8 @@ class messageInfo extends Model
     public $storeTime;
 
     /**
+     * @description The topic name.
+     *
      * @example Topic_normal_inspector
      *
      * @var string
@@ -105,6 +124,8 @@ class messageInfo extends Model
     public $topicName;
 
     /**
+     * @description Message transaction id.
+     *
      * @example xx
      *
      * @var string
@@ -112,6 +133,8 @@ class messageInfo extends Model
     public $transactionId;
 
     /**
+     * @description Message user properties.
+     *
      * @var string[]
      */
     public $userProperties;
@@ -126,7 +149,6 @@ class messageInfo extends Model
         'messageTag'     => 'messageTag',
         'messageType'    => 'messageType',
         'regionId'       => 'regionId',
-        'setted'         => 'setted',
         'storeHost'      => 'storeHost',
         'storeTime'      => 'storeTime',
         'topicName'      => 'topicName',
@@ -170,9 +192,6 @@ class messageInfo extends Model
         }
         if (null !== $this->regionId) {
             $res['regionId'] = $this->regionId;
-        }
-        if (null !== $this->setted) {
-            $res['setted'] = $this->setted;
         }
         if (null !== $this->storeHost) {
             $res['storeHost'] = $this->storeHost;
@@ -232,9 +251,6 @@ class messageInfo extends Model
         }
         if (isset($map['regionId'])) {
             $model->regionId = $map['regionId'];
-        }
-        if (isset($map['setted'])) {
-            $model->setted = $map['setted'];
         }
         if (isset($map['storeHost'])) {
             $model->storeHost = $map['storeHost'];

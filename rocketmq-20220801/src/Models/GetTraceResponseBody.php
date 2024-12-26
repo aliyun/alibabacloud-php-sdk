@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetTraceResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example InvalidConsumerGroupId
      *
      * @var string
@@ -17,11 +19,15 @@ class GetTraceResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -29,6 +35,8 @@ class GetTraceResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example instanceId
      *
      * @var string
@@ -36,6 +44,8 @@ class GetTraceResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -43,6 +53,8 @@ class GetTraceResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example The instance cannot be found.
      *
      * @var string
@@ -50,6 +62,8 @@ class GetTraceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     *
      * @example 7779A8FC-1BCD-5A1D-A603-C4A9BD8ADC49
      *
      * @var string
@@ -57,6 +71,8 @@ class GetTraceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

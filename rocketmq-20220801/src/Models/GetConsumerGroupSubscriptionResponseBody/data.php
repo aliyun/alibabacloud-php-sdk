@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The connection details.
+     *
      * @var connectionDTO
      */
     public $connectionDTO;
 
     /**
+     * @description The subscription details.
+     *
      * @var subscriptionDTO
      */
     public $subscriptionDTO;

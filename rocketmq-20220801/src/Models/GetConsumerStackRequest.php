@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetConsumerStackRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The client ID.
      *
+     * This parameter is required.
      * @example 172.26.76.48@Lqd7dImlp9KJ5V84
      *
      * @var string

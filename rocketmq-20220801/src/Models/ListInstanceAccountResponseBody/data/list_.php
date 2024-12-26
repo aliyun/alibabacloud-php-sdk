@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The status of the account.
+     * - ENABLE
      * @example ENABLE
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $accountStatus;
 
     /**
+     * @description The account type.
+     * - DEFAULT
      * @example CUSTOMER
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $accountType;
 
     /**
+     * @description The instance ID.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The username of the account.
+     *
      * @example test
      *
      * @var string

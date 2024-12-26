@@ -33,6 +33,11 @@ class UpdateConsumerGroupRequest extends Model
     public $deliveryOrderType;
 
     /**
+     * @var int
+     */
+    public $maxReceiveTps;
+
+    /**
      * @description The new remarks on the consumer group.
      *
      * @example This is the remark for test.
@@ -43,6 +48,7 @@ class UpdateConsumerGroupRequest extends Model
     protected $_name = [
         'consumeRetryPolicy' => 'consumeRetryPolicy',
         'deliveryOrderType'  => 'deliveryOrderType',
+        'maxReceiveTps'      => 'maxReceiveTps',
         'remark'             => 'remark',
     ];
 
@@ -58,6 +64,9 @@ class UpdateConsumerGroupRequest extends Model
         }
         if (null !== $this->deliveryOrderType) {
             $res['deliveryOrderType'] = $this->deliveryOrderType;
+        }
+        if (null !== $this->maxReceiveTps) {
+            $res['maxReceiveTps'] = $this->maxReceiveTps;
         }
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
@@ -79,6 +88,9 @@ class UpdateConsumerGroupRequest extends Model
         }
         if (isset($map['deliveryOrderType'])) {
             $model->deliveryOrderType = $map['deliveryOrderType'];
+        }
+        if (isset($map['maxReceiveTps'])) {
+            $model->maxReceiveTps = $map['maxReceiveTps'];
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];

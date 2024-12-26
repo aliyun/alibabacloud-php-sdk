@@ -6,85 +6,49 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateInstanceIpWhitelistResponseBody extends Model
+class AddDisasterRecoveryItemResponseBody extends Model
 {
     /**
-     * @description The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @description The error code.
-     *
-     * @example MissingInstanceId
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The returned data.
-     *
-     * @example true
-     *
-     * @var bool
+     * @var int
      */
     public $data;
 
     /**
-     * @description The dynamic error code.
-     *
-     * @example InstanceId
-     *
      * @var string
      */
     public $dynamicCode;
 
     /**
-     * @description The dynamic error message.
-     *
-     * @example InstanceId
-     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
-     * @description The HTTP status code.
-     *
-     * @example 400
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description The error message.
-     *
-     * @example The instance cannot be found.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example A07B41BD-6DD3-5349-9E76-00303DF04BBE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
@@ -141,7 +105,7 @@ class CreateInstanceIpWhitelistResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateInstanceIpWhitelistResponseBody
+     * @return AddDisasterRecoveryItemResponseBody
      */
     public static function fromMap($map = [])
     {

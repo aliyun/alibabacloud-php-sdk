@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceAclRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the resource on which the permissions are granted.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -18,8 +19,14 @@ class DeleteInstanceAclRequest extends Model
     public $resourceName;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the resource on which the permissions are granted.
      *
+     * Valid values:
+     *
+     *   Group
+     *   Topic
+     *
+     * This parameter is required.
      * @example Topic
      *
      * @var string

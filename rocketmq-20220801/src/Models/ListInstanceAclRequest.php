@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceAclRequest extends Model
 {
     /**
+     * @description The condition that you specify to filter the ACLs. If you do not specify this parameter, all ACLs are queried.
+     *
      * @example CID-TEST
      *
      * @var string
@@ -16,8 +18,9 @@ class ListInstanceAclRequest extends Model
     public $filter;
 
     /**
-     * @description This parameter is required.
+     * @description The page number. Pages start from page 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -25,8 +28,9 @@ class ListInstanceAclRequest extends Model
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 10
      *
      * @var int

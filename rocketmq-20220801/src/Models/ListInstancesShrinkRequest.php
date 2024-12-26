@@ -60,6 +60,15 @@ class ListInstancesShrinkRequest extends Model
     public $seriesCodesShrink;
 
     /**
+     * @description The storage encryption key.
+     *
+     * @example xxxxx
+     *
+     * @var string
+     */
+    public $storageSecretKey;
+
+    /**
      * @description The tags that are used to filter instances.
      *
      * @example [{"key": "rmq-test", "value": "test"}]
@@ -73,6 +82,7 @@ class ListInstancesShrinkRequest extends Model
         'pageSize'          => 'pageSize',
         'resourceGroupId'   => 'resourceGroupId',
         'seriesCodesShrink' => 'seriesCodes',
+        'storageSecretKey'  => 'storageSecretKey',
         'tags'              => 'tags',
     ];
 
@@ -97,6 +107,9 @@ class ListInstancesShrinkRequest extends Model
         }
         if (null !== $this->seriesCodesShrink) {
             $res['seriesCodes'] = $this->seriesCodesShrink;
+        }
+        if (null !== $this->storageSecretKey) {
+            $res['storageSecretKey'] = $this->storageSecretKey;
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
@@ -127,6 +140,9 @@ class ListInstancesShrinkRequest extends Model
         }
         if (isset($map['seriesCodes'])) {
             $model->seriesCodesShrink = $map['seriesCodes'];
+        }
+        if (isset($map['storageSecretKey'])) {
+            $model->storageSecretKey = $map['storageSecretKey'];
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];

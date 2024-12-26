@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceAccountResponseBody extends Model
 {
     /**
+     * @description The details about the access denial. This parameter is returned only if the access is denied because the Resource Access Management (RAM) user does not have the required permissions.
+     *
      * @example xxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteInstanceAccountResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description The error code.
+     *
      * @example Instance.NotFound
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteInstanceAccountResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +36,8 @@ class DeleteInstanceAccountResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic error code.
+     *
      * @example InstanceId
      *
      * @var string
@@ -37,6 +45,8 @@ class DeleteInstanceAccountResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic error message.
+     *
      * @example InstanceId
      *
      * @var string
@@ -44,6 +54,8 @@ class DeleteInstanceAccountResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -51,6 +63,8 @@ class DeleteInstanceAccountResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message.
+     *
      * @example Parameter instanceId is mandatory for this action .
      *
      * @var string
@@ -58,6 +72,8 @@ class DeleteInstanceAccountResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 157DF7D4-53FB-58C6-BEBC-A9400E7EF68A
      *
      * @var string
@@ -65,6 +81,8 @@ class DeleteInstanceAccountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

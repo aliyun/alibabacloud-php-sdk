@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class VerifyConsumeMessageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The client ID.
      *
+     * This parameter is required.
      * @example zeekr-settlement-server-dc555456f-v2lcg@1@1@qfvorazqns
      *
      * @var string
@@ -18,8 +19,9 @@ class VerifyConsumeMessageRequest extends Model
     public $clientId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the consumer group.
      *
+     * This parameter is required.
      * @example TEST_FINANCE_STOCK_OUT_GROUP
      *
      * @var string

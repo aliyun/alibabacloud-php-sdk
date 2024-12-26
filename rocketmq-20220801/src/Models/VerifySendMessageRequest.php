@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VerifySendMessageRequest extends Model
 {
     /**
+     * @description The message body.
+     *
      * @example successful
      *
      * @var string
@@ -16,6 +18,8 @@ class VerifySendMessageRequest extends Model
     public $message;
 
     /**
+     * @description The message key.
+     *
      * @example xx
      *
      * @var string
@@ -23,6 +27,8 @@ class VerifySendMessageRequest extends Model
     public $messageKey;
 
     /**
+     * @description The message tag.
+     *
      * @example xx
      *
      * @var string

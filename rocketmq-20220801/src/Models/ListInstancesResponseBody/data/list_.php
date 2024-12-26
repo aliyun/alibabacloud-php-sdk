@@ -155,7 +155,7 @@ class list_ extends Model
     public $startTime;
 
     /**
-     * @description The instance status.
+     * @description The status of the instance.
      *
      * Valid values:
      *

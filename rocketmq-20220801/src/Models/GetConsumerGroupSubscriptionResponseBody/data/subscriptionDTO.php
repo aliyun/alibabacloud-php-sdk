@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDTO extends Model
 {
     /**
+     * @description The consumer group ID.
+     *
      * @example GID_inspector_group
      *
      * @var string
@@ -16,6 +18,8 @@ class subscriptionDTO extends Model
     public $consumerGroupId;
 
     /**
+     * @description The filter expression.
+     *
      * @example *
      *
      * @var string
@@ -23,6 +27,11 @@ class subscriptionDTO extends Model
     public $filterExpression;
 
     /**
+     * @description The type of the filter expression. Valid values:
+     *
+     *   SQL: filters messages by using SQL expressions.
+     *   TAG: filters messages by using tags.
+     *
      * @example UNSPECIFIED
      *
      * @var string
@@ -30,6 +39,11 @@ class subscriptionDTO extends Model
     public $filterExpressionType;
 
     /**
+     * @description The consumption mode of the consumer group. Valid values:
+     *
+     *   BROADCASTING: broadcasting consumption
+     *   CLUSTERING: clustering consumption
+     *
      * @example BROADCASTING
      *
      * @var string
@@ -37,6 +51,11 @@ class subscriptionDTO extends Model
     public $messageModel;
 
     /**
+     * @description The subscription status. Valid values:
+     *
+     *   ONLINE: The consumer group is online. If the consumer group contains multiple consumers, this value is returned if at least one of the consumers is online.
+     *   OFFLINE: The consumer group is offline. If the consumer group contains multiple consumers, this value is returned only if all consumers are offline.
+     *
      * @example ONLINE
      *
      * @var string
@@ -44,6 +63,8 @@ class subscriptionDTO extends Model
     public $subscriptionStatus;
 
     /**
+     * @description The topic to which the consumer group subscribes.
+     *
      * @example Topic_normal_inspector
      *
      * @var string

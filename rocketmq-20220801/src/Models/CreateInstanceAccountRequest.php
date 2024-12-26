@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceAccountRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The password of the account.
      *
+     * This parameter is required.
      * @example xxx
      *
      * @var string
@@ -18,8 +19,9 @@ class CreateInstanceAccountRequest extends Model
     public $password;
 
     /**
-     * @description This parameter is required.
+     * @description The username of the account.
      *
+     * This parameter is required.
      * @example xxx
      *
      * @var string

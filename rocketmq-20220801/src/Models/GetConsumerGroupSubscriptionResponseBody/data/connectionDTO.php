@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class connectionDTO extends Model
 {
     /**
+     * @description The client ID.
+     *
      * @example 192.168.50.191@19908#-2093249153#1534215565#40385215750900
      *
      * @var string
@@ -16,6 +18,8 @@ class connectionDTO extends Model
     public $clientId;
 
     /**
+     * @description The public IP address of the host.
+     *
      * @example xx.xx.xx.xx
      *
      * @var string
@@ -23,6 +27,8 @@ class connectionDTO extends Model
     public $egressIp;
 
     /**
+     * @description The host name.
+     *
      * @example nginx
      *
      * @var string
@@ -30,6 +36,8 @@ class connectionDTO extends Model
     public $hostname;
 
     /**
+     * @description The language used by the client.
+     *
      * @example zh
      *
      * @var string
@@ -37,6 +45,11 @@ class connectionDTO extends Model
     public $language;
 
     /**
+     * @description The consumption mode of the consumer group. Valid values:
+     *
+     *   BROADCASTING: broadcasting consumption
+     *   CLUSTERING: clustering consumption
+     *
      * @example BROADCASTING
      *
      * @var string
@@ -44,6 +57,8 @@ class connectionDTO extends Model
     public $messageModel;
 
     /**
+     * @description The client version.
+     *
      * @example 1.0.0
      *
      * @var string

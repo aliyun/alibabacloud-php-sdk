@@ -121,7 +121,7 @@ class data extends Model
      *
      * Valid values:
      *
-     *   PayAsYouGo: pay-as-you-go
+     *   PayAsYouGo
      *   Subscription
      *
      * @example Subscription

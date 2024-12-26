@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The ACL type.
+     *
+     * Valid value:
+     *
+     *   APACHE: open source ACL.
+     *
      * @example APACHE
      *
      * @var string
@@ -16,11 +22,20 @@ class list_ extends Model
     public $aclType;
 
     /**
+     * @description The types of the operations that are allowed by the ACL.
+     *
      * @var string[]
      */
     public $actions;
 
     /**
+     * @description The decision result.
+     *
+     * Valid values:
+     *
+     *   Deny: Access is denied.
+     *   Allow: Access is allowed.
+     *
      * @example Allow
      *
      * @var string
@@ -28,6 +43,8 @@ class list_ extends Model
     public $decision;
 
     /**
+     * @description The instance ID.
+     *
      * @example rmq-cn-7e22ody****
      *
      * @var string
@@ -35,11 +52,15 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description The IP address whitelists.
+     *
      * @var string[]
      */
     public $ipWhitelists;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +68,8 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The resource name.
+     *
      * @example test
      *
      * @var string
@@ -54,6 +77,13 @@ class list_ extends Model
     public $resourceName;
 
     /**
+     * @description The resource type.
+     *
+     * Valid values:
+     *
+     *   Group
+     *   Topic
+     *
      * @example Topic
      *
      * @var string
@@ -61,6 +91,8 @@ class list_ extends Model
     public $resourceType;
 
     /**
+     * @description The username.
+     *
      * @example test
      *
      * @var string

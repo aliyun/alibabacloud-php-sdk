@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceIpWhitelistRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The IP address whitelist.
      *
+     * This parameter is required.
      * @example 0.0.0.0/0
      *
      * @var string
