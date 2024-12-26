@@ -8,6 +8,9 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest;
@@ -28,6 +31,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptPlanningResponse
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunTagMiningAnalysisRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunTagMiningAnalysisResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunTagMiningAnalysisShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisShrinkRequest;
@@ -120,6 +126,75 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->generateBroadcastNewsWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 轻应用-标签挖掘-获取示例输出格式
+     *  *
+     * @param string                      $workspaceId
+     * @param GenerateOutputFormatRequest $tmpReq      GenerateOutputFormatRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GenerateOutputFormatResponse GenerateOutputFormatResponse
+     */
+    public function generateOutputFormatWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GenerateOutputFormatShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $body['businessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $body['extraInfo'] = $request->extraInfo;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->taskDescription)) {
+            $body['taskDescription'] = $request->taskDescription;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateOutputFormat',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/generateOutputFormat',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateOutputFormatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 轻应用-标签挖掘-获取示例输出格式
+     *  *
+     * @param string                      $workspaceId
+     * @param GenerateOutputFormatRequest $request     GenerateOutputFormatRequest
+     *
+     * @return GenerateOutputFormatResponse GenerateOutputFormatResponse
+     */
+    public function generateOutputFormat($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->generateOutputFormatWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -682,6 +757,81 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->runStyleWritingWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 轻应用-标签挖掘
+     *  *
+     * @param string                      $workspaceId
+     * @param RunTagMiningAnalysisRequest $tmpReq      RunTagMiningAnalysisRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunTagMiningAnalysisResponse RunTagMiningAnalysisResponse
+     */
+    public function runTagMiningAnalysisWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunTagMiningAnalysisShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'tags', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->businessType)) {
+            $body['businessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->extraInfo)) {
+            $body['extraInfo'] = $request->extraInfo;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->outputFormat)) {
+            $body['outputFormat'] = $request->outputFormat;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->taskDescription)) {
+            $body['taskDescription'] = $request->taskDescription;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunTagMiningAnalysis',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runTagMiningAnalysis',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunTagMiningAnalysisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 轻应用-标签挖掘
+     *  *
+     * @param string                      $workspaceId
+     * @param RunTagMiningAnalysisRequest $request     RunTagMiningAnalysisRequest
+     *
+     * @return RunTagMiningAnalysisResponse RunTagMiningAnalysisResponse
+     */
+    public function runTagMiningAnalysis($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runTagMiningAnalysisWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
