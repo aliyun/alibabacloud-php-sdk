@@ -1,3 +1,8 @@
+2024-12-26 Version: 1.2.0
+- Support API RunSearchCaseFullText.
+- Support API RunSearchLawQuery.
+
+
 2024-12-26 Version: 1.1.3
 - Generated php 2024-06-28 for FaRui.
 

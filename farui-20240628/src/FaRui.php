@@ -18,6 +18,12 @@ use AlibabaCloud\SDK\FaRui\V20240628\Models\RunContractRuleGenerationShrinkReque
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationRequest;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationResponse;
 use AlibabaCloud\SDK\FaRui\V20240628\Models\RunLegalAdviceConsultationShrinkRequest;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextRequest;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextResponse;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchCaseFullTextShrinkRequest;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryRequest;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryResponse;
+use AlibabaCloud\SDK\FaRui\V20240628\Models\RunSearchLawQueryShrinkRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
@@ -400,5 +406,173 @@ class FaRui extends OpenApiClient
         $headers = [];
 
         return $this->runLegalAdviceConsultationWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 案例检索
+     *  *
+     * @param string                       $workspaceId
+     * @param RunSearchCaseFullTextRequest $tmpReq      RunSearchCaseFullTextRequest
+     * @param string[]                     $headers     map
+     * @param RuntimeOptions               $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunSearchCaseFullTextResponse RunSearchCaseFullTextResponse
+     */
+    public function runSearchCaseFullTextWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunSearchCaseFullTextShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filterCondition)) {
+            $request->filterConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterCondition, 'filterCondition', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->pageParam)) {
+            $request->pageParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pageParam, 'pageParam', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->queryKeywords)) {
+            $request->queryKeywordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryKeywords, 'queryKeywords', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sortKeyAndDirection)) {
+            $request->sortKeyAndDirectionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sortKeyAndDirection, 'sortKeyAndDirection', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->thread)) {
+            $request->threadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thread, 'thread', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['appId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->filterConditionShrink)) {
+            $body['filterCondition'] = $request->filterConditionShrink;
+        }
+        if (!Utils::isUnset($request->pageParamShrink)) {
+            $body['pageParam'] = $request->pageParamShrink;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->queryKeywordsShrink)) {
+            $body['queryKeywords'] = $request->queryKeywordsShrink;
+        }
+        if (!Utils::isUnset($request->sortKeyAndDirectionShrink)) {
+            $body['sortKeyAndDirection'] = $request->sortKeyAndDirectionShrink;
+        }
+        if (!Utils::isUnset($request->threadShrink)) {
+            $body['thread'] = $request->threadShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunSearchCaseFullText',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/farui/search/case/fulltext',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunSearchCaseFullTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 案例检索
+     *  *
+     * @param string                       $workspaceId
+     * @param RunSearchCaseFullTextRequest $request     RunSearchCaseFullTextRequest
+     *
+     * @return RunSearchCaseFullTextResponse RunSearchCaseFullTextResponse
+     */
+    public function runSearchCaseFullText($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runSearchCaseFullTextWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 法规搜索
+     *  *
+     * @param string                   $workspaceId
+     * @param RunSearchLawQueryRequest $tmpReq      RunSearchLawQueryRequest
+     * @param string[]                 $headers     map
+     * @param RuntimeOptions           $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunSearchLawQueryResponse RunSearchLawQueryResponse
+     */
+    public function runSearchLawQueryWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RunSearchLawQueryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filterCondition)) {
+            $request->filterConditionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterCondition, 'filterCondition', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->pageParam)) {
+            $request->pageParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pageParam, 'pageParam', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->queryKeywords)) {
+            $request->queryKeywordsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryKeywords, 'queryKeywords', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->thread)) {
+            $request->threadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->thread, 'thread', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->appId)) {
+            $body['appId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->filterConditionShrink)) {
+            $body['filterCondition'] = $request->filterConditionShrink;
+        }
+        if (!Utils::isUnset($request->pageParamShrink)) {
+            $body['pageParam'] = $request->pageParamShrink;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->queryKeywordsShrink)) {
+            $body['queryKeywords'] = $request->queryKeywordsShrink;
+        }
+        if (!Utils::isUnset($request->threadShrink)) {
+            $body['thread'] = $request->threadShrink;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunSearchLawQuery',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/farui/search/law/query',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunSearchLawQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 法规搜索
+     *  *
+     * @param string                   $workspaceId
+     * @param RunSearchLawQueryRequest $request     RunSearchLawQueryRequest
+     *
+     * @return RunSearchLawQueryResponse RunSearchLawQueryResponse
+     */
+    public function runSearchLawQuery($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runSearchLawQueryWithOptions($workspaceId, $request, $headers, $runtime);
     }
 }
