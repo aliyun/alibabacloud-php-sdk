@@ -58,6 +58,8 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdReques
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthConnectBlackRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthConnectBlackResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthIdentityRequest;
@@ -88,8 +90,12 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SendMessageRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SendMessageResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SetSniConfigRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\SetSniConfigResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UnRegisterDeviceCredentialResponse;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthIdentityRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthIdentityResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthPermissionRequest;
@@ -1563,6 +1569,62 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
+     * @summary 查询标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询标签
+     *  *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a client ID in a connection blacklist.
      *  *
      * @param QueryCustomAuthConnectBlackRequest $request QueryCustomAuthConnectBlackRequest
@@ -2443,6 +2505,59 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
+     * @summary 新增tag
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增tag
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
      *  *
      * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
@@ -2496,6 +2611,62 @@ class OnsMqtt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unRegisterDeviceCredentialWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-04-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除标签
+     *  *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     *
+     * @return UntagResourcesResponse UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**
