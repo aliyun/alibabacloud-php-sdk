@@ -194,6 +194,10 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\QueryAsyncTaskResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunAbbreviationContentResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookIntroductionResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookSmartCardRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunBookSmartCardResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunContinueContentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunContinueContentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunCustomHotTopicAnalysisRequest;
@@ -207,6 +211,8 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocIntroductionResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocQaShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSmartCardRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSmartCardResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSummaryRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocSummaryResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\RunDocTranslationRequest;
@@ -288,6 +294,9 @@ use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateGeneratedContentShrinkReque
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UpdateMaterialDocumentShrinkRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadBookRequest;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadBookResponse;
+use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadBookShrinkRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocRequest;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocResponse;
 use AlibabaCloud\SDK\AiMiaoBi\V20230801\Models\UploadDocShrinkRequest;
@@ -5202,6 +5211,112 @@ class AiMiaoBi extends OpenApiClient
     }
 
     /**
+     * @summary 书籍导读接口
+     *  *
+     * @param RunBookIntroductionRequest $request RunBookIntroductionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunBookIntroductionResponse RunBookIntroductionResponse
+     */
+    public function runBookIntroductionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunBookIntroduction',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunBookIntroductionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 书籍导读接口
+     *  *
+     * @param RunBookIntroductionRequest $request RunBookIntroductionRequest
+     *
+     * @return RunBookIntroductionResponse RunBookIntroductionResponse
+     */
+    public function runBookIntroduction($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runBookIntroductionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 书籍智能卡片接口
+     *  *
+     * @param RunBookSmartCardRequest $request RunBookSmartCardRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunBookSmartCardResponse RunBookSmartCardResponse
+     */
+    public function runBookSmartCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunBookSmartCard',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunBookSmartCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 书籍智能卡片接口
+     *  *
+     * @param RunBookSmartCardRequest $request RunBookSmartCardRequest
+     *
+     * @return RunBookSmartCardResponse RunBookSmartCardResponse
+     */
+    public function runBookSmartCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runBookSmartCardWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 内容续写
      *  *
      * @param RunContinueContentRequest $request RunContinueContentRequest
@@ -5573,6 +5688,59 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runDocQaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 文档智能卡片接口
+     *  *
+     * @param RunDocSmartCardRequest $request RunDocSmartCardRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RunDocSmartCardResponse RunDocSmartCardResponse
+     */
+    public function runDocSmartCardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docId)) {
+            $body['DocId'] = $request->docId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunDocSmartCard',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunDocSmartCardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 文档智能卡片接口
+     *  *
+     * @param RunDocSmartCardRequest $request RunDocSmartCardRequest
+     *
+     * @return RunDocSmartCardResponse RunDocSmartCardResponse
+     */
+    public function runDocSmartCard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runDocSmartCardWithOptions($request, $runtime);
     }
 
     /**
@@ -7533,6 +7701,64 @@ class AiMiaoBi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateMaterialDocumentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 妙读上传书籍
+     *  *
+     * @param UploadBookRequest $tmpReq  UploadBookRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UploadBookResponse UploadBookResponse
+     */
+    public function uploadBookWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UploadBookShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->docs)) {
+            $request->docsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->docs, 'Docs', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->categoryId)) {
+            $body['CategoryId'] = $request->categoryId;
+        }
+        if (!Utils::isUnset($request->docsShrink)) {
+            $body['Docs'] = $request->docsShrink;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $body['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadBook',
+            'version'     => '2023-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadBookResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 妙读上传书籍
+     *  *
+     * @param UploadBookRequest $request UploadBookRequest
+     *
+     * @return UploadBookResponse UploadBookResponse
+     */
+    public function uploadBook($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uploadBookWithOptions($request, $runtime);
     }
 
     /**

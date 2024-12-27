@@ -1,3 +1,10 @@
+2024-12-27 Version: 1.16.0
+- Support API RunBookIntroduction.
+- Support API RunBookSmartCard.
+- Support API RunDocSmartCard.
+- Support API UploadBook.
+
+
 2024-12-19 Version: 1.15.0
 - Support API ExportAnalysisTagDetailByTaskId.
 
