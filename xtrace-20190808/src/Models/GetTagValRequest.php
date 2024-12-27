@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetTagValRequest extends Model
 {
     /**
-     * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The end of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
+     * >  This value is of the LONG type, and precision loss may occur during serialization or deserialization. Do not set this parameter to a value greater than 9007199254740991.
      * @example 1575622455686
      *
      * @var int
@@ -45,8 +46,9 @@ class GetTagValRequest extends Model
     public $spanName;
 
     /**
-     * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The beginning of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
+     * >  This value is of the LONG type, and precision loss may occur during serialization or deserialization. Do not set this parameter to a value greater than 9007199254740991.
      * @example 1575561600000
      *
      * @var int

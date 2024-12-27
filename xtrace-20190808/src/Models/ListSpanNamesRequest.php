@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSpanNamesRequest extends Model
 {
     /**
-     * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The end of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
      * @example 1575622455686
      *
@@ -37,7 +37,7 @@ class ListSpanNamesRequest extends Model
     public $serviceName;
 
     /**
-     * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The beginning of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
      * @example 1575561600000
      *

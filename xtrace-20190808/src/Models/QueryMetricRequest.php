@@ -19,7 +19,7 @@ class QueryMetricRequest extends Model
     public $dimensions;
 
     /**
-     * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The end of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
      * This parameter is required.
      * @example 1575622455686
@@ -103,7 +103,7 @@ class QueryMetricRequest extends Model
     public $proxyUserId;
 
     /**
-     * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The beginning of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
      * This parameter is required.
      * @example 1575561600000

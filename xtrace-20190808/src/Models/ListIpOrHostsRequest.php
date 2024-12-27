@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListIpOrHostsRequest extends Model
 {
     /**
-     * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The end of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
      * @example 1583723776974
      *
@@ -18,7 +18,7 @@ class ListIpOrHostsRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * This parameter is required.
      * @example cn-beijing
@@ -28,7 +28,7 @@ class ListIpOrHostsRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the application. If you do not set this parameter, the IP addresses of all applications in the specified region are returned.
+     * @description The name of the service. If you do not specify this parameter, the IP addresses of all applications in the specified region are returned.
      *
      * @example service1
      *
@@ -37,7 +37,7 @@ class ListIpOrHostsRequest extends Model
     public $serviceName;
 
     /**
-     * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The beginning of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
      * @example 1583683200000
      *

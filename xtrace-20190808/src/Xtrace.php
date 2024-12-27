@@ -251,6 +251,12 @@ class Xtrace extends OpenApiClient
         if (!Utils::isUnset($request->appType)) {
             $query['AppType'] = $request->appType;
         }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -290,7 +296,7 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses of an application.
+     * @summary Queries IP addresses or hostnames in trace data. You can obtain all IP addresses of an application or in a region.
      *  *
      * @param ListIpOrHostsRequest $request ListIpOrHostsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -332,7 +338,7 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary Queries the IP addresses of an application.
+     * @summary Queries IP addresses or hostnames in trace data. You can obtain all IP addresses of an application or in a region.
      *  *
      * @param ListIpOrHostsRequest $request ListIpOrHostsRequest
      *
@@ -452,7 +458,7 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary 开通xtrace和对应的sls
+     * @summary Activates Managed Service for OpenTelemetry.
      *  *
      * @param OpenXtraceServiceRequest $request OpenXtraceServiceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -485,7 +491,7 @@ class Xtrace extends OpenApiClient
     }
 
     /**
-     * @summary 开通xtrace和对应的sls
+     * @summary Activates Managed Service for OpenTelemetry.
      *  *
      * @param OpenXtraceServiceRequest $request OpenXtraceServiceRequest
      *
@@ -619,6 +625,9 @@ class Xtrace extends OpenApiClient
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statusCode)) {
+            $query['StatusCode'] = $request->statusCode;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;

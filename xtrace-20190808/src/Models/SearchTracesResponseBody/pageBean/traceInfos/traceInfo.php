@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class traceInfo extends Model
 {
     /**
-     * @description The time used to call the trace. Unit: milliseconds.
+     * @description The execution duration. Unit: seconds.
      *
      * @example 100
      *
@@ -18,7 +18,7 @@ class traceInfo extends Model
     public $duration;
 
     /**
-     * @description The name of the span.
+     * @description The span name.
      *
      * @example /api
      *
@@ -27,7 +27,7 @@ class traceInfo extends Model
     public $operationName;
 
     /**
-     * @description The IP address of the server where the span resides.
+     * @description The IP address or name of the server on which the span is running.
      *
      * @example 192.163.XXX.XXX
      *
@@ -36,7 +36,7 @@ class traceInfo extends Model
     public $serviceIp;
 
     /**
-     * @description The name of the application.
+     * @description The service name.
      *
      * @example service1
      *
@@ -45,7 +45,12 @@ class traceInfo extends Model
     public $serviceName;
 
     /**
-     * @description The map of tags.
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @description The tag information.
      *
      * @example {"env":"dev"}
      *
@@ -54,7 +59,7 @@ class traceInfo extends Model
     public $tagMap;
 
     /**
-     * @description The time when the span was generated. Unit: microseconds.
+     * @description The timestamp when the span was generated. Unit: millisecond.
      *
      * @example 1575561600000000
      *
@@ -63,7 +68,7 @@ class traceInfo extends Model
     public $timestamp;
 
     /**
-     * @description The ID of the trace.
+     * @description The trace ID.
      *
      * @example 1c6881aab84191a4
      *
@@ -75,6 +80,7 @@ class traceInfo extends Model
         'operationName' => 'OperationName',
         'serviceIp'     => 'ServiceIp',
         'serviceName'   => 'ServiceName',
+        'statusCode'    => 'StatusCode',
         'tagMap'        => 'TagMap',
         'timestamp'     => 'Timestamp',
         'traceID'       => 'TraceID',
@@ -98,6 +104,9 @@ class traceInfo extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
         }
         if (null !== $this->tagMap) {
             $res['TagMap'] = $this->tagMap;
@@ -131,6 +140,9 @@ class traceInfo extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
         }
         if (isset($map['TagMap'])) {
             $model->tagMap = $map['TagMap'];

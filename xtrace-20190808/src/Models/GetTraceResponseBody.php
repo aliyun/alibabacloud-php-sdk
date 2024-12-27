@@ -19,7 +19,7 @@ class GetTraceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the trace.
+     * @description The spans that are contained in the trace.
      *
      * @var spans
      */

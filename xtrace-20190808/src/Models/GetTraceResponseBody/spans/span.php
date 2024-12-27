@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class span extends Model
 {
     /**
-     * @description The time used to call the trace. Unit: milliseconds.
+     * @description The duration of the span. Unit: milliseconds.
      *
      * @example 1000
      *
@@ -22,7 +22,9 @@ class span extends Model
     /**
      * @description Indicates whether the span has child spans. Valid values:
      *
-     * - false: The span has no child spans.
+     *   `true`
+     *   `false`
+     *
      * @example false
      *
      * @var bool
@@ -30,7 +32,7 @@ class span extends Model
     public $haveStack;
 
     /**
-     * @description The log events in the trace.
+     * @description The log events.
      *
      * @var logEventList
      */
@@ -55,7 +57,7 @@ class span extends Model
     public $parentSpanId;
 
     /**
-     * @description The status code.
+     * @description The response code.
      *
      * @example 200
      *
@@ -73,7 +75,7 @@ class span extends Model
     public $rpcId;
 
     /**
-     * @description The IP address of the server where the span resides.
+     * @description The IP address of the server on which the span resides.
      *
      * @example 192.168.XXX.XXX
      *
@@ -91,7 +93,7 @@ class span extends Model
     public $serviceName;
 
     /**
-     * @description Span ID.
+     * @description The span ID.
      *
      * @example fec891bb8f8XXX
      *
@@ -100,7 +102,12 @@ class span extends Model
     public $spanId;
 
     /**
-     * @description The tags in the span.
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @description The tags.
      *
      * @var tagEntryList
      */
@@ -116,7 +123,7 @@ class span extends Model
     public $timestamp;
 
     /**
-     * @description The unique ID of the trace.
+     * @description The trace ID, which is the unique identifier of the trace.
      *
      * @example 1c6881aab84191a4****
      *
@@ -134,6 +141,7 @@ class span extends Model
         'serviceIp'     => 'ServiceIp',
         'serviceName'   => 'ServiceName',
         'spanId'        => 'SpanId',
+        'statusCode'    => 'StatusCode',
         'tagEntryList'  => 'TagEntryList',
         'timestamp'     => 'Timestamp',
         'traceID'       => 'TraceID',
@@ -175,6 +183,9 @@ class span extends Model
         }
         if (null !== $this->spanId) {
             $res['SpanId'] = $this->spanId;
+        }
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
         }
         if (null !== $this->tagEntryList) {
             $res['TagEntryList'] = null !== $this->tagEntryList ? $this->tagEntryList->toMap() : null;
@@ -226,6 +237,9 @@ class span extends Model
         }
         if (isset($map['SpanId'])) {
             $model->spanId = $map['SpanId'];
+        }
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
         }
         if (isset($map['TagEntryList'])) {
             $model->tagEntryList = tagEntryList::fromMap($map['TagEntryList']);

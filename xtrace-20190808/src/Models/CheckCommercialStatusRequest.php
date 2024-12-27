@@ -16,8 +16,9 @@ class CheckCommercialStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description The service code.
      *
+     * This parameter is required.
      * @example xtrace
      *
      * @var string

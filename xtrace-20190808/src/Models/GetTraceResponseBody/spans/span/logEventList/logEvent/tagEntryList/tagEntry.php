@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagEntry extends Model
 {
     /**
-     * @description The tag key in the log event.
+     * @description The tag key of the log event.
      *
      * @example logLevel
      *
@@ -18,7 +18,7 @@ class tagEntry extends Model
     public $key;
 
     /**
-     * @description The tag value in the log event.
+     * @description The tag value of the log event.
      *
      * @example Warning
      *

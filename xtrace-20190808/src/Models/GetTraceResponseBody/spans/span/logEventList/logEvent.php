@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class logEvent extends Model
 {
     /**
-     * @description The tags in the log event.
+     * @description The tags.
      *
      * @var tagEntryList
      */
     public $tagEntryList;
 
     /**
-     * @description The timestamp when the log event was generated.
+     * @description The timestamp when the log event was generated. Unit: microseconds.
      *
      * @example 1583683202047000
      *

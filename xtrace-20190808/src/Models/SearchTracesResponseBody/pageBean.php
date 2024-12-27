@@ -19,7 +19,7 @@ class pageBean extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 100
      *
@@ -37,7 +37,7 @@ class pageBean extends Model
     public $totalCount;
 
     /**
-     * @description The information about the trace.
+     * @description The information about the traces that are returned.
      *
      * @var traceInfos
      */

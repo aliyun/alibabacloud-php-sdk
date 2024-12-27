@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
-     * @description The type of the application. You can set the value to **XTRACE** or leave this parameter unspecified.
+     * @description The type of the application. You can leave this parameter empty or set this parameter to `XTRACE`. We recommend that you leave this parameter empty.
+     *
+     *   If you leave this parameter empty, applications monitored by Managed Service for OpenTelemetry or Application Real-Time Monitoring Service (ARMS) can be queried.
+     *   If you set this parameter to `XTRACE`, only applications monitored by Managed Service for OpenTelemetry can be queried.
      *
      * @example XTRACE
      *

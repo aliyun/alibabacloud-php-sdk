@@ -19,7 +19,7 @@ class SearchTracesRequest extends Model
     public $appType;
 
     /**
-     * @description The timestamp of the end time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The end of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
      * This parameter is required.
      * @example 1575622455686
@@ -29,7 +29,7 @@ class SearchTracesRequest extends Model
     public $endTime;
 
     /**
-     * @description The time more than which is used to call the trace. Unit: milliseconds. For example, a value of 100 specifies to return the traces that more than 100 milliseconds are used to call.
+     * @description The minimum value of an execution duration. Unit: seconds. For example, a value of 2 indicates that the traces whose execution duration is more than 2 seconds are queried.
      *
      * @example 1000
      *
@@ -56,7 +56,7 @@ class SearchTracesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 100
      *
@@ -85,7 +85,7 @@ class SearchTracesRequest extends Model
     public $reverse;
 
     /**
-     * @description The IP address that corresponds to the span.
+     * @description The IP address of the server on which the span is running.
      *
      * @example 10.0.0.0
      *
@@ -103,7 +103,7 @@ class SearchTracesRequest extends Model
     public $serviceName;
 
     /**
-     * @description The timestamp of the start time of the time range to query. The timestamp is accurate to milliseconds.
+     * @description The beginning of the time range to query. The value is a timestamp that is accurate to milliseconds.
      *
      * This parameter is required.
      * @example 1575561600000
@@ -111,6 +111,11 @@ class SearchTracesRequest extends Model
      * @var int
      */
     public $startTime;
+
+    /**
+     * @var string
+     */
+    public $statusCode;
 
     /**
      * @description The list of the tags.
@@ -130,6 +135,7 @@ class SearchTracesRequest extends Model
         'serviceIp'     => 'ServiceIp',
         'serviceName'   => 'ServiceName',
         'startTime'     => 'StartTime',
+        'statusCode'    => 'StatusCode',
         'tag'           => 'Tag',
     ];
 
@@ -172,6 +178,9 @@ class SearchTracesRequest extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -226,6 +235,9 @@ class SearchTracesRequest extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

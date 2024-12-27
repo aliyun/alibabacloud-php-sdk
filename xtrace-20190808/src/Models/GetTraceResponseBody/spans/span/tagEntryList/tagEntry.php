@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagEntry extends Model
 {
     /**
-     * @description The tag key in the span.
+     * @description The tag key of the span.
      *
      * @example logLevel
      *
@@ -18,7 +18,7 @@ class tagEntry extends Model
     public $key;
 
     /**
-     * @description The tag value in the span.
+     * @description The tag value of the span.
      *
      * @example Warning
      *

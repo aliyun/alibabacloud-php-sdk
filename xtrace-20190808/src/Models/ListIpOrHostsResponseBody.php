@@ -17,7 +17,7 @@ class ListIpOrHostsResponseBody extends Model
     public $ipNames;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1E2B6A4C-6B83-4062-8B6F-AEEC1FC4****
      *
