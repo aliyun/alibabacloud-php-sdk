@@ -43,6 +43,11 @@ class SendByAliasRequest extends Model
     public $description;
 
     /**
+     * @var HarmonyPayload
+     */
+    public $harmonyPayload;
+
+    /**
      * @var IosPayload
      */
     public $iosPayload;
@@ -87,6 +92,7 @@ class SendByAliasRequest extends Model
         'androidShortPayload' => 'AndroidShortPayload',
         'channelProperties'   => 'ChannelProperties',
         'description'         => 'Description',
+        'harmonyPayload'      => 'HarmonyPayload',
         'iosPayload'          => 'IosPayload',
         'policy'              => 'Policy',
         'productionMode'      => 'ProductionMode',
@@ -120,6 +126,9 @@ class SendByAliasRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->harmonyPayload) {
+            $res['HarmonyPayload'] = null !== $this->harmonyPayload ? $this->harmonyPayload->toMap() : null;
         }
         if (null !== $this->iosPayload) {
             $res['IosPayload'] = null !== $this->iosPayload ? $this->iosPayload->toMap() : null;
@@ -171,6 +180,9 @@ class SendByAliasRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['HarmonyPayload'])) {
+            $model->harmonyPayload = HarmonyPayload::fromMap($map['HarmonyPayload']);
         }
         if (isset($map['IosPayload'])) {
             $model->iosPayload = IosPayload::fromMap($map['IosPayload']);

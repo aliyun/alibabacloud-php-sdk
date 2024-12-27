@@ -45,6 +45,11 @@ class SendByAliasShrinkRequest extends Model
     /**
      * @var string
      */
+    public $harmonyPayloadShrink;
+
+    /**
+     * @var string
+     */
     public $iosPayloadShrink;
 
     /**
@@ -87,6 +92,7 @@ class SendByAliasShrinkRequest extends Model
         'androidShortPayloadShrink' => 'AndroidShortPayload',
         'channelPropertiesShrink'   => 'ChannelProperties',
         'description'               => 'Description',
+        'harmonyPayloadShrink'      => 'HarmonyPayload',
         'iosPayloadShrink'          => 'IosPayload',
         'policyShrink'              => 'Policy',
         'productionMode'            => 'ProductionMode',
@@ -120,6 +126,9 @@ class SendByAliasShrinkRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->harmonyPayloadShrink) {
+            $res['HarmonyPayload'] = $this->harmonyPayloadShrink;
         }
         if (null !== $this->iosPayloadShrink) {
             $res['IosPayload'] = $this->iosPayloadShrink;
@@ -171,6 +180,9 @@ class SendByAliasShrinkRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['HarmonyPayload'])) {
+            $model->harmonyPayloadShrink = $map['HarmonyPayload'];
         }
         if (isset($map['IosPayload'])) {
             $model->iosPayloadShrink = $map['IosPayload'];

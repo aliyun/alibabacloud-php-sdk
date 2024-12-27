@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Policy extends Model
 {
     /**
+     * @var string[]
+     */
+    public $channelStrategy;
+
+    /**
      * @example yyyy-MM-dd HH:mm:ss
      *
      * @var string
@@ -34,10 +39,11 @@ class Policy extends Model
      */
     public $startTime;
     protected $_name = [
-        'expireTime' => 'expireTime',
-        'outerBizNo' => 'outerBizNo',
-        'speed'      => 'speed',
-        'startTime'  => 'startTime',
+        'channelStrategy' => 'channelStrategy',
+        'expireTime'      => 'expireTime',
+        'outerBizNo'      => 'outerBizNo',
+        'speed'           => 'speed',
+        'startTime'       => 'startTime',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class Policy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->channelStrategy) {
+            $res['channelStrategy'] = $this->channelStrategy;
+        }
         if (null !== $this->expireTime) {
             $res['expireTime'] = $this->expireTime;
         }
@@ -71,6 +80,9 @@ class Policy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['channelStrategy'])) {
+            $model->channelStrategy = $map['channelStrategy'];
+        }
         if (isset($map['expireTime'])) {
             $model->expireTime = $map['expireTime'];
         }

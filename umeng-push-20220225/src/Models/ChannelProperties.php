@@ -21,6 +21,11 @@ class ChannelProperties extends Model
     /**
      * @var string
      */
+    public $harmonyChannelCategory;
+
+    /**
+     * @var string
+     */
     public $huaweiChannelCategory;
 
     /**
@@ -93,6 +98,7 @@ class ChannelProperties extends Model
     protected $_name = [
         'channelActivity'         => 'channelActivity',
         'channelFcm'              => 'channelFcm',
+        'harmonyChannelCategory'  => 'harmonyChannelCategory',
         'huaweiChannelCategory'   => 'huaweiChannelCategory',
         'huaweiChannelImportance' => 'huaweiChannelImportance',
         'huaweiMessageUrgency'    => 'huaweiMessageUrgency',
@@ -120,6 +126,9 @@ class ChannelProperties extends Model
         }
         if (null !== $this->channelFcm) {
             $res['channelFcm'] = $this->channelFcm;
+        }
+        if (null !== $this->harmonyChannelCategory) {
+            $res['harmonyChannelCategory'] = $this->harmonyChannelCategory;
         }
         if (null !== $this->huaweiChannelCategory) {
             $res['huaweiChannelCategory'] = $this->huaweiChannelCategory;
@@ -177,6 +186,9 @@ class ChannelProperties extends Model
         }
         if (isset($map['channelFcm'])) {
             $model->channelFcm = $map['channelFcm'];
+        }
+        if (isset($map['harmonyChannelCategory'])) {
+            $model->harmonyChannelCategory = $map['harmonyChannelCategory'];
         }
         if (isset($map['huaweiChannelCategory'])) {
             $model->huaweiChannelCategory = $map['huaweiChannelCategory'];

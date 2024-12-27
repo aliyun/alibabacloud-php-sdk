@@ -40,6 +40,11 @@ class SendByDeviceShrinkRequest extends Model
     /**
      * @var string
      */
+    public $harmonyPayloadShrink;
+
+    /**
+     * @var string
+     */
     public $iosPayloadShrink;
 
     /**
@@ -81,6 +86,7 @@ class SendByDeviceShrinkRequest extends Model
         'channelPropertiesShrink'   => 'ChannelProperties',
         'description'               => 'Description',
         'deviceTokens'              => 'DeviceTokens',
+        'harmonyPayloadShrink'      => 'HarmonyPayload',
         'iosPayloadShrink'          => 'IosPayload',
         'policyShrink'              => 'Policy',
         'productionMode'            => 'ProductionMode',
@@ -111,6 +117,9 @@ class SendByDeviceShrinkRequest extends Model
         }
         if (null !== $this->deviceTokens) {
             $res['DeviceTokens'] = $this->deviceTokens;
+        }
+        if (null !== $this->harmonyPayloadShrink) {
+            $res['HarmonyPayload'] = $this->harmonyPayloadShrink;
         }
         if (null !== $this->iosPayloadShrink) {
             $res['IosPayload'] = $this->iosPayloadShrink;
@@ -159,6 +168,9 @@ class SendByDeviceShrinkRequest extends Model
         }
         if (isset($map['DeviceTokens'])) {
             $model->deviceTokens = $map['DeviceTokens'];
+        }
+        if (isset($map['HarmonyPayload'])) {
+            $model->harmonyPayloadShrink = $map['HarmonyPayload'];
         }
         if (isset($map['IosPayload'])) {
             $model->iosPayloadShrink = $map['IosPayload'];

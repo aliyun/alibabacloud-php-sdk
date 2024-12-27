@@ -192,6 +192,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
+        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
+            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->iosPayload)) {
             $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
@@ -216,6 +219,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
+            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
         if (!Utils::isUnset($request->iosPayloadShrink)) {
             $body['IosPayload'] = $request->iosPayloadShrink;
@@ -295,6 +301,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
+        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
+            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->iosPayload)) {
             $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
@@ -319,6 +328,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
+            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
         if (!Utils::isUnset($request->iosPayloadShrink)) {
             $body['IosPayload'] = $request->iosPayloadShrink;
@@ -398,6 +410,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
+        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
+            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->iosPayload)) {
             $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
@@ -416,6 +431,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
+            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
         if (!Utils::isUnset($request->iosPayloadShrink)) {
             $body['IosPayload'] = $request->iosPayloadShrink;
@@ -495,6 +513,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
+        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
+            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->iosPayload)) {
             $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
@@ -516,6 +537,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->deviceTokens)) {
             $body['DeviceTokens'] = $request->deviceTokens;
+        }
+        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
+            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
         if (!Utils::isUnset($request->iosPayloadShrink)) {
             $body['IosPayload'] = $request->iosPayloadShrink;
@@ -595,6 +619,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
+        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
+            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->iosPayload)) {
             $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
@@ -616,6 +643,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileId)) {
             $body['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
+            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
         if (!Utils::isUnset($request->iosPayloadShrink)) {
             $body['IosPayload'] = $request->iosPayloadShrink;
@@ -692,6 +722,9 @@ class Umengpush extends OpenApiClient
         if (!Utils::isUnset($tmpReq->channelProperties)) {
             $request->channelPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelProperties, 'ChannelProperties', 'json');
         }
+        if (!Utils::isUnset($tmpReq->harmonyPayload)) {
+            $request->harmonyPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->harmonyPayload, 'HarmonyPayload', 'json');
+        }
         if (!Utils::isUnset($tmpReq->iosPayload)) {
             $request->iosPayloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->iosPayload, 'IosPayload', 'json');
         }
@@ -713,6 +746,9 @@ class Umengpush extends OpenApiClient
         }
         if (!Utils::isUnset($request->filter)) {
             $body['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->harmonyPayloadShrink)) {
+            $body['HarmonyPayload'] = $request->harmonyPayloadShrink;
         }
         if (!Utils::isUnset($request->iosPayloadShrink)) {
             $body['IosPayload'] = $request->iosPayloadShrink;

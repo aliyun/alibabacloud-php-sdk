@@ -38,6 +38,11 @@ class SendByFilterShrinkRequest extends Model
     /**
      * @var string
      */
+    public $harmonyPayloadShrink;
+
+    /**
+     * @var string
+     */
     public $iosPayloadShrink;
 
     /**
@@ -79,6 +84,7 @@ class SendByFilterShrinkRequest extends Model
         'channelPropertiesShrink' => 'ChannelProperties',
         'description'             => 'Description',
         'filter'                  => 'Filter',
+        'harmonyPayloadShrink'    => 'HarmonyPayload',
         'iosPayloadShrink'        => 'IosPayload',
         'policyShrink'            => 'Policy',
         'productionMode'          => 'ProductionMode',
@@ -109,6 +115,9 @@ class SendByFilterShrinkRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->harmonyPayloadShrink) {
+            $res['HarmonyPayload'] = $this->harmonyPayloadShrink;
         }
         if (null !== $this->iosPayloadShrink) {
             $res['IosPayload'] = $this->iosPayloadShrink;
@@ -157,6 +166,9 @@ class SendByFilterShrinkRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['HarmonyPayload'])) {
+            $model->harmonyPayloadShrink = $map['HarmonyPayload'];
         }
         if (isset($map['IosPayload'])) {
             $model->iosPayloadShrink = $map['IosPayload'];

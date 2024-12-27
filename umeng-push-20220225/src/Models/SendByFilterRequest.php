@@ -36,6 +36,11 @@ class SendByFilterRequest extends Model
     public $filter;
 
     /**
+     * @var HarmonyPayload
+     */
+    public $harmonyPayload;
+
+    /**
      * @var IosPayload
      */
     public $iosPayload;
@@ -79,6 +84,7 @@ class SendByFilterRequest extends Model
         'channelProperties'   => 'ChannelProperties',
         'description'         => 'Description',
         'filter'              => 'Filter',
+        'harmonyPayload'      => 'HarmonyPayload',
         'iosPayload'          => 'IosPayload',
         'policy'              => 'Policy',
         'productionMode'      => 'ProductionMode',
@@ -109,6 +115,9 @@ class SendByFilterRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->harmonyPayload) {
+            $res['HarmonyPayload'] = null !== $this->harmonyPayload ? $this->harmonyPayload->toMap() : null;
         }
         if (null !== $this->iosPayload) {
             $res['IosPayload'] = null !== $this->iosPayload ? $this->iosPayload->toMap() : null;
@@ -157,6 +166,9 @@ class SendByFilterRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['HarmonyPayload'])) {
+            $model->harmonyPayload = HarmonyPayload::fromMap($map['HarmonyPayload']);
         }
         if (isset($map['IosPayload'])) {
             $model->iosPayload = IosPayload::fromMap($map['IosPayload']);

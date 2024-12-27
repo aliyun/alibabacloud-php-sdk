@@ -43,6 +43,11 @@ class SendByAliasFileIdRequest extends Model
     public $fileId;
 
     /**
+     * @var HarmonyPayload
+     */
+    public $harmonyPayload;
+
+    /**
      * @var IosPayload
      */
     public $iosPayload;
@@ -87,6 +92,7 @@ class SendByAliasFileIdRequest extends Model
         'channelProperties'   => 'ChannelProperties',
         'description'         => 'Description',
         'fileId'              => 'FileId',
+        'harmonyPayload'      => 'HarmonyPayload',
         'iosPayload'          => 'IosPayload',
         'policy'              => 'Policy',
         'productionMode'      => 'ProductionMode',
@@ -120,6 +126,9 @@ class SendByAliasFileIdRequest extends Model
         }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
+        }
+        if (null !== $this->harmonyPayload) {
+            $res['HarmonyPayload'] = null !== $this->harmonyPayload ? $this->harmonyPayload->toMap() : null;
         }
         if (null !== $this->iosPayload) {
             $res['IosPayload'] = null !== $this->iosPayload ? $this->iosPayload->toMap() : null;
@@ -171,6 +180,9 @@ class SendByAliasFileIdRequest extends Model
         }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
+        }
+        if (isset($map['HarmonyPayload'])) {
+            $model->harmonyPayload = HarmonyPayload::fromMap($map['HarmonyPayload']);
         }
         if (isset($map['IosPayload'])) {
             $model->iosPayload = IosPayload::fromMap($map['IosPayload']);

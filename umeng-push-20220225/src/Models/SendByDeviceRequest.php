@@ -38,6 +38,11 @@ class SendByDeviceRequest extends Model
     public $deviceTokens;
 
     /**
+     * @var HarmonyPayload
+     */
+    public $harmonyPayload;
+
+    /**
      * @var IosPayload
      */
     public $iosPayload;
@@ -81,6 +86,7 @@ class SendByDeviceRequest extends Model
         'channelProperties'   => 'ChannelProperties',
         'description'         => 'Description',
         'deviceTokens'        => 'DeviceTokens',
+        'harmonyPayload'      => 'HarmonyPayload',
         'iosPayload'          => 'IosPayload',
         'policy'              => 'Policy',
         'productionMode'      => 'ProductionMode',
@@ -111,6 +117,9 @@ class SendByDeviceRequest extends Model
         }
         if (null !== $this->deviceTokens) {
             $res['DeviceTokens'] = $this->deviceTokens;
+        }
+        if (null !== $this->harmonyPayload) {
+            $res['HarmonyPayload'] = null !== $this->harmonyPayload ? $this->harmonyPayload->toMap() : null;
         }
         if (null !== $this->iosPayload) {
             $res['IosPayload'] = null !== $this->iosPayload ? $this->iosPayload->toMap() : null;
@@ -159,6 +168,9 @@ class SendByDeviceRequest extends Model
         }
         if (isset($map['DeviceTokens'])) {
             $model->deviceTokens = $map['DeviceTokens'];
+        }
+        if (isset($map['HarmonyPayload'])) {
+            $model->harmonyPayload = HarmonyPayload::fromMap($map['HarmonyPayload']);
         }
         if (isset($map['IosPayload'])) {
             $model->iosPayload = IosPayload::fromMap($map['IosPayload']);
