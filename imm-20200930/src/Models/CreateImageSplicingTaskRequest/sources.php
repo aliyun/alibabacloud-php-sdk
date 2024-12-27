@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class sources extends Model
 {
     /**
+     * @description The rotation angle. Valid values:
+     *
+     *   0 (default)
+     *   90
+     *   180
+     *   270
+     *
      * @example 90
      *
      * @var int
@@ -16,7 +23,10 @@ class sources extends Model
     public $rotate;
 
     /**
-     * @description This parameter is required.
+     * @description The Object Storage Service (OSS) bucket in which you store the input images.
+     *
+     * This parameter is required.
+     * @example oss://examplebucket/sampleobject.jpg
      *
      * @var string
      */

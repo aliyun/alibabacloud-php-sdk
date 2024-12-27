@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTasksResponseBody extends Model
 {
     /**
+     * @description The length of the returned result list.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,9 @@ class ListTasksResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token. The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter. This parameter has a value only when not all results are returned.
+     *
+     * You can specify the value of the NextToken parameter in the next request to list remaining results.
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
@@ -23,6 +28,8 @@ class ListTasksResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The name of the project.
+     *
      * @example immtest
      *
      * @var string
@@ -30,6 +37,8 @@ class ListTasksResponseBody extends Model
     public $projectName;
 
     /**
+     * @description The request ID.
+     *
      * @example 9847E7D0-A9A3-0053-84C6-BA16FFFA726E
      *
      * @var string
@@ -37,6 +46,8 @@ class ListTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tasks.
+     *
      * @var TaskInfo[]
      */
     public $tasks;

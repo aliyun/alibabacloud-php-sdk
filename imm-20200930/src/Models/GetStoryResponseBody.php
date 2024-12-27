@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetStoryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetStoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the story.
+     *
      * @var Story
      */
     public $story;

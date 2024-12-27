@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateMediaConvertTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 0ED-1Bz8z71k5TtsUejT4UJ16Es****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateMediaConvertTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example CA995EFD-083D-4F40-BE8A-BDF75FFFE0B6
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateMediaConvertTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example MediaConvert-adb1ee28-c4c9-42a7-9f54-3b8eadcb****
      *
      * @var string

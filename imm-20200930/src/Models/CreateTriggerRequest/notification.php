@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class notification extends Model
 {
     /**
+     * @description The Simple Message Queue notification message configurations.
+     *
      * @var MNS
      */
     public $MNS;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOfficeConversionTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 2C2-1I0EG57VR37J4rQ8oKG6C9*****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateOfficeConversionTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example FF3B7D81-66AE-47E0-BF69-157DCF18*****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateOfficeConversionTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example formatconvert-00bec802-073a-4b61-ba3b-39bc2fdd*****
      *
      * @var string

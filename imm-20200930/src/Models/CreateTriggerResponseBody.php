@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerResponseBody extends Model
 {
     /**
+     * @description The ID of the trigger.
+     *
+     * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example EC564A9A-BA5C-4499-A087-D9B9E76E*****
      *
      * @var string

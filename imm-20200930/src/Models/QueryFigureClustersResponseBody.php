@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryFigureClustersResponseBody extends Model
 {
     /**
+     * @description The face groups.
+     *
      * @var FigureCluster[]
      */
     public $figureClusters;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example 10
      *
      * @var string
@@ -21,6 +25,8 @@ class QueryFigureClustersResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example CA995EFD-083D-4F40-BE8A-BDF75FFF****
      *
      * @var string
@@ -28,6 +34,8 @@ class QueryFigureClustersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of face groups that matches the current query conditions.
+     *
      * @example 100
      *
      * @var int

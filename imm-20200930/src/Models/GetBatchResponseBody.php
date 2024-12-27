@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetBatchResponseBody extends Model
 {
     /**
+     * @description The information about the batch processing task.
+     *
      * @var DataIngestion
      */
     public $batch;
 
     /**
+     * @description The request ID.
+     *
      * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
      *
      * @var string

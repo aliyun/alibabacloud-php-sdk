@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDatasetRequest extends Model
 {
     /**
+     * @description The maximum number of bindings for the dataset. Valid values: 1 to 10. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateDatasetRequest extends Model
     public $datasetMaxBindCount;
 
     /**
+     * @description The maximum number of metadata entities in the dataset. Default value: 10000000000.
+     *
      * @example 10000000000
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateDatasetRequest extends Model
     public $datasetMaxEntityCount;
 
     /**
+     * @description The maximum number of files in the dataset. Valid values: 1 to 100000000. Default value: 100000000.
+     *
      * @example 100000000
      *
      * @var int
@@ -30,6 +36,8 @@ class CreateDatasetRequest extends Model
     public $datasetMaxFileCount;
 
     /**
+     * @description The maximum number of metadata relationships in the dataset. Default value: 100000000000.
+     *
      * @example 100000000000
      *
      * @var int
@@ -37,6 +45,8 @@ class CreateDatasetRequest extends Model
     public $datasetMaxRelationCount;
 
     /**
+     * @description The maximum total file size for the dataset. If the total file size of the dataset exceeds this limit, indexes can no longer be added. Default value: 90000000000000000. Unit: bytes.
+     *
      * @example 90000000000000000
      *
      * @var int
@@ -44,8 +54,13 @@ class CreateDatasetRequest extends Model
     public $datasetMaxTotalFileSize;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. The dataset name must be unique in the same project. The name must meet the following requirements:
      *
+     *   The name must be 1 to 128 characters in length.
+     *   The name can contain only letters, digits, hyphens (-), and underscores (_).
+     *   The name must start with a letter or underscore (_).
+     *
+     * This parameter is required.
      * @example dataset001
      *
      * @var string
@@ -53,6 +68,8 @@ class CreateDatasetRequest extends Model
     public $datasetName;
 
     /**
+     * @description The description of the dataset. The description must be 1 to 256 characters in length. You can leave this parameter empty.
+     *
      * @example immtest
      *
      * @var string
@@ -60,13 +77,18 @@ class CreateDatasetRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html).
+     *
      * @example Official:AllFunction
      *
      * @var string

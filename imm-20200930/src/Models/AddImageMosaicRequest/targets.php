@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
+     * @description The radius of the Gaussian blur. Valid values: 1 to 50. Default value: 3. Unit: pixels.
+     *
+     * >  This parameter takes effect only for a Gaussian blur.
      * @example 3
      *
      * @var int
@@ -17,13 +20,17 @@ class targets extends Model
     public $blurRadius;
 
     /**
-     * @description This parameter is required.
+     * @description The position of the bounding box.
      *
+     * This parameter is required.
      * @var boundary
      */
     public $boundary;
 
     /**
+     * @description The color of the color shape. You can specify a color by using a color code such as`#RRGGBB` or preset color names such as `red` and `white`. The default value is #FFFFFF, which is white.
+     *
+     * >  This parameter takes effect only for solid color shapes.
      * @example #FFFFFF
      *
      * @var string
@@ -31,6 +38,9 @@ class targets extends Model
     public $color;
 
     /**
+     * @description The radius of the mosaic. Default value: 5. Unit: pixels.
+     *
+     * >  This parameter does not take effect for Gaussian blurs and solid color shapes.
      * @example 5
      *
      * @var int
@@ -38,6 +48,9 @@ class targets extends Model
     public $mosaicRadius;
 
     /**
+     * @description The standard deviation of the Gaussian blur. The value must be greater than 0. Default value: 5.
+     *
+     * >  This parameter takes effect only for a Gaussian blur.
      * @example 5
      *
      * @var int
@@ -45,8 +58,15 @@ class targets extends Model
     public $sigma;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the mosaic effect. Valid values:
      *
+     *   square: squares.
+     *   diamond: diamonds.
+     *   hexagon: hexagons.
+     *   blur: Gaussian blurs.
+     *   pure: solid color shapes.
+     *
+     * This parameter is required.
      * @example square
      *
      * @var string

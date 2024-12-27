@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetVideoLabelClassificationResultResponseBody extends Model
 {
     /**
+     * @description The error code of the task.
+     *
      * @example ResourceNotFound
      *
      * @var string
@@ -16,6 +18,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $code;
 
     /**
+     * @description The end time of the task.
+     *
      * @example 2021-12-24T03:00:42.134971294Z
      *
      * @var string
@@ -23,6 +27,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The event ID.
+     *
      * @example 2F6-1Bz99Xi93EnRpNEyLudILJm****
      *
      * @var string
@@ -30,11 +36,15 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The labels.
+     *
      * @var Label[]
      */
     public $labels;
 
     /**
+     * @description The error message of the task.
+     *
      * @example The specified resource project is not found.
      *
      * @var string
@@ -42,6 +52,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $message;
 
     /**
+     * @description The project name.
+     *
      * @example immtest
      *
      * @var string
@@ -49,6 +61,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $projectName;
 
     /**
+     * @description The request ID.
+     *
      * @example 7F84C6D9-5AC0-49F9-914D-F02678E3****
      *
      * @var string
@@ -56,6 +70,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start time of the task.
+     *
      * @example 2021-12-24T03:00:38.892462383Z
      *
      * @var string
@@ -63,6 +79,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The task status.
+     *
      * @example Succeeded
      *
      * @var string
@@ -70,6 +88,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $status;
 
     /**
+     * @description The task ID.
+     *
      * @example VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
      *
      * @var string
@@ -77,6 +97,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The type of the task.
+     *
      * @example VideoLabelClassification
      *
      * @var string
@@ -84,6 +106,8 @@ class GetVideoLabelClassificationResultResponseBody extends Model
     public $taskType;
 
     /**
+     * @description The custom information.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class sources extends Model
 {
     /**
+     * @description The transcoding duration of the media. Unit: seconds. Default value: 0. A value of 0 specifies that the transcoding duration lasts until the end of the video.
+     *
      * @example 0
      *
      * @var float
@@ -17,6 +19,11 @@ class sources extends Model
     public $duration;
 
     /**
+     * @description The start time of the media transcoding task. Unit: seconds. Valid values:
+     *
+     *   0 (default): starts transcoding when the media starts playing.
+     *   n: starts transcoding n seconds after the media starts playing. n must be greater than 0.
+     *
      * @example 0
      *
      * @var float
@@ -24,11 +31,15 @@ class sources extends Model
     public $startTime;
 
     /**
+     * @description The subtitles. By default, this parameter is left empty.
+     *
      * @var subtitles[]
      */
     public $subtitles;
 
     /**
+     * @description The URI of the Object Storage Service (OSS) bucket. Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension.
+     *
      * @example oss://test-bucket/test-object
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteBindingRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
      *
+     * This parameter is required.
      * @example dataset001
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteBindingRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -27,8 +29,9 @@ class DeleteBindingRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The URI of the OSS bucket to which the dataset is bound.
      *
+     * This parameter is required.
      * @example oss://examplebucket
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
+     * @description The template name.
+     *
      * @example doc/convert
      *
      * @var string
@@ -16,6 +18,8 @@ class actions extends Model
     public $name;
 
     /**
+     * @description The template parameters.
+     *
      * @var string[]
      */
     public $parameters;

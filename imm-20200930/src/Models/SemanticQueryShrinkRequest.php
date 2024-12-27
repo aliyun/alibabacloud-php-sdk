@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SemanticQueryShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.
      *
+     * This parameter is required.
      * @example immDatatest
      *
      * @var string
@@ -18,6 +19,8 @@ class SemanticQueryShrinkRequest extends Model
     public $datasetName;
 
     /**
+     * @description The maximum number of entries to return. Valid values: 1 to 1000.
+     *
      * @example 10
      *
      * @var int
@@ -25,11 +28,16 @@ class SemanticQueryShrinkRequest extends Model
     public $maxResults;
 
     /**
+     * @description The types of the media that you want to query. Default value:
+     *
+     * ["image"]
      * @var string
      */
     public $mediaTypesShrink;
 
     /**
+     * @description This parameter is no longer available.
+     *
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
@@ -37,8 +45,9 @@ class SemanticQueryShrinkRequest extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -46,30 +55,28 @@ class SemanticQueryShrinkRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The content of the query that you input.
      *
+     * This parameter is required.
      * @var string
      */
     public $query;
 
     /**
-     * @var string
-     */
-    public $smartClusterIdsShrink;
-
-    /**
+     * @description The fields that you want to include in the response. Including only necessary metadata fields can help reduce the size of the response.
+     *
+     * If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
      * @var string
      */
     public $withFieldsShrink;
     protected $_name = [
-        'datasetName'           => 'DatasetName',
-        'maxResults'            => 'MaxResults',
-        'mediaTypesShrink'      => 'MediaTypes',
-        'nextToken'             => 'NextToken',
-        'projectName'           => 'ProjectName',
-        'query'                 => 'Query',
-        'smartClusterIdsShrink' => 'SmartClusterIds',
-        'withFieldsShrink'      => 'WithFields',
+        'datasetName'      => 'DatasetName',
+        'maxResults'       => 'MaxResults',
+        'mediaTypesShrink' => 'MediaTypes',
+        'nextToken'        => 'NextToken',
+        'projectName'      => 'ProjectName',
+        'query'            => 'Query',
+        'withFieldsShrink' => 'WithFields',
     ];
 
     public function validate()
@@ -96,9 +103,6 @@ class SemanticQueryShrinkRequest extends Model
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
-        }
-        if (null !== $this->smartClusterIdsShrink) {
-            $res['SmartClusterIds'] = $this->smartClusterIdsShrink;
         }
         if (null !== $this->withFieldsShrink) {
             $res['WithFields'] = $this->withFieldsShrink;
@@ -132,9 +136,6 @@ class SemanticQueryShrinkRequest extends Model
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
-        }
-        if (isset($map['SmartClusterIds'])) {
-            $model->smartClusterIdsShrink = $map['SmartClusterIds'];
         }
         if (isset($map['WithFields'])) {
             $model->withFieldsShrink = $map['WithFields'];

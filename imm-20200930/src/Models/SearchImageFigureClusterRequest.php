@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class SearchImageFigureClusterRequest extends Model
 {
     /**
+     * @description **If you have no special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example test-dataset
      *
      * @var string
@@ -23,8 +27,9 @@ class SearchImageFigureClusterRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -32,6 +37,9 @@ class SearchImageFigureClusterRequest extends Model
     public $projectName;
 
     /**
+     * @description The OSS URI of the image.
+     *
+     * Specify the OSS URI in the `oss://${Bucket}/${Object}` format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
      * @example oss://test-bucket/test-object
      *
      * @var string

@@ -9,16 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CreateArchiveFileInspectionTaskShrinkRequest extends Model
 {
     /**
+     * @description **If you have no special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
+     * @description The password that protects the package. If the package is password-protected, you must provide the password to view the contents of the package.
+     *
      * @example 123456
      *
      * @var string
@@ -26,8 +33,9 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
     public $password;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -35,6 +43,9 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description The URI of the package.
+     *
+     * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
      * @example oss://imm-apitest-fxf2/name.zip
      *
      * @var string
@@ -42,6 +53,8 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

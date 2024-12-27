@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetProjectResponseBody extends Model
 {
     /**
+     * @description The project.
+     *
      * @var Project
      */
     public $project;
 
     /**
+     * @description The request ID.
+     *
      * @example 5A022F78-B9A8-4ACC-BB6B-B3597553
      *
      * @var string

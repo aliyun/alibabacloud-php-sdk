@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddStoryFilesResponseBody extends Model
 {
     /**
+     * @description The objects that were added.
+     *
      * @var files[]
      */
     public $files;
 
     /**
+     * @description The request ID.
+     *
      * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
      *
      * @var string

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetOSSBucketAttachmentResponseBody extends Model
 {
     /**
+     * @description The time when the dataset was created.
+     *
+     * @example ""2023-12-19T17:29:34.790931971+08:00"
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the dataset.
+     *
+     * @example "Dataset"
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the project.
+     *
      * @example immtest
      *
      * @var string
@@ -26,6 +36,8 @@ class GetOSSBucketAttachmentResponseBody extends Model
     public $projectName;
 
     /**
+     * @description The request ID.
+     *
      * @example 5F74C5C9-5AC0-49F9-914D-E01589D3****
      *
      * @var string
@@ -33,6 +45,10 @@ class GetOSSBucketAttachmentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the dataset was last updated.
+     *
+     * @example "2023-12-19T17:29:34.790931971+08:00"
+     *
      * @var string
      */
     public $updateTime;

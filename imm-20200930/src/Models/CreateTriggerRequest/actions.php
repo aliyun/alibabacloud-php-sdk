@@ -10,13 +10,16 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
+     * @description The policy configurations for handling failures.
+     *
      * @var FastFailPolicy
      */
     public $fastFailPolicy;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the template.
      *
+     * This parameter is required.
      * @example doc/convert
      *
      * @var string
@@ -24,6 +27,8 @@ class actions extends Model
     public $name;
 
     /**
+     * @description The template parameters.
+     *
      * @var string[]
      */
     public $parameters;

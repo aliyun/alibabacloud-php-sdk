@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateVideoModerationTaskShrinkRequest extends Model
 {
     /**
+     * @description The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+     *
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
+     * @description The interval of capturing video frames. Unit: seconds. Valid values: 1 to 600. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,8 @@ class CreateVideoModerationTaskShrinkRequest extends Model
     public $interval;
 
     /**
+     * @description The maximum number of frames that can be captured from the video. Valid values: 5 to 3600. Default value: 200.
+     *
      * @example 200
      *
      * @var int
@@ -28,15 +34,16 @@ class CreateVideoModerationTaskShrinkRequest extends Model
     public $maxFrames;
 
     /**
-     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+     * @description The notification settings. For information about the asynchronous notification format, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
      *
      * @var string
      */
     public $notificationShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -44,13 +51,16 @@ class CreateVideoModerationTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description The scenarios of video moderation.
+     *
      * @var string
      */
     public $scenesShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The OSS URI of the video.
      *
+     * This parameter is required.
      * @example oss://test-bucket/test-object
      *
      * @var string
@@ -58,6 +68,8 @@ class CreateVideoModerationTaskShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The custom tags. The custom tags help you retrieve the task.
+     *
      * @example {"test": "val1"}
      *
      * @var string
@@ -65,6 +77,8 @@ class CreateVideoModerationTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

@@ -11,27 +11,33 @@ use AlibabaCloud\Tea\Model;
 class CreateBatchRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The processing templates.
      *
+     * This parameter is required.
      * @var actions[]
      */
     public $actions;
 
     /**
-     * @description This parameter is required.
+     * @description The data source configurations.
      *
+     * This parameter is required.
      * @var Input
      */
     public $input;
 
     /**
+     * @description The notification settings. The operation supports multiple messaging middleware options. For more information about notification messages, see Asynchronous message examples. You can use one of the following methods to receive notification messages:
+     *
+     * Activate and connect to EventBridge in the same region as the IMM project. For more information, see IMM events. Activate Simple Message Queue in the same region as the IMM project and configure a subscription.
      * @var notification
      */
     public $notification;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -39,8 +45,9 @@ class CreateBatchRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The service role. IMM assumes the service role so that it can access resources in other cloud services, such as OSS. Default value: AliyunIMMBatchTriggerRole.
      *
+     * This parameter is required.
      * @example AliyunIMMDefaultRole
      *
      * @var string
@@ -48,6 +55,8 @@ class CreateBatchRequest extends Model
     public $serviceRole;
 
     /**
+     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
+     *
      * @example {"key": "val"}
      *
      * @var mixed[]

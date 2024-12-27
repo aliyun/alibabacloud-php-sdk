@@ -11,44 +11,62 @@ use AlibabaCloud\Tea\Model;
 class CreateLocationDateClusteringTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The date configurations for clustering.
      *
+     * This parameter is required.
      * @var dateOptions
      */
     public $dateOptions;
 
     /**
-     * @description This parameter is required.
+     * @description The geolocation configurations for clustering.
      *
+     * This parameter is required.
      * @var locationOptions
      */
     public $locationOptions;
 
     /**
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var Notification
      */
     public $notification;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+     *
+     * @example test-data
+     *
      * @var string
      */
     public $userData;

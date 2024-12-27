@@ -9,21 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DeleteLocationDateClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. For information about how to create a dataset, see [CreateDataset](https://help.aliyun.com/document_detail/478160.html).
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the group to be deleted.
+     *
+     * This parameter is required.
+     * @example location-date-cluster-71dd4f32-9597-4085-a2ab-3a7b0fd0aff9
      *
      * @var string
      */
     public $objectId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */

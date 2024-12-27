@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class boundary extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The height of the bounding box. The value can be an integer greater than or equal to 0 or a decimal within the range of [0,1):
      *
+     *   An integer value greater than or equal to 0 indicates the height of the bounding box in pixels.
+     *   A decimal value within the range of [0,1) indicates the height of the bounding box as a ratio of its height to the image height.
+     *
+     * This parameter is required.
      * @example 200
      *
      * @var float
@@ -18,6 +22,13 @@ class boundary extends Model
     public $height;
 
     /**
+     * @description The reference position of the bounding box on the image. Valid values:
+     *
+     *   topright: the upper-right corner.
+     *   topleft: the upper-left corner. This is the default value.
+     *   bottomright: the lower-right corner.
+     *   bottomleft: the lower-left corner.
+     *
      * @example topleft
      *
      * @var string
@@ -25,8 +36,12 @@ class boundary extends Model
     public $referPos;
 
     /**
-     * @description This parameter is required.
+     * @description The width of the bounding box. The value can be an integer greater than or equal to 0 or a decimal within the range of [0,1):
      *
+     *   An integer value greater than or equal to 0 indicates the width of the bounding box in pixels.
+     *   A decimal value within the range of [0,1) indicates the width of the bounding box as a ratio of its width to the image width.
+     *
+     * This parameter is required.
      * @example 200
      *
      * @var float
@@ -34,8 +49,12 @@ class boundary extends Model
     public $width;
 
     /**
-     * @description This parameter is required.
+     * @description The horizontal offset relative to the reference position. The value can be an integer greater than or equal to 0 or a decimal within the range of [0,1):
      *
+     *   An integer value greater than or equal to 0 indicates the horizontal offset in pixels.
+     *   A decimal value within the range of [0,1) indicates the horizontal offset as a ratio of the offset to the image width.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var float
@@ -43,8 +62,12 @@ class boundary extends Model
     public $x;
 
     /**
-     * @description This parameter is required.
+     * @description The vertical offset relative to the reference position. The value can be an integer greater than or equal to 0 or a decimal within the range of [0,1):
      *
+     *   An integer value greater than or equal to 0 indicates the vertical offset in pixels.
+     *   A decimal value within the range of [0,1) indicates the vertical offset as a ratio of the offset to the image height.
+     *
+     * This parameter is required.
      * @example 0
      *
      * @var float

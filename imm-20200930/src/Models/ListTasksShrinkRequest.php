@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTasksShrinkRequest extends Model
 {
     /**
+     * @description The range of task end time. You can specify this parameter to filter tasks that end within the specified range.
+     *
      * @var string
      */
     public $endTimeRangeShrink;
 
     /**
+     * @description The maximum number of results to return. Valid value range: (0, 100]. Default value: 100.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,9 @@ class ListTasksShrinkRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token.
+     *
+     * >  Leave this parameter empty in your first call to the operation.
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
@@ -28,6 +35,11 @@ class ListTasksShrinkRequest extends Model
     public $nextToken;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   ASC: sorts the results in ascending order. This is the default sort order.
+     *   DES: sorts the results in descending order.
+     *
      * @example ASC
      *
      * @var string
@@ -35,13 +47,18 @@ class ListTasksShrinkRequest extends Model
     public $order;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description Specifies whether to return request parameters in the initial request to create the task. Default value: False.
+     *
      * @example True
      *
      * @var bool
@@ -49,6 +66,12 @@ class ListTasksShrinkRequest extends Model
     public $requestDefinition;
 
     /**
+     * @description The field used to sort the results by. Valid values:
+     *
+     *   TaskId: sorts the results by task ID. This is the default sort field.
+     *   StartTime: sorts the results by task start time.
+     *   StartTime: sorts the results by task end time.
+     *
      * @example TaskId
      *
      * @var string
@@ -56,11 +79,19 @@ class ListTasksShrinkRequest extends Model
     public $sort;
 
     /**
+     * @description The range of task start time. You can specify this parameter to filter tasks that start within the specified range.
+     *
      * @var string
      */
     public $startTimeRangeShrink;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   Running: The task is running.
+     *   Succeeded: The task is successful.
+     *   Failed: The task failed.
+     *
      * @example Succeeded
      *
      * @var string
@@ -68,6 +99,8 @@ class ListTasksShrinkRequest extends Model
     public $status;
 
     /**
+     * @description The custom tags of tasks.
+     *
      * @example test=val1
      *
      * @var string
@@ -75,6 +108,8 @@ class ListTasksShrinkRequest extends Model
     public $tagSelector;
 
     /**
+     * @description The task types.
+     *
      * @var string
      */
     public $taskTypesShrink;

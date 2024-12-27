@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetTriggerRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the trigger. You can obtain the ID from the response parameters of the [CreateTrigger](https://help.aliyun.com/document_detail/479912.html) operation.
      *
+     * This parameter is required.
      * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
      *
      * @var string
@@ -18,8 +19,9 @@ class GetTriggerRequest extends Model
     public $id;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string

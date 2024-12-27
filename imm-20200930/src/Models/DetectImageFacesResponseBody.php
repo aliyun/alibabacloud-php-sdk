@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DetectImageFacesResponseBody extends Model
 {
     /**
+     * @description The faces.
+     *
      * @var Figure[]
      */
     public $faces;
 
     /**
+     * @description The request ID.
+     *
      * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
      *
      * @var string

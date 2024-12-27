@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SemanticQueryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.
      *
+     * This parameter is required.
      * @example immDatatest
      *
      * @var string
@@ -18,6 +19,8 @@ class SemanticQueryRequest extends Model
     public $datasetName;
 
     /**
+     * @description The maximum number of entries to return. Valid values: 1 to 1000.
+     *
      * @example 10
      *
      * @var int
@@ -25,11 +28,16 @@ class SemanticQueryRequest extends Model
     public $maxResults;
 
     /**
+     * @description The types of the media that you want to query. Default value:
+     *
+     * ["image"]
      * @var string[]
      */
     public $mediaTypes;
 
     /**
+     * @description This parameter is no longer available.
+     *
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
@@ -37,8 +45,9 @@ class SemanticQueryRequest extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -46,30 +55,28 @@ class SemanticQueryRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The content of the query that you input.
      *
+     * This parameter is required.
      * @var string
      */
     public $query;
 
     /**
-     * @var string[]
-     */
-    public $smartClusterIds;
-
-    /**
+     * @description The fields that you want to include in the response. Including only necessary metadata fields can help reduce the size of the response.
+     *
+     * If you do not specify this parameter or set the value to null, all existing metadata fields are returned.
      * @var string[]
      */
     public $withFields;
     protected $_name = [
-        'datasetName'     => 'DatasetName',
-        'maxResults'      => 'MaxResults',
-        'mediaTypes'      => 'MediaTypes',
-        'nextToken'       => 'NextToken',
-        'projectName'     => 'ProjectName',
-        'query'           => 'Query',
-        'smartClusterIds' => 'SmartClusterIds',
-        'withFields'      => 'WithFields',
+        'datasetName' => 'DatasetName',
+        'maxResults'  => 'MaxResults',
+        'mediaTypes'  => 'MediaTypes',
+        'nextToken'   => 'NextToken',
+        'projectName' => 'ProjectName',
+        'query'       => 'Query',
+        'withFields'  => 'WithFields',
     ];
 
     public function validate()
@@ -96,9 +103,6 @@ class SemanticQueryRequest extends Model
         }
         if (null !== $this->query) {
             $res['Query'] = $this->query;
-        }
-        if (null !== $this->smartClusterIds) {
-            $res['SmartClusterIds'] = $this->smartClusterIds;
         }
         if (null !== $this->withFields) {
             $res['WithFields'] = $this->withFields;
@@ -134,11 +138,6 @@ class SemanticQueryRequest extends Model
         }
         if (isset($map['Query'])) {
             $model->query = $map['Query'];
-        }
-        if (isset($map['SmartClusterIds'])) {
-            if (!empty($map['SmartClusterIds'])) {
-                $model->smartClusterIds = $map['SmartClusterIds'];
-            }
         }
         if (isset($map['WithFields'])) {
             if (!empty($map['WithFields'])) {

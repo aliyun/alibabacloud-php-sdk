@@ -9,18 +9,25 @@ use AlibabaCloud\Tea\Model;
 class QueryStoriesRequest extends Model
 {
     /**
+     * @description The time range in which stories were created.
+     *
      * @var TimeRange
      */
     public $createTimeRange;
 
     /**
+     * @description The custom labels in key-value pairs.
+     *
+     * @example key=value
+     *
      * @var string
      */
     public $customLabels;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example test-dataset
      *
      * @var string
@@ -28,11 +35,15 @@ class QueryStoriesRequest extends Model
     public $datasetName;
 
     /**
+     * @description The IDs of the face clusters.
+     *
      * @var string[]
      */
     public $figureClusterIds;
 
     /**
+     * @description The maximum number of entries to return. Valid values: 1 to 100. Default value: 100.
+     *
      * @example 10
      *
      * @var int
@@ -40,6 +51,8 @@ class QueryStoriesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. If you do not specify this token in the next request, results are returned from the beginning.
+     *
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpw****
      *
      * @var string
@@ -47,6 +60,8 @@ class QueryStoriesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the story.
+     *
      * @example id1
      *
      * @var string
@@ -54,6 +69,11 @@ class QueryStoriesRequest extends Model
     public $objectId;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   asc: in ascending order.
+     *   desc: in descending order.
+     *
      * @example asc
      *
      * @var string
@@ -61,8 +81,9 @@ class QueryStoriesRequest extends Model
     public $order;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -70,6 +91,13 @@ class QueryStoriesRequest extends Model
     public $projectName;
 
     /**
+     * @description The sort field. Valid values:
+     *
+     *   CreateTime: sorts by story creation time.
+     *   StoryName: sorts by story name.
+     *   StoryStartTime: sorts by story start time.
+     *   StoryEndTime: sorts by story end time.
+     *
      * @example CreateTime
      *
      * @var string
@@ -77,11 +105,15 @@ class QueryStoriesRequest extends Model
     public $sort;
 
     /**
+     * @description The time range for the creation time of the last photo or video in the story.
+     *
      * @var TimeRange
      */
     public $storyEndTimeRange;
 
     /**
+     * @description The name of the story.
+     *
      * @example name1
      *
      * @var string
@@ -89,11 +121,15 @@ class QueryStoriesRequest extends Model
     public $storyName;
 
     /**
+     * @description The time range for the creation time of the first photo or video in the story.
+     *
      * @var TimeRange
      */
     public $storyStartTimeRange;
 
     /**
+     * @description The subtype of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+     *
      * @example SeasonHighlights
      *
      * @var string
@@ -101,6 +137,8 @@ class QueryStoriesRequest extends Model
     public $storySubType;
 
     /**
+     * @description The type of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+     *
      * @example TimeMemory
      *
      * @var string
@@ -108,6 +146,11 @@ class QueryStoriesRequest extends Model
     public $storyType;
 
     /**
+     * @description Specifies whether to return empty stories. Valid values:
+     *
+     *   true (The default value)
+     *   false
+     *
      * @example true
      *
      * @var bool

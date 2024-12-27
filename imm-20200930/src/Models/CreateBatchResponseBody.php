@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBatchResponseBody extends Model
 {
     /**
+     * @description The ID of the batch processing task.
+     *
      * @example batch-4eb9223f-3e88-42d3-a578-3f2852******
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateBatchResponseBody extends Model
     public $id;
 
     /**
+     * @description The request ID.
+     *
      * @example EC564A9A-BA5C-4499-A087-D9B9E76E*****
      *
      * @var string

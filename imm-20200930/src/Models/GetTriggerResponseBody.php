@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTriggerResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 4A7A2D0E-D8B8-4DA0-8127-EB32C6******
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTriggerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The trigger information.
+     *
      * @var DataIngestion
      */
     public $trigger;

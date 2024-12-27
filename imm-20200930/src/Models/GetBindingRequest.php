@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetBindingRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
      *
+     * This parameter is required.
      * @example dataset001
      *
      * @var string
@@ -18,8 +19,9 @@ class GetBindingRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -27,8 +29,9 @@ class GetBindingRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The URI of the OSS bucket to which you bind the dataset.
      *
+     * This parameter is required.
      * @example oss://examplebucket
      *
      * @var string

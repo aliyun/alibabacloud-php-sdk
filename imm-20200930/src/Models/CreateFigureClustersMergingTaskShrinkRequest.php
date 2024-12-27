@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateFigureClustersMergingTaskShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
      *
+     * This parameter is required.
      * @example dataset001
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $datasetName;
 
     /**
+     * @description The ID of the source group. You must specify either From or Froms, but not both.
+     *
      * @example Cluster-2ab85905-23ba-4632-b2d8-1c21cfe****
      *
      * @var string
@@ -25,18 +28,23 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $from;
 
     /**
+     * @description The IDs of source clustering groups. You must specify either From or Froms, but not both. You can specify up to 100 task IDs.
+     *
      * @var string
      */
     public $fromsShrink;
 
     /**
+     * @description The notification message configurations. For more information, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -44,6 +52,8 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description The custom tags, which can be used to search for and filter asynchronous tasks.
+     *
      * @example {"key":"val"}
      *
      * @var string
@@ -51,8 +61,9 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the destination clustering group.
      *
+     * This parameter is required.
      * @example Cluster-4a3a71c1-c092-4788-8826-2f65d17****
      *
      * @var string
@@ -60,6 +71,8 @@ class CreateFigureClustersMergingTaskShrinkRequest extends Model
     public $to;
 
     /**
+     * @description The custom data, which is returned in an asynchronous notification and facilitates notification management. The maximum length is 2,048 bytes.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

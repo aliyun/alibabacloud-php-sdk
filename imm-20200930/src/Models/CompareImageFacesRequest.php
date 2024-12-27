@@ -10,13 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CompareImageFacesRequest extends Model
 {
     /**
+     * @description **If you have no special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -24,6 +28,8 @@ class CompareImageFacesRequest extends Model
     public $projectName;
 
     /**
+     * @description The URLs of the two images for compression.
+     *
      * @var source
      */
     public $source;

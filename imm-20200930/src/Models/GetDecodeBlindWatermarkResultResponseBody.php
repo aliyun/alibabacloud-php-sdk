@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDecodeBlindWatermarkResultResponseBody extends Model
 {
     /**
+     * @description The error code of the task.
+     *
      * @example ResourceNotFound
      *
      * @var string
@@ -16,11 +18,15 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $code;
 
     /**
+     * @description The watermark content.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The end time of the task.
+     *
      * @example 2024-03-03T09:45:56.87Z
      *
      * @var string
@@ -28,6 +34,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The event ID.
+     *
      * @example 2C2-1I0EG57VR37J4rQ8oKG6C9*****
      *
      * @var string
@@ -35,6 +43,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The error message of the task.
+     *
      * @example The specified resource project is not found.
      *
      * @var string
@@ -42,6 +52,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $message;
 
     /**
+     * @description The project name.
+     *
      * @example test-project
      *
      * @var string
@@ -49,6 +61,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $projectName;
 
     /**
+     * @description The request ID.
+     *
      * @example 93126E40-0296-4129-95E3-AFAC709372E5
      *
      * @var string
@@ -56,6 +70,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start time of the task.
+     *
      * @example 2024-03-03T09:44:31.029Z
      *
      * @var string
@@ -63,6 +79,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The task status.
+     *
      * @example Succeeded
      *
      * @var string
@@ -70,6 +88,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $status;
 
     /**
+     * @description The task ID.
+     *
      * @example DecodeBlindWatermark-c09b0943-ed79-4983-8dbe-7a882574****
      *
      * @var string
@@ -77,6 +97,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The task type.
+     *
      * @example DecodeBlindWatermark
      *
      * @var string
@@ -84,6 +106,8 @@ class GetDecodeBlindWatermarkResultResponseBody extends Model
     public $taskType;
 
     /**
+     * @description The user data of the task.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

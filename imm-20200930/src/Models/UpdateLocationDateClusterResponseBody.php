@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateLocationDateClusterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 52B017A8-FEF5-0A61-BAEE-234A8AD8****
      *
      * @var string

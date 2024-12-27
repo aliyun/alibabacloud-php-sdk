@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchIndexFileMetaShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example test-dataset
      *
      * @var string
@@ -18,20 +19,24 @@ class BatchIndexFileMetaShrinkRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The objects in Object Storage Service (OSS). Specify OSS objects by using a JSON array. You can specify up to 100 objects in an array.
      *
+     * This parameter is required.
      * @var string
      */
     public $filesShrink;
 
     /**
+     * @description The notification settings. For more information, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string

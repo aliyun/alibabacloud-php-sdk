@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListRegionsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The language. Valid values:
      *
+     *   zh-CN: Chinese.
+     *   en-US: English.
+     *   ja: Japanese.
+     *
+     * This parameter is required.
      * @example zh-CN
      *
      * @var string

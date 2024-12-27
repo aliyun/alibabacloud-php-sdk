@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCodesRequest extends Model
 {
     /**
+     * @description **If you do not have special requirements, leave this parameter empty.**
+     *
+     * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -23,8 +27,9 @@ class DetectImageCodesRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The URI of the Object Storage Service (OSS) bucket in which the image file is stored.
      *
+     * This parameter is required.
      * @example oss://bucketname/objectname
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetFigureClusterResponseBody extends Model
 {
     /**
+     * @description The information about the face clustering task.
+     *
      * @var FigureCluster
      */
     public $figureCluster;
 
     /**
+     * @description The request ID.
+     *
      * @example 5F74C5C9-5AC0-49F9-914D-E01589D3****
      *
      * @var string

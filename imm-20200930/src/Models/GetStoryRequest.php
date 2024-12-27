@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetStoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example test-dataset
      *
      * @var string
@@ -18,8 +19,9 @@ class GetStoryRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the story.
      *
+     * This parameter is required.
      * @example id1
      *
      * @var string
@@ -27,8 +29,9 @@ class GetStoryRequest extends Model
     public $objectId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string

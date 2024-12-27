@@ -9,20 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateVideoLabelClassificationTaskShrinkRequest extends Model
 {
     /**
+     * @description **If you have no special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
-     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
      *
      * @var string
      */
     public $notificationShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -30,8 +34,9 @@ class CreateVideoLabelClassificationTaskShrinkRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The OSS URI of the video file.
      *
+     * This parameter is required.
      * @example oss://bucket1/object
      *
      * @var string
@@ -39,6 +44,8 @@ class CreateVideoLabelClassificationTaskShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The custom tags, which can be used to search for and filter asynchronous tasks.
+     *
      * @example {"test":"val1"}
      *
      * @var string
@@ -46,6 +53,8 @@ class CreateVideoLabelClassificationTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description The custom data, which is returned in an asynchronous notification and facilitates notification management. The maximum length is 2,048 bytes.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

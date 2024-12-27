@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateFileMetaResponseBody extends Model
 {
     /**
+     * @description The files whose metadata was updated.
+     *
      * @var files[]
      */
     public $files;
 
     /**
+     * @description The request ID.
+     *
      * @example F5BF215E-3237-0852-B9C6-F233D44A****
      *
      * @var string

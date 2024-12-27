@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileCompressionTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFileCompressionTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example EC564A9A-BA5C-4499-A087-D9B9E76E*****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateFileCompressionTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example FileCompression-3579a380-6f7a-4a9d-b9d2-65996*****
      *
      * @var string

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateImageModerationTaskShrinkRequest extends Model
 {
     /**
+     * @description The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+     *
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
+     * @description The time interval between two consecutive frames in a GIF or long image. Default value: 1.
+     *
      * @example 2
      *
      * @var int
@@ -21,6 +25,8 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $interval;
 
     /**
+     * @description The maximum number of frames that can be captured in a GIF or long image. Default value: 1.
+     *
      * @example 10
      *
      * @var int
@@ -28,15 +34,16 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $maxFrames;
 
     /**
-     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+     * @description The notification settings. For more information, click Notification. For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
      *
      * @var string
      */
     public $notificationShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -44,13 +51,16 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description The scenarios in which you want to apply the image moderation task.
+     *
      * @var string
      */
     public $scenesShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The URI of the Object Storage Service (OSS) bucket in which you store the image.
      *
+     * This parameter is required.
      * @example oss://test-bucket/test-object
      *
      * @var string
@@ -58,6 +68,8 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
+     *
      * @example {"test": "val1"}
      *
      * @var string
@@ -65,6 +77,8 @@ class CreateImageModerationTaskShrinkRequest extends Model
     public $tagsShrink;
 
     /**
+     * @description The user data, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the user data is 2,048 bytes.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

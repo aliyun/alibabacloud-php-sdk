@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class RemoveStoryFilesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.
      *
+     * This parameter is required.
      * @example testdataset
      *
      * @var string
@@ -19,15 +20,17 @@ class RemoveStoryFilesRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The files that you want to delete.
      *
+     * This parameter is required.
      * @var files[]
      */
     public $files;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the story.
      *
+     * This parameter is required.
      * @example testid
      *
      * @var string
@@ -35,8 +38,9 @@ class RemoveStoryFilesRequest extends Model
     public $objectId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subtitles extends Model
 {
     /**
+     * @description The subtitle language. If you specify this parameter, comply with the ISO 639-2 standard. This parameter is left empty by default.
+     *
      * @example eng
      *
      * @var string
@@ -16,6 +18,8 @@ class subtitles extends Model
     public $language;
 
     /**
+     * @description The time offset of the subtitle. Unit: seconds. Default value: 0.
+     *
      * @example 10.5
      *
      * @var float
@@ -23,6 +27,8 @@ class subtitles extends Model
     public $timeOffset;
 
     /**
+     * @description The URI of the Object Storage Service (OSS) bucket. Specify the value in the `oss://${Bucket}/${Object}` format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region with the current project. `${Object}` specifies the complete path to the file whose name contains an extension. The following subtitle formats are supported: srt, vtt, mov_text, ass, dvd_sub, and pgs.
+     *
      * @example oss://test-bucket/subtitles
      *
      * @var string

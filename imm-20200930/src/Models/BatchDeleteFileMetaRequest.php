@@ -9,22 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteFileMetaRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The URIs of the OSS buckets in which the files whose metadata you want to delete are stored. You can specify up to 100 URIs.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $URIs;

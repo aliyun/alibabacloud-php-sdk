@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -18,13 +19,18 @@ class GetTaskRequest extends Model
     public $projectName;
 
     /**
+     * @description Specifies whether to return the initial request parameters that are used to create the task. Default value: False.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $requestDefinition;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the task. You can obtain the ID of a task after you create the task.
      *
+     * This parameter is required.
      * @example c2b277b9-0d30-4882-ad6d-ad661382****
      *
      * @var string
@@ -32,8 +38,9 @@ class GetTaskRequest extends Model
     public $taskId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the task. For information about valid values, see [Task types](https://help.aliyun.com/document_detail/2743993.html).
      *
+     * This parameter is required.
      * @example VideoLabelClassification
      *
      * @var string

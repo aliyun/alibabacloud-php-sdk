@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EncodeBlindWatermarkResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 8E0DD64B-28C6-4653-8FF7-93E4C234BCF0
      *
      * @var string

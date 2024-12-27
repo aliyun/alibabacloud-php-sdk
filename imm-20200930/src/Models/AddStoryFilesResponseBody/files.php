@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example ResourceNotFound
      *
      * @var string
@@ -16,6 +18,8 @@ class files extends Model
     public $errorCode;
 
     /**
+     * @description The error message that is returned.
+     *
      * @example The specified resource %s is not found.
      *
      * @var string
@@ -23,6 +27,9 @@ class files extends Model
     public $errorMessage;
 
     /**
+     * @description The URI of the object.
+     *
+     * The OSS URI follows the `oss://{bucketname}/{objectname}` format, where `bucketname` is the name of the bucket in the same region as the current project and `objectname` is the path of the object with the extension included.
      * @example oss://test-bucket/test-object
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DetectImageScoreResponseBody extends Model
 {
     /**
+     * @description The quality score of the image.
+     *
      * @var imageScore
      */
     public $imageScore;
 
     /**
+     * @description The request ID.
+     *
      * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
      *
      * @var string

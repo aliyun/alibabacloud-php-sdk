@@ -12,23 +12,33 @@ use AlibabaCloud\Tea\Model;
 class GenerateVideoPlaylistResponseBody extends Model
 {
     /**
-     * @description 转码文件列表。
+     * @description The audio media playlist files.
      *
      * @var audioPlaylist[]
      */
     public $audioPlaylist;
 
     /**
+     * @description The total duration of the generated video.
+     *
+     * @example 1082
+     *
      * @var float
      */
     public $duration;
 
     /**
+     * @description The OSS path of the master playlist.
+     *
+     * @example oss://test-bucket/test-object/master.m3u8
+     *
      * @var string
      */
     public $masterURI;
 
     /**
+     * @description The request ID.
+     *
      * @example CA995EFD-083D-4F40-BE8A-BDF75FFF*****
      *
      * @var string
@@ -36,13 +46,15 @@ class GenerateVideoPlaylistResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 转码文件列表。
+     * @description The subtitle media playlist files.
      *
      * @var subtitlePlaylist[]
      */
     public $subtitlePlaylist;
 
     /**
+     * @description The token of the master playlist.
+     *
      * @example 92376fbb-171f-4259-913f-705f7ee0****
      *
      * @var string
@@ -50,7 +62,7 @@ class GenerateVideoPlaylistResponseBody extends Model
     public $token;
 
     /**
-     * @description 转码文件列表。
+     * @description The video media playlist files.
      *
      * @var videoPlaylist[]
      */

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class moderationResult extends Model
 {
     /**
+     * @description List of categories.
+     *
      * @var string[]
      */
     public $categories;
 
     /**
+     * @description The information about video and motion detection frames.
+     *
      * @var frames
      */
     public $frames;
 
     /**
+     * @description The recommended operation. Valid values:
+     *
+     *   pass: The image has passed the check. No action is required.
+     *   review: The image contains suspected violations and requires human review.
+     *   block: The image contains violations. Further actions, such as deleting or blocking the image, are recommended.
+     *
      * @example block
      *
      * @var string
@@ -27,6 +37,8 @@ class moderationResult extends Model
     public $suggestion;
 
     /**
+     * @description The OSS URI of the file. The URI follows the oss://${bucketname}/${objectname} format. bucketname indicates the name of an OSS bucket that is in the same region as the current project, and objectname is the file path.
+     *
      * @example oss://test-bucket/test-object
      *
      * @var string

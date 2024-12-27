@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFigureClusteringTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 0ED-1Bz8z71k5TtsUejT4UJ16****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFigureClusteringTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateFigureClusteringTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example formatconvert-00bec802-073a-4b61-ba3b-39bc****
      *
      * @var string

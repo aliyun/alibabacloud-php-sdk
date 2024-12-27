@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SuspendTriggerResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 0BC1F0C9-8E99-46C6-B502-10DED******
      *
      * @var string

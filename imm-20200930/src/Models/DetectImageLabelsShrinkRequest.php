@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DetectImageLabelsShrinkRequest extends Model
 {
     /**
+     * @description **If you do not have special requirements, leave this parameter empty.**
+     *
+     * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example immimagetest
      *
      * @var string
@@ -23,8 +27,9 @@ class DetectImageLabelsShrinkRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The URI of the Object Storage Service (OSS) bucket in which you store the image.
      *
+     * This parameter is required.
      * @example oss://imm-test/testcases/facetest.jpg
      *
      * @var string
@@ -32,6 +37,8 @@ class DetectImageLabelsShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The threshold of the label confidence. Labels whose confidence is lower than the specified threshold are not returned in the response. Valid values: 0 to 1. If you leave this parameter empty, the algorithm provides a default threshold.
+     *
      * @example 1
      *
      * @var float

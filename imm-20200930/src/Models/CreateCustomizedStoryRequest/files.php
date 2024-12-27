@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The URIs of the files.
      *
+     * This parameter is required.
      * @example [{"URI":"oss://bucket1/file1"}]
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDecodeBlindWatermarkTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 27C-1jyAP5qQI7RoI8lFFwvMrWtl0ft
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDecodeBlindWatermarkTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example 4A7A2D0E-D8B8-4DA0-8127-EB32C6600ADE
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateDecodeBlindWatermarkTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example DecodeBlindWatermark-78ac8f3b-59e0-45a6-9b67-32168c3f22b9
      *
      * @var string

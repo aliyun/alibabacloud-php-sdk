@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCarsResponseBody extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The vehicles.
      *
+     * This parameter is required.
      * @var Car[]
      */
     public $cars;
 
     /**
+     * @description The request ID.
+     *
      * @example A8745209-DD0E-027E-8ABA-085E0C******
      *
      * @var string

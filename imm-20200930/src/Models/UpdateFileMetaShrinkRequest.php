@@ -9,21 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileMetaShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The file whose metadata you want to update. The value must be in the JSON format.
      *
+     * This parameter is required.
      * @var string
      */
     public $fileShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */

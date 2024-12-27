@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetImageModerationResultRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the project.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -18,8 +19,9 @@ class GetImageModerationResultRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The task ID.
      *
+     * This parameter is required.
      * @example ImageModeration-ff207203-3f93-4645-a041-7b8f0f******
      *
      * @var string
@@ -27,8 +29,9 @@ class GetImageModerationResultRequest extends Model
     public $taskId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the task.
      *
+     * This parameter is required.
      * @example ImageModeration
      *
      * @var string

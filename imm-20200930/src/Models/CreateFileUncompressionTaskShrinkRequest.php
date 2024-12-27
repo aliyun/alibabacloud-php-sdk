@@ -9,16 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CreateFileUncompressionTaskShrinkRequest extends Model
 {
     /**
+     * @description **If you have no special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
+     * @description The password that protects the package.
+     *
      * @example 123456
      *
      * @var string
@@ -26,8 +33,9 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     public $password;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -35,13 +43,16 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description The files to extract. If you do not specify this parameter, the entire package is decompressed.
+     *
      * @var string
      */
     public $selectedFilesShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The OSS URI of the package.
      *
+     * This parameter is required.
      * @example oss://imm-apitest-fxf2/name.zip
      *
      * @var string
@@ -49,11 +60,18 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The OSS URI to which you want to extract files from the package or decompress the entire package.
+     *
+     * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+     * @example oss://test-bucket/test-dir/
+     *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachOSSBucketRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The OSS bucket that you want to unbind.
      *
+     * This parameter is required.
      * @example examplebucket
      *
      * @var string

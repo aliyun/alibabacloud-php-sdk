@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageScore extends Model
 {
     /**
+     * @description The overall quality score.
+     *
      * @example 0.6
      *
      * @var float

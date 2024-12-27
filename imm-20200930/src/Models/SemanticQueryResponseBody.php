@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SemanticQueryResponseBody extends Model
 {
     /**
+     * @description The files.
+     *
      * @var File[]
      */
     public $files;
 
     /**
+     * @description The request ID.
+     *
      * @example 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
      *
      * @var string

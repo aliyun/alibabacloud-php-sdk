@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @description The bounding box of the face.
+     *
      * @var Boundary
      */
     public $boundary;
 
     /**
+     * @description The ID of the face cluster that contains faces similar to the face within the bounding box.
+     *
      * @example Cluster-ca730577-06b1-42c7-a25b-8f2c7******
      *
      * @var string
@@ -22,6 +26,8 @@ class clusters extends Model
     public $clusterId;
 
     /**
+     * @description The similarity between the face within the bounding box and the face cluster. Valid value: 0 to 1.
+     *
      * @example 0.87413794
      *
      * @var float

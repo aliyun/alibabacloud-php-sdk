@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateArchiveFileInspectionTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 0ED-1Bz8z71k5TtsUejT4UJ16Es*****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateArchiveFileInspectionTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example EC564A9A-BA5C-4499-A087-D9B9E76E*****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateArchiveFileInspectionTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example ArchiveFileInspection-8475218e-d86e-4c66-b3cf-50e74d6c****
      *
      * @var string

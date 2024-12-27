@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class IndexFileMetaRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
      *
+     * This parameter is required.
      * @example test-dataset
      *
      * @var string
@@ -18,20 +19,24 @@ class IndexFileMetaRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The file for which you want to create an index. The value must be in the JSON format.
      *
+     * This parameter is required.
      * @var InputFile
      */
     public $file;
 
     /**
+     * @description The notification settings. For more information, click Notification. For information about the formats of asynchronous notifications, see the "Metadata indexing" section of the [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html) topic.
+     *
      * @var Notification
      */
     public $notification;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string

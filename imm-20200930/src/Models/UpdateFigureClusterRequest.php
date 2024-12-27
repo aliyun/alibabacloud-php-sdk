@@ -9,21 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateFigureClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The information about the cluster.
      *
+     * This parameter is required.
      * @var FigureClusterForReq
      */
     public $figureCluster;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */

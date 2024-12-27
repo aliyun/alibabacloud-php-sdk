@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateImageSplicingTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 10C-1R6p7Km0H5Ieg38LKXTIvw*****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateImageSplicingTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example 94D6F994-E298-037E-8E8B-0090F27*****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateImageSplicingTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example ImageSplicing-537cc157-7645-444a-a631-c8db4d02*****
      *
      * @var string

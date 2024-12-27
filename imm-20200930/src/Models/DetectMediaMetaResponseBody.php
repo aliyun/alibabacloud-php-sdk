@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DetectMediaMetaResponseBody extends Model
 {
     /**
+     * @description The addresses.
+     *
+     * This parameter is returned only when address information is detected.
      * @var Address[]
      */
     public $addresses;
 
     /**
+     * @description The album.
+     *
      * @example unable
      *
      * @var string
@@ -21,6 +26,8 @@ class DetectMediaMetaResponseBody extends Model
     public $album;
 
     /**
+     * @description The album artist.
+     *
      * @example unable
      *
      * @var string
@@ -28,6 +35,8 @@ class DetectMediaMetaResponseBody extends Model
     public $albumArtist;
 
     /**
+     * @description The artist.
+     *
      * @example unable
      *
      * @var string
@@ -35,11 +44,15 @@ class DetectMediaMetaResponseBody extends Model
     public $artist;
 
     /**
+     * @description The audio streams.
+     *
      * @var AudioStream[]
      */
     public $audioStreams;
 
     /**
+     * @description The bitrate. Unit: bit/s.
+     *
      * @example 13164131
      *
      * @var int
@@ -47,6 +60,8 @@ class DetectMediaMetaResponseBody extends Model
     public $bitrate;
 
     /**
+     * @description The composer.
+     *
      * @example unable
      *
      * @var string
@@ -54,6 +69,8 @@ class DetectMediaMetaResponseBody extends Model
     public $composer;
 
     /**
+     * @description The total duration of the video. Unit: seconds.
+     *
      * @example 15.263000
      *
      * @var float
@@ -61,6 +78,8 @@ class DetectMediaMetaResponseBody extends Model
     public $duration;
 
     /**
+     * @description The full format name.
+     *
      * @example QuickTime / MOV
      *
      * @var string
@@ -68,6 +87,8 @@ class DetectMediaMetaResponseBody extends Model
     public $formatLongName;
 
     /**
+     * @description The abbreviated format name.
+     *
      * @example mov,mp4,m4a,3gp,3g2,mj2
      *
      * @var string
@@ -75,6 +96,8 @@ class DetectMediaMetaResponseBody extends Model
     public $formatName;
 
     /**
+     * @description The language of the content. For more information, see the ISO 639-2 Alpha-3 codes for the representation of names of languages.
+     *
      * @example eng
      *
      * @var string
@@ -82,6 +105,8 @@ class DetectMediaMetaResponseBody extends Model
     public $language;
 
     /**
+     * @description The coordinate pair of the central point. The coordinate pair consists of latitude and longitude values. This parameter value must be in the "latitude,longitude" format. Valid values of the latitude: [-90,+90]. Valid values of the longitude: [-180,+180].
+     *
      * @example +120.029003,+30.283095
      *
      * @var string
@@ -89,6 +114,8 @@ class DetectMediaMetaResponseBody extends Model
     public $latLong;
 
     /**
+     * @description The performer.
+     *
      * @example unable
      *
      * @var string
@@ -96,6 +123,8 @@ class DetectMediaMetaResponseBody extends Model
     public $performer;
 
     /**
+     * @description The time of recording. For more information about the time formats, see the RFC3339 Nano standard.
+     *
      * @example 2022-04-24T02:39:57Z
      *
      * @var string
@@ -103,6 +132,8 @@ class DetectMediaMetaResponseBody extends Model
     public $produceTime;
 
     /**
+     * @description The number of programs.
+     *
      * @example 2
      *
      * @var int
@@ -110,6 +141,8 @@ class DetectMediaMetaResponseBody extends Model
     public $programCount;
 
     /**
+     * @description The request ID.
+     *
      * @example 2213B1A9-EB3D-4666-84E0-24980BC*****
      *
      * @var string
@@ -117,6 +150,8 @@ class DetectMediaMetaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The size of the media object. Unit: bytes.
+     *
      * @example 25115517
      *
      * @var int
@@ -124,6 +159,8 @@ class DetectMediaMetaResponseBody extends Model
     public $size;
 
     /**
+     * @description The initial playback time.
+     *
      * @example 0.000000
      *
      * @var float
@@ -131,6 +168,8 @@ class DetectMediaMetaResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The number of media streams.
+     *
      * @example 2
      *
      * @var int
@@ -138,11 +177,15 @@ class DetectMediaMetaResponseBody extends Model
     public $streamCount;
 
     /**
+     * @description The subtitle streams.
+     *
      * @var SubtitleStream[]
      */
     public $subtitles;
 
     /**
+     * @description The title of the media object.
+     *
      * @example test
      *
      * @var string
@@ -150,6 +193,8 @@ class DetectMediaMetaResponseBody extends Model
     public $title;
 
     /**
+     * @description The video height in pixels.
+     *
      * @example 1920
      *
      * @var int
@@ -157,11 +202,15 @@ class DetectMediaMetaResponseBody extends Model
     public $videoHeight;
 
     /**
+     * @description The video streams.
+     *
      * @var VideoStream[]
      */
     public $videoStreams;
 
     /**
+     * @description The video width in pixels.
+     *
      * @example 1080
      *
      * @var int

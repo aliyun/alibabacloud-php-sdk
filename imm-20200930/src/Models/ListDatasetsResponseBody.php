@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListDatasetsResponseBody extends Model
 {
     /**
+     * @description The list of datasets.
+     *
      * @var Dataset[]
      */
     public $datasets;
 
     /**
+     * @description The pagination token. If the total number of datasets is greater than the value of MaxResults, you must specify this parameter. This parameter has a value only if not all the datasets that meet the conditions are returned.
+     *
+     * Pass this value as the value of NextToken in the next call to query subsequent datasets.
      * @example 12345678:immtest:dataset002
      *
      * @var string
@@ -21,6 +26,8 @@ class ListDatasetsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example FEEDE356-C928-4A36-951A-6EB5A592****
      *
      * @var string

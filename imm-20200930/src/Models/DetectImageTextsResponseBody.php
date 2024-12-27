@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DetectImageTextsResponseBody extends Model
 {
     /**
+     * @description OCR text blocks.
+     *
      * @var OCRContents[]
      */
     public $OCRContents;
 
     /**
+     * @description The full Optical Character Recognition (OCR) text, which is spliced by using the content of OCRContents.
+     *
      * @var string
      */
     public $OCRTexts;
 
     /**
+     * @description The request ID.
+     *
      * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
      *
      * @var string

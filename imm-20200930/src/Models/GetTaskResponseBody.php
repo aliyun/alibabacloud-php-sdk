@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTaskResponseBody extends Model
 {
     /**
+     * @description The error code of the task.
+     *
      * @example ResourceNotFound
      *
      * @var string
@@ -16,6 +18,8 @@ class GetTaskResponseBody extends Model
     public $code;
 
     /**
+     * @description The end time of the task.
+     *
      * @example 2021-12-24T03:01:49.480109219Z
      *
      * @var string
@@ -23,6 +27,8 @@ class GetTaskResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The event ID.
+     *
      * @example 2F6-1Bz99Xi93EnRpNEyLudILJm****
      *
      * @var string
@@ -30,6 +36,8 @@ class GetTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The error message of the task.
+     *
      * @example The specified resource project is not found.
      *
      * @var string
@@ -37,11 +45,18 @@ class GetTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The task progress. Valid values: 0 to 100. Unit: %.
+     *
+     * >  This parameter is valid only if the task is in the `Running` state.``
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The project name.
+     *
      * @example immtest
      *
      * @var string
@@ -49,6 +64,8 @@ class GetTaskResponseBody extends Model
     public $projectName;
 
     /**
+     * @description The request ID.
+     *
      * @example 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
      *
      * @var string
@@ -56,6 +73,8 @@ class GetTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start time of the task.
+     *
      * @example 2021-12-24T03:01:41.662060377Z
      *
      * @var string
@@ -63,6 +82,12 @@ class GetTaskResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   RUNNING: The task is running.
+     *   Succeeded: The task is successful.
+     *   Failed: The task failed.
+     *
      * @example Running
      *
      * @var string
@@ -70,6 +95,8 @@ class GetTaskResponseBody extends Model
     public $status;
 
     /**
+     * @description The tags. This parameter is returned only if you specified Tags when you created the task.
+     *
      * @example {"test": "val1"}
      *
      * @var mixed[]
@@ -77,6 +104,8 @@ class GetTaskResponseBody extends Model
     public $tags;
 
     /**
+     * @description The task ID.
+     *
      * @example c2b277b9-0d30-4882-ad6d-ad661382****
      *
      * @var string
@@ -84,11 +113,17 @@ class GetTaskResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The initial request parameters used to create the task.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $taskRequestDefinition;
 
     /**
+     * @description The type of the task. For more information, see [Task types](https://help.aliyun.com/document_detail/2743993.html).
+     *
      * @example VideoLabelClassification
      *
      * @var string
@@ -96,6 +131,8 @@ class GetTaskResponseBody extends Model
     public $taskType;
 
     /**
+     * @description The user data of the task.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

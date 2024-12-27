@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateStoryRequest extends Model
 {
     /**
+     * @description The cover image of the story.
+     *
      * @var cover
      */
     public $cover;
 
     /**
+     * @description The custom ID.
+     *
      * @example test
      *
      * @var string
@@ -22,6 +26,8 @@ class UpdateStoryRequest extends Model
     public $customId;
 
     /**
+     * @description The custom tags. You can specify up to 100 custom tags.
+     *
      * @example {"key": "value"}
      *
      * @var mixed[]
@@ -29,8 +35,9 @@ class UpdateStoryRequest extends Model
     public $customLabels;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.
      *
+     * This parameter is required.
      * @example testdata
      *
      * @var string
@@ -38,8 +45,9 @@ class UpdateStoryRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the story.
      *
+     * This parameter is required.
      * @example testid
      *
      * @var string
@@ -47,8 +55,9 @@ class UpdateStoryRequest extends Model
     public $objectId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -56,6 +65,8 @@ class UpdateStoryRequest extends Model
     public $projectName;
 
     /**
+     * @description The name of the story.
+     *
      * @example newstory
      *
      * @var string

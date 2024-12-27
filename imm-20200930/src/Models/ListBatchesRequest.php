@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListBatchesRequest extends Model
 {
     /**
+     * @description The maximum number of results to return. Valid values: 0 to 100.
+     *
+     * If you do not specify this parameter or set the parameter to 0, the default value of 100 is used.
      * @example 10
      *
      * @var int
@@ -16,6 +19,9 @@ class ListBatchesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token.
+     *
+     * You do not need to specify this parameter in your initial request.
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
@@ -23,6 +29,11 @@ class ListBatchesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The sort order. Valid values:
+     *
+     *   ASC: sorts the results in ascending order. This is the default sort order.
+     *   DES: sorts the results in descending order.
+     *
      * @example ASC
      *
      * @var string
@@ -30,8 +41,9 @@ class ListBatchesRequest extends Model
     public $order;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -39,6 +51,11 @@ class ListBatchesRequest extends Model
     public $projectName;
 
     /**
+     * @description The sort field. Valid values:
+     *
+     *   CreateTime
+     *   UpdateTime
+     *
      * @example 2020-11-11T06:51:17.5Z
      *
      * @var string
@@ -46,6 +63,14 @@ class ListBatchesRequest extends Model
     public $sort;
 
     /**
+     * @description The task status.
+     *
+     *   Ready: The task is newly created and ready.
+     *   Running: The task is running.
+     *   Failed: The task failed and cannot be automatically recovered.
+     *   Suspended: The task is suspended.
+     *   Succeeded: The task is successful.
+     *
      * @example Succeed
      *
      * @var string
@@ -53,6 +78,8 @@ class ListBatchesRequest extends Model
     public $state;
 
     /**
+     * @description The custom tag. You can use this parameter to query tasks that have the specified tag.
+     *
      * @example test=val1
      *
      * @var string

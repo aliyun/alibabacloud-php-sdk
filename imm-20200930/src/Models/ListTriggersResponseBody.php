@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListTriggersResponseBody extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     * If NextToken is empty, no next page exists.
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
@@ -16,6 +19,8 @@ class ListTriggersResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example F480BFAF-E778-5079-93AD-1E4631******
      *
      * @var string
@@ -23,6 +28,8 @@ class ListTriggersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The triggers.
+     *
      * @var DataIngestion[]
      */
     public $triggers;

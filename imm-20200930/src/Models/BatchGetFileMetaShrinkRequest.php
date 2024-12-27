@@ -9,27 +9,37 @@ use AlibabaCloud\Tea\Model;
 class BatchGetFileMetaShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The array of object URIs. You can specify up to 100 object URIs in an array.
      *
+     * This parameter is required.
      * @var string
      */
     public $URIsShrink;
 
     /**
+     * @description The fields to return. If you specify this parameter, only specified metadata fields are returned. You can use this parameter to control the size of the response.
+     *
+     * If you do not specify this parameter or leave this parameter empty, the operation returns all metadata fields.
      * @var string
      */
     public $withFieldsShrink;

@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsResponseBody extends Model
 {
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
+     * @example MTIzNDU2Nzg6aW1tdGVzdDAx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The projects.
+     *
      * @var Project[]
      */
     public $projects;
 
     /**
+     * @description The request ID.
+     *
      * @example 4A7A2D0E-D8B8-4DA0-8127-EB32C660
      *
      * @var string

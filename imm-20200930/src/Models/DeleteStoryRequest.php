@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteStoryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example dataset001
      *
      * @var string
@@ -18,8 +19,9 @@ class DeleteStoryRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the story to delete.
      *
+     * This parameter is required.
      * @example id1
      *
      * @var string
@@ -27,8 +29,9 @@ class DeleteStoryRequest extends Model
     public $objectId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string

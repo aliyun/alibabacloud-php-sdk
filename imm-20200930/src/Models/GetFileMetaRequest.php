@@ -9,21 +9,30 @@ use AlibabaCloud\Tea\Model;
 class GetFileMetaRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The URI of the file. Make sure that the file is indexed****.
+     *
+     * This parameter is required.
+     * @example oss://test-bucket/test-object
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryStoriesResponseBody extends Model
 {
     /**
+     * @description The pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3Qx****
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryStoriesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryStoriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The stories.
+     *
      * @var Story[]
      */
     public $stories;

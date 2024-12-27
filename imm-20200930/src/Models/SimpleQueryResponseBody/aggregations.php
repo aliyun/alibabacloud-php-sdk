@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class aggregations extends Model
 {
     /**
+     * @description The name of the field.
+     *
      * @example Size
      *
      * @var string
@@ -17,11 +19,15 @@ class aggregations extends Model
     public $field;
 
     /**
+     * @description The grouped aggregations. This parameter is returned only when the group operator is specified in the Aggregations request parameter.
+     *
      * @var groups[]
      */
     public $groups;
 
     /**
+     * @description The operator.
+     *
      * @example sum
      *
      * @var string
@@ -29,6 +35,8 @@ class aggregations extends Model
     public $operation;
 
     /**
+     * @description The statistical result.
+     *
      * @example 200
      *
      * @var float

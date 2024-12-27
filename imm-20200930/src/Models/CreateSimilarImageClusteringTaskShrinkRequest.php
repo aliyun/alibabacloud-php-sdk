@@ -9,30 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateSimilarImageClusteringTaskShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+     *
+     * @example test-data
+     *
      * @var string
      */
     public $userData;

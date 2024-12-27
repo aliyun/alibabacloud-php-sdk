@@ -10,18 +10,23 @@ use AlibabaCloud\Tea\Model;
 class SimpleQueryResponseBody extends Model
 {
     /**
+     * @description The aggregations. This parameter is returned only when the value of the Aggregations request parameter is not empty.
+     *
      * @var aggregations[]
      */
     public $aggregations;
 
     /**
+     * @description The files. This parameter is returned only when the value of the Aggregations request parameter is empty.
+     *
      * @var File[]
      */
     public $files;
 
     /**
-     * @description This parameter is required.
+     * @description The pagination token is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
      *
+     * This parameter is required.
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
@@ -29,6 +34,8 @@ class SimpleQueryResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 2C5C1E0F-D8B8-4DA0-8127-EC32C771****
      *
      * @var string
@@ -36,6 +43,10 @@ class SimpleQueryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of total hits.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalHits;

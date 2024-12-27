@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsShrinkRequest extends Model
 {
     /**
+     * @description The maximum number of entries to return. Valid values: 0 to 200. Default value: 100.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. The operation returns the projects in lexicographical order starting from the location specified by NextToken.
+     *
+     * @example MTIzNDU2Nzg6aW1tdGVzdDAx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The prefix used by the projects that you want to query. The prefix must be up to 128 characters in length.
+     *
      * @example immtest
      *
      * @var string
@@ -26,6 +36,8 @@ class ListProjectsShrinkRequest extends Model
     public $prefix;
 
     /**
+     * @description The tags.
+     *
      * @var string
      */
     public $tagShrink;

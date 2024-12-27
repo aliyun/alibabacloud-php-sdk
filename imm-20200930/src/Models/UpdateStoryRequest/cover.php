@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class cover extends Model
 {
     /**
+     * @description The URI of the cover image.
+     *
+     * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
      * @example oss://bucket1/object
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCompressPointCloudTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 0B7-1LR4Wcue1aBhk2xT85MfL*****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCompressPointCloudTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example CA995EFD-083D-4F40-BE8A-BDF75FFF****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateCompressPointCloudTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example PointCloudCompress-badda57d-a3ab-4e6d-938f-49b77ce****
      *
      * @var string

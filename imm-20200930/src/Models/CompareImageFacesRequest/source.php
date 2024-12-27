@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @description The OSS URL of the image file.
+     *
+     * Specify the URL in the `oss://<bucket>/<object>` format. `<bucket>` specifies the name of the OSS bucket that is in the same region as the current project. `<object>` specifies path of the object with the extension included.
      * @example oss://test-bucket/test-object1
      *
      * @var string
@@ -16,6 +19,9 @@ class source extends Model
     public $URI1;
 
     /**
+     * @description The OSS URL of the image file.
+     *
+     * Specify the URL in the `oss://<bucket>/<object>` format. `<bucket>` specifies the name of the OSS bucket that is in the same region as the current project, and `<object>` specifies the path of the object with the extension included.
      * @example oss://test-bucket/test-object2
      *
      * @var string

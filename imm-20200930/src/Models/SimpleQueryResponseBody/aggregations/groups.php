@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @description The number of results in the grouped aggregation.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class groups extends Model
     public $count;
 
     /**
+     * @description The value for the grouped aggregation.
+     *
      * @example 100
      *
      * @var string

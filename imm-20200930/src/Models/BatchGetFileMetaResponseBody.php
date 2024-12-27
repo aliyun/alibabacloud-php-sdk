@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchGetFileMetaResponseBody extends Model
 {
     /**
+     * @description The metadata returned.
+     *
      * @var File[]
      */
     public $files;
 
     /**
+     * @description The request ID.
+     *
      * @example 7F84C6D9-5AC0-49F9-914D-F02678E3****
      *
      * @var string

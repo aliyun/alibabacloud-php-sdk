@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySimilarImageClustersRequest extends Model
 {
     /**
+     * @description The custom tags, which are used to filter tasks.
+     *
      * @example {"key": "val"}
      *
      * @var string
@@ -16,13 +18,18 @@ class QuerySimilarImageClustersRequest extends Model
     public $customLabels;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description The number of entries per page. Value range: 0 to 100. Default value: 100.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +37,9 @@ class QuerySimilarImageClustersRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token.
+     *
+     * >  The first time you call this operation in a query, set this parameter to null.
      * @example CAESEgoQCg4KClVwZGF0ZVRpbWUQARgBIs8ECgkAAJLUwUCAQ****
      *
      * @var string
@@ -37,6 +47,11 @@ class QuerySimilarImageClustersRequest extends Model
     public $nextToken;
 
     /**
+     * @description The sorting order. Valid values:
+     *
+     *   asc: ascending order.
+     *   desc: descending order. This is the default value.
+     *
      * @example asc
      *
      * @var string
@@ -44,13 +59,21 @@ class QuerySimilarImageClustersRequest extends Model
     public $order;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The sorting field.
+     *
+     *   CreateTime: the time when the clusters were created.
+     *   UpdateTime: the time when the clusters were updated. This is the default value.
+     *
      * @example UpdateTime
      *
      * @var string

@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCodesResponseBody extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The barcodes or QR codes.
      *
+     * This parameter is required.
      * @var Codes[]
      */
     public $codes;
 
     /**
+     * @description The request ID.
+     *
      * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
      *
      * @var string

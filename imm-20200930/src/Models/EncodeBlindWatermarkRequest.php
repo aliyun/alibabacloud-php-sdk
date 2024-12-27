@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class EncodeBlindWatermarkRequest extends Model
 {
     /**
+     * @description The text content of watermarks. It can be up to 256 characters in length.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description This parameter takes effect only if the input image format is JPG.
+     *
+     * The storage quality of the output image that carries the watermarks. Default value: 90. Valid values: 70 to 100. The higher the quality, the larger the image size and the higher the watermark resolution quality.
      * @example 90
      *
      * @var int
@@ -21,8 +26,9 @@ class EncodeBlindWatermarkRequest extends Model
     public $imageQuality;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -30,8 +36,9 @@ class EncodeBlindWatermarkRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The Object Storage Service (OSS) URI of the image.
      *
+     * This parameter is required.
      * @example oss://test-bucket/test-object.jpg
      *
      * @var string
@@ -39,6 +46,8 @@ class EncodeBlindWatermarkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The watermark strength level. The higher the strength, the more resistant the watermarked image is to attacks, but the more the image is distorted. Default value: low. Valid values: [low, medium, high].
+     *
      * @example low
      *
      * @var string
@@ -46,8 +55,13 @@ class EncodeBlindWatermarkRequest extends Model
     public $strengthLevel;
 
     /**
-     * @description This parameter is required.
+     * @description The URI of the output image in OSS.
      *
+     * >
+     *
+     *   The format of the output image is the same as that of the input image.
+     *
+     * This parameter is required.
      * @example oss://test-bucket/target-object.jpg
      *
      * @var string

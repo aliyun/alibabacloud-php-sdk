@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class AttachOSSBucketRequest extends Model
 {
     /**
+     * @description The description of the binding. The description must be 1 to 128 characters in length. By default, no description is applied.
+     *
+     * @example test-attachment
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the OSS bucket in the same region as the project.
      *
+     * This parameter is required.
      * @example examplebucket
      *
      * @var string
@@ -23,8 +28,9 @@ class AttachOSSBucketRequest extends Model
     public $OSSBucket;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For information about how to create a project, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string

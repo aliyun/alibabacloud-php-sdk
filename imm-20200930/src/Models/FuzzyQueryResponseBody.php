@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class FuzzyQueryResponseBody extends Model
 {
     /**
+     * @description The files.
+     *
      * @var File[]
      */
     public $files;
 
     /**
-     * @description This parameter is required.
+     * @description A pagination token.
      *
+     * This parameter is required.
      * @example MTIzNDU2Nzg6aW1tdGVzdDpleGFtcGxlYnVja2V0OmRhdGFzZXQwMDE6b3NzOi8vZXhhbXBsZWJ1Y2tldC9zYW1wbGVvYmplY3QxLmpwZw==
      *
      * @var string
@@ -23,6 +26,8 @@ class FuzzyQueryResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
      *
      * @var string
@@ -30,6 +35,8 @@ class FuzzyQueryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of hits.
+     *
      * @var int
      */
     public $totalHits;

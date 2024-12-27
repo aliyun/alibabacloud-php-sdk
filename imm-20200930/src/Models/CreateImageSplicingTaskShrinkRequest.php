@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateImageSplicingTaskShrinkRequest extends Model
 {
     /**
+     * @description The width or height with which the input images must align. Valid values: 1 to 4096. Unit: px.
+     *
+     *   If you set **Direction** to `vertical`, this parameter specifies the width with which the input images must align.
+     *   If you set **Direction** to `horizontal`, this parameter specifies the height with which the input images must align.
+     *
+     * >  If you do not specify this parameter, the width or height of the first input image is used.
      * @example 192
      *
      * @var int
@@ -16,6 +22,8 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $align;
 
     /**
+     * @description The padding color of the spaces specified by `Padding` and `Margin`. Colors encoded in the `#FFFFFF` format and colors that are related to preset keywords such as `red` and `alpha` are supported.
+     *
      * @example red
      *
      * @var string
@@ -23,11 +31,18 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $backgroundColor;
 
     /**
+     * @description The authorization chain. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
+     *
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
+     * @description The splicing method. Valid values:
+     *
+     *   vertical (default): All input images are vertically aligned and have the same width.
+     *   horizontal: All input images are horizontally aligned and have the same height.
+     *
      * @example vertical
      *
      * @var string
@@ -35,6 +50,12 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $direction;
 
     /**
+     * @description The compression format of the output image. Valid values:
+     *
+     *   jpg (default)
+     *   png
+     *   webp
+     *
      * @example jpg
      *
      * @var string
@@ -42,6 +63,8 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $imageFormat;
 
     /**
+     * @description The empty space or border around the edges of the output image. Default value: 0. Unit: px.
+     *
      * @example 2
      *
      * @var int
@@ -49,11 +72,15 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $margin;
 
     /**
+     * @description The notification settings. For more information, click Notification. For information about the asynchronous notification format, see [Asynchronous notification format](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
+     * @description The space between component images in the output image. Default value: 0. Unit: px.
+     *
      * @example 2
      *
      * @var int
@@ -61,8 +88,9 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $padding;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -70,6 +98,8 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description The compression quality of the output image. This parameter takes effect only for JPG and WebP images. Valid values: 0 to 100. Default value: 80.
+     *
      * @example 80
      *
      * @var int
@@ -77,6 +107,13 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $quality;
 
     /**
+     * @description The scaling mode of the input images that are vertically or horizontally aligned. Valid values:
+     *
+     *   fit (default): Input images are scaled proportionally, and black edges are not retained.
+     *   stretch: Input images are stretched to fill the space.
+     *   horizon: Input images are horizontally stretched.
+     *   vertical: Input images are vertically stretched.
+     *
      * @example stretch
      *
      * @var string
@@ -84,25 +121,37 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $scaleType;
 
     /**
-     * @description This parameter is required.
+     * @description The input images. The images are sliced in the order of the input image URIs.
      *
+     * This parameter is required.
      * @var string
      */
     public $sourcesShrink;
 
     /**
+     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $tagsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The OSS bucket in which you want to store the output image.
+     *
+     * This parameter is required.
+     * @example oss://examplebucket/outputImage.jpg
      *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @description The user data, which is returned as asynchronous notifications to help manage notifications within your system. The maximum length of the user data is 2,048 bytes.
+     *
+     * @example test-data
+     *
      * @var string
      */
     public $userData;

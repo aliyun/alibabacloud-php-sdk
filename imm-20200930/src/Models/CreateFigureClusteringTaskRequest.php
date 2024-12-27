@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateFigureClusteringTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example dataset001
      *
      * @var string
@@ -18,13 +19,16 @@ class CreateFigureClusteringTaskRequest extends Model
     public $datasetName;
 
     /**
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var Notification
      */
     public $notification;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -32,6 +36,8 @@ class CreateFigureClusteringTaskRequest extends Model
     public $projectName;
 
     /**
+     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
+     *
      * @example {"test": "val1"}
      *
      * @var mixed[]
@@ -39,6 +45,8 @@ class CreateFigureClusteringTaskRequest extends Model
     public $tags;
 
     /**
+     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+     *
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string

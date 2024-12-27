@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVideoModerationTaskResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 2E6-1I0FGn0zFnl5AflRfhzClma*****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVideoModerationTaskResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateVideoModerationTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example VideoModeration-9442a216-4691-4a48-846d-76daccaf*****
      *
      * @var string

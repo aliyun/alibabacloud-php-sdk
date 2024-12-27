@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dateOptions extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The maximum number of days allowed in a gap for a single spatiotemporal cluster. Valid values: 0 to 99999.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,15 +19,19 @@ class dateOptions extends Model
     public $gapDays;
 
     /**
-     * @description This parameter is required.
+     * @description The maximum number of days that a single spatiotemporal cluster can span. Valid values: 1 to 99999. IMM does not create a cluster that spans more than the maximum number of days.
+     *
+     * This parameter is required.
+     * @example 15
      *
      * @var int
      */
     public $maxDays;
 
     /**
-     * @description This parameter is required.
+     * @description The minimum number of days that a single spatiotemporal cluster can span. Valid values: 1 to 99999. IMM does not create a cluster that spans less than the minimum number of days.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

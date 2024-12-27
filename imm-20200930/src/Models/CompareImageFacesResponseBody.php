@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CompareImageFacesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example F73AC982-2B9E-4ECD-AED5-F8331C5******
      *
      * @var string
@@ -16,6 +18,8 @@ class CompareImageFacesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The face similarity. A larger value indicates a higher face similarity. Valid values: 0 to 1.
+     *
      * @example 0.8848152756690983
      *
      * @var float

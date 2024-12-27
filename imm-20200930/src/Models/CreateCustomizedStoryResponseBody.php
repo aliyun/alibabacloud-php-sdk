@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomizedStoryResponseBody extends Model
 {
     /**
+     * @description The ID of the story.
+     *
      * @example 563062c0b085733f34ab****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCustomizedStoryResponseBody extends Model
     public $objectId;
 
     /**
+     * @description The request ID.
+     *
      * @example BC91D091-D49F-0ACD-95D5-F0621045****
      *
      * @var string

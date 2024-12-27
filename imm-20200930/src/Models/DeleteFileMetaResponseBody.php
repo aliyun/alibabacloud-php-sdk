@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileMetaResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7F82D6C9-5AC0-49F9-914D-F02678F3****
      *
      * @var string

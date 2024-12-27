@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AddImageMosaicShrinkRequest extends Model
 {
     /**
+     * @description **If you do not have special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
+     * @description The encoding of the output image. By default, the output image uses the same encoding as the input image. Valid values: jpg, png, and webp.
+     *
      * @example jpg
      *
      * @var string
@@ -21,13 +26,18 @@ class AddImageMosaicShrinkRequest extends Model
     public $imageFormat;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The quality of the output image. This parameter applies only to JPG and WebP images. Valid values: 0 to 100. Default value: 80.
+     *
      * @example 80
      *
      * @var int
@@ -35,22 +45,29 @@ class AddImageMosaicShrinkRequest extends Model
     public $quality;
 
     /**
-     * @description This parameter is required.
+     * @description The OSS URI of the input image.
+     *
+     * This parameter is required.
+     * @example oss://examplebucket/sampleobject.jpg
      *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @description This parameter is required.
+     * @description The OSS URI of the output image.
+     *
+     * This parameter is required.
+     * @example oss://examplebucket/outputImage.jpg
      *
      * @var string
      */
     public $targetURI;
 
     /**
-     * @description This parameter is required.
+     * @description The bounding boxes and processing parameters.
      *
+     * This parameter is required.
      * @var string
      */
     public $targetsShrink;

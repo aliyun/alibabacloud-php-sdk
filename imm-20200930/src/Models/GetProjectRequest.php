@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetProjectRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -18,6 +19,11 @@ class GetProjectRequest extends Model
     public $projectName;
 
     /**
+     * @description Specifies whether to enable real-time retrieval of file statistics. Default value: false.
+     *
+     *   If you set the value to true, the returned values of FileCount and TotalFileSize in the response are valid.
+     *   If you set the value to false, the returned values of FileCount and TotalFileSize in the response are invalid or equal to 0.
+     *
      * @example true
      *
      * @var bool

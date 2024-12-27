@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class blockFrames extends Model
 {
     /**
+     * @description The label of the violation.
+     *
      * @example {
      * }
      * @var string
@@ -16,6 +18,8 @@ class blockFrames extends Model
     public $label;
 
     /**
+     * @description The offset of the frame.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class blockFrames extends Model
     public $offset;
 
     /**
+     * @description The confidence level of the violation.
+     *
      * @example 30
      *
      * @var float

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListBindingsResponseBody extends Model
 {
     /**
+     * @description The bindings between the dataset and OSS buckets.
+     *
      * @var Binding[]
      */
     public $bindings;
 
     /**
+     * @description *   The pagination token that is used in the next request to retrieve a new page of results if the total number of results exceeds the value of the MaxResults parameter.
+     *   The next request returns remaining results starting from the position marked by the NextToken parameter value.
+     *   This parameter has a non-empty value only when not all bindings are returned.
+     *
      * @example immtest:dataset001:examplebucket01
      *
      * @var string
@@ -21,6 +27,8 @@ class ListBindingsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example EFDFD356-C928-4A36-951A-6EB5A592****
      *
      * @var string

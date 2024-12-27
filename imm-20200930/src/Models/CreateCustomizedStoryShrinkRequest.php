@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomizedStoryShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cover image of the story. You can specify an image as the cover image of the custom story.
      *
+     * This parameter is required.
      * @var string
      */
     public $coverShrink;
 
     /**
+     * @description The custom labels. You can specify labels to help you identify and retrieve the story.
+     *
      * @example {"Bucket": "examplebucket"}
      *
      * @var string
@@ -23,8 +26,9 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $customLabelsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example dataset001
      *
      * @var string
@@ -32,15 +36,17 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The files of the story. You can specify up to 100 files in a custom story.
      *
+     * This parameter is required.
      * @var string
      */
     public $filesShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -48,8 +54,9 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the story.
      *
+     * This parameter is required.
      * @example name1
      *
      * @var string
@@ -57,8 +64,9 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $storyName;
 
     /**
-     * @description This parameter is required.
+     * @description The subtype of the story. For information about valid subtypes, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
      *
+     * This parameter is required.
      * @example Solo
      *
      * @var string
@@ -66,8 +74,9 @@ class CreateCustomizedStoryShrinkRequest extends Model
     public $storySubType;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the story. For information about valid types, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
      *
+     * This parameter is required.
      * @example PeopleMemory
      *
      * @var string

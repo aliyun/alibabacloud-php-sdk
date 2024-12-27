@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateFacesSearchingTaskShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example test-dataset
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
     public $datasetName;
 
     /**
+     * @description The number of the most similar faces that you want to return. Valid values: 1 to 100. Default value: 5.
+     *
      * @example 100
      *
      * @var int
@@ -25,13 +28,16 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
     public $maxResult;
 
     /**
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -39,11 +45,15 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description The images.
+     *
      * @var string
      */
     public $sourcesShrink;
 
     /**
+     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+     *
      * @example {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
      *
      * @var string

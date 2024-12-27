@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryLocationDateClustersResponseBody extends Model
 {
     /**
+     * @description The list of spatiotemporal groups.
+     *
      * @var LocationDateCluster[]
      */
     public $locationDateClusters;
 
     /**
+     * @description The pagination token.
+     *
      * @example MzQNjmY2MzYxNhNjk2ZNjEu****
      *
      * @var string
@@ -21,6 +25,8 @@ class QueryLocationDateClustersResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 7055FCF7-4D7B-098E-BD4D-DD2932B0****
      *
      * @var string

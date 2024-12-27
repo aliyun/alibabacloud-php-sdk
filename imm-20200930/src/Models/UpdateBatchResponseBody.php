@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateBatchResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example CB4D73A3-BAF4-4A9D-A631-15F219AF****
      *
      * @var string

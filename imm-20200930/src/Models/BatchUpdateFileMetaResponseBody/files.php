@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @description The error message returned when the value of the Success parameter is false.
+     *
      * @example *error.OpError : InvalidArgument | Index KV count exceeded, should be no more than 100.
      *
      * @var string
@@ -16,11 +18,24 @@ class files extends Model
     public $message;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * Enumerated values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The URI of the file.
+     *
+     * @example oss://examplebucket/example.jpg
+     *
      * @var string
      */
     public $URI;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetImageModerationResultResponseBody extends Model
 {
     /**
+     * @description The error code of the task.
+     *
      * @example ResourceNotFound
      *
      * @var string
@@ -17,6 +19,8 @@ class GetImageModerationResultResponseBody extends Model
     public $code;
 
     /**
+     * @description The end time of the task.
+     *
      * @example 2023-04-03T09:44:32Z
      *
      * @var string
@@ -24,6 +28,8 @@ class GetImageModerationResultResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The event ID.
+     *
      * @example 1B6-1XBMX3BixLMILvXVGtlkr******
      *
      * @var string
@@ -31,6 +37,8 @@ class GetImageModerationResultResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The error message of the task.
+     *
      * @example The specified resource TaskId is not found.
      *
      * @var string
@@ -38,11 +46,15 @@ class GetImageModerationResultResponseBody extends Model
     public $message;
 
     /**
+     * @description The result of the image compliance detection task.
+     *
      * @var moderationResult
      */
     public $moderationResult;
 
     /**
+     * @description The name of the project.
+     *
      * @example test-project
      *
      * @var string
@@ -50,6 +62,8 @@ class GetImageModerationResultResponseBody extends Model
     public $projectName;
 
     /**
+     * @description The request ID.
+     *
      * @example E6A120B1-BEB3-0F63-A7C2-0783B6******
      *
      * @var string
@@ -57,6 +71,8 @@ class GetImageModerationResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start time of the task.
+     *
      * @example 2023-04-03T09:44:31.029Z
      *
      * @var string
@@ -64,6 +80,12 @@ class GetImageModerationResultResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   Running
+     *   Succeeded
+     *   Failed
+     *
      * @example Succeeded
      *
      * @var string
@@ -71,6 +93,8 @@ class GetImageModerationResultResponseBody extends Model
     public $status;
 
     /**
+     * @description The task ID.
+     *
      * @example ImageModeration-ff207203-3f93-4645-a041-7b8f0f******
      *
      * @var string
@@ -78,6 +102,8 @@ class GetImageModerationResultResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The type of the task.
+     *
      * @example ImageModeration
      *
      * @var string
@@ -85,6 +111,8 @@ class GetImageModerationResultResponseBody extends Model
     public $taskType;
 
     /**
+     * @description The custom information.
+     *
      * @example {
      * }
      * @var string

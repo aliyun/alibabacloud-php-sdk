@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateFileMetaRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset.[](~~478160~~)
      *
+     * This parameter is required.
      * @example test-dataset
      *
      * @var string
@@ -18,15 +19,17 @@ class BatchUpdateFileMetaRequest extends Model
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The files whose metadata you want to update.
      *
+     * This parameter is required.
      * @var InputFile[]
      */
     public $files;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string

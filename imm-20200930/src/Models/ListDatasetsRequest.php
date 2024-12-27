@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDatasetsRequest extends Model
 {
     /**
+     * @description The maximum number of datasets to return. Valid values: 0 to 200.
+     *
+     * If this parameter is left empty or set to 0, 100 datasets are returned.
      * @example 1
      *
      * @var int
@@ -16,6 +19,9 @@ class ListDatasetsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token.
+     *
+     * >  The first time you call this operation in a query, set this parameter to null.
      * @example 12345678:immtest:dataset002
      *
      * @var string
@@ -23,6 +29,8 @@ class ListDatasetsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The dataset prefix.
+     *
      * @example dataset
      *
      * @var string
@@ -30,8 +38,9 @@ class ListDatasetsRequest extends Model
     public $prefix;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string

@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateTriggerShrinkRequest extends Model
 {
     /**
+     * @description The processing templates.
+     *
      * @var string
      */
     public $actionsShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the trigger. You can obtain the ID of the trigger from the response of the [CreateTrigger](https://help.aliyun.com/document_detail/479912.html) operation.
      *
+     * This parameter is required.
      * @example trigger-9f72636a-0f0c-4baf-ae78-38b27b******
      *
      * @var string
@@ -23,13 +26,16 @@ class UpdateTriggerShrinkRequest extends Model
     public $id;
 
     /**
+     * @description The input data source.
+     *
      * @var string
      */
     public $inputShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -37,6 +43,8 @@ class UpdateTriggerShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
+     *
      * @example {"test": "val1"}
      *
      * @var string

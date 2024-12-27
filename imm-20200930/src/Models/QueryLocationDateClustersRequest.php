@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryLocationDateClustersRequest extends Model
 {
     /**
+     * @description The address information.
+     *
      * @var Address
      */
     public $address;
 
     /**
+     * @description The time range during which the spatiotemporal clustering groups are generated.
+     *
      * @var TimeRange
      */
     public $createTimeRange;
 
     /**
+     * @description The custom labels, which can be used as query conditions.
+     *
      * @example key=value
      *
      * @var string
@@ -26,33 +32,48 @@ class QueryLocationDateClustersRequest extends Model
     public $customLabels;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+     *
+     * This parameter is required.
+     * @example test-dataset
      *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description The time range when the clustering groups are ended.
+     *
      * @var TimeRange
      */
     public $locationDateClusterEndTimeRange;
 
     /**
+     * @description The administrative level of the spatiotemporal clustering groups to be queried.
+     *
      * @var string[]
      */
     public $locationDateClusterLevels;
 
     /**
+     * @description The time range when the clustering groups are started.
+     *
      * @var TimeRange
      */
     public $locationDateClusterStartTimeRange;
 
     /**
+     * @description The number of entries per page. Valid values: [1,100]. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token.
+     *
      * @example MzQNjmY2MzYxNhNjk2ZNjEu****
      *
      * @var string
@@ -60,11 +81,22 @@ class QueryLocationDateClustersRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the group that you want to query. Specify this parameter if you want to obtain the information about a specific spatiotemporal clustering group. Otherwise, leave this parameter empty and use other parameters to query the groups that meet the matching conditions.
+     *
+     * @example location-date-cluster-71dd4f32-9597-4085-a2ab-3a7b0fd0aff9
+     *
      * @var string
      */
     public $objectId;
 
     /**
+     * @description The sorting order.
+     *
+     * Default value: asc. Valid values:
+     *
+     *   asc: ascending order.
+     *   desc: descending order.
+     *
      * @example asc
      *
      * @var string
@@ -72,13 +104,25 @@ class QueryLocationDateClustersRequest extends Model
     public $order;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The condition by which the results are sorted.
+     *
+     * Valid values:
+     *
+     *   LocationDateClusterEndTime: by the end time of the spatiotemporal clustering groups.
+     *   CreateTime: by the creation time of the spatiotemporal clustering groups.
+     *   UpdateTime: by the update time of the spatiotemporal clustering groups.
+     *   LocationDateClusterStartTime: by the start time of the spatiotemporal clustering groups. This is the default value.
+     *
      * @example LocationDateClusterStartTime
      *
      * @var string
@@ -86,11 +130,15 @@ class QueryLocationDateClustersRequest extends Model
     public $sort;
 
     /**
+     * @description The title of spatiotemporal clustering. Fuzzy matching is performed.
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The time range during which the spatiotemporal clustering groups are updated.
+     *
      * @var TimeRange
      */
     public $updateTimeRange;

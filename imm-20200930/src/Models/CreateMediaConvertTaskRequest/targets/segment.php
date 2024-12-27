@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class segment extends Model
 {
     /**
+     * @description The duration of the segment. Unit: seconds.
+     *
      * @example 30
      *
      * @var float
@@ -16,6 +18,11 @@ class segment extends Model
     public $duration;
 
     /**
+     * @description The media segmentation mode. Valid values:
+     *
+     *   hls
+     *   dash
+     *
      * @example hls
      *
      * @var string
@@ -23,6 +30,8 @@ class segment extends Model
     public $format;
 
     /**
+     * @description The start sequence number. You can specify this parameter only if you set Format to hls. Default value: 0.
+     *
      * @example 5
      *
      * @var int

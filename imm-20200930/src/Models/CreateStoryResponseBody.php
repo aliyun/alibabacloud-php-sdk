@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateStoryResponseBody extends Model
 {
     /**
+     * @description The event ID.
+     *
      * @example 392-1CqzvESGTEeNZ2OWFbRKIM****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateStoryResponseBody extends Model
     public $eventId;
 
     /**
+     * @description The request ID.
+     *
      * @example 1B3D5E0A-D8B8-4DA0-8127-ED32C851****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateStoryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example CreateStory-4ef6ff43-edf3-4612-9cc4-0c7f9e19****
      *
      * @var string

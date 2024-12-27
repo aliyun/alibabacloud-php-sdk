@@ -9,22 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteFileMetaRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. For more information, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
+     *
+     * This parameter is required.
+     * @example test-datset
      *
      * @var string
      */
     public $datasetName;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
+     *
+     * This parameter is required.
+     * @example test-project
      *
      * @var string
      */
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The URI of the file in OSS.
      *
+     * This parameter is required.
      * @example oss://examplebucket/exampleobject.txt
      *
      * @var string

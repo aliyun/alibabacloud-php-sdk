@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetDecodeBlindWatermarkResultRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -18,8 +19,9 @@ class GetDecodeBlindWatermarkResultRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the task. You can obtain the ID of the task from the response of the CreateDecodeBlindWatermarkTask operation.
      *
+     * This parameter is required.
      * @example DecodeBlindWatermark-c09b0943-ed79-4983-8dbe-7a882574****
      *
      * @var string
@@ -27,8 +29,11 @@ class GetDecodeBlindWatermarkResultRequest extends Model
     public $taskId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the task.
      *
+     *   Set the value to DecodeBlindWatermark.
+     *
+     * This parameter is required.
      * @example DecodeBlindWatermark
      *
      * @var string

@@ -9,18 +9,27 @@ use AlibabaCloud\Tea\Model;
 class videoPlaylist extends Model
 {
     /**
+     * @description The video frame rate.
+     *
+     * @example 25/1
+     *
      * @var string
      */
     public $frameRate;
 
     /**
+     * @description The video resolution.
+     *
+     * @example 640x480
+     *
      * @var string
      */
     public $resolution;
 
     /**
-     * @description 转码生成的Token。用于LiveTranscoding访问的参数。
+     * @description The token of the video media playlist. You can use this parameter to generate the path of a TS file.
      *
+     * >  You can generate the path of a transcoded TS file based on the value of this parameter. The path must be in the oss://${Bucket}/${Object}-${Token}-${Index}.ts format. oss://${Bucket}/${Object} specifies the URI specified by input parameters for output files. ${Token} specifies the returned token, and ${Index} specifies the serial number of a TS file.
      * @example affe0c6042f09722fec95a21b8b******
      *
      * @var string
@@ -28,7 +37,7 @@ class videoPlaylist extends Model
     public $token;
 
     /**
-     * @description 输出m3u8的OSS地址。地址规则为 Target.URI + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+     * @description The OSS path of the video media playlist.
      *
      * @example oss://imm-test/testcases/video.m3u8
      *

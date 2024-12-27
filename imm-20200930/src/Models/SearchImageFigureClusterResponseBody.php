@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SearchImageFigureClusterResponseBody extends Model
 {
     /**
+     * @description The face clusters.
+     *
      * @var clusters[]
      */
     public $clusters;
 
     /**
+     * @description The request ID.
+     *
      * @example C2734912-E6D5-052C-AC67-6A9FD02*****
      *
      * @var string

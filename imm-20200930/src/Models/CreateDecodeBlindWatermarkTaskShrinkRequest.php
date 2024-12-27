@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDecodeBlindWatermarkTaskShrinkRequest extends Model
 {
     /**
+     * @description The quality of the output image.
+     * The higher the quality, the larger the image size and the higher the watermark resolution quality.
      * @example 90
      *
      * @var int
@@ -16,6 +18,9 @@ class CreateDecodeBlindWatermarkTaskShrinkRequest extends Model
     public $imageQuality;
 
     /**
+     * @description The watermark algorithm model.Valid values: FFT, FFT_FULL, DWT, and DWT_IBG. Default value: FFT.
+     *
+     * If this parameter is left empty, the DecodeBlindWatermark operation is called. Otherwise, the CreateDecodeBlindWatermarkTask operation is called.
      * @example FFT
      *
      * @var string
@@ -23,11 +28,16 @@ class CreateDecodeBlindWatermarkTaskShrinkRequest extends Model
     public $model;
 
     /**
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var string
      */
     public $notificationShrink;
 
     /**
+     * @description The OSS URI of the image before the blind watermark is added.
+     *
+     * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
      * @example oss://imm-test/testcases/watermarktestbefore.jpg
      *
      * @var string
@@ -35,8 +45,9 @@ class CreateDecodeBlindWatermarkTaskShrinkRequest extends Model
     public $originalImageURI;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -44,8 +55,9 @@ class CreateDecodeBlindWatermarkTaskShrinkRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The OSS URI of the image.
      *
+     * This parameter is required.
      * @example oss://target/sampleobject.jpg
      *
      * @var string
@@ -53,6 +65,8 @@ class CreateDecodeBlindWatermarkTaskShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The watermark strength level. The higher the strength level, the more resistant the watermarked image is to attacks, but the more the image is distorted. Valid values: low, medium, and high. Default value: low.
+     *
      * @example low
      *
      * @var string
@@ -60,6 +74,8 @@ class CreateDecodeBlindWatermarkTaskShrinkRequest extends Model
     public $strengthLevel;
 
     /**
+     * @description The OSS URI of the output image.
+     * Specify the OSS URI in the `oss://<bucket>/<object>` format, where `<bucket>` is the name of the bucket in the same region as the current project and `<object>` is the path of the object with the extension included.
      * @example oss://target/targetobject.jpg
      *
      * @var string
@@ -67,6 +83,9 @@ class CreateDecodeBlindWatermarkTaskShrinkRequest extends Model
     public $targetURI;
 
     /**
+     * @description The type of the watermark. Valid value: text.
+     *
+     * No image watermarks are supported.
      * @example text
      *
      * @var string

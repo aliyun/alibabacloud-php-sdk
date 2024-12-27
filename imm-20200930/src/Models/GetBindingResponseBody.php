@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetBindingResponseBody extends Model
 {
     /**
+     * @description The binding relationship.
+     *
      * @var Binding
      */
     public $binding;
 
     /**
+     * @description The request ID.
+     *
      * @example AEFCD467-C928-4A36-951A-6EB5A592****
      *
      * @var string

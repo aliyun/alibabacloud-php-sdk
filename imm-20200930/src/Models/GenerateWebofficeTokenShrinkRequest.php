@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GenerateWebofficeTokenShrinkRequest extends Model
 {
     /**
+     * @description Specifies whether to enable cache preview.
+     *
+     *   true: enables cache preview. The document can be previewed only and cannot be collaboratively edited.
+     *   false: does not enable cache preview. The document can be collaboratively edited when it is being previewed.
+     *
+     * >  Printing is not supported during cache preview.
      * @example false
      *
      * @var bool
@@ -16,11 +22,19 @@ class GenerateWebofficeTokenShrinkRequest extends Model
     public $cachePreview;
 
     /**
+     * @description **If you have no special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
+     * @description Specifies whether to allow an upload of a document to the Object Storage Service (OSS) bucket. Valid values:
+     *
+     *   true: Documents can be directly uploaded to OSS. The uploaded document overwrites the existing document and a new version is generated for the document. Before you upload a new document, close the existing document if it is being edited. After the document is uploaded, wait for approximately 5 minutes before you open the document again so that the new version can successfully load. Upload a new document only when the existing is closed. Otherwise, the uploaded document is overwritten when the existing document is saved.
+     *   false: Documents cannot be directly uploaded to OSS. If you try to upload a document, an error is returned. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -28,6 +42,15 @@ class GenerateWebofficeTokenShrinkRequest extends Model
     public $externalUploaded;
 
     /**
+     * @description The name of the file. The extension must be included in the file name. By default, this parameter is set to the last depth level of the **SourceURI** parameter value.
+     *
+     * Supported extensions (only preview supported for .pdf):
+     *
+     *   Word documents: .doc, .docx, .txt, .dot, .wps, .wpt, .dotx, .docm, .dotm, and .rtf
+     *   Presentation documents: .ppt, .pptx, .pptm, .ppsx, .ppsm, .pps, .potx, .potm, .dpt, and .dps
+     *   Table documents: .et, .xls, .xlt, .xlsx, .xlsm, .xltx, .xltm, and .csv
+     *   PDF documents: .pdf
+     *
      * @example test.pptx
      *
      * @var string
@@ -42,8 +65,9 @@ class GenerateWebofficeTokenShrinkRequest extends Model
     public $hidecmb;
 
     /**
-     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
+     * @description The notification settings. Only Simple Message Queue messages are supported. For more information, see [WebOffice message example](https://help.aliyun.com/document_detail/2743999.html).
      *
+     * >  A notification is sent after the document is saved or renamed.
      * @var string
      */
     public $notificationShrink;
@@ -63,6 +87,18 @@ class GenerateWebofficeTokenShrinkRequest extends Model
     public $password;
 
     /**
+     * @description The user permission settings in the JSON format.
+     *
+     * Each field is of type Boolean and can have a value of true and false (the default value):
+     *
+     *   Readonly: grants the permission to preview the document. This field is optional.
+     *   Rename: grants the permission to rename the document. Notification messages of a rename event can be sent only by using SMQ. This field is optional.
+     *   History: grants the permission to view historical versions. This field is optional.
+     *   Copy: grants the permission to copy the document. This field is optional.
+     *   Export: grants the permission to export the document as a PDF file. This field is optional.
+     *   Print: grants the permission to print the document. This field is optional.
+     *
+     * >  Printing is not supported during cache preview.
      * @var string
      */
     public $permissionShrink;
@@ -100,11 +136,15 @@ class GenerateWebofficeTokenShrinkRequest extends Model
     public $sourceURI;
 
     /**
+     * @description The user information. The user information that you want to display on the WebOffice page. If you do not specify this parameter, the user name displayed is Unknown.
+     *
      * @var string
      */
     public $userShrink;
 
     /**
+     * @description The user-defined data that you want to return in asynchronous messages. This parameter takes effect only when you specify the MNS settings in the Notification parameter. The maximum length of the value is 2,048 bytes.
+     *
      * @example {"file_id": "abc"}
      *
      * @var string

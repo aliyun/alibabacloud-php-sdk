@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class audioPlaylist extends Model
 {
     /**
+     * @description The number of audio channels.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $channels;
 
     /**
-     * @description 转码生成的Token。用于LiveTranscoding访问的参数。
+     * @description The token of the audio media playlist. You can use this parameter to generate the path of a TS file.
      *
      * @example affe0c6042f09722fec95a21b8b******
      *
@@ -23,7 +27,7 @@ class audioPlaylist extends Model
     public $token;
 
     /**
-     * @description 输出m3u8的OSS地址。地址规则为 Target.URI + ".m3u8“， 其中Target.URI为输入参数中视频转码输出地址前缀。
+     * @description The OSS path of the audio media playlist.
      *
      * @example oss://imm-test/testcases/video.m3u8
      *

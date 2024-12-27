@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DetectImageTextsRequest extends Model
 {
     /**
+     * @description **If you have no special requirements, leave this field empty.**
+     *
+     * The configurations of authorization chains. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -23,8 +27,9 @@ class DetectImageTextsRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The Object Storage Service (OSS) URI of the file.
      *
+     * This parameter is required.
      * @example oss://test-bucket/test-object.jpg
      *
      * @var string

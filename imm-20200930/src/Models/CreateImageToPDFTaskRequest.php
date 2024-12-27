@@ -10,18 +10,24 @@ use AlibabaCloud\Tea\Model;
 class CreateImageToPDFTaskRequest extends Model
 {
     /**
+     * @description **If you have no special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
+     * @description The notification settings. For information about the asynchronous notification format, see [Asynchronous message examples](https://help.aliyun.com/document_detail/2743997.html).
+     *
      * @var Notification
      */
     public $notification;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.[](~~478153~~)
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -29,25 +35,37 @@ class CreateImageToPDFTaskRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The list of images. The sequence of image URIs in the list determines the order in which they are converted.
      *
+     * This parameter is required.
      * @var sources[]
      */
     public $sources;
 
     /**
+     * @description The custom tags. You can search for or filter asynchronous tasks by custom tag.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $tags;
 
     /**
-     * @description This parameter is required.
+     * @description The OSS URI of the output file.
+     *
+     * This parameter is required.
+     * @example oss://examplebucket/outputDocument.pdf
      *
      * @var string
      */
     public $targetURI;
 
     /**
+     * @description The custom information, which is returned in an asynchronous notification and facilitates notification management. The maximum length of the value is 2,048 bytes.
+     *
+     * @example test-data
+     *
      * @var string
      */
     public $userData;

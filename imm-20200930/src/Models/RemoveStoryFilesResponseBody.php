@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveStoryFilesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6E93D6C9-5AC0-49F9-914D-E02678D3****
      *
      * @var string

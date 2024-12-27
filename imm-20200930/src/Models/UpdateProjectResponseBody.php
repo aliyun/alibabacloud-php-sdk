@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateProjectResponseBody extends Model
 {
     /**
+     * @description The project. For more information, see "Project".
+     *
      * @var Project
      */
     public $project;
 
     /**
+     * @description The request ID.
+     *
      * @example D33C3574-4093-448E-86E7-15BE2BD3****
      *
      * @var string

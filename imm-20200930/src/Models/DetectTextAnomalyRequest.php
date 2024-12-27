@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetectTextAnomalyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The text to be detected. It can contain up to 10,000 characters (including punctuation marks). Only Chinese text can be detected.
      *
+     * This parameter is required.
      * @example content
      *
      * @var string
@@ -18,8 +19,9 @@ class DetectTextAnomalyRequest extends Model
     public $content;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string

@@ -9,18 +9,25 @@ use AlibabaCloud\Tea\Model;
 class QueryFigureClustersRequest extends Model
 {
     /**
+     * @description The time period during which the faces are grouped together.
+     *
      * @var TimeRange
      */
     public $createTimeRange;
 
     /**
+     * @description The custom labels, which can be used as query conditions.
+     *
+     * @example key=value
+     *
      * @var string
      */
     public $customLabels;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the dataset. You can obtain the name of the dataset from the response of the [CreateDataset](https://help.aliyun.com/document_detail/478160.html) operation.
      *
+     * This parameter is required.
      * @example test-dataset
      *
      * @var string
@@ -28,11 +35,17 @@ class QueryFigureClustersRequest extends Model
     public $datasetName;
 
     /**
+     * @description The maximum number of entries to return. Valid values: 0 to 100. Default value: 100.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example 10
      *
      * @var string
@@ -40,6 +53,13 @@ class QueryFigureClustersRequest extends Model
     public $nextToken;
 
     /**
+     * @description The sort order. Default value: asc.
+     *
+     * Valid values:
+     *
+     *   asc: ascending order.
+     *   desc: descending order.
+     *
      * @example asc
      *
      * @var string
@@ -47,8 +67,9 @@ class QueryFigureClustersRequest extends Model
     public $order;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project. You can obtain the name of the project from the response of the [CreateProject](https://help.aliyun.com/document_detail/478153.html) operation.
      *
+     * This parameter is required.
      * @example test-project
      *
      * @var string
@@ -56,6 +77,20 @@ class QueryFigureClustersRequest extends Model
     public $projectName;
 
     /**
+     * @description The sort field. If you leave this parameter empty, the group ID is used as the sort field.
+     *
+     * Valid values:
+     *
+     *   ImageCount: the number of images.
+     *   VideoCount: the number of videos.
+     *   ProjectName: the name of the project.
+     *   DatasetName: the name of the dataset.
+     *   CreateTime: the point in time when the group is created.
+     *   UpdateTime: the most recent point in time when the group is updated.
+     *   Gender: the gender.
+     *   FaceCount: the number of faces.
+     *   GroupName: the name of the group.
+     *
      * @example ImageCount
      *
      * @var string
@@ -63,11 +98,15 @@ class QueryFigureClustersRequest extends Model
     public $sort;
 
     /**
+     * @description The time period during which the faces in the group are updated.
+     *
      * @var TimeRange
      */
     public $updateTimeRange;
 
     /**
+     * @description Specifies whether to return the total number of face groups that match the current query conditions. Default value: false.
+     *
      * @example false
      *
      * @var bool

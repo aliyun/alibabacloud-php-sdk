@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetectTextAnomalyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 91AC8C98-0F36-49D2-8290-742E24DF*****
      *
      * @var string
@@ -16,6 +18,11 @@ class DetectTextAnomalyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the text contains anomalies. Valid values:
+     *
+     *   pass: the text does not contain anomalies.
+     *   block: the text contains anomalies.
+     *
      * @example pass
      *
      * @var string

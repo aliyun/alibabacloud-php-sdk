@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetVideoLabelClassificationResultRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the project. For more information, see [CreateProject](https://help.aliyun.com/document_detail/478153.html).
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -18,8 +19,9 @@ class GetVideoLabelClassificationResultRequest extends Model
     public $projectName;
 
     /**
-     * @description This parameter is required.
+     * @description The task ID, which is obtained from response parameters of [CreateVideoLabelClassificationTask](https://help.aliyun.com/document_detail/478223.html).
      *
+     * This parameter is required.
      * @example VideoLabelClassification-2f157087-91df-4fda-8c3e-232407ec****
      *
      * @var string
@@ -27,8 +29,9 @@ class GetVideoLabelClassificationResultRequest extends Model
     public $taskId;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the task. Valid values:
      *
+     * This parameter is required.
      * @example VideoLabelClassification
      *
      * @var string

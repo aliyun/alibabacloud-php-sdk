@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DetectMediaMetaShrinkRequest extends Model
 {
     /**
+     * @description **If you have no special requirements, leave this parameter empty.**
+     *
+     * The configurations of authorization chains. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var string
      */
     public $credentialConfigShrink;
 
     /**
+     * @description The name of the project.[](~~478153~~)
+     *
+     * @example test-project
+     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @description The URI of the media object in Object Storage Service (OSS).
+     *
+     * Specify the OSS URI in the oss://${Bucket}/${Object} format, where `${Bucket}` is the name of the bucket in the same region as the current project and `${Object}` is the path of the object with the extension included.
+     * @example oss://examplebucket/sampleobject.mp4
+     *
      * @var string
      */
     public $sourceURI;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateFileMetaResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6D53E6C9-5AC0-48F9-825F-D02678E3****
      *
      * @var string

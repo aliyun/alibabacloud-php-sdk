@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class frames extends Model
 {
     /**
+     * @description The violated frames.
+     *
      * @var blockFrames[]
      */
     public $blockFrames;
 
     /**
+     * @description The total number of detected frames.
+     *
      * @example 30
      *
      * @var int

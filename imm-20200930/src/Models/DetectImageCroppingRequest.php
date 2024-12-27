@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DetectImageCroppingRequest extends Model
 {
     /**
+     * @description The cropping ratios. You can specify up to five cropping ratios. Take note of the following requirements:
+     *
+     *   The ratio must be an integer between 0 and 20.
+     *   The ratio must range from 0.5 to 2.
+     *   If you leave this parameter empty, the default processing logic is `["auto"]`.
+     *
+     * The ratio is beyond the range of 0.5 to 2.
      * @example ["1:1"]
      *
      * @var string
@@ -16,13 +23,17 @@ class DetectImageCroppingRequest extends Model
     public $aspectRatios;
 
     /**
+     * @description **If you do not have special requirements, leave this parameter empty.**
+     *
+     * The authorization chain. This parameter is optional. For more information, see [Use authorization chains to access resources of other entities](https://help.aliyun.com/document_detail/465340.html).
      * @var CredentialConfig
      */
     public $credentialConfig;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the project.
      *
+     * This parameter is required.
      * @example immtest
      *
      * @var string
@@ -30,6 +41,9 @@ class DetectImageCroppingRequest extends Model
     public $projectName;
 
     /**
+     * @description The URI of the Object Storage Service (OSS) bucket in which you store the image.
+     *
+     * Specify the value in the oss://${Bucket}/${Object} format. `${Bucket}` specifies the name of the OSS bucket that resides in the same region as the current project. `${Object}` specifies the complete path to the image file that has an extension.
      * @example oss://imm-test/testcases/facetest.jpg
      *
      * @var string
