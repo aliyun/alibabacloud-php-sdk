@@ -8,8 +8,12 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AllocateClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AllocateClusterPublicConnectionResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ApplyAdviceByIdRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ApplyAdviceByIdResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AttachUserENIRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AttachUserENIResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\BatchApplyAdviceByIdListRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\BatchApplyAdviceByIdListResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\BindAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\BindAccountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\BindDBResourceGroupWithUserRequest;
@@ -22,6 +26,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAccountResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAPSJobRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAPSJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupRequest;
@@ -68,6 +74,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlSchemasRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlSchemasResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlTablesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdbMySqlTablesResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdviceServiceEnabledRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAdviceServiceEnabledResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAllDataSourceRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAllDataSourceResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsActionLogsRequest;
@@ -283,6 +291,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyLakeCacheSizeResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyPerformanceViewShrinkRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyUserEniVswitchOptionsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyUserEniVswitchOptionsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionRequest;
@@ -450,6 +460,62 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 应用单条优化建议
+     *  *
+     * @param ApplyAdviceByIdRequest $request ApplyAdviceByIdRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ApplyAdviceByIdResponse ApplyAdviceByIdResponse
+     */
+    public function applyAdviceByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->adviceDate)) {
+            $query['AdviceDate'] = $request->adviceDate;
+        }
+        if (!Utils::isUnset($request->adviceId)) {
+            $query['AdviceId'] = $request->adviceId;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyAdviceById',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyAdviceByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 应用单条优化建议
+     *  *
+     * @param ApplyAdviceByIdRequest $request ApplyAdviceByIdRequest
+     *
+     * @return ApplyAdviceByIdResponse ApplyAdviceByIdResponse
+     */
+    public function applyAdviceById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyAdviceByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Attaches an elastic network interface (ENI) to an AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -498,6 +564,62 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachUserENIWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量应用优化建议
+     *  *
+     * @param BatchApplyAdviceByIdListRequest $request BatchApplyAdviceByIdListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchApplyAdviceByIdListResponse BatchApplyAdviceByIdListResponse
+     */
+    public function batchApplyAdviceByIdListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->adviceDate)) {
+            $query['AdviceDate'] = $request->adviceDate;
+        }
+        if (!Utils::isUnset($request->adviceIdList)) {
+            $query['AdviceIdList'] = $request->adviceIdList;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchApplyAdviceByIdList',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchApplyAdviceByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量应用优化建议
+     *  *
+     * @param BatchApplyAdviceByIdListRequest $request BatchApplyAdviceByIdListRequest
+     *
+     * @return BatchApplyAdviceByIdListResponse BatchApplyAdviceByIdListResponse
+     */
+    public function batchApplyAdviceByIdList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchApplyAdviceByIdListWithOptions($request, $runtime);
     }
 
     /**
@@ -766,6 +888,86 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkSampleDataSetWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建一站式链路
+     *  *
+     * @param CreateAPSJobRequest $request CreateAPSJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAPSJobResponse CreateAPSJobResponse
+     */
+    public function createAPSJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apsJobName)) {
+            $body['ApsJobName'] = $request->apsJobName;
+        }
+        if (!Utils::isUnset($request->dbList)) {
+            $body['DbList'] = $request->dbList;
+        }
+        if (!Utils::isUnset($request->destinationEndpointInstanceID)) {
+            $body['DestinationEndpointInstanceID'] = $request->destinationEndpointInstanceID;
+        }
+        if (!Utils::isUnset($request->destinationEndpointPassword)) {
+            $body['DestinationEndpointPassword'] = $request->destinationEndpointPassword;
+        }
+        if (!Utils::isUnset($request->destinationEndpointUserName)) {
+            $body['DestinationEndpointUserName'] = $request->destinationEndpointUserName;
+        }
+        if (!Utils::isUnset($request->partitionList)) {
+            $body['PartitionList'] = $request->partitionList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sourceEndpointInstanceID)) {
+            $body['SourceEndpointInstanceID'] = $request->sourceEndpointInstanceID;
+        }
+        if (!Utils::isUnset($request->sourceEndpointPassword)) {
+            $body['SourceEndpointPassword'] = $request->sourceEndpointPassword;
+        }
+        if (!Utils::isUnset($request->sourceEndpointRegion)) {
+            $body['SourceEndpointRegion'] = $request->sourceEndpointRegion;
+        }
+        if (!Utils::isUnset($request->sourceEndpointUserName)) {
+            $body['SourceEndpointUserName'] = $request->sourceEndpointUserName;
+        }
+        if (!Utils::isUnset($request->targetTableMode)) {
+            $body['TargetTableMode'] = $request->targetTableMode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAPSJob',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAPSJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建一站式链路
+     *  *
+     * @param CreateAPSJobRequest $request CreateAPSJobRequest
+     *
+     * @return CreateAPSJobResponse CreateAPSJobResponse
+     */
+    public function createAPSJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAPSJobWithOptions($request, $runtime);
     }
 
     /**
@@ -2330,6 +2532,56 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 查询建议服务是否开启
+     *  *
+     * @param DescribeAdviceServiceEnabledRequest $request DescribeAdviceServiceEnabledRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAdviceServiceEnabledResponse DescribeAdviceServiceEnabledResponse
+     */
+    public function describeAdviceServiceEnabledWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAdviceServiceEnabled',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAdviceServiceEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询建议服务是否开启
+     *  *
+     * @param DescribeAdviceServiceEnabledRequest $request DescribeAdviceServiceEnabledRequest
+     *
+     * @return DescribeAdviceServiceEnabledResponse DescribeAdviceServiceEnabledResponse
+     */
+    public function describeAdviceServiceEnabled($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAdviceServiceEnabledWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries a list of databases, tables, and columns in an AnalyticDB for MySQL cluster.
      *  *
      * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -2652,6 +2904,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 查看集群备份设置
+     *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
      * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
@@ -2697,6 +2951,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 查看集群备份设置
+     *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
      * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
@@ -5484,6 +5740,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 解绑用户弹性网卡
+     *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
      * @param DetachUserENIRequest $request DetachUserENIRequest
@@ -5517,6 +5775,8 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 解绑用户弹性网卡
+     *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *  *
      * @param DetachUserENIRequest $request DetachUserENIRequest
@@ -8911,6 +9171,73 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyPerformanceViewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改用户eni交换机
+     *  *
+     * @param ModifyUserEniVswitchOptionsRequest $request ModifyUserEniVswitchOptionsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyUserEniVswitchOptionsResponse ModifyUserEniVswitchOptionsResponse
+     */
+    public function modifyUserEniVswitchOptionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbClusterId)) {
+            $query['DbClusterId'] = $request->dbClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->vSwitchOptions)) {
+            $body['VSwitchOptions'] = $request->vSwitchOptions;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyUserEniVswitchOptions',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyUserEniVswitchOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改用户eni交换机
+     *  *
+     * @param ModifyUserEniVswitchOptionsRequest $request ModifyUserEniVswitchOptionsRequest
+     *
+     * @return ModifyUserEniVswitchOptionsResponse ModifyUserEniVswitchOptionsResponse
+     */
+    public function modifyUserEniVswitchOptions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserEniVswitchOptionsWithOptions($request, $runtime);
     }
 
     /**

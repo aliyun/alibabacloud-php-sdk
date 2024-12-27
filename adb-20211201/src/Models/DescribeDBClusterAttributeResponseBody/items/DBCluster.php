@@ -380,6 +380,21 @@ class DBCluster extends Model
     public $userENIStatus;
 
     /**
+     * @var string
+     */
+    public $userENIVSwitchOptions;
+
+    /**
+     * @var string
+     */
+    public $userENIVpcId;
+
+    /**
+     * @var string
+     */
+    public $userENIZoneOptions;
+
+    /**
      * @description The virtual private cloud (VPC) ID of the cluster.
      *
      * @example vpc-bp13h7uzhulpu****
@@ -443,6 +458,9 @@ class DBCluster extends Model
         'tags'                      => 'Tags',
         'taskInfo'                  => 'TaskInfo',
         'userENIStatus'             => 'UserENIStatus',
+        'userENIVSwitchOptions'     => 'UserENIVSwitchOptions',
+        'userENIVpcId'              => 'UserENIVpcId',
+        'userENIZoneOptions'        => 'UserENIZoneOptions',
         'VPCId'                     => 'VPCId',
         'vSwitchId'                 => 'VSwitchId',
         'zoneId'                    => 'ZoneId',
@@ -565,6 +583,15 @@ class DBCluster extends Model
         }
         if (null !== $this->userENIStatus) {
             $res['UserENIStatus'] = $this->userENIStatus;
+        }
+        if (null !== $this->userENIVSwitchOptions) {
+            $res['UserENIVSwitchOptions'] = $this->userENIVSwitchOptions;
+        }
+        if (null !== $this->userENIVpcId) {
+            $res['UserENIVpcId'] = $this->userENIVpcId;
+        }
+        if (null !== $this->userENIZoneOptions) {
+            $res['UserENIZoneOptions'] = $this->userENIZoneOptions;
         }
         if (null !== $this->VPCId) {
             $res['VPCId'] = $this->VPCId;
@@ -697,6 +724,15 @@ class DBCluster extends Model
         }
         if (isset($map['UserENIStatus'])) {
             $model->userENIStatus = $map['UserENIStatus'];
+        }
+        if (isset($map['UserENIVSwitchOptions'])) {
+            $model->userENIVSwitchOptions = $map['UserENIVSwitchOptions'];
+        }
+        if (isset($map['UserENIVpcId'])) {
+            $model->userENIVpcId = $map['UserENIVpcId'];
+        }
+        if (isset($map['UserENIZoneOptions'])) {
+            $model->userENIZoneOptions = $map['UserENIZoneOptions'];
         }
         if (isset($map['VPCId'])) {
             $model->VPCId = $map['VPCId'];
