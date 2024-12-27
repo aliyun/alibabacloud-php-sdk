@@ -1,3 +1,12 @@
+2024-12-27 Version: 3.7.0
+- Support API SendAIAgentDataChannelMessage.
+- Support API SubmitScreenMediaHighlightsJob.
+- Support API TakeoverAIAgentCall.
+- Update API GetSmartHandleJob: update response param.
+- Update API ListSearchLib: update response param.
+- Update API QuerySearchLib: update response param.
+
+
 2024-12-24 Version: 3.7.0
 - Support API SendAIAgentDataChannelMessage.
 - Support API TakeoverAIAgentCall.

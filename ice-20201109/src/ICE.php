@@ -412,6 +412,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitScreenMediaHighlightsJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitScreenMediaHighlightsJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobShrinkRequest;
@@ -11802,6 +11804,64 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitPackageJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交高燃混剪任务
+     *  *
+     * @param SubmitScreenMediaHighlightsJobRequest $request SubmitScreenMediaHighlightsJobRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitScreenMediaHighlightsJobResponse SubmitScreenMediaHighlightsJobResponse
+     */
+    public function submitScreenMediaHighlightsJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->outputConfig)) {
+            $query['OutputConfig'] = $request->outputConfig;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->editingConfig)) {
+            $body['EditingConfig'] = $request->editingConfig;
+        }
+        if (!Utils::isUnset($request->inputConfig)) {
+            $body['InputConfig'] = $request->inputConfig;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitScreenMediaHighlightsJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitScreenMediaHighlightsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交高燃混剪任务
+     *  *
+     * @param SubmitScreenMediaHighlightsJobRequest $request SubmitScreenMediaHighlightsJobRequest
+     *
+     * @return SubmitScreenMediaHighlightsJobResponse SubmitScreenMediaHighlightsJobResponse
+     */
+    public function submitScreenMediaHighlightsJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitScreenMediaHighlightsJobWithOptions($request, $runtime);
     }
 
     /**
