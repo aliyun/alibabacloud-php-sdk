@@ -12,6 +12,22 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerat
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerateResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServiceListResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherExpansionDialogueRefineRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherExpansionDialogueRefineResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherExpansionDialogueRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherExpansionDialogueResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherExpansionDialogueTranslateRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherExpansionDialogueTranslateResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherGrammarCheckRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherGrammarCheckResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherExpansionDialogueSuggestionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherExpansionDialogueSuggestionResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherSyncDialogueSuggestionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherSyncDialogueSuggestionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryImageAssetRequest;
@@ -290,6 +306,514 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->aliyunConsoleOpenApiQueryAliyunConsoleServiceListWithOptions($headers, $runtime);
+    }
+
+    /**
+     * @summary 进行拓展练对话
+     *  *
+     * @param ExecuteAITeacherExpansionDialogueRequest $request ExecuteAITeacherExpansionDialogueRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteAITeacherExpansionDialogueResponse ExecuteAITeacherExpansionDialogueResponse
+     */
+    public function executeAITeacherExpansionDialogueWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->background)) {
+            $body['background'] = $request->background;
+        }
+        if (!Utils::isUnset($request->dialogueTasks)) {
+            $body['dialogueTasks'] = $request->dialogueTasks;
+        }
+        if (!Utils::isUnset($request->languageCode)) {
+            $body['languageCode'] = $request->languageCode;
+        }
+        if (!Utils::isUnset($request->records)) {
+            $body['records'] = $request->records;
+        }
+        if (!Utils::isUnset($request->roleInfo)) {
+            $body['roleInfo'] = $request->roleInfo;
+        }
+        if (!Utils::isUnset($request->startSentence)) {
+            $body['startSentence'] = $request->startSentence;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteAITeacherExpansionDialogue',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/expansionPractice/executeExpansionTraining',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteAITeacherExpansionDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 进行拓展练对话
+     *  *
+     * @param ExecuteAITeacherExpansionDialogueRequest $request ExecuteAITeacherExpansionDialogueRequest
+     *
+     * @return ExecuteAITeacherExpansionDialogueResponse ExecuteAITeacherExpansionDialogueResponse
+     */
+    public function executeAITeacherExpansionDialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeAITeacherExpansionDialogueWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 拓展练根据上下文进行润色
+     *  *
+     * @param ExecuteAITeacherExpansionDialogueRefineRequest $request ExecuteAITeacherExpansionDialogueRefineRequest
+     * @param string[]                                       $headers map
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteAITeacherExpansionDialogueRefineResponse ExecuteAITeacherExpansionDialogueRefineResponse
+     */
+    public function executeAITeacherExpansionDialogueRefineWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->background)) {
+            $body['background'] = $request->background;
+        }
+        if (!Utils::isUnset($request->dialogueTasks)) {
+            $body['dialogueTasks'] = $request->dialogueTasks;
+        }
+        if (!Utils::isUnset($request->languageCode)) {
+            $body['languageCode'] = $request->languageCode;
+        }
+        if (!Utils::isUnset($request->records)) {
+            $body['records'] = $request->records;
+        }
+        if (!Utils::isUnset($request->roleInfo)) {
+            $body['roleInfo'] = $request->roleInfo;
+        }
+        if (!Utils::isUnset($request->startSentence)) {
+            $body['startSentence'] = $request->startSentence;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteAITeacherExpansionDialogueRefine',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/expansionPractice/refineByContext',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteAITeacherExpansionDialogueRefineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 拓展练根据上下文进行润色
+     *  *
+     * @param ExecuteAITeacherExpansionDialogueRefineRequest $request ExecuteAITeacherExpansionDialogueRefineRequest
+     *
+     * @return ExecuteAITeacherExpansionDialogueRefineResponse ExecuteAITeacherExpansionDialogueRefineResponse
+     */
+    public function executeAITeacherExpansionDialogueRefine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeAITeacherExpansionDialogueRefineWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 拓展练语境翻译
+     *  *
+     * @param ExecuteAITeacherExpansionDialogueTranslateRequest $request ExecuteAITeacherExpansionDialogueTranslateRequest
+     * @param string[]                                          $headers map
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteAITeacherExpansionDialogueTranslateResponse ExecuteAITeacherExpansionDialogueTranslateResponse
+     */
+    public function executeAITeacherExpansionDialogueTranslateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->background)) {
+            $body['background'] = $request->background;
+        }
+        if (!Utils::isUnset($request->dialogueTasks)) {
+            $body['dialogueTasks'] = $request->dialogueTasks;
+        }
+        if (!Utils::isUnset($request->records)) {
+            $body['records'] = $request->records;
+        }
+        if (!Utils::isUnset($request->roleInfo)) {
+            $body['roleInfo'] = $request->roleInfo;
+        }
+        if (!Utils::isUnset($request->startSentence)) {
+            $body['startSentence'] = $request->startSentence;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteAITeacherExpansionDialogueTranslate',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/expansionPractice/translate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteAITeacherExpansionDialogueTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 拓展练语境翻译
+     *  *
+     * @param ExecuteAITeacherExpansionDialogueTranslateRequest $request ExecuteAITeacherExpansionDialogueTranslateRequest
+     *
+     * @return ExecuteAITeacherExpansionDialogueTranslateResponse ExecuteAITeacherExpansionDialogueTranslateResponse
+     */
+    public function executeAITeacherExpansionDialogueTranslate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeAITeacherExpansionDialogueTranslateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 语法检测
+     *  *
+     * @param ExecuteAITeacherGrammarCheckRequest $request ExecuteAITeacherGrammarCheckRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteAITeacherGrammarCheckResponse ExecuteAITeacherGrammarCheckResponse
+     */
+    public function executeAITeacherGrammarCheckWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteAITeacherGrammarCheck',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/common/grammarChecking',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteAITeacherGrammarCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 语法检测
+     *  *
+     * @param ExecuteAITeacherGrammarCheckRequest $request ExecuteAITeacherGrammarCheckRequest
+     *
+     * @return ExecuteAITeacherGrammarCheckResponse ExecuteAITeacherGrammarCheckResponse
+     */
+    public function executeAITeacherGrammarCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeAITeacherGrammarCheckWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 进行同步练对话
+     *  *
+     * @param ExecuteAITeacherSyncDialogueRequest $request ExecuteAITeacherSyncDialogueRequest
+     * @param string[]                            $headers map
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteAITeacherSyncDialogueResponse ExecuteAITeacherSyncDialogueResponse
+     */
+    public function executeAITeacherSyncDialogueWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dialogueTasks)) {
+            $body['dialogueTasks'] = $request->dialogueTasks;
+        }
+        if (!Utils::isUnset($request->languageCode)) {
+            $body['languageCode'] = $request->languageCode;
+        }
+        if (!Utils::isUnset($request->records)) {
+            $body['records'] = $request->records;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteAITeacherSyncDialogue',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/syncPractice/executeSyncTraining',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteAITeacherSyncDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 进行同步练对话
+     *  *
+     * @param ExecuteAITeacherSyncDialogueRequest $request ExecuteAITeacherSyncDialogueRequest
+     *
+     * @return ExecuteAITeacherSyncDialogueResponse ExecuteAITeacherSyncDialogueResponse
+     */
+    public function executeAITeacherSyncDialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeAITeacherSyncDialogueWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 同步练语境翻译
+     *  *
+     * @param ExecuteAITeacherSyncDialogueTranslateRequest $request ExecuteAITeacherSyncDialogueTranslateRequest
+     * @param string[]                                     $headers map
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteAITeacherSyncDialogueTranslateResponse ExecuteAITeacherSyncDialogueTranslateResponse
+     */
+    public function executeAITeacherSyncDialogueTranslateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dialogueTasks)) {
+            $body['dialogueTasks'] = $request->dialogueTasks;
+        }
+        if (!Utils::isUnset($request->records)) {
+            $body['records'] = $request->records;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteAITeacherSyncDialogueTranslate',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/syncPractice/translate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteAITeacherSyncDialogueTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 同步练语境翻译
+     *  *
+     * @param ExecuteAITeacherSyncDialogueTranslateRequest $request ExecuteAITeacherSyncDialogueTranslateRequest
+     *
+     * @return ExecuteAITeacherSyncDialogueTranslateResponse ExecuteAITeacherSyncDialogueTranslateResponse
+     */
+    public function executeAITeacherSyncDialogueTranslate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeAITeacherSyncDialogueTranslateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 拓展练小助手
+     *  *
+     * @param GetAITeacherExpansionDialogueSuggestionRequest $request GetAITeacherExpansionDialogueSuggestionRequest
+     * @param string[]                                       $headers map
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAITeacherExpansionDialogueSuggestionResponse GetAITeacherExpansionDialogueSuggestionResponse
+     */
+    public function getAITeacherExpansionDialogueSuggestionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->background)) {
+            $body['background'] = $request->background;
+        }
+        if (!Utils::isUnset($request->dialogueTasks)) {
+            $body['dialogueTasks'] = $request->dialogueTasks;
+        }
+        if (!Utils::isUnset($request->languageCode)) {
+            $body['languageCode'] = $request->languageCode;
+        }
+        if (!Utils::isUnset($request->records)) {
+            $body['records'] = $request->records;
+        }
+        if (!Utils::isUnset($request->roleInfo)) {
+            $body['roleInfo'] = $request->roleInfo;
+        }
+        if (!Utils::isUnset($request->startSentence)) {
+            $body['startSentence'] = $request->startSentence;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['topic'] = $request->topic;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAITeacherExpansionDialogueSuggestion',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/expansionPractice/suggestion',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAITeacherExpansionDialogueSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 拓展练小助手
+     *  *
+     * @param GetAITeacherExpansionDialogueSuggestionRequest $request GetAITeacherExpansionDialogueSuggestionRequest
+     *
+     * @return GetAITeacherExpansionDialogueSuggestionResponse GetAITeacherExpansionDialogueSuggestionResponse
+     */
+    public function getAITeacherExpansionDialogueSuggestion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAITeacherExpansionDialogueSuggestionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 同步练小助手
+     *  *
+     * @param GetAITeacherSyncDialogueSuggestionRequest $request GetAITeacherSyncDialogueSuggestionRequest
+     * @param string[]                                  $headers map
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAITeacherSyncDialogueSuggestionResponse GetAITeacherSyncDialogueSuggestionResponse
+     */
+    public function getAITeacherSyncDialogueSuggestionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dialogueTasks)) {
+            $body['dialogueTasks'] = $request->dialogueTasks;
+        }
+        if (!Utils::isUnset($request->languageCode)) {
+            $body['languageCode'] = $request->languageCode;
+        }
+        if (!Utils::isUnset($request->records)) {
+            $body['records'] = $request->records;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['userId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAITeacherSyncDialogueSuggestion',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/aiteacher/syncPractice/suggestion',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAITeacherSyncDialogueSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 同步练小助手
+     *  *
+     * @param GetAITeacherSyncDialogueSuggestionRequest $request GetAITeacherSyncDialogueSuggestionRequest
+     *
+     * @return GetAITeacherSyncDialogueSuggestionResponse GetAITeacherSyncDialogueSuggestionResponse
+     */
+    public function getAITeacherSyncDialogueSuggestion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAITeacherSyncDialogueSuggestionWithOptions($request, $headers, $runtime);
     }
 
     /**
