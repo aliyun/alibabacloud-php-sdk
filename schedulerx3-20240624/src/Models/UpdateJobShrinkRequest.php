@@ -48,6 +48,13 @@ class UpdateJobShrinkRequest extends Model
     public $description;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $executorBlockStrategy;
+
+    /**
      * @example testJobVoidHandler
      *
      * @var string
@@ -143,25 +150,26 @@ class UpdateJobShrinkRequest extends Model
      */
     public $timezone;
     protected $_name = [
-        'appName'              => 'AppName',
-        'attemptInterval'      => 'AttemptInterval',
-        'calendar'             => 'Calendar',
-        'clusterId'            => 'ClusterId',
-        'description'          => 'Description',
-        'jobHandler'           => 'JobHandler',
-        'jobId'                => 'JobId',
-        'maxAttempt'           => 'MaxAttempt',
-        'maxConcurrency'       => 'MaxConcurrency',
-        'name'                 => 'Name',
-        'noticeConfigShrink'   => 'NoticeConfig',
-        'noticeContactsShrink' => 'NoticeContacts',
-        'parameters'           => 'Parameters',
-        'priority'             => 'Priority',
-        'routeStrategy'        => 'RouteStrategy',
-        'startTime'            => 'StartTime',
-        'timeExpression'       => 'TimeExpression',
-        'timeType'             => 'TimeType',
-        'timezone'             => 'Timezone',
+        'appName'               => 'AppName',
+        'attemptInterval'       => 'AttemptInterval',
+        'calendar'              => 'Calendar',
+        'clusterId'             => 'ClusterId',
+        'description'           => 'Description',
+        'executorBlockStrategy' => 'ExecutorBlockStrategy',
+        'jobHandler'            => 'JobHandler',
+        'jobId'                 => 'JobId',
+        'maxAttempt'            => 'MaxAttempt',
+        'maxConcurrency'        => 'MaxConcurrency',
+        'name'                  => 'Name',
+        'noticeConfigShrink'    => 'NoticeConfig',
+        'noticeContactsShrink'  => 'NoticeContacts',
+        'parameters'            => 'Parameters',
+        'priority'              => 'Priority',
+        'routeStrategy'         => 'RouteStrategy',
+        'startTime'             => 'StartTime',
+        'timeExpression'        => 'TimeExpression',
+        'timeType'              => 'TimeType',
+        'timezone'              => 'Timezone',
     ];
 
     public function validate()
@@ -185,6 +193,9 @@ class UpdateJobShrinkRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->executorBlockStrategy) {
+            $res['ExecutorBlockStrategy'] = $this->executorBlockStrategy;
         }
         if (null !== $this->jobHandler) {
             $res['JobHandler'] = $this->jobHandler;
@@ -254,6 +265,9 @@ class UpdateJobShrinkRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ExecutorBlockStrategy'])) {
+            $model->executorBlockStrategy = $map['ExecutorBlockStrategy'];
         }
         if (isset($map['JobHandler'])) {
             $model->jobHandler = $map['JobHandler'];

@@ -27,6 +27,8 @@ class OperateRetryJobExecutionRequest extends Model
     public $clusterId;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 1310630367761285120
      *
      * @var string
@@ -34,16 +36,14 @@ class OperateRetryJobExecutionRequest extends Model
     public $jobExecutionId;
 
     /**
-     * @example 74
-     *
-     * @var int
+     * @var string[]
      */
-    public $jobId;
+    public $taskList;
     protected $_name = [
         'appName'        => 'AppName',
         'clusterId'      => 'ClusterId',
         'jobExecutionId' => 'JobExecutionId',
-        'jobId'          => 'JobId',
+        'taskList'       => 'TaskList',
     ];
 
     public function validate()
@@ -62,8 +62,8 @@ class OperateRetryJobExecutionRequest extends Model
         if (null !== $this->jobExecutionId) {
             $res['JobExecutionId'] = $this->jobExecutionId;
         }
-        if (null !== $this->jobId) {
-            $res['JobId'] = $this->jobId;
+        if (null !== $this->taskList) {
+            $res['TaskList'] = $this->taskList;
         }
 
         return $res;
@@ -86,8 +86,10 @@ class OperateRetryJobExecutionRequest extends Model
         if (isset($map['JobExecutionId'])) {
             $model->jobExecutionId = $map['JobExecutionId'];
         }
-        if (isset($map['JobId'])) {
-            $model->jobId = $map['JobId'];
+        if (isset($map['TaskList'])) {
+            if (!empty($map['TaskList'])) {
+                $model->taskList = $map['TaskList'];
+            }
         }
 
         return $model;

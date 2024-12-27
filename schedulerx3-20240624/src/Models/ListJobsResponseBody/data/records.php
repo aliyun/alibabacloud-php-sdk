@@ -48,12 +48,24 @@ class records extends Model
      *
      * @var int
      */
+    public $currentExecuteStatus;
+
+    /**
+     * @example 3
+     *
+     * @var int
+     */
     public $dataOffset;
 
     /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $executorBlockStrategy;
 
     /**
      * @example jobDemoHandler
@@ -75,6 +87,16 @@ class records extends Model
      * @var string
      */
     public $jobType;
+
+    /**
+     * @var string
+     */
+    public $lastExecuteEndTime;
+
+    /**
+     * @var int
+     */
+    public $lastExecuteStatus;
 
     /**
      * @example 5
@@ -177,31 +199,35 @@ class records extends Model
      */
     public $xattrs;
     protected $_name = [
-        'appName'         => 'AppName',
-        'attemptInterval' => 'AttemptInterval',
-        'calendar'        => 'Calendar',
-        'cleanMode'       => 'CleanMode',
-        'creator'         => 'Creator',
-        'dataOffset'      => 'DataOffset',
-        'description'     => 'Description',
-        'jobHandler'      => 'JobHandler',
-        'jobId'           => 'JobId',
-        'jobType'         => 'JobType',
-        'maxAttempt'      => 'MaxAttempt',
-        'maxConcurrency'  => 'MaxConcurrency',
-        'name'            => 'Name',
-        'noticeConfig'    => 'NoticeConfig',
-        'noticeContacts'  => 'NoticeContacts',
-        'parameters'      => 'Parameters',
-        'priority'        => 'Priority',
-        'routeStrategy'   => 'RouteStrategy',
-        'status'          => 'Status',
-        'timeExpression'  => 'TimeExpression',
-        'timeType'        => 'TimeType',
-        'timeZone'        => 'TimeZone',
-        'timezone'        => 'Timezone',
-        'updater'         => 'Updater',
-        'xattrs'          => 'Xattrs',
+        'appName'               => 'AppName',
+        'attemptInterval'       => 'AttemptInterval',
+        'calendar'              => 'Calendar',
+        'cleanMode'             => 'CleanMode',
+        'creator'               => 'Creator',
+        'currentExecuteStatus'  => 'CurrentExecuteStatus',
+        'dataOffset'            => 'DataOffset',
+        'description'           => 'Description',
+        'executorBlockStrategy' => 'ExecutorBlockStrategy',
+        'jobHandler'            => 'JobHandler',
+        'jobId'                 => 'JobId',
+        'jobType'               => 'JobType',
+        'lastExecuteEndTime'    => 'LastExecuteEndTime',
+        'lastExecuteStatus'     => 'LastExecuteStatus',
+        'maxAttempt'            => 'MaxAttempt',
+        'maxConcurrency'        => 'MaxConcurrency',
+        'name'                  => 'Name',
+        'noticeConfig'          => 'NoticeConfig',
+        'noticeContacts'        => 'NoticeContacts',
+        'parameters'            => 'Parameters',
+        'priority'              => 'Priority',
+        'routeStrategy'         => 'RouteStrategy',
+        'status'                => 'Status',
+        'timeExpression'        => 'TimeExpression',
+        'timeType'              => 'TimeType',
+        'timeZone'              => 'TimeZone',
+        'timezone'              => 'Timezone',
+        'updater'               => 'Updater',
+        'xattrs'                => 'Xattrs',
     ];
 
     public function validate()
@@ -226,11 +252,17 @@ class records extends Model
         if (null !== $this->creator) {
             $res['Creator'] = $this->creator;
         }
+        if (null !== $this->currentExecuteStatus) {
+            $res['CurrentExecuteStatus'] = $this->currentExecuteStatus;
+        }
         if (null !== $this->dataOffset) {
             $res['DataOffset'] = $this->dataOffset;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->executorBlockStrategy) {
+            $res['ExecutorBlockStrategy'] = $this->executorBlockStrategy;
         }
         if (null !== $this->jobHandler) {
             $res['JobHandler'] = $this->jobHandler;
@@ -240,6 +272,12 @@ class records extends Model
         }
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
+        }
+        if (null !== $this->lastExecuteEndTime) {
+            $res['LastExecuteEndTime'] = $this->lastExecuteEndTime;
+        }
+        if (null !== $this->lastExecuteStatus) {
+            $res['LastExecuteStatus'] = $this->lastExecuteStatus;
         }
         if (null !== $this->maxAttempt) {
             $res['MaxAttempt'] = $this->maxAttempt;
@@ -313,11 +351,17 @@ class records extends Model
         if (isset($map['Creator'])) {
             $model->creator = $map['Creator'];
         }
+        if (isset($map['CurrentExecuteStatus'])) {
+            $model->currentExecuteStatus = $map['CurrentExecuteStatus'];
+        }
         if (isset($map['DataOffset'])) {
             $model->dataOffset = $map['DataOffset'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ExecutorBlockStrategy'])) {
+            $model->executorBlockStrategy = $map['ExecutorBlockStrategy'];
         }
         if (isset($map['JobHandler'])) {
             $model->jobHandler = $map['JobHandler'];
@@ -327,6 +371,12 @@ class records extends Model
         }
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
+        }
+        if (isset($map['LastExecuteEndTime'])) {
+            $model->lastExecuteEndTime = $map['LastExecuteEndTime'];
+        }
+        if (isset($map['LastExecuteStatus'])) {
+            $model->lastExecuteStatus = $map['LastExecuteStatus'];
         }
         if (isset($map['MaxAttempt'])) {
             $model->maxAttempt = $map['MaxAttempt'];

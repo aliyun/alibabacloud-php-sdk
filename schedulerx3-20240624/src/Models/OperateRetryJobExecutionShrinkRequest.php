@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\SchedulerX3\V20240624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class OperateStopJobExecutionRequest extends Model
+class OperateRetryJobExecutionShrinkRequest extends Model
 {
     /**
      * @description This parameter is required.
@@ -36,14 +36,14 @@ class OperateStopJobExecutionRequest extends Model
     public $jobExecutionId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $taskList;
+    public $taskListShrink;
     protected $_name = [
         'appName'        => 'AppName',
         'clusterId'      => 'ClusterId',
         'jobExecutionId' => 'JobExecutionId',
-        'taskList'       => 'TaskList',
+        'taskListShrink' => 'TaskList',
     ];
 
     public function validate()
@@ -62,8 +62,8 @@ class OperateStopJobExecutionRequest extends Model
         if (null !== $this->jobExecutionId) {
             $res['JobExecutionId'] = $this->jobExecutionId;
         }
-        if (null !== $this->taskList) {
-            $res['TaskList'] = $this->taskList;
+        if (null !== $this->taskListShrink) {
+            $res['TaskList'] = $this->taskListShrink;
         }
 
         return $res;
@@ -72,7 +72,7 @@ class OperateStopJobExecutionRequest extends Model
     /**
      * @param array $map
      *
-     * @return OperateStopJobExecutionRequest
+     * @return OperateRetryJobExecutionShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -87,9 +87,7 @@ class OperateStopJobExecutionRequest extends Model
             $model->jobExecutionId = $map['JobExecutionId'];
         }
         if (isset($map['TaskList'])) {
-            if (!empty($map['TaskList'])) {
-                $model->taskList = $map['TaskList'];
-            }
+            $model->taskListShrink = $map['TaskList'];
         }
 
         return $model;

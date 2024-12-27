@@ -75,8 +75,10 @@ use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateRerunJobRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateRerunJobResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateRetryJobExecutionRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateRetryJobExecutionResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateRetryJobExecutionShrinkRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateStopJobExecutionRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateStopJobExecutionResponse;
+use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\OperateStopJobExecutionShrinkRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateAppRequest;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateAppResponse;
 use AlibabaCloud\SDK\SchedulerX3\V20240624\Models\UpdateClusterRequest;
@@ -283,6 +285,9 @@ class SchedulerX3 extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executorBlockStrategy)) {
+            $body['ExecutorBlockStrategy'] = $request->executorBlockStrategy;
         }
         if (!Utils::isUnset($request->jobHandler)) {
             $body['JobHandler'] = $request->jobHandler;
@@ -1725,14 +1730,19 @@ class SchedulerX3 extends OpenApiClient
     /**
      * @summary 重跑失败的任务实例
      *  *
-     * @param OperateRetryJobExecutionRequest $request OperateRetryJobExecutionRequest
+     * @param OperateRetryJobExecutionRequest $tmpReq  OperateRetryJobExecutionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
      * @return OperateRetryJobExecutionResponse OperateRetryJobExecutionResponse
      */
-    public function operateRetryJobExecutionWithOptions($request, $runtime)
+    public function operateRetryJobExecutionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new OperateRetryJobExecutionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskList)) {
+            $request->taskListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskList, 'TaskList', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
@@ -1743,8 +1753,8 @@ class SchedulerX3 extends OpenApiClient
         if (!Utils::isUnset($request->jobExecutionId)) {
             $query['JobExecutionId'] = $request->jobExecutionId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->taskListShrink)) {
+            $query['TaskList'] = $request->taskListShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1781,14 +1791,19 @@ class SchedulerX3 extends OpenApiClient
     /**
      * @summary 停止正在运行的任务实例
      *  *
-     * @param OperateStopJobExecutionRequest $request OperateStopJobExecutionRequest
+     * @param OperateStopJobExecutionRequest $tmpReq  OperateStopJobExecutionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
      * @return OperateStopJobExecutionResponse OperateStopJobExecutionResponse
      */
-    public function operateStopJobExecutionWithOptions($request, $runtime)
+    public function operateStopJobExecutionWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new OperateStopJobExecutionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskList)) {
+            $request->taskListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskList, 'TaskList', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appName)) {
             $query['AppName'] = $request->appName;
@@ -1799,8 +1814,8 @@ class SchedulerX3 extends OpenApiClient
         if (!Utils::isUnset($request->jobExecutionId)) {
             $query['JobExecutionId'] = $request->jobExecutionId;
         }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
+        if (!Utils::isUnset($request->taskListShrink)) {
+            $query['TaskList'] = $request->taskListShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1980,6 +1995,9 @@ class SchedulerX3 extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executorBlockStrategy)) {
+            $body['ExecutorBlockStrategy'] = $request->executorBlockStrategy;
         }
         if (!Utils::isUnset($request->jobHandler)) {
             $body['JobHandler'] = $request->jobHandler;
