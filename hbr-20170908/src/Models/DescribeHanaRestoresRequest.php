@@ -46,7 +46,7 @@ class DescribeHanaRestoresRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.
+     * @description The number of entries per page. Valid values: 1 to 99. Default value: 10.\\`
      *
      * @example 10
      *

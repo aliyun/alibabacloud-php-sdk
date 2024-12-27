@@ -9,10 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupJobRequest extends Model
 {
     /**
-     * @description The backup type. Valid values:
+     * @description The backup type. This parameter is required only if you set the SourceType parameter to UDM_ECS.
      *
      *   **COMPLETE**: full backup
-     *   **INCREMENTAL**: incremental backup
      *
      * @example INCREMENTAL
      *
@@ -21,7 +20,7 @@ class CreateBackupJobRequest extends Model
     public $backupType;
 
     /**
-     * @description The ID of the cluster.
+     * @description You do not need to specify this parameter.
      *
      * @example cl-00068btz******oku
      *
@@ -30,7 +29,7 @@ class CreateBackupJobRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the cluster. This parameter is required only if you set the **SourceType** parameter to **CONTAINER**.
+     * @description You do not need to specify this parameter.
      *
      * @example cc-000xxxxxxxxxxxxxxi00
      *
@@ -39,7 +38,7 @@ class CreateBackupJobRequest extends Model
     public $containerClusterId;
 
     /**
-     * @description The cluster resources. This parameter is required only if you set the **SourceType** parameter to **CONTAINER**.
+     * @description You do not need to specify this parameter.
      *
      * @example [{\\"resourceType\\":\\"PV\\",\\"backupMethod\\":\\"FILE\\",\\"resourceId\\":\\"674dac6d-74cd-47e9-a675-09e2f10d2c45\\",\\"resourceInfo\\":\\"{\\\\\\"pv_name\\\\\\":\\\\\\"nas-650dac6d-74cd-47e9-a675-09e2f10d2c45\\\\\\",\\\\\\"pv_size\\\\\\":\\\\\\"8Gi\\\\\\",\\\\\\"storage_class\\\\\\":\\\\\\"alibabacloud-cnfs-nas\\\\\\",\\\\\\"pvc_name\\\\\\":\\\\\\"data-postgresql-default-0\\\\\\",\\\\\\"namespace\\\\\\":\\\\\\"database\\\\\\"}\\",\\"host\\":\\"cn-huhehaote.192.168.13.133\\",\\"hostPrefix\\":\\"6f5e758e-8d35-4584-b9ce-8333adfc7547/volumes/kubernetes.io~csi/nas-670dac6d-74cd-47e9-a675-09e2f10d2c45/mount\\",\\"pvPath\\":\\"/\\"}]
      *
@@ -78,7 +77,7 @@ class CreateBackupJobRequest extends Model
     public $crossAccountUserId;
 
     /**
-     * @description The details about ECS instance backup. The value is a JSON string.
+     * @description This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. The value is a JSON string. Valid values:
      *
      *   doCopy: specifies whether to enable remote replication.
      *
@@ -98,7 +97,7 @@ class CreateBackupJobRequest extends Model
      *
      *   enableWriters: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to create application-consistent snapshots.
      *
-     *   true (default): creates application-consistent snapshots.
+     *   true: creates application-consistent snapshots.
      *   false: creates file system-consistent snapshots.
      *
      *   enableFsFreeze: This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter specifies whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
@@ -112,7 +111,7 @@ class CreateBackupJobRequest extends Model
     public $detail;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value must be 1 to 255 characters in length.
+     * @description This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the paths to the files that are excluded from the backup job. The value can be up to 255 characters in length.
      *
      * @example ["/var", "/proc"]
      *
@@ -121,7 +120,7 @@ class CreateBackupJobRequest extends Model
     public $exclude;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value must be 1 to 255 characters in length.
+     * @description This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the paths to the files that are backed up. The value can be up to 255 characters in length.
      *
      * @example ["/home/alice/*.pdf", "/home/bob/*.txt"]
      *
@@ -130,7 +129,7 @@ class CreateBackupJobRequest extends Model
     public $include;
 
     /**
-     * @description This parameter specifies whether to initiate the request by using Container Service for Kubernetes (ACK). Default value: false.
+     * @description false or left empty
      *
      * @example false
      *
@@ -139,7 +138,7 @@ class CreateBackupJobRequest extends Model
     public $initiatedByAck;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the ID of the Elastic Compute Service (ECS) instance.
+     * @description This parameter is required only if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the ID of the ECS instance.
      *
      * @example i-bp1xxxxxxxxxxxxxxysm
      *
@@ -157,11 +156,7 @@ class CreateBackupJobRequest extends Model
     public $jobName;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies whether to use Windows Volume Shadow Copy Service (VSS) to define a source path.
-     *
-     *   This parameter is available only for Windows ECS instances.
-     *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before you can set this parameter to `["UseVSS":true]`.
-     *   If you use VSS, you cannot back up data from multiple directories.
+     * @description You do not need to specify this parameter.
      *
      * @example {"UseVSS":false}
      *
@@ -181,9 +176,7 @@ class CreateBackupJobRequest extends Model
     /**
      * @description The type of the data source. Valid values:
      *
-     *   **ECS_FILE**: Elastic Compute Service (ECS) files
-     *   **UDM_ECS**: ECS instances
-     *   **CONTAINER**: containers
+     *   **UDM_ECS**: Elastic Compute Service (ECS) instance
      *
      * This parameter is required.
      * @example CONTAINER
@@ -193,7 +186,7 @@ class CreateBackupJobRequest extends Model
     public $sourceType;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
+     * @description This parameter does not take effect if you set the **SourceType** parameter to **UDM_ECS**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
      *
      *   **start**: the start hour.
      *   **end**: the end hour.
@@ -206,7 +199,7 @@ class CreateBackupJobRequest extends Model
     public $speedLimit;
 
     /**
-     * @description The ID of the backup vault.
+     * @description The ID of the backup vault. This parameter is not required if you set the SourceType parameter to UDM_ECS.
      *
      * @example v-000xxxxxxxxxxxxxxy1v
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateContainerClusterResponseBody extends Model
 {
     /**
+     * @description Return code, 200 indicates success.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateContainerClusterResponseBody extends Model
     public $code;
 
     /**
+     * @description Return information.
+     *
      * @example successful
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateContainerClusterResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -30,6 +36,9 @@ class UpdateContainerClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates if the request was successful.
+     *
+     * - false: Failure
      * @example true
      *
      * @var bool
@@ -37,6 +46,8 @@ class UpdateContainerClusterResponseBody extends Model
     public $success;
 
     /**
+     * @description Cluster token, used for registering HBR clients within the cluster.
+     *
      * @example eyJhY2NvdW*****VnZpgXQC5A==
      *
      * @var string
@@ -44,6 +55,8 @@ class UpdateContainerClusterResponseBody extends Model
     public $token;
 
     /**
+     * @description Indicates whether the cluster token has been updated.
+     *
      * @example false
      *
      * @var bool

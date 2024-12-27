@@ -30,11 +30,17 @@ class rules extends Model
     public $backupType;
 
     /**
+     * @description This parameter is required only when **RuleType** is set to **TAG**. It defines the data source filtering rule.
+     *
      * @var dataSourceFilters[]
      */
     public $dataSourceFilters;
 
     /**
+     * @description This parameter is returned only if the **PolicyType** is **UDM_ECS_ONLY**. This parameter indicates whether the immutable backup feature is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $immutable;
@@ -114,6 +120,8 @@ class rules extends Model
     public $schedule;
 
     /**
+     * @description This parameter is required only when **RuleType** is set to **TAG**. It defines the resource tag filtering rule.
+     *
      * @var tagFilters[]
      */
     public $tagFilters;

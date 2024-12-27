@@ -14,35 +14,35 @@ use AlibabaCloud\Tea\Model;
 class advancedOptions extends Model
 {
     /**
-     * @description The advanced options for large-scale file system backup.
+     * @description Advanced options for large-scale file system backup.
      *
      * @var commonFileSystemDetail
      */
     public $commonFileSystemDetail;
 
     /**
-     * @description The advanced options for on-premises NAS backup.
+     * @description Advanced options for local NAS.
      *
      * @var commonNasDetail
      */
     public $commonNasDetail;
 
     /**
-     * @description The advanced options for file backup.
+     * @description Advanced options for file backup.
      *
      * @var fileDetail
      */
     public $fileDetail;
 
     /**
-     * @description The advanced options for OSS backup.
+     * @description Advanced options for OSS backup.
      *
      * @var ossDetail
      */
     public $ossDetail;
 
     /**
-     * @description The advanced options for ECS instance backup.
+     * @description Advanced options for full machine backup.
      *
      * @var udmDetail
      */

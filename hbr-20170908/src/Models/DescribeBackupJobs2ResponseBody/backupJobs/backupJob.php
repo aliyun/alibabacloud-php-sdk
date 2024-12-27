@@ -231,6 +231,8 @@ class backupJob extends Model
     /**
      * @description The identifier of the cluster that is backed up in the container backup job. This parameter is returned only if the value of SourceType is CONTAINER. If the cluster is a Container Service for Kubernetes (ACK) cluster, the value of this parameter is the ACK cluster ID.
      *
+     * @example c83**************************b76
+     *
      * @var string
      */
     public $identifier;

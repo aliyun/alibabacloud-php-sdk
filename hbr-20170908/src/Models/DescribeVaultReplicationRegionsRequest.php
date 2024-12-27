@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVaultReplicationRegionsRequest extends Model
 {
     /**
-     * @description The access token.
+     * @description This parameter is deprecated.
      *
      * @example 01W3ZZOQ
      *
@@ -18,7 +18,7 @@ class DescribeVaultReplicationRegionsRequest extends Model
     public $token;
 
     /**
-     * @description The ID of the backup vault.
+     * @description This parameter is deprecated.
      *
      * @example v-00030j3c******sn
      *

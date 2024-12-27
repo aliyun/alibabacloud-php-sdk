@@ -12,19 +12,21 @@ use AlibabaCloud\Tea\Model;
 class advancedOptions extends Model
 {
     /**
+     * @description The details about large-scale file system backup.
+     *
      * @var commonFileSystemDetail
      */
     public $commonFileSystemDetail;
 
     /**
-     * @description The details of the Object Storage Service (OSS) backup.
+     * @description The details about Object Storage Service (OSS) backup.
      *
      * @var ossDetail
      */
     public $ossDetail;
 
     /**
-     * @description The backup details of the Elastic Compute Service (ECS) instance.
+     * @description The details about Elastic Compute Service (ECS) instance backup.
      *
      * @var udmDetail
      */

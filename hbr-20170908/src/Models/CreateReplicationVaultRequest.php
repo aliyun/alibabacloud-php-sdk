@@ -18,6 +18,11 @@ class CreateReplicationVaultRequest extends Model
     public $description;
 
     /**
+     * @description The method that is used to encrypt the source data. This parameter is valid only if you set the VaultType parameter to STANDARD or OTS_BACKUP. Valid values:
+     *
+     *   **HBR_PRIVATE**: The source data is encrypted by using the built-in encryption method of Hybrid Backup Recovery (HBR).
+     *   **KMS**: The source data is encrypted by using Key Management Service (KMS).
+     *
      * @example HBR_PRIVATE
      *
      * @var string
@@ -25,6 +30,8 @@ class CreateReplicationVaultRequest extends Model
     public $encryptType;
 
     /**
+     * @description The customer master key (CMK) created in KMS or the alias of the key. This parameter is required only if you set the EncryptType parameter to KMS.
+     *
      * @example alias/test
      *
      * @var string
@@ -84,7 +91,7 @@ class CreateReplicationVaultRequest extends Model
     public $vaultRegionId;
 
     /**
-     * @description The storage class of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
+     * @description The storage type of the backup vault. Valid value: **STANDARD**, which indicates standard storage.
      *
      * @example STANDARD
      *

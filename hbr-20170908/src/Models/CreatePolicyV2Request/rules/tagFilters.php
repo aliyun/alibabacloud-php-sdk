@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagFilters extends Model
 {
     /**
+     * @description The tag key.
+     *
      * @example env
      *
      * @var string
@@ -16,6 +18,11 @@ class tagFilters extends Model
     public $key;
 
     /**
+     * @description The tag-based matching rule. Valid values:
+     *
+     *   **EQUAL**: Both the tag key and tag value are matched.
+     *   **NOT**: The tag key is matched and the tag value is not matched.
+     *
      * @example EQUAL
      *
      * @var string
@@ -23,6 +30,8 @@ class tagFilters extends Model
     public $operator;
 
     /**
+     * @description The tag value. If you leave this parameter empty, the value is any value.
+     *
      * @example prod
      *
      * @var string

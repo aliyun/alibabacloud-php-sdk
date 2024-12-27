@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPlansRequest extends Model
 {
     /**
-     * @description The filter.
+     * @description The filters.
      *
      * @var filters[]
      */

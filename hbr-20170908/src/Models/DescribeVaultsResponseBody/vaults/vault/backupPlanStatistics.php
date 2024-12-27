@@ -18,6 +18,8 @@ class backupPlanStatistics extends Model
     public $archive;
 
     /**
+     * @description The number of Cloud Parallel File Storage (CPFS) backup plans.
+     *
      * @example 1
      *
      * @var int

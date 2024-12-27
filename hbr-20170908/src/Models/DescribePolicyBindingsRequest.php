@@ -10,19 +10,23 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyBindingsRequest extends Model
 {
     /**
+     * @description List of data source IDs.
+     *
      * @var string[]
      */
     public $dataSourceIds;
 
     /**
+     * @description Query filters.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
-     * @description The number of results for each query.
+     * @description Number of results per query.
      *
-     * Valid values: 10 to 100. Default value: 10.
+     * Range: 10~100. Default: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +34,8 @@ class DescribePolicyBindingsRequest extends Model
     public $maxResults;
 
     /**
+     * @description Token required to fetch the next page of policy and data source associations.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a
      *
      * @var string
@@ -37,6 +43,8 @@ class DescribePolicyBindingsRequest extends Model
     public $nextToken;
 
     /**
+     * @description Policy ID.
+     *
      * @example po-000************hky
      *
      * @var string
@@ -44,6 +52,9 @@ class DescribePolicyBindingsRequest extends Model
     public $policyId;
 
     /**
+     * @description Data source type. Possible values:
+     * **UDM_ECS**: Indicates ECS full machine backup.
+     *
      * @example UDM_ECS
      *
      * @var string

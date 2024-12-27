@@ -48,7 +48,7 @@ class UninstallBackupClientsShrinkRequest extends Model
     public $crossAccountUserId;
 
     /**
-     * @description The IDs of ECS instances. You can specify a maximum of 20 ECS instances.
+     * @description The IDs of Elastic Compute Service (ECS) instances. You can specify a maximum of 20 ECS instances.
      *
      * @example ["i-0xi5wj5*****v3j3bh2gj5"]
      *

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ossDetail extends Model
 {
     /**
+     * @description Do not prompt for archival type objects in task statistics and failed file lists.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ignoreArchiveObject;

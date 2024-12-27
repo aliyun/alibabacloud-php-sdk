@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class policyBindings extends Model
 {
     /**
-     * @description The advanced options.
+     * @description Advanced options.
      *
      * @var advancedOptions
      */
     public $advancedOptions;
 
     /**
-     * @description Indicates whether the resource is automatically associated with the related resource tag in the backup policy.
+     * @description Whether the resource is automatically associated through the backup policy resource tag.
      *
      * @example false
      *
@@ -27,7 +27,7 @@ class policyBindings extends Model
     public $createdByTag;
 
     /**
-     * @description The time when the backup policy was created. The value is a UNIX timestamp. Unit: seconds.
+     * @description Creation time. UNIX timestamp, in seconds.
      *
      * @example 1661399570
      *
@@ -36,7 +36,7 @@ class policyBindings extends Model
     public $createdTime;
 
     /**
-     * @description The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     * @description The name of the role created in the RAM of the original account for cross-account backup.
      *
      * @example hbrcrossrole
      *
@@ -45,11 +45,8 @@ class policyBindings extends Model
     public $crossAccountRoleName;
 
     /**
-     * @description Indicates whether data is backed up within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-     *
-     *   SELF_ACCOUNT: Data is backed up within the same Alibaba Cloud account.
-     *   CROSS_ACCOUNT: Data is backed up across Alibaba Cloud accounts.
-     *
+     * @description Cross-account backup type. Supported values:
+     * - CROSS_ACCOUNT: Cross-account backup
      * @example CROSS_ACCOUNT
      *
      * @var string
@@ -57,7 +54,7 @@ class policyBindings extends Model
     public $crossAccountType;
 
     /**
-     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up data across Alibaba Cloud accounts.
+     * @description The ID of the original account for cross-account backup.
      *
      * @example 1480************
      *
@@ -66,7 +63,7 @@ class policyBindings extends Model
     public $crossAccountUserId;
 
     /**
-     * @description The ID of the data source.
+     * @description Data source ID.
      *
      * @example i-8vb************5ly
      *
@@ -75,11 +72,8 @@ class policyBindings extends Model
     public $dataSourceId;
 
     /**
-     * @description Indicates whether the backup policy is enabled for the data source. Valid values:
-     *
-     *   true: The backup policy is disabled.
-     *   false: The backup policy is enabled.
-     *
+     * @description 策略是否对该数据源生效。
+     * - false：未暂停
      * @example true
      *
      * @var bool
@@ -87,7 +81,7 @@ class policyBindings extends Model
     public $disabled;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
+     * @description This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the file types that should not be backed up, and all files of these types will be excluded. Supports up to 255 characters.
      *
      * @example [\\"*.doc\\",\\"*.xltm\\"]
      *
@@ -96,14 +90,14 @@ class policyBindings extends Model
     public $exclude;
 
     /**
-     * @description The matched tag rules.
+     * @description Hit tag rules.
      *
      * @var hitTags[]
      */
     public $hitTags;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
+     * @description This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the file types to be backed up, and all files of these types will be backed up. Supports up to 255 characters.
      *
      * @example [\\"*.doc\\",\\"*.xltm\\"]
      *
@@ -112,7 +106,7 @@ class policyBindings extends Model
     public $include;
 
     /**
-     * @description The description of the association.
+     * @description Bound policy description.
      *
      * @example po-000************eslc-i-uf6************y5g
      *
@@ -121,7 +115,7 @@ class policyBindings extends Model
     public $policyBindingDescription;
 
     /**
-     * @description The ID of the association.
+     * @description Bound policy ID.
      *
      * @example pd-000************slc
      *
@@ -130,7 +124,7 @@ class policyBindings extends Model
     public $policyBindingId;
 
     /**
-     * @description The ID of the backup policy.
+     * @description Policy ID.
      *
      * @example po-000************56y
      *
@@ -139,9 +133,8 @@ class policyBindings extends Model
     public $policyId;
 
     /**
-     * @description *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
-     *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
-     *
+     * @description - When **SourceType** is **OSS**, it indicates the prefix to be backed up. If not specified, it means backing up the entire root directory of the Bucket.
+     * - When **SourceType** is **ECS_FILE** or **File**, it indicates the file directory to be backed up. If not specified, it means backing up all directories.
      * @example backup/
      *
      * @var string
@@ -149,10 +142,8 @@ class policyBindings extends Model
     public $source;
 
     /**
-     * @description The type of the data source. Valid values:
-     *
-     *   **UDM_ECS**: ECS instances
-     *
+     * @description Data source type, with the value range:
+     * - **UDM_ECS**: indicates ECS full machine backup
      * @example UDM_ECS
      *
      * @var string
@@ -160,12 +151,11 @@ class policyBindings extends Model
     public $sourceType;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the throttling rules. Format: `{start}{end}{bandwidth}`. Separate multiple throttling rules with vertical bars (|). The time ranges of the throttling rules cannot overlap.
+     * @description This parameter is required only when **SourceType** is **ECS_FILE** or **File**. It specifies the backup traffic control. The format is `{start}{end}{bandwidth}`. Multiple traffic control configurations are separated by commas, and the configured times must not overlap.
      *
-     *   **start**: the start hour.
-     *   **end**: the end hour.
-     *   **bandwidth**: the bandwidth. Unit: KB/s.
-     *
+     * - **start**: Start hour.
+     * - **end**: End hour.
+     * - **bandwidth**: Limit rate, in KB/s.
      * @example 0:24:10240
      *
      * @var string
@@ -173,7 +163,7 @@ class policyBindings extends Model
     public $speedLimit;
 
     /**
-     * @description The time when the backup policy was updated. The value is a UNIX timestamp. Unit: seconds.
+     * @description Update time. UNIX timestamp, in seconds.
      *
      * @example 1653611573
      *

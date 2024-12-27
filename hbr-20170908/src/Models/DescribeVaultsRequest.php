@@ -28,6 +28,8 @@ class DescribeVaultsRequest extends Model
     public $pageSize;
 
     /**
+     * @description Resource group ID.
+     *
      * @example rg-*********************
      *
      * @var string
@@ -49,6 +51,8 @@ class DescribeVaultsRequest extends Model
     public $status;
 
     /**
+     * @description Tag information. Supports up to 20 tags.
+     *
      * @example 6a745bceffb042959b3b5206d6f12ad1
      *
      * @var tag[]
@@ -56,6 +60,8 @@ class DescribeVaultsRequest extends Model
     public $tag;
 
     /**
+     * @description Backup vault ID.
+     *
      * @example v-*********************
      *
      * @var string
@@ -63,6 +69,8 @@ class DescribeVaultsRequest extends Model
     public $vaultId;
 
     /**
+     * @description The region ID to which the backup vault belongs.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -70,6 +78,9 @@ class DescribeVaultsRequest extends Model
     public $vaultRegionId;
 
     /**
+     * @description Backup repository type. The values are as follows:
+     * - **STANDARD**: Represents a standard repository, which can be used for ECS file backups, OSS backups, NAS backups, etc.
+     * - **OTS_BACKUP**: Represents a TableStore repository, which is only used for TableStore backups, and TableStore must use this type of repository.
      * @example STANDARD
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupPlanShrinkRequest extends Model
 {
     /**
-     * @description The backup type. Valid value: **COMPLETE**, which indicates full backup.
+     * @description Backup type. Value: **COMPLETE**, indicating a full backup.
      *
      * This parameter is required.
      * @example COMPLETE
@@ -20,7 +20,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $backupType;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **OSS**. This parameter specifies the name of the OSS bucket.
+     * @description This parameter is required when **SourceType** is set to **OSS**. It represents the OSS bucket name.
      *
      * @example hbr-backup-oss
      *
@@ -29,7 +29,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $bucket;
 
     /**
-     * @description The configurations of the incremental file synchronization. This parameter is required for data synchronization only.
+     * @description Configuration for the incremental file synchronization list. (Required only for synchronization)
      *
      * @example {"dataSourceId": "ds-123456789", "path": "/changelist"}
      *
@@ -38,7 +38,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $changeListPath;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **NAS**. This parameter specifies the time to create the file system. The value must be a UNIX timestamp. Unit: seconds.
+     * @description This parameter is required when **SourceType** is set to **NAS**. It represents the creation time of the file system, in UNIX timestamp, in seconds.
      *
      * @example 1607436917
      *
@@ -47,7 +47,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $createTime;
 
     /**
-     * @description The name of the RAM role that is created within the source Alibaba Cloud account and assigned to the current Alibaba Cloud account to authorize the current Alibaba Cloud account to back up and restore data across Alibaba Cloud accounts.
+     * @description The role name created in the RAM of the original account for cross-account backup.
      *
      * @example BackupRole
      *
@@ -56,11 +56,8 @@ class CreateBackupPlanShrinkRequest extends Model
     public $crossAccountRoleName;
 
     /**
-     * @description Specifies whether data is backed up and restored within the same Alibaba Cloud account or across Alibaba Cloud accounts. Valid values:
-     *
-     *   SELF_ACCOUNT: Data is backed up and restored within the same Alibaba Cloud account.
-     *   CROSS_ACCOUNT: Data is backed up and restored across Alibaba Cloud accounts.
-     *
+     * @description Cross-account backup type. Supported values:
+     * - CROSS_ACCOUNT: Cross-account backup
      * @example CROSS_ACCOUNT
      *
      * @var string
@@ -68,7 +65,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $crossAccountType;
 
     /**
-     * @description The ID of the source Alibaba Cloud account that authorizes the current Alibaba Cloud account to back up and restore data across Alibaba Cloud accounts.
+     * @description The original account ID used for cross-account backup.
      *
      * @example 15897534xxxx4625
      *
@@ -77,6 +74,8 @@ class CreateBackupPlanShrinkRequest extends Model
     public $crossAccountUserId;
 
     /**
+     * @description Destination data source details. (Required only for synchronization)
+     *
      * @example {\\"prefix\\":\\"/\\"}
      *
      * @var string
@@ -84,6 +83,8 @@ class CreateBackupPlanShrinkRequest extends Model
     public $destDataSourceDetailShrink;
 
     /**
+     * @description Destination data source ID. (Required only for synchronization)
+     *
      * @example ds-*********************
      *
      * @var string
@@ -91,6 +92,8 @@ class CreateBackupPlanShrinkRequest extends Model
     public $destDataSourceId;
 
     /**
+     * @description Destination data source type. (Required only for synchronization)
+     *
      * @example OSS
      *
      * @var string
@@ -98,12 +101,12 @@ class CreateBackupPlanShrinkRequest extends Model
     public $destSourceType;
 
     /**
-     * @description The details about ECS instance backup. The value is a JSON string.
+     * @description Details of the whole machine backup, in JSON string format.
      *
-     *   snapshotGroup: specifies whether to use a snapshot-consistent group. This parameter is valid only if all disks of the ECS instance are enhanced SSDs (ESSDs).
-     *   appConsistent: specifies whether to enable application consistency. If you set this parameter to true, you must also specify the preScriptPath and postScriptPath parameters.
-     *   preScriptPath: the path to the prescript file.
-     *   postScriptPath: the path to the postscript file.
+     * snapshotGroup: Whether to use a consistent snapshot group (only valid if all instance disks are ESSD).
+     * appConsistent: Whether to use application consistency (requires the use of preScriptPath and postScriptPath parameters).
+     * preScriptPath: Path to the freeze script.
+     * postScriptPath: Path to the thaw script.
      *
      * @example {\\"EnableFsFreeze\\":true,\\"appConsistent\\":false,\\"postScriptPath\\":\\"\\",\\"preScriptPath\\":\\"\\",\\"snapshotGroup\\":true,\\"timeoutInSeconds\\":60}
      *
@@ -112,7 +115,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $detailShrink;
 
     /**
-     * @description Specifies whether to disable the plan by default.
+     * @description Is the plan disabled by default
      *
      * @example true
      *
@@ -121,7 +124,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $disabled;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that are excluded from the backup job. The value can be up to 255 characters in length.
+     * @description This parameter is required only when **SourceType** is set to **ECS_FILE**. It specifies the path that should not be backed up, meaning all files under this path will not be included in the backup. The maximum length is 255 characters.
      *
      * @example ["/var", "/proc"]
      *
@@ -130,7 +133,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $exclude;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **NAS**. This parameter specifies the ID of the NAS file system.
+     * @description This parameter is required when **SourceType** is set to **NAS**. It represents the file system ID.
      *
      * @example 005494
      *
@@ -139,7 +142,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $fileSystemId;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the paths to the files that you want to back up. The value can be up to 255 characters in length.
+     * @description This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the path to be backed up, and all files under this path will be backed up. Supports up to 255 characters.
      *
      * @example ["/home/alice/*.pdf", "/home/bob/*.txt"]
      *
@@ -148,7 +151,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $include;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the ID of the ECS instance.
+     * @description This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the ECS instance ID.
      *
      * @example i-m5e*****6q
      *
@@ -157,7 +160,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the Tablestore instance.
+     * @description Table store instance name.
      *
      * @example instancename
      *
@@ -166,11 +169,8 @@ class CreateBackupPlanShrinkRequest extends Model
     public $instanceName;
 
     /**
-     * @description Specifies whether to enable the "Keep at least one backup version" feature. Valid values:
-     *
-     *   0: The feature is disabled.
-     *   1: The feature is enabled.
-     *
+     * @description Whether to enable retaining at least one backup version.
+     * - 1 - Retain
      * @example 1
      *
      * @var int
@@ -178,12 +178,9 @@ class CreateBackupPlanShrinkRequest extends Model
     public $keepLatestSnapshots;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies whether to use Windows Volume Shadow Copy Service (VSS) to define a backup path.
+     * @description This parameter is required when **SourceType** is set to **ECS_FILE**. It indicates whether to use the Windows system VSS to define the backup path.
      *
-     *   This parameter is available only for Windows ECS instances.
-     *   If data changes occur in the backup source, the source data must be the same as the data to be backed up before the system sets this parameter to `["UseVSS":true]`.
-     *   If you use VSS, you cannot back up data from multiple directories.
-     *
+     * - After choosing to use VSS, multiple file directories cannot be backed up simultaneously.
      * @example {"UseVSS":false}
      *
      * @var string
@@ -191,21 +188,21 @@ class CreateBackupPlanShrinkRequest extends Model
     public $options;
 
     /**
-     * @description The details about the Tablestore instance.
+     * @description Table store instance details.
      *
      * @var string
      */
     public $otsDetailShrink;
 
     /**
-     * @description The backup paths.
+     * @description Backup paths.
      *
      * @var string[]
      */
     public $path;
 
     /**
-     * @description The name of the backup schedule. The name must be 1 to 64 characters in length. The name of a backup schedule for each type of data source must be unique within a backup vault.
+     * @description Name of the backup plan. 1 to 64 characters. The name must be unique for each data source type within a single backup vault.
      *
      * This parameter is required.
      * @example planname
@@ -215,7 +212,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $planName;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **OSS**. This parameter specifies the prefix of objects that you want to back up. After a prefix is specified, only objects whose names start with the prefix are backed up.
+     * @description This parameter is required when **SourceType** is set to **OSS**. It represents the backup prefix. When specified, only objects matching the prefix are backed up.
      *
      * @example oss-prefix
      *
@@ -224,7 +221,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $prefix;
 
     /**
-     * @description The retention period of backup data. Minimum value: 1. Unit: days.
+     * @description Number of days to retain the backup, with a minimum value of 1, in days.
      *
      * @example 7
      *
@@ -233,17 +230,17 @@ class CreateBackupPlanShrinkRequest extends Model
     public $retention;
 
     /**
-     * @description The rules of the backup schedule.
+     * @description Backup plan rules.
      *
      * @var rule[]
      */
     public $rule;
 
     /**
-     * @description The backup policy. Format: `I|{startTime}|{interval}`. The system runs the first backup job at a point in time that is specified in the `{startTime}` parameter and the subsequent backup jobs at an interval that is specified in the `{interval}` parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, `I|1631685600|P1D` specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+     * @description Backup policy. Optional format: `I|{startTime}|{interval}`. This indicates that a backup task will be executed every `{interval}` starting from `{startTime}`. It does not compensate for missed backup tasks due to past time. If the previous backup task has not been completed, the next backup task will not be triggered. For example, `I|1631685600|P1D` means a backup is performed every day starting from 2021-09-15 14:00:00.
      *
-     *   **startTime**: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds.
-     *   **interval**: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+     * - **startTime**: Start time of the backup, in UNIX timestamp, in seconds.
+     * - **interval**: ISO8601 time interval. For example, PT1H indicates an interval of one hour, and P1D indicates an interval of one day.
      *
      * This parameter is required.
      * @example I|1602673264|P1D
@@ -253,13 +250,13 @@ class CreateBackupPlanShrinkRequest extends Model
     public $schedule;
 
     /**
-     * @description The type of the data source. Valid values:
+     * @description Data source type, with the following options:
      *
-     *   **ECS_FILE**: backs up Elastic Compute Service (ECS) files.
-     *   **OSS**: backs up Object Storage Service (OSS) buckets.
-     *   **NAS**: backs up Apsara File Storage NAS file systems.
-     *   **OTS**: backs up Tablestore instances.
-     *   **UDM_ECS**: backs up ECS instances.
+     * - **ECS_FILE**: Backs up ECS files
+     * - **OSS**: Backs up Alibaba Cloud OSS
+     * - **NAS**: Backs up Alibaba Cloud NAS
+     * - **OTS**: Backs up Alibaba Cloud OTS
+     * - **UDM_ECS**: Backs up the entire ECS instance
      *
      * This parameter is required.
      * @example ECS_FILE
@@ -269,12 +266,11 @@ class CreateBackupPlanShrinkRequest extends Model
     public $sourceType;
 
     /**
-     * @description This parameter is required only if the **SourceType** parameter is set to **ECS_FILE**. This parameter specifies the throttling rules. Format: `{start}|{end}|{bandwidth}`. Separate multiple throttling rules with vertical bars (|). A specified time range cannot overlap with another time range.
+     * @description This parameter is required when **SourceType** is set to **ECS_FILE**. It represents the backup traffic control. Format: `{start}:{end}:{bandwidth}`. Multiple traffic control configurations are separated by |, and the configured times should not overlap.
      *
-     *   **start**: the start hour.
-     *   **end**: the end hour.
-     *   **bandwidth**: the bandwidth. Unit: KB/s.
-     *
+     * - **start**: Start hour.
+     * - **end**: End hour.
+     * - **bandwidth**: Limit rate, in KB/s.
      * @example 0:24:5120
      *
      * @var string
@@ -282,7 +278,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $speedLimit;
 
     /**
-     * @description The region in which the ECS instance that you want to back up resides.
+     * @description Region where the whole machine backup instance is located.
      *
      * @example cn-shanghai
      *
@@ -291,7 +287,7 @@ class CreateBackupPlanShrinkRequest extends Model
     public $udmRegionId;
 
     /**
-     * @description The ID of the backup vault.
+     * @description Backup vault ID.
      *
      * @example v-0006******q
      *

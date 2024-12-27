@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class dataSourceFilters extends Model
 {
     /**
+     * @description Deprecated.
+     *
      * @var string[]
      */
     public $dataSourceIds;
 
     /**
+     * @description Data source type. The value range is as follows:
+     * - **UDM_ECS**: Indicates ECS server backup.
+     * - **OSS**: Indicates OSS backup.
+     * - **NAS**: Indicates Alibaba Cloud NAS backup.
+     * - **ECS_FILE**: Indicates ECS file backup.
+     * - **OTS**: Indicates Tablestore backup.
      * @example UDM_ECS
      *
      * @var string

@@ -39,11 +39,17 @@ class rules extends Model
     public $coldArchiveDays;
 
     /**
+     * @description This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the data source filter rule.
+     *
      * @var dataSourceFilters[]
      */
     public $dataSourceFilters;
 
     /**
+     * @description This parameter is required only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**. This parameter specifies whether to enable the immutable backup feature.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $immutable;
@@ -82,7 +88,7 @@ class rules extends Model
     public $retention;
 
     /**
-     * @description This parameter is required only if the **RuleType** parameter is set to **TRANSITION**. This parameter specifies the special retention rules.
+     * @description This parameter is required only if the value of the **RuleType** parameter is **TRANSITION**. This parameter specifies the special retention rules.
      *
      * @var retentionRules[]
      */
@@ -123,6 +129,8 @@ class rules extends Model
     public $schedule;
 
     /**
+     * @description This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the resource tag filter rule.
+     *
      * @var tagFilters[]
      */
     public $tagFilters;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
-     * @description The backup type.
+     * @description Backup type.
      *
      * @example COMPLETE
      *
@@ -18,7 +18,7 @@ class rule extends Model
     public $backupType;
 
     /**
-     * @description The ID of the region to which data is replicated.
+     * @description ID of the region for offsite replication.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class rule extends Model
     public $destinationRegionId;
 
     /**
-     * @description The retention period of the backup data in geo-redundancy mode. Unit: days.
+     * @description Number of days to retain offsite backups.
      *
      * @example 7
      *
@@ -36,25 +36,25 @@ class rule extends Model
     public $destinationRetention;
 
     /**
-     * @description Specifies whether to enable the rule.
+     * @description Whether the rule is enabled.
      *
-     * @example false
+     * @example true
      *
      * @var bool
      */
     public $disabled;
 
     /**
-     * @description Specifies whether to enable cross-region replication.
+     * @description Whether to enable offsite replication.
      *
-     * @example false
+     * @example true
      *
      * @var bool
      */
     public $doCopy;
 
     /**
-     * @description The retention period of the backup data. Unit: days.
+     * @description Backup retention period.
      *
      * @example 7
      *
@@ -63,7 +63,7 @@ class rule extends Model
     public $retention;
 
     /**
-     * @description The name of the rule.
+     * @description Rule name.
      *
      * @example rule-test-name
      *
@@ -72,9 +72,9 @@ class rule extends Model
     public $ruleName;
 
     /**
-     * @description The backup policy. Format: I|{startTime}|{interval}. The system runs the first backup job at a point in time that is specified in the {startTime} parameter and the subsequent backup jobs at an interval that is specified in the {interval} parameter. The system does not run a backup job before the specified point in time. Each backup job, except the first one, starts only after the previous backup job is complete. For example, I|1631685600|P1D specifies that the system runs the first backup job at 14:00:00 on September 15, 2021 and the subsequent backup jobs once a day.
+     * @description Backup strategy. Optional format: I|{startTime}|{interval}. This means that a backup task is executed every {interval} starting from {startTime}. Backup tasks for past times will not be executed. If the previous backup task has not been completed, the next backup task will not be triggered. For example, I|1631685600|P1D means a backup is performed every day starting from 2021-09-15 14:00:00.
      *
-     * startTime: the time at which the system starts to run a backup job. The time must follow the UNIX time format. Unit: seconds. interval: the interval at which the system runs a backup job. The interval must follow the ISO 8601 standard. For example, PT1H specifies an interval of one hour. P1D specifies an interval of one day.
+     * - interval: ISO8601 time interval. For example, PT1H means an interval of one hour. P1D means an interval of one day.
      * @example I|1602673264|P1D
      *
      * @var string

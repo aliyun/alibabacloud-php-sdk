@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class udmDetail extends Model
 {
     /**
-     * @description Indicates whether application consistency is enabled. You can enable application consistency only if all disks are ESSDs.
+     * @description 是否创建应用一致性。仅云盘类型全部为ESSD时，支持创建快照应用一致性。
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class udmDetail extends Model
     public $appConsistent;
 
     /**
-     * @description The ID of the custom KMS key in the destination region. If this parameter is not empty and geo-replication is enabled, the key is used for encrypted geo-replication.
+     * @description The custom KMS key ID in the destination region. When this field is not empty and cross-region replication is enabled, the specified key will be used for encrypting the cross-region replication.
      *
      * @example 4ed37b1e-da51-4187-aceb-9db4f9b7148b
      *
@@ -27,14 +27,14 @@ class udmDetail extends Model
     public $destinationKmsKeyId;
 
     /**
-     * @description The IDs of the disks that need to be protected. If all disks need to be protected, this parameter is empty.
+     * @description List of disk IDs that need protection. This value is empty when protecting all disks.
      *
      * @var string[]
      */
     public $diskIdList;
 
     /**
-     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates whether to enable Linux fsfreeze to put file systems into the read-only state before application-consistent snapshots are created. Default value: true.
+     * @description This parameter is required when **AppConsistent** is **true**. It indicates whether to use the Linux FsFreeze mechanism to ensure the file system is in a read-only consistent state before creating an application-consistent snapshot. The default value is true.
      *
      * @example true
      *
@@ -43,12 +43,11 @@ class udmDetail extends Model
     public $enableFsFreeze;
 
     /**
-     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates whether application-consistent snapshots are created. Valid values:
+     * @description This parameter is required when **AppConsistent** is **true**. It determines whether to set an application-consistent snapshot:
+     * - **true**: Create an application-consistent snapshot
+     * - **false**: Create a file system-consistent snapshot
      *
-     *   true: Application-consistent snapshots are created.
-     *   false: File system-consistent snapshots are created.
-     *
-     * Default value: true.
+     * The default value is true.
      * @example true
      *
      * @var bool
@@ -56,14 +55,14 @@ class udmDetail extends Model
     public $enableWriters;
 
     /**
-     * @description The IDs of the disks that do not need to be protected. If the DiskIdList parameter is not empty, this parameter is ignored.
+     * @description List of disk IDs that do not need protection. This parameter is ignored if DiskIdList is not empty.
      *
      * @var string[]
      */
     public $excludeDiskIdList;
 
     /**
-     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the path of the post-thaw scripts that are executed after application-consistent snapshots are created.
+     * @description This parameter is required when **AppConsistent** is **true**. It specifies the path of the unfreeze script to be executed after creating an application-consistent snapshot.
      *
      * @example /tmp/postscript.sh
      *
@@ -72,7 +71,7 @@ class udmDetail extends Model
     public $postScriptPath;
 
     /**
-     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the path of the pre-freeze scripts that are executed before application-consistent snapshots are created.
+     * @description This parameter is required when **AppConsistent** is **true**. It specifies the path of the freeze script to be executed before creating an application-consistent snapshot.
      *
      * @example /tmp/prescript.sh
      *
@@ -81,7 +80,7 @@ class udmDetail extends Model
     public $preScriptPath;
 
     /**
-     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the name of the RAM role that is required to create application-consistent snapshots.
+     * @description This parameter is required when **AppConsistent** is **true**. It specifies the RAM role name needed for creating an application-consistent snapshot.
      *
      * @example AliyunECSInstanceForHbrRole
      *
@@ -90,7 +89,7 @@ class udmDetail extends Model
     public $ramRoleName;
 
     /**
-     * @description Indicates whether a snapshot-consistent group is created. You can create a snapshot-consistent group only if all disks are enhanced SSDs (ESSDs).
+     * @description Indicates whether to create a snapshot consistency group. Only supported when all disk types are ESSD.
      *
      * @example true
      *
@@ -99,7 +98,7 @@ class udmDetail extends Model
     public $snapshotGroup;
 
     /**
-     * @description This parameter is required only if you set the **AppConsistent** parameter to **true**. This parameter indicates the I/O freeze timeout period. Default value: 30. Unit: seconds.
+     * @description This parameter is required when **AppConsistent** is **true**. It specifies the IO freeze timeout duration. The default value is 30 seconds.
      *
      * @example 30
      *

@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class hitTag extends Model
 {
     /**
+     * @description The tag key.
+     *
+     * @example type
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag-based matching rule. Valid values:
+     *
+     *   **EQUAL**: Both the tag key and tag value are matched.
+     *   **NOT**: The tag key is matched and the tag value is not matched.
+     *
+     * @example EQUAL
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The tag value.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $value;

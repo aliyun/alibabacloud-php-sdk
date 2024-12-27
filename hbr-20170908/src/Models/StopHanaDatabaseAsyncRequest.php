@@ -11,6 +11,7 @@ class StopHanaDatabaseAsyncRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-000dw******45ijer
      *
      * @var string
@@ -30,6 +31,7 @@ class StopHanaDatabaseAsyncRequest extends Model
     /**
      * @description The ID of the backup vault.
      *
+     * This parameter is required.
      * @example v-0006wkn******gzkn
      *
      * @var string

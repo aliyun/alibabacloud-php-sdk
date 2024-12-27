@@ -11,6 +11,7 @@ class UpdateHanaRetentionSettingRequest extends Model
     /**
      * @description The ID of the SAP HANA instance.
      *
+     * This parameter is required.
      * @example cl-00024vyjj******srrq
      *
      * @var string
@@ -66,6 +67,7 @@ class UpdateHanaRetentionSettingRequest extends Model
     /**
      * @description The ID of the backup vault.
      *
+     * This parameter is required.
      * @example v-000fb0v2ly******k6
      *
      * @var string

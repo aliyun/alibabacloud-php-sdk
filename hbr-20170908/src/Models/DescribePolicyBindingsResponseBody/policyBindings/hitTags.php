@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class hitTags extends Model
 {
     /**
-     * @description The tag key.
+     * @description Tag key.
      *
      * @example env
      *
@@ -18,11 +18,9 @@ class hitTags extends Model
     public $key;
 
     /**
-     * @description The tag-based matching rule.
-     *
-     *   **EQUAL**: Both the tag key and tag value are matched.
-     *   **NOT**: The tag key is matched and the tag value is not matched.
-     *
+     * @description Tag matching rule.
+     * - **EQUAL**: Matches both the tag key and tag value.
+     * - **NOT**: Matches the tag key but not the tag value.
      * @example EQUAL
      *
      * @var string
@@ -30,7 +28,7 @@ class hitTags extends Model
     public $operator;
 
     /**
-     * @description The tag value.
+     * @description Tag value.
      *
      * @example prod
      *

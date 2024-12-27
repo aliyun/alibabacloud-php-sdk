@@ -14,6 +14,8 @@ use AlibabaCloud\Tea\Model;
 class vault extends Model
 {
     /**
+     * @description Archival tier backup data volume. Unit: bytes.
+     *
      * @example 1024000
      *
      * @var int
@@ -236,6 +238,8 @@ class vault extends Model
     public $replicationSourceVaultId;
 
     /**
+     * @description Target region for remote backup repository.
+     *
      * @example cn-shanghai
      *
      * @var string

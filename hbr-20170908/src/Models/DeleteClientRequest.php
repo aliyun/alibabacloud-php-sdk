@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteClientRequest extends Model
 {
     /**
+     * @description The ID of the client.
+     *
      * @example c-000************f3h
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteClientRequest extends Model
     public $clientId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acf************kwy
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteClientRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the backup vault.
+     *
      * @example v-000************gs3
      *
      * @var string

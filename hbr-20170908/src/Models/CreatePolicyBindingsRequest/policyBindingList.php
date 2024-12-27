@@ -51,7 +51,7 @@ class policyBindingList extends Model
      *
      *   **UDM_ECS**: the ID of the Elastic Compute Service (ECS) instance
      *   **OSS**: the name of the Object Storage Service (OSS) bucket
-     *   **NAS**: the ID of the Apsara File Storage NAS (NAS) file system
+     *   **NAS**: the ID of the File Storage NAS (NAS) file system
      *   **COMMON_NAS**: the ID of the on-premises NAS file system
      *   **ECS_FILE**: the ID of the ECS instance
      *   **File**: the ID of the Cloud Backup client
@@ -76,7 +76,7 @@ class policyBindingList extends Model
     public $disabled;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
+     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**, **File**, **NAS**, **COMMON_NAS**, or **COMMON_FILE_SYSTEM**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
      *
      * @example [\\"*.doc\\",\\"*.xltm\\"]
      *
@@ -85,7 +85,7 @@ class policyBindingList extends Model
     public $exclude;
 
     /**
-     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
+     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE**, **File**, **NAS**, **COMMON_NAS**, or **COMMON_FILE_SYSTEM**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
      *
      * @example [\\"*.doc\\",\\"*.xltm\\"]
      *
@@ -104,7 +104,8 @@ class policyBindingList extends Model
 
     /**
      * @description *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
-     *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
+     *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths are backed up.
+     *   This parameter is required if the SourceType parameter is set to **COMMON_FILE_SYSTEM**. This parameter specifies the path to be backed up. To back up the /src path, enter ["/src"]. To back up the root path, enter ["/"].
      *
      * @example backup/
      *

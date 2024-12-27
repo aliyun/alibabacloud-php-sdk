@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Hbr\V20170908\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteClientResponseBody extends Model
+class DeleteAirEcsInstanceResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the call is successful.
+     * @description The response code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class DeleteClientResponseBody extends Model
     public $code;
 
     /**
-     * @description The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+     * @description The returned message. If the request was successful, "successful" is returned. If the request failed, an error message is returned.
      *
      * @example successful
      *
@@ -27,30 +27,40 @@ class DeleteClientResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description Id of the request
      *
-     * @example C51A9094-64B7-5DC0-B9FE-5FC1AC7E081D
+     * @example 33AA3AAE-89E1-5D3A-A51D-0C0A80850F68
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call is successful.
-     *   false: The call fails.
+     *   true
+     *   false
      *
      * @example true
      *
      * @var bool
      */
     public $success;
+
+    /**
+     * @description The ID of the asynchronous job. You can call the DescribeTask operation to query the execution result of an asynchronous job.
+     *
+     * @example t-*********************
+     *
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -72,6 +82,9 @@ class DeleteClientResponseBody extends Model
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
+        }
 
         return $res;
     }
@@ -79,7 +92,7 @@ class DeleteClientResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteClientResponseBody
+     * @return DeleteAirEcsInstanceResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -95,6 +108,9 @@ class DeleteClientResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -78,6 +78,10 @@ class backupPlan extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether a backup plan is automatically created based on tags.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $createdByTag;
@@ -197,6 +201,8 @@ class backupPlan extends Model
     public $fileSystemId;
 
     /**
+     * @description The matched tag rules.
+     *
      * @var hitTags
      */
     public $hitTags;

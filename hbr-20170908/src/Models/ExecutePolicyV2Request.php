@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecutePolicyV2Request extends Model
 {
     /**
+     * @description Data source ID.
+     *
      * @example i-bp1************dtv
      *
      * @var string
@@ -16,8 +18,9 @@ class ExecutePolicyV2Request extends Model
     public $dataSourceId;
 
     /**
-     * @description This parameter is required.
+     * @description Policy ID.
      *
+     * This parameter is required.
      * @example po-000************hky
      *
      * @var string
@@ -25,8 +28,9 @@ class ExecutePolicyV2Request extends Model
     public $policyId;
 
     /**
-     * @description This parameter is required.
+     * @description Rule ID, limited to executing rules of **RuleType** **BACKUP**.
      *
+     * This parameter is required.
      * @example rule-0002*****ux8
      *
      * @var string
@@ -34,6 +38,9 @@ class ExecutePolicyV2Request extends Model
     public $ruleId;
 
     /**
+     * @description Data source type, with the value range as follows:
+     *
+     * - **UDM_ECS**: Represents ECS full machine backup.
      * @example UDM_ECS
      *
      * @var string

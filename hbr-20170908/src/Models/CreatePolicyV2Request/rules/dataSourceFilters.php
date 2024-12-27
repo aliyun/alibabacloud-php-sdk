@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class dataSourceFilters extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
      * @var string[]
      */
     public $dataSourceIds;
 
     /**
+     * @description The type of the data source. Valid value:
+     *
+     *   **UDM_ECS**: Elastic Compute Service (ECS) instance This type of data source is supported only if the **RuleType** parameter is set to **UDM_ECS_ONLY**.
+     *   **OSS**: Object Storage Service (OSS) bucket This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+     *   **NAS**: File Storage NAS (NAS) file system This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+     *   **ECS_FILE**: ECS file This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+     *   **OTS**: Tablestore instance This type of data source is supported only if the **RuleType** parameter is set to **STANDARD**.
+     *
      * @example UDM_ECS
      *
      * @var string

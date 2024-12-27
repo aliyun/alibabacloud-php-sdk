@@ -80,6 +80,10 @@ class detail extends Model
     public $doCopy;
 
     /**
+     * @description ECS instance information, including ECS instance name, instance type, etc.
+     *
+     * @example {
+     * }
      * @var mixed[]
      */
     public $instanceInfos;

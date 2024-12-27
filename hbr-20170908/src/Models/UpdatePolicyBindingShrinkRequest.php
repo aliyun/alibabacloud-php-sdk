@@ -38,6 +38,8 @@ class UpdatePolicyBindingShrinkRequest extends Model
     public $disabled;
 
     /**
+     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files that do not need to be backed up. No files of the specified type are backed up. The value can be up to 255 characters in length.
+     *
      * @example [\\"*.doc\\",\\"*.xltm\\"]
      *
      * @var string
@@ -45,6 +47,8 @@ class UpdatePolicyBindingShrinkRequest extends Model
     public $exclude;
 
     /**
+     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the type of files to be backed up. All files of the specified type are backed up. The value can be up to 255 characters in length.
+     *
      * @example [\\"*.doc\\",\\"*.xltm\\"]
      *
      * @var string
@@ -71,6 +75,9 @@ class UpdatePolicyBindingShrinkRequest extends Model
     public $policyId;
 
     /**
+     * @description *   If the SourceType parameter is set to **OSS**, set the Source parameter to the prefix of the path to the folder that you want to back up. If you do not specify the Source parameter, the entire bucket (root directory) is backed up.
+     *   If the SourceType parameter is set to **ECS_FILE** or **File**, set the Source parameter to the path to the files that you want to back up. If you do not specify the Source parameter, all paths backed up.
+     *
      * @example backup/
      *
      * @var string
@@ -90,6 +97,12 @@ class UpdatePolicyBindingShrinkRequest extends Model
     public $sourceType;
 
     /**
+     * @description This parameter is required only if you set the **SourceType** parameter to **ECS_FILE** or **File**. This parameter specifies the throttling rules. Format: `{start}{end}{bandwidth}`. Separate multiple throttling rules with vertical bars (|). The time ranges of the throttling rules cannot overlap.
+     *
+     *   **start**: the start hour.
+     *   **end**: the end hour.
+     *   **bandwidth**: the bandwidth. Unit: KB/s.
+     *
      * @example 0:24:5120
      *
      * @var string

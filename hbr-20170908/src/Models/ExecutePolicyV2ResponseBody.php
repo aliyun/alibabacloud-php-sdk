@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExecutePolicyV2ResponseBody extends Model
 {
     /**
+     * @description Return code, 200 indicates success.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class ExecutePolicyV2ResponseBody extends Model
     public $code;
 
     /**
+     * @description Backup job ID.
+     *
      * @example job-*********************
      *
      * @var string
@@ -23,6 +27,8 @@ class ExecutePolicyV2ResponseBody extends Model
     public $jobId;
 
     /**
+     * @description Description of the return message, usually returns \\"successful\\" on success, and corresponding error messages on failure.
+     *
      * @example successful
      *
      * @var string
@@ -30,6 +36,8 @@ class ExecutePolicyV2ResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID.
+     *
      * @example F4EEB401-DD21-588D-AE3B-1E835C7655E1
      *
      * @var string
@@ -37,6 +45,9 @@ class ExecutePolicyV2ResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * - false: Failure
      * @example true
      *
      * @var bool

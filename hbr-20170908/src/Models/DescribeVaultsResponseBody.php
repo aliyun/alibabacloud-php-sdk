@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVaultsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code. The status code 200 indicates that the call is successful.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeVaultsResponseBody extends Model
     public $code;
 
     /**
+     * @description The message that is returned. If the call is successful, "successful" is returned. If the call fails, an error message is returned.
+     *
      * @example successful
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeVaultsResponseBody extends Model
     public $message;
 
     /**
+     * @description Page number for pagination, starting from 1. The default value is 1.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeVaultsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description Page size, with a minimum value of 1, a maximum value of 99, and a default value of 10.
+     *
      * @example 10
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVaultsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -45,6 +55,8 @@ class DescribeVaultsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the request was successful.
+     * - true: Success - false: Failure
      * @example true
      *
      * @var bool
@@ -52,6 +64,8 @@ class DescribeVaultsResponseBody extends Model
     public $success;
 
     /**
+     * @description Returns the total number of backup repositories.
+     *
      * @example 8
      *
      * @var int

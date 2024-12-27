@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateContainerClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Cluster ID.
      *
+     * This parameter is required.
      * @example cc-000**************134
      *
      * @var string
@@ -18,6 +19,8 @@ class UpdateContainerClusterRequest extends Model
     public $clusterId;
 
     /**
+     * @description Cluster description.
+     *
      * @example description ack pv backup
      *
      * @var string
@@ -25,6 +28,8 @@ class UpdateContainerClusterRequest extends Model
     public $description;
 
     /**
+     * @description Cluster name.
+     *
      * @example ack_pv_backup_location
      *
      * @var string
@@ -32,6 +37,10 @@ class UpdateContainerClusterRequest extends Model
     public $name;
 
     /**
+     * @description Network type, with possible values including:
+     * **CLASSIC**: Classic Network.
+     * **VPC**: Virtual Private Cloud.
+     *
      * @example VPC
      *
      * @var string
@@ -39,6 +48,8 @@ class UpdateContainerClusterRequest extends Model
     public $networkType;
 
     /**
+     * @description Whether to regenerate the token.
+     *
      * @example false
      *
      * @var bool

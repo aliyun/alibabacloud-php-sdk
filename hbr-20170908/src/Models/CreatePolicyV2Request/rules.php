@@ -21,11 +21,17 @@ class rules extends Model
     public $backupType;
 
     /**
+     * @description This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the data source filter rule.
+     *
      * @var dataSourceFilters[]
      */
     public $dataSourceFilters;
 
     /**
+     * @description This parameter is required only if the **PolicyType** parameter is set to **UDM_ECS_ONLY**. This parameter specifies whether to enable the immutable backup feature.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $immutable;
@@ -97,11 +103,15 @@ class rules extends Model
     public $schedule;
 
     /**
+     * @description This parameter is required only if the **RuleType** parameter is set to **TAG**. This parameter specifies the resource tag filter rule.
+     *
      * @var tagFilters[]
      */
     public $tagFilters;
 
     /**
+     * @description This parameter is required only if the RuleType parameter is set to BACKUP. The ID of the backup vault.
+     *
      * @example v-0001************aseg
      *
      * @var string

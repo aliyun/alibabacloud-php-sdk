@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupPlanResponseBody extends Model
 {
     /**
-     * @description The HTTP status code. The status code 200 indicates that the request is successful.
+     * @description Return code, 200 indicates success.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class CreateBackupPlanResponseBody extends Model
     public $code;
 
     /**
-     * @description The message that is returned. If the request is successful, a value of successful is returned. If the request fails, an error message is returned.
+     * @description Description of the return message, usually returns \\"successful\\" upon success, and corresponding error messages in case of failure.
      *
      * @example successful
      *
@@ -27,7 +27,7 @@ class CreateBackupPlanResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the backup schedule.
+     * @description Backup plan ID.
      *
      * @example plan-*********************
      *
@@ -36,7 +36,7 @@ class CreateBackupPlanResponseBody extends Model
     public $planId;
 
     /**
-     * @description The ID of the request.
+     * @description Request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -45,11 +45,9 @@ class CreateBackupPlanResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Whether the request was successful.
      *
-     *   true: The request is successful.
-     *   false: The request fails.
-     *
+     * - false: Failure.
      * @example true
      *
      * @var bool

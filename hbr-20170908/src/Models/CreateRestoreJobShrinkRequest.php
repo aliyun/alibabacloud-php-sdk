@@ -48,6 +48,8 @@ class CreateRestoreJobShrinkRequest extends Model
     public $exclude;
 
     /**
+     * @description Details of restoration to local.
+     *
      * @var string
      */
     public $failbackDetailShrink;
@@ -71,6 +73,10 @@ class CreateRestoreJobShrinkRequest extends Model
     public $initiatedByAck;
 
     /**
+     * @description Parameters for restoring a task
+     *
+     * @example {\\"includes\\":[],\\"excludes\\":[],\\"conflictPolicy\\":\\"OVERWRITE_EXISTING\\"}
+     *
      * @var string
      */
     public $options;

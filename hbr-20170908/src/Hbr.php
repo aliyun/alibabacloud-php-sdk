@@ -45,6 +45,9 @@ use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateTempFileUploadUrlRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateTempFileUploadUrlResponse;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateVaultRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\CreateVaultResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteAirEcsInstanceRequest;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteAirEcsInstanceResponse;
+use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteAirEcsInstanceShrinkRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteBackupClientRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteBackupClientResourceRequest;
 use AlibabaCloud\SDK\Hbr\V20170908\Models\DeleteBackupClientResourceResponse;
@@ -632,12 +635,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Creates a backup plan.
+     * @summary Create a backup plan.
      *  *
-     * @description *   A backup schedule defines the data source, backup policy, and other configurations. After you execute a backup schedule, a backup job is generated to record the backup progress and the backup result. If a backup job is complete, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     * *   You can specify only one type of data source in a backup schedule.
-     * *   You can specify only one interval as a backup cycle in a backup schedule.
-     * *   Each backup schedule allows you to back up data to only one backup vault.
+     * @description - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
+     * - A backup plan supports only one type of data source.
+     * - A backup plan supports only a single fixed interval backup cycle strategy.
+     * - A backup plan can back up to only one backup vault.
      *  *
      * @param CreateBackupPlanRequest $tmpReq  CreateBackupPlanRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -770,12 +773,12 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Creates a backup plan.
+     * @summary Create a backup plan.
      *  *
-     * @description *   A backup schedule defines the data source, backup policy, and other configurations. After you execute a backup schedule, a backup job is generated to record the backup progress and the backup result. If a backup job is complete, a backup snapshot is generated. You can use a backup snapshot to create a restore job.
-     * *   You can specify only one type of data source in a backup schedule.
-     * *   You can specify only one interval as a backup cycle in a backup schedule.
-     * *   Each backup schedule allows you to back up data to only one backup vault.
+     * @description - A backup plan associates data sources with backup policies and other necessary information for backups. After the execution of a backup plan, it generates a backup task that records the progress and results of the backup. If the backup task is successful, a backup snapshot is created. You can use the backup snapshot to create a recovery task.
+     * - A backup plan supports only one type of data source.
+     * - A backup plan supports only a single fixed interval backup cycle strategy.
+     * - A backup plan can back up to only one backup vault.
      *  *
      * @param CreateBackupPlanRequest $request CreateBackupPlanRequest
      *
@@ -789,7 +792,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Installs one or more HBR clients on specified instances.
+     * @summary Installs one or more Cloud Backup clients on specified instances.
      *  *
      * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
      *  *
@@ -845,7 +848,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Installs one or more HBR clients on specified instances.
+     * @summary Installs one or more Cloud Backup clients on specified instances.
      *  *
      * @description Before you call this operation, make sure that you fully understand the billing methods and pricing of Cloud Backup. For more information, see [Billing methods and billable items](https://help.aliyun.com/document_detail/89062.html).
      *  *
@@ -1617,6 +1620,61 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * @summary Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+     *  *
+     * @param DeleteAirEcsInstanceRequest $tmpReq  DeleteAirEcsInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAirEcsInstanceResponse DeleteAirEcsInstanceResponse
+     */
+    public function deleteAirEcsInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteAirEcsInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->uninstallClientSourceTypes)) {
+            $request->uninstallClientSourceTypesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->uninstallClientSourceTypes, 'UninstallClientSourceTypes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->ecsInstanceId)) {
+            $query['EcsInstanceId'] = $request->ecsInstanceId;
+        }
+        if (!Utils::isUnset($request->uninstallClientSourceTypesShrink)) {
+            $query['UninstallClientSourceTypes'] = $request->uninstallClientSourceTypesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAirEcsInstance',
+            'version'     => '2017-09-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAirEcsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Removes the Elastic Compute Service (ECS) instance that is used for restoration only in ECS Backup Essential Edition.
+     *  *
+     * @param DeleteAirEcsInstanceRequest $request DeleteAirEcsInstanceRequest
+     *
+     * @return DeleteAirEcsInstanceResponse DeleteAirEcsInstanceResponse
+     */
+    public function deleteAirEcsInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAirEcsInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Deletes a Cloud Backup client.
      *  *
      * @description *   You cannot delete the active Cloud Backup clients that receive heartbeat packets within 1 hour. You can call the UninstallBackupClients operation to uninstall a Cloud Backup client. Then, the client becomes inactive.
@@ -2139,7 +2197,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary 取消保护云盘
+     * @summary Cancels a protected disk.
      *  *
      * @param DeleteUdmDiskRequest $request DeleteUdmDiskRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2172,7 +2230,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary 取消保护云盘
+     * @summary Cancels a protected disk.
      *  *
      * @param DeleteUdmDiskRequest $request DeleteUdmDiskRequest
      *
@@ -3276,7 +3334,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more data sources bound to a backup policy or queries one or more backup policies bound to a data source.
+     * @summary Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
      *  *
      * @param DescribePolicyBindingsRequest $tmpReq  DescribePolicyBindingsRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -3331,7 +3389,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Queries one or more data sources bound to a backup policy or queries one or more backup policies bound to a data source.
+     * @summary Query one or more data sources bound to a policy, or query one or more policies bound to a data source.
      *  *
      * @param DescribePolicyBindingsRequest $request DescribePolicyBindingsRequest
      *
@@ -3739,7 +3797,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a mount target that is created by Hybrid Backup Recovery (HBR).
+     * @summary Deletes an internal mount target created by Cloud Backup.
      *  *
      * @description *   If the request is successful, the mount target is deleted.
      * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
@@ -3787,7 +3845,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a mount target that is created by Hybrid Backup Recovery (HBR).
+     * @summary Deletes an internal mount target created by Cloud Backup.
      *  *
      * @description *   If the request is successful, the mount target is deleted.
      * *   After you create a backup plan for an Apsara File Storage NAS file system, HBR automatically creates a mount target for the file system. You can call this operation to delete the mount target. In the **Status** column of the mount target of the NAS file system, the following information is displayed: **This mount target is created by an Alibaba Cloud internal service and cannot be operated. Service name: HBR**.
@@ -4094,6 +4152,8 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * @summary Execute a policy for one or all bound data sources.
+     *  *
      * @param ExecutePolicyV2Request $request ExecutePolicyV2Request
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -4136,6 +4196,8 @@ class Hbr extends OpenApiClient
     }
 
     /**
+     * @summary Execute a policy for one or all bound data sources.
+     *  *
      * @param ExecutePolicyV2Request $request ExecutePolicyV2Request
      *
      * @return ExecutePolicyV2Response ExecutePolicyV2Response
@@ -4868,7 +4930,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Updates the name and network type of a Container Service for Kubernetes (ACK) cluster.
+     * @summary Update container cluster information, including the container cluster name, network type, etc.
      *  *
      * @param UpdateContainerClusterRequest $request UpdateContainerClusterRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -4913,7 +4975,7 @@ class Hbr extends OpenApiClient
     }
 
     /**
-     * @summary Updates the name and network type of a Container Service for Kubernetes (ACK) cluster.
+     * @summary Update container cluster information, including the container cluster name, network type, etc.
      *  *
      * @param UpdateContainerClusterRequest $request UpdateContainerClusterRequest
      *

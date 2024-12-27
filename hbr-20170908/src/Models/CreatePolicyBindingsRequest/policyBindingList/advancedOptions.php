@@ -35,7 +35,7 @@ class advancedOptions extends Model
     public $fileDetail;
 
     /**
-     * @description The advanced options for OSS backup.
+     * @description The advanced options for Object Storage Service (OSS) backup.
      *
      * @var ossDetail
      */

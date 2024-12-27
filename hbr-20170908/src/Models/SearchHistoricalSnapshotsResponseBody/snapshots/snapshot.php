@@ -29,6 +29,8 @@ class snapshot extends Model
     public $actualItems;
 
     /**
+     * @description Time to archive
+     *
      * @example 1640334062
      *
      * @var int
@@ -117,6 +119,8 @@ class snapshot extends Model
     public $errorFile;
 
     /**
+     * @description Backup paths not included in the backup job.
+     *
      * @example [\\"/test/example_cn-hangzhou_7.txt\\", \\"/test/example_cn-hangzhou_1.txt\\", \\"/test/example_cn-hangzhou_3.txt\\", \\"/test/example_cn-hangzhou_9.txt\\", \\"/test/example_cn-hangzhou_6.txt\\"]
      *
      * @var string
@@ -142,6 +146,8 @@ class snapshot extends Model
     public $fileSystemId;
 
     /**
+     * @description Backup paths included in the backup job.
+     *
      * @example [\\"/test/example_cn-huhehaote_3.txt\\", \\"/test/example_cn-huhehaote_9.txt\\", \\"/test/example_cn-huhehaote_5.txt\\", \\"/test/example_cn-huhehaote_1.txt\\", \\"/test/example_cn-huhehaote_7.txt\\"]
      *
      * @var string
@@ -277,6 +283,8 @@ class snapshot extends Model
     public $snapshotId;
 
     /**
+     * @description Parent snapshot HASH value before archiving.
+     *
      * @example qwer***
      *
      * @var string
@@ -284,6 +292,8 @@ class snapshot extends Model
     public $sourceParentSnapshotHash;
 
     /**
+     * @description Snapshot HASH value before archiving
+     *
      * @example qwer***
      *
      * @var string
@@ -326,6 +336,10 @@ class snapshot extends Model
     public $status;
 
     /**
+     * @description Storage type. Values:
+     * - **Standard**: Standard.
+     * - **Archive**: Archive.
+     * - **ColdArchive**: Cold Archive.
      * @example STANDARD
      *
      * @var string
@@ -351,6 +365,8 @@ class snapshot extends Model
     public $updatedTime;
 
     /**
+     * @description Whether to use local NAS.
+     *
      * @example false
      *
      * @var bool

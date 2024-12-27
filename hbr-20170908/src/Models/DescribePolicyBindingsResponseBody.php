@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyBindingsResponseBody extends Model
 {
     /**
+     * @description Return code, 200 indicates success.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,9 @@ class DescribePolicyBindingsResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of results per query.
+     *
+     * Range: 10~100. Default: 10.
      * @example 10
      *
      * @var int
@@ -24,6 +29,8 @@ class DescribePolicyBindingsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description Description of the return message. A successful response usually returns \\"successful\\", while an error will return a corresponding error message.
+     *
      * @example successful
      *
      * @var string
@@ -31,6 +38,8 @@ class DescribePolicyBindingsResponseBody extends Model
     public $message;
 
     /**
+     * @description The token required to fetch the next page of policy and data source bindings.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a
      *
      * @var string
@@ -38,13 +47,15 @@ class DescribePolicyBindingsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The association between the backup policy and data sources.
+     * @description List of bound policies.
      *
      * @var policyBindings[]
      */
     public $policyBindings;
 
     /**
+     * @description Request ID.
+     *
      * @example 5225929A-4EBD-55EE-9FE1-4A130E582A76
      *
      * @var string
@@ -52,6 +63,9 @@ class DescribePolicyBindingsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * - false: Failure
      * @example true
      *
      * @var bool
@@ -59,6 +73,8 @@ class DescribePolicyBindingsResponseBody extends Model
     public $success;
 
     /**
+     * @description Total number of records.
+     *
      * @example 38
      *
      * @var int
