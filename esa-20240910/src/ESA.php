@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ActivateClientCertificateResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ApplyCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchCreateRecordsShrinkRequest;
@@ -55,6 +57,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\CreateKvNamespaceResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateListShrinkRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginPoolShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateOriginProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreatePageRequest;
@@ -111,6 +116,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginPoolRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeleteOriginProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DeletePageRequest;
@@ -166,6 +173,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ExportRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCacheReserveSpecificationResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateQuotaResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCaCertificateResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetClientCertificateHostnamesRequest;
@@ -193,6 +202,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetKvResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginPoolResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetOriginProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetPageRequest;
@@ -236,6 +247,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCacheReserveInstancesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCertificatesRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListCertificatesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCiphersRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListCiphersResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListClientCaCertificatesRequest;
@@ -266,6 +279,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerRegionsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListLoadBalancerRegionsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListManagedRulesGroupsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListManagedRulesGroupsResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsRequest;
@@ -349,6 +364,9 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateCustomScenePolicyResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateKvNamespaceResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginPoolShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionIpWhiteListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionIpWhiteListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\UpdateOriginProtectionRequest;
@@ -480,6 +498,50 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->activateClientCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 申请免费证书
+     *  *
+     * @param ApplyCertificateRequest $request ApplyCertificateRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ApplyCertificateResponse ApplyCertificateResponse
+     */
+    public function applyCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ApplyCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ApplyCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 申请免费证书
+     *  *
+     * @param ApplyCertificateRequest $request ApplyCertificateRequest
+     *
+     * @return ApplyCertificateResponse ApplyCertificateResponse
+     */
+    public function applyCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->applyCertificateWithOptions($request, $runtime);
     }
 
     /**
@@ -1869,6 +1931,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 新增源地址池
+     *  *
+     * @param CreateOriginPoolRequest $tmpReq  CreateOriginPoolRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateOriginPoolResponse CreateOriginPoolResponse
+     */
+    public function createOriginPoolWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateOriginPoolShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->origins)) {
+            $request->originsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->origins, 'Origins', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->originsShrink)) {
+            $query['Origins'] = $request->originsShrink;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOriginPool',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新增源地址池
+     *  *
+     * @param CreateOriginPoolRequest $request CreateOriginPoolRequest
+     *
+     * @return CreateOriginPoolResponse CreateOriginPoolResponse
+     */
+    public function createOriginPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOriginPoolWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Enables origin protection.
      *  *
      * @param CreateOriginProtectionRequest $request CreateOriginProtectionRequest
@@ -2618,6 +2741,9 @@ class ESA extends OpenApiClient
         }
         if (!Utils::isUnset($request->deliveryType)) {
             $body['DeliveryType'] = $request->deliveryType;
+        }
+        if (!Utils::isUnset($request->details)) {
+            $body['Details'] = $request->details;
         }
         if (!Utils::isUnset($request->discardRate)) {
             $body['DiscardRate'] = $request->discardRate;
@@ -3413,6 +3539,56 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除源地址池
+     *  *
+     * @param DeleteOriginPoolRequest $request DeleteOriginPoolRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteOriginPoolResponse DeleteOriginPoolResponse
+     */
+    public function deleteOriginPoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteOriginPool',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除源地址池
+     *  *
+     * @param DeleteOriginPoolRequest $request DeleteOriginPoolRequest
+     *
+     * @return DeleteOriginPoolResponse DeleteOriginPoolResponse
+     */
+    public function deleteOriginPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteOriginPoolWithOptions($request, $runtime);
     }
 
     /**
@@ -4741,6 +4917,50 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary Queries certificate information about a website.
+     *  *
+     * @param GetCertificateRequest $request GetCertificateRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetCertificateResponse GetCertificateResponse
+     */
+    public function getCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCertificate',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries certificate information about a website.
+     *  *
+     * @param GetCertificateRequest $request GetCertificateRequest
+     *
+     * @return GetCertificateResponse GetCertificateResponse
+     */
+    public function getCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCertificateWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询证书quota及用量
      *  *
      * @param GetCertificateQuotaRequest $request GetCertificateQuotaRequest
@@ -5406,6 +5626,50 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询特定源地址池
+     *  *
+     * @param GetOriginPoolRequest $request GetOriginPoolRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetOriginPoolResponse GetOriginPoolResponse
+     */
+    public function getOriginPoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOriginPool',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询特定源地址池
+     *  *
+     * @param GetOriginPoolRequest $request GetOriginPoolRequest
+     *
+     * @return GetOriginPoolResponse GetOriginPoolResponse
+     */
+    public function getOriginPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOriginPoolWithOptions($request, $runtime);
     }
 
     /**
@@ -6476,6 +6740,50 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 查询站点下证书列表
+     *  *
+     * @param ListCertificatesRequest $request ListCertificatesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListCertificatesResponse ListCertificatesResponse
+     */
+    public function listCertificatesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCertificates',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCertificatesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询站点下证书列表
+     *  *
+     * @param ListCertificatesRequest $request ListCertificatesRequest
+     *
+     * @return ListCertificatesResponse ListCertificatesResponse
+     */
+    public function listCertificates($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCertificatesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询TLS密码套件列表
      *  *
      * @param ListCiphersRequest $request ListCiphersRequest
@@ -7172,6 +7480,50 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listManagedRulesGroupsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询源地址池列表
+     *  *
+     * @param ListOriginPoolsRequest $request ListOriginPoolsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListOriginPoolsResponse ListOriginPoolsResponse
+     */
+    public function listOriginPoolsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOriginPools',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOriginPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询源地址池列表
+     *  *
+     * @param ListOriginPoolsRequest $request ListOriginPoolsRequest
+     *
+     * @return ListOriginPoolsResponse ListOriginPoolsResponse
+     */
+    public function listOriginPools($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOriginPoolsWithOptions($request, $runtime);
     }
 
     /**
@@ -9350,6 +9702,67 @@ class ESA extends OpenApiClient
     }
 
     /**
+     * @summary 修改监视器
+     *  *
+     * @param UpdateOriginPoolRequest $tmpReq  UpdateOriginPoolRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateOriginPoolResponse UpdateOriginPoolResponse
+     */
+    public function updateOriginPoolWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateOriginPoolShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->origins)) {
+            $request->originsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->origins, 'Origins', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->enabled)) {
+            $query['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->originsShrink)) {
+            $query['Origins'] = $request->originsShrink;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateOriginPool',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateOriginPoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改监视器
+     *  *
+     * @param UpdateOriginPoolRequest $request UpdateOriginPoolRequest
+     *
+     * @return UpdateOriginPoolResponse UpdateOriginPoolResponse
+     */
+    public function updateOriginPool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateOriginPoolWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Enables or disables IP convergence.
      *  *
      * @param UpdateOriginProtectionRequest $request UpdateOriginProtectionRequest
@@ -10003,6 +10416,9 @@ class ESA extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->businessType)) {
             $body['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->details)) {
+            $body['Details'] = $request->details;
         }
         if (!Utils::isUnset($request->discardRate)) {
             $body['DiscardRate'] = $request->discardRate;

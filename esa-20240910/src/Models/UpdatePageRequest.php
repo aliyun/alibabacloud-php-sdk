@@ -34,6 +34,7 @@ class UpdatePageRequest extends Model
     /**
      * @description The description of the custom error page.
      *
+     * This parameter is required.
      * @example a custom deny page
      *
      * @var string

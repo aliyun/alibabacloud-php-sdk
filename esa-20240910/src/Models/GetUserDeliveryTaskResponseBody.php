@@ -51,6 +51,11 @@ class GetUserDeliveryTaskResponseBody extends Model
     public $deliveryType;
 
     /**
+     * @var string
+     */
+    public $details;
+
+    /**
      * @description The discard rate.
      *
      * @example 0
@@ -116,6 +121,7 @@ class GetUserDeliveryTaskResponseBody extends Model
         'businessType' => 'BusinessType',
         'dataCenter'   => 'DataCenter',
         'deliveryType' => 'DeliveryType',
+        'details'      => 'Details',
         'discardRate'  => 'DiscardRate',
         'fieldList'    => 'FieldList',
         'filterRules'  => 'FilterRules',
@@ -140,6 +146,9 @@ class GetUserDeliveryTaskResponseBody extends Model
         }
         if (null !== $this->deliveryType) {
             $res['DeliveryType'] = $this->deliveryType;
+        }
+        if (null !== $this->details) {
+            $res['Details'] = $this->details;
         }
         if (null !== $this->discardRate) {
             $res['DiscardRate'] = $this->discardRate;
@@ -182,6 +191,9 @@ class GetUserDeliveryTaskResponseBody extends Model
         }
         if (isset($map['DeliveryType'])) {
             $model->deliveryType = $map['DeliveryType'];
+        }
+        if (isset($map['Details'])) {
+            $model->details = $map['Details'];
         }
         if (isset($map['DiscardRate'])) {
             $model->discardRate = $map['DiscardRate'];

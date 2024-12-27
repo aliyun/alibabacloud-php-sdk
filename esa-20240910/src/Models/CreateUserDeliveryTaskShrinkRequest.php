@@ -47,6 +47,11 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
     public $deliveryType;
 
     /**
+     * @var string
+     */
+    public $details;
+
+    /**
      * @description The discard rate. Default value: 0.
      *
      * @example 0
@@ -113,6 +118,7 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
         'businessType'        => 'BusinessType',
         'dataCenter'          => 'DataCenter',
         'deliveryType'        => 'DeliveryType',
+        'details'             => 'Details',
         'discardRate'         => 'DiscardRate',
         'fieldName'           => 'FieldName',
         'httpDeliveryShrink'  => 'HttpDelivery',
@@ -138,6 +144,9 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
         }
         if (null !== $this->deliveryType) {
             $res['DeliveryType'] = $this->deliveryType;
+        }
+        if (null !== $this->details) {
+            $res['Details'] = $this->details;
         }
         if (null !== $this->discardRate) {
             $res['DiscardRate'] = $this->discardRate;
@@ -183,6 +192,9 @@ class CreateUserDeliveryTaskShrinkRequest extends Model
         }
         if (isset($map['DeliveryType'])) {
             $model->deliveryType = $map['DeliveryType'];
+        }
+        if (isset($map['Details'])) {
+            $model->details = $map['Details'];
         }
         if (isset($map['DiscardRate'])) {
             $model->discardRate = $map['DiscardRate'];

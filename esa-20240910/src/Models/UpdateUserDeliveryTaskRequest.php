@@ -23,6 +23,11 @@ class UpdateUserDeliveryTaskRequest extends Model
     public $businessType;
 
     /**
+     * @var string
+     */
+    public $details;
+
+    /**
      * @description The discard rate. Default value: 0.
      *
      * @example 0
@@ -52,6 +57,7 @@ class UpdateUserDeliveryTaskRequest extends Model
     public $taskName;
     protected $_name = [
         'businessType' => 'BusinessType',
+        'details'      => 'Details',
         'discardRate'  => 'DiscardRate',
         'fieldName'    => 'FieldName',
         'taskName'     => 'TaskName',
@@ -66,6 +72,9 @@ class UpdateUserDeliveryTaskRequest extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+        if (null !== $this->details) {
+            $res['Details'] = $this->details;
         }
         if (null !== $this->discardRate) {
             $res['DiscardRate'] = $this->discardRate;
@@ -90,6 +99,9 @@ class UpdateUserDeliveryTaskRequest extends Model
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
+        }
+        if (isset($map['Details'])) {
+            $model->details = $map['Details'];
         }
         if (isset($map['DiscardRate'])) {
             $model->discardRate = $map['DiscardRate'];
