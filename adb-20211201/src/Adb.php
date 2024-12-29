@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAccountResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsHiveJobRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateApsHiveJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAPSJobRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAPSJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterRequest;
@@ -35,6 +37,9 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateElasticPlanResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateLakeStorageRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateLakeStorageResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CreateLakeStorageShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateOssSubDirectoryRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateOssSubDirectoryResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreatePerformanceViewRequest;
@@ -44,6 +49,10 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSparkTemplateRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateSparkTemplateResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsDatasoureRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsDatasoureResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsJobRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteApsJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteBackupsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteBackupsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DeleteDBClusterRequest;
@@ -80,6 +89,22 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAllDataSourceRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAllDataSourceResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsActionLogsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsActionLogsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAPSADBInstancesRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAPSADBInstancesResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourceRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourceResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourcesRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsDatasourcesResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsHiveWorkloadRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsHiveWorkloadResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsJobDetailRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsJobDetailResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsJobsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsJobsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsMigrationWorkloadsRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsMigrationWorkloadsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsProgressRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsProgressResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsResourceGroupsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeApsResourceGroupsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeAuditLogRecordsRequest;
@@ -138,6 +163,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEssdCacheConfigRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeEssdCacheConfigResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExcessivePrimaryKeysRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeExcessivePrimaryKeysResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedNodesRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeInclinedNodesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeJobResourceUsageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeKernelVersionRequest;
@@ -190,10 +217,14 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkReplStatementRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExecuteSparkReplStatementResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetApsManagedDatabasesRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetApsManagedDatabasesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetCreateTableSQLRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetCreateTableSQLResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetDatabaseObjectsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetDatabaseObjectsResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetLakeStorageRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\GetLakeStorageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkAppAttemptLogRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkAppAttemptLogResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkAppInfoRequest;
@@ -242,6 +273,15 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkLogAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkLogAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\KillSparkSQLEngineResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsLifecycleStrategyRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsLifecycleStrategyResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsOptimizationStrategyRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsOptimizationStrategyResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsOptimizationTasksRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListApsOptimizationTasksResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListResultExportJobHistoryRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListResultExportJobHistoryResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ListResultExportJobHistoryShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkAppAttemptsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkAppAttemptsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ListSparkAppsRequest;
@@ -259,6 +299,13 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountPrivilegesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountPrivilegesResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAccountPrivilegesShrinkRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsDatasoureRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsDatasoureResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsDatasoureShrinkRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsJobRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsJobResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsWorkloadNameRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyApsWorkloadNameResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAuditLogConfigRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyAuditLogConfigResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyBackupPolicyRequest;
@@ -303,10 +350,14 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\RevokeOperatorPermissionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\RevokeOperatorPermissionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SetSparkAppLogRootPathRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SetSparkAppLogRootPathResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\StartApsJobRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\StartApsJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkReplSessionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkReplSessionResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkSQLEngineRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\StartSparkSQLEngineResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitResultExportJobRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitResultExportJobResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitSparkAppRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitSparkAppResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitSparkLogAnalyzeTaskRequest;
@@ -315,6 +366,9 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindAccountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindDBResourceGroupWithUserRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindDBResourceGroupWithUserResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateSparkTemplateFileRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateSparkTemplateFileResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -1037,6 +1091,89 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 创建Hive数据迁移链路。
+     *  *
+     * @param CreateApsHiveJobRequest $request CreateApsHiveJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateApsHiveJobResponse CreateApsHiveJobResponse
+     */
+    public function createApsHiveJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->advancedConfig)) {
+            $body['AdvancedConfig'] = $request->advancedConfig;
+        }
+        if (!Utils::isUnset($request->conflictStrategy)) {
+            $body['ConflictStrategy'] = $request->conflictStrategy;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->datasourceId)) {
+            $body['DatasourceId'] = $request->datasourceId;
+        }
+        if (!Utils::isUnset($request->fullComputeUnit)) {
+            $body['FullComputeUnit'] = $request->fullComputeUnit;
+        }
+        if (!Utils::isUnset($request->ossLocation)) {
+            $body['OssLocation'] = $request->ossLocation;
+        }
+        if (!Utils::isUnset($request->parallelism)) {
+            $body['Parallelism'] = $request->parallelism;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroup)) {
+            $body['ResourceGroup'] = $request->resourceGroup;
+        }
+        if (!Utils::isUnset($request->syncAllowExpression)) {
+            $body['SyncAllowExpression'] = $request->syncAllowExpression;
+        }
+        if (!Utils::isUnset($request->syncDenyExpression)) {
+            $body['SyncDenyExpression'] = $request->syncDenyExpression;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $body['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->workloadName)) {
+            $body['WorkloadName'] = $request->workloadName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApsHiveJob',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateApsHiveJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建Hive数据迁移链路。
+     *  *
+     * @param CreateApsHiveJobRequest $request CreateApsHiveJobRequest
+     *
+     * @return CreateApsHiveJobResponse CreateApsHiveJobResponse
+     */
+    public function createApsHiveJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApsHiveJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -1351,6 +1488,72 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 创建湖存储
+     *  *
+     * @param CreateLakeStorageRequest $tmpReq  CreateLakeStorageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateLakeStorageResponse CreateLakeStorageResponse
+     */
+    public function createLakeStorageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateLakeStorageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->permissions)) {
+            $request->permissionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permissions, 'Permissions', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->permissionsShrink)) {
+            $body['Permissions'] = $request->permissionsShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLakeStorage',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateLakeStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建湖存储
+     *  *
+     * @param CreateLakeStorageRequest $request CreateLakeStorageRequest
+     *
+     * @return CreateLakeStorageResponse CreateLakeStorageResponse
+     */
+    public function createLakeStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createLakeStorageWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates an Object Storage Service (OSS) subdirectory.
      *  *
      * @description *   General endpoint: `adb.aliyuncs.com`.
@@ -1609,6 +1812,109 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除APS数据源
+     *  *
+     * @param DeleteApsDatasoureRequest $request DeleteApsDatasoureRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteApsDatasoureResponse DeleteApsDatasoureResponse
+     */
+    public function deleteApsDatasoureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->datasourceId)) {
+            $body['DatasourceId'] = $request->datasourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApsDatasoure',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApsDatasoureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除APS数据源
+     *  *
+     * @param DeleteApsDatasoureRequest $request DeleteApsDatasoureRequest
+     *
+     * @return DeleteApsDatasoureResponse DeleteApsDatasoureResponse
+     */
+    public function deleteApsDatasoure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApsDatasoureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除aps任务
+     *  *
+     * @param DeleteApsJobRequest $request DeleteApsJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteApsJobResponse DeleteApsJobResponse
+     */
+    public function deleteApsJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apsJobId)) {
+            $body['ApsJobId'] = $request->apsJobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApsJob',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除aps任务
+     *  *
+     * @param DeleteApsJobRequest $request DeleteApsJobRequest
+     *
+     * @return DeleteApsJobResponse DeleteApsJobResponse
+     */
+    public function deleteApsJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApsJobWithOptions($request, $runtime);
     }
 
     /**
@@ -2086,6 +2392,50 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSparkTemplateFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取APS联邦分析ADB实例列表
+     *  *
+     * @param DescribeAPSADBInstancesRequest $request DescribeAPSADBInstancesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAPSADBInstancesResponse DescribeAPSADBInstancesResponse
+     */
+    public function describeAPSADBInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAPSADBInstances',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAPSADBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取APS联邦分析ADB实例列表
+     *  *
+     * @param DescribeAPSADBInstancesRequest $request DescribeAPSADBInstancesRequest
+     *
+     * @return DescribeAPSADBInstancesResponse DescribeAPSADBInstancesResponse
+     */
+    public function describeAPSADBInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAPSADBInstancesWithOptions($request, $runtime);
     }
 
     /**
@@ -2735,6 +3085,410 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeApsActionLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询APS数据源详情
+     *  *
+     * @param DescribeApsDatasourceRequest $request DescribeApsDatasourceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApsDatasourceResponse DescribeApsDatasourceResponse
+     */
+    public function describeApsDatasourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->datasourceId)) {
+            $body['DatasourceId'] = $request->datasourceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApsDatasource',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApsDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询APS数据源详情
+     *  *
+     * @param DescribeApsDatasourceRequest $request DescribeApsDatasourceRequest
+     *
+     * @return DescribeApsDatasourceResponse DescribeApsDatasourceResponse
+     */
+    public function describeApsDatasource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApsDatasourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询APS数据源列表
+     *  *
+     * @param DescribeApsDatasourcesRequest $request DescribeApsDatasourcesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApsDatasourcesResponse DescribeApsDatasourcesResponse
+     */
+    public function describeApsDatasourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->datasourceName)) {
+            $body['DatasourceName'] = $request->datasourceName;
+        }
+        if (!Utils::isUnset($request->datasourceType)) {
+            $body['DatasourceType'] = $request->datasourceType;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApsDatasources',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApsDatasourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询APS数据源列表
+     *  *
+     * @param DescribeApsDatasourcesRequest $request DescribeApsDatasourcesRequest
+     *
+     * @return DescribeApsDatasourcesResponse DescribeApsDatasourcesResponse
+     */
+    public function describeApsDatasources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApsDatasourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询APS Hive工作负载
+     *  *
+     * @param DescribeApsHiveWorkloadRequest $request DescribeApsHiveWorkloadRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApsHiveWorkloadResponse DescribeApsHiveWorkloadResponse
+     */
+    public function describeApsHiveWorkloadWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workloadId)) {
+            $body['WorkloadId'] = $request->workloadId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApsHiveWorkload',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApsHiveWorkloadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询APS Hive工作负载
+     *  *
+     * @param DescribeApsHiveWorkloadRequest $request DescribeApsHiveWorkloadRequest
+     *
+     * @return DescribeApsHiveWorkloadResponse DescribeApsHiveWorkloadResponse
+     */
+    public function describeApsHiveWorkload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApsHiveWorkloadWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary DescribeApsJobDetail。
+     *  *
+     * @param DescribeApsJobDetailRequest $request DescribeApsJobDetailRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApsJobDetailResponse DescribeApsJobDetailResponse
+     */
+    public function describeApsJobDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apsJobId)) {
+            $body['ApsJobId'] = $request->apsJobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApsJobDetail',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApsJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DescribeApsJobDetail。
+     *  *
+     * @param DescribeApsJobDetailRequest $request DescribeApsJobDetailRequest
+     *
+     * @return DescribeApsJobDetailResponse DescribeApsJobDetailResponse
+     */
+    public function describeApsJobDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApsJobDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询一站式链路列表
+     *  *
+     * @param DescribeApsJobsRequest $request DescribeApsJobsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApsJobsResponse DescribeApsJobsResponse
+     */
+    public function describeApsJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apsJobName)) {
+            $body['ApsJobName'] = $request->apsJobName;
+        }
+        if (!Utils::isUnset($request->createTimeEnd)) {
+            $body['CreateTimeEnd'] = $request->createTimeEnd;
+        }
+        if (!Utils::isUnset($request->createTimeStart)) {
+            $body['CreateTimeStart'] = $request->createTimeStart;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApsJobs',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询一站式链路列表
+     *  *
+     * @param DescribeApsJobsRequest $request DescribeApsJobsRequest
+     *
+     * @return DescribeApsJobsResponse DescribeApsJobsResponse
+     */
+    public function describeApsJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApsJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询APS迁移任务列表。
+     *  *
+     * @param DescribeApsMigrationWorkloadsRequest $request DescribeApsMigrationWorkloadsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApsMigrationWorkloadsResponse DescribeApsMigrationWorkloadsResponse
+     */
+    public function describeApsMigrationWorkloadsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ossLocation)) {
+            $body['OssLocation'] = $request->ossLocation;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->workloadName)) {
+            $body['WorkloadName'] = $request->workloadName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApsMigrationWorkloads',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApsMigrationWorkloadsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询APS迁移任务列表。
+     *  *
+     * @param DescribeApsMigrationWorkloadsRequest $request DescribeApsMigrationWorkloadsRequest
+     *
+     * @return DescribeApsMigrationWorkloadsResponse DescribeApsMigrationWorkloadsResponse
+     */
+    public function describeApsMigrationWorkloads($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApsMigrationWorkloadsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询aps任务进展。
+     *  *
+     * @param DescribeApsProgressRequest $request DescribeApsProgressRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeApsProgressResponse DescribeApsProgressResponse
+     */
+    public function describeApsProgressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workloadId)) {
+            $body['WorkloadId'] = $request->workloadId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApsProgress',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApsProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询aps任务进展。
+     *  *
+     * @param DescribeApsProgressRequest $request DescribeApsProgressRequest
+     *
+     * @return DescribeApsProgressResponse DescribeApsProgressResponse
+     */
+    public function describeApsProgress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApsProgressWithOptions($request, $runtime);
     }
 
     /**
@@ -4541,6 +5295,71 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 查询存储节点磁盘水位
+     *  *
+     * @param DescribeInclinedNodesRequest $request DescribeInclinedNodesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeInclinedNodesResponse DescribeInclinedNodesResponse
+     */
+    public function describeInclinedNodesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInclinedNodes',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInclinedNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询存储节点磁盘水位
+     *  *
+     * @param DescribeInclinedNodesRequest $request DescribeInclinedNodesRequest
+     *
+     * @return DescribeInclinedNodesResponse DescribeInclinedNodesResponse
+     */
+    public function describeInclinedNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInclinedNodesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取作业资源使用统计
      *  *
      * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -6106,6 +6925,56 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 获取当前ADB实例管理的所有Aps任务生成的湖存储数据库列表，主要用于在创建生命周期管理策略时，获取库列表信息。
+     *  *
+     * @param GetApsManagedDatabasesRequest $request GetApsManagedDatabasesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetApsManagedDatabasesResponse GetApsManagedDatabasesResponse
+     */
+    public function getApsManagedDatabasesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApsManagedDatabases',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApsManagedDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取当前ADB实例管理的所有Aps任务生成的湖存储数据库列表，主要用于在创建生命周期管理策略时，获取库列表信息。
+     *  *
+     * @param GetApsManagedDatabasesRequest $request GetApsManagedDatabasesRequest
+     *
+     * @return GetApsManagedDatabasesResponse GetApsManagedDatabasesResponse
+     */
+    public function getApsManagedDatabases($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApsManagedDatabasesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the table creation statement for tables.
      *  *
      * @param GetCreateTableSQLRequest $request GetCreateTableSQLRequest
@@ -6242,6 +7111,61 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDatabaseObjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取湖存储
+     *  *
+     * @param GetLakeStorageRequest $request GetLakeStorageRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetLakeStorageResponse GetLakeStorageResponse
+     */
+    public function getLakeStorageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->lakeStorageId)) {
+            $query['LakeStorageId'] = $request->lakeStorageId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLakeStorage',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLakeStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取湖存储
+     *  *
+     * @param GetLakeStorageRequest $request GetLakeStorageRequest
+     *
+     * @return GetLakeStorageResponse GetLakeStorageResponse
+     */
+    public function getLakeStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLakeStorageWithOptions($request, $runtime);
     }
 
     /**
@@ -7695,6 +8619,265 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 获取当前ADB实例生命周期管理策略列表
+     *  *
+     * @param ListApsLifecycleStrategyRequest $request ListApsLifecycleStrategyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListApsLifecycleStrategyResponse ListApsLifecycleStrategyResponse
+     */
+    public function listApsLifecycleStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApsLifecycleStrategy',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApsLifecycleStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取当前ADB实例生命周期管理策略列表
+     *  *
+     * @param ListApsLifecycleStrategyRequest $request ListApsLifecycleStrategyRequest
+     *
+     * @return ListApsLifecycleStrategyResponse ListApsLifecycleStrategyResponse
+     */
+    public function listApsLifecycleStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApsLifecycleStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取当前ADB实例湖存储优化策略列表。
+     *  *
+     * @param ListApsOptimizationStrategyRequest $request ListApsOptimizationStrategyRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListApsOptimizationStrategyResponse ListApsOptimizationStrategyResponse
+     */
+    public function listApsOptimizationStrategyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApsOptimizationStrategy',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApsOptimizationStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取当前ADB实例湖存储优化策略列表。
+     *  *
+     * @param ListApsOptimizationStrategyRequest $request ListApsOptimizationStrategyRequest
+     *
+     * @return ListApsOptimizationStrategyResponse ListApsOptimizationStrategyResponse
+     */
+    public function listApsOptimizationStrategy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApsOptimizationStrategyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取指定类型湖存储优化策略执行过的任务列表。湖存储优化策略会周期性调度执行优化任务。
+     *  *
+     * @param ListApsOptimizationTasksRequest $request ListApsOptimizationTasksRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListApsOptimizationTasksResponse ListApsOptimizationTasksResponse
+     */
+    public function listApsOptimizationTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->strategyType)) {
+            $body['StrategyType'] = $request->strategyType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApsOptimizationTasks',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApsOptimizationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取指定类型湖存储优化策略执行过的任务列表。湖存储优化策略会周期性调度执行优化任务。
+     *  *
+     * @param ListApsOptimizationTasksRequest $request ListApsOptimizationTasksRequest
+     *
+     * @return ListApsOptimizationTasksResponse ListApsOptimizationTasksResponse
+     */
+    public function listApsOptimizationTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApsOptimizationTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
+     *  *
+     * @param ListResultExportJobHistoryRequest $tmpReq  ListResultExportJobHistoryRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListResultExportJobHistoryResponse ListResultExportJobHistoryResponse
+     */
+    public function listResultExportJobHistoryWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListResultExportJobHistoryShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->order)) {
+            $request->orderShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->order, 'Order', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->statusList)) {
+            $request->statusListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'StatusList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->databaseUser)) {
+            $body['DatabaseUser'] = $request->databaseUser;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->orderShrink)) {
+            $body['Order'] = $request->orderShrink;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroup)) {
+            $body['ResourceGroup'] = $request->resourceGroup;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statusListShrink)) {
+            $body['StatusList'] = $request->statusListShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResultExportJobHistory',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResultExportJobHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
+     *  *
+     * @param ListResultExportJobHistoryRequest $request ListResultExportJobHistoryRequest
+     *
+     * @return ListResultExportJobHistoryResponse ListResultExportJobHistoryResponse
+     */
+    public function listResultExportJobHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResultExportJobHistoryWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the information about retry attempts of a Spark application.
      *  *
      * @description *   Regional public endpoint: `adb.<region-id>.aliyuncs.com`. Example: `adb.cn-hangzhou.aliyuncs.com`.
@@ -8171,6 +9354,209 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAccountPrivilegesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 编辑APS数据源
+     *  *
+     * @param ModifyApsDatasoureRequest $tmpReq  ModifyApsDatasoureRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApsDatasoureResponse ModifyApsDatasoureResponse
+     */
+    public function modifyApsDatasoureWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ModifyApsDatasoureShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->kafkaInfo)) {
+            $request->kafkaInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->kafkaInfo, 'KafkaInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->lakehouseId)) {
+            $request->lakehouseIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lakehouseId, 'LakehouseId', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->polarDBMysqlInfo)) {
+            $request->polarDBMysqlInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->polarDBMysqlInfo, 'PolarDBMysqlInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->rdsMysqlInfo)) {
+            $request->rdsMysqlInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rdsMysqlInfo, 'RdsMysqlInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->slsInfo)) {
+            $request->slsInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->slsInfo, 'SlsInfo', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->datasourceDescription)) {
+            $body['DatasourceDescription'] = $request->datasourceDescription;
+        }
+        if (!Utils::isUnset($request->datasourceId)) {
+            $body['DatasourceId'] = $request->datasourceId;
+        }
+        if (!Utils::isUnset($request->datasourceName)) {
+            $body['DatasourceName'] = $request->datasourceName;
+        }
+        if (!Utils::isUnset($request->kafkaInfoShrink)) {
+            $body['KafkaInfo'] = $request->kafkaInfoShrink;
+        }
+        if (!Utils::isUnset($request->lakehouseIdShrink)) {
+            $body['LakehouseId'] = $request->lakehouseIdShrink;
+        }
+        if (!Utils::isUnset($request->polarDBMysqlInfoShrink)) {
+            $body['PolarDBMysqlInfo'] = $request->polarDBMysqlInfoShrink;
+        }
+        if (!Utils::isUnset($request->rdsMysqlInfoShrink)) {
+            $body['RdsMysqlInfo'] = $request->rdsMysqlInfoShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->slsInfoShrink)) {
+            $body['SlsInfo'] = $request->slsInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApsDatasoure',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApsDatasoureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 编辑APS数据源
+     *  *
+     * @param ModifyApsDatasoureRequest $request ModifyApsDatasoureRequest
+     *
+     * @return ModifyApsDatasoureResponse ModifyApsDatasoureResponse
+     */
+    public function modifyApsDatasoure($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApsDatasoureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改aps任务
+     *  *
+     * @param ModifyApsJobRequest $request ModifyApsJobRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApsJobResponse ModifyApsJobResponse
+     */
+    public function modifyApsJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apsJobId)) {
+            $body['ApsJobId'] = $request->apsJobId;
+        }
+        if (!Utils::isUnset($request->dbList)) {
+            $body['DbList'] = $request->dbList;
+        }
+        if (!Utils::isUnset($request->partitionList)) {
+            $body['PartitionList'] = $request->partitionList;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApsJob',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改aps任务
+     *  *
+     * @param ModifyApsJobRequest $request ModifyApsJobRequest
+     *
+     * @return ModifyApsJobResponse ModifyApsJobResponse
+     */
+    public function modifyApsJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApsJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modifies the AnalyticDB Pipeline Service (APS) workload name.
+     *  *
+     * @param ModifyApsWorkloadNameRequest $request ModifyApsWorkloadNameRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyApsWorkloadNameResponse ModifyApsWorkloadNameResponse
+     */
+    public function modifyApsWorkloadNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->workloadId)) {
+            $body['WorkloadId'] = $request->workloadId;
+        }
+        if (!Utils::isUnset($request->workloadName)) {
+            $body['WorkloadName'] = $request->workloadName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApsWorkloadName',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApsWorkloadNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modifies the AnalyticDB Pipeline Service (APS) workload name.
+     *  *
+     * @param ModifyApsWorkloadNameRequest $request ModifyApsWorkloadNameRequest
+     *
+     * @return ModifyApsWorkloadNameResponse ModifyApsWorkloadNameResponse
+     */
+    public function modifyApsWorkloadName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApsWorkloadNameWithOptions($request, $runtime);
     }
 
     /**
@@ -9534,6 +10920,56 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @summary 启动aps任务
+     *  *
+     * @param StartApsJobRequest $request StartApsJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartApsJobResponse StartApsJobResponse
+     */
+    public function startApsJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apsJobId)) {
+            $body['ApsJobId'] = $request->apsJobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartApsJob',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartApsJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启动aps任务
+     *  *
+     * @param StartApsJobRequest $request StartApsJobRequest
+     *
+     * @return StartApsJobResponse StartApsJobResponse
+     */
+    public function startApsJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startApsJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 启动一个可交互Session
      *  *
      * @param StartSparkReplSessionRequest $request StartSparkReplSessionRequest
@@ -9657,6 +11093,71 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startSparkSQLEngineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Submits an SQL query and exports a result set.
+     *  *
+     * @param SubmitResultExportJobRequest $request SubmitResultExportJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitResultExportJobResponse SubmitResultExportJobResponse
+     */
+    public function submitResultExportJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $body['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->exportType)) {
+            $body['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroup)) {
+            $body['ResourceGroup'] = $request->resourceGroup;
+        }
+        if (!Utils::isUnset($request->SQL)) {
+            $body['SQL'] = $request->SQL;
+        }
+        if (!Utils::isUnset($request->schema)) {
+            $body['Schema'] = $request->schema;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitResultExportJob',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitResultExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Submits an SQL query and exports a result set.
+     *  *
+     * @param SubmitResultExportJobRequest $request SubmitResultExportJobRequest
+     *
+     * @return SubmitResultExportJobResponse SubmitResultExportJobResponse
+     */
+    public function submitResultExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitResultExportJobWithOptions($request, $runtime);
     }
 
     /**
@@ -9899,6 +11400,70 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindDBResourceGroupWithUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新湖存储
+     *  *
+     * @param UpdateLakeStorageRequest $tmpReq  UpdateLakeStorageRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateLakeStorageResponse UpdateLakeStorageResponse
+     */
+    public function updateLakeStorageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateLakeStorageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->permissions)) {
+            $request->permissionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->permissions, 'Permissions', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->lakeStorageId)) {
+            $body['LakeStorageId'] = $request->lakeStorageId;
+        }
+        if (!Utils::isUnset($request->permissionsShrink)) {
+            $body['Permissions'] = $request->permissionsShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLakeStorage',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateLakeStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新湖存储
+     *  *
+     * @param UpdateLakeStorageRequest $request UpdateLakeStorageRequest
+     *
+     * @return UpdateLakeStorageResponse UpdateLakeStorageResponse
+     */
+    public function updateLakeStorage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLakeStorageWithOptions($request, $runtime);
     }
 
     /**
