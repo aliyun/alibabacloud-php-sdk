@@ -28,6 +28,14 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BackFillRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BackFillResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BackFillShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BatchCreateDataLakePartitionsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BatchCreateDataLakePartitionsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BatchCreateDataLakePartitionsShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BatchDeleteDataLakePartitionsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BatchDeleteDataLakePartitionsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BatchUpdateDataLakePartitionsRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BatchUpdateDataLakePartitionsResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BatchUpdateDataLakePartitionsShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BuyPayAsYouGoOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BuyPayAsYouGoOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelRequest;
@@ -62,6 +70,15 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataExportOrderShrinkR
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataImportOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeDatabaseShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakePartitionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakePartitionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakePartitionShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeTableRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeTableResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataLakeTableShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataTrackOrderShrinkRequest;
@@ -110,6 +127,13 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAbacPolicyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAbacPolicyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakeDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakePartitionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakePartitionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakePartitionShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakeTableRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteDataLakeTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\DeleteLakeHouseSpaceRequest;
@@ -202,6 +226,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakePartitionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakePartitionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeTableRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataLakeTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataTrackJobDegreeRequest;
@@ -328,8 +355,19 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeCatalogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeCatalogResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeDatabaseRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionByFilterRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionByFilterResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionNameRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionNameResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakePartitionShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTablebaseInfoRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTablebaseInfoResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTableNameRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTableNameResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTableRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDBTaskSQLJobRequest;
@@ -493,6 +531,15 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAbacPolicyRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAbacPolicyResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeDatabaseRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeDatabaseResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeDatabaseShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakePartitionRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakePartitionResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakePartitionShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeTableRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeTableResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateDataLakeTableShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateScenarioRequest;
@@ -539,7 +586,6 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\UpdateUserResponse;
 use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -549,9 +595,6 @@ class Dmsenterprise extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'dms-enterprise';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = 'central';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dms-enterprise', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -620,11 +663,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddAuthorityTemplateItemsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddAuthorityTemplateItemsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddAuthorityTemplateItemsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -689,11 +729,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddDesensitizationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -823,11 +860,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -893,11 +927,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddLhMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -958,11 +989,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddLogicTableRouteConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1023,11 +1051,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddTaskFlowEdgesResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1087,11 +1112,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AnalyzeSQLLineageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AnalyzeSQLLineageResponse::fromMap($this->execute($params, $req, $runtime));
+        return AnalyzeSQLLineageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1168,11 +1190,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ApproveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApproveOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApproveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1258,11 +1277,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BackFillResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BackFillResponse::fromMap($this->execute($params, $req, $runtime));
+        return BackFillResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1279,6 +1295,215 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->backFillWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量新建湖仓表分区
+     *  *
+     * @param BatchCreateDataLakePartitionsRequest $tmpReq  BatchCreateDataLakePartitionsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchCreateDataLakePartitionsResponse BatchCreateDataLakePartitionsResponse
+     */
+    public function batchCreateDataLakePartitionsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchCreateDataLakePartitionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partitionInputs)) {
+            $request->partitionInputsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionInputs, 'PartitionInputs', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->ifNotExists)) {
+            $query['IfNotExists'] = $request->ifNotExists;
+        }
+        if (!Utils::isUnset($request->needResult)) {
+            $query['NeedResult'] = $request->needResult;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->partitionInputsShrink)) {
+            $body['PartitionInputs'] = $request->partitionInputsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCreateDataLakePartitions',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchCreateDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量新建湖仓表分区
+     *  *
+     * @param BatchCreateDataLakePartitionsRequest $request BatchCreateDataLakePartitionsRequest
+     *
+     * @return BatchCreateDataLakePartitionsResponse BatchCreateDataLakePartitionsResponse
+     */
+    public function batchCreateDataLakePartitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateDataLakePartitionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量删除湖仓表分区
+     *  *
+     * @param BatchDeleteDataLakePartitionsRequest $request BatchDeleteDataLakePartitionsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchDeleteDataLakePartitionsResponse BatchDeleteDataLakePartitionsResponse
+     */
+    public function batchDeleteDataLakePartitionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->ifExists)) {
+            $query['IfExists'] = $request->ifExists;
+        }
+        if (!Utils::isUnset($request->partitionValuesList)) {
+            $query['PartitionValuesList'] = $request->partitionValuesList;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchDeleteDataLakePartitions',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchDeleteDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量删除湖仓表分区
+     *  *
+     * @param BatchDeleteDataLakePartitionsRequest $request BatchDeleteDataLakePartitionsRequest
+     *
+     * @return BatchDeleteDataLakePartitionsResponse BatchDeleteDataLakePartitionsResponse
+     */
+    public function batchDeleteDataLakePartitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchDeleteDataLakePartitionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量更新湖仓表分区
+     *  *
+     * @param BatchUpdateDataLakePartitionsRequest $tmpReq  BatchUpdateDataLakePartitionsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchUpdateDataLakePartitionsResponse BatchUpdateDataLakePartitionsResponse
+     */
+    public function batchUpdateDataLakePartitionsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchUpdateDataLakePartitionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partitionInputs)) {
+            $request->partitionInputsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionInputs, 'PartitionInputs', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->partitionInputsShrink)) {
+            $body['PartitionInputs'] = $request->partitionInputsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchUpdateDataLakePartitions',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchUpdateDataLakePartitionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量更新湖仓表分区
+     *  *
+     * @param BatchUpdateDataLakePartitionsRequest $request BatchUpdateDataLakePartitionsRequest
+     *
+     * @return BatchUpdateDataLakePartitionsResponse BatchUpdateDataLakePartitionsResponse
+     */
+    public function batchUpdateDataLakePartitions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchUpdateDataLakePartitionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1319,11 +1544,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return BuyPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return BuyPayAsYouGoOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return BuyPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1387,11 +1609,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeColumnSecLevelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeColumnSecLevelResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeColumnSecLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1455,11 +1674,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeColumnSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeColumnSecurityLevelResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeColumnSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1515,11 +1731,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ChangeLhDagOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ChangeLhDagOwnerResponse::fromMap($this->execute($params, $req, $runtime));
+        return ChangeLhDagOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1575,11 +1788,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CloseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CloseOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CloseOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1637,11 +1847,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAbacAuthorizationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1696,11 +1903,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAbacPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1754,11 +1958,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1831,11 +2032,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataArchiveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataArchiveOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataArchiveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1908,11 +2106,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataCorrectOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1983,11 +2178,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataCronClearOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataCronClearOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataCronClearOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2062,11 +2254,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataExportOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2134,11 +2323,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataImportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataImportOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataImportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2155,6 +2341,217 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createDataImportOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新建湖仓数据库
+     *  *
+     * @param CreateDataLakeDatabaseRequest $tmpReq  CreateDataLakeDatabaseRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataLakeDatabaseResponse CreateDataLakeDatabaseResponse
+     */
+    public function createDataLakeDatabaseWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataLakeDatabaseShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->location)) {
+            $query['Location'] = $request->location;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataLakeDatabase',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建湖仓数据库
+     *  *
+     * @param CreateDataLakeDatabaseRequest $request CreateDataLakeDatabaseRequest
+     *
+     * @return CreateDataLakeDatabaseResponse CreateDataLakeDatabaseResponse
+     */
+    public function createDataLakeDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新建湖仓表分区
+     *  *
+     * @param CreateDataLakePartitionRequest $tmpReq  CreateDataLakePartitionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataLakePartitionResponse CreateDataLakePartitionResponse
+     */
+    public function createDataLakePartitionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataLakePartitionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partitionInput)) {
+            $request->partitionInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionInput, 'PartitionInput', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->ifNotExists)) {
+            $query['IfNotExists'] = $request->ifNotExists;
+        }
+        if (!Utils::isUnset($request->needResult)) {
+            $query['NeedResult'] = $request->needResult;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->partitionInputShrink)) {
+            $body['PartitionInput'] = $request->partitionInputShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataLakePartition',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建湖仓表分区
+     *  *
+     * @param CreateDataLakePartitionRequest $request CreateDataLakePartitionRequest
+     *
+     * @return CreateDataLakePartitionResponse CreateDataLakePartitionResponse
+     */
+    public function createDataLakePartition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataLakePartitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 新建湖仓表
+     *  *
+     * @param CreateDataLakeTableRequest $tmpReq  CreateDataLakeTableRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataLakeTableResponse CreateDataLakeTableResponse
+     */
+    public function createDataLakeTableWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataLakeTableShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tableInput)) {
+            $request->tableInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableInput, 'TableInput', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tableInputShrink)) {
+            $body['TableInput'] = $request->tableInputShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataLakeTable',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 新建湖仓表
+     *  *
+     * @param CreateDataLakeTableRequest $request CreateDataLakeTableRequest
+     *
+     * @return CreateDataLakeTableResponse CreateDataLakeTableResponse
+     */
+    public function createDataLakeTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataLakeTableWithOptions($request, $runtime);
     }
 
     /**
@@ -2205,11 +2602,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDataTrackOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDataTrackOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDataTrackOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2280,11 +2674,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDatabaseExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDatabaseExportOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDatabaseExportOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2353,11 +2744,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateFreeLockCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateFreeLockCorrectOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateFreeLockCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2430,11 +2818,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLakeHouseSpaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2494,11 +2879,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateLogicDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2572,11 +2954,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2648,11 +3027,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateProcCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProcCorrectOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProcCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2711,11 +3087,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateProxyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProxyResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProxyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2780,11 +3153,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateProxyAccessResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2848,11 +3218,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreatePublishGroupTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreatePublishGroupTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreatePublishGroupTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2918,11 +3285,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateSQLReviewOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateSQLReviewOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateSQLReviewOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2977,11 +3341,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateScenarioResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3036,11 +3397,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateStandardGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3106,11 +3464,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateStructSyncOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateStructSyncOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateStructSyncOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3177,11 +3532,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3236,11 +3588,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3295,11 +3644,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUploadFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUploadFileJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUploadFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3359,11 +3705,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUploadOSSFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUploadOSSFileJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUploadOSSFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3415,11 +3758,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAbacAuthorizationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAbacAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3468,11 +3808,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAbacPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3521,11 +3858,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3540,6 +3874,191 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAuthorityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除湖仓数据库
+     *  *
+     * @param DeleteDataLakeDatabaseRequest $request DeleteDataLakeDatabaseRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataLakeDatabaseResponse DeleteDataLakeDatabaseResponse
+     */
+    public function deleteDataLakeDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataLakeDatabase',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除湖仓数据库
+     *  *
+     * @param DeleteDataLakeDatabaseRequest $request DeleteDataLakeDatabaseRequest
+     *
+     * @return DeleteDataLakeDatabaseResponse DeleteDataLakeDatabaseResponse
+     */
+    public function deleteDataLakeDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除湖仓表分区
+     *  *
+     * @param DeleteDataLakePartitionRequest $tmpReq  DeleteDataLakePartitionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataLakePartitionResponse DeleteDataLakePartitionResponse
+     */
+    public function deleteDataLakePartitionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteDataLakePartitionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partitionValues)) {
+            $request->partitionValuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionValues, 'PartitionValues', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->ifExists)) {
+            $query['IfExists'] = $request->ifExists;
+        }
+        if (!Utils::isUnset($request->partitionValuesShrink)) {
+            $query['PartitionValues'] = $request->partitionValuesShrink;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataLakePartition',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除湖仓表分区
+     *  *
+     * @param DeleteDataLakePartitionRequest $request DeleteDataLakePartitionRequest
+     *
+     * @return DeleteDataLakePartitionResponse DeleteDataLakePartitionResponse
+     */
+    public function deleteDataLakePartition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataLakePartitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除湖仓表
+     *  *
+     * @param DeleteDataLakeTableRequest $request DeleteDataLakeTableRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataLakeTableResponse DeleteDataLakeTableResponse
+     */
+    public function deleteDataLakeTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataLakeTable',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除湖仓表
+     *  *
+     * @param DeleteDataLakeTableRequest $request DeleteDataLakeTableRequest
+     *
+     * @return DeleteDataLakeTableResponse DeleteDataLakeTableResponse
+     */
+    public function deleteDataLakeTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataLakeTableWithOptions($request, $runtime);
     }
 
     /**
@@ -3582,11 +4101,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3637,11 +4153,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLakeHouseSpaceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLakeHouseSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3704,11 +4217,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLhMembersResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLhMembersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3760,11 +4270,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLogicDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3816,11 +4323,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteLogicTableRouteConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3871,11 +4375,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteProxyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProxyResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProxyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3926,11 +4427,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteProxyAccessResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3981,11 +4479,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteScenarioResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4036,11 +4531,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteStandardGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4089,11 +4581,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4142,11 +4631,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4206,11 +4692,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteTaskFlowEdgesByConditionResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4264,11 +4747,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4323,11 +4803,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4414,11 +4891,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DownloadDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DownloadDataTrackResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return DownloadDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4478,11 +4952,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EditLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EditLogicDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return EditLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4534,11 +5005,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4601,11 +5069,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteDataCorrectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteDataCorrectResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteDataCorrectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4665,11 +5130,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteDataExportResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteDataExportResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteDataExportResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4726,11 +5188,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteScriptResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteScriptResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4784,11 +5243,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ExecuteStructSyncResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ExecuteStructSyncResponse::fromMap($this->execute($params, $req, $runtime));
+        return ExecuteStructSyncResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4843,11 +5299,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAbacPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4896,11 +5349,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApprovalDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApprovalDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApprovalDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4951,11 +5401,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5008,11 +5455,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetAuthorityTemplateItemResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetAuthorityTemplateItemResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetAuthorityTemplateItemResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5063,11 +5507,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetClassificationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetClassificationTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetClassificationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5116,11 +5557,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDBTaskSQLJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDBTaskSQLJobLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDBTaskSQLJobLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5169,11 +5607,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDBTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDBTopologyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDBTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5228,11 +5663,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataArchiveCountResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataArchiveCountResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataArchiveCountResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5281,11 +5713,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataArchiveOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataArchiveOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataArchiveOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5342,11 +5771,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataCorrectBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataCorrectBackupFilesResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataCorrectBackupFilesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5395,11 +5821,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataCorrectOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataCorrectOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataCorrectOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5448,11 +5871,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataCorrectRollbackFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataCorrectRollbackFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataCorrectRollbackFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5503,11 +5923,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataCorrectSQLFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataCorrectSQLFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataCorrectSQLFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5558,11 +5975,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataCorrectTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataCorrectTaskDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataCorrectTaskDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5611,11 +6025,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataCronClearConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataCronClearConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataCronClearConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5670,11 +6081,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataCronClearTaskDetailListResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataCronClearTaskDetailListResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataCronClearTaskDetailListResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5726,11 +6134,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataExportDownloadURLResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5781,11 +6186,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataExportOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5834,11 +6236,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataExportPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataExportPreCheckDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataExportPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5892,11 +6291,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataImportSQLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataImportSQLResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataImportSQLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5950,11 +6346,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataLakeCatalogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6009,11 +6402,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataLakeDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6028,6 +6418,73 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取湖仓表分区详情
+     *  *
+     * @param GetDataLakePartitionRequest $tmpReq  GetDataLakePartitionRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataLakePartitionResponse GetDataLakePartitionResponse
+     */
+    public function getDataLakePartitionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetDataLakePartitionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partitionValues)) {
+            $request->partitionValuesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionValues, 'PartitionValues', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->partitionValuesShrink)) {
+            $query['PartitionValues'] = $request->partitionValuesShrink;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataLakePartition',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取湖仓表分区详情
+     *  *
+     * @param GetDataLakePartitionRequest $request GetDataLakePartitionRequest
+     *
+     * @return GetDataLakePartitionResponse GetDataLakePartitionResponse
+     */
+    public function getDataLakePartition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataLakePartitionWithOptions($request, $runtime);
     }
 
     /**
@@ -6071,11 +6528,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataLakeTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6124,11 +6578,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataTrackJobDegreeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataTrackJobDegreeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataTrackJobDegreeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6177,11 +6628,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataTrackJobTableMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataTrackJobTableMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataTrackJobTableMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6230,11 +6678,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDataTrackOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDataTrackOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDataTrackOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6292,11 +6737,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6347,11 +6789,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDatabaseExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDatabaseExportOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDatabaseExportOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6400,11 +6839,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDbExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDbExportDownloadURLResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDbExportDownloadURLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6459,11 +6895,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6514,11 +6947,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIntervalLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIntervalLimitOfSLAResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIntervalLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6571,11 +7001,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetLhSpaceByNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLhSpaceByNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLhSpaceByNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6626,11 +7053,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetLogicDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetLogicDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6681,11 +7105,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMetaTableColumnResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMetaTableColumnResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMetaTableColumnResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6738,11 +7159,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetMetaTableDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetMetaTableDetailInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetMetaTableDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6793,11 +7211,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOnlineDDLProgressResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOnlineDDLProgressResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOnlineDDLProgressResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6866,11 +7281,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOpLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOpLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOpLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6921,11 +7333,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOrderAttachmentFileResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOrderAttachmentFileResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOrderAttachmentFileResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6974,11 +7383,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOrderBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOrderBaseInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOrderBaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7027,11 +7433,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOwnerApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOwnerApplyOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOwnerApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7074,11 +7477,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPagedInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPagedInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPagedInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7129,11 +7529,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPermApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPermApplyOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPermApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7184,11 +7581,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPhysicalDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPhysicalDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPhysicalDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7237,11 +7631,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetProxyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProxyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProxyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7290,11 +7681,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetProxyAccessResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetProxyAccessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7343,11 +7731,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetRuleNumLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRuleNumLimitOfSLAResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRuleNumLimitOfSLAResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7398,11 +7783,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSQLReviewCheckResultStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSQLReviewCheckResultStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSQLReviewCheckResultStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7455,11 +7837,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSQLReviewOptimizeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSQLReviewOptimizeDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSQLReviewOptimizeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7510,11 +7889,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStandardGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7569,11 +7945,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetStructSyncExecSqlDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStructSyncExecSqlDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStructSyncExecSqlDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7631,11 +8004,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetStructSyncJobAnalyzeResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStructSyncJobAnalyzeResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStructSyncJobAnalyzeResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7684,11 +8054,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetStructSyncJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStructSyncJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStructSyncJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7737,11 +8104,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetStructSyncOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetStructSyncOrderDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetStructSyncOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7790,11 +8154,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTableDBTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTableDBTopologyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTableDBTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7843,11 +8204,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTableDesignProjectFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTableDesignProjectFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTableDesignProjectFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7896,11 +8254,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTableDesignProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTableDesignProjectInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTableDesignProjectInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7949,11 +8304,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTableTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTableTopologyResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTableTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8002,11 +8354,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8055,11 +8404,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTaskFlowGraphResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskFlowGraphResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskFlowGraphResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8108,11 +8454,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskFlowNotificationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8164,11 +8507,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTaskInstanceRelationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTaskInstanceRelationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTaskInstanceRelationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8220,11 +8560,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8270,11 +8607,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUserActiveTenantResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserActiveTenantResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserActiveTenantResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8323,11 +8657,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUserUploadFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserUploadFileJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserUploadFileJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8387,11 +8718,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GrantTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantTemplateAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8466,11 +8794,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GrantUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GrantUserPermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return GrantUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8519,11 +8844,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return InspectProxyAccessSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return InspectProxyAccessSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return InspectProxyAccessSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8581,11 +8903,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAbacAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAbacAuthorizationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAbacAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8640,11 +8959,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAbacPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAbacPoliciesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAbacPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8699,11 +9015,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8770,11 +9083,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAuthorizedDatabasesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAuthorizedDatabasesForUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAuthorizedDatabasesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8838,11 +9148,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAuthorizedInstancesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAuthorizedInstancesForUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAuthorizedInstancesForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8903,11 +9210,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAuthorizedUsersForDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAuthorizedUsersForDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAuthorizedUsersForDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -8965,11 +9269,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAuthorizedUsersForInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAuthorizedUsersForInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAuthorizedUsersForInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9015,11 +9316,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListClassificationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListClassificationTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListClassificationTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9073,11 +9371,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListColumnsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9134,11 +9429,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDAGVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDAGVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDAGVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9193,11 +9485,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDBTaskSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDBTaskSQLJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDBTaskSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9252,11 +9541,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDBTaskSQLJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDBTaskSQLJobDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDBTaskSQLJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9305,11 +9591,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDDLPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDDLPublishRecordsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDDLPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9366,11 +9649,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataCorrectPreCheckDBResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataCorrectPreCheckDBResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataCorrectPreCheckDBResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9432,11 +9712,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataCorrectPreCheckSQLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataCorrectPreCheckSQLResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataCorrectPreCheckSQLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9501,11 +9778,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataImportSQLPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataImportSQLPreCheckDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataImportSQLPreCheckDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9558,11 +9832,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataImportSQLTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataImportSQLTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataImportSQLTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9616,11 +9887,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataLakeCatalogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataLakeCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9681,11 +9949,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataLakeDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9700,6 +9965,352 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据湖表分区列表
+     *  *
+     * @param ListDataLakePartitionRequest $tmpReq  ListDataLakePartitionRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataLakePartitionResponse ListDataLakePartitionResponse
+     */
+    public function listDataLakePartitionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDataLakePartitionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partNames)) {
+            $request->partNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partNames, 'PartNames', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->partNamesShrink)) {
+            $body['PartNames'] = $request->partNamesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakePartition',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据湖表分区列表
+     *  *
+     * @param ListDataLakePartitionRequest $request ListDataLakePartitionRequest
+     *
+     * @return ListDataLakePartitionResponse ListDataLakePartitionResponse
+     */
+    public function listDataLakePartition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakePartitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据筛选条件获取数据湖表分区列表
+     *  *
+     * @param ListDataLakePartitionByFilterRequest $request ListDataLakePartitionByFilterRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataLakePartitionByFilterResponse ListDataLakePartitionByFilterResponse
+     */
+    public function listDataLakePartitionByFilterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->filter)) {
+            $body['Filter'] = $request->filter;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakePartitionByFilter',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataLakePartitionByFilterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据筛选条件获取数据湖表分区列表
+     *  *
+     * @param ListDataLakePartitionByFilterRequest $request ListDataLakePartitionByFilterRequest
+     *
+     * @return ListDataLakePartitionByFilterResponse ListDataLakePartitionByFilterResponse
+     */
+    public function listDataLakePartitionByFilter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakePartitionByFilterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据湖表分区名列表
+     *  *
+     * @param ListDataLakePartitionNameRequest $request ListDataLakePartitionNameRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataLakePartitionNameResponse ListDataLakePartitionNameResponse
+     */
+    public function listDataLakePartitionNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakePartitionName',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataLakePartitionNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据湖表分区名列表
+     *  *
+     * @param ListDataLakePartitionNameRequest $request ListDataLakePartitionNameRequest
+     *
+     * @return ListDataLakePartitionNameResponse ListDataLakePartitionNameResponse
+     */
+    public function listDataLakePartitionName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakePartitionNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据湖表列表
+     *  *
+     * @param ListDataLakeTableRequest $request ListDataLakeTableRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataLakeTableResponse ListDataLakeTableResponse
+     */
+    public function listDataLakeTableWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->tableNamePattern)) {
+            $query['TableNamePattern'] = $request->tableNamePattern;
+        }
+        if (!Utils::isUnset($request->tableType)) {
+            $query['TableType'] = $request->tableType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakeTable',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据湖表列表
+     *  *
+     * @param ListDataLakeTableRequest $request ListDataLakeTableRequest
+     *
+     * @return ListDataLakeTableResponse ListDataLakeTableResponse
+     */
+    public function listDataLakeTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakeTableWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据湖表名列表
+     *  *
+     * @param ListDataLakeTableNameRequest $request ListDataLakeTableNameRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataLakeTableNameResponse ListDataLakeTableNameResponse
+     */
+    public function listDataLakeTableNameWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->tableNamePattern)) {
+            $query['TableNamePattern'] = $request->tableNamePattern;
+        }
+        if (!Utils::isUnset($request->tableType)) {
+            $query['TableType'] = $request->tableType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataLakeTableName',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataLakeTableNameResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据湖表名列表
+     *  *
+     * @param ListDataLakeTableNameRequest $request ListDataLakeTableNameRequest
+     *
+     * @return ListDataLakeTableNameResponse ListDataLakeTableNameResponse
+     */
+    public function listDataLakeTableName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataLakeTableNameWithOptions($request, $runtime);
     }
 
     /**
@@ -9749,11 +10360,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDataLakeTablebaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDataLakeTablebaseInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDataLakeTablebaseInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9817,11 +10425,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDatabaseUserPermssionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatabaseUserPermssionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatabaseUserPermssionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9876,11 +10481,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9929,11 +10531,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDefaultSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDefaultSLARulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDefaultSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -9997,11 +10596,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDesensitizationRuleResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDesensitizationRuleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10047,11 +10643,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListEffectiveOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEffectiveOrdersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEffectiveOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10103,11 +10696,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIndexesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIndexesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10171,11 +10761,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstanceLoginAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceLoginAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceLoginAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10233,11 +10820,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstanceUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstanceUserPermissionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstanceUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10307,11 +10891,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10366,11 +10947,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListLhTaskFlowAndScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLhTaskFlowAndScenarioResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLhTaskFlowAndScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10425,11 +11003,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListLogicDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLogicDatabasesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLogicDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10478,11 +11053,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLogicTableRouteConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLogicTableRouteConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10543,11 +11115,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListLogicTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListLogicTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListLogicTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10620,11 +11189,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrdersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10670,11 +11236,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListProxiesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProxiesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProxiesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10723,11 +11286,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListProxyAccessesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProxyAccessesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProxyAccessesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10797,11 +11357,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListProxySQLExecAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListProxySQLExecAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListProxySQLExecAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10850,11 +11407,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSLARulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10924,11 +11478,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSQLExecAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSQLExecAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSQLExecAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -10987,11 +11538,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSQLReviewOriginSQLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSQLReviewOriginSQLResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSQLReviewOriginSQLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11039,11 +11587,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListScenariosResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListScenariosResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListScenariosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11107,11 +11652,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSensitiveColumnInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSensitiveColumnInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSensitiveColumnInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11181,11 +11723,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSensitiveColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSensitiveColumnsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSensitiveColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11246,11 +11785,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSensitiveColumnsDetailResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSensitiveColumnsDetailResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSensitiveColumnsDetailResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11323,11 +11859,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSensitiveDataAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSensitiveDataAuditLogResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSensitiveDataAuditLogResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11370,11 +11903,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSensitivityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSensitivityLevelResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSensitivityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11420,11 +11950,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListStandardGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListStandardGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListStandardGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11487,11 +12014,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11539,11 +12063,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11592,11 +12113,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskFlowConstantsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11645,11 +12163,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskFlowCooperatorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11709,11 +12224,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskFlowEdgesByConditionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskFlowEdgesByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11785,11 +12297,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11838,11 +12347,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskFlowTimeVariablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11908,11 +12414,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTaskFlowsByPageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTaskFlowsByPageResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTaskFlowsByPageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -11961,11 +12464,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListTasksInTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListTasksInTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListTasksInTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12038,11 +12538,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserPermissionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12088,11 +12585,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUserTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUserTenantsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUserTenantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12153,11 +12647,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12206,11 +12697,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListWorkFlowNodesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkFlowNodesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkFlowNodesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12259,11 +12747,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListWorkFlowTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListWorkFlowTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListWorkFlowTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12315,11 +12800,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return MakeTaskFlowInstanceSuccessResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MakeTaskFlowInstanceSuccessResponse::fromMap($this->execute($params, $req, $runtime));
+        return MakeTaskFlowInstanceSuccessResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12371,11 +12853,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyDataCorrectExecSQLResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDataCorrectExecSQLResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDataCorrectExecSQLResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12445,11 +12924,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyDesensitizationStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyDesensitizationStrategyResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyDesensitizationStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12582,11 +13058,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12638,11 +13111,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return MoveTaskFlowToScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return MoveTaskFlowToScenarioResponse::fromMap($this->execute($params, $req, $runtime));
+        return MoveTaskFlowToScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12691,11 +13161,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return OfflineTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return OfflineTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return OfflineTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12752,11 +13219,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PauseDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PauseDataCorrectSQLJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return PauseDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12810,11 +13274,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PauseDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PauseDataExportJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return PauseDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12863,11 +13324,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PreviewWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreviewWorkflowResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreviewWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12919,11 +13377,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PublishAndDeployTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PublishAndDeployTaskFlowResponse::fromMap($this->execute($params, $req, $runtime));
+        return PublishAndDeployTaskFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -12975,11 +13430,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryDataTrackResultDownloadStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDataTrackResultDownloadStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDataTrackResultDownloadStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13031,11 +13483,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ReDeployLhDagVersionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReDeployLhDagVersionResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReDeployLhDagVersionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13090,11 +13539,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ReRunTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReRunTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReRunTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13146,11 +13592,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RefundPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RefundPayAsYouGoOrderResponse::fromMap($this->execute($params, $req, $runtime));
+        return RefundPayAsYouGoOrderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13273,11 +13716,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RegisterInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13339,11 +13779,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RegisterUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13397,11 +13834,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveDataExportJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13456,11 +13890,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestartDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartDataCorrectSQLJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartDataCorrectSQLJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13512,11 +13943,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestartDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartDataExportJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13573,11 +14001,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ResumeTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ResumeTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ResumeTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13628,11 +14053,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RetryDataCorrectPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RetryDataCorrectPreCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return RetryDataCorrectPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13686,11 +14108,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeTemplateAuthorityResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeTemplateAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13765,11 +14184,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeUserPermissionResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeUserPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13844,11 +14260,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchDataTrackResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchDataTrackResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13915,11 +14328,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchDatabaseResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -13991,11 +14401,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SearchTableResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SearchTableResponse::fromMap($this->execute($params, $req, $runtime));
+        return SearchTableResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14052,11 +14459,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetOwnersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetOwnersResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetOwnersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14126,11 +14530,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetWorkflowExtraInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetWorkflowExtraInfoResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetWorkflowExtraInfoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14182,11 +14583,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SkipDataCorrectRowCheckResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SkipDataCorrectRowCheckResponse::fromMap($this->execute($params, $req, $runtime));
+        return SkipDataCorrectRowCheckResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14238,11 +14636,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14294,11 +14689,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitOrderApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitOrderApprovalResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitOrderApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14347,11 +14739,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitStructSyncOrderApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitStructSyncOrderApprovalResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitStructSyncOrderApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14403,11 +14792,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SuspendDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendDataExportJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendDataExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14459,11 +14845,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SuspendTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SuspendTaskFlowInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return SuspendTaskFlowInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14515,11 +14898,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SyncDatabaseMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SyncDatabaseMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return SyncDatabaseMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14573,11 +14953,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SyncInstanceMetaResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SyncInstanceMetaResponse::fromMap($this->execute($params, $req, $runtime));
+        return SyncInstanceMetaResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14637,11 +15014,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAbacPolicyResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAbacPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14698,11 +15072,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateAuthorityTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateAuthorityTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14719,6 +15090,211 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAuthorityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新湖仓数据库
+     *  *
+     * @param UpdateDataLakeDatabaseRequest $tmpReq  UpdateDataLakeDatabaseRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataLakeDatabaseResponse UpdateDataLakeDatabaseResponse
+     */
+    public function updateDataLakeDatabaseWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataLakeDatabaseShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->location)) {
+            $query['Location'] = $request->location;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataLakeDatabase',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDataLakeDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新湖仓数据库
+     *  *
+     * @param UpdateDataLakeDatabaseRequest $request UpdateDataLakeDatabaseRequest
+     *
+     * @return UpdateDataLakeDatabaseResponse UpdateDataLakeDatabaseResponse
+     */
+    public function updateDataLakeDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataLakeDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新湖仓表分区
+     *  *
+     * @param UpdateDataLakePartitionRequest $tmpReq  UpdateDataLakePartitionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataLakePartitionResponse UpdateDataLakePartitionResponse
+     */
+    public function updateDataLakePartitionWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataLakePartitionShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->partitionInput)) {
+            $request->partitionInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->partitionInput, 'PartitionInput', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->partitionInputShrink)) {
+            $body['PartitionInput'] = $request->partitionInputShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataLakePartition',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDataLakePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新湖仓表分区
+     *  *
+     * @param UpdateDataLakePartitionRequest $request UpdateDataLakePartitionRequest
+     *
+     * @return UpdateDataLakePartitionResponse UpdateDataLakePartitionResponse
+     */
+    public function updateDataLakePartition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataLakePartitionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新湖仓表信息
+     *  *
+     * @param UpdateDataLakeTableRequest $tmpReq  UpdateDataLakeTableRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataLakeTableResponse UpdateDataLakeTableResponse
+     */
+    public function updateDataLakeTableWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataLakeTableShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tableInput)) {
+            $request->tableInputShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tableInput, 'TableInput', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->catalogName)) {
+            $query['CatalogName'] = $request->catalogName;
+        }
+        if (!Utils::isUnset($request->dataRegion)) {
+            $query['DataRegion'] = $request->dataRegion;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tableInputShrink)) {
+            $body['TableInput'] = $request->tableInputShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataLakeTable',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDataLakeTableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新湖仓表信息
+     *  *
+     * @param UpdateDataLakeTableRequest $request UpdateDataLakeTableRequest
+     *
+     * @return UpdateDataLakeTableResponse UpdateDataLakeTableResponse
+     */
+    public function updateDataLakeTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataLakeTableWithOptions($request, $runtime);
     }
 
     /**
@@ -14824,11 +15400,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14889,11 +15462,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateSLARulesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateSLARulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -14950,11 +15520,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateScenarioResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateScenarioResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15009,11 +15576,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateStandardGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateStandardGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15067,11 +15631,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15127,11 +15688,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskContentResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskContentResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskContentResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15190,11 +15748,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowConstantsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowConstantsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15251,11 +15806,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowCooperatorsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowCooperatorsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15318,11 +15870,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowEdgesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowEdgesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15383,11 +15932,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowNameAndDescResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowNameAndDescResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowNameAndDescResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15445,11 +15991,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowNotificationResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowNotificationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15503,11 +16046,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowOwnerResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15568,11 +16108,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowRelationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15650,11 +16187,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowScheduleResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15709,11 +16243,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskFlowTimeVariablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskFlowTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15765,11 +16296,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15823,11 +16351,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskOutputResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskOutputResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskOutputResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15881,11 +16406,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateTaskTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateTaskTimeVariablesResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateTaskTimeVariablesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -15949,11 +16471,8 @@ class Dmsenterprise extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

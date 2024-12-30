@@ -6,15 +6,10 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDataLakeDatabaseResponseBody extends Model
+class ListDataLakeTableResponseBody extends Model
 {
     /**
-     * @var DLDatabase[]
-     */
-    public $databaseList;
-
-    /**
-     * @example 400
+     * @example UnknownError
      *
      * @var string
      */
@@ -28,17 +23,21 @@ class ListDataLakeDatabaseResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example NesLoKLEdIZrKhDT7I2gS****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
+     * @example 3D3FB827-E667-50DB-AD59-C83F8237FECB
      *
      * @var string
      */
@@ -50,14 +49,19 @@ class ListDataLakeDatabaseResponseBody extends Model
      * @var bool
      */
     public $success;
+
+    /**
+     * @var DLTable[]
+     */
+    public $tableList;
     protected $_name = [
-        'databaseList' => 'DatabaseList',
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
+        'tableList'    => 'TableList',
     ];
 
     public function validate()
@@ -67,15 +71,6 @@ class ListDataLakeDatabaseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->databaseList) {
-            $res['DatabaseList'] = [];
-            if (null !== $this->databaseList && \is_array($this->databaseList)) {
-                $n = 0;
-                foreach ($this->databaseList as $item) {
-                    $res['DatabaseList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -94,6 +89,15 @@ class ListDataLakeDatabaseResponseBody extends Model
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+        if (null !== $this->tableList) {
+            $res['TableList'] = [];
+            if (null !== $this->tableList && \is_array($this->tableList)) {
+                $n = 0;
+                foreach ($this->tableList as $item) {
+                    $res['TableList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -101,20 +105,11 @@ class ListDataLakeDatabaseResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListDataLakeDatabaseResponseBody
+     * @return ListDataLakeTableResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatabaseList'])) {
-            if (!empty($map['DatabaseList'])) {
-                $model->databaseList = [];
-                $n                   = 0;
-                foreach ($map['DatabaseList'] as $item) {
-                    $model->databaseList[$n++] = null !== $item ? DLDatabase::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
@@ -132,6 +127,15 @@ class ListDataLakeDatabaseResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TableList'])) {
+            if (!empty($map['TableList'])) {
+                $model->tableList = [];
+                $n                = 0;
+                foreach ($map['TableList'] as $item) {
+                    $model->tableList[$n++] = null !== $item ? DLTable::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -29,7 +29,7 @@ class DLSerdeInfo extends Model
     public $parameters;
 
     /**
-     * @var string
+     * @var int
      */
     public $serdeType;
 

@@ -6,15 +6,10 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDataLakeDatabaseResponseBody extends Model
+class ListDataLakePartitionNameResponseBody extends Model
 {
     /**
-     * @var DLDatabase[]
-     */
-    public $databaseList;
-
-    /**
-     * @example 400
+     * @example UnknownError
      *
      * @var string
      */
@@ -28,17 +23,26 @@ class ListDataLakeDatabaseResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example NesLoKLEdIZrKhDT7I2gS****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
+     * @var string[]
+     */
+    public $partitionNameList;
+
+    /**
+     * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
      * @var string
      */
@@ -51,13 +55,13 @@ class ListDataLakeDatabaseResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'databaseList' => 'DatabaseList',
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'errorCode'         => 'ErrorCode',
+        'errorMessage'      => 'ErrorMessage',
+        'maxResults'        => 'MaxResults',
+        'nextToken'         => 'NextToken',
+        'partitionNameList' => 'PartitionNameList',
+        'requestId'         => 'RequestId',
+        'success'           => 'Success',
     ];
 
     public function validate()
@@ -67,15 +71,6 @@ class ListDataLakeDatabaseResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->databaseList) {
-            $res['DatabaseList'] = [];
-            if (null !== $this->databaseList && \is_array($this->databaseList)) {
-                $n = 0;
-                foreach ($this->databaseList as $item) {
-                    $res['DatabaseList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -87,6 +82,9 @@ class ListDataLakeDatabaseResponseBody extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->partitionNameList) {
+            $res['PartitionNameList'] = $this->partitionNameList;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -101,20 +99,11 @@ class ListDataLakeDatabaseResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListDataLakeDatabaseResponseBody
+     * @return ListDataLakePartitionNameResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatabaseList'])) {
-            if (!empty($map['DatabaseList'])) {
-                $model->databaseList = [];
-                $n                   = 0;
-                foreach ($map['DatabaseList'] as $item) {
-                    $model->databaseList[$n++] = null !== $item ? DLDatabase::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
@@ -126,6 +115,11 @@ class ListDataLakeDatabaseResponseBody extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['PartitionNameList'])) {
+            if (!empty($map['PartitionNameList'])) {
+                $model->partitionNameList = $map['PartitionNameList'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

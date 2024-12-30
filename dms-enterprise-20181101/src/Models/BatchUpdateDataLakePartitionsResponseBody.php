@@ -6,15 +6,10 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDataLakeCatalogResponseBody extends Model
+class BatchUpdateDataLakePartitionsResponseBody extends Model
 {
     /**
-     * @var DLCatalog[]
-     */
-    public $cataLogList;
-
-    /**
-     * @example 400
+     * @example UnknownError
      *
      * @var string
      */
@@ -28,7 +23,12 @@ class ListDataLakeCatalogResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @example E76DD2E7-EBAC-5724-B163-19AAC233F8F2
+     * @var PartitionError[]
+     */
+    public $partitionErrors;
+
+    /**
+     * @example C5B8E84B-42B6-4374-AD5A-6264E1753378
      *
      * @var string
      */
@@ -41,11 +41,11 @@ class ListDataLakeCatalogResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'cataLogList'  => 'CataLogList',
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'errorCode'       => 'ErrorCode',
+        'errorMessage'    => 'ErrorMessage',
+        'partitionErrors' => 'PartitionErrors',
+        'requestId'       => 'RequestId',
+        'success'         => 'Success',
     ];
 
     public function validate()
@@ -55,20 +55,20 @@ class ListDataLakeCatalogResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cataLogList) {
-            $res['CataLogList'] = [];
-            if (null !== $this->cataLogList && \is_array($this->cataLogList)) {
-                $n = 0;
-                foreach ($this->cataLogList as $item) {
-                    $res['CataLogList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->partitionErrors) {
+            $res['PartitionErrors'] = [];
+            if (null !== $this->partitionErrors && \is_array($this->partitionErrors)) {
+                $n = 0;
+                foreach ($this->partitionErrors as $item) {
+                    $res['PartitionErrors'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -83,25 +83,25 @@ class ListDataLakeCatalogResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListDataLakeCatalogResponseBody
+     * @return BatchUpdateDataLakePartitionsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CataLogList'])) {
-            if (!empty($map['CataLogList'])) {
-                $model->cataLogList = [];
-                $n                  = 0;
-                foreach ($map['CataLogList'] as $item) {
-                    $model->cataLogList[$n++] = null !== $item ? DLCatalog::fromMap($item) : $item;
-                }
-            }
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['PartitionErrors'])) {
+            if (!empty($map['PartitionErrors'])) {
+                $model->partitionErrors = [];
+                $n                      = 0;
+                foreach ($map['PartitionErrors'] as $item) {
+                    $model->partitionErrors[$n++] = null !== $item ? PartitionError::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

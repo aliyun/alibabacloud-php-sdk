@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
-use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListDataLakeTablebaseInfoResponseBody\tablebaseInfoList;
 use AlibabaCloud\Tea\Model;
 
 class ListDataLakeTablebaseInfoResponseBody extends Model
@@ -38,7 +37,7 @@ class ListDataLakeTablebaseInfoResponseBody extends Model
     public $success;
 
     /**
-     * @var tablebaseInfoList
+     * @var DLTablebaseInfo[]
      */
     public $tablebaseInfoList;
 
@@ -77,7 +76,13 @@ class ListDataLakeTablebaseInfoResponseBody extends Model
             $res['Success'] = $this->success;
         }
         if (null !== $this->tablebaseInfoList) {
-            $res['TablebaseInfoList'] = null !== $this->tablebaseInfoList ? $this->tablebaseInfoList->toMap() : null;
+            $res['TablebaseInfoList'] = [];
+            if (null !== $this->tablebaseInfoList && \is_array($this->tablebaseInfoList)) {
+                $n = 0;
+                foreach ($this->tablebaseInfoList as $item) {
+                    $res['TablebaseInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -107,7 +112,13 @@ class ListDataLakeTablebaseInfoResponseBody extends Model
             $model->success = $map['Success'];
         }
         if (isset($map['TablebaseInfoList'])) {
-            $model->tablebaseInfoList = tablebaseInfoList::fromMap($map['TablebaseInfoList']);
+            if (!empty($map['TablebaseInfoList'])) {
+                $model->tablebaseInfoList = [];
+                $n                        = 0;
+                foreach ($map['TablebaseInfoList'] as $item) {
+                    $model->tablebaseInfoList[$n++] = null !== $item ? DLTablebaseInfo::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
