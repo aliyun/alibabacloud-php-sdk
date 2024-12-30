@@ -26,6 +26,18 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CheckResourcePermissionShri
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateAdHocFileShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateBizUnitShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataDomainRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataDomainResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataDomainShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDataSourceShrinkRequest;
@@ -35,11 +47,26 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateDirectoryShrinkReques
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateNodeSupplementShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreatePipelineNodeShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateStreamBatchJobMappingShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateUserGroupResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\CreateUserGroupShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteAdHocFileResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBatchTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBatchTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizUnitRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteBizUnitResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataDomainRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataDomainResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDataSourceShrinkRequest;
@@ -47,6 +74,9 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteDirectoryResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUserGroupRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\DeleteUserGroupResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteAdHocTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ExecuteManualNodeShrinkRequest;
@@ -55,14 +85,43 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\FixDataShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocFileResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskLogRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskLogResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAdHocTaskResultResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetAlertEventResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoByVersionResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskInfoResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskUdfLineagesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskVersionsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBatchTaskVersionsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoByVersionRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoByVersionResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizEntityInfoResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizUnitInfoRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetBizUnitInfoResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetClusterQueueInfoByEnvRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetClusterQueueInfoByEnvResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataDomainInfoRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDataDomainInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDevObjectDependencyRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDevObjectDependencyResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDirectoryTreeRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetDirectoryTreeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceDownStreamShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetInstanceUpDownStreamShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetLatestSubmitDetailShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetMyRolesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetMyRolesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetMyTenantsRequest;
@@ -87,6 +146,8 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetPhysicalNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectProduceUserRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetProjectProduceUserResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQueueEngineVersionByEnvRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetQueueEngineVersionByEnvResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunInstanceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\GetSupplementDagrunRequest;
@@ -106,6 +167,20 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAddableRolesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAddableUsersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAddableUsersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAddableUsersShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertEventsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertEventsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertEventsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListAlertNotificationsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizEntitiesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizUnitsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListBizUnitsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataDomainsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataDomainsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataDomainsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListDataSourceWithConfigShrinkRequest;
@@ -121,12 +196,18 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodeDownStreamShrinkReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListNodesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListPublishRecordsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionOperationLogShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListResourcePermissionsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListSubmitRecordsShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListTenantMembersShrinkRequest;
@@ -136,12 +217,26 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupMembersShrinkR
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ListUserGroupsShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBatchTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBatchTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBizEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBizEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OfflineBizEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OnlineBizEntityShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OperateInstanceRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OperateInstanceResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\OperateInstanceShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ParseBatchTaskDependencyRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ParseBatchTaskDependencyResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ParseBatchTaskDependencyShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PausePhysicalNodeRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PausePhysicalNodeResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PausePhysicalNodeShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\PublishObjectListShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RemoveTenantMemberShrinkRequest;
@@ -154,9 +249,29 @@ use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\ResumePhysicalNodeShrinkReq
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\RevokeResourcePermissionShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\StopAdHocTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\SubmitBatchTaskShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateAdHocFileShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBatchTaskUdfLineagesShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizEntityShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateBizUnitShrinkRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainRequest;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainResponse;
+use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataDomainShrinkRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoRequest;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoResponse;
 use AlibabaCloud\SDK\Dataphinpublic\V20230630\Models\UpdateDataSourceBasicInfoShrinkRequest;
@@ -607,6 +722,234 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 创建离线计算任务。
+     *  *
+     * @param CreateBatchTaskRequest $tmpReq  CreateBatchTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateBatchTaskResponse CreateBatchTaskResponse
+     */
+    public function createBatchTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateBatchTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createCommand)) {
+            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->createCommandShrink)) {
+            $body['CreateCommand'] = $request->createCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBatchTask',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建离线计算任务。
+     *  *
+     * @param CreateBatchTaskRequest $request CreateBatchTaskRequest
+     *
+     * @return CreateBatchTaskResponse CreateBatchTaskResponse
+     */
+    public function createBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建业务实体。
+     *  *
+     * @param CreateBizEntityRequest $tmpReq  CreateBizEntityRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateBizEntityResponse CreateBizEntityResponse
+     */
+    public function createBizEntityWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateBizEntityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createCommand)) {
+            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->createCommandShrink)) {
+            $body['CreateCommand'] = $request->createCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBizEntity',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建业务实体。
+     *  *
+     * @param CreateBizEntityRequest $request CreateBizEntityRequest
+     *
+     * @return CreateBizEntityResponse CreateBizEntityResponse
+     */
+    public function createBizEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBizEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建数据板块。
+     *  *
+     * @param CreateBizUnitRequest $tmpReq  CreateBizUnitRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateBizUnitResponse CreateBizUnitResponse
+     */
+    public function createBizUnitWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateBizUnitShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createCommand)) {
+            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->createCommandShrink)) {
+            $body['CreateCommand'] = $request->createCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBizUnit',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据板块。
+     *  *
+     * @param CreateBizUnitRequest $request CreateBizUnitRequest
+     *
+     * @return CreateBizUnitResponse CreateBizUnitResponse
+     */
+    public function createBizUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBizUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建主题域。
+     *  *
+     * @param CreateDataDomainRequest $tmpReq  CreateDataDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDataDomainResponse CreateDataDomainResponse
+     */
+    public function createDataDomainWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataDomainShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createCommand)) {
+            $request->createCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createCommand, 'CreateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->createCommandShrink)) {
+            $body['CreateCommand'] = $request->createCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataDomain',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建主题域。
+     *  *
+     * @param CreateDataDomainRequest $request CreateDataDomainRequest
+     *
+     * @return CreateDataDomainResponse CreateDataDomainResponse
+     */
+    public function createDataDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 新建数据源
      *  *
      * @param CreateDataSourceRequest $tmpReq  CreateDataSourceRequest
@@ -781,6 +1124,120 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 创建数据集成任务。
+     *  *
+     * @param CreatePipelineNodeRequest $tmpReq  CreatePipelineNodeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePipelineNodeResponse CreatePipelineNodeResponse
+     */
+    public function createPipelineNodeWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePipelineNodeShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createPipelineNodeCommand)) {
+            $request->createPipelineNodeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createPipelineNodeCommand, 'CreatePipelineNodeCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->createPipelineNodeCommandShrink)) {
+            $body['CreatePipelineNodeCommand'] = $request->createPipelineNodeCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePipelineNode',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePipelineNodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建数据集成任务。
+     *  *
+     * @param CreatePipelineNodeRequest $request CreatePipelineNodeRequest
+     *
+     * @return CreatePipelineNodeResponse CreatePipelineNodeResponse
+     */
+    public function createPipelineNode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPipelineNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建流批一体任务
+     *  *
+     * @param CreateStreamBatchJobMappingRequest $tmpReq  CreateStreamBatchJobMappingRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateStreamBatchJobMappingResponse CreateStreamBatchJobMappingResponse
+     */
+    public function createStreamBatchJobMappingWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateStreamBatchJobMappingShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->streamBatchJobMappingCreateCommand)) {
+            $request->streamBatchJobMappingCreateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamBatchJobMappingCreateCommand, 'StreamBatchJobMappingCreateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->streamBatchJobMappingCreateCommandShrink)) {
+            $body['StreamBatchJobMappingCreateCommand'] = $request->streamBatchJobMappingCreateCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStreamBatchJobMapping',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStreamBatchJobMappingResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建流批一体任务
+     *  *
+     * @param CreateStreamBatchJobMappingRequest $request CreateStreamBatchJobMappingRequest
+     *
+     * @return CreateStreamBatchJobMappingResponse CreateStreamBatchJobMappingResponse
+     */
+    public function createStreamBatchJobMapping($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createStreamBatchJobMappingWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 新建用户组.
      *  *
      * @param CreateUserGroupRequest $tmpReq  CreateUserGroupRequest
@@ -888,6 +1345,222 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAdHocFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
+     *  *
+     * @param DeleteBatchTaskRequest $tmpReq  DeleteBatchTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteBatchTaskResponse DeleteBatchTaskResponse
+     */
+    public function deleteBatchTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteBatchTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deleteCommand)) {
+            $request->deleteCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteCommand, 'DeleteCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->deleteCommandShrink)) {
+            $body['DeleteCommand'] = $request->deleteCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBatchTask',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除离线计算任务，如果任务还没下线需要先下线再删除。
+     *  *
+     * @param DeleteBatchTaskRequest $request DeleteBatchTaskRequest
+     *
+     * @return DeleteBatchTaskResponse DeleteBatchTaskResponse
+     */
+    public function deleteBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除业务实体。
+     *  *
+     * @param DeleteBizEntityRequest $request DeleteBizEntityRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteBizEntityResponse DeleteBizEntityResponse
+     */
+    public function deleteBizEntityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizUnitId)) {
+            $query['BizUnitId'] = $request->bizUnitId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBizEntity',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除业务实体。
+     *  *
+     * @param DeleteBizEntityRequest $request DeleteBizEntityRequest
+     *
+     * @return DeleteBizEntityResponse DeleteBizEntityResponse
+     */
+    public function deleteBizEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBizEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除数据板块。
+     *  *
+     * @param DeleteBizUnitRequest $request DeleteBizUnitRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteBizUnitResponse DeleteBizUnitResponse
+     */
+    public function deleteBizUnitWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBizUnit',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除数据板块。
+     *  *
+     * @param DeleteBizUnitRequest $request DeleteBizUnitRequest
+     *
+     * @return DeleteBizUnitResponse DeleteBizUnitResponse
+     */
+    public function deleteBizUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBizUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除主题域。
+     *  *
+     * @param DeleteDataDomainRequest $request DeleteDataDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDataDomainResponse DeleteDataDomainResponse
+     */
+    public function deleteDataDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizUnitId)) {
+            $query['BizUnitId'] = $request->bizUnitId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDataDomain',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除主题域。
+     *  *
+     * @param DeleteDataDomainRequest $request DeleteDataDomainRequest
+     *
+     * @return DeleteDataDomainResponse DeleteDataDomainResponse
+     */
+    public function deleteDataDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDataDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -1048,6 +1721,63 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 执行即席查询任务。
+     *  *
+     * @param ExecuteAdHocTaskRequest $tmpReq  ExecuteAdHocTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteAdHocTaskResponse ExecuteAdHocTaskResponse
+     */
+    public function executeAdHocTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ExecuteAdHocTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->executeCommand)) {
+            $request->executeCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executeCommand, 'ExecuteCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->executeCommandShrink)) {
+            $body['ExecuteCommand'] = $request->executeCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteAdHocTask',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 执行即席查询任务。
+     *  *
+     * @param ExecuteAdHocTaskRequest $request ExecuteAdHocTaskRequest
+     *
+     * @return ExecuteAdHocTaskResponse ExecuteAdHocTaskResponse
+     */
+    public function executeAdHocTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->executeAdHocTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1224,6 +1954,657 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取即席查询任务运行日志。
+     *  *
+     * @param GetAdHocTaskLogRequest $request GetAdHocTaskLogRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAdHocTaskLogResponse GetAdHocTaskLogResponse
+     */
+    public function getAdHocTaskLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['Offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->subTaskId)) {
+            $query['SubTaskId'] = $request->subTaskId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAdHocTaskLog',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAdHocTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取即席查询任务运行日志。
+     *  *
+     * @param GetAdHocTaskLogRequest $request GetAdHocTaskLogRequest
+     *
+     * @return GetAdHocTaskLogResponse GetAdHocTaskLogResponse
+     */
+    public function getAdHocTaskLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAdHocTaskLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取即席查询的任务运行结果。
+     *  *
+     * @param GetAdHocTaskResultRequest $request GetAdHocTaskResultRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAdHocTaskResultResponse GetAdHocTaskResultResponse
+     */
+    public function getAdHocTaskResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->subTaskId)) {
+            $query['SubTaskId'] = $request->subTaskId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAdHocTaskResult',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAdHocTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取即席查询的任务运行结果。
+     *  *
+     * @param GetAdHocTaskResultRequest $request GetAdHocTaskResultRequest
+     *
+     * @return GetAdHocTaskResultResponse GetAdHocTaskResultResponse
+     */
+    public function getAdHocTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAdHocTaskResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取告警事件详情
+     *  *
+     * @param GetAlertEventRequest $request GetAlertEventRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetAlertEventResponse GetAlertEventResponse
+     */
+    public function getAlertEventWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAlertEvent',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAlertEventResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取告警事件详情
+     *  *
+     * @param GetAlertEventRequest $request GetAlertEventRequest
+     *
+     * @return GetAlertEventResponse GetAlertEventResponse
+     */
+    public function getAlertEvent($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAlertEventWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取离线计算任务详情。
+     *  *
+     * @param GetBatchTaskInfoRequest $request GetBatchTaskInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBatchTaskInfoResponse GetBatchTaskInfoResponse
+     */
+    public function getBatchTaskInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->env)) {
+            $query['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->includeAllUpStreams)) {
+            $query['IncludeAllUpStreams'] = $request->includeAllUpStreams;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBatchTaskInfo',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBatchTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取离线计算任务详情。
+     *  *
+     * @param GetBatchTaskInfoRequest $request GetBatchTaskInfoRequest
+     *
+     * @return GetBatchTaskInfoResponse GetBatchTaskInfoResponse
+     */
+    public function getBatchTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取离线计算任务指定版本任务详情。
+     *  *
+     * @param GetBatchTaskInfoByVersionRequest $request GetBatchTaskInfoByVersionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBatchTaskInfoByVersionResponse GetBatchTaskInfoByVersionResponse
+     */
+    public function getBatchTaskInfoByVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBatchTaskInfoByVersion',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBatchTaskInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取离线计算任务指定版本任务详情。
+     *  *
+     * @param GetBatchTaskInfoByVersionRequest $request GetBatchTaskInfoByVersionRequest
+     *
+     * @return GetBatchTaskInfoByVersionResponse GetBatchTaskInfoByVersionResponse
+     */
+    public function getBatchTaskInfoByVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchTaskInfoByVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取离线任务自定义血缘。
+     *  *
+     * @param GetBatchTaskUdfLineagesRequest $request GetBatchTaskUdfLineagesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBatchTaskUdfLineagesResponse GetBatchTaskUdfLineagesResponse
+     */
+    public function getBatchTaskUdfLineagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBatchTaskUdfLineages',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取离线任务自定义血缘。
+     *  *
+     * @param GetBatchTaskUdfLineagesRequest $request GetBatchTaskUdfLineagesRequest
+     *
+     * @return GetBatchTaskUdfLineagesResponse GetBatchTaskUdfLineagesResponse
+     */
+    public function getBatchTaskUdfLineages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchTaskUdfLineagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取离线计算任务版本列表。
+     *  *
+     * @param GetBatchTaskVersionsRequest $request GetBatchTaskVersionsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBatchTaskVersionsResponse GetBatchTaskVersionsResponse
+     */
+    public function getBatchTaskVersionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBatchTaskVersions',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBatchTaskVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取离线计算任务版本列表。
+     *  *
+     * @param GetBatchTaskVersionsRequest $request GetBatchTaskVersionsRequest
+     *
+     * @return GetBatchTaskVersionsResponse GetBatchTaskVersionsResponse
+     */
+    public function getBatchTaskVersions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBatchTaskVersionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取业务实体详情。
+     *  *
+     * @param GetBizEntityInfoRequest $request GetBizEntityInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBizEntityInfoResponse GetBizEntityInfoResponse
+     */
+    public function getBizEntityInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBizEntityInfo',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBizEntityInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取业务实体详情。
+     *  *
+     * @param GetBizEntityInfoRequest $request GetBizEntityInfoRequest
+     *
+     * @return GetBizEntityInfoResponse GetBizEntityInfoResponse
+     */
+    public function getBizEntityInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBizEntityInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询指定版本的业务实体的详情。
+     *  *
+     * @param GetBizEntityInfoByVersionRequest $request GetBizEntityInfoByVersionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBizEntityInfoByVersionResponse GetBizEntityInfoByVersionResponse
+     */
+    public function getBizEntityInfoByVersionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->versionId)) {
+            $query['VersionId'] = $request->versionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBizEntityInfoByVersion',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBizEntityInfoByVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定版本的业务实体的详情。
+     *  *
+     * @param GetBizEntityInfoByVersionRequest $request GetBizEntityInfoByVersionRequest
+     *
+     * @return GetBizEntityInfoByVersionResponse GetBizEntityInfoByVersionResponse
+     */
+    public function getBizEntityInfoByVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBizEntityInfoByVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取数据板块详情。
+     *  *
+     * @param GetBizUnitInfoRequest $request GetBizUnitInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBizUnitInfoResponse GetBizUnitInfoResponse
+     */
+    public function getBizUnitInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetBizUnitInfo',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBizUnitInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据板块详情。
+     *  *
+     * @param GetBizUnitInfoRequest $request GetBizUnitInfoRequest
+     *
+     * @return GetBizUnitInfoResponse GetBizUnitInfoResponse
+     */
+    public function getBizUnitInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBizUnitInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据环境获取集群信息
+     *  *
+     * @param GetClusterQueueInfoByEnvRequest $request GetClusterQueueInfoByEnvRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetClusterQueueInfoByEnvResponse GetClusterQueueInfoByEnvResponse
+     */
+    public function getClusterQueueInfoByEnvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->env)) {
+            $query['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->streamBatchMode)) {
+            $query['StreamBatchMode'] = $request->streamBatchMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClusterQueueInfoByEnv',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClusterQueueInfoByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据环境获取集群信息
+     *  *
+     * @param GetClusterQueueInfoByEnvRequest $request GetClusterQueueInfoByEnvRequest
+     *
+     * @return GetClusterQueueInfoByEnvResponse GetClusterQueueInfoByEnvResponse
+     */
+    public function getClusterQueueInfoByEnv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClusterQueueInfoByEnvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取主题域详情。
+     *  *
+     * @param GetDataDomainInfoRequest $request GetDataDomainInfoRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataDomainInfoResponse GetDataDomainInfoResponse
+     */
+    public function getDataDomainInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataDomainInfo',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataDomainInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取主题域详情。
+     *  *
+     * @param GetDataDomainInfoRequest $request GetDataDomainInfoRequest
+     *
+     * @return GetDataDomainInfoResponse GetDataDomainInfoResponse
+     */
+    public function getDataDomainInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataDomainInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 查询开发态对象上游依赖。
      *  *
      * @param GetDevObjectDependencyRequest $request GetDevObjectDependencyRequest
@@ -1280,6 +2661,59 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDevObjectDependencyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取文件夹目录树
+     *  *
+     * @param GetDirectoryTreeRequest $request GetDirectoryTreeRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDirectoryTreeResponse GetDirectoryTreeResponse
+     */
+    public function getDirectoryTreeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDirectoryTree',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDirectoryTreeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文件夹目录树
+     *  *
+     * @param GetDirectoryTreeRequest $request GetDirectoryTreeRequest
+     *
+     * @return GetDirectoryTreeResponse GetDirectoryTreeResponse
+     */
+    public function getDirectoryTree($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDirectoryTreeWithOptions($request, $runtime);
     }
 
     /**
@@ -1415,6 +2849,63 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceUpDownStreamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取最新的待发布记录详情
+     *  *
+     * @param GetLatestSubmitDetailRequest $tmpReq  GetLatestSubmitDetailRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetLatestSubmitDetailResponse GetLatestSubmitDetailResponse
+     */
+    public function getLatestSubmitDetailWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetLatestSubmitDetailShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->submitDetailQuery)) {
+            $request->submitDetailQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->submitDetailQuery, 'SubmitDetailQuery', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->submitDetailQueryShrink)) {
+            $body['SubmitDetailQuery'] = $request->submitDetailQueryShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLatestSubmitDetail',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLatestSubmitDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取最新的待发布记录详情
+     *  *
+     * @param GetLatestSubmitDetailRequest $request GetLatestSubmitDetailRequest
+     *
+     * @return GetLatestSubmitDetailResponse GetLatestSubmitDetailResponse
+     */
+    public function getLatestSubmitDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLatestSubmitDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -2018,6 +3509,68 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 根据集群ID获取集群版本
+     *  *
+     * @param GetQueueEngineVersionByEnvRequest $request GetQueueEngineVersionByEnvRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetQueueEngineVersionByEnvResponse GetQueueEngineVersionByEnvResponse
+     */
+    public function getQueueEngineVersionByEnvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->env)) {
+            $query['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->queueName)) {
+            $query['QueueName'] = $request->queueName;
+        }
+        if (!Utils::isUnset($request->streamBatchMode)) {
+            $query['StreamBatchMode'] = $request->streamBatchMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetQueueEngineVersionByEnv',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetQueueEngineVersionByEnvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据集群ID获取集群版本
+     *  *
+     * @param GetQueueEngineVersionByEnvRequest $request GetQueueEngineVersionByEnvRequest
+     *
+     * @return GetQueueEngineVersionByEnvResponse GetQueueEngineVersionByEnvResponse
+     */
+    public function getQueueEngineVersionByEnv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getQueueEngineVersionByEnvWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取补数据工作流所有业务日期的Dagrun信息。
      *  *
      * @param GetSupplementDagrunRequest $request GetSupplementDagrunRequest
@@ -2442,6 +3995,281 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 根据条件查询多个告警事件
+     *  *
+     * @param ListAlertEventsRequest $tmpReq  ListAlertEventsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAlertEventsResponse ListAlertEventsResponse
+     */
+    public function listAlertEventsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListAlertEventsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listQuery)) {
+            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->listQueryShrink)) {
+            $body['ListQuery'] = $request->listQueryShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlertEvents',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAlertEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据条件查询多个告警事件
+     *  *
+     * @param ListAlertEventsRequest $request ListAlertEventsRequest
+     *
+     * @return ListAlertEventsResponse ListAlertEventsResponse
+     */
+    public function listAlertEvents($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAlertEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 根据条件查询多个推送记录
+     *  *
+     * @param ListAlertNotificationsRequest $tmpReq  ListAlertNotificationsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAlertNotificationsResponse ListAlertNotificationsResponse
+     */
+    public function listAlertNotificationsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListAlertNotificationsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listQuery)) {
+            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->listQueryShrink)) {
+            $body['ListQuery'] = $request->listQueryShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAlertNotifications',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAlertNotificationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 根据条件查询多个推送记录
+     *  *
+     * @param ListAlertNotificationsRequest $request ListAlertNotificationsRequest
+     *
+     * @return ListAlertNotificationsResponse ListAlertNotificationsResponse
+     */
+    public function listAlertNotifications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAlertNotificationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询业务实体列表。
+     *  *
+     * @param ListBizEntitiesRequest $tmpReq  ListBizEntitiesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListBizEntitiesResponse ListBizEntitiesResponse
+     */
+    public function listBizEntitiesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListBizEntitiesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listQuery)) {
+            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->listQueryShrink)) {
+            $body['ListQuery'] = $request->listQueryShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBizEntities',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBizEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询业务实体列表。
+     *  *
+     * @param ListBizEntitiesRequest $request ListBizEntitiesRequest
+     *
+     * @return ListBizEntitiesResponse ListBizEntitiesResponse
+     */
+    public function listBizEntities($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBizEntitiesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取当前租户下的所有数据板块
+     *  *
+     * @param ListBizUnitsRequest $request ListBizUnitsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListBizUnitsResponse ListBizUnitsResponse
+     */
+    public function listBizUnitsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBizUnits',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBizUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取当前租户下的所有数据板块
+     *  *
+     * @param ListBizUnitsRequest $request ListBizUnitsRequest
+     *
+     * @return ListBizUnitsResponse ListBizUnitsResponse
+     */
+    public function listBizUnits($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBizUnitsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取主题域列表。
+     *  *
+     * @param ListDataDomainsRequest $tmpReq  ListDataDomainsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataDomainsResponse ListDataDomainsResponse
+     */
+    public function listDataDomainsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListDataDomainsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listQuery)) {
+            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->listQueryShrink)) {
+            $body['ListQuery'] = $request->listQueryShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataDomains',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取主题域列表。
+     *  *
+     * @param ListDataDomainsRequest $request ListDataDomainsRequest
+     *
+     * @return ListDataDomainsResponse ListDataDomainsResponse
+     */
+    public function listDataDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataDomainsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 搜索数据源，所属结果包含数据源配置项
      *  *
      * @param ListDataSourceWithConfigRequest $tmpReq  ListDataSourceWithConfigRequest
@@ -2736,6 +4564,63 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 分页获取发布记录列表
+     *  *
+     * @param ListPublishRecordsRequest $tmpReq  ListPublishRecordsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListPublishRecordsResponse ListPublishRecordsResponse
+     */
+    public function listPublishRecordsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListPublishRecordsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listQuery)) {
+            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->listQueryShrink)) {
+            $body['ListQuery'] = $request->listQueryShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPublishRecords',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPublishRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页获取发布记录列表
+     *  *
+     * @param ListPublishRecordsRequest $request ListPublishRecordsRequest
+     *
+     * @return ListPublishRecordsResponse ListPublishRecordsResponse
+     */
+    public function listPublishRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPublishRecordsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 分页获取权限操作列表
      *  *
      * @param ListResourcePermissionOperationLogRequest $tmpReq  ListResourcePermissionOperationLogRequest
@@ -2847,6 +4732,63 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listResourcePermissionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 分页获取待发布记录列表
+     *  *
+     * @param ListSubmitRecordsRequest $tmpReq  ListSubmitRecordsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListSubmitRecordsResponse ListSubmitRecordsResponse
+     */
+    public function listSubmitRecordsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListSubmitRecordsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->listQuery)) {
+            $request->listQueryShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->listQuery, 'ListQuery', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->listQueryShrink)) {
+            $body['ListQuery'] = $request->listQueryShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSubmitRecords',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSubmitRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 分页获取待发布记录列表
+     *  *
+     * @param ListSubmitRecordsRequest $request ListSubmitRecordsRequest
+     *
+     * @return ListSubmitRecordsResponse ListSubmitRecordsResponse
+     */
+    public function listSubmitRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSubmitRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -3021,6 +4963,176 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 下线离线计算任务。
+     *  *
+     * @param OfflineBatchTaskRequest $request OfflineBatchTaskRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OfflineBatchTaskResponse OfflineBatchTaskResponse
+     */
+    public function offlineBatchTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->fileId)) {
+            $query['FileId'] = $request->fileId;
+        }
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OfflineBatchTask',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OfflineBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 下线离线计算任务。
+     *  *
+     * @param OfflineBatchTaskRequest $request OfflineBatchTaskRequest
+     *
+     * @return OfflineBatchTaskResponse OfflineBatchTaskResponse
+     */
+    public function offlineBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->offlineBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 下线业务实体、
+     *  *
+     * @param OfflineBizEntityRequest $tmpReq  OfflineBizEntityRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OfflineBizEntityResponse OfflineBizEntityResponse
+     */
+    public function offlineBizEntityWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new OfflineBizEntityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->offlineCommand)) {
+            $request->offlineCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->offlineCommand, 'OfflineCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->offlineCommandShrink)) {
+            $body['OfflineCommand'] = $request->offlineCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'OfflineBizEntity',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OfflineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 下线业务实体、
+     *  *
+     * @param OfflineBizEntityRequest $request OfflineBizEntityRequest
+     *
+     * @return OfflineBizEntityResponse OfflineBizEntityResponse
+     */
+    public function offlineBizEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->offlineBizEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 上线业务实体。
+     *  *
+     * @param OnlineBizEntityRequest $tmpReq  OnlineBizEntityRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OnlineBizEntityResponse OnlineBizEntityResponse
+     */
+    public function onlineBizEntityWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new OnlineBizEntityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->onlineCommand)) {
+            $request->onlineCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->onlineCommand, 'OnlineCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->onlineCommandShrink)) {
+            $body['OnlineCommand'] = $request->onlineCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'OnlineBizEntity',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OnlineBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 上线业务实体。
+     *  *
+     * @param OnlineBizEntityRequest $request OnlineBizEntityRequest
+     *
+     * @return OnlineBizEntityResponse OnlineBizEntityResponse
+     */
+    public function onlineBizEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->onlineBizEntityWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 运维实例。
      *  *
      * @param OperateInstanceRequest $tmpReq  OperateInstanceRequest
@@ -3081,6 +5193,63 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+     *  *
+     * @param ParseBatchTaskDependencyRequest $tmpReq  ParseBatchTaskDependencyRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ParseBatchTaskDependencyResponse ParseBatchTaskDependencyResponse
+     */
+    public function parseBatchTaskDependencyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ParseBatchTaskDependencyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parseCommand)) {
+            $request->parseCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parseCommand, 'ParseCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->parseCommandShrink)) {
+            $body['ParseCommand'] = $request->parseCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ParseBatchTaskDependency',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ParseBatchTaskDependencyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解析离线计算任务的逻辑表依赖，注意解析结果上游依赖信息中可能包含自依赖节点（上游节点ID和解析代码的任务节点ID相同）需要用户自己进行处理。
+     *  *
+     * @param ParseBatchTaskDependencyRequest $request ParseBatchTaskDependencyRequest
+     *
+     * @return ParseBatchTaskDependencyResponse ParseBatchTaskDependencyResponse
+     */
+    public function parseBatchTaskDependency($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->parseBatchTaskDependencyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 暂停物理节点调度。
      *  *
      * @param PausePhysicalNodeRequest $tmpReq  PausePhysicalNodeRequest
@@ -3138,6 +5307,63 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pausePhysicalNodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量发布对象
+     *  *
+     * @param PublishObjectListRequest $tmpReq  PublishObjectListRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PublishObjectListResponse PublishObjectListResponse
+     */
+    public function publishObjectListWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new PublishObjectListShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->publishCommand)) {
+            $request->publishCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->publishCommand, 'PublishCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->publishCommandShrink)) {
+            $body['PublishCommand'] = $request->publishCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PublishObjectList',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PublishObjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量发布对象
+     *  *
+     * @param PublishObjectListRequest $request PublishObjectListRequest
+     *
+     * @return PublishObjectListResponse PublishObjectListResponse
+     */
+    public function publishObjectList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->publishObjectListWithOptions($request, $runtime);
     }
 
     /**
@@ -3372,6 +5598,116 @@ class Dataphinpublic extends OpenApiClient
     }
 
     /**
+     * @summary 终止即席查询任务。
+     *  *
+     * @param StopAdHocTaskRequest $request StopAdHocTaskRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopAdHocTaskResponse StopAdHocTaskResponse
+     */
+    public function stopAdHocTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopAdHocTask',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopAdHocTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 终止即席查询任务。
+     *  *
+     * @param StopAdHocTaskRequest $request StopAdHocTaskRequest
+     *
+     * @return StopAdHocTaskResponse StopAdHocTaskResponse
+     */
+    public function stopAdHocTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopAdHocTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交离线计算任务。
+     *  *
+     * @param SubmitBatchTaskRequest $tmpReq  SubmitBatchTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitBatchTaskResponse SubmitBatchTaskResponse
+     */
+    public function submitBatchTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitBatchTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->submitCommand)) {
+            $request->submitCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->submitCommand, 'SubmitCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->submitCommandShrink)) {
+            $body['SubmitCommand'] = $request->submitCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitBatchTask',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交离线计算任务。
+     *  *
+     * @param SubmitBatchTaskRequest $request SubmitBatchTaskRequest
+     *
+     * @return SubmitBatchTaskResponse SubmitBatchTaskResponse
+     */
+    public function submitBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 编辑即席查询文件。
      *  *
      * @param UpdateAdHocFileRequest $tmpReq  UpdateAdHocFileRequest
@@ -3426,6 +5762,291 @@ class Dataphinpublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAdHocFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 编辑离线计算任务。
+     *  *
+     * @param UpdateBatchTaskRequest $tmpReq  UpdateBatchTaskRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateBatchTaskResponse UpdateBatchTaskResponse
+     */
+    public function updateBatchTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateBatchTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->updateCommand)) {
+            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->updateCommandShrink)) {
+            $body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBatchTask',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBatchTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 编辑离线计算任务。
+     *  *
+     * @param UpdateBatchTaskRequest $request UpdateBatchTaskRequest
+     *
+     * @return UpdateBatchTaskResponse UpdateBatchTaskResponse
+     */
+    public function updateBatchTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBatchTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 编辑离线计算任务自定义血缘。
+     *  *
+     * @param UpdateBatchTaskUdfLineagesRequest $tmpReq  UpdateBatchTaskUdfLineagesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateBatchTaskUdfLineagesResponse UpdateBatchTaskUdfLineagesResponse
+     */
+    public function updateBatchTaskUdfLineagesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateBatchTaskUdfLineagesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->updateCommand)) {
+            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->updateCommandShrink)) {
+            $body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBatchTaskUdfLineages',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBatchTaskUdfLineagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 编辑离线计算任务自定义血缘。
+     *  *
+     * @param UpdateBatchTaskUdfLineagesRequest $request UpdateBatchTaskUdfLineagesRequest
+     *
+     * @return UpdateBatchTaskUdfLineagesResponse UpdateBatchTaskUdfLineagesResponse
+     */
+    public function updateBatchTaskUdfLineages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBatchTaskUdfLineagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新业务实体、
+     *  *
+     * @param UpdateBizEntityRequest $tmpReq  UpdateBizEntityRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateBizEntityResponse UpdateBizEntityResponse
+     */
+    public function updateBizEntityWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateBizEntityShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->updateCommand)) {
+            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->updateCommandShrink)) {
+            $body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBizEntity',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBizEntityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新业务实体、
+     *  *
+     * @param UpdateBizEntityRequest $request UpdateBizEntityRequest
+     *
+     * @return UpdateBizEntityResponse UpdateBizEntityResponse
+     */
+    public function updateBizEntity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBizEntityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新数据板块。
+     *  *
+     * @param UpdateBizUnitRequest $tmpReq  UpdateBizUnitRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateBizUnitResponse UpdateBizUnitResponse
+     */
+    public function updateBizUnitWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateBizUnitShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->updateCommand)) {
+            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->updateCommandShrink)) {
+            $body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBizUnit',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBizUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新数据板块。
+     *  *
+     * @param UpdateBizUnitRequest $request UpdateBizUnitRequest
+     *
+     * @return UpdateBizUnitResponse UpdateBizUnitResponse
+     */
+    public function updateBizUnit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBizUnitWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新主题域。
+     *  *
+     * @param UpdateDataDomainRequest $tmpReq  UpdateDataDomainRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateDataDomainResponse UpdateDataDomainResponse
+     */
+    public function updateDataDomainWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateDataDomainShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->updateCommand)) {
+            $request->updateCommandShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->updateCommand, 'UpdateCommand', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->opTenantId)) {
+            $query['OpTenantId'] = $request->opTenantId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->updateCommandShrink)) {
+            $body['UpdateCommand'] = $request->updateCommandShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDataDomain',
+            'version'     => '2023-06-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDataDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新主题域。
+     *  *
+     * @param UpdateDataDomainRequest $request UpdateDataDomainRequest
+     *
+     * @return UpdateDataDomainResponse UpdateDataDomainResponse
+     */
+    public function updateDataDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDataDomainWithOptions($request, $runtime);
     }
 
     /**
