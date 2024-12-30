@@ -74,6 +74,11 @@ class ShareLink extends Model
     public $fileIdList;
 
     /**
+     * @var bool
+     */
+    public $officeEditable;
+
+    /**
      * @var int
      */
     public $previewCount;
@@ -151,6 +156,7 @@ class ShareLink extends Model
         'expiration'        => 'expiration',
         'expired'           => 'expired',
         'fileIdList'        => 'file_id_list',
+        'officeEditable'    => 'office_editable',
         'previewCount'      => 'preview_count',
         'previewLimit'      => 'preview_limit',
         'reportCount'       => 'report_count',
@@ -211,6 +217,9 @@ class ShareLink extends Model
         }
         if (null !== $this->fileIdList) {
             $res['file_id_list'] = $this->fileIdList;
+        }
+        if (null !== $this->officeEditable) {
+            $res['office_editable'] = $this->officeEditable;
         }
         if (null !== $this->previewCount) {
             $res['preview_count'] = $this->previewCount;
@@ -303,6 +312,9 @@ class ShareLink extends Model
             if (!empty($map['file_id_list'])) {
                 $model->fileIdList = $map['file_id_list'];
             }
+        }
+        if (isset($map['office_editable'])) {
+            $model->officeEditable = $map['office_editable'];
         }
         if (isset($map['preview_count'])) {
             $model->previewCount = $map['preview_count'];

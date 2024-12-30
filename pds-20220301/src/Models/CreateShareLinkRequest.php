@@ -90,6 +90,11 @@ class CreateShareLinkRequest extends Model
     public $fileIdList;
 
     /**
+     * @var bool
+     */
+    public $officeEditable;
+
+    /**
      * @description The limit on the number of times that the shared files can be previewed. The value of this parameter must be equal to or greater than 0. A value of 0 indicates no limit.
      *
      * @example 100
@@ -97,6 +102,11 @@ class CreateShareLinkRequest extends Model
      * @var int
      */
     public $previewLimit;
+
+    /**
+     * @var bool
+     */
+    public $requireLogin;
 
     /**
      * @description The limit on the number of times that the shared files can be dumped. The value of this parameter must be equal to or greater than 0. A value of 0 indicates no limit.
@@ -151,7 +161,9 @@ class CreateShareLinkRequest extends Model
         'driveId'             => 'drive_id',
         'expiration'          => 'expiration',
         'fileIdList'          => 'file_id_list',
+        'officeEditable'      => 'office_editable',
         'previewLimit'        => 'preview_limit',
+        'requireLogin'        => 'require_login',
         'saveLimit'           => 'save_limit',
         'shareAllFiles'       => 'share_all_files',
         'shareName'           => 'share_name',
@@ -196,8 +208,14 @@ class CreateShareLinkRequest extends Model
         if (null !== $this->fileIdList) {
             $res['file_id_list'] = $this->fileIdList;
         }
+        if (null !== $this->officeEditable) {
+            $res['office_editable'] = $this->officeEditable;
+        }
         if (null !== $this->previewLimit) {
             $res['preview_limit'] = $this->previewLimit;
+        }
+        if (null !== $this->requireLogin) {
+            $res['require_login'] = $this->requireLogin;
         }
         if (null !== $this->saveLimit) {
             $res['save_limit'] = $this->saveLimit;
@@ -260,8 +278,14 @@ class CreateShareLinkRequest extends Model
                 $model->fileIdList = $map['file_id_list'];
             }
         }
+        if (isset($map['office_editable'])) {
+            $model->officeEditable = $map['office_editable'];
+        }
         if (isset($map['preview_limit'])) {
             $model->previewLimit = $map['preview_limit'];
+        }
+        if (isset($map['require_login'])) {
+            $model->requireLogin = $map['require_login'];
         }
         if (isset($map['save_limit'])) {
             $model->saveLimit = $map['save_limit'];

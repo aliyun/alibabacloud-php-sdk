@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListMyGroupDriveRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $driveName;
+
+    /**
      * @description The maximum number of results to return. Valid values: 1 to 100. Default value: 100.
      *
      * @example 100
@@ -26,8 +31,9 @@ class ListMyGroupDriveRequest extends Model
      */
     public $marker;
     protected $_name = [
-        'limit'  => 'limit',
-        'marker' => 'marker',
+        'driveName' => 'drive_name',
+        'limit'     => 'limit',
+        'marker'    => 'marker',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class ListMyGroupDriveRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->driveName) {
+            $res['drive_name'] = $this->driveName;
+        }
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
@@ -55,6 +64,9 @@ class ListMyGroupDriveRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['drive_name'])) {
+            $model->driveName = $map['drive_name'];
+        }
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }

@@ -237,11 +237,10 @@ class Pds extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $gatewayClient             = new Client();
-        $this->_spi                = $gatewayClient;
-        $this->_signatureAlgorithm = 'v2';
-        $this->_disableHttp2       = true;
-        $this->_endpointRule       = '';
+        $gatewayClient       = new Client();
+        $this->_spi          = $gatewayClient;
+        $this->_disableHttp2 = true;
+        $this->_endpointRule = '';
     }
 
     /**
@@ -902,9 +901,9 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Create domain.
+     * @summary test_domain
      *  *
-     * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+     * @description The description of the domain.
      *  *
      * @param CreateDomainRequest $request CreateDomainRequest
      * @param string[]            $headers map
@@ -957,9 +956,9 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary Create domain.
+     * @summary test_domain
      *  *
-     * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
+     * @description The description of the domain.
      *  *
      * @param CreateDomainRequest $request CreateDomainRequest
      *
@@ -1401,8 +1400,14 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->fileIdList)) {
             $body['file_id_list'] = $request->fileIdList;
         }
+        if (!Utils::isUnset($request->officeEditable)) {
+            $body['office_editable'] = $request->officeEditable;
+        }
         if (!Utils::isUnset($request->previewLimit)) {
             $body['preview_limit'] = $request->previewLimit;
+        }
+        if (!Utils::isUnset($request->requireLogin)) {
+            $body['require_login'] = $request->requireLogin;
         }
         if (!Utils::isUnset($request->saveLimit)) {
             $body['save_limit'] = $request->saveLimit;
@@ -4648,6 +4653,9 @@ class Pds extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->driveName)) {
+            $body['drive_name'] = $request->driveName;
+        }
         if (!Utils::isUnset($request->limit)) {
             $body['limit'] = $request->limit;
         }
@@ -6265,7 +6273,7 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 取消账号绑定
+     * @summary Unlink Account Binding
      *  *
      * @param UnLinkAccountRequest $request UnLinkAccountRequest
      * @param string[]             $headers map
@@ -6309,7 +6317,7 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 取消账号绑定
+     * @summary Unlink Account Binding
      *  *
      * @param UnLinkAccountRequest $request UnLinkAccountRequest
      *
@@ -6808,6 +6816,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->expiration)) {
             $body['expiration'] = $request->expiration;
+        }
+        if (!Utils::isUnset($request->officeEditable)) {
+            $body['office_editable'] = $request->officeEditable;
         }
         if (!Utils::isUnset($request->previewCount)) {
             $body['preview_count'] = $request->previewCount;

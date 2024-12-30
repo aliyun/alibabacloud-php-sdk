@@ -26,6 +26,11 @@ class Token extends Model
     /**
      * @var string
      */
+    public $defaultSboxDriveId;
+
+    /**
+     * @var string
+     */
     public $deviceId;
 
     /**
@@ -37,6 +42,11 @@ class Token extends Model
      * @var string
      */
     public $domainId;
+
+    /**
+     * @var LinkInfo[]
+     */
+    public $existLink;
 
     /**
      * @var string
@@ -54,9 +64,24 @@ class Token extends Model
     public $isFirstLogin;
 
     /**
+     * @var bool
+     */
+    public $needLink;
+
+    /**
+     * @var bool
+     */
+    public $needRpVerify;
+
+    /**
      * @var string
      */
     public $nickName;
+
+    /**
+     * @var bool
+     */
+    public $pinSetup;
 
     /**
      * @var string
@@ -71,12 +96,22 @@ class Token extends Model
     /**
      * @var string
      */
+    public $state;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
      * @var string
      */
     public $tokenType;
+
+    /**
+     * @var string[]
+     */
+    public $userData;
 
     /**
      * @var string
@@ -88,22 +123,29 @@ class Token extends Model
      */
     public $userName;
     protected $_name = [
-        'accessToken'    => 'access_token',
-        'avatar'         => 'avatar',
-        'defaultDriveId' => 'default_drive_id',
-        'deviceId'       => 'device_id',
-        'deviceName'     => 'device_name',
-        'domainId'       => 'domain_id',
-        'expireTime'     => 'expire_time',
-        'expiresIn'      => 'expires_in',
-        'isFirstLogin'   => 'is_first_login',
-        'nickName'       => 'nick_name',
-        'refreshToken'   => 'refresh_token',
-        'role'           => 'role',
-        'status'         => 'status',
-        'tokenType'      => 'token_type',
-        'userId'         => 'user_id',
-        'userName'       => 'user_name',
+        'accessToken'        => 'access_token',
+        'avatar'             => 'avatar',
+        'defaultDriveId'     => 'default_drive_id',
+        'defaultSboxDriveId' => 'default_sbox_drive_id',
+        'deviceId'           => 'device_id',
+        'deviceName'         => 'device_name',
+        'domainId'           => 'domain_id',
+        'existLink'          => 'exist_link',
+        'expireTime'         => 'expire_time',
+        'expiresIn'          => 'expires_in',
+        'isFirstLogin'       => 'is_first_login',
+        'needLink'           => 'need_link',
+        'needRpVerify'       => 'need_rp_verify',
+        'nickName'           => 'nick_name',
+        'pinSetup'           => 'pin_setup',
+        'refreshToken'       => 'refresh_token',
+        'role'               => 'role',
+        'state'              => 'state',
+        'status'             => 'status',
+        'tokenType'          => 'token_type',
+        'userData'           => 'user_data',
+        'userId'             => 'user_id',
+        'userName'           => 'user_name',
     ];
 
     public function validate()
@@ -122,6 +164,9 @@ class Token extends Model
         if (null !== $this->defaultDriveId) {
             $res['default_drive_id'] = $this->defaultDriveId;
         }
+        if (null !== $this->defaultSboxDriveId) {
+            $res['default_sbox_drive_id'] = $this->defaultSboxDriveId;
+        }
         if (null !== $this->deviceId) {
             $res['device_id'] = $this->deviceId;
         }
@@ -130,6 +175,15 @@ class Token extends Model
         }
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
+        }
+        if (null !== $this->existLink) {
+            $res['exist_link'] = [];
+            if (null !== $this->existLink && \is_array($this->existLink)) {
+                $n = 0;
+                foreach ($this->existLink as $item) {
+                    $res['exist_link'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->expireTime) {
             $res['expire_time'] = $this->expireTime;
@@ -140,8 +194,17 @@ class Token extends Model
         if (null !== $this->isFirstLogin) {
             $res['is_first_login'] = $this->isFirstLogin;
         }
+        if (null !== $this->needLink) {
+            $res['need_link'] = $this->needLink;
+        }
+        if (null !== $this->needRpVerify) {
+            $res['need_rp_verify'] = $this->needRpVerify;
+        }
         if (null !== $this->nickName) {
             $res['nick_name'] = $this->nickName;
+        }
+        if (null !== $this->pinSetup) {
+            $res['pin_setup'] = $this->pinSetup;
         }
         if (null !== $this->refreshToken) {
             $res['refresh_token'] = $this->refreshToken;
@@ -149,11 +212,17 @@ class Token extends Model
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
+        if (null !== $this->state) {
+            $res['state'] = $this->state;
+        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
         if (null !== $this->tokenType) {
             $res['token_type'] = $this->tokenType;
+        }
+        if (null !== $this->userData) {
+            $res['user_data'] = $this->userData;
         }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
@@ -182,6 +251,9 @@ class Token extends Model
         if (isset($map['default_drive_id'])) {
             $model->defaultDriveId = $map['default_drive_id'];
         }
+        if (isset($map['default_sbox_drive_id'])) {
+            $model->defaultSboxDriveId = $map['default_sbox_drive_id'];
+        }
         if (isset($map['device_id'])) {
             $model->deviceId = $map['device_id'];
         }
@@ -190,6 +262,15 @@ class Token extends Model
         }
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
+        }
+        if (isset($map['exist_link'])) {
+            if (!empty($map['exist_link'])) {
+                $model->existLink = [];
+                $n                = 0;
+                foreach ($map['exist_link'] as $item) {
+                    $model->existLink[$n++] = null !== $item ? LinkInfo::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['expire_time'])) {
             $model->expireTime = $map['expire_time'];
@@ -200,8 +281,17 @@ class Token extends Model
         if (isset($map['is_first_login'])) {
             $model->isFirstLogin = $map['is_first_login'];
         }
+        if (isset($map['need_link'])) {
+            $model->needLink = $map['need_link'];
+        }
+        if (isset($map['need_rp_verify'])) {
+            $model->needRpVerify = $map['need_rp_verify'];
+        }
         if (isset($map['nick_name'])) {
             $model->nickName = $map['nick_name'];
+        }
+        if (isset($map['pin_setup'])) {
+            $model->pinSetup = $map['pin_setup'];
         }
         if (isset($map['refresh_token'])) {
             $model->refreshToken = $map['refresh_token'];
@@ -209,11 +299,17 @@ class Token extends Model
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }
+        if (isset($map['state'])) {
+            $model->state = $map['state'];
+        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
         if (isset($map['token_type'])) {
             $model->tokenType = $map['token_type'];
+        }
+        if (isset($map['user_data'])) {
+            $model->userData = $map['user_data'];
         }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];

@@ -9,26 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainRequest extends Model
 {
     /**
-     * @description The description of the domain.
+     * @description domain 描述
      *
-     * @example domain for test
+     * @example 你好企业网盘开发环境
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the domain.
+     * @description If you want to perform secondary operations based on Drive and Photo Service and perform fine-grained control on your tenants, you can use the parent-child domain feature of Drive and Photo Service. For more information, join the DingTalk group whose ID is 23146118.
      *
      * This parameter is required.
-     * @example test_domain
+     * @example 你好企业网盘
      *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description Specifies whether to enable the default drive feature. A value of true specifies that all users are assigned a drive by default on the first logon. Default value: false.
+     * @description https
      *
      * @example true
      *
@@ -37,7 +37,7 @@ class CreateDomainRequest extends Model
     public $initDriveEnable;
 
     /**
-     * @description The size of the default drive. Unit: bytes. You must specify init_drive_size if you set init_drive_enable to true. Default value: 0. A value of 0 specifies that the size of the default drive is 0 bytes and you cannot upload files to the drive. To initialize the default drive, set init_drive_size to 0. A value of -1 specifies that the size is unlimited.
+     * @description http
      *
      * @example 1073741824
      *
@@ -46,7 +46,7 @@ class CreateDomainRequest extends Model
     public $initDriveSize;
 
     /**
-     * @description The ID of the parent domain. If you want to create a child domain, specify parent_domain_id. In most cases, you do not need to create a child domain. If you want to perform secondary operations based on Drive and Photo Service, contact the customer service.
+     * @description Create domain.
      *
      * @example bj1
      *
@@ -55,7 +55,7 @@ class CreateDomainRequest extends Model
     public $parentDomainId;
 
     /**
-     * @description The total storage quota for all drives in the domain. A value of 0 specifies that the quota is unlimited.
+     * @description The ID of the parent domain. If you want to create a child domain, specify parent_domain_id. In most cases, you do not need to create a child domain. If you want to perform secondary operations based on Drive and Photo Service, contact the customer service.
      *
      * @example 1099511627776
      *
@@ -64,7 +64,7 @@ class CreateDomainRequest extends Model
     public $sizeQuota;
 
     /**
-     * @description The largest number of users that can be created in the domain. A value of 0 specifies that the number is unlimited.
+     * @description The information about the domain.
      *
      * @example 50
      *

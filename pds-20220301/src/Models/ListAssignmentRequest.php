@@ -21,6 +21,7 @@ class ListAssignmentRequest extends Model
     /**
      * @description The ID of the managed resource, such as a group ID.
      *
+     * This parameter is required.
      * @example 105***b82
      *
      * @var string
@@ -30,6 +31,7 @@ class ListAssignmentRequest extends Model
     /**
      * @description The type of the managed resource. Set the value to RT_Group, which specifies that the administrators of a group are queried.
      *
+     * This parameter is required.
      * @example RT_Group
      *
      * @var string

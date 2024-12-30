@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class File extends Model
 {
     /**
+     * @var string[]
+     */
+    public $actionList;
+
+    /**
      * @var string
      */
     public $category;
@@ -74,6 +79,11 @@ class File extends Model
     public $hidden;
 
     /**
+     * @var string
+     */
+    public $idPath;
+
+    /**
      * @var ImageMediaMetadata
      */
     public $imageMediaMetadata;
@@ -97,6 +107,11 @@ class File extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $namePath;
 
     /**
      * @var string
@@ -163,6 +178,7 @@ class File extends Model
      */
     public $videoMediaMetadata;
     protected $_name = [
+        'actionList'         => 'action_list',
         'category'           => 'category',
         'contentHash'        => 'content_hash',
         'contentHashName'    => 'content_hash_name',
@@ -176,11 +192,13 @@ class File extends Model
         'fileExtension'      => 'file_extension',
         'fileId'             => 'file_id',
         'hidden'             => 'hidden',
+        'idPath'             => 'id_path',
         'imageMediaMetadata' => 'image_media_metadata',
         'labels'             => 'labels',
         'localCreatedAt'     => 'local_created_at',
         'localModifiedAt'    => 'local_modified_at',
         'name'               => 'name',
+        'namePath'           => 'name_path',
         'parentFileId'       => 'parent_file_id',
         'revisionId'         => 'revision_id',
         'size'               => 'size',
@@ -203,6 +221,9 @@ class File extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->actionList) {
+            $res['action_list'] = $this->actionList;
+        }
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
@@ -242,6 +263,9 @@ class File extends Model
         if (null !== $this->hidden) {
             $res['hidden'] = $this->hidden;
         }
+        if (null !== $this->idPath) {
+            $res['id_path'] = $this->idPath;
+        }
         if (null !== $this->imageMediaMetadata) {
             $res['image_media_metadata'] = null !== $this->imageMediaMetadata ? $this->imageMediaMetadata->toMap() : null;
         }
@@ -256,6 +280,9 @@ class File extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
+        }
+        if (null !== $this->namePath) {
+            $res['name_path'] = $this->namePath;
         }
         if (null !== $this->parentFileId) {
             $res['parent_file_id'] = $this->parentFileId;
@@ -308,6 +335,11 @@ class File extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['action_list'])) {
+            if (!empty($map['action_list'])) {
+                $model->actionList = $map['action_list'];
+            }
+        }
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
@@ -347,6 +379,9 @@ class File extends Model
         if (isset($map['hidden'])) {
             $model->hidden = $map['hidden'];
         }
+        if (isset($map['id_path'])) {
+            $model->idPath = $map['id_path'];
+        }
         if (isset($map['image_media_metadata'])) {
             $model->imageMediaMetadata = ImageMediaMetadata::fromMap($map['image_media_metadata']);
         }
@@ -363,6 +398,9 @@ class File extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
+        }
+        if (isset($map['name_path'])) {
+            $model->namePath = $map['name_path'];
         }
         if (isset($map['parent_file_id'])) {
             $model->parentFileId = $map['parent_file_id'];

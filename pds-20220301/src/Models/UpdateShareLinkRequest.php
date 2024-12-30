@@ -70,6 +70,11 @@ class UpdateShareLinkRequest extends Model
     public $expiration;
 
     /**
+     * @var bool
+     */
+    public $officeEditable;
+
+    /**
      * @description The number of times that the shared files are previewed. The value must be greater than or equal to 0.
      *
      * @example 3
@@ -168,6 +173,7 @@ class UpdateShareLinkRequest extends Model
         'downloadCount'     => 'download_count',
         'downloadLimit'     => 'download_limit',
         'expiration'        => 'expiration',
+        'officeEditable'    => 'office_editable',
         'previewCount'      => 'preview_count',
         'previewLimit'      => 'preview_limit',
         'reportCount'       => 'report_count',
@@ -207,6 +213,9 @@ class UpdateShareLinkRequest extends Model
         }
         if (null !== $this->expiration) {
             $res['expiration'] = $this->expiration;
+        }
+        if (null !== $this->officeEditable) {
+            $res['office_editable'] = $this->officeEditable;
         }
         if (null !== $this->previewCount) {
             $res['preview_count'] = $this->previewCount;
@@ -270,6 +279,9 @@ class UpdateShareLinkRequest extends Model
         }
         if (isset($map['expiration'])) {
             $model->expiration = $map['expiration'];
+        }
+        if (isset($map['office_editable'])) {
+            $model->officeEditable = $map['office_editable'];
         }
         if (isset($map['preview_count'])) {
             $model->previewCount = $map['preview_count'];

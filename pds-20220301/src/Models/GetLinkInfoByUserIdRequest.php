@@ -11,6 +11,7 @@ class GetLinkInfoByUserIdRequest extends Model
     /**
      * @description The user ID.
      *
+     * This parameter is required.
      * @example xxx
      *
      * @var string

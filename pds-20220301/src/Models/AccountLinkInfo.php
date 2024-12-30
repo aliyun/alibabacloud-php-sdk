@@ -39,6 +39,16 @@ class AccountLinkInfo extends Model
     public $identity;
 
     /**
+     * @var int
+     */
+    public $lastLoginTime;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
      * @var string
      */
     public $userId;
@@ -49,6 +59,8 @@ class AccountLinkInfo extends Model
         'domainId'           => 'domain_id',
         'extra'              => 'extra',
         'identity'           => 'identity',
+        'lastLoginTime'      => 'last_login_time',
+        'status'             => 'status',
         'userId'             => 'user_id',
     ];
 
@@ -76,6 +88,12 @@ class AccountLinkInfo extends Model
         }
         if (null !== $this->identity) {
             $res['identity'] = $this->identity;
+        }
+        if (null !== $this->lastLoginTime) {
+            $res['last_login_time'] = $this->lastLoginTime;
+        }
+        if (null !== $this->status) {
+            $res['status'] = $this->status;
         }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
@@ -109,6 +127,12 @@ class AccountLinkInfo extends Model
         }
         if (isset($map['identity'])) {
             $model->identity = $map['identity'];
+        }
+        if (isset($map['last_login_time'])) {
+            $model->lastLoginTime = $map['last_login_time'];
+        }
+        if (isset($map['status'])) {
+            $model->status = $map['status'];
         }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];

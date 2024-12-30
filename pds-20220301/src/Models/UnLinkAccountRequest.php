@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnLinkAccountRequest extends Model
 {
     /**
+     * @description Additional information for the unique account identifier. For example, when the account is a phone number, this field should be filled with the area code of the phone, such as 86 for Mainland China. If not provided, it defaults to 86.
+     *
      * @example 1
      *
      * @var string
@@ -16,8 +18,9 @@ class UnLinkAccountRequest extends Model
     public $extra;
 
     /**
-     * @description This parameter is required.
+     * @description Unique identifier of the account, such as a phone number
      *
+     * This parameter is required.
      * @example 139****
      *
      * @var string
@@ -25,8 +28,9 @@ class UnLinkAccountRequest extends Model
     public $identity;
 
     /**
-     * @description This parameter is required.
+     * @description Account type
      *
+     * This parameter is required.
      * @example mobile
      *
      * @var string
@@ -34,8 +38,9 @@ class UnLinkAccountRequest extends Model
     public $type;
 
     /**
-     * @description This parameter is required.
+     * @description User identifier
      *
+     * This parameter is required.
      * @example uid1
      *
      * @var string

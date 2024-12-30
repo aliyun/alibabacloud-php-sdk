@@ -6,30 +6,20 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class FileListPermissionRequest extends Model
+class BaseFileListInheritPermissionResponse extends Model
 {
     /**
-     * @description The drive ID.
-     *
-     * This parameter is required.
-     * @example 1
-     *
-     * @var string
-     */
-    public $driveId;
-
-    /**
-     * @description The file ID.
-     *
-     * This parameter is required.
-     * @example 4221bf6e6ab43a255edc4463bffa6f5f5d317401
-     *
      * @var string
      */
     public $fileId;
+
+    /**
+     * @var FilePermissionMember
+     */
+    public $member;
     protected $_name = [
-        'driveId' => 'drive_id',
-        'fileId'  => 'file_id',
+        'fileId' => 'file_id',
+        'member' => 'member',
     ];
 
     public function validate()
@@ -39,11 +29,11 @@ class FileListPermissionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->driveId) {
-            $res['drive_id'] = $this->driveId;
-        }
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
+        }
+        if (null !== $this->member) {
+            $res['member'] = null !== $this->member ? $this->member->toMap() : null;
         }
 
         return $res;
@@ -52,16 +42,16 @@ class FileListPermissionRequest extends Model
     /**
      * @param array $map
      *
-     * @return FileListPermissionRequest
+     * @return BaseFileListInheritPermissionResponse
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['drive_id'])) {
-            $model->driveId = $map['drive_id'];
-        }
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
+        }
+        if (isset($map['member'])) {
+            $model->member = FilePermissionMember::fromMap($map['member']);
         }
 
         return $model;
