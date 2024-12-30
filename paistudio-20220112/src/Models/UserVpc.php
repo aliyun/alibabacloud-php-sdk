@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UserVpc extends Model
 {
     /**
+     * @var ForwardInfo
+     */
+    public $defaultForwardInfo;
+
+    /**
      * @var string
      */
     public $defaultRoute;
@@ -38,12 +43,13 @@ class UserVpc extends Model
      */
     public $vpcId;
     protected $_name = [
-        'defaultRoute'    => 'DefaultRoute',
-        'extendedCIDRs'   => 'ExtendedCIDRs',
-        'roleArn'         => 'RoleArn',
-        'securityGroupId' => 'SecurityGroupId',
-        'switchId'        => 'SwitchId',
-        'vpcId'           => 'VpcId',
+        'defaultForwardInfo' => 'DefaultForwardInfo',
+        'defaultRoute'       => 'DefaultRoute',
+        'extendedCIDRs'      => 'ExtendedCIDRs',
+        'roleArn'            => 'RoleArn',
+        'securityGroupId'    => 'SecurityGroupId',
+        'switchId'           => 'SwitchId',
+        'vpcId'              => 'VpcId',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class UserVpc extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->defaultForwardInfo) {
+            $res['DefaultForwardInfo'] = null !== $this->defaultForwardInfo ? $this->defaultForwardInfo->toMap() : null;
+        }
         if (null !== $this->defaultRoute) {
             $res['DefaultRoute'] = $this->defaultRoute;
         }
@@ -83,6 +92,9 @@ class UserVpc extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefaultForwardInfo'])) {
+            $model->defaultForwardInfo = ForwardInfo::fromMap($map['DefaultForwardInfo']);
+        }
         if (isset($map['DefaultRoute'])) {
             $model->defaultRoute = $map['DefaultRoute'];
         }

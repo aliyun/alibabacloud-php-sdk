@@ -46,6 +46,8 @@ use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupShrinkRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupTotalRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetResourceGroupTotalResponse;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetSpotPriceHistoryRequest;
+use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetSpotPriceHistoryResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTokenRequest;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTokenResponse;
 use AlibabaCloud\SDK\PaiStudio\V20220112\Models\GetTrainingJobErrorInfoResponse;
@@ -1499,6 +1501,76 @@ class PaiStudio extends OpenApiClient
         $headers = [];
 
         return $this->getResourceGroupTotalWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取抢占式实例历史价格
+     *  *
+     * @param string                     $InstanceType
+     * @param GetSpotPriceHistoryRequest $request      GetSpotPriceHistoryRequest
+     * @param string[]                   $headers      map
+     * @param RuntimeOptions             $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return GetSpotPriceHistoryResponse GetSpotPriceHistoryResponse
+     */
+    public function getSpotPriceHistoryWithOptions($InstanceType, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sortBy)) {
+            $query['SortBy'] = $request->sortBy;
+        }
+        if (!Utils::isUnset($request->spotDuration)) {
+            $query['SpotDuration'] = $request->spotDuration;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSpotPriceHistory',
+            'version'     => '2022-01-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/spots/' . OpenApiUtilClient::getEncodeParam($InstanceType) . '/pricehistory',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSpotPriceHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取抢占式实例历史价格
+     *  *
+     * @param string                     $InstanceType
+     * @param GetSpotPriceHistoryRequest $request      GetSpotPriceHistoryRequest
+     *
+     * @return GetSpotPriceHistoryResponse GetSpotPriceHistoryResponse
+     */
+    public function getSpotPriceHistory($InstanceType, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSpotPriceHistoryWithOptions($InstanceType, $request, $headers, $runtime);
     }
 
     /**
