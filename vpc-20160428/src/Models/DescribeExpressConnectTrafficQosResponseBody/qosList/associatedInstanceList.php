@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class associatedInstanceList extends Model
 {
     /**
+     * @description The ID of the instance to which the QoS policy is associated.
+     *
      * @example pc-bp159zj8zujwy3p07j83e
      *
      * @var string
@@ -16,6 +18,8 @@ class associatedInstanceList extends Model
     public $instanceId;
 
     /**
+     * @description The configuration progress of the instance to which the QoS policy is associated. Valid values: **0** to **100**.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,11 @@ class associatedInstanceList extends Model
     public $instanceProgressing;
 
     /**
+     * @description The state of the instance to which the QoS policy is associated. Valid values:
+     *
+     * - **Normal**: The instance is available.
+     * - **Configuring**: The instance is being configured.
+     * - **Deleting**: The instance is being deleted.
      * @example Normal
      *
      * @var string
@@ -30,6 +39,8 @@ class associatedInstanceList extends Model
     public $instanceStatus;
 
     /**
+     * @description The type of the instance to which the QoS policy is associated. Only **PHYSICALCONNECTION** is returned.
+     *
      * @example PHYSICALCONNECTION
      *
      * @var string

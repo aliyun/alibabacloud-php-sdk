@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeExpressConnectTrafficQosQueueRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -26,6 +29,8 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the QoS policy.
+     *
      * @example qos-2giu0a6vd5x0mv4700
      *
      * @var string
@@ -33,18 +38,23 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
     public $qosId;
 
     /**
+     * @description The IDs of the QoS queues.
+     *
      * @var string[]
      */
     public $queueIdList;
 
     /**
+     * @description The names of the QoS queues.
+     *
      * @var string[]
      */
     public $queueNameList;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the QoS policy.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string

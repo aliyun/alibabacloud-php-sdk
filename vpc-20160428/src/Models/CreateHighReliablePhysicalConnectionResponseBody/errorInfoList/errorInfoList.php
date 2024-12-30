@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class errorInfoList extends Model
 {
     /**
+     * @description Error codes.
+     *
      * @example pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
      *
      * @var string
@@ -16,6 +18,8 @@ class errorInfoList extends Model
     public $errorCode;
 
     /**
+     * @description The returned error message.
+     *
      * @example pconn.high.reliable.dryrun.error.disable.outbound.data.transfer.billing
      *
      * @var string
@@ -23,6 +27,8 @@ class errorInfoList extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-j5e5qqo616p81ncspbll1
      *
      * @var string

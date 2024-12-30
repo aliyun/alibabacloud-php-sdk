@@ -5537,7 +5537,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建高可靠物理专线
+     * @summary Creates Express Connect circuits in high reliability mode. This improves the stability of multiple Express Connect circuits and prevents service interruptions caused by single points of failures (SPOFs).
      *  *
      * @param CreateHighReliablePhysicalConnectionRequest $request CreateHighReliablePhysicalConnectionRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -5612,7 +5612,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 创建高可靠物理专线
+     * @summary Creates Express Connect circuits in high reliability mode. This improves the stability of multiple Express Connect circuits and prevents service interruptions caused by single points of failures (SPOFs).
      *  *
      * @param CreateHighReliablePhysicalConnectionRequest $request CreateHighReliablePhysicalConnectionRequest
      *
@@ -10223,7 +10223,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 删除高速通道Qos队列
+     * @summary Deletes a quality of service (QoS) queue.
      *  *
      * @param DeleteExpressConnectTrafficQosQueueRequest $request DeleteExpressConnectTrafficQosQueueRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -10277,7 +10277,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 删除高速通道Qos队列
+     * @summary Deletes a quality of service (QoS) queue.
      *  *
      * @param DeleteExpressConnectTrafficQosQueueRequest $request DeleteExpressConnectTrafficQosQueueRequest
      *
@@ -14824,7 +14824,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询高速通道Qos
+     * @summary Queries the quality of service (QoS) policies of Express Connect. The response can be displayed by page.
      *  *
      * @param DescribeExpressConnectTrafficQosRequest $request DescribeExpressConnectTrafficQosRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -14890,7 +14890,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询高速通道Qos
+     * @summary Queries the quality of service (QoS) policies of Express Connect. The response can be displayed by page.
      *  *
      * @param DescribeExpressConnectTrafficQosRequest $request DescribeExpressConnectTrafficQosRequest
      *
@@ -14904,7 +14904,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询高速通道Qos队列
+     * @summary Queries the information about the quality of service (QoS) queues of the Express Connect circuit.
      *  *
      * @param DescribeExpressConnectTrafficQosQueueRequest $request DescribeExpressConnectTrafficQosQueueRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -14961,7 +14961,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 查询高速通道Qos队列
+     * @summary Queries the information about the quality of service (QoS) queues of the Express Connect circuit.
      *  *
      * @param DescribeExpressConnectTrafficQosQueueRequest $request DescribeExpressConnectTrafficQosQueueRequest
      *
@@ -29778,7 +29778,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 结束故障演练任务
+     * @summary Terminates a failover test.
      *  *
      * @param StopFailoverTestJobRequest $request StopFailoverTestJobRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -29829,7 +29829,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 结束故障演练任务
+     * @summary Terminates a failover test.
      *  *
      * @param StopFailoverTestJobRequest $request StopFailoverTestJobRequest
      *
@@ -31005,7 +31005,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 更新故障演练任务
+     * @summary Updates a failover test.
      *  *
      * @param UpdateFailoverTestJobRequest $request UpdateFailoverTestJobRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -31071,7 +31071,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * @summary 更新故障演练任务
+     * @summary Updates a failover test.
      *  *
      * @param UpdateFailoverTestJobRequest $request UpdateFailoverTestJobRequest
      *

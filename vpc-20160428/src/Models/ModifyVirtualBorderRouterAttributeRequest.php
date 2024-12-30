@@ -206,6 +206,10 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Indicates whether to allow service access between data centers. Valid values:
+     *
+     * - **true**
+     * - **false**
      * @example false
      *
      * @var bool

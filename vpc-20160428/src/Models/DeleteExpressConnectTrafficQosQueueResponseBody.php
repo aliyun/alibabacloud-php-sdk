@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteExpressConnectTrafficQosQueueResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 9B9300FE-11E2-4E3B-949C-BED3B44DD26D
      *
      * @var string

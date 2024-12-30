@@ -38,6 +38,11 @@ class DescribeFailoverTestJobsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
+     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string

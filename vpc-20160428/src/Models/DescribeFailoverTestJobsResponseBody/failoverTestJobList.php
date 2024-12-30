@@ -75,6 +75,8 @@ class failoverTestJobList extends Model
     public $resourceType;
 
     /**
+     * @description The beginning of the fault drill task. The time must be in UTC. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mm:ssZ` format.
+     *
      * @example 2023-11-21T14:00:00Z
      *
      * @var string
@@ -97,6 +99,8 @@ class failoverTestJobList extends Model
     public $status;
 
     /**
+     * @description The end of the fault drill task. The time must be in UTC. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mm:ssZ` format.
+     *
      * @example 2023-11-21T15:00:00Z
      *
      * @var string

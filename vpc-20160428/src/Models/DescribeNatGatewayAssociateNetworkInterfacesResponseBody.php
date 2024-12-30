@@ -15,6 +15,11 @@ class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends Model
     public $associateNetworkInterfaces;
 
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @example 20
      *
      * @var int
@@ -50,6 +55,7 @@ class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'associateNetworkInterfaces' => 'AssociateNetworkInterfaces',
+        'count'                      => 'Count',
         'maxResults'                 => 'MaxResults',
         'natGatewayId'               => 'NatGatewayId',
         'nextToken'                  => 'NextToken',
@@ -66,6 +72,9 @@ class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends Model
         $res = [];
         if (null !== $this->associateNetworkInterfaces) {
             $res['AssociateNetworkInterfaces'] = null !== $this->associateNetworkInterfaces ? $this->associateNetworkInterfaces->toMap() : null;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -96,6 +105,9 @@ class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends Model
         $model = new self();
         if (isset($map['AssociateNetworkInterfaces'])) {
             $model->associateNetworkInterfaces = associateNetworkInterfaces::fromMap($map['AssociateNetworkInterfaces']);
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

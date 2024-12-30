@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeFailoverTestJobsResponseBody extends Model
 {
     /**
+     * @description The number of entries on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -33,6 +35,11 @@ class DescribeFailoverTestJobsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -40,6 +47,8 @@ class DescribeFailoverTestJobsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -47,6 +56,8 @@ class DescribeFailoverTestJobsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 10
      *
      * @var int

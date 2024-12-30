@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class apList extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the access point that is associated with the Express Connect circuit.
      *
+     * > Two access points must be specified when **HighReliableType** is set to **MultiApMultiDevice** or **MultiApSingleDevice**. One access point must be specified when **HighReliableType** is set to **SingleApMultiDevice** or **SingleApMultiConnection**.
+     *
+     * This parameter is required.
      * @example ap-cn-beijing-ft-A
      *
      * @var string
@@ -18,6 +21,9 @@ class apList extends Model
     public $accessPointId;
 
     /**
+     * @description The maximum bandwidth of the hosted connection. Unit: Mbit/s.
+     *
+     * Valid values: 50, 100, 200, 300, 400, 500, 1000, 2000, 4000, 5000, 8000, and 10000.
      * @example 50
      *
      * @var int
@@ -25,6 +31,8 @@ class apList extends Model
     public $bandwidth;
 
     /**
+     * @description The circuit code of the Express Connect circuit, which is provided by the connectivity provider.
+     *
      * @example longtel001
      *
      * @var string
@@ -32,6 +40,9 @@ class apList extends Model
     public $circuitCode;
 
     /**
+     * @description The description of the Express Connect circuit.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example description
      *
      * @var string
@@ -39,8 +50,16 @@ class apList extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The connectivity provider of the Express Connect circuit. Valid values:
      *
+     *   **CT**: China Telecom.
+     *   **CU**: China Unicom.
+     *   **CM**: China Mobile.
+     *   **CO**: other connectivity providers in the Chinese mainland.
+     *   **Equinix**: Equinix.
+     *   **Other**: other connectivity providers outside the Chinese mainland.
+     *
+     * This parameter is required.
      * @example CT
      *
      * @var string
@@ -48,6 +67,9 @@ class apList extends Model
     public $lineOperator;
 
     /**
+     * @description The name of the Express Connect circuit.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (_), and hyphens (-). It must start with a letter but cannot start with `http://` or` https://`.
      * @example test
      *
      * @var string
@@ -55,11 +77,17 @@ class apList extends Model
     public $name;
 
     /**
+     * @description The geographical location of the data center.
+     *
+     * @example ram-test
+     *
      * @var string
      */
     public $peerLocation;
 
     /**
+     * @description The number of ports. Valid values: 2 to 16. This parameter is required only when **HighReliableType** is set to **SingleApMultiConnection**.
+     *
      * @example 2
      *
      * @var int
@@ -67,8 +95,9 @@ class apList extends Model
     public $portNum;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the Express Connect circuit.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -76,6 +105,8 @@ class apList extends Model
     public $regionId;
 
     /**
+     * @description The type of the Express Connect circuit. Default value: **VPC**.
+     *
      * @example VPC
      *
      * @var string

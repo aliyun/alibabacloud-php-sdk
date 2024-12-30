@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class physicalConnectionList extends Model
 {
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-j5e5qqo616p81ncspbll1
      *
      * @var string
@@ -16,6 +18,8 @@ class physicalConnectionList extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
      * @example cn-shanghai
      *
      * @var string

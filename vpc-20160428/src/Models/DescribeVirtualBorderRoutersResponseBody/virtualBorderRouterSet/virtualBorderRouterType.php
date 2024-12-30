@@ -134,6 +134,10 @@ class virtualBorderRouterType extends Model
     public $ecrId;
 
     /**
+     * @description The ID of the Alibaba Cloud account (primary account)  to which the ECR belongs.
+     *
+     * @example 192732132151xxxx
+     *
      * @var string
      */
     public $ecrOwnerId;

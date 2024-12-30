@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeExpressConnectTrafficQosRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -17,6 +22,8 @@ class DescribeExpressConnectTrafficQosRequest extends Model
     public $clientToken;
 
     /**
+     * @description The maximum number of entries to return. Valid values: **1** to **100**. Default value: **10**.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +31,10 @@ class DescribeExpressConnectTrafficQosRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * - If no value is returned for NetToken, you do not need to specify this parameter.
+     * - If a value is returned for NextToken, you must specify the token that is obtained from the previous query as the value of **NextToken**.
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -41,18 +52,23 @@ class DescribeExpressConnectTrafficQosRequest extends Model
     public $ownerId;
 
     /**
+     * @description The IDs of QoS policies.
+     *
      * @var string[]
      */
     public $qosIdList;
 
     /**
+     * @description The names of QoS policies.
+     *
      * @var string[]
      */
     public $qosNameList;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region in which the QoS policy is created.
      *
+     * This parameter is required.
      * @example cn-shanghai
      *
      * @var string
@@ -60,6 +76,10 @@ class DescribeExpressConnectTrafficQosRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmxazfdgdg****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -70,6 +90,8 @@ class DescribeExpressConnectTrafficQosRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tags[]
      */
     public $tags;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeExpressConnectTrafficQosResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
     public $count;
 
     /**
+     * @description The number of entries per page. Valid values: **1 to 100**. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +28,11 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -31,11 +40,15 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The information about QoS policies.
+     *
      * @var qosList[]
      */
     public $qosList;
 
     /**
+     * @description The request ID.
+     *
      * @example 4CF20CC7-D1FC-425B-A15B-DF7C8E2131A7
      *
      * @var string
@@ -43,6 +56,8 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of returned entries.
+     *
      * @example 10
      *
      * @var int

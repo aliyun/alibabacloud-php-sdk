@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateHighReliablePhysicalConnectionRequest extends Model
 {
     /**
+     * @description The language to display the results. Valid values:
+     *
+     *   **zh-CN** (default): Chinese
+     *   **en-US**: English
+     *
      * @example zh-CN
      *
      * @var string
@@ -18,13 +23,19 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description This parameter is required.
+     * @description The access points.
      *
+     * This parameter is required.
      * @var apList[]
      */
     public $apList;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -32,11 +43,18 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $clientToken;
 
     /**
+     * @description The advanced features of the device.
+     *
      * @var string[]
      */
     public $deviceAdvancedCapacity;
 
     /**
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var string
@@ -44,8 +62,14 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $dryRun;
 
     /**
-     * @description This parameter is required.
+     * @description The high availability mode. Valid values:
      *
+     * - **MultiApMultiDevice** : This mode supports two access points and two devices, and provides the maximum disaster recovery capability.
+     * - **MultiApSingleDevice** : This mode supports two access points and one device, and provides robust disaster recovery capability.
+     * - **SingleApMultiDevice** : This mode supports one access point and two devices, and is recommended for non-critical business test and development.
+     * - **SingleApMultiConnection** : This mode supports one access point, one device, and multiple physical ports. Only users in the whitelist can use this mode. To use this mode, contact your account manager.
+     *
+     * This parameter is required.
      * @example MultiApMultiDevice
      *
      * @var string
@@ -63,8 +87,17 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The port type. Valid values:
      *
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
+     * This parameter is required.
      * @example 1000Base-T
      *
      * @var string
@@ -72,6 +105,9 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $portType;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -79,6 +115,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxazb4p****
      *
      * @var string
@@ -96,6 +134,8 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

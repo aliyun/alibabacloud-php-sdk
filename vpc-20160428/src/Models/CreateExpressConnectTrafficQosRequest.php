@@ -62,6 +62,10 @@ class CreateExpressConnectTrafficQosRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazfdgdg****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -72,6 +76,8 @@ class CreateExpressConnectTrafficQosRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The tag to add to the resource.
+     *
      * @var tags[]
      */
     public $tags;

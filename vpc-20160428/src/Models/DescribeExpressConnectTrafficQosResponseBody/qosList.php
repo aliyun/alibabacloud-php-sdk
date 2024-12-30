@@ -12,11 +12,15 @@ use AlibabaCloud\Tea\Model;
 class qosList extends Model
 {
     /**
+     * @description The information about the instances to which the QoS policy is associated.
+     *
      * @var associatedInstanceList[]
      */
     public $associatedInstanceList;
 
     /**
+     * @description The configuration progress of the QoS policy. Valid values: **0** to **100**.
+     *
      * @example 100
      *
      * @var int
@@ -24,6 +28,9 @@ class qosList extends Model
     public $progressing;
 
     /**
+     * @description The description of the QoS policy.
+     *
+     * The description can be up to 256 characters in length. It cannot start with `http://` or `https://`.
      * @example qos-test
      *
      * @var string
@@ -31,13 +38,18 @@ class qosList extends Model
     public $qosDescription;
 
     /**
-     * @example qos-pksbqfmotl5hzqmhf8
+     * @description The ID of the QoS policy.
+     *
+     * @example qos-pksbqfmotl5hzq****
      *
      * @var string
      */
     public $qosId;
 
     /**
+     * @description The name of the QoS policy.
+     *
+     * The name can be up to 128 characters in length and cannot start with `http://` or `https://`.
      * @example qos-test
      *
      * @var string
@@ -45,16 +57,28 @@ class qosList extends Model
     public $qosName;
 
     /**
+     * @description The information about the QoS queues.
+     *
      * @var queueList[]
      */
     public $queueList;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmz7vtyl4f***
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The state of the QoS policy. Valid values:
+     *
+     * - **Normal**: The QoS policy is available.
+     * - **Configuring**: The QoS policy is being configured.
+     *
+     * > If a QoS policy is in the Configuring state, you cannot perform most of the operations to create, update, or delete QoS policies, QoS queues, or QoS rules.
      * @example Normal
      *
      * @var string
@@ -62,6 +86,8 @@ class qosList extends Model
     public $status;
 
     /**
+     * @description The tag list.
+     *
      * @var tags[]
      */
     public $tags;

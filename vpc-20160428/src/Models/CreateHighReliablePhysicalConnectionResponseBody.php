@@ -11,16 +11,23 @@ use AlibabaCloud\Tea\Model;
 class CreateHighReliablePhysicalConnectionResponseBody extends Model
 {
     /**
+     * @description If the request fails the dry run, the following error codes and error messages may be returned:
+     *
+     * - pconn.high.reliable.dryrun.error.not.enough.resource. The access point resources are insufficient.
      * @var errorInfoList
      */
     public $errorInfoList;
 
     /**
+     * @description The Express Connect circuits.
+     *
      * @var physicalConnectionList
      */
     public $physicalConnectionList;
 
     /**
+     * @description The request ID.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string
