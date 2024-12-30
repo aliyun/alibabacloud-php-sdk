@@ -25,9 +25,15 @@ class SubmitMediaAiAnalysisJobRequest extends Model
      * @var string
      */
     public $input;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'analysisParams' => 'AnalysisParams',
         'input'          => 'Input',
+        'userData'       => 'UserData',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class SubmitMediaAiAnalysisJobRequest extends Model
         }
         if (null !== $this->input) {
             $res['Input'] = $this->input;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class SubmitMediaAiAnalysisJobRequest extends Model
         }
         if (isset($map['Input'])) {
             $model->input = $map['Input'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

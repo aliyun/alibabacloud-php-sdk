@@ -11438,6 +11438,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->input)) {
             $query['Input'] = $request->input;
         }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
