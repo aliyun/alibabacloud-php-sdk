@@ -4406,8 +4406,7 @@ class CS extends OpenApiClient
     /**
      * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
      *  *
-     * @description **
-     * ****Only Alibaba Cloud accounts can call this API operation.
+     * @description You can call this operation only by using an Alibaba Cloud account.
      *  *
      * @param string                                        $ClusterId
      * @param string                                        $Uid
@@ -4449,8 +4448,7 @@ class CS extends OpenApiClient
     /**
      * @summary Queries or issues the kubeconfig credentials of a Resource Access Management (RAM) user or RAM role of the account. If you are the permission manager of a Container Service for Kubernetes (ACK) cluster, you can issue the kubeconfig credentials to a specific RAM user or RAM role of the account by using the Alibaba Cloud account. The kubeconfig credentials, which are used to connect to the ACK cluster, contain the identity information about the RAM user or RAM role.
      *  *
-     * @description **
-     * ****Only Alibaba Cloud accounts can call this API operation.
+     * @description You can call this operation only by using an Alibaba Cloud account.
      *  *
      * @param string                                        $ClusterId
      * @param string                                        $Uid

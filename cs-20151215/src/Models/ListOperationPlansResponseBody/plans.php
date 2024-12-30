@@ -84,6 +84,11 @@ class plans extends Model
     public $targetType;
 
     /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
      * @description The plan type. Valid values:
      *
      *   cluster_upgrade
@@ -102,6 +107,7 @@ class plans extends Model
         'state'      => 'state',
         'targetId'   => 'target_id',
         'targetType' => 'target_type',
+        'taskId'     => 'task_id',
         'type'       => 'type',
     ];
 
@@ -135,6 +141,9 @@ class plans extends Model
         }
         if (null !== $this->targetType) {
             $res['target_type'] = $this->targetType;
+        }
+        if (null !== $this->taskId) {
+            $res['task_id'] = $this->taskId;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -174,6 +183,9 @@ class plans extends Model
         }
         if (isset($map['target_type'])) {
             $model->targetType = $map['target_type'];
+        }
+        if (isset($map['task_id'])) {
+            $model->taskId = $map['task_id'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

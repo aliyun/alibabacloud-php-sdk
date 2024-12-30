@@ -336,7 +336,7 @@ class DescribeClusterDetailResponseBody extends Model
     public $subnetCidr;
 
     /**
-     * @description The resource tags of the cluster.
+     * @description The resource labels of the cluster.
      *
      * @var Tag[]
      */

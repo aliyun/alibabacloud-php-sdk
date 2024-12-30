@@ -71,7 +71,7 @@ class CreateAutoscalingConfigRequest extends Model
     public $minReplicaCount;
 
     /**
-     * @description Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode. For more information about the swift mode, see [Scaling mode](https://help.aliyun.com/document_detail/119099.html). Default value: false. Valid values:
+     * @description Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode. For more information about the swift mode, see [Scaling mode](https://help.aliyun.com/document_detail/119099.html). Default value: false Valid values:
      *
      *   `true`: deletes the corresponding Kubernetes node objects after nodes are removed in swift mode. We recommend that you do not set the value to true because data inconsistency may occur in Kubernetes objects.
      *   `false`: retains the corresponding Kubernetes node objects after nodes are removed in swift mode.

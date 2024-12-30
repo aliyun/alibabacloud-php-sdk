@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoscalingConfigResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example cc212d04dfe184547bffaa596********
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAutoscalingConfigResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description The request ID.
+     *
      * @example AF8BE105-C32B-1269-9774-5510********
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateAutoscalingConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
      * @example T-5fd211e924e1d007********
      *
      * @var string

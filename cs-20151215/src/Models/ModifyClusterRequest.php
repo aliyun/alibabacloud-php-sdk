@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
-     * @description The network access control lists (ACLs) of the SLB instance associated with the API server if the cluster is a registered cluster.
+     * @description The network access control list (ACL) of the SLB instance associated with the API server if the cluster is a registered cluster.
      *
      * @var string[]
      */
@@ -58,17 +58,19 @@ class ModifyClusterRequest extends Model
     public $clusterName;
 
     /**
+     * @description The control plane configurations of an ACK dedicated cluster.
+     *
      * @var controlPlaneConfig
      */
     public $controlPlaneConfig;
 
     /**
-     * @description Specifies whether to enable cluster deletion protection. If this option is enabled, the cluster cannot be deleted in the console or by calling API operations. Valid values:
+     * @description Specifies whether to enable cluster deletion protection. If you enable this option, the cluster cannot be deleted in the console or by calling API operations. Valid values:
      *
      *   `true`: enables cluster deletion protection.
      *   `false`: disables cluster deletion protection.
      *
-     * Default value: `false`
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -93,7 +95,7 @@ class ModifyClusterRequest extends Model
      *   `true`: remaps the test domain name of the cluster.
      *   `false`: does not remap the test domain name of the cluster.
      *
-     * Default value: `false`
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -115,7 +117,7 @@ class ModifyClusterRequest extends Model
      *   `true`: enables instance deletion protection.
      *   `false`: disables instance deletion protection.
      *
-     * Default value: `false`
+     * Default value: `false`.
      * @example true
      *
      * @var bool
@@ -137,7 +139,7 @@ class ModifyClusterRequest extends Model
     public $operationPolicy;
 
     /**
-     * @description The cluster resource group ID.
+     * @description The resource group ID of the cluster.
      *
      * @example rg-acfmyvw3wjm****
      *
@@ -153,12 +155,12 @@ class ModifyClusterRequest extends Model
     public $systemEventsLogging;
 
     /**
-     * @description The vSwitches of the control planes. This parameter can be used to change the vSwitches of the control planes in an ACK managed cluster. Take note of the following items:
+     * @description The vSwitches of the control plane. This parameter can be used to change the vSwitches of the control plane in an ACK managed cluster. Take note of the following items:
      *
-     *   This parameter overwrites the existing configuration. You must specify all vSwitches of the control planes.
-     *   The control planes restart during the update process. Exercise caution when you perform this operation.
-     *   Make sure that all security groups of the cluster, including the security groups of the control planes, all node pools, and container network, are allowed to access the CIDR blocks of the new vSwitches. This ensures that the nodes and containers can connect to the API server.
-     *   If the new vSwitches of the control planes are configured with an access control list (ACL), ensure that the ACL allows communication between the new vSwitches and the CIDR blocks of cluster nodes and container networks.
+     *   This parameter overwrites the existing configuration. You must specify all vSwitches of the control plane.
+     *   The control plane restarts during the change process. Exercise caution when you perform this operation.
+     *   Ensure that all security groups of the cluster, including the security groups of the control plane, all node pools, and container network, are allowed to access the CIDR blocks of the new vSwitches. This ensures that the nodes and containers can connect to the API server.
+     *   If the new vSwitches of the control plane are configured with an ACL, ensure that the ACL allows communication between the new vSwitches and CIDR blocks such as those of the cluster nodes and the container network.
      *
      * @var string[]
      */

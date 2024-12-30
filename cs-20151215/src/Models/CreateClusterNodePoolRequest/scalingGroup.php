@@ -425,7 +425,7 @@ class scalingGroup extends Model
      *   `cloud`: basic disk.
      *   `cloud_efficiency`: ultra disk.
      *   `cloud_ssd`: standard SSD.
-     *   `cloud_essd`: Enterprise SSD (ESSD).
+     *   `cloud_essd`: ESSD.
      *   `cloud_auto`: ESSD AutoPL disk.
      *   `cloud_essd_entry`: ESSD Entry disk.
      *

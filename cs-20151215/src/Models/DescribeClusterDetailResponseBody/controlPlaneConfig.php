@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class controlPlaneConfig extends Model
 {
     /**
-     * @description Indicates whether auto-renewal is enabled for the node.
+     * @description Indicates whether auto-renewal is enabled for the nodes.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class controlPlaneConfig extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal duration for the node.
+     * @description The auto-renewal duration for the nodes.
      *
      * @example 1
      *
@@ -81,7 +81,7 @@ class controlPlaneConfig extends Model
     public $imageType;
 
     /**
-     * @description The instance type of the node.
+     * @description The instance types of the nodes.
      *
      * @var string[]
      */

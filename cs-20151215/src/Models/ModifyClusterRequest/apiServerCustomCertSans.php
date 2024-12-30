@@ -21,7 +21,7 @@ class apiServerCustomCertSans extends Model
     public $action;
 
     /**
-     * @description The SANs.
+     * @description The list of SANs.
      *
      * @var string[]
      */
