@@ -42,6 +42,11 @@ class writingConfig extends Model
     public $step;
 
     /**
+     * @var string
+     */
+    public $summaryReturnType;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -53,13 +58,14 @@ class writingConfig extends Model
      */
     public $useSearch;
     protected $_name = [
-        'domain'    => 'Domain',
-        'keywords'  => 'Keywords',
-        'promptTag' => 'PromptTag',
-        'scene'     => 'Scene',
-        'step'      => 'Step',
-        'tags'      => 'Tags',
-        'useSearch' => 'UseSearch',
+        'domain'            => 'Domain',
+        'keywords'          => 'Keywords',
+        'promptTag'         => 'PromptTag',
+        'scene'             => 'Scene',
+        'step'              => 'Step',
+        'summaryReturnType' => 'SummaryReturnType',
+        'tags'              => 'Tags',
+        'useSearch'         => 'UseSearch',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class writingConfig extends Model
         }
         if (null !== $this->step) {
             $res['Step'] = $this->step;
+        }
+        if (null !== $this->summaryReturnType) {
+            $res['SummaryReturnType'] = $this->summaryReturnType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -124,6 +133,9 @@ class writingConfig extends Model
         }
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
+        }
+        if (isset($map['SummaryReturnType'])) {
+            $model->summaryReturnType = $map['SummaryReturnType'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
