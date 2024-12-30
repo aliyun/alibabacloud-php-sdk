@@ -66,6 +66,8 @@ class CreateCloudResourceShrinkRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The tags to add to the resource.
+     *
      * @var tag[]
      */
     public $tag;

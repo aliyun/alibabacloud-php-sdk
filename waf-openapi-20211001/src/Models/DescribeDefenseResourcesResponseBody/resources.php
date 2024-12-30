@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description The status of the tracking cookie.
+     * @description 跟踪cookie开关状态。
      *
-     *   **0:** disabled.
-     *   **1:** enabled.
+     * - **0**：表示关闭。
      *
+     * - **1**：表示开启。
      * @example 1
      *
      * @var int
@@ -21,11 +21,11 @@ class resources extends Model
     public $acwCookieStatus;
 
     /**
-     * @description The status of the secure attribute in the tracking cookie.
+     * @description 跟踪cookie的secure属性状态。
      *
-     *   **0:** disabled.
-     *   **1:** enabled.
+     * - **0**：表示关闭。
      *
+     * - **1**：表示开启。
      * @example 0
      *
      * @var int
@@ -33,11 +33,11 @@ class resources extends Model
     public $acwSecureStatus;
 
     /**
-     * @description The status of the secure attribute in the slider CAPTCHA cookie.
+     * @description 滑块cookie的secure属性状态。
      *
-     *   **0:** disabled.
-     *   **1:** enabled.
+     * - **0**：表示关闭。
      *
+     * - **1**：表示开启。
      * @example 0
      *
      * @var int
@@ -45,7 +45,7 @@ class resources extends Model
     public $acwV3SecureStatus;
 
     /**
-     * @description The custom XFF headers that are used to identify the originating IP addresses of clients. If the value of XffStatus is 1 and CustomHeaders is left empty, the first IP addresses in the XFF headers are used as the originating IP addresses of clients.
+     * @description An array of custom XFF headers that are used to identify the originating IP addresses of clients. If the value of the XffStatus parameter is 1 and the CustomHeaders field is left empty, the first IP address in the XFF header is the originating IP address of the client.
      *
      * @var string[]
      */
@@ -61,14 +61,14 @@ class resources extends Model
     public $description;
 
     /**
-     * @description The details of the protected object. Different key-value pairs indicate different attributes of the protected object.
+     * @description The description of the protected object. Different key-value pairs in a map indicate different properties of the protected object.
      *
      * @var mixed[]
      */
     public $detail;
 
     /**
-     * @description The time when the protected object was created. Unit: milliseconds.
+     * @description The creation time of the protected object. Unit: seconds.
      *
      * @example 1652149203187
      *
@@ -77,7 +77,7 @@ class resources extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the protected object was modified. Unit: milliseconds.
+     * @description The most recent modification time of the protected object. Unit: seconds.
      *
      * @example 1665633032000
      *
@@ -86,7 +86,7 @@ class resources extends Model
     public $gmtModified;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description 多账号统一管理场景中防护对象资产归属账号。
      *
      * @example 135*********46
      *
@@ -95,7 +95,7 @@ class resources extends Model
     public $ownerUserId;
 
     /**
-     * @description The pattern in which the protected object is protected.
+     * @description The protection pattern.
      *
      * @example domain
      *
@@ -131,7 +131,7 @@ class resources extends Model
     public $resourceGroup;
 
     /**
-     * @description The ID of the Alibaba Cloud resource group.
+     * @description The ID of the resource group.
      *
      * @example rg-acfm***q
      *
@@ -149,7 +149,7 @@ class resources extends Model
     public $resourceOrigin;
 
     /**
-     * @description Indicates whether the X-Forwarded-For (XFF) proxy is enabled.
+     * @description Indicates whether the X-Forwarded-For (XFF) header is used.
      *
      * @example 1
      *

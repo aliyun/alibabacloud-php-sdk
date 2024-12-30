@@ -61,9 +61,9 @@ class DescribeCertsRequest extends Model
      * @description The region in which the WAF instance is deployed. Valid values:
      *
      *   **cn-hangzhou**: Chinese mainland.
-     *   **ap-southeast-1**: outside the Chinese mainland.
+     *   **ap-southeast-1**: Outside the Chinese mainland.
      *
-     * @example cn-hangzhou
+     * @example ap-southeast-1
      *
      * @var string
      */

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of tag N to add to the resource. Valid values of N: 1 to 20.
+     *
+     * @example TagKey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N to add to the resource. Valid values of N: 1 to 20.
+     *
+     * @example TagValue1
+     *
      * @var string
      */
     public $value;

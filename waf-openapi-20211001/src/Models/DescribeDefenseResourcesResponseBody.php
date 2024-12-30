@@ -19,7 +19,7 @@ class DescribeDefenseResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The protected objects.
+     * @description An array of protected objects.
      *
      * @var resources[]
      */

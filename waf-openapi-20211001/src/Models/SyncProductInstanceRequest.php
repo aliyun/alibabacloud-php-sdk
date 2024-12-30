@@ -31,7 +31,7 @@ class SyncProductInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud resource group.
+     * @description 阿里云资源组ID。
      *
      * @example rg-acfm4co****f5qa
      *

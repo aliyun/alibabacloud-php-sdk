@@ -71,6 +71,11 @@ class DescribeDefenseResourceTemplatesRequest extends Model
     public $ruleId;
 
     /**
+     * @var string
+     */
+    public $ruleName;
+
+    /**
      * @description The type of the protection rule. Valid values:
      *
      *   **defense**: defense rule. This is the default value.
@@ -81,6 +86,11 @@ class DescribeDefenseResourceTemplatesRequest extends Model
      * @var string
      */
     public $ruleType;
+
+    /**
+     * @var string
+     */
+    public $templateName;
     protected $_name = [
         'instanceId'                     => 'InstanceId',
         'regionId'                       => 'RegionId',
@@ -88,7 +98,9 @@ class DescribeDefenseResourceTemplatesRequest extends Model
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'resourceType'                   => 'ResourceType',
         'ruleId'                         => 'RuleId',
+        'ruleName'                       => 'RuleName',
         'ruleType'                       => 'RuleType',
+        'templateName'                   => 'TemplateName',
     ];
 
     public function validate()
@@ -116,8 +128,14 @@ class DescribeDefenseResourceTemplatesRequest extends Model
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
+        if (null !== $this->ruleName) {
+            $res['RuleName'] = $this->ruleName;
+        }
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
 
         return $res;
@@ -149,8 +167,14 @@ class DescribeDefenseResourceTemplatesRequest extends Model
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }
+        if (isset($map['RuleName'])) {
+            $model->ruleName = $map['RuleName'];
+        }
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
 
         return $model;

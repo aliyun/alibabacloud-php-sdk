@@ -123,6 +123,16 @@ class DescribeDefenseTemplatesRequest extends Model
     public $templateId;
 
     /**
+     * @var string
+     */
+    public $templateIds;
+
+    /**
+     * @var string
+     */
+    public $templateName;
+
+    /**
      * @description The type of the protection template. Valid values:
      *
      *   **user_default**: default template.
@@ -144,6 +154,8 @@ class DescribeDefenseTemplatesRequest extends Model
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
         'resourceType'                   => 'ResourceType',
         'templateId'                     => 'TemplateId',
+        'templateIds'                    => 'TemplateIds',
+        'templateName'                   => 'TemplateName',
         'templateType'                   => 'TemplateType',
     ];
 
@@ -183,6 +195,12 @@ class DescribeDefenseTemplatesRequest extends Model
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
+        }
+        if (null !== $this->templateIds) {
+            $res['TemplateIds'] = $this->templateIds;
+        }
+        if (null !== $this->templateName) {
+            $res['TemplateName'] = $this->templateName;
         }
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
@@ -228,6 +246,12 @@ class DescribeDefenseTemplatesRequest extends Model
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
+        }
+        if (isset($map['TemplateIds'])) {
+            $model->templateIds = $map['TemplateIds'];
+        }
+        if (isset($map['TemplateName'])) {
+            $model->templateName = $map['TemplateName'];
         }
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];

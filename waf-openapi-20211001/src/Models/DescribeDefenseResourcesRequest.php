@@ -69,8 +69,6 @@ class DescribeDefenseResourcesRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The tags of the resources that you want to query. You can specify up to 20 tags.
-     *
      * @var tag[]
      */
     public $tag;

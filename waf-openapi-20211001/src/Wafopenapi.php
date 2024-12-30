@@ -3992,8 +3992,14 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->ruleId)) {
             $query['RuleId'] = $request->ruleId;
         }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
         if (!Utils::isUnset($request->ruleType)) {
             $query['RuleType'] = $request->ruleType;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4381,6 +4387,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateIds)) {
+            $query['TemplateIds'] = $request->templateIds;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
         }
         if (!Utils::isUnset($request->templateType)) {
             $query['TemplateType'] = $request->templateType;
@@ -8830,7 +8842,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the default SSL and Transport Layer Security (TLS) settings.
+     * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
      *  *
      * @param ModifyDefaultHttpsRequest $request ModifyDefaultHttpsRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -8884,7 +8896,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the default SSL and Transport Layer Security (TLS) settings.
+     * @summary Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
      *  *
      * @param ModifyDefaultHttpsRequest $request ModifyDefaultHttpsRequest
      *
@@ -9482,6 +9494,12 @@ class Wafopenapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceManagerResourceGroupId)) {
+            $query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
         }
         if (!Utils::isUnset($request->ruleStatus)) {
             $query['RuleStatus'] = $request->ruleStatus;
@@ -10260,7 +10278,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances to Web Application Firewall (WAF).
+     * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
      *  *
      * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
      *  *
@@ -10301,7 +10319,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances to Web Application Firewall (WAF).
+     * @summary Synchronizes Elastic Compute Service (ECS) instances and Classic Load Balancer (CLB) instances with Web Application Firewall (WAF).
      *  *
      * @description SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
      *  *

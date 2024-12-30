@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class certs extends Model
 {
     /**
-     * @description The time when the certificate becomes valid.
+     * @description The expiration time.
      *
      * @example 1976256736582
      *
@@ -18,7 +18,7 @@ class certs extends Model
     public $afterDate;
 
     /**
-     * @description The time when the certificate expires.
+     * @description The effective time.
      *
      * @example 1976256836582
      *
@@ -27,9 +27,9 @@ class certs extends Model
     public $beforeDate;
 
     /**
-     * @description The globally unique ID of the certificate. The value is in the "Certificate ID-cn-hangzhou" format. For example, if the ID of the certificate is 123, the value of CertIdentifier is 123-cn-hangzhou.
+     * @description The globally unique ID of the certificate. The value follows a "\\<Certificate ID>-ap-southeast-1" format. For example, if the ID of the certificate is 123, the value of the CertIdentifier parameter is 123-ap-southeast-1.
      *
-     * @example 1234567-cn-hangzhou
+     * @example 123-ap-southeast-1
      *
      * @var string
      */
@@ -54,7 +54,7 @@ class certs extends Model
     public $commonName;
 
     /**
-     * @description The domain name that is added to WAF.
+     * @description The domain that is supported by the certificate.
      *
      * @example www.example.com
      *

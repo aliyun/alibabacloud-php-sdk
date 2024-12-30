@@ -33,6 +33,16 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceManagerResourceGroupId;
+
+    /**
      * @description The status of manual bypass. Valid values:
      *
      *   **on**: enabled.
@@ -45,9 +55,11 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
      */
     public $ruleStatus;
     protected $_name = [
-        'clusterResourceId' => 'ClusterResourceId',
-        'instanceId'        => 'InstanceId',
-        'ruleStatus'        => 'RuleStatus',
+        'clusterResourceId'              => 'ClusterResourceId',
+        'instanceId'                     => 'InstanceId',
+        'regionId'                       => 'RegionId',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'ruleStatus'                     => 'RuleStatus',
     ];
 
     public function validate()
@@ -62,6 +74,12 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceManagerResourceGroupId) {
+            $res['ResourceManagerResourceGroupId'] = $this->resourceManagerResourceGroupId;
         }
         if (null !== $this->ruleStatus) {
             $res['RuleStatus'] = $this->ruleStatus;
@@ -83,6 +101,12 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceManagerResourceGroupId'])) {
+            $model->resourceManagerResourceGroupId = $map['ResourceManagerResourceGroupId'];
         }
         if (isset($map['RuleStatus'])) {
             $model->ruleStatus = $map['RuleStatus'];
