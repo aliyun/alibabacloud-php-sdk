@@ -9,13 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkspaceUserRoleRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @example 25
      *
      * @var int
      */
     public $roleId;
+
+    /**
+     * @var string
+     */
+    public $roleIds;
 
     /**
      * @description This parameter is required.
@@ -36,6 +39,7 @@ class UpdateWorkspaceUserRoleRequest extends Model
     public $workspaceId;
     protected $_name = [
         'roleId'      => 'RoleId',
+        'roleIds'     => 'RoleIds',
         'userId'      => 'UserId',
         'workspaceId' => 'WorkspaceId',
     ];
@@ -49,6 +53,9 @@ class UpdateWorkspaceUserRoleRequest extends Model
         $res = [];
         if (null !== $this->roleId) {
             $res['RoleId'] = $this->roleId;
+        }
+        if (null !== $this->roleIds) {
+            $res['RoleIds'] = $this->roleIds;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -70,6 +77,9 @@ class UpdateWorkspaceUserRoleRequest extends Model
         $model = new self();
         if (isset($map['RoleId'])) {
             $model->roleId = $map['RoleId'];
+        }
+        if (isset($map['RoleIds'])) {
+            $model->roleIds = $map['RoleIds'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

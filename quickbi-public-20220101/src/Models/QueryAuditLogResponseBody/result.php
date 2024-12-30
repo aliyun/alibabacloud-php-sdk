@@ -39,6 +39,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $targetId;
+
+    /**
+     * @var string
+     */
     public $targetName;
 
     /**
@@ -59,6 +64,7 @@ class result extends Model
         'operatorAccountName' => 'OperatorAccountName',
         'operatorName'        => 'OperatorName',
         'operatorType'        => 'OperatorType',
+        'targetId'            => 'TargetId',
         'targetName'          => 'TargetName',
         'targetType'          => 'TargetType',
         'workspaceId'         => 'WorkspaceId',
@@ -82,6 +88,9 @@ class result extends Model
         }
         if (null !== $this->operatorType) {
             $res['OperatorType'] = $this->operatorType;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
         }
         if (null !== $this->targetName) {
             $res['TargetName'] = $this->targetName;
@@ -115,6 +124,9 @@ class result extends Model
         }
         if (isset($map['OperatorType'])) {
             $model->operatorType = $map['OperatorType'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
         }
         if (isset($map['TargetName'])) {
             $model->targetName = $map['TargetName'];

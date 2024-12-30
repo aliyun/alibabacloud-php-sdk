@@ -37,6 +37,11 @@ class result extends Model
     public $componentType;
 
     /**
+     * @var string
+     */
+    public $componentTypeCnName;
+
+    /**
      * @description The type of the image component.
      *
      * @example LINE
@@ -61,12 +66,13 @@ class result extends Model
      */
     public $queryParams;
     protected $_name = [
-        'componentId'       => 'ComponentId',
-        'componentName'     => 'ComponentName',
-        'componentType'     => 'ComponentType',
-        'componentTypeName' => 'ComponentTypeName',
-        'datasetId'         => 'DatasetId',
-        'queryParams'       => 'QueryParams',
+        'componentId'         => 'ComponentId',
+        'componentName'       => 'ComponentName',
+        'componentType'       => 'ComponentType',
+        'componentTypeCnName' => 'ComponentTypeCnName',
+        'componentTypeName'   => 'ComponentTypeName',
+        'datasetId'           => 'DatasetId',
+        'queryParams'         => 'QueryParams',
     ];
 
     public function validate()
@@ -84,6 +90,9 @@ class result extends Model
         }
         if (null !== $this->componentType) {
             $res['ComponentType'] = $this->componentType;
+        }
+        if (null !== $this->componentTypeCnName) {
+            $res['ComponentTypeCnName'] = $this->componentTypeCnName;
         }
         if (null !== $this->componentTypeName) {
             $res['ComponentTypeName'] = $this->componentTypeName;
@@ -120,6 +129,9 @@ class result extends Model
         }
         if (isset($map['ComponentType'])) {
             $model->componentType = $map['ComponentType'];
+        }
+        if (isset($map['ComponentTypeCnName'])) {
+            $model->componentTypeCnName = $map['ComponentTypeCnName'];
         }
         if (isset($map['ComponentTypeName'])) {
             $model->componentTypeName = $map['ComponentTypeName'];

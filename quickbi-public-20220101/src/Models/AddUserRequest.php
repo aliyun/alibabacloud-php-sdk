@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddUserRequest extends Model
 {
     /**
-     * @deprecated
-     *
      * @var string
      */
     public $accountId;

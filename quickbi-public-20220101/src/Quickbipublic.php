@@ -70,6 +70,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserTagMetaRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserTagMetaResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetDataSourceConnectionInfoRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetDataSourceConnectionInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetMailTaskStatusResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoRequest;
@@ -86,6 +88,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListCubeDataLevelPermissionC
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListCubeDataLevelPermissionConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataLevelPermissionWhiteListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataLevelPermissionWhiteListResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataSourceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListDataSourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListFavoriteReportsRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListFavoriteReportsResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListOrganizationRolesResponse;
@@ -137,11 +141,15 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetListResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetSmartqStatusRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetSmartqStatusResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetSwitchInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetSwitchInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedStatusRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryEmbeddedStatusResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryLlmCubeWithThemeListByUserIdRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryLlmCubeWithThemeListByUserIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationRoleConfigRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationRoleConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListRequest;
@@ -154,6 +162,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryShareListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryShareListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QuerySharesToUserListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QuerySharesToUserListResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QuerySmartqPermissionByCubeIdRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QuerySmartqPermissionByCubeIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryTicketInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryTicketInfoResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryUserGroupListByParentIdRequest;
@@ -193,6 +203,10 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionRuleCo
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionRuleConfigResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionWhiteListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SetDataLevelPermissionWhiteListResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthorizeRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthorizeResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthTransferRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqAuthTransferResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\SmartqQueryAbilityResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\UpdateDataLevelPermissionStatusRequest;
@@ -1967,6 +1981,53 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 获取数据源信息
+     *  *
+     * @param GetDataSourceConnectionInfoRequest $request GetDataSourceConnectionInfoRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetDataSourceConnectionInfoResponse GetDataSourceConnectionInfoResponse
+     */
+    public function getDataSourceConnectionInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dsId)) {
+            $query['DsId'] = $request->dsId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataSourceConnectionInfo',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataSourceConnectionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取数据源信息
+     *  *
+     * @param GetDataSourceConnectionInfoRequest $request GetDataSourceConnectionInfoRequest
+     *
+     * @return GetDataSourceConnectionInfoResponse GetDataSourceConnectionInfoResponse
+     */
+    public function getDataSourceConnectionInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataSourceConnectionInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 组织内查看邮件任务运行状态
      *  *
      * @param GetMailTaskStatusRequest $request GetMailTaskStatusRequest
@@ -2374,6 +2435,56 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDataLevelPermissionWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询指定空间下的所有数据源
+     *  *
+     * @param ListDataSourceRequest $request ListDataSourceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListDataSourceResponse ListDataSourceResponse
+     */
+    public function listDataSourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dsType)) {
+            $query['DsType'] = $request->dsType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDataSource',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询指定空间下的所有数据源
+     *  *
+     * @param ListDataSourceRequest $request ListDataSourceRequest
+     *
+     * @return ListDataSourceResponse ListDataSourceResponse
+     */
+    public function listDataSource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDataSourceWithOptions($request, $runtime);
     }
 
     /**
@@ -3775,6 +3886,53 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 查看数据集是否开通智能问数
+     *  *
+     * @param QueryDatasetSmartqStatusRequest $request QueryDatasetSmartqStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryDatasetSmartqStatusResponse QueryDatasetSmartqStatusResponse
+     */
+    public function queryDatasetSmartqStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryDatasetSmartqStatus',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryDatasetSmartqStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看数据集是否开通智能问数
+     *  *
+     * @param QueryDatasetSmartqStatusRequest $request QueryDatasetSmartqStatusRequest
+     *
+     * @return QueryDatasetSmartqStatusResponse QueryDatasetSmartqStatusResponse
+     */
+    public function queryDatasetSmartqStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryDatasetSmartqStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 获取指定数据集的行级权限开关状态。
      *  *
      * @param QueryDatasetSwitchInfoRequest $request QueryDatasetSwitchInfoRequest
@@ -3903,6 +4061,53 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryEmbeddedStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看用户有哪些数据集和分析主题的问数授权
+     *  *
+     * @param QueryLlmCubeWithThemeListByUserIdRequest $request QueryLlmCubeWithThemeListByUserIdRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryLlmCubeWithThemeListByUserIdResponse QueryLlmCubeWithThemeListByUserIdResponse
+     */
+    public function queryLlmCubeWithThemeListByUserIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryLlmCubeWithThemeListByUserId',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryLlmCubeWithThemeListByUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看用户有哪些数据集和分析主题的问数授权
+     *  *
+     * @param QueryLlmCubeWithThemeListByUserIdRequest $request QueryLlmCubeWithThemeListByUserIdRequest
+     *
+     * @return QueryLlmCubeWithThemeListByUserIdResponse QueryLlmCubeWithThemeListByUserIdResponse
+     */
+    public function queryLlmCubeWithThemeListByUserId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryLlmCubeWithThemeListByUserIdWithOptions($request, $runtime);
     }
 
     /**
@@ -4212,6 +4417,56 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySharesToUserListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查看用户是否有某个智能问数数据集权限
+     *  *
+     * @param QuerySmartqPermissionByCubeIdRequest $request QuerySmartqPermissionByCubeIdRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QuerySmartqPermissionByCubeIdResponse QuerySmartqPermissionByCubeIdResponse
+     */
+    public function querySmartqPermissionByCubeIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $query['UserId'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySmartqPermissionByCubeId',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySmartqPermissionByCubeIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查看用户是否有某个智能问数数据集权限
+     *  *
+     * @param QuerySmartqPermissionByCubeIdRequest $request QuerySmartqPermissionByCubeIdRequest
+     *
+     * @return QuerySmartqPermissionByCubeIdResponse QuerySmartqPermissionByCubeIdResponse
+     */
+    public function querySmartqPermissionByCubeId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySmartqPermissionByCubeIdWithOptions($request, $runtime);
     }
 
     /**
@@ -5203,6 +5458,115 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @summary 将指定用户的问数权限同步给其他用户
+     *  *
+     * @param SmartqAuthTransferRequest $request SmartqAuthTransferRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SmartqAuthTransferResponse SmartqAuthTransferResponse
+     */
+    public function smartqAuthTransferWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->originUserId)) {
+            $query['OriginUserId'] = $request->originUserId;
+        }
+        if (!Utils::isUnset($request->targetUserIds)) {
+            $query['TargetUserIds'] = $request->targetUserIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SmartqAuthTransfer',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SmartqAuthTransferResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 将指定用户的问数权限同步给其他用户
+     *  *
+     * @param SmartqAuthTransferRequest $request SmartqAuthTransferRequest
+     *
+     * @return SmartqAuthTransferResponse SmartqAuthTransferResponse
+     */
+    public function smartqAuthTransfer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->smartqAuthTransferWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量管理智能问数的授权
+     *  *
+     * @param SmartqAuthorizeRequest $request SmartqAuthorizeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SmartqAuthorizeResponse SmartqAuthorizeResponse
+     */
+    public function smartqAuthorizeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expireDay)) {
+            $query['ExpireDay'] = $request->expireDay;
+        }
+        if (!Utils::isUnset($request->llmCubeThemes)) {
+            $query['LlmCubeThemes'] = $request->llmCubeThemes;
+        }
+        if (!Utils::isUnset($request->llmCubes)) {
+            $query['LlmCubes'] = $request->llmCubes;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $query['UserIds'] = $request->userIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SmartqAuthorize',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SmartqAuthorizeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量管理智能问数的授权
+     *  *
+     * @param SmartqAuthorizeRequest $request SmartqAuthorizeRequest
+     *
+     * @return SmartqAuthorizeResponse SmartqAuthorizeResponse
+     */
+    public function smartqAuthorize($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->smartqAuthorizeWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 问数能力开放
      *  *
      * @param SmartqQueryAbilityRequest $request SmartqQueryAbilityRequest
@@ -5658,6 +6022,9 @@ class Quickbipublic extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->roleId)) {
             $query['RoleId'] = $request->roleId;
+        }
+        if (!Utils::isUnset($request->roleIds)) {
+            $query['RoleIds'] = $request->roleIds;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;

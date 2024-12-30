@@ -46,6 +46,11 @@ class queryParams extends Model
     public $dataType;
 
     /**
+     * @var string
+     */
+    public $expression;
+
+    /**
      * @description The type of the field. Valid values:
      *
      *   string: string type
@@ -83,13 +88,14 @@ class queryParams extends Model
      */
     public $uid;
     protected $_name = [
-        'areaId'    => 'AreaId',
-        'areaName'  => 'AreaName',
-        'caption'   => 'Caption',
-        'dataType'  => 'DataType',
-        'isMeasure' => 'IsMeasure',
-        'pathId'    => 'PathId',
-        'uid'       => 'Uid',
+        'areaId'     => 'AreaId',
+        'areaName'   => 'AreaName',
+        'caption'    => 'Caption',
+        'dataType'   => 'DataType',
+        'expression' => 'Expression',
+        'isMeasure'  => 'IsMeasure',
+        'pathId'     => 'PathId',
+        'uid'        => 'Uid',
     ];
 
     public function validate()
@@ -110,6 +116,9 @@ class queryParams extends Model
         }
         if (null !== $this->dataType) {
             $res['DataType'] = $this->dataType;
+        }
+        if (null !== $this->expression) {
+            $res['Expression'] = $this->expression;
         }
         if (null !== $this->isMeasure) {
             $res['IsMeasure'] = $this->isMeasure;
@@ -143,6 +152,9 @@ class queryParams extends Model
         }
         if (isset($map['DataType'])) {
             $model->dataType = $map['DataType'];
+        }
+        if (isset($map['Expression'])) {
+            $model->expression = $map['Expression'];
         }
         if (isset($map['IsMeasure'])) {
             $model->isMeasure = $map['IsMeasure'];
