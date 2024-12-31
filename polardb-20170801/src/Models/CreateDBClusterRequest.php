@@ -530,6 +530,16 @@ class CreateDBClusterRequest extends Model
     public $storageAutoScale;
 
     /**
+     * @var bool
+     */
+    public $storageEncryption;
+
+    /**
+     * @var string
+     */
+    public $storageEncryptionKey;
+
+    /**
      * @description The storage billing type, with valid values as follows:
      *
      * - Prepaid: Pay-per-use based on space (subscription).
@@ -697,6 +707,8 @@ class CreateDBClusterRequest extends Model
         'sourceResourceId'                       => 'SourceResourceId',
         'standbyAZ'                              => 'StandbyAZ',
         'storageAutoScale'                       => 'StorageAutoScale',
+        'storageEncryption'                      => 'StorageEncryption',
+        'storageEncryptionKey'                   => 'StorageEncryptionKey',
         'storagePayType'                         => 'StoragePayType',
         'storageSpace'                           => 'StorageSpace',
         'storageType'                            => 'StorageType',
@@ -849,6 +861,12 @@ class CreateDBClusterRequest extends Model
         }
         if (null !== $this->storageAutoScale) {
             $res['StorageAutoScale'] = $this->storageAutoScale;
+        }
+        if (null !== $this->storageEncryption) {
+            $res['StorageEncryption'] = $this->storageEncryption;
+        }
+        if (null !== $this->storageEncryptionKey) {
+            $res['StorageEncryptionKey'] = $this->storageEncryptionKey;
         }
         if (null !== $this->storagePayType) {
             $res['StoragePayType'] = $this->storagePayType;
@@ -1035,6 +1053,12 @@ class CreateDBClusterRequest extends Model
         }
         if (isset($map['StorageAutoScale'])) {
             $model->storageAutoScale = $map['StorageAutoScale'];
+        }
+        if (isset($map['StorageEncryption'])) {
+            $model->storageEncryption = $map['StorageEncryption'];
+        }
+        if (isset($map['StorageEncryptionKey'])) {
+            $model->storageEncryptionKey = $map['StorageEncryptionKey'];
         }
         if (isset($map['StoragePayType'])) {
             $model->storagePayType = $map['StoragePayType'];

@@ -53,6 +53,11 @@ class DescribeDBClusterTDEResponseBody extends Model
     public $encryptionKey;
 
     /**
+     * @var string
+     */
+    public $encryptionKeyStatus;
+
+    /**
      * @description The ID of the request.
      *
      * @example E37D1508-EC3B-4E06-A24A-C7AC31******
@@ -92,14 +97,15 @@ class DescribeDBClusterTDEResponseBody extends Model
      */
     public $TDEStatus;
     protected $_name = [
-        'automaticRotation' => 'AutomaticRotation',
-        'DBClusterId'       => 'DBClusterId',
-        'encryptNewTables'  => 'EncryptNewTables',
-        'encryptionKey'     => 'EncryptionKey',
-        'requestId'         => 'RequestId',
-        'rotationInterval'  => 'RotationInterval',
-        'TDERegion'         => 'TDERegion',
-        'TDEStatus'         => 'TDEStatus',
+        'automaticRotation'   => 'AutomaticRotation',
+        'DBClusterId'         => 'DBClusterId',
+        'encryptNewTables'    => 'EncryptNewTables',
+        'encryptionKey'       => 'EncryptionKey',
+        'encryptionKeyStatus' => 'EncryptionKeyStatus',
+        'requestId'           => 'RequestId',
+        'rotationInterval'    => 'RotationInterval',
+        'TDERegion'           => 'TDERegion',
+        'TDEStatus'           => 'TDEStatus',
     ];
 
     public function validate()
@@ -120,6 +126,9 @@ class DescribeDBClusterTDEResponseBody extends Model
         }
         if (null !== $this->encryptionKey) {
             $res['EncryptionKey'] = $this->encryptionKey;
+        }
+        if (null !== $this->encryptionKeyStatus) {
+            $res['EncryptionKeyStatus'] = $this->encryptionKeyStatus;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -156,6 +165,9 @@ class DescribeDBClusterTDEResponseBody extends Model
         }
         if (isset($map['EncryptionKey'])) {
             $model->encryptionKey = $map['EncryptionKey'];
+        }
+        if (isset($map['EncryptionKeyStatus'])) {
+            $model->encryptionKeyStatus = $map['EncryptionKeyStatus'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTasksResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 42CD2EF5-D77E-5AD4-961B-159330D98286
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyActiveOperationTasksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task IDs.
+     *
      * @example 11111,22222
      *
      * @var string

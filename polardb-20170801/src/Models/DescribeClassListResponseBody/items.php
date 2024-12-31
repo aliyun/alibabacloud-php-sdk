@@ -50,6 +50,10 @@ class items extends Model
     public $cpu;
 
     /**
+     * @description The maximum ESSD storage capacity. Unit: TB.
+     *
+     * @example 64
+     *
      * @var string
      */
     public $essdMaxStorageCapacity;
@@ -118,6 +122,10 @@ class items extends Model
     public $pl3MaxIOPS;
 
     /**
+     * @description The maximum PSL4/PSL5 storage capacity. Unit: TB.
+     *
+     * @example 500
+     *
      * @var string
      */
     public $polarStoreMaxStorageCapacity;

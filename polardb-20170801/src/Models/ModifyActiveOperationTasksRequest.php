@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTasksRequest extends Model
 {
     /**
+     * @description Specifies whether to immediately start scheduling. Valid values:
+     *
+     *   0: No. This is the default value.
+     *   1: Yes.
+     *
+     * >
+     *
+     *   If you set this parameter to 0, you must specify the SwitchTime parameter.
+     *
+     *   If you set this parameter to 1, the SwitchTime parameter does not take effect. In this case, the start time of the event is set to the current time, and the system determines the switching time based on the start time. Scheduling is started immediately, which is a prerequisite for the switchover. Then, the switchover is performed. You can call the DescribeActiveOperationTasks operation and check the return value of the PrepareInterval parameter for the preparation time.
+     *
      * @example 0
      *
      * @var int
@@ -26,8 +37,9 @@ class ModifyActiveOperationTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-beijing
      *
      * @var string
@@ -50,6 +62,14 @@ class ModifyActiveOperationTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description The scheduled switching time that you want to specify. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >
+     *
+     *   The time that is specified by this parameter cannot be later than the latest execution time.
+     *
+     *   You can call the DescribeActiveOperationTasks operation and check the return value of the Deadline parameter for the latest execution time.
+     *
      * @example 2023-04-25T06:00:00Z
      *
      * @var string
@@ -57,8 +77,9 @@ class ModifyActiveOperationTasksRequest extends Model
     public $switchTime;
 
     /**
-     * @description This parameter is required.
+     * @description The task IDs.
      *
+     * This parameter is required.
      * @example 11111,22222
      *
      * @var string

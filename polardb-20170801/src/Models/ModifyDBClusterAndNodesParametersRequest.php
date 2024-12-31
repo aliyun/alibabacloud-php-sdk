@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterAndNodesParametersRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * This parameter is required.
      * @example pc-****************
@@ -19,9 +19,9 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The node ID. You can set this parameter to modify the parameters of a specified node or of the cluster. Separate multiple node IDs with commas (,).
+     * @description The IDs of nodes. You can specify this parameter, or leave this parameter empty. Separate multiple node IDs with commas (,).
      *
-     * > If you do not specify this parameter, only the cluster parameters are modified.
+     * >  If you do not specify this parameter, only the cluster parameters are modified.
      * @example pi-****************,pi-**********,
      *
      * @var string
@@ -51,7 +51,7 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the parameter template that is used for the instance.
+     * @description The ID of the parameter template.
      *
      * @example pcpg-**************
      *
@@ -109,6 +109,10 @@ class ModifyDBClusterAndNodesParametersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The secondary clusters in the GDN to which the parameter settings are synchronized.
+     *
+     * @example gdn-**********,gdn-**********
+     *
      * @var string
      */
     public $standbyClusterIdListNeedToSync;

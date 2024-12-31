@@ -396,7 +396,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 用户侧取消任务
+     * @summary Cancels O\\&M events at a time.
      *  *
      * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -447,7 +447,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 用户侧取消任务
+     * @summary Cancels O\\&M events at a time.
      *  *
      * @param CancelActiveOperationTasksRequest $request CancelActiveOperationTasksRequest
      *
@@ -1339,6 +1339,12 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->storageAutoScale)) {
             $query['StorageAutoScale'] = $request->storageAutoScale;
+        }
+        if (!Utils::isUnset($request->storageEncryption)) {
+            $query['StorageEncryption'] = $request->storageEncryption;
+        }
+        if (!Utils::isUnset($request->storageEncryptionKey)) {
+            $query['StorageEncryptionKey'] = $request->storageEncryptionKey;
         }
         if (!Utils::isUnset($request->storagePayType)) {
             $query['StoragePayType'] = $request->storagePayType;
@@ -7783,7 +7789,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 用户侧修改任务
+     * @summary Modifies the switching time of scheduled O\\&M events for an instance.
      *  *
      * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -7840,7 +7846,7 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @summary 用户侧修改任务
+     * @summary Modifies the switching time of scheduled O\\&M events for an instance.
      *  *
      * @param ModifyActiveOperationTasksRequest $request ModifyActiveOperationTasksRequest
      *
