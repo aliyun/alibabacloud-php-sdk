@@ -16,6 +16,11 @@ class module extends Model
     public $domain;
 
     /**
+     * @var string[]
+     */
+    public $domainBlockTrade;
+
+    /**
      * @example 31199295f2074ce895645d386cb22c36
      *
      * @var string
@@ -29,9 +34,10 @@ class module extends Model
      */
     public $price;
     protected $_name = [
-        'domain'  => 'Domain',
-        'orderNo' => 'OrderNo',
-        'price'   => 'Price',
+        'domain'           => 'Domain',
+        'domainBlockTrade' => 'DomainBlockTrade',
+        'orderNo'          => 'OrderNo',
+        'price'            => 'Price',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class module extends Model
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->domainBlockTrade) {
+            $res['DomainBlockTrade'] = $this->domainBlockTrade;
         }
         if (null !== $this->orderNo) {
             $res['OrderNo'] = $this->orderNo;
@@ -64,6 +73,11 @@ class module extends Model
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['DomainBlockTrade'])) {
+            if (!empty($map['DomainBlockTrade'])) {
+                $model->domainBlockTrade = $map['DomainBlockTrade'];
+            }
         }
         if (isset($map['OrderNo'])) {
             $model->orderNo = $map['OrderNo'];
