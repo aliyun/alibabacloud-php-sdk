@@ -34,10 +34,16 @@ class DataTopicLagMapValue extends Model
      * @var int
      */
     public $deliveryDuration;
+
+    /**
+     * @var int
+     */
+    public $lastConsumeTimestamp;
     protected $_name = [
-        'readyCount'       => 'readyCount',
-        'inflightCount'    => 'inflightCount',
-        'deliveryDuration' => 'deliveryDuration',
+        'readyCount'           => 'readyCount',
+        'inflightCount'        => 'inflightCount',
+        'deliveryDuration'     => 'deliveryDuration',
+        'lastConsumeTimestamp' => 'lastConsumeTimestamp',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class DataTopicLagMapValue extends Model
         }
         if (null !== $this->deliveryDuration) {
             $res['deliveryDuration'] = $this->deliveryDuration;
+        }
+        if (null !== $this->lastConsumeTimestamp) {
+            $res['lastConsumeTimestamp'] = $this->lastConsumeTimestamp;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class DataTopicLagMapValue extends Model
         }
         if (isset($map['deliveryDuration'])) {
             $model->deliveryDuration = $map['deliveryDuration'];
+        }
+        if (isset($map['lastConsumeTimestamp'])) {
+            $model->lastConsumeTimestamp = $map['lastConsumeTimestamp'];
         }
 
         return $model;

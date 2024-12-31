@@ -25,6 +25,7 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateTopicResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupSubscriptionRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteConsumerGroupSubscriptionResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteDisasterRecoveryPlanResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceAccountResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceAclRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\DeleteInstanceAclResponse;
@@ -59,6 +60,8 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListInstancesShrinkRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMessagesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMessagesResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaRequest;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListMetricMetaResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTagResourcesResponse;
@@ -70,6 +73,8 @@ use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTracesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ListTracesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ResetConsumeOffsetRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\ResetConsumeOffsetResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\StartDisasterRecoveryItemResponse;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\StopDisasterRecoveryItemResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\UntagResourcesRequest;
@@ -746,6 +751,50 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->deleteConsumerGroupSubscriptionWithOptions($instanceId, $consumerGroupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 删除容灾计划
+     *  *
+     * @param string         $planId
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDisasterRecoveryPlanResponse DeleteDisasterRecoveryPlanResponse
+     */
+    public function deleteDisasterRecoveryPlanWithOptions($planId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDisasterRecoveryPlan',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/disaster_recovery/' . OpenApiUtilClient::getEncodeParam($planId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDisasterRecoveryPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除容灾计划
+     *  *
+     * @param string $planId
+     *
+     * @return DeleteDisasterRecoveryPlanResponse DeleteDisasterRecoveryPlanResponse
+     */
+    public function deleteDisasterRecoveryPlan($planId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDisasterRecoveryPlanWithOptions($planId, $headers, $runtime);
     }
 
     /**
@@ -1970,6 +2019,59 @@ class RocketMQ extends OpenApiClient
     }
 
     /**
+     * @summary 查询监控项列表
+     *  *
+     * @param ListMetricMetaRequest $request ListMetricMetaRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListMetricMetaResponse ListMetricMetaResponse
+     */
+    public function listMetricMetaWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMetricMeta',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/monitor/metrics/meta',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMetricMetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询监控项列表
+     *  *
+     * @param ListMetricMetaRequest $request ListMetricMetaRequest
+     *
+     * @return ListMetricMetaResponse ListMetricMetaResponse
+     */
+    public function listMetricMeta($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listMetricMetaWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary Queries regions in which ApsaraMQ for RocketMQ is available.
      *  *
      * @param string[]       $headers map
@@ -2316,6 +2418,98 @@ class RocketMQ extends OpenApiClient
         $headers = [];
 
         return $this->resetConsumeOffsetWithOptions($instanceId, $consumerGroupId, $topicName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 启用容灾计划条目
+     *  *
+     * @param string         $planId
+     * @param string         $itemId
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StartDisasterRecoveryItemResponse StartDisasterRecoveryItemResponse
+     */
+    public function startDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartDisasterRecoveryItem',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/disaster_recovery/' . OpenApiUtilClient::getEncodeParam($planId) . '/items/' . OpenApiUtilClient::getEncodeParam($itemId) . '/start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 启用容灾计划条目
+     *  *
+     * @param string $planId
+     * @param string $itemId
+     *
+     * @return StartDisasterRecoveryItemResponse StartDisasterRecoveryItemResponse
+     */
+    public function startDisasterRecoveryItem($planId, $itemId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 停用容灾计划条目
+     *  *
+     * @param string         $planId
+     * @param string         $itemId
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopDisasterRecoveryItemResponse StopDisasterRecoveryItemResponse
+     */
+    public function stopDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopDisasterRecoveryItem',
+            'version'     => '2022-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/disaster_recovery/' . OpenApiUtilClient::getEncodeParam($planId) . '/items/' . OpenApiUtilClient::getEncodeParam($itemId) . '/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopDisasterRecoveryItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 停用容灾计划条目
+     *  *
+     * @param string $planId
+     * @param string $itemId
+     *
+     * @return StopDisasterRecoveryItemResponse StopDisasterRecoveryItemResponse
+     */
+    public function stopDisasterRecoveryItem($planId, $itemId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopDisasterRecoveryItemWithOptions($planId, $itemId, $headers, $runtime);
     }
 
     /**
