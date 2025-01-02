@@ -92,6 +92,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListRe
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeScaleOutMigrateTaskListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSecurityIpsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSlowLogRecordsRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTagsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTagsResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeTasksRequest;
@@ -2525,6 +2527,77 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 慢SQL明细
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
+     */
+    public function describeSlowLogRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->characterType)) {
+            $query['CharacterType'] = $request->characterType;
+        }
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
+        }
+        if (!Utils::isUnset($request->DBNodeIds)) {
+            $query['DBNodeIds'] = $request->DBNodeIds;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSlowLogRecords',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 慢SQL明细
+     *  *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     *
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
+     */
+    public function describeSlowLogRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSlowLogRecordsWithOptions($request, $runtime);
     }
 
     /**
