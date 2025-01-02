@@ -21,7 +21,7 @@ class imageList extends Model
     public $message;
 
     /**
-     * @example https://a-hbr-temp-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/r-000aham3nsx9gc7a8r5l.csv?Expires=1678260131&OSSAccessKeyId=LTAIjGotF8wXIEjy&Signature=WpMfqBnjeR0w5UL1xFAd1J556Pw%3D
+     * @example http://www.example.com/xxx.png
      *
      * @var string
      */

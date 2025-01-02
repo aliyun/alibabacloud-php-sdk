@@ -17,6 +17,11 @@ class SubmitSmartClipTaskRequest extends Model
     public $editingConfig;
 
     /**
+     * @var string
+     */
+    public $extendParam;
+
+    /**
      * @description This parameter is required.
      *
      * @var inputConfig
@@ -36,6 +41,7 @@ class SubmitSmartClipTaskRequest extends Model
     public $workspaceId;
     protected $_name = [
         'editingConfig' => 'EditingConfig',
+        'extendParam'   => 'ExtendParam',
         'inputConfig'   => 'InputConfig',
         'outputConfig'  => 'OutputConfig',
         'workspaceId'   => 'WorkspaceId',
@@ -50,6 +56,9 @@ class SubmitSmartClipTaskRequest extends Model
         $res = [];
         if (null !== $this->editingConfig) {
             $res['EditingConfig'] = null !== $this->editingConfig ? $this->editingConfig->toMap() : null;
+        }
+        if (null !== $this->extendParam) {
+            $res['ExtendParam'] = $this->extendParam;
         }
         if (null !== $this->inputConfig) {
             $res['InputConfig'] = null !== $this->inputConfig ? $this->inputConfig->toMap() : null;
@@ -74,6 +83,9 @@ class SubmitSmartClipTaskRequest extends Model
         $model = new self();
         if (isset($map['EditingConfig'])) {
             $model->editingConfig = editingConfig::fromMap($map['EditingConfig']);
+        }
+        if (isset($map['ExtendParam'])) {
+            $model->extendParam = $map['ExtendParam'];
         }
         if (isset($map['InputConfig'])) {
             $model->inputConfig = inputConfig::fromMap($map['InputConfig']);

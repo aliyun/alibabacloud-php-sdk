@@ -7242,6 +7242,9 @@ class AiMiaoBi extends OpenApiClient
         if (!Utils::isUnset($request->editingConfigShrink)) {
             $body['EditingConfig'] = $request->editingConfigShrink;
         }
+        if (!Utils::isUnset($request->extendParam)) {
+            $body['ExtendParam'] = $request->extendParam;
+        }
         if (!Utils::isUnset($request->inputConfigShrink)) {
             $body['InputConfig'] = $request->inputConfigShrink;
         }

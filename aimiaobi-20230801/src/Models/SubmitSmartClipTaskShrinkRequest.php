@@ -14,6 +14,11 @@ class SubmitSmartClipTaskShrinkRequest extends Model
     public $editingConfigShrink;
 
     /**
+     * @var string
+     */
+    public $extendParam;
+
+    /**
      * @description This parameter is required.
      *
      * @var string
@@ -33,6 +38,7 @@ class SubmitSmartClipTaskShrinkRequest extends Model
     public $workspaceId;
     protected $_name = [
         'editingConfigShrink' => 'EditingConfig',
+        'extendParam'         => 'ExtendParam',
         'inputConfigShrink'   => 'InputConfig',
         'outputConfigShrink'  => 'OutputConfig',
         'workspaceId'         => 'WorkspaceId',
@@ -47,6 +53,9 @@ class SubmitSmartClipTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->editingConfigShrink) {
             $res['EditingConfig'] = $this->editingConfigShrink;
+        }
+        if (null !== $this->extendParam) {
+            $res['ExtendParam'] = $this->extendParam;
         }
         if (null !== $this->inputConfigShrink) {
             $res['InputConfig'] = $this->inputConfigShrink;
@@ -71,6 +80,9 @@ class SubmitSmartClipTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['EditingConfig'])) {
             $model->editingConfigShrink = $map['EditingConfig'];
+        }
+        if (isset($map['ExtendParam'])) {
+            $model->extendParam = $map['ExtendParam'];
         }
         if (isset($map['InputConfig'])) {
             $model->inputConfigShrink = $map['InputConfig'];
