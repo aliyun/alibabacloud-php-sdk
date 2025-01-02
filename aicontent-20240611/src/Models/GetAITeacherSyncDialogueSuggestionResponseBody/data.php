@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 谢谢莉莉.你喜欢吃肉吗，莉莉？
+     *
+     * @var string
+     */
+    public $chineseResult;
+
+    /**
      * @example Thanks, Lily. Do you like meat, Lily?
      *
      * @var string
      */
     public $englishResult;
-
-    /**
-     * @example 谢谢莉莉.你喜欢吃肉吗，莉莉？
-     *
-     * @var string
-     */
-    public $englishResult1;
     protected $_name = [
-        'englishResult'  => 'englishResult',
-        'englishResult1' => 'englishResult1',
+        'chineseResult' => 'chineseResult',
+        'englishResult' => 'englishResult',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chineseResult) {
+            $res['chineseResult'] = $this->chineseResult;
+        }
         if (null !== $this->englishResult) {
             $res['englishResult'] = $this->englishResult;
-        }
-        if (null !== $this->englishResult1) {
-            $res['englishResult1'] = $this->englishResult1;
         }
 
         return $res;
@@ -51,11 +51,11 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['chineseResult'])) {
+            $model->chineseResult = $map['chineseResult'];
+        }
         if (isset($map['englishResult'])) {
             $model->englishResult = $map['englishResult'];
-        }
-        if (isset($map['englishResult1'])) {
-            $model->englishResult1 = $map['englishResult1'];
         }
 
         return $model;
