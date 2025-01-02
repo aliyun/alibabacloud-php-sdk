@@ -14,6 +14,16 @@ class ContextualAnswerResponseBody extends Model
     public $answer;
 
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @example 22F081FB-90D7-525A-BFE4-D28DC906A28F
      *
      * @var string
@@ -21,6 +31,8 @@ class ContextualAnswerResponseBody extends Model
     public $requestId;
     protected $_name = [
         'answer'    => 'Answer',
+        'code'      => 'Code',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -33,6 +45,12 @@ class ContextualAnswerResponseBody extends Model
         $res = [];
         if (null !== $this->answer) {
             $res['Answer'] = null !== $this->answer ? $this->answer->toMap() : null;
+        }
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -51,6 +69,12 @@ class ContextualAnswerResponseBody extends Model
         $model = new self();
         if (isset($map['Answer'])) {
             $model->answer = Answer::fromMap($map['Answer']);
+        }
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
