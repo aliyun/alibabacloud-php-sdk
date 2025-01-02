@@ -11,6 +11,7 @@ class DescribePrefixListsRequest extends Model
     /**
      * @description The region ID of the instance.
      *
+     * This parameter is required.
      * @example cn-shenzhen
      *
      * @var string

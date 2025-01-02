@@ -18,6 +18,8 @@ class protectedResource extends Model
     public $count;
 
     /**
+     * @description The protected express connect routers.
+     *
      * @var string[]
      */
     public $ecrList;

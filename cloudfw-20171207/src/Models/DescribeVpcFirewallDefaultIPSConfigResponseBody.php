@@ -42,6 +42,14 @@ class DescribeVpcFirewallDefaultIPSConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The level of the rule group for the IPS. Valid values:
+     *
+     *   **1**: loose.
+     *   **2**: medium.
+     *   **3**: strict.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ruleClass;

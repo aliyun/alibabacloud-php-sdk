@@ -61,11 +61,17 @@ class domainList extends Model
     public $addressGroupUUID;
 
     /**
+     * @description The application names.
+     *
      * @var string[]
      */
     public $applicationNameList;
 
     /**
+     * @description The outbound asset count.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $assetCount;
@@ -198,6 +204,10 @@ class domainList extends Model
     public $outBytes;
 
     /**
+     * @description The outbound private asset count.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $privateAssetCount;

@@ -662,6 +662,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->taskData)) {
             $query['TaskData'] = $request->taskData;
         }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
         if (!Utils::isUnset($request->timeZone)) {
             $query['TimeZone'] = $request->timeZone;
         }
@@ -2426,7 +2429,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary 获取资产统计信息
+     * @summary Queries statistics on the assets that are protected by Cloud Firewall.
      *  *
      * @param DescribeAssetStatisticRequest $request DescribeAssetStatisticRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2465,7 +2468,7 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary 获取资产统计信息
+     * @summary Queries statistics on the assets that are protected by Cloud Firewall.
      *  *
      * @param DescribeAssetStatisticRequest $request DescribeAssetStatisticRequest
      *
@@ -4537,7 +4540,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户版本信息
+     * @summary Queries the edition information about Cloud Firewall.
+     *  *
+     * @description You can call this operation to query the edition information about Cloud Firewall.
+     * ## [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param DescribeUserBuyVersionRequest $request DescribeUserBuyVersionRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -4570,7 +4577,11 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户版本信息
+     * @summary Queries the edition information about Cloud Firewall.
+     *  *
+     * @description You can call this operation to query the edition information about Cloud Firewall.
+     * ## [](#qps-)Limits
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *  *
      * @param DescribeUserBuyVersionRequest $request DescribeUserBuyVersionRequest
      *

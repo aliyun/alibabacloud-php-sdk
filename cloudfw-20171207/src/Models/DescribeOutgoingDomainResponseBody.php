@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutgoingDomainResponseBody extends Model
 {
     /**
-     * @description An array that consists of the domain names in outbound connections.
+     * @description The domain names in outbound connections.
      *
      * @var domainList[]
      */

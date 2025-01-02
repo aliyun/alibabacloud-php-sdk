@@ -65,6 +65,10 @@ class DescribeAssetListRequest extends Model
     public $newResourceTag;
 
     /**
+     * @description Whether to query external traffic information.
+     *
+     * @example true
+     *
      * @var string
      */
     public $outStatistic;
@@ -120,6 +124,10 @@ class DescribeAssetListRequest extends Model
     public $searchItem;
 
     /**
+     * @description Data leakage detection activation status.
+     *
+     * @example open
+     *
      * @var string
      */
     public $sensitiveStatus;

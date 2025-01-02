@@ -78,6 +78,10 @@ class assets extends Model
     public $ipVersion;
 
     /**
+     * @description Outbound traffic in the last 7 days.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $last7DayOutTrafficBytes;
@@ -205,6 +209,10 @@ class assets extends Model
     public $riskLevel;
 
     /**
+     * @description Data leakage detection enabled status.
+     *
+     * @example open
+     *
      * @var string
      */
     public $sensitiveDataStatus;

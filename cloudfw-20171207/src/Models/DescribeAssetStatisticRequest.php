@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetStatisticRequest extends Model
 {
     /**
+     * @description The language of the content within the request. Valid values:
+     *
+     *   **zh** (default): Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,10 @@ class DescribeAssetStatisticRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 112.239.XX.XX
+     *
      * @var string
      */
     public $sourceIp;

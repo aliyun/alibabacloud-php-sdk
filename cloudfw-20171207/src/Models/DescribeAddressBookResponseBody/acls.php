@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody;
 
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\addresses;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAddressBookResponseBody\acls\tagList;
 use AlibabaCloud\Tea\Model;
 
@@ -24,6 +25,11 @@ class acls extends Model
      * @var int
      */
     public $addressListCount;
+
+    /**
+     * @var addresses[]
+     */
+    public $addresses;
 
     /**
      * @description Indicates whether the public IP addresses of ECS instances are automatically added to the address book if the instances match the specified tags. The setting takes effect on both newly purchased ECS instances whose tag settings are complete and ECS instances whose tag settings are modified. Valid values:
@@ -110,6 +116,7 @@ class acls extends Model
     protected $_name = [
         'addressList'      => 'AddressList',
         'addressListCount' => 'AddressListCount',
+        'addresses'        => 'Addresses',
         'autoAddTagEcs'    => 'AutoAddTagEcs',
         'description'      => 'Description',
         'groupName'        => 'GroupName',
@@ -132,6 +139,15 @@ class acls extends Model
         }
         if (null !== $this->addressListCount) {
             $res['AddressListCount'] = $this->addressListCount;
+        }
+        if (null !== $this->addresses) {
+            $res['Addresses'] = [];
+            if (null !== $this->addresses && \is_array($this->addresses)) {
+                $n = 0;
+                foreach ($this->addresses as $item) {
+                    $res['Addresses'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->autoAddTagEcs) {
             $res['AutoAddTagEcs'] = $this->autoAddTagEcs;
@@ -182,6 +198,15 @@ class acls extends Model
         }
         if (isset($map['AddressListCount'])) {
             $model->addressListCount = $map['AddressListCount'];
+        }
+        if (isset($map['Addresses'])) {
+            if (!empty($map['Addresses'])) {
+                $model->addresses = [];
+                $n                = 0;
+                foreach ($map['Addresses'] as $item) {
+                    $model->addresses[$n++] = null !== $item ? addresses::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['AutoAddTagEcs'])) {
             $model->autoAddTagEcs = $map['AutoAddTagEcs'];

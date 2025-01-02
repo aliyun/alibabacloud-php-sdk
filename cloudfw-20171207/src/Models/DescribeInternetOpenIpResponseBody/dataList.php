@@ -126,11 +126,19 @@ class dataList extends Model
     public $serviceNameList;
 
     /**
+     * @description Number of source IPs.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $srcIpCnt;
 
     /**
+     * @description Outbound traffic in the last 7 days.
+     *
+     * @example 100000
+     *
      * @var int
      */
     public $totalReplyBytes;

@@ -28,7 +28,7 @@ class DescribeTrFirewallsV2ListResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The VPC firewalls.
+     * @description The information about the VPC firewalls.
      *
      * @var vpcTrFirewalls[]
      */

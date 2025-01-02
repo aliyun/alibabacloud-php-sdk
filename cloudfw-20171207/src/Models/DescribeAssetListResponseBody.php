@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetListResponseBody extends Model
 {
     /**
-     * @description The details about the assets that are protected by Cloud Firewall.
+     * @description The assets that are protected by Cloud Firewall.
      *
      * @var assets[]
      */

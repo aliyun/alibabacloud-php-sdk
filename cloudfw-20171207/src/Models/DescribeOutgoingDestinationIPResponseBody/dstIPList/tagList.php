@@ -24,9 +24,9 @@ class tagList extends Model
     /**
      * @description The risk level. Valid values:
      *
-     *   **1**: low
-     *   **2**: medium
-     *   **3**: high
+     *   **1**: low.
+     *   **2**: medium.
+     *   **3**: high.
      *
      * @example 1
      *

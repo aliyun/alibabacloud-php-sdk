@@ -139,6 +139,10 @@ class DescribeRiskEventGroupRequest extends Model
     public $firewallType;
 
     /**
+     * @description Whether to query only the data that has completed private network tracing.
+     *
+     * @example true
+     *
      * @var string
      */
     public $isOnlyPrivateAssoc;

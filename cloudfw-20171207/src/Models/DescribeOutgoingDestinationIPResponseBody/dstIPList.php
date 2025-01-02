@@ -54,11 +54,16 @@ class dstIPList extends Model
     /**
      * @description The application ports.
      *
+     * >  Only the first 100 application ports are displayed.
      * @var applicationPortList[]
      */
     public $applicationPortList;
 
     /**
+     * @description The outbound asset count.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $assetCount;
@@ -164,6 +169,10 @@ class dstIPList extends Model
     public $isMarkNormal;
 
     /**
+     * @description Location name.
+     *
+     * @example 山东省青岛市
+     *
      * @var string
      */
     public $locationName;
@@ -178,6 +187,10 @@ class dstIPList extends Model
     public $outBytes;
 
     /**
+     * @description The outbound private asset count.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $privateAssetCount;

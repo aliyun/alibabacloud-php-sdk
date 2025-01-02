@@ -33,6 +33,14 @@ class ipsConfig extends Model
     public $enableAllPatch;
 
     /**
+     * @description The level of the rule group for the IPS. Valid values:
+     *
+     *   **1**: loose.
+     *   **2**: medium.
+     *   **3**: strict.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $ruleClass;

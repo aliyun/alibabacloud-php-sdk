@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetStatisticResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 850A84******25g4d2
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeAssetStatisticResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The statistics on specifications.
+     *
      * @var resourceSpecStatistic
      */
     public $resourceSpecStatistic;

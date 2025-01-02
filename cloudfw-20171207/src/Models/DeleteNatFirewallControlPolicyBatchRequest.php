@@ -11,6 +11,7 @@ class DeleteNatFirewallControlPolicyBatchRequest extends Model
     /**
      * @description The UUIDs of access control policies.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $aclUuidList;

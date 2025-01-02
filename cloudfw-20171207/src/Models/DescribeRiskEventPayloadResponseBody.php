@@ -36,16 +36,28 @@ class DescribeRiskEventPayloadResponseBody extends Model
     public $dstVpcId;
 
     /**
+     * @description Type of the hit.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $hitContentType;
 
     /**
+     * @description The position where the hit ends.
+     *
+     * @example 67
+     *
      * @var int
      */
     public $hitTo;
 
     /**
+     * @description Hit payload.
+     *
+     * @example 2f636f6d706f7365722f73656e645f656d61696c3f746f3d6d61667740776f66736f7961792675726c3d687474703a2f2f302e302e302e303a31323334352f692f6431366530312f313664622f673670772f
+     *
      * @var string
      */
     public $parsedContent;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceSpecStatistic extends Model
 {
     /**
+     * @description The number of public IP addresses that can be protected.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class resourceSpecStatistic extends Model
     public $ipNumSpec;
 
     /**
+     * @description The number of public IP addresses that are protected.
+     *
      * @example 10
      *
      * @var int
@@ -23,47 +27,25 @@ class resourceSpecStatistic extends Model
     public $ipNumUsed;
 
     /**
-     * @var int
-     */
-    public $isIpNumEnough;
-
-    /**
-     * @var int
-     */
-    public $isRegionNumEnough;
-
-    /**
-     * @var int
-     */
-    public $isSuggestUpdate;
-
-    /**
-     * @var int
-     */
-    public $regionNumSpec;
-
-    /**
-     * @var int
-     */
-    public $regionNumUsed;
-
-    /**
+     * @description The number of public IP addresses that can enable data leakage detection.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $sensitiveDataIpNumSpec;
 
     /**
+     * @description The number of public IP addresses that enabled data leakage detection.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $sensitiveDataIpNumUsed;
     protected $_name = [
         'ipNumSpec'              => 'IpNumSpec',
         'ipNumUsed'              => 'IpNumUsed',
-        'isIpNumEnough'          => 'IsIpNumEnough',
-        'isRegionNumEnough'      => 'IsRegionNumEnough',
-        'isSuggestUpdate'        => 'IsSuggestUpdate',
-        'regionNumSpec'          => 'RegionNumSpec',
-        'regionNumUsed'          => 'RegionNumUsed',
         'sensitiveDataIpNumSpec' => 'SensitiveDataIpNumSpec',
         'sensitiveDataIpNumUsed' => 'SensitiveDataIpNumUsed',
     ];
@@ -80,21 +62,6 @@ class resourceSpecStatistic extends Model
         }
         if (null !== $this->ipNumUsed) {
             $res['IpNumUsed'] = $this->ipNumUsed;
-        }
-        if (null !== $this->isIpNumEnough) {
-            $res['IsIpNumEnough'] = $this->isIpNumEnough;
-        }
-        if (null !== $this->isRegionNumEnough) {
-            $res['IsRegionNumEnough'] = $this->isRegionNumEnough;
-        }
-        if (null !== $this->isSuggestUpdate) {
-            $res['IsSuggestUpdate'] = $this->isSuggestUpdate;
-        }
-        if (null !== $this->regionNumSpec) {
-            $res['RegionNumSpec'] = $this->regionNumSpec;
-        }
-        if (null !== $this->regionNumUsed) {
-            $res['RegionNumUsed'] = $this->regionNumUsed;
         }
         if (null !== $this->sensitiveDataIpNumSpec) {
             $res['SensitiveDataIpNumSpec'] = $this->sensitiveDataIpNumSpec;
@@ -119,21 +86,6 @@ class resourceSpecStatistic extends Model
         }
         if (isset($map['IpNumUsed'])) {
             $model->ipNumUsed = $map['IpNumUsed'];
-        }
-        if (isset($map['IsIpNumEnough'])) {
-            $model->isIpNumEnough = $map['IsIpNumEnough'];
-        }
-        if (isset($map['IsRegionNumEnough'])) {
-            $model->isRegionNumEnough = $map['IsRegionNumEnough'];
-        }
-        if (isset($map['IsSuggestUpdate'])) {
-            $model->isSuggestUpdate = $map['IsSuggestUpdate'];
-        }
-        if (isset($map['RegionNumSpec'])) {
-            $model->regionNumSpec = $map['RegionNumSpec'];
-        }
-        if (isset($map['RegionNumUsed'])) {
-            $model->regionNumUsed = $map['RegionNumUsed'];
         }
         if (isset($map['SensitiveDataIpNumSpec'])) {
             $model->sensitiveDataIpNumSpec = $map['SensitiveDataIpNumSpec'];

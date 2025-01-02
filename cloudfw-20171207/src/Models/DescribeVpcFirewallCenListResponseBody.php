@@ -28,7 +28,7 @@ class DescribeVpcFirewallCenListResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description An array that consists of the details about the VPC firewall.
+     * @description The information about the VPC firewalls.
      *
      * @var vpcFirewalls[]
      */

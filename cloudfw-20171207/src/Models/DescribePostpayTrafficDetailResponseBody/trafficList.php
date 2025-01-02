@@ -45,11 +45,19 @@ class trafficList extends Model
     public $outBytes;
 
     /**
+     * @description Protection duration. Unit: hours.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $protectionDuration;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionNo;

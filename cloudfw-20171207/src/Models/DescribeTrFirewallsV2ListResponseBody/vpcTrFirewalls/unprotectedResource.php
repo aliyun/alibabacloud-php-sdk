@@ -18,6 +18,8 @@ class unprotectedResource extends Model
     public $count;
 
     /**
+     * @description The unprotected express connect routers.
+     *
      * @var string[]
      */
     public $ecrList;
