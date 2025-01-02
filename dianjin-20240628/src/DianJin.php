@@ -33,6 +33,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\GenDocQaResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetAppConfigResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetChatQuestionRespRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetChatQuestionRespResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDialogAnalysisResultResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentChunkListResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetDocumentListRequest;
@@ -965,6 +967,70 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->getChatQuestionRespWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取外呼会话分析结果
+     *  *
+     * @param string                         $workspaceId
+     * @param GetDialogAnalysisResultRequest $request     GetDialogAnalysisResultRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetDialogAnalysisResultResponse GetDialogAnalysisResultResponse
+     */
+    public function getDialogAnalysisResultWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->asc)) {
+            $body['asc'] = $request->asc;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['endTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->sessionIds)) {
+            $body['sessionIds'] = $request->sessionIds;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['startTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->useUrl)) {
+            $body['useUrl'] = $request->useUrl;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDialogAnalysisResult',
+            'version'     => '2024-06-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/api/virtualHuman/dialog/analysis',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDialogAnalysisResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取外呼会话分析结果
+     *  *
+     * @param string                         $workspaceId
+     * @param GetDialogAnalysisResultRequest $request     GetDialogAnalysisResultRequest
+     *
+     * @return GetDialogAnalysisResultResponse GetDialogAnalysisResultResponse
+     */
+    public function getDialogAnalysisResult($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDialogAnalysisResultWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
