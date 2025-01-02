@@ -51,6 +51,11 @@ class DescribeUsersRequest extends Model
     public $groupId;
 
     /**
+     * @var bool
+     */
+    public $isQueryAllSubOrgs;
+
+    /**
      * @description The number of entries per page.
      *
      *   Valid values: 1 to 500
@@ -96,6 +101,7 @@ class DescribeUsersRequest extends Model
         'filter'                      => 'Filter',
         'filterWithAssignedResources' => 'FilterWithAssignedResources',
         'groupId'                     => 'GroupId',
+        'isQueryAllSubOrgs'           => 'IsQueryAllSubOrgs',
         'maxResults'                  => 'MaxResults',
         'nextToken'                   => 'NextToken',
         'orgId'                       => 'OrgId',
@@ -127,6 +133,9 @@ class DescribeUsersRequest extends Model
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->isQueryAllSubOrgs) {
+            $res['IsQueryAllSubOrgs'] = $this->isQueryAllSubOrgs;
         }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
@@ -176,6 +185,9 @@ class DescribeUsersRequest extends Model
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['IsQueryAllSubOrgs'])) {
+            $model->isQueryAllSubOrgs = $map['IsQueryAllSubOrgs'];
         }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];

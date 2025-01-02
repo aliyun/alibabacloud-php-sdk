@@ -40,7 +40,7 @@ class oidcSsoConfig extends Model
     public $grantTypes;
 
     /**
-     * @var int
+     * @var string
      */
     public $idTokenAlgorithmType;
 

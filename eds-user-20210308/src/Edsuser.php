@@ -636,6 +636,9 @@ class Edsuser extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $body['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->isQueryAllSubOrgs)) {
+            $body['IsQueryAllSubOrgs'] = $request->isQueryAllSubOrgs;
+        }
         if (!Utils::isUnset($request->orgId)) {
             $body['OrgId'] = $request->orgId;
         }
