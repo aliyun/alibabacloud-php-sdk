@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class steps extends Model
 {
     /**
+     * @description Step Failure Message
+     *
      * @example get taskinfo failed
      *
      * @var string
@@ -17,11 +19,17 @@ class steps extends Model
     public $message;
 
     /**
+     * @description Stage Tag
+     *
+     * @example Node scaling
+     *
      * @var string
      */
     public $stageTag;
 
     /**
+     * @description Start Time
+     *
      * @example 2022-11-30T2:00:00.852Z
      *
      * @var string
@@ -29,6 +37,8 @@ class steps extends Model
     public $startTime;
 
     /**
+     * @description Step Name
+     *
      * @example create_vpd
      *
      * @var string
@@ -36,6 +46,8 @@ class steps extends Model
     public $stepName;
 
     /**
+     * @description Step Execution State
+     *
      * @example execution_success
      *
      * @var string
@@ -43,6 +55,8 @@ class steps extends Model
     public $stepState;
 
     /**
+     * @description Step Type
+     *
      * @example normal
      *
      * @var string
@@ -50,11 +64,15 @@ class steps extends Model
     public $stepType;
 
     /**
+     * @description Subtasks
+     *
      * @var subTasks[]
      */
     public $subTasks;
 
     /**
+     * @description Update Time
+     *
      * @example 2022-11-30T02:20:14.852Z
      *
      * @var string

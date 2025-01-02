@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
+     * @description Filter the returned results based on Chinese or English. For more information, see RFC7231. Valid values:
+     *
+     * Default value: zh-CN
      * @example zh-CN
      *
      * @var string

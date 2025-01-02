@@ -11,11 +11,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterResponseBody extends Model
 {
     /**
+     * @description Cluster Description
+     *
+     * @example Default cluster
+     *
      * @var string
      */
     public $clusterDescription;
 
     /**
+     * @description Cluster ID
+     *
      * @example i116913051662373010974
      *
      * @var string
@@ -23,6 +29,8 @@ class DescribeClusterResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description Cluster Name
+     *
      * @example Eflo-YJ-Test-Cluster
      *
      * @var string
@@ -30,23 +38,33 @@ class DescribeClusterResponseBody extends Model
     public $clusterName;
 
     /**
-     * @example AckEdgPro
+     * @description Cluster Type
+     *
+     * @example AckEdgePro
      *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description Component Information
+     *
      * @var components[]
      */
     public $components;
 
     /**
+     * @description Type of IP in the compute network
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $computingIpVersion;
 
     /**
+     * @description Creation Time
+     *
      * @example 2022-06-08T07:05:11Z
      *
      * @var string
@@ -54,16 +72,24 @@ class DescribeClusterResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Cluster Number
+     *
+     * @example A2
+     *
      * @var string
      */
     public $hpnZone;
 
     /**
+     * @description Network Information
+     *
      * @var networks[]
      */
     public $networks;
 
     /**
+     * @description Number of Nodes
+     *
      * @example 2
      *
      * @var int
@@ -71,6 +97,8 @@ class DescribeClusterResponseBody extends Model
     public $nodeCount;
 
     /**
+     * @description Number of Node Groups
+     *
      * @example 2
      *
      * @var int
@@ -78,11 +106,17 @@ class DescribeClusterResponseBody extends Model
     public $nodeGroupCount;
 
     /**
+     * @description Open Eni Jumbo Frame
+     *
+     * @example close
+     *
      * @var string
      */
     public $openEniJumboFrame;
 
     /**
+     * @description Cluster State
+     *
      * @example running
      *
      * @var string
@@ -90,6 +124,8 @@ class DescribeClusterResponseBody extends Model
     public $operatingState;
 
     /**
+     * @description Request ID.
+     *
      * @example 887FA855-89F4-5DB3-B305-C5879EC480E6
      *
      * @var string
@@ -97,6 +133,8 @@ class DescribeClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Resource Group ID
+     *
      * @example rg-aek2k3rqlvv6ytq
      *
      * @var string
@@ -104,6 +142,8 @@ class DescribeClusterResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description Task ID
+     *
      * @example i152609221670466904596
      *
      * @var string
@@ -111,6 +151,8 @@ class DescribeClusterResponseBody extends Model
     public $taskId;
 
     /**
+     * @description Update Time
+     *
      * @example 2022-08-23T06:36:17.000Z
      *
      * @var string
@@ -118,6 +160,10 @@ class DescribeClusterResponseBody extends Model
     public $updateTime;
 
     /**
+     * @description VPC ID
+     *
+     * @example vpc-0jlkqysom5dmcviymep3f
+     *
      * @var string
      */
     public $vpcId;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
+     * @description Cluster description
+     *
+     * @example PPU-cluster2 bz
+     *
      * @var string
      */
     public $clusterDescription;
 
     /**
+     * @description Cluster ID
+     *
      * @example i137590131672134915401
      *
      * @var string
@@ -21,6 +27,8 @@ class clusters extends Model
     public $clusterId;
 
     /**
+     * @description Cluster name
+     *
      * @example cnp_test_cluster
      *
      * @var string
@@ -28,13 +36,17 @@ class clusters extends Model
     public $clusterName;
 
     /**
-     * @example AckEdgPro
+     * @description Cluster type
+     *
+     * @example AckEdgePro
      *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description Component information
+     *
      * @example {}
      *
      * @var mixed
@@ -42,11 +54,17 @@ class clusters extends Model
     public $components;
 
     /**
+     * @description IP version of the computing network
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $computingIpVersion;
 
     /**
+     * @description Creation time
+     *
      * @example 1672134938
      *
      * @var string
@@ -54,11 +72,17 @@ class clusters extends Model
     public $createTime;
 
     /**
+     * @description Cluster number
+     *
+     * @example B1
+     *
      * @var string
      */
     public $hpnZone;
 
     /**
+     * @description Number of nodes
+     *
      * @example 12
      *
      * @var int
@@ -66,6 +90,8 @@ class clusters extends Model
     public $nodeCount;
 
     /**
+     * @description Number of node groups
+     *
      * @example 2
      *
      * @var int
@@ -73,6 +99,8 @@ class clusters extends Model
     public $nodeGroupCount;
 
     /**
+     * @description Cluster status
+     *
      * @example initializing
      *
      * @var string
@@ -80,6 +108,8 @@ class clusters extends Model
     public $operatingState;
 
     /**
+     * @description Resource group ID
+     *
      * @example rg-aek2ajbjoloa23q
      *
      * @var string
@@ -87,6 +117,8 @@ class clusters extends Model
     public $resourceGroupId;
 
     /**
+     * @description Task ID
+     *
      * @example i156365121663149566024
      *
      * @var string
@@ -94,6 +126,8 @@ class clusters extends Model
     public $taskId;
 
     /**
+     * @description Update time
+     *
      * @example 1672134968
      *
      * @var string
@@ -101,6 +135,10 @@ class clusters extends Model
     public $updateTime;
 
     /**
+     * @description VPC ID
+     *
+     * @example vpc-0jlx4hol2bjboafzmffvd
+     *
      * @var string
      */
     public $vpcId;

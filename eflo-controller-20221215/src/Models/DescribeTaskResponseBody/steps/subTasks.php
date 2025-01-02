@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subTasks extends Model
 {
     /**
+     * @description Creation Time
+     *
      * @example 2022-11-30T2:00:00.852Z
      *
      * @var string
@@ -16,6 +18,8 @@ class subTasks extends Model
     public $createTime;
 
     /**
+     * @description Subtask Failure Message
+     *
      * @example Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
      *
      * @var string
@@ -23,6 +27,8 @@ class subTasks extends Model
     public $message;
 
     /**
+     * @description Task ID
+     *
      * @example i158805051661047928377
      *
      * @var string
@@ -30,6 +36,8 @@ class subTasks extends Model
     public $taskId;
 
     /**
+     * @description Task Execution State
+     *
      * @example running
      *
      * @var string
@@ -37,6 +45,8 @@ class subTasks extends Model
     public $taskState;
 
     /**
+     * @description Task Type
+     *
      * @example cut_node_sub_task
      *
      * @var string
@@ -44,6 +54,8 @@ class subTasks extends Model
     public $taskType;
 
     /**
+     * @description Update Time
+     *
      * @example 2022-11-30T02:20:14.852Z
      *
      * @var string

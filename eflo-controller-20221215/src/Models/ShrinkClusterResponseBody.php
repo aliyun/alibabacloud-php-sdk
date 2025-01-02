@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ShrinkClusterResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
      * @example CC9FEF89-9BE5-5E03-845E-238B48D7599B
      *
      * @var string
@@ -16,6 +18,8 @@ class ShrinkClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description task id
+     *
      * @example i159136551662516768776
      *
      * @var string

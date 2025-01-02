@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterShrinkRequest extends Model
 {
     /**
+     * @description Cluster description
+     *
+     * @example Cluster description
+     *
      * @var string
      */
     public $clusterDescription;
 
     /**
+     * @description Cluster name
+     *
      * @example Standard_Cluster
      *
      * @var string
@@ -22,6 +28,8 @@ class CreateClusterShrinkRequest extends Model
     public $clusterName;
 
     /**
+     * @description Cluster type
+     *
      * @example Lite
      *
      * @var string
@@ -29,16 +37,24 @@ class CreateClusterShrinkRequest extends Model
     public $clusterType;
 
     /**
+     * @description Components (software instances)
+     *
      * @var string
      */
     public $componentsShrink;
 
     /**
+     * @description Cluster number
+     *
+     * @example A1
+     *
      * @var string
      */
     public $hpnZone;
 
     /**
+     * @description Whether to allow skipping failed nodes, default value is False
+     *
      * @example False
      *
      * @var bool
@@ -46,26 +62,38 @@ class CreateClusterShrinkRequest extends Model
     public $ignoreFailedNodeTasks;
 
     /**
+     * @description Network information
+     *
      * @var string
      */
     public $networksShrink;
 
     /**
+     * @description Node VSwitches
+     *
      * @var string
      */
     public $nimizVSwitchesShrink;
 
     /**
+     * @description Node group list
+     *
      * @var string
      */
     public $nodeGroupsShrink;
 
     /**
+     * @description Open Eni Jumbo Frame
+     *
+     * @example false
+     *
      * @var bool
      */
     public $openEniJumboFrame;
 
     /**
+     * @description Resource group ID
+     *
      * @example rg-aek2xdkc6icwfha
      *
      * @var string
@@ -73,6 +101,8 @@ class CreateClusterShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description Resource tags
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class invokeNode extends Model
 {
     /**
+     * @description The start time of the command execution.
+     *
      * @example 2023-02-06T07:12:50Z
      *
      * @var string
@@ -16,6 +18,8 @@ class invokeNode extends Model
     public $creationTime;
 
     /**
+     * @description The length of the text that is truncated and discarded when the length of the `Output` field exceeds 24 KB.
+     *
      * @example 0
      *
      * @var int
@@ -23,13 +27,17 @@ class invokeNode extends Model
     public $dropped;
 
     /**
+     * @description Reason code for file delivery failure. Possible values:
+     * - UserGroupNotExists: The user group specified for file sending does not exist.
      * @example NodeNotExists：
      *
-     * @var bool
+     * @var string
      */
     public $errorCode;
 
     /**
+     * @description Details of the reason for command delivery failure or execution failure, possible values:
+     * - the specified node has been released: The instance was released during file delivery.
      * @example the specified node does not exists
      *
      * @var string
@@ -37,6 +45,8 @@ class invokeNode extends Model
     public $errorInfo;
 
     /**
+     * @description The exit code of the command process. Possible values:
+     * - For Linux instances, it is the exit code of the Shell process. - For Windows instances, it is the exit code of the Bat or PowerShell process.
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class invokeNode extends Model
     public $exitCode;
 
     /**
+     * @description Completion time.
+     *
      * @example 2023-02-06T07:12:50Z
      *
      * @var string
@@ -51,6 +63,8 @@ class invokeNode extends Model
     public $finishTime;
 
     /**
+     * @description The command progress status for a single instance. Possible values:
+     * -  For a periodic execution command: Waiting to run.
      * @example Pending
      *
      * @var string
@@ -58,6 +72,8 @@ class invokeNode extends Model
     public $invocationStatus;
 
     /**
+     * @description Node ID
+     *
      * @example e01-cn-lbj36wkp70b
      *
      * @var string
@@ -65,6 +81,8 @@ class invokeNode extends Model
     public $nodeId;
 
     /**
+     * @description The command progress status of a single instance.
+     *
      * @example Finished
      *
      * @var string
@@ -72,6 +90,9 @@ class invokeNode extends Model
     public $nodeInvokeStatus;
 
     /**
+     * @description The output information of the command.
+     *
+     * - If `ContentEncoding` is set to `Base64`, the Base64-encoded output information is returned.
      * @example OutPutTestmsg
      *
      * @var string
@@ -79,6 +100,8 @@ class invokeNode extends Model
     public $output;
 
     /**
+     * @description The number of times the command has been executed on this instance.
+     * -  If the execution mode is periodic, the value is the number of times it has been executed.
      * @example 0
      *
      * @var int
@@ -86,6 +109,8 @@ class invokeNode extends Model
     public $repeats;
 
     /**
+     * @description Start Time
+     *
      * @example 2019-12-20T06:15:55Z
      *
      * @var string
@@ -93,6 +118,8 @@ class invokeNode extends Model
     public $startTime;
 
     /**
+     * @description The time when `StopInvocation` was called to stop the command execution.
+     *
      * @example 2019-12-20T06:15:55Z
      *
      * @var string
@@ -100,6 +127,8 @@ class invokeNode extends Model
     public $stopTime;
 
     /**
+     * @description Whether the queried command will be automatically executed in the future. The value range is as follows:
+     * Default value: false.
      * @example false
      *
      * @var string
@@ -107,6 +136,8 @@ class invokeNode extends Model
     public $timed;
 
     /**
+     * @description Update Time
+     *
      * @example 2023-02-06T07:12:50Z
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class machineTypePolicy extends Model
 {
     /**
+     * @description Bond information
+     *
      * @var bonds[]
      */
     public $bonds;
 
     /**
+     * @description Machine Type
+     *
      * @example efg1.nvga1
      *
      * @var string

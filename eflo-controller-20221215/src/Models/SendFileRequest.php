@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendFileRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The content of the file. After Base64 encoding, the size cannot exceed 32 KB.
      *
+     * This parameter is required.
      * @example #!/bin/bash echo "Current User is :" echo $(ps | grep "$$" | awk \\"{print $2}\\") -------- oss://bucketName/objectName
      *
      * @var string
@@ -18,6 +19,9 @@ class SendFileRequest extends Model
     public $content;
 
     /**
+     * @description The content type of the file.
+     *
+     * The default value is PlainText.
      * @example PlainText
      *
      * @var string
@@ -25,6 +29,8 @@ class SendFileRequest extends Model
     public $contentType;
 
     /**
+     * @description Description information. Supports all character sets, and the length must not exceed 512 characters.
+     *
      * @example This is a test file.
      *
      * @var string
@@ -32,6 +38,9 @@ class SendFileRequest extends Model
     public $description;
 
     /**
+     * @description The group of the file. Applies only to Linux instances, and the default is root. The length must not exceed 64 characters.
+     *
+     * When using other groups, ensure that the group exists in the instance.
      * @example test
      *
      * @var string
@@ -39,6 +48,9 @@ class SendFileRequest extends Model
     public $fileGroup;
 
     /**
+     * @description The permissions of the file. Applies only to Linux instances, and the setting method is the same as the chmod command.
+     *
+     * The default value is 0644, which means the user has read and write permissions, while the group and other users have read-only permissions.
      * @example 0644
      *
      * @var string
@@ -46,6 +58,8 @@ class SendFileRequest extends Model
     public $fileMode;
 
     /**
+     * @description The owner of the file. Applies only to Linux instances, and the default is root.
+     *
      * @example root
      *
      * @var string
@@ -53,8 +67,9 @@ class SendFileRequest extends Model
     public $fileOwner;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the file. Supports all character sets, and the length must not exceed 255 characters.
      *
+     * This parameter is required.
      * @example file.txt
      *
      * @var string
@@ -62,13 +77,16 @@ class SendFileRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description List of nodes.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $nodeIdList;
 
     /**
+     * @description Whether to overwrite the file if a file with the same name already exists in the target directory.
+     * The default value is false.
      * @example True
      *
      * @var bool
@@ -76,8 +94,9 @@ class SendFileRequest extends Model
     public $overwrite;
 
     /**
-     * @description This parameter is required.
+     * @description The directory in the target Lingjun node where the file will be sent. If it does not exist, it will be automatically created.
      *
+     * This parameter is required.
      * @example /home
      *
      * @var string
@@ -85,6 +104,9 @@ class SendFileRequest extends Model
     public $targetDir;
 
     /**
+     * @description The timeout for sending the file. Unit: seconds.
+     *
+     * The default value is 60.
      * @example 600
      *
      * @var int

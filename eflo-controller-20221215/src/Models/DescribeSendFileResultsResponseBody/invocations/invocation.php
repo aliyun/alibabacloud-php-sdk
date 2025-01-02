@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class invocation extends Model
 {
     /**
+     * @description Output information after command execution.
+     *
+     * If ContentEncoding is specified as Base64, the Base64 encoded output information is returned.
      * @example Base64
      *
      * @var string
@@ -17,6 +20,9 @@ class invocation extends Model
     public $content;
 
     /**
+     * @description File content type.
+     *
+     * The default value is PlainText.
      * @example PlainText
      *
      * @var string
@@ -24,6 +30,8 @@ class invocation extends Model
     public $contentType;
 
     /**
+     * @description Creation time of the distribution.
+     *
      * @example 2023-04-10T10:53:46.156+08:00
      *
      * @var string
@@ -31,11 +39,17 @@ class invocation extends Model
     public $creationTime;
 
     /**
+     * @description Command description.
+     *
+     * @example 描述信息。
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The user group of the file.
+     *
      * @example root
      *
      * @var string
@@ -43,6 +57,8 @@ class invocation extends Model
     public $fileGroup;
 
     /**
+     * @description File permissions.
+     *
      * @example 0644
      *
      * @var string
@@ -50,6 +66,8 @@ class invocation extends Model
     public $fileMode;
 
     /**
+     * @description The owner of the file.
+     *
      * @example root
      *
      * @var string
@@ -57,6 +75,9 @@ class invocation extends Model
     public $fileOwner;
 
     /**
+     * @description Overall status of the file distribution. The overall status depends on the common execution status of all instances involved in this distribution, possible values are:
+     *
+     * - PartialFailed: Some instances successfully received the file while others failed. If the file distribution status of all instances is either Success or Failed, the overall execution status will be PartialFailed.
      * @example Pending
      *
      * @var string
@@ -64,11 +85,15 @@ class invocation extends Model
     public $invocationStatus;
 
     /**
+     * @description Record of file distribution.
+     *
      * @var invokeNodes
      */
     public $invokeNodes;
 
     /**
+     * @description Name of the file distribution.
+     *
      * @example test
      *
      * @var string
@@ -76,6 +101,8 @@ class invocation extends Model
     public $name;
 
     /**
+     * @description Number of nodes
+     *
      * @example 3
      *
      * @var int
@@ -83,6 +110,8 @@ class invocation extends Model
     public $nodeCount;
 
     /**
+     * @description Whether to overwrite the file if a file with the same name already exists in the target directory.
+     * The default value is false.
      * @example true
      *
      * @var bool
@@ -90,6 +119,8 @@ class invocation extends Model
     public $overwrite;
 
     /**
+     * @description Target path.
+     *
      * @example /home/user
      *
      * @var string

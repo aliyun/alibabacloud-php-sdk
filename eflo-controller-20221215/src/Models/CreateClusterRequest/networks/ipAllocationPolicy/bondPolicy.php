@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class bondPolicy extends Model
 {
     /**
+     * @description Default bond cluster subnet
+     *
+     * @example 172.168.0.0/24
+     *
      * @var string
      */
     public $bondDefaultSubnet;
 
     /**
+     * @description Bond information
+     *
      * @var bonds[]
      */
     public $bonds;

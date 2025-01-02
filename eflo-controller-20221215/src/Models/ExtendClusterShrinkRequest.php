@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExtendClusterShrinkRequest extends Model
 {
     /**
+     * @description Cluster ID
+     *
      * @example i15b480fbd2fcdbc2869cd80
      *
      * @var string
@@ -16,6 +18,8 @@ class ExtendClusterShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description Whether to allow skipping failed node tasks, default value is False
+     *
      * @example False
      *
      * @var bool
@@ -23,21 +27,31 @@ class ExtendClusterShrinkRequest extends Model
     public $ignoreFailedNodeTasks;
 
     /**
+     * @description IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
+     *
      * @var string
      */
     public $ipAllocationPolicyShrink;
 
     /**
+     * @description Node Group
+     *
      * @var string
      */
     public $nodeGroupsShrink;
 
     /**
+     * @description VSwitch availability zone ID
+     *
+     * @example cn-shanghai-b
+     *
      * @var string
      */
     public $vSwitchZoneId;
 
     /**
+     * @description List of cluster subnets
+     *
      * @var string
      */
     public $vpdSubnetsShrink;

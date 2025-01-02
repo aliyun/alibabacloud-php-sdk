@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskResponseBody extends Model
 {
     /**
+     * @description Cluster ID
+     *
      * @example i119982311660892626523
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeTaskResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description Cluster Name
+     *
      * @example Standard_Cluster
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeTaskResponseBody extends Model
     public $clusterName;
 
     /**
+     * @description Start Time
+     *
      * @example 2022-11-30T02:00:00.852Z
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeTaskResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Task Failure Message
+     *
      * @example Releasing [prod_main_mid_26e234cf] in region [cn-beijing] with weight [0]
      *
      * @var string
@@ -38,11 +46,15 @@ class DescribeTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description List of node IDs
+     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
+     * @description Request ID
+     *
      * @example A7FD7411-9395-52E8-AF42-EB3A4A55446D
      *
      * @var string
@@ -50,11 +62,15 @@ class DescribeTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Execution Steps
+     *
      * @var steps[]
      */
     public $steps;
 
     /**
+     * @description Task State
+     *
      * @example running
      *
      * @var string
@@ -62,6 +78,8 @@ class DescribeTaskResponseBody extends Model
     public $taskState;
 
     /**
+     * @description Task Type
+     *
      * @example cut_cluster
      *
      * @var string
@@ -69,6 +87,8 @@ class DescribeTaskResponseBody extends Model
     public $taskType;
 
     /**
+     * @description Update Time
+     *
      * @example 2022-11-30T03:40:14.852Z
      *
      * @var string

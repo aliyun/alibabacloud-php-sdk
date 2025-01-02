@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description Creation time
+     *
      * @example 1642472468000
      *
      * @var string
@@ -17,6 +19,8 @@ class nodes extends Model
     public $createTime;
 
     /**
+     * @description Machine expiration time
+     *
      * @example 1762185600000
      *
      * @var string
@@ -24,6 +28,8 @@ class nodes extends Model
     public $expiredTime;
 
     /**
+     * @description Hostname
+     *
      * @example 72432f80-273e-11ed-b57a-acde48001122
      *
      * @var string
@@ -31,11 +37,17 @@ class nodes extends Model
     public $hostname;
 
     /**
+     * @description Hpn Zone
+     *
+     * @example A1
+     *
      * @var string
      */
     public $hpnZone;
 
     /**
+     * @description System image ID
+     *
      * @example i190297201669099844192
      *
      * @var string
@@ -43,6 +55,8 @@ class nodes extends Model
     public $imageId;
 
     /**
+     * @description Machine type
+     *
      * @example cn-wulanchabu-b11
      *
      * @var string
@@ -50,11 +64,15 @@ class nodes extends Model
     public $machineType;
 
     /**
+     * @description Network information
+     *
      * @var networks[]
      */
     public $networks;
 
     /**
+     * @description Node group ID
+     *
      * @example ng-e9b74f4d450cf18d
      *
      * @var string
@@ -62,6 +80,8 @@ class nodes extends Model
     public $nodeGroupId;
 
     /**
+     * @description Node group name
+     *
      * @example emr_master
      *
      * @var string
@@ -69,6 +89,8 @@ class nodes extends Model
     public $nodeGroupName;
 
     /**
+     * @description Node ID
+     *
      * @example e01-cn-2r42tmj4z02
      *
      * @var string
@@ -76,6 +98,8 @@ class nodes extends Model
     public $nodeId;
 
     /**
+     * @description Node status
+     *
      * @example Extending
      *
      * @var string
@@ -83,6 +107,8 @@ class nodes extends Model
     public $operatingState;
 
     /**
+     * @description Machine SN
+     *
      * @example sn_tOuUk
      *
      * @var string
@@ -90,6 +116,8 @@ class nodes extends Model
     public $sn;
 
     /**
+     * @description Zone ID
+     *
      * @example cn-hangzhou-b
      *
      * @var string

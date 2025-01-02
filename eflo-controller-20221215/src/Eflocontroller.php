@@ -102,7 +102,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 审批运维操作
+     * @summary Approve Operation
      *  *
      * @param ApproveOperationRequest $request ApproveOperationRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -138,7 +138,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 审批运维操作
+     * @summary Approve Operation
      *  *
      * @param ApproveOperationRequest $request ApproveOperationRequest
      *
@@ -152,7 +152,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 资源转组
+     * @summary Resource Group Change
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -191,7 +191,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 资源转组
+     * @summary Resource Group Change
      *  *
      * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
      *
@@ -205,7 +205,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 创建大计算集群
+     * @summary Create a large-scale computing cluster
      *  *
      * @param CreateClusterRequest $tmpReq  CreateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -287,7 +287,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 创建大计算集群
+     * @summary Create a large-scale computing cluster
      *  *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
@@ -301,7 +301,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 删除集群实例
+     * @summary Delete cluster instance
      *  *
      * @param DeleteClusterRequest $request DeleteClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -334,7 +334,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 删除集群实例
+     * @summary Delete cluster instance
      *  *
      * @param DeleteClusterRequest $request DeleteClusterRequest
      *
@@ -348,7 +348,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 集群详情
+     * @summary Cluster Details
      *  *
      * @param DescribeClusterRequest $request DescribeClusterRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -381,7 +381,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 集群详情
+     * @summary Cluster Details
      *  *
      * @param DescribeClusterRequest $request DescribeClusterRequest
      *
@@ -395,7 +395,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询运维助手命令的执行列表和状态
+     * @summary Query the list and status of operations assistant command executions
      *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -437,7 +437,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询运维助手命令的执行列表和状态
+     * @summary Query the list and status of operations assistant command executions
      *  *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      *
@@ -451,7 +451,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点列表
+     * @summary Query node list
      *  *
      * @param DescribeNodeRequest $request DescribeNodeRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -484,7 +484,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询节点列表
+     * @summary Query node list
      *  *
      * @param DescribeNodeRequest $request DescribeNodeRequest
      *
@@ -498,7 +498,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 区域列表
+     * @summary Region List
      *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -531,7 +531,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 区域列表
+     * @summary Region List
      *  *
      * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
@@ -545,7 +545,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询运维助手下发文件列表及状态
+     * @summary Query the list and status of files sent by the operation assistant
      *  *
      * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -581,7 +581,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询运维助手下发文件列表及状态
+     * @summary Query the list and status of files sent by the operation assistant
      *  *
      * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      *
@@ -595,7 +595,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务详情
+     * @summary Query Task Details
      *  *
      * @param DescribeTaskRequest $request DescribeTaskRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -628,7 +628,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务详情
+     * @summary Query Task Details
      *  *
      * @param DescribeTaskRequest $request DescribeTaskRequest
      *
@@ -642,7 +642,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 可用区列表
+     * @summary List of Available Zones
      *  *
      * @param DescribeZonesRequest $request DescribeZonesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -675,7 +675,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 可用区列表
+     * @summary List of Available Zones
      *  *
      * @param DescribeZonesRequest $request DescribeZonesRequest
      *
@@ -689,7 +689,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 集群扩容
+     * @summary Cluster Scaling
      *  *
      * @param ExtendClusterRequest $tmpReq  ExtendClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -748,7 +748,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 集群扩容
+     * @summary Cluster Scaling
      *  *
      * @param ExtendClusterRequest $request ExtendClusterRequest
      *
@@ -762,7 +762,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 集群下的主机分组列表，分组下的主机列表
+     * @summary List of host groups under the cluster, and list of hosts under each group
      *  *
      * @param ListClusterNodesRequest $request ListClusterNodesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -804,7 +804,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 集群下的主机分组列表，分组下的主机列表
+     * @summary List of host groups under the cluster, and list of hosts under each group
      *  *
      * @param ListClusterNodesRequest $request ListClusterNodesRequest
      *
@@ -818,7 +818,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群实例列表
+     * @summary Get the list of cluster instances
      *  *
      * @param ListClustersRequest $request ListClustersRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -857,7 +857,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 获取集群实例列表
+     * @summary Get the list of cluster instances
      *  *
      * @param ListClustersRequest $request ListClustersRequest
      *
@@ -871,7 +871,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 可用物理机列表
+     * @summary List of Available Physical Machines
      *  *
      * @param ListFreeNodesRequest $request ListFreeNodesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -916,7 +916,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 可用物理机列表
+     * @summary List of Available Physical Machines
      *  *
      * @param ListFreeNodesRequest $request ListFreeNodesRequest
      *
@@ -930,7 +930,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询资源标签
+     * @summary Query Resource Tags
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -975,7 +975,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询资源标签
+     * @summary Query Resource Tags
      *  *
      * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
@@ -989,7 +989,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 重启机器
+     * @summary Reboot Machine
      *  *
      * @param RebootNodesRequest $tmpReq  RebootNodesRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1033,7 +1033,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 重启机器
+     * @summary Reboot Machine
      *  *
      * @param RebootNodesRequest $request RebootNodesRequest
      *
@@ -1047,7 +1047,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 机器重装
+     * @summary Machine Reinstallation
      *  *
      * @param ReimageNodesRequest $tmpReq  ReimageNodesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1094,7 +1094,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 机器重装
+     * @summary Machine Reinstallation
      *  *
      * @param ReimageNodesRequest $request ReimageNodesRequest
      *
@@ -1108,7 +1108,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 一台或多台灵骏机器中执行一段Shell的脚本
+     * @summary Execute a Shell script on one or more Lingjun machines
      *  *
      * @param RunCommandRequest $tmpReq  RunCommandRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1185,7 +1185,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 一台或多台灵骏机器中执行一段Shell的脚本
+     * @summary Execute a Shell script on one or more Lingjun machines
      *  *
      * @param RunCommandRequest $request RunCommandRequest
      *
@@ -1199,7 +1199,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 一台或多台灵骏机器下发远程文件
+     * @summary Send a remote file to one or more Lingjun machines
      *  *
      * @param SendFileRequest $tmpReq  SendFileRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -1267,7 +1267,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 一台或多台灵骏机器下发远程文件
+     * @summary Send a remote file to one or more Lingjun machines
      *  *
      * @param SendFileRequest $request SendFileRequest
      *
@@ -1281,7 +1281,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 缩容
+     * @summary Shrink
      *  *
      * @param ShrinkClusterRequest $tmpReq  ShrinkClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -1325,7 +1325,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 缩容
+     * @summary Shrink
      *  *
      * @param ShrinkClusterRequest $request ShrinkClusterRequest
      *
@@ -1339,7 +1339,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 停止运维助手命令进程
+     * @summary Stop the operation assistant command process
      *  *
      * @param StopInvocationRequest $tmpReq  StopInvocationRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1380,7 +1380,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 停止运维助手命令进程
+     * @summary Stop the operation assistant command process
      *  *
      * @param StopInvocationRequest $request StopInvocationRequest
      *
@@ -1394,7 +1394,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 资源打用户标签
+     * @summary Tag User Resources
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1436,7 +1436,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 资源打用户标签
+     * @summary Tag User Resources
      *  *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
@@ -1450,7 +1450,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 资源去除用户标签
+     * @summary Remove user tags from resources
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -1495,7 +1495,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 资源去除用户标签
+     * @summary Remove user tags from resources
      *  *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListClusterNodesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Cluster ID
      *
+     * This parameter is required.
      * @example i15b480fbd2fcdbc2869cd80
      *
      * @var string
@@ -18,6 +19,8 @@ class ListClusterNodesRequest extends Model
     public $clusterId;
 
     /**
+     * @description Number of items per page in a paginated query, with a default value of 20.
+     *
      * @example 20
      *
      * @var int
@@ -25,6 +28,8 @@ class ListClusterNodesRequest extends Model
     public $maxResults;
 
     /**
+     * @description Query token (Token), which is the value of the NextToken parameter returned by the previous API call.
+     *
      * @example AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
      *
      * @var string
@@ -32,6 +37,8 @@ class ListClusterNodesRequest extends Model
     public $nextToken;
 
     /**
+     * @description Node group ID
+     *
      * @example ng-ec3c96ff0aa4c60d
      *
      * @var string

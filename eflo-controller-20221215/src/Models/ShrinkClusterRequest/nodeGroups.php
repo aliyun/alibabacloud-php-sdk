@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class nodeGroups extends Model
 {
     /**
+     * @description Node group ID
+     *
      * @example ng-3b6fbd24b1b845a0
      *
      * @var string
@@ -17,6 +19,8 @@ class nodeGroups extends Model
     public $nodeGroupId;
 
     /**
+     * @description List of nodes
+     *
      * @var nodes[]
      */
     public $nodes;

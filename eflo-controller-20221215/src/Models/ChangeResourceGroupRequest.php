@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Target Resource Group
      *
+     * This parameter is required.
      * @example rg-aekzyqdwnfabx6q
      *
      * @var string
@@ -18,8 +19,9 @@ class ChangeResourceGroupRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description Resource ID
      *
+     * This parameter is required.
      * @example i118099391667548921125
      *
      * @var string
@@ -27,8 +29,9 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID
      *
+     * This parameter is required.
      * @example cn-wulanchabu
      *
      * @var string

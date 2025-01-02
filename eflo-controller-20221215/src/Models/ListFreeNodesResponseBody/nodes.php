@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description Creation time
+     *
      * @example 1652321554
      *
      * @var string
@@ -16,6 +18,8 @@ class nodes extends Model
     public $createTime;
 
     /**
+     * @description Expiration time of the machine
+     *
      * @example 1673107200
      *
      * @var string
@@ -23,11 +27,17 @@ class nodes extends Model
     public $expiredTime;
 
     /**
+     * @description Cluster number
+     *
+     * @example A1
+     *
      * @var string
      */
     public $hpnZone;
 
     /**
+     * @description Machine type
+     *
      * @example efg1.nvga1
      *
      * @var string
@@ -35,6 +45,8 @@ class nodes extends Model
     public $machineType;
 
     /**
+     * @description Node ID
+     *
      * @example e01-cn-7pp2x193801
      *
      * @var string
@@ -42,11 +54,17 @@ class nodes extends Model
     public $nodeId;
 
     /**
+     * @description Resource group ID
+     *
+     * @example rg-aekzkkbrpl4owgy
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Machine SN
+     *
      * @example sn_pozkHBgicd
      *
      * @var string
@@ -54,6 +72,8 @@ class nodes extends Model
     public $sn;
 
     /**
+     * @description Availability zone ID
+     *
      * @example cn-hangzhou-j
      *
      * @var string

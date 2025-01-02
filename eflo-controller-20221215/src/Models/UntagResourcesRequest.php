@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Whether to remove all, only effective when TagKey.N is empty. Valid values:
+     *
+     * Default is False
      * @example False
      *
      * @var bool
@@ -16,8 +19,9 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -25,15 +29,17 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description List of resource IDs
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description Resource type
      *
+     * This parameter is required.
      * @example Cluster
      *
      * @var string
@@ -41,6 +47,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description List of tag keys
+     *
      * @var string[]
      */
     public $tagKey;

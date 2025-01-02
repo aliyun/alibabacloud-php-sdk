@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RebootNodesRequest extends Model
 {
     /**
+     * @description Cluster ID
+     *
      * @example i15b480fbd2fcdbc2869cd80
      *
      * @var string
@@ -16,6 +18,8 @@ class RebootNodesRequest extends Model
     public $clusterId;
 
     /**
+     * @description Whether to allow skipping failed node tasks, default value is False
+     *
      * @example False
      *
      * @var bool
@@ -23,6 +27,8 @@ class RebootNodesRequest extends Model
     public $ignoreFailedNodeTasks;
 
     /**
+     * @description List of nodes
+     *
      * @var string[]
      */
     public $nodes;

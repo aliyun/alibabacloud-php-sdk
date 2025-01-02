@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class invokeNodes extends Model
 {
     /**
+     * @description Command execution records for nodes.
+     *
      * @var invokeNode[]
      */
     public $invokeNode;

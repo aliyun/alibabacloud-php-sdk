@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class networks extends Model
 {
     /**
+     * @description VPC Segment ID
+     *
      * @example vpd-iqd7xunc
      *
      * @var string

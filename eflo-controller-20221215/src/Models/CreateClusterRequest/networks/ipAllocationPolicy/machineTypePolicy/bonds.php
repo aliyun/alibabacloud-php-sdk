@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class bonds extends Model
 {
     /**
+     * @description Bond name
+     *
+     * @example bond0
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description IP source cluster subnet
+     *
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $subnet;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListFreeNodesResponseBody extends Model
 {
     /**
+     * @description The query token value returned by this call.
+     *
      * @example a3f2224a5ec7224116c4f5246120abe4
      *
      * @var string
@@ -17,11 +19,15 @@ class ListFreeNodesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description List of nodes
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description Request ID
+     *
      * @example AA14CB86-70C4-5CB7-9E7B-6CCA77F3512B
      *
      * @var string

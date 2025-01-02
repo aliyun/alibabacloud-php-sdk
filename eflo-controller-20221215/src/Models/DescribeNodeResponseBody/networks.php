@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class networks extends Model
 {
     /**
+     * @description Network interface port information
+     *
      * @example Bond0
      *
      * @var string
@@ -16,6 +18,8 @@ class networks extends Model
     public $bondName;
 
     /**
+     * @description Machine IP
+     *
      * @example 47.254.235.44
      *
      * @var string
@@ -23,6 +27,8 @@ class networks extends Model
     public $ip;
 
     /**
+     * @description Cluster subnet ID
+     *
      * @example vsw-uf68v51fldm5egmui5a6k
      *
      * @var string
@@ -30,6 +36,8 @@ class networks extends Model
     public $subnetId;
 
     /**
+     * @description Cluster network ID
+     *
      * @example vpd-xcuhjyrj
      *
      * @var string

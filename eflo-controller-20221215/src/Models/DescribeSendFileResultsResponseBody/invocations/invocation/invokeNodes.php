@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class invokeNodes extends Model
 {
     /**
+     * @description Record of file distribution for the node.
+     *
      * @var invokeNode[]
      */
     public $invokeNode;

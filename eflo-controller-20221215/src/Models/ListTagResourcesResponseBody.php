@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description NextToken for the next page, include this returned value when requesting the next page
+     *
      * @example AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
      *
      * @var string
@@ -17,6 +19,8 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description Request ID
+     *
      * @example 8F208B6D-4C42-5FD3-B6BE-E826E92A44DD
      *
      * @var string
@@ -24,6 +28,8 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Tagged resources.
+     *
      * @var tagResources
      */
     public $tagResources;

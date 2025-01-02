@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class ipAllocationPolicy extends Model
 {
     /**
+     * @description Bond policy
+     *
      * @var bondPolicy
      */
     public $bondPolicy;
 
     /**
+     * @description Machine type allocation policy
+     *
      * @var machineTypePolicy[]
      */
     public $machineTypePolicy;
 
     /**
+     * @description Node allocation policy
+     *
      * @var nodePolicy[]
      */
     public $nodePolicy;

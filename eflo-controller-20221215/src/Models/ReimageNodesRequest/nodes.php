@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description Hostname
+     *
      * @example 457db5ca-241d-11ed-9fd7-acde48001122
      *
      * @var string
@@ -16,6 +18,8 @@ class nodes extends Model
     public $hostname;
 
     /**
+     * @description System image ID
+     *
      * @example m-8vbf8rpv2nn14y7oybjy
      *
      * @var string
@@ -23,6 +27,8 @@ class nodes extends Model
     public $imageId;
 
     /**
+     * @description Login password
+     *
      * @example ***
      *
      * @var string
@@ -30,6 +36,8 @@ class nodes extends Model
     public $loginPassword;
 
     /**
+     * @description Node ID
+     *
      * @example e01-cn-zvp2tgykr0b
      *
      * @var string

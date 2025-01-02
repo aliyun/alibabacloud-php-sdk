@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSendFileResultsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Command execution ID.
      *
+     * This parameter is required.
      * @example t-bj038i0d6r8zoqo
      *
      * @var string
@@ -18,6 +19,8 @@ class DescribeSendFileResultsRequest extends Model
     public $invokeId;
 
     /**
+     * @description Node ID
+     *
      * @example e01-cn-zvp2tgykr08
      *
      * @var string

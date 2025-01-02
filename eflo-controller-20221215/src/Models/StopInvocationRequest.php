@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StopInvocationRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Command execution ID.
      *
+     * This parameter is required.
      * @example f-hz044748dzepds0
      *
      * @var string
@@ -18,6 +19,8 @@ class StopInvocationRequest extends Model
     public $invokeId;
 
     /**
+     * @description List of nodes.
+     *
      * @var string[]
      */
     public $nodeIdList;

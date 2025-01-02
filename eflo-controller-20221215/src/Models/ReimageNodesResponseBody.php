@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReimageNodesResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
      * @example 15FBCD9B-C93F-54E8-A168-AADE7E66DAD2
      *
      * @var string
@@ -16,6 +18,8 @@ class ReimageNodesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Task ID
+     *
      * @example i158782151663841517926
      *
      * @var string

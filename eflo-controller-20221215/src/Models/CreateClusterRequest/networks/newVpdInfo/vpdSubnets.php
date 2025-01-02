@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class vpdSubnets extends Model
 {
     /**
+     * @description Subnet CIDR
+     *
+     * @example 10.0.1.8/24
+     *
      * @var string
      */
     public $subnetCidr;
 
     /**
+     * @description Subnet type
+     *
+     * @example 10.0.2.8/24
+     *
      * @var string
      */
     public $subnetType;
 
     /**
+     * @description Zone ID
+     *
+     * @example cn-wulanchabu-b
+     *
      * @var string
      */
     public $zoneId;

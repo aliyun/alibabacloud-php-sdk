@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class nodeGroups extends Model
 {
     /**
+     * @description System image ID
+     *
      * @example i190297201634099844192
      *
      * @var string
@@ -17,6 +19,8 @@ class nodeGroups extends Model
     public $imageId;
 
     /**
+     * @description Machine type
+     *
      * @example efg1.nvga1
      *
      * @var string
@@ -24,11 +28,17 @@ class nodeGroups extends Model
     public $machineType;
 
     /**
+     * @description Node group description
+     *
+     * @example Node group description
+     *
      * @var string
      */
     public $nodeGroupDescription;
 
     /**
+     * @description Node group name
+     *
      * @example emr-default
      *
      * @var string
@@ -36,16 +46,24 @@ class nodeGroups extends Model
     public $nodeGroupName;
 
     /**
+     * @description Node list
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description Instance custom data. It needs to be Base64 encoded, and the original data should not exceed 16 KB.
+     *
+     * @example ZWNobyBoZWxsbyBlY3Mh
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @description Zone ID
+     *
      * @example cn-hangzhou-i
      *
      * @var string

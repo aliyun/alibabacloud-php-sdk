@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class invocations extends Model
 {
     /**
+     * @description File delivery record.
+     *
      * @var invocation[]
      */
     public $invocation;

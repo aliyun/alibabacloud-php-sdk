@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeSendFileResultsResponseBody extends Model
 {
     /**
+     * @description Record of file distribution.
+     *
      * @var invocations
      */
     public $invocations;
 
     /**
-     * @description Id of the request
+     * @description ID of the request
      *
      * @example 4FD06DF0-9167-5C6F-A145-F30CA4A15D54
      *
@@ -24,6 +26,8 @@ class DescribeSendFileResultsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Total number of commands.
+     *
      * @example 1
      *
      * @var string

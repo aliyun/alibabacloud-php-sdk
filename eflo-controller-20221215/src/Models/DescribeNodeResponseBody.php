@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeResponseBody extends Model
 {
     /**
+     * @description Cluster ID
+     *
      * @example i116913051662373010974
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeNodeResponseBody extends Model
     public $clusterId;
 
     /**
+     * @description Cluster name
+     *
      * @example Standard_Cluster
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeNodeResponseBody extends Model
     public $clusterName;
 
     /**
+     * @description Creation time
+     *
      * @example 2022-09-30T03:35:53Z
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeNodeResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Expiration time
+     *
      * @example 2022-06-23T16:00:00Z
      *
      * @var string
@@ -38,6 +46,8 @@ class DescribeNodeResponseBody extends Model
     public $expiredTime;
 
     /**
+     * @description Hostname
+     *
      * @example 31d38530-241e-11ed-bc63-acde48001122
      *
      * @var string
@@ -45,11 +55,17 @@ class DescribeNodeResponseBody extends Model
     public $hostname;
 
     /**
+     * @description Cluster number
+     *
+     * @example A1
+     *
      * @var string
      */
     public $hpnZone;
 
     /**
+     * @description Image ID
+     *
      * @example i190297201634099844192
      *
      * @var string
@@ -57,7 +73,7 @@ class DescribeNodeResponseBody extends Model
     public $imageId;
 
     /**
-     * @description 镜像名称
+     * @description Image name
      *
      * @example Centos7.9_all_0811
      *
@@ -66,6 +82,8 @@ class DescribeNodeResponseBody extends Model
     public $imageName;
 
     /**
+     * @description Machine type
+     *
      * @example efg1.nvga1
      *
      * @var string
@@ -73,11 +91,15 @@ class DescribeNodeResponseBody extends Model
     public $machineType;
 
     /**
+     * @description Network information
+     *
      * @var networks[]
      */
     public $networks;
 
     /**
+     * @description Node group ID
+     *
      * @example ng-ec3c96ff0aa4c60d
      *
      * @var string
@@ -85,6 +107,8 @@ class DescribeNodeResponseBody extends Model
     public $nodeGroupId;
 
     /**
+     * @description Node group name
+     *
      * @example emr-default
      *
      * @var string
@@ -92,6 +116,8 @@ class DescribeNodeResponseBody extends Model
     public $nodeGroupName;
 
     /**
+     * @description Node ID
+     *
      * @example e01-cn-zvp2tgykr08
      *
      * @var string
@@ -99,11 +125,17 @@ class DescribeNodeResponseBody extends Model
     public $nodeId;
 
     /**
+     * @description Node status
+     *
+     * @example Using
+     *
      * @var string
      */
     public $operatingState;
 
     /**
+     * @description Request ID
+     *
      * @example AC4F0004-7BCE-52E0-891B-CAC7D64E3368
      *
      * @var string
@@ -111,11 +143,17 @@ class DescribeNodeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 资源组ID
+     *
+     * @example rg-acfmywpvugkh7kq
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Unique machine identifier
+     *
      * @example sag42ckf4jx
      *
      * @var string
@@ -123,6 +161,8 @@ class DescribeNodeResponseBody extends Model
     public $sn;
 
     /**
+     * @description Zone ID
+     *
      * @example cn-hangzhou-i
      *
      * @var string

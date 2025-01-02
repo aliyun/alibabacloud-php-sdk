@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class nodePolicy extends Model
 {
     /**
+     * @description Bond information
+     *
      * @var bonds[]
      */
     public $bonds;
 
     /**
+     * @description Node ID
+     *
      * @example i-3fdodw2
      *
      * @var string

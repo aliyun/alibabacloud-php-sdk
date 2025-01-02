@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class invocation extends Model
 {
     /**
+     * @description Command content.
+     *
+     * - If `ContentEncoding` is set to `Base64`, the Base64-encoded script content is returned.
      * @example cnBtIC1xYSB8IGdyZXAgdnNm****
      *
      * @var string
@@ -17,6 +20,8 @@ class invocation extends Model
     public $commandContent;
 
     /**
+     * @description Command description.
+     *
      * @example testDescription
      *
      * @var string
@@ -24,6 +29,8 @@ class invocation extends Model
     public $commandDescription;
 
     /**
+     * @description Command name.
+     *
      * @example CommandTestName
      *
      * @var string
@@ -31,6 +38,8 @@ class invocation extends Model
     public $commandName;
 
     /**
+     * @description The creation time of the task.
+     *
      * @example 2020-01-19T09:15:46Z
      *
      * @var string
@@ -38,11 +47,15 @@ class invocation extends Model
     public $creationTime;
 
     /**
+     * @description The execution time for scheduled commands.
+     *
      * @var string
      */
     public $frequency;
 
     /**
+     * @description The overall execution status of the command, which depends on the common execution status of all instances involved in the call. Possible values:
+     * > The `InvokeStatus` in the response parameters is similar in meaning to this parameter, but it is recommended that you check this return value.
      * @example Success
      *
      * @var string
@@ -50,6 +63,8 @@ class invocation extends Model
     public $invocationStatus;
 
     /**
+     * @description Command execution ID.
+     *
      * @example t-ind3k9ytvvduoe8
      *
      * @var string
@@ -57,11 +72,15 @@ class invocation extends Model
     public $invokeId;
 
     /**
+     * @description Command execution records.
+     *
      * @var invokeNodes
      */
     public $invokeNodes;
 
     /**
+     * @description The overall execution status of the command. The overall execution status depends on the common execution status of one or more instances in the execution. Possible values:
+     * - PartialFailed: Partial failure; if the `InstanceId` parameter is set, this does not apply.
      * @example Running
      *
      * @var string
@@ -69,6 +88,8 @@ class invocation extends Model
     public $invokeStatus;
 
     /**
+     * @description Custom parameters in the command.
+     *
      * @example {}
      *
      * @var string
@@ -76,6 +97,9 @@ class invocation extends Model
     public $parameters;
 
     /**
+     * @description 命令执行的方式。可能值：
+     *
+     * EveryReboot：实例每一次启动都将自动执行命令。
      * @example Once
      *
      * @var string
@@ -83,6 +107,8 @@ class invocation extends Model
     public $repeatMode;
 
     /**
+     * @description Timeout for executing the command, in seconds.
+     *
      * @example 60
      *
      * @var int
@@ -90,6 +116,8 @@ class invocation extends Model
     public $timeout;
 
     /**
+     * @description Username for executing the command.
+     *
      * @example root
      *
      * @var string
@@ -97,6 +125,8 @@ class invocation extends Model
     public $username;
 
     /**
+     * @description The working directory of the command on the instance.
+     *
      * @example /home
      *
      * @var string

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ExtendClusterRequest extends Model
 {
     /**
+     * @description Cluster ID
+     *
      * @example i15b480fbd2fcdbc2869cd80
      *
      * @var string
@@ -18,6 +20,8 @@ class ExtendClusterRequest extends Model
     public $clusterId;
 
     /**
+     * @description Whether to allow skipping failed node tasks, default value is False
+     *
      * @example False
      *
      * @var bool
@@ -25,21 +29,31 @@ class ExtendClusterRequest extends Model
     public $ignoreFailedNodeTasks;
 
     /**
+     * @description IP allocation policy combination: Each policy can only choose one type, and multiple policies can be combined
+     *
      * @var ipAllocationPolicy[]
      */
     public $ipAllocationPolicy;
 
     /**
+     * @description Node Group
+     *
      * @var nodeGroups[]
      */
     public $nodeGroups;
 
     /**
+     * @description VSwitch availability zone ID
+     *
+     * @example cn-shanghai-b
+     *
      * @var string
      */
     public $vSwitchZoneId;
 
     /**
+     * @description List of cluster subnets
+     *
      * @var string[]
      */
     public $vpdSubnets;

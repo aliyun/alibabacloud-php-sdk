@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class invocations extends Model
 {
     /**
+     * @description Command execution ID.
+     *
      * @var invocation[]
      */
     public $invocation;

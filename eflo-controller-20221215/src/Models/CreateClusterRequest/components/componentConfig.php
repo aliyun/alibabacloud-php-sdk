@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class componentConfig extends Model
 {
     /**
+     * @description Basic component parameters
+     *
      * @example {
      * }
      * @var mixed
@@ -16,6 +18,8 @@ class componentConfig extends Model
     public $basicArgs;
 
     /**
+     * @description Node pool configuration, used to establish the correspondence between node groups and node pools. Required when ComponentType is "ACKEdge", otherwise it can be empty.
+     *
      * @var mixed[]
      */
     public $nodeUnits;

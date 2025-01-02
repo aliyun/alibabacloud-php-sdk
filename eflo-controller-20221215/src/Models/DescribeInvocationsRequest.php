@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationsRequest extends Model
 {
     /**
+     * @description Sets the encoding method for the `CommandContent` and `Output` fields in the returned data. Possible values:
+     *
+     * Default value: Base64.
      * @example PlainText
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeInvocationsRequest extends Model
     public $contentEncoding;
 
     /**
+     * @description Indicates whether to return the output information of the command execution in the result.
+     *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -23,8 +29,9 @@ class DescribeInvocationsRequest extends Model
     public $includeOutput;
 
     /**
-     * @description This parameter is required.
+     * @description Command execution ID
      *
+     * This parameter is required.
      * @example t-cd03crwys0lrls0
      *
      * @var string
@@ -32,6 +39,8 @@ class DescribeInvocationsRequest extends Model
     public $invokeId;
 
     /**
+     * @description Instance ID
+     *
      * @example e01-cn-zvp2tgykr08
      *
      * @var string

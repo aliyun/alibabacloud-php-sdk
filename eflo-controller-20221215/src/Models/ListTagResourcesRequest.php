@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description Query token (Token), the value should be the NextToken returned from the previous API call
+     *
      * @example AAAAAdQ3Z+oPlg49gsr2y8jb6wY=
      *
      * @var string
@@ -17,8 +19,9 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -26,15 +29,17 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description List of resource IDs
      *
+     * This parameter is required.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description Resource type
      *
+     * This parameter is required.
      * @example Node
      *
      * @var string
@@ -42,6 +47,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description List of tags
+     *
      * @var tag[]
      */
     public $tag;

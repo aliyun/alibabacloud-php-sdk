@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListClusterNodesResponseBody extends Model
 {
     /**
+     * @description The query token value returned by this call.
+     *
      * @example AAAAAXW/ZB9TBvH+0ZK0phtCibQgQmu1RbqplAI6Velo2OKR
      *
      * @var string
@@ -17,11 +19,15 @@ class ListClusterNodesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description List of nodes
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description Request ID
+     *
      * @example 2BA76272-6608-5AEC-BBA8-B6F0D3D14CDB
      *
      * @var string

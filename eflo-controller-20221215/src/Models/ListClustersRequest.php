@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClustersRequest extends Model
 {
     /**
+     * @description Number of items per page for paginated queries, with a default value of 20.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class ListClustersRequest extends Model
     public $maxResults;
 
     /**
+     * @description Query token, which is the value of the NextToken parameter returned by the previous API call.
+     *
      * @example a3f2224a5ec7224116c4f5246120abe4
      *
      * @var string
@@ -23,6 +27,8 @@ class ListClustersRequest extends Model
     public $nextToken;
 
     /**
+     * @description Resource group ID
+     *
      * @example rg-aek2bg6wyoox6jq
      *
      * @var string

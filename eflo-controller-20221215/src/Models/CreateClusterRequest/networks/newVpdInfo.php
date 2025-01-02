@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class newVpdInfo extends Model
 {
     /**
+     * @description Cloud Enterprise Network ID
+     *
      * @example cen-1gb1eftc5qp2ao75fo
      *
      * @var string
@@ -17,6 +19,8 @@ class newVpdInfo extends Model
     public $cenId;
 
     /**
+     * @description Cloud link CIDR
+     *
      * @example 172.16.0.0/24
      *
      * @var string
@@ -24,6 +28,8 @@ class newVpdInfo extends Model
     public $cloudLinkCidr;
 
     /**
+     * @description Cloud link ID
+     *
      * @example vcc-cn-c4dtycm5i08
      *
      * @var string
@@ -31,6 +37,8 @@ class newVpdInfo extends Model
     public $cloudLinkId;
 
     /**
+     * @description VPC
+     *
      * @example vpc-0jl2x45apm6odc2c10h25
      *
      * @var string
@@ -38,6 +46,8 @@ class newVpdInfo extends Model
     public $monitorVpcId;
 
     /**
+     * @description VPC switch
+     *
      * @example vsw-0jl2w3ffbghkss0x2foff
      *
      * @var string
@@ -45,6 +55,8 @@ class newVpdInfo extends Model
     public $monitorVswitchId;
 
     /**
+     * @description Cluster Network Segment
+     *
      * @example 192.168.0.0/16
      *
      * @var string
@@ -52,6 +64,8 @@ class newVpdInfo extends Model
     public $vpdCidr;
 
     /**
+     * @description Cluster subnets
+     *
      * @var vpdSubnets[]
      */
     public $vpdSubnets;

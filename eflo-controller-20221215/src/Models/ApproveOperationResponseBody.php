@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApproveOperationResponseBody extends Model
 {
     /**
+     * @description Error Message
+     *
      * @example Resource not found
      *
      * @var string
@@ -16,6 +18,8 @@ class ApproveOperationResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Request ID
+     *
      * @example 8F065DDD-6996-5973-9691-9EC57BD0072E
      *
      * @var string

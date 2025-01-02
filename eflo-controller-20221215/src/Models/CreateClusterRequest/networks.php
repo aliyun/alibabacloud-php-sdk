@@ -12,42 +12,66 @@ use AlibabaCloud\Tea\Model;
 class networks extends Model
 {
     /**
+     * @description IP allocation policy
+     *
      * @var ipAllocationPolicy[]
      */
     public $ipAllocationPolicy;
 
     /**
+     * @description Vpd configuration information
+     *
      * @var newVpdInfo
      */
     public $newVpdInfo;
 
     /**
+     * @description Security group ID
+     *
+     * @example sg-bp1d3dvbh9by7j5rujax
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description IP version
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $tailIpVersion;
 
     /**
+     * @description VSwitch ID
+     *
+     * @example vsw-asjdfklj
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description VSwitch Zone ID
+     *
+     * @example cn-shanghai-b
+     *
      * @var string
      */
     public $vSwitchZoneId;
 
     /**
+     * @description VPC ID
+     *
+     * @example vpc-0jl36lqzmc06qogy0t5ll
+     *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description 复用VPD信息
+     * @description Reuse VPD information
      *
      * @var vpdInfo
      */

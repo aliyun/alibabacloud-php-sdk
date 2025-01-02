@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExtendClusterResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
      * @example 03668372-18FF-5959-98D9-6B36A4643C7A
      *
      * @var string
@@ -16,6 +18,8 @@ class ExtendClusterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Task ID
+     *
      * @example i158475611663639202234
      *
      * @var string

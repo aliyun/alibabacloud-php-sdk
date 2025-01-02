@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListFreeNodesRequest extends Model
 {
     /**
+     * @description Cluster number
+     *
+     * @example A1
+     *
      * @var string
      */
     public $hpnZone;
 
     /**
+     * @description Machine type
+     *
      * @example mock-machine-type2
      *
      * @var string
@@ -21,6 +27,8 @@ class ListFreeNodesRequest extends Model
     public $machineType;
 
     /**
+     * @description Number of items per page for paginated queries, default is 20.
+     *
      * @example 20
      *
      * @var int
@@ -28,6 +36,8 @@ class ListFreeNodesRequest extends Model
     public $maxResults;
 
     /**
+     * @description Query token (Token), the value should be the NextToken parameter value returned from the previous API call.
+     *
      * @example a3f2224a5ec7224116c4f5246120abe4
      *
      * @var string
@@ -35,6 +45,10 @@ class ListFreeNodesRequest extends Model
     public $nextToken;
 
     /**
+     * @description Resource group ID
+     *
+     * @example rg-acfmxno4vh5muoq
+     *
      * @var string
      */
     public $resourceGroupId;

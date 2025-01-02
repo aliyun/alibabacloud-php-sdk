@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
+     * @description Component ID
+     *
      * @example i149549021660892626529
      *
      * @var string
@@ -16,6 +18,8 @@ class components extends Model
     public $componentId;
 
     /**
+     * @description Component Type
+     *
      * @example ACKEdge
      *
      * @var string

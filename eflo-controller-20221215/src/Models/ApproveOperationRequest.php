@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApproveOperationRequest extends Model
 {
     /**
+     * @description Node ID
+     *
      * @example e01-cn-zvp2tgykr08
      *
      * @var string
@@ -16,6 +18,8 @@ class ApproveOperationRequest extends Model
     public $nodeId;
 
     /**
+     * @description Operation Type
+     *
      * @example RepairMachine
      *
      * @var string

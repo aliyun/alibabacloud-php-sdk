@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReimageNodesShrinkRequest extends Model
 {
     /**
+     * @description Cluster ID
+     *
      * @example i15dfa12e8f27c44f4a006c2c8bb
      *
      * @var string
@@ -16,6 +18,8 @@ class ReimageNodesShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description Whether to allow skipping failed node tasks, default value is False
+     *
      * @example False
      *
      * @var bool
@@ -23,11 +27,17 @@ class ReimageNodesShrinkRequest extends Model
     public $ignoreFailedNodeTasks;
 
     /**
+     * @description Node list
+     *
      * @var string
      */
     public $nodesShrink;
 
     /**
+     * @description Custom data
+     *
+     * @example #!/bin/sh
+     * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
      * @var string
      */
     public $userData;

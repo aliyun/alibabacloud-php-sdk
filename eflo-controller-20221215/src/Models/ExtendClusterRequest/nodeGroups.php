@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class nodeGroups extends Model
 {
     /**
+     * @description Node Group ID
+     *
      * @example i16d4883a46cbadeb4bc9
      *
      * @var string
@@ -17,16 +19,26 @@ class nodeGroups extends Model
     public $nodeGroupId;
 
     /**
+     * @description List of Nodes
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description Custom Data
+     *
+     * @example #!/bin/sh
+     * echo "Hello World. The time is now $(date -R)!" | tee /root/userdata_test.txt
      * @var string
      */
     public $userData;
 
     /**
+     * @description Zone ID
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

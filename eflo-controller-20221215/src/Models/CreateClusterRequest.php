@@ -13,11 +13,17 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
+     * @description Cluster description
+     *
+     * @example Cluster description
+     *
      * @var string
      */
     public $clusterDescription;
 
     /**
+     * @description Cluster name
+     *
      * @example Standard_Cluster
      *
      * @var string
@@ -25,6 +31,8 @@ class CreateClusterRequest extends Model
     public $clusterName;
 
     /**
+     * @description Cluster type
+     *
      * @example Lite
      *
      * @var string
@@ -32,16 +40,24 @@ class CreateClusterRequest extends Model
     public $clusterType;
 
     /**
+     * @description Components (software instances)
+     *
      * @var components[]
      */
     public $components;
 
     /**
+     * @description Cluster number
+     *
+     * @example A1
+     *
      * @var string
      */
     public $hpnZone;
 
     /**
+     * @description Whether to allow skipping failed nodes, default value is False
+     *
      * @example False
      *
      * @var bool
@@ -49,26 +65,38 @@ class CreateClusterRequest extends Model
     public $ignoreFailedNodeTasks;
 
     /**
+     * @description Network information
+     *
      * @var networks
      */
     public $networks;
 
     /**
+     * @description Node VSwitches
+     *
      * @var string[]
      */
     public $nimizVSwitches;
 
     /**
+     * @description Node group list
+     *
      * @var nodeGroups[]
      */
     public $nodeGroups;
 
     /**
+     * @description Open Eni Jumbo Frame
+     *
+     * @example false
+     *
      * @var bool
      */
     public $openEniJumboFrame;
 
     /**
+     * @description Resource group ID
+     *
      * @example rg-aek2xdkc6icwfha
      *
      * @var string
@@ -76,6 +104,8 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description Resource tags
+     *
      * @var tag[]
      */
     public $tag;

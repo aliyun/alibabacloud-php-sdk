@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class invokeNode extends Model
 {
     /**
+     * @description The creation time of the file distribution task.
+     *
      * @example 2023-02-06T07:12:50Z
      *
      * @var string
@@ -16,6 +18,8 @@ class invokeNode extends Model
     public $creationTime;
 
     /**
+     * @description The failure reason code for file distribution. Possible values:
+     * - UserGroupNotExists: The user group specified for file delivery does not exist.
      * @example AccountNotExists
      *
      * @var string
@@ -23,6 +27,8 @@ class invokeNode extends Model
     public $errorCode;
 
     /**
+     * @description Details of the reason for command delivery failure or execution failure, possible values:
+     * - the specified instance has been released: The instance was released during file delivery.
      * @example the specified instance does not exists
      *
      * @var string
@@ -30,6 +36,8 @@ class invokeNode extends Model
     public $errorInfo;
 
     /**
+     * @description Completion time, format: "2020-05-22T17:04:18".
+     *
      * @example 2023-04-10T10:53:46.156+08:00
      *
      * @var string
@@ -37,6 +45,8 @@ class invokeNode extends Model
     public $finishTime;
 
     /**
+     * @description Status of the task on a single instance. Possible values:
+     * - Timeout: The file distribution timed out.
      * @example Success
      *
      * @var string
@@ -44,6 +54,8 @@ class invokeNode extends Model
     public $invocationStatus;
 
     /**
+     * @description Node ID.
+     *
      * @example e01-cn-9lb3c15m81j
      *
      * @var string
@@ -51,6 +63,8 @@ class invokeNode extends Model
     public $nodeId;
 
     /**
+     * @description Start Time
+     *
      * @example 2023-03-30T16:00:00Z
      *
      * @var string
@@ -58,6 +72,8 @@ class invokeNode extends Model
     public $startTime;
 
     /**
+     * @description Update Time
+     *
      * @example 2023-03-30T16:00:00Z
      *
      * @var string
