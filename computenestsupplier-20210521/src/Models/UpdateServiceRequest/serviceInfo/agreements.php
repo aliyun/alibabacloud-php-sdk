@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class agreements extends Model
 {
     /**
+     * @description Protocol name.
+     *
+     * @example Name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Protocol url.
+     *
+     * @example https://aliyun.com/xxxxxxxx.html
+     *
      * @var string
      */
     public $url;

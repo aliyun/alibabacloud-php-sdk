@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceResponseBody extends Model
 {
     /**
+     * @description The dry run result.
+     *
      * @var dryRunResult
      */
     public $dryRunResult;

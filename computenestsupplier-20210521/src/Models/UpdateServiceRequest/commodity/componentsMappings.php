@@ -9,19 +9,16 @@ use AlibabaCloud\Tea\Model;
 class componentsMappings extends Model
 {
     /**
-     * @description The language of the service. Valid values:
-     *
-     *   zh-CN: Chinese
-     *   en-US: English
+     * @description This parameter is not available to the public.
      *
      * @var string[]
      */
     public $mappings;
 
     /**
-     * @description { "Logstores": [ { "LogstoreName": "access-log", "LogPath": "/home/admin/app/logs", # This parameter is not required for containers. Configure the parameter in the YAML file. "FilePattern": "access.log\\*" # This parameter is not required for containers. Configure the parameter in the YAML file. } ] }
+     * @description This parameter is not available to the public.
      *
-     * @example 此参数不对外开放
+     * @example This parameter is not available to the public.
      *
      * @var string
      */

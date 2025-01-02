@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class missingPolicy extends Model
 {
     /**
+     * @description The Actions.
+     *
      * @var string[]
      */
     public $action;
 
     /**
+     * @description The responses.
+     *
+     * @example *
+     *
      * @var string
      */
     public $resource;
 
     /**
+     * @description The service name.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $serviceName;

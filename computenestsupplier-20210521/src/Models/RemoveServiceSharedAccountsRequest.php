@@ -51,8 +51,9 @@ class RemoveServiceSharedAccountsRequest extends Model
     public $type;
 
     /**
-     * @description This parameter is required.
+     * @description Whitelist accounts for service sharing.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $userAliUids;

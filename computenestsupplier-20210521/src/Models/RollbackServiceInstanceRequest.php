@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RollbackServiceInstanceRequest extends Model
 {
     /**
+     * @description Ensures idempotence of the request. Generate a value from your client to ensure it is unique across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters.
+     *
      * @example 10CM943JP0EN9D51H
      *
      * @var string
@@ -16,6 +18,8 @@ class RollbackServiceInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description Region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,9 @@ class RollbackServiceInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description Service instance ID.
+     *
+     * You can obtain the service instance ID by calling [ListServiceInstances - Query Service Instance List](https://help.aliyun.com/document_detail/396200.html).
      * @example si-3a8f9a75da074f52b969
      *
      * @var string

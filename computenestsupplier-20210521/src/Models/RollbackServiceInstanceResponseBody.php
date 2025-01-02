@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RollbackServiceInstanceResponseBody extends Model
 {
     /**
+     * @description Request ID.
+     *
      * @example EE9EF87D-46F8-5AF6-9A65-6B034E204136
      *
      * @var string
@@ -16,6 +18,8 @@ class RollbackServiceInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Service instance ID.
+     *
      * @example si-5289e1d6d0c14397881d
      *
      * @var string
@@ -23,6 +27,9 @@ class RollbackServiceInstanceResponseBody extends Model
     public $serviceInstanceId;
 
     /**
+     * @description The deployment status of the service instance. Possible values:
+     *
+     * - DeletedFailed: Deletion Failed
      * @example UpgradeRollbacking
      *
      * @var string

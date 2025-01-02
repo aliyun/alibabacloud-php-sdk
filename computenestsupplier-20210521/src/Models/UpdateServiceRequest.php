@@ -13,8 +13,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceRequest extends Model
 {
     /**
-     * @description Is need to update the artifacts
+     * @description The alert configurations of the service.
      *
+     * >  This parameter takes effect only when you specify an alert policy for **PolicyNames**.
      * @example {\\"CmsTemplateId\\":1162921,\\"TemplateUrl\\":\\"https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1760465342xxxxxx/template/c072ef50-6c03-4d9c-8f0e-d1c440xxxxxx.json\\"}
      *
      * @var string
@@ -22,12 +23,10 @@ class UpdateServiceRequest extends Model
     public $alarmMetadata;
 
     /**
-     * @description The service type. Valid values:
+     * @description The approval type of the service usage application. Valid values:
      *
-     *   private: The service is a private service and is deployed within the account of a customer.
-     *   managed: The service is a fully managed service and is deployed within the account of a service provider.
-     *   operation: The service is a hosted O\\&M service.
-     *   poc: The service is a trial service.
+     *   Manual: The application is manually approved.
+     *   AutoPass: The application is automatically approved.
      *
      * @example Manual
      *
@@ -36,7 +35,7 @@ class UpdateServiceRequest extends Model
     public $approvalType;
 
     /**
-     * @description The options for update the service.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example 788E7CP0EN9D51P
      *
@@ -45,7 +44,7 @@ class UpdateServiceRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is not publicly accessible.
+     * @description The commodity details.
      *
      * @var commodity
      */
@@ -59,7 +58,7 @@ class UpdateServiceRequest extends Model
     public $complianceMetadata;
 
     /**
-     * @description The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
+     * @description The deployment configurations of the service. The format in which the deployment information of a service is stored varies based on the deployment type of the service. In this case, the deployment information is stored in the JSON string format.
      *
      * @example {\\"EstimateTime\\":null,\\"SupplierDeployMetadata\\":{\\"DeployTimeout\\":7200},\\"EnableVnc\\":false}
      *
@@ -68,8 +67,9 @@ class UpdateServiceRequest extends Model
     public $deployMetadata;
 
     /**
-     * @description WB01286039
+     * @description The deployment type of the service. Valid values:
      *
+     * operation: The service is deployed by using a hosted O&M service.
      * @example ros
      *
      * @var string
@@ -89,14 +89,7 @@ class UpdateServiceRequest extends Model
     public $dryRun;
 
     /**
-     * @description The deployment type of the service. Valid values:
-     *
-     *   ros: The service is deployed by using Resource Orchestration Service (ROS).
-     *   terraform: The service is deployed by using Terraform.
-     *   spi: The service is deployed by calling a service provider interface (SPI).
-     *   operation: The service is deployed by using a hosted O\\&M service.
-     *   container: The service is deployed by using a container.
-     *   pkg: The service is deployed by using a package.
+     * @description The duration for which hosted O\\&M is implemented. Unit: seconds.
      *
      * @example 259200
      *
@@ -105,8 +98,12 @@ class UpdateServiceRequest extends Model
     public $duration;
 
     /**
-     * @description The version name.
+     * @description Specifies whether to enable the hosted O\\&M feature for the service. Default value: false. Valid values:
      *
+     *   true
+     *   false
+     *
+     * >  This parameter is required if you set **ServiceType** to **private**.
      * @example false
      *
      * @var bool
@@ -114,7 +111,7 @@ class UpdateServiceRequest extends Model
     public $isSupportOperated;
 
     /**
-     * @description The duration for which hosted O\\&M is implemented. Unit: seconds.
+     * @description The license metadata.
      *
      * @example Metering Item Configuration Information (Cloud Marketplace - Pay-As-You-Go Use)
      *
@@ -123,7 +120,7 @@ class UpdateServiceRequest extends Model
     public $licenseMetadata;
 
     /**
-     * @description This parameter is not publicly accessible.
+     * @description The logging configurations.
      *
      * @example Specifies whether to support distribution. Valid values:
      *
@@ -135,7 +132,7 @@ class UpdateServiceRequest extends Model
     public $logMetadata;
 
     /**
-     * @description {\\"RetentionDays\\":3}
+     * @description The hosted O\\&M configurations.
      *
      * @example {\\"PrometheusConfigMap\\":{\\"Custom_Image_Ecs\\":{\\"EnablePrometheus\\":false}}}
      *
@@ -144,7 +141,7 @@ class UpdateServiceRequest extends Model
     public $operationMetadata;
 
     /**
-     * @description The package name.
+     * @description The policy name. The name can be up to 128 characters in length. Separate multiple names with commas (,). Only hosted O\\&M policies are supported.
      *
      * @example policyName1, policyName2
      *
@@ -153,65 +150,120 @@ class UpdateServiceRequest extends Model
     public $policyNames;
 
     /**
-     * @description This parameter is required.
+     * @description Region ID.
+     *
+     * This parameter is required.
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Whether resell is supported.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $resellable;
 
     /**
-     * @description This parameter is required.
+     * @description The service ID.
+     *
+     * This parameter is required.
+     * @example service-1dda29c3eca648xxxxxx
      *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description The service details.
+     *
      * @var serviceInfo[]
      */
     public $serviceInfo;
 
     /**
+     * @description The service type. Valid values:
+     *
+     *   private: The service is a private service and is deployed within the account of a customer.
+     *   managed: The service is a fully managed service and is deployed within the account of a service provider.
+     *   operation: The service is a hosted O\\&M service.
+     *
+     * @example private
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @description The service version.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $serviceVersion;
 
     /**
+     * @description The permission type of the deployment URL. Valid values:
+     *
+     *   Public: All users can go to the URL to create a service instance or a trial service instance.
+     *   Restricted: Only users in the whitelist can go to the URL to create a service instance or a trial service instance.
+     *   OnlyFormalRestricted: Only users in the whitelist can go to the URL to create a service instance.
+     *   OnlyTrailRestricted: Only users in the whitelist can go to the URL to create a trial service instance.
+     *   Hidden: Users not in the whitelist cannot see the service details page when they go to the URL and cannot request deployment permissions.
+     *
+     * @example Public
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The type of the tenant. Valid values:
+     *
+     *   SingleTenant
+     *   MultiTenant
+     *
+     * @example SingleTenant
+     *
      * @var string
      */
     public $tenantType;
 
     /**
+     * @description The trial duration. Unit: day. The maximum trial duration cannot exceed 30 days.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $trialDuration;
 
     /**
+     * @description The update option.
+     *
      * @var updateOption
      */
     public $updateOption;
 
     /**
+     * @description The metadata about the upgrade.
+     *
+     * @example {\\"Description\\":\\"xxx\\",\\"SupportRollback\\":true,\\"SupportUpgradeFromVersions\\":[],\\"UpgradeComponents\\":[\\"Configuration\\"]}
+     *
      * @var string
      */
     public $upgradeMetadata;
 
     /**
+     * @description The version name.
+     *
+     * @example Draft
+     *
      * @var string
      */
     public $versionName;

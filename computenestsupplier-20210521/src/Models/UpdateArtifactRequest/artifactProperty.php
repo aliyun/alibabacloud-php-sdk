@@ -49,21 +49,41 @@ class artifactProperty extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Container Registry  repository.
+     * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     * @example crr-yy4g68uhi39ttkm8
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the Container Registry repository.
+     * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     * @example volcanosh/vc-webhook-manager
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The type of the repository.Valid values:
+     *
+     *   `Public`: a public repository.
+     *   `Private`: a private repository.
+     * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     * @example Public
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @description The version tag of the image repository.
+     *
+     * >  This parameter is available only if the deployment package is a container image or of the Helm chart type.
+     * @example v1
+     *
      * @var string
      */
     public $tag;

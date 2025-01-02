@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class meteringEntityMappings extends Model
 {
     /**
-     * @description 计量项ID
+     * @description Metering entity IDs.
      *
      * @var string[]
      */
     public $entityIds;
 
     /**
-     * @description 套餐名称
+     * @description The specification name.
      *
      * @example This parameter is not publicly accessible.
      *
@@ -25,7 +25,7 @@ class meteringEntityMappings extends Model
     public $specificationName;
 
     /**
-     * @description 模板名称
+     * @description The template name.
      *
      * @example The service ID.
      *

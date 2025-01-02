@@ -45,6 +45,13 @@ class repositories extends Model
     public $repoName;
 
     /**
+     * @description The type of the repository. Valid values:
+     *
+     *   `Private`: a private repository
+     *   `Public`: a public repository
+     *
+     * @example Private
+     *
      * @var string
      */
     public $repoType;

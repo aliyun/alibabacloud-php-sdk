@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class complianceMetadata extends Model
 {
     /**
-     * @description The compliance package is selected.
+     * @description The compliance pack.
      *
      * @var string[]
      */

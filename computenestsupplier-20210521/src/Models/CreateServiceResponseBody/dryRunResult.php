@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dryRunResult extends Model
 {
     /**
+     * @description The required ram policy for deploying role.
+     *
      * @var rolePolicy
      */
     public $rolePolicy;

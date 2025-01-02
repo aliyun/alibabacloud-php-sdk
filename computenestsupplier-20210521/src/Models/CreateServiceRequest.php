@@ -52,6 +52,8 @@ class CreateServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @description Compliance check metadata.
+     *
      * @var complianceMetadata
      */
     public $complianceMetadata;
@@ -82,6 +84,13 @@ class CreateServiceRequest extends Model
     public $deployType;
 
     /**
+     * @description Specifies whether to perform only a dry run for the request to check information. Valid values:
+     *
+     *   true: performs a dry run for the request, but does not create a service.
+     *   false: performs a dry run for the request, and create a service if the request passes the dry run.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;

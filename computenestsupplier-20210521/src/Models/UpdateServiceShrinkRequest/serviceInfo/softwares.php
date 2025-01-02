@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class softwares extends Model
 {
     /**
+     * @description The name of the software.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The version of the software.
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $version;

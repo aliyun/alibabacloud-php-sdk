@@ -31,6 +31,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeployServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeployServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateServicePolicyRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GenerateServicePolicyResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRequest;
@@ -40,6 +42,9 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCost
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceProvisionsShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceTemplateParameterConstraintsRequest;
@@ -65,6 +70,10 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagKeysRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagKeysResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagValuesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListTagValuesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceResourcesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceResourcesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PreLaunchServiceRequest;
@@ -87,6 +96,10 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\StartServiceInstanceRe
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\StartServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\StopServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\StopServiceInstanceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UnTagResourcesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateArtifactShrinkRequest;
@@ -104,7 +117,6 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpgradeServiceInstance
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpgradeServiceInstanceShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -114,9 +126,6 @@ class ComputeNestSupplier extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'ComputeNestSupplier';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('computenestsupplier', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -186,11 +195,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddServiceSharedAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -251,11 +257,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ApproveServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ApproveServiceUsageResponse::fromMap($this->execute($params, $req, $runtime));
+        return ApproveServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -313,11 +316,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ContinueDeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ContinueDeployServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return ContinueDeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -404,11 +404,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -540,11 +537,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -631,11 +625,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -687,11 +678,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateServiceUsageResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -743,11 +731,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -802,11 +787,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -858,11 +840,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteServiceInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -914,11 +893,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeployServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -933,6 +909,68 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deployServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 生成并校验服务创建stack所需要
+     *  *
+     * @param GenerateServicePolicyRequest $request GenerateServicePolicyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GenerateServicePolicyResponse GenerateServicePolicyResponse
+     */
+    public function generateServicePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->operationTypes)) {
+            $query['OperationTypes'] = $request->operationTypes;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        if (!Utils::isUnset($request->trialType)) {
+            $query['TrialType'] = $request->trialType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GenerateServicePolicy',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateServicePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 生成并校验服务创建stack所需要
+     *  *
+     * @param GenerateServicePolicyRequest $request GenerateServicePolicyRequest
+     *
+     * @return GenerateServicePolicyResponse GenerateServicePolicyResponse
+     */
+    public function generateServicePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateServicePolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -970,11 +1008,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1023,11 +1058,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetArtifactRepositoryCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetArtifactRepositoryCredentialsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetArtifactRepositoryCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1094,11 +1126,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1176,11 +1205,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetServiceEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceEstimateCostResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1229,11 +1255,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1248,6 +1271,70 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 计算巢查询服务是否开通
+     *  *
+     * @param GetServiceProvisionsRequest $tmpReq  GetServiceProvisionsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
+     */
+    public function getServiceProvisionsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetServiceProvisionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceProvisions',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 计算巢查询服务是否开通
+     *  *
+     * @param GetServiceProvisionsRequest $request GetServiceProvisionsRequest
+     *
+     * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
+     */
+    public function getServiceProvisions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceProvisionsWithOptions($request, $runtime);
     }
 
     /**
@@ -1303,11 +1390,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetServiceTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetServiceTemplateParameterConstraintsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetServiceTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1356,11 +1440,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUploadCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUploadCredentialsResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUploadCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1378,6 +1459,8 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
+     * @summary 上线服务
+     *  *
      * @param LaunchServiceRequest $request LaunchServiceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
@@ -1419,14 +1502,13 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return LaunchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return LaunchServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return LaunchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
+     * @summary 上线服务
+     *  *
      * @param LaunchServiceRequest $request LaunchServiceRequest
      *
      * @return LaunchServiceResponse LaunchServiceResponse
@@ -1476,11 +1558,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAcrImageRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAcrImageRepositoriesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAcrImageRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1535,11 +1614,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListAcrImageTagsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListAcrImageTagsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListAcrImageTagsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1599,11 +1675,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListArtifactVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListArtifactVersionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListArtifactVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1661,11 +1734,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListArtifactsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListArtifactsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1729,11 +1799,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListServiceInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1794,11 +1861,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListServiceSharedAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1853,11 +1917,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListServiceUsagesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListServiceUsagesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListServiceUsagesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1921,11 +1982,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListServicesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1940,6 +1998,115 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listServicesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询标签键列表
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagKeysResponse ListTagKeysResponse
+     */
+    public function listTagKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagKeys',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询标签键列表
+     *  *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     *
+     * @return ListTagKeysResponse ListTagKeysResponse
+     */
+    public function listTagKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询标签值列表
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagValuesResponse ListTagValuesResponse
+     */
+    public function listTagValuesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->key)) {
+            $query['Key'] = $request->key;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagValues',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询标签值列表
+     *  *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     *
+     * @return ListTagValuesResponse ListTagValuesResponse
+     */
+    public function listTagValues($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagValuesWithOptions($request, $runtime);
     }
 
     /**
@@ -1977,11 +2144,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ModifyServiceInstanceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ModifyServiceInstanceResourcesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ModifyServiceInstanceResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2033,11 +2197,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PreLaunchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PreLaunchServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return PreLaunchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2086,11 +2247,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return PushMeteringDataResponse::fromMap($this->execute($params, $req, $runtime));
+        return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2142,11 +2300,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RegisterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RegisterServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RegisterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2204,11 +2359,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RejectServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RejectServiceUsageResponse::fromMap($this->execute($params, $req, $runtime));
+        return RejectServiceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2257,11 +2409,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ReleaseArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ReleaseArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return ReleaseArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2319,11 +2468,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveServiceSharedAccountsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveServiceSharedAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2375,11 +2521,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RestartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RestartServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RestartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2397,7 +2540,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary 回滚服务实例
+     * @summary Rollback Service Instance
      *  *
      * @param RollbackServiceInstanceRequest $request RollbackServiceInstanceRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2431,15 +2574,12 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RollbackServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RollbackServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return RollbackServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary 回滚服务实例
+     * @summary Rollback Service Instance
      *  *
      * @param RollbackServiceInstanceRequest $request RollbackServiceInstanceRequest
      *
@@ -2487,11 +2627,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StartServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StartServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2543,11 +2680,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return StopServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return StopServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return StopServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2562,6 +2696,121 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 给资源打标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 给资源打标签
+     *  *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     *
+     * @return TagResourcesResponse TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 资源解绑标签
+     *  *
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UnTagResourcesResponse UnTagResourcesResponse
+     */
+    public function unTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnTagResources',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 资源解绑标签
+     *  *
+     * @param UnTagResourcesRequest $request UnTagResourcesRequest
+     *
+     * @return UnTagResourcesResponse UnTagResourcesResponse
+     */
+    public function unTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -2619,11 +2868,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2641,7 +2887,7 @@ class ComputeNestSupplier extends OpenApiClient
     }
 
     /**
-     * @summary Upgrades a service.
+     * @summary Update a service.
      *  *
      * @param UpdateServiceRequest $tmpReq  UpdateServiceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2755,15 +3001,12 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateServiceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @summary Upgrades a service.
+     * @summary Update a service.
      *  *
      * @param UpdateServiceRequest $request UpdateServiceRequest
      *
@@ -2822,11 +3065,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateServiceInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateServiceInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateServiceInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2892,11 +3132,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateServiceInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateServiceInstanceSpecResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateServiceInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2962,11 +3199,8 @@ class ComputeNestSupplier extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpgradeServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpgradeServiceInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpgradeServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

@@ -13,28 +13,28 @@ use AlibabaCloud\Tea\Model;
 class commodity extends Model
 {
     /**
-     * @description The ID of the entity.
+     * @description This parameter is not available to the public.
      *
      * @var componentsMappings[]
      */
     public $componentsMappings;
 
     /**
-     * @description This parameter is not publicly accessible.
+     * @description Metering entity extra information.
      *
      * @var meteringEntityExtraInfos[]
      */
     public $meteringEntityExtraInfos;
 
     /**
-     * @description The template name.
+     * @description Binding relationship between templates/specifications and metering dimensions (marketplace - PayAsYouGo)
      *
      * @var meteringEntityMappings[]
      */
     public $meteringEntityMappings;
 
     /**
-     * @description SaaS Boost配置信息
+     * @description SaaS Boost configuration.
      *
      * @example {}
      *
@@ -43,7 +43,7 @@ class commodity extends Model
     public $saasBoostConfig;
 
     /**
-     * @description avg_over_time(sum(rate(container_cpu_usage_seconds_total{namespace=~"ALIYUN::StackName"}[2m]))[1h:10s])
+     * @description Product specifications and template/package mappings (Used in marketplace - subscription scenario)
      *
      * @var specificationMappings[]
      */

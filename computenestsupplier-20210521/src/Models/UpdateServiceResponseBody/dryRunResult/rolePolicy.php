@@ -10,11 +10,23 @@ use AlibabaCloud\Tea\Model;
 class rolePolicy extends Model
 {
     /**
+     * @description The missing  ram policy for deploying role.
+     *
      * @var missingPolicy[]
      */
     public $missingPolicy;
 
     /**
+     * @description The required ram policy for deploying role.
+     *
+     * @example {
+     * "Effect": "Allow",
+     * "Resource": "*"
+     * "Effect": "Allow",
+     * "Resource": "*"
+     * "Effect": "Allow",
+     * "Resource": "*"
+     * }
      * @var string
      */
     public $policy;
