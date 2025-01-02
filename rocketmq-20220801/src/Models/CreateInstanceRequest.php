@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\RocketMQ\V20220801\Models;
 
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\networkInfo;
 use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\productInfo;
+use AlibabaCloud\SDK\RocketMQ\V20220801\Models\CreateInstanceRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateInstanceRequest extends Model
@@ -182,6 +183,11 @@ class CreateInstanceRequest extends Model
     public $subSeriesCode;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value of this parameter, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example c2c5d1274a8d4317a13bc5b0d4******
@@ -204,6 +210,7 @@ class CreateInstanceRequest extends Model
         'seriesCode'      => 'seriesCode',
         'serviceCode'     => 'serviceCode',
         'subSeriesCode'   => 'subSeriesCode',
+        'tags'            => 'tags',
         'clientToken'     => 'clientToken',
     ];
 
@@ -255,6 +262,15 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->subSeriesCode) {
             $res['subSeriesCode'] = $this->subSeriesCode;
+        }
+        if (null !== $this->tags) {
+            $res['tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
@@ -312,6 +328,15 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['subSeriesCode'])) {
             $model->subSeriesCode = $map['subSeriesCode'];
+        }
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];

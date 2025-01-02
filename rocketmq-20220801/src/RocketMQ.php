@@ -371,6 +371,9 @@ class RocketMQ extends OpenApiClient
         if (!Utils::isUnset($request->subSeriesCode)) {
             $body['subSeriesCode'] = $request->subSeriesCode;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
