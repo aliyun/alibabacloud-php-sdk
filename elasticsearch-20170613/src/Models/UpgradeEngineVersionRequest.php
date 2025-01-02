@@ -50,12 +50,18 @@ class UpgradeEngineVersionRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var string
+     */
+    public $updateStrategy;
     protected $_name = [
-        'plugins'     => 'plugins',
-        'type'        => 'type',
-        'version'     => 'version',
-        'clientToken' => 'clientToken',
-        'dryRun'      => 'dryRun',
+        'plugins'        => 'plugins',
+        'type'           => 'type',
+        'version'        => 'version',
+        'clientToken'    => 'clientToken',
+        'dryRun'         => 'dryRun',
+        'updateStrategy' => 'updateStrategy',
     ];
 
     public function validate()
@@ -85,6 +91,9 @@ class UpgradeEngineVersionRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
+        }
+        if (null !== $this->updateStrategy) {
+            $res['updateStrategy'] = $this->updateStrategy;
         }
 
         return $res;
@@ -118,6 +127,9 @@ class UpgradeEngineVersionRequest extends Model
         }
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
+        }
+        if (isset($map['updateStrategy'])) {
+            $model->updateStrategy = $map['updateStrategy'];
         }
 
         return $model;

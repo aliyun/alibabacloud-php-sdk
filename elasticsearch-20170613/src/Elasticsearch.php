@@ -10955,6 +10955,9 @@ class Elasticsearch extends OpenApiClient
         if (!Utils::isUnset($request->dryRun)) {
             $query['dryRun'] = $request->dryRun;
         }
+        if (!Utils::isUnset($request->updateStrategy)) {
+            $query['updateStrategy'] = $request->updateStrategy;
+        }
         $body = [];
         if (!Utils::isUnset($request->plugins)) {
             $body['plugins'] = $request->plugins;
