@@ -20,12 +20,19 @@ class RunCommandRequest extends Model
     /**
      * @description Command content. Please note the following:
      *
-     * This parameter is required.
+     * - A single custom parameter name cannot exceed 64 bytes.
      * @example ZWNobyAxMjM=
      *
      * @var string
      */
     public $commandContent;
+
+    /**
+     * @example c-e996287206324975b5fbe1d***
+     *
+     * @var string
+     */
+    public $commandId;
 
     /**
      * @description Encoding method for the script content. Valid values:
@@ -67,6 +74,13 @@ class RunCommandRequest extends Model
     public $frequency;
 
     /**
+     * @example python3 -u {{ACS::ScriptFileName|Ext(".py")}}
+     *
+     * @var string
+     */
+    public $launcher;
+
+    /**
      * @description Command name.
      *
      * @example testName
@@ -103,6 +117,13 @@ class RunCommandRequest extends Model
     public $repeatMode;
 
     /**
+     * @example ProcessTree
+     *
+     * @var string
+     */
+    public $terminationMode;
+
+    /**
      * @description Timeout for executing the command, in seconds. If the command cannot run due to process issues, missing modules, or the absence of the Cloud Assistant Agent, a timeout will occur. After a timeout, the command process will be forcibly terminated. Default value: 60.
      *
      * @example 3600
@@ -132,14 +153,17 @@ class RunCommandRequest extends Model
     protected $_name = [
         'clientToken'     => 'ClientToken',
         'commandContent'  => 'CommandContent',
+        'commandId'       => 'CommandId',
         'contentEncoding' => 'ContentEncoding',
         'description'     => 'Description',
         'enableParameter' => 'EnableParameter',
         'frequency'       => 'Frequency',
+        'launcher'        => 'Launcher',
         'name'            => 'Name',
         'nodeIdList'      => 'NodeIdList',
         'parameters'      => 'Parameters',
         'repeatMode'      => 'RepeatMode',
+        'terminationMode' => 'TerminationMode',
         'timeout'         => 'Timeout',
         'username'        => 'Username',
         'workingDir'      => 'WorkingDir',
@@ -158,6 +182,9 @@ class RunCommandRequest extends Model
         if (null !== $this->commandContent) {
             $res['CommandContent'] = $this->commandContent;
         }
+        if (null !== $this->commandId) {
+            $res['CommandId'] = $this->commandId;
+        }
         if (null !== $this->contentEncoding) {
             $res['ContentEncoding'] = $this->contentEncoding;
         }
@@ -170,6 +197,9 @@ class RunCommandRequest extends Model
         if (null !== $this->frequency) {
             $res['Frequency'] = $this->frequency;
         }
+        if (null !== $this->launcher) {
+            $res['Launcher'] = $this->launcher;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -181,6 +211,9 @@ class RunCommandRequest extends Model
         }
         if (null !== $this->repeatMode) {
             $res['RepeatMode'] = $this->repeatMode;
+        }
+        if (null !== $this->terminationMode) {
+            $res['TerminationMode'] = $this->terminationMode;
         }
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
@@ -209,6 +242,9 @@ class RunCommandRequest extends Model
         if (isset($map['CommandContent'])) {
             $model->commandContent = $map['CommandContent'];
         }
+        if (isset($map['CommandId'])) {
+            $model->commandId = $map['CommandId'];
+        }
         if (isset($map['ContentEncoding'])) {
             $model->contentEncoding = $map['ContentEncoding'];
         }
@@ -220,6 +256,9 @@ class RunCommandRequest extends Model
         }
         if (isset($map['Frequency'])) {
             $model->frequency = $map['Frequency'];
+        }
+        if (isset($map['Launcher'])) {
+            $model->launcher = $map['Launcher'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -234,6 +273,9 @@ class RunCommandRequest extends Model
         }
         if (isset($map['RepeatMode'])) {
             $model->repeatMode = $map['RepeatMode'];
+        }
+        if (isset($map['TerminationMode'])) {
+            $model->terminationMode = $map['TerminationMode'];
         }
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];

@@ -13,6 +13,9 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ChangeResourceGroupResponse
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateClusterShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\CreateDiagnosticTaskShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\DescribeClusterRequest;
@@ -298,6 +301,70 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 诊断任务创建接口
+     *  *
+     * @param CreateDiagnosticTaskRequest $tmpReq  CreateDiagnosticTaskRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDiagnosticTaskResponse CreateDiagnosticTaskResponse
+     */
+    public function createDiagnosticTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDiagnosticTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->aiJobLogInfo)) {
+            $request->aiJobLogInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->aiJobLogInfo, 'AiJobLogInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->nodeIds)) {
+            $request->nodeIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeIds, 'NodeIds', 'simple');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->aiJobLogInfoShrink)) {
+            $body['AiJobLogInfo'] = $request->aiJobLogInfoShrink;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->diagnosticType)) {
+            $body['DiagnosticType'] = $request->diagnosticType;
+        }
+        if (!Utils::isUnset($request->nodeIdsShrink)) {
+            $body['NodeIds'] = $request->nodeIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDiagnosticTask',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDiagnosticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 诊断任务创建接口
+     *  *
+     * @param CreateDiagnosticTaskRequest $request CreateDiagnosticTaskRequest
+     *
+     * @return CreateDiagnosticTaskResponse CreateDiagnosticTaskResponse
+     */
+    public function createDiagnosticTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDiagnosticTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1133,6 +1200,9 @@ class Eflocontroller extends OpenApiClient
         if (!Utils::isUnset($request->commandContent)) {
             $body['CommandContent'] = $request->commandContent;
         }
+        if (!Utils::isUnset($request->commandId)) {
+            $body['CommandId'] = $request->commandId;
+        }
         if (!Utils::isUnset($request->contentEncoding)) {
             $body['ContentEncoding'] = $request->contentEncoding;
         }
@@ -1145,6 +1215,9 @@ class Eflocontroller extends OpenApiClient
         if (!Utils::isUnset($request->frequency)) {
             $body['Frequency'] = $request->frequency;
         }
+        if (!Utils::isUnset($request->launcher)) {
+            $body['Launcher'] = $request->launcher;
+        }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
@@ -1156,6 +1229,9 @@ class Eflocontroller extends OpenApiClient
         }
         if (!Utils::isUnset($request->repeatMode)) {
             $body['RepeatMode'] = $request->repeatMode;
+        }
+        if (!Utils::isUnset($request->terminationMode)) {
+            $body['TerminationMode'] = $request->terminationMode;
         }
         if (!Utils::isUnset($request->timeout)) {
             $body['Timeout'] = $request->timeout;
