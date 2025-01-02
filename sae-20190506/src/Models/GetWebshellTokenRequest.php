@@ -18,6 +18,11 @@ class GetWebshellTokenRequest extends Model
     public $appId;
 
     /**
+     * @var string
+     */
+    public $containerName;
+
+    /**
      * @description This parameter is required.
      *
      * @example hello-podsdfsdfsdfsdf
@@ -26,8 +31,9 @@ class GetWebshellTokenRequest extends Model
      */
     public $podName;
     protected $_name = [
-        'appId'   => 'AppId',
-        'podName' => 'PodName',
+        'appId'         => 'AppId',
+        'containerName' => 'ContainerName',
+        'podName'       => 'PodName',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class GetWebshellTokenRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
         }
         if (null !== $this->podName) {
             $res['PodName'] = $this->podName;
@@ -57,6 +66,9 @@ class GetWebshellTokenRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
         }
         if (isset($map['PodName'])) {
             $model->podName = $map['PodName'];

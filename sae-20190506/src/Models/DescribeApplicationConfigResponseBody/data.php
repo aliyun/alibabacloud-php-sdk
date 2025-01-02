@@ -204,6 +204,11 @@ class data extends Model
     public $enableNewArms;
 
     /**
+     * @var bool
+     */
+    public $enabledle;
+
+    /**
      * @description The environment variables. Variable description:
      *
      *   **name**: the name of the environment variable.
@@ -793,6 +798,7 @@ class data extends Model
         'enableGreyTagRoute'            => 'EnableGreyTagRoute',
         'enableIdle'                    => 'EnableIdle',
         'enableNewArms'                 => 'EnableNewArms',
+        'enabledle'                     => 'Enabledle',
         'envs'                          => 'Envs',
         'imagePullSecrets'              => 'ImagePullSecrets',
         'imageUrl'                      => 'ImageUrl',
@@ -924,6 +930,9 @@ class data extends Model
         }
         if (null !== $this->enableNewArms) {
             $res['EnableNewArms'] = $this->enableNewArms;
+        }
+        if (null !== $this->enabledle) {
+            $res['Enabledle'] = $this->enabledle;
         }
         if (null !== $this->envs) {
             $res['Envs'] = $this->envs;
@@ -1197,6 +1206,9 @@ class data extends Model
         }
         if (isset($map['EnableNewArms'])) {
             $model->enableNewArms = $map['EnableNewArms'];
+        }
+        if (isset($map['Enabledle'])) {
+            $model->enabledle = $map['Enabledle'];
         }
         if (isset($map['Envs'])) {
             $model->envs = $map['Envs'];

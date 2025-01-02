@@ -4901,6 +4901,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->containerName)) {
+            $query['ContainerName'] = $request->containerName;
+        }
         if (!Utils::isUnset($request->podName)) {
             $query['PodName'] = $request->podName;
         }

@@ -1,3 +1,8 @@
+2025-01-02 Version: 1.24.3
+- Update API DescribeApplicationConfig: update response param.
+- Update API GetWebshellToken: add param ContainerName.
+
+
 2024-12-26 Version: 1.24.2
 - Update API CreateApplication: add param CustomImageNetworkType.
 - Update API DeployApplication: add param CustomImageNetworkType.
