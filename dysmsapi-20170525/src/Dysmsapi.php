@@ -1159,7 +1159,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询卡片发送详情
+     * @summary Query card sending details
      *  *
      * @param GetCardSmsDetailsRequest $request GetCardSmsDetailsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1219,7 +1219,7 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @summary 查询卡片发送详情
+     * @summary Query card sending details
      *  *
      * @param GetCardSmsDetailsRequest $request GetCardSmsDetailsRequest
      *

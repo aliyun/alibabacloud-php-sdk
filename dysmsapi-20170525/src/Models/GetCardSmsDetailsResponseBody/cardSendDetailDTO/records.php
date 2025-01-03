@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
-     * @description 发送错误码
+     * @description Error code for sending
      *
      * @example Success
      *
@@ -18,7 +18,7 @@ class records extends Model
     public $errCode;
 
     /**
-     * @description 客户传输outId
+     * @description Customer-transmitted outId
      *
      * @example 12345678
      *
@@ -27,7 +27,7 @@ class records extends Model
     public $outId;
 
     /**
-     * @description 接收短信手机号
+     * @description Phone number that received the SMS
      *
      * @example 156****9080
      *
@@ -36,7 +36,7 @@ class records extends Model
     public $phoneNumber;
 
     /**
-     * @description 接收时间
+     * @description Receive date
      *
      * @example 2024-09-27 11:26:35
      *
@@ -45,7 +45,7 @@ class records extends Model
     public $receiveDate;
 
     /**
-     * @description 接收短信类型
+     * @description Receive SMS type
      *
      * @example CARD_SMS
      *
@@ -54,7 +54,7 @@ class records extends Model
     public $receiveType;
 
     /**
-     * @description 渲染时间
+     * @description Render date
      *
      * @example 2024-09-27 12:13:39
      *
@@ -63,7 +63,7 @@ class records extends Model
     public $renderDate;
 
     /**
-     * @description 解析状态.。0：未解析；1：解析成功；3：未解析
+     * @description Render status. 0: Not rendered; 1: Rendered successfully; 3: Not rendered
      *
      * @example 1
      *
@@ -72,7 +72,7 @@ class records extends Model
     public $renderStatus;
 
     /**
-     * @description 短信发送时间
+     * @description Time when the SMS was sent
      *
      * @example 2024-09-27 11:26:32
      *
@@ -81,7 +81,7 @@ class records extends Model
     public $sendDate;
 
     /**
-     * @description 发送状态 1：发送中；2：发送失败；3：发送成功；4：寻址失败
+     * @description Sending status. 1: Sending; 2: Send failed; 3: Sent successfully; 4: Addressing failed
      *
      * @example 3
      *
@@ -90,7 +90,7 @@ class records extends Model
     public $sendStatus;
 
     /**
-     * @description 短信内容。只有文本短信有值
+     * @description SMS content. Only applicable for text messages.
      *
      * @example 您收到一条短信消息
      *
@@ -99,7 +99,7 @@ class records extends Model
     public $smsContent;
 
     /**
-     * @description 模板code
+     * @description Template code
      *
      * @example CARD_SMS_6***
      *

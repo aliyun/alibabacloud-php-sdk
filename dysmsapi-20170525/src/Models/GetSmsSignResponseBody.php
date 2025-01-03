@@ -80,6 +80,11 @@ class GetSmsSignResponseBody extends Model
     public $qualificationId;
 
     /**
+     * @var int
+     */
+    public $registerResult;
+
+    /**
      * @description Explanation of the SMS signature scenario, with a maximum length of 200 characters.
      *
      * @example Send verification code text message during login.
@@ -165,6 +170,7 @@ class GetSmsSignResponseBody extends Model
         'message'         => 'Message',
         'orderId'         => 'OrderId',
         'qualificationId' => 'QualificationId',
+        'registerResult'  => 'RegisterResult',
         'remark'          => 'Remark',
         'requestId'       => 'RequestId',
         'signCode'        => 'SignCode',
@@ -205,6 +211,9 @@ class GetSmsSignResponseBody extends Model
         }
         if (null !== $this->qualificationId) {
             $res['QualificationId'] = $this->qualificationId;
+        }
+        if (null !== $this->registerResult) {
+            $res['RegisterResult'] = $this->registerResult;
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
@@ -267,6 +276,9 @@ class GetSmsSignResponseBody extends Model
         }
         if (isset($map['QualificationId'])) {
             $model->qualificationId = $map['QualificationId'];
+        }
+        if (isset($map['RegisterResult'])) {
+            $model->registerResult = $map['RegisterResult'];
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];

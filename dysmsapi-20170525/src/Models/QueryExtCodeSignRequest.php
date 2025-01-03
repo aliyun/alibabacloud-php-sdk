@@ -11,7 +11,6 @@ class QueryExtCodeSignRequest extends Model
     /**
      * @description 扩展码A3
      *
-     * This parameter is required.
      * @example 01
      *
      * @var string
@@ -50,7 +49,6 @@ class QueryExtCodeSignRequest extends Model
     /**
      * @description 签名
      *
-     * This parameter is required.
      * @example 示例值示例值
      *
      * @var string

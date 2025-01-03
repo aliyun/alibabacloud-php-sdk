@@ -10,19 +10,25 @@ use AlibabaCloud\Tea\Model;
 class GetCardSmsDetailsResponseBody extends Model
 {
     /**
+     * @description Access denied detail; this field is returned only if the RAM check fails.
+     *
+     * @example 无
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
-     * @description 卡片短信发送结果
+     * @description Card SMS sending result
      *
      * @var cardSendDetailDTO
      */
     public $cardSendDetailDTO;
 
     /**
-     * @description 状态码
+     * @description Request status code.
+     * OK indicates a successful request.
+     * For other error codes, see [API Error Codes](https://help.aliyun.com/document_detail/101346.html).
      *
      * @example OK
      *
@@ -31,7 +37,7 @@ class GetCardSmsDetailsResponseBody extends Model
     public $code;
 
     /**
-     * @description 状态描述
+     * @description Description of the status code.
      *
      * @example OK
      *
@@ -40,6 +46,8 @@ class GetCardSmsDetailsResponseBody extends Model
     public $message;
 
     /**
+     * @description Indicates whether the API call was successful. Values:
+     * - **true** - **false**
      * @example true
      *
      * @var bool

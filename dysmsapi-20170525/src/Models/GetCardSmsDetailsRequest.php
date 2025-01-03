@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCardSmsDetailsRequest extends Model
 {
     /**
+     * @description Card SMS sending ID, which is the BizCardId field in the response when calling SendCardSms or SendBatchCardSms.
+     *
      * @example 123456^0
      *
      * @var string
@@ -16,6 +18,8 @@ class GetCardSmsDetailsRequest extends Model
     public $bizCardId;
 
     /**
+     * @description Digital SMS sending ID, which is the BizDigitalId field in the response when calling SendCardSms or SendBatchCardSms.
+     *
      * @example 12346^0
      *
      * @var string
@@ -23,6 +27,8 @@ class GetCardSmsDetailsRequest extends Model
     public $bizDigitId;
 
     /**
+     * @description Text SMS sending ID, which is the BizSmsId field in the response when calling SendCardSms or SendBatchCardSms.
+     *
      * @example 1234576^0
      *
      * @var string
@@ -30,6 +36,8 @@ class GetCardSmsDetailsRequest extends Model
     public $bizSmsId;
 
     /**
+     * @description For paginated viewing of sending records, specify the current page number of the sending records.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +50,9 @@ class GetCardSmsDetailsRequest extends Model
     public $ownerId;
 
     /**
+     * @description For paginated viewing of sending records, specify the number of card SMS records to display per page.
+     *
+     * The value range is 1~50.
      * @example 10
      *
      * @var int
@@ -49,8 +60,9 @@ class GetCardSmsDetailsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description Domestic phone number that received the SMS. Format: 11-digit phone number, for example, 1390000****.
      *
+     * This parameter is required.
      * @example 1390000****
      *
      * @var string
@@ -68,8 +80,9 @@ class GetCardSmsDetailsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description Card SMS sending date, supports querying records from the last 30 days.
      *
+     * This parameter is required.
      * @example 20240112
      *
      * @var string

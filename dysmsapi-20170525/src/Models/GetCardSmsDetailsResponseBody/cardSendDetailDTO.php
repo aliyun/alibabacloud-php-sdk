@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class cardSendDetailDTO extends Model
 {
     /**
-     * @description 页码
+     * @description Current page number
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class cardSendDetailDTO extends Model
     public $currentPage;
 
     /**
-     * @description 页数
+     * @description Page size
      *
      * @example 10
      *
@@ -28,12 +28,14 @@ class cardSendDetailDTO extends Model
     public $pageSize;
 
     /**
+     * @description List of card SMS sending records
+     *
      * @var records[]
      */
     public $records;
 
     /**
-     * @description 总量
+     * @description Total count
      *
      * @example 10
      *
