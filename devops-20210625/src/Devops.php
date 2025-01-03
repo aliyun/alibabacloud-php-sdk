@@ -91,8 +91,6 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemV2Request;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemV2Response;
-use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceRequest;
-use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteAppMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteAppMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteBranchRequest;
@@ -164,7 +162,6 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkTimeRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ExportInsightWorkTimeResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ExportWorkitemActivityRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ExportWorkitemActivityResponse;
-use AlibabaCloud\SDK\Devops\V20210625\Models\FrozenWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetBranchInfoRequest;
@@ -204,8 +201,6 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetPipelineScanReportUrlResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetProjectMemberResponse;
-use AlibabaCloud\SDK\Devops\V20210625\Models\GetPushRuleRequest;
-use AlibabaCloud\SDK\Devops\V20210625\Models\GetPushRuleResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetReleaseStagePipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryCommitRequest;
@@ -236,7 +231,6 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemRelationsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemTimeTypeListResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemWorkFlowInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemWorkFlowInfoResponse;
-use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\JoinPipelineGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\LinkMergeRequestLabelRequest;
@@ -362,9 +356,6 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemTimeResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemWorkFlowStatusRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemWorkFlowStatusResponse;
-use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesRequest;
-use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesResponse;
-use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkspacesShrinkRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\LogPipelineJobRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\LogVMDeployMachineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\MergeMergeRequestRequest;
@@ -375,7 +366,6 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\PassReleaseStagePipelineValidateRes
 use AlibabaCloud\SDK\Devops\V20210625\Models\RefusePipelineValidateResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\RefuseReleaseStagePipelineValidateRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\RefuseReleaseStagePipelineValidateResponse;
-use AlibabaCloud\SDK\Devops\V20210625\Models\ReleaseWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ReopenMergeRequestRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ReopenMergeRequestResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ResetSshKeyResponse;
@@ -3412,77 +3402,6 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 创建工作空间
-     *  *
-     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateWorkspaceResponse CreateWorkspaceResponse
-     */
-    public function createWorkspaceWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->codeUrl)) {
-            $body['codeUrl'] = $request->codeUrl;
-        }
-        if (!Utils::isUnset($request->codeVersion)) {
-            $body['codeVersion'] = $request->codeVersion;
-        }
-        if (!Utils::isUnset($request->filePath)) {
-            $body['filePath'] = $request->filePath;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->requestFrom)) {
-            $body['requestFrom'] = $request->requestFrom;
-        }
-        if (!Utils::isUnset($request->resourceIdentifier)) {
-            $body['resourceIdentifier'] = $request->resourceIdentifier;
-        }
-        if (!Utils::isUnset($request->reuse)) {
-            $body['reuse'] = $request->reuse;
-        }
-        if (!Utils::isUnset($request->workspaceTemplate)) {
-            $body['workspaceTemplate'] = $request->workspaceTemplate;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateWorkspace',
-            'version'     => '2021-06-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/workspaces',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 创建工作空间
-     *  *
-     * @param CreateWorkspaceRequest $request CreateWorkspaceRequest
-     *
-     * @return CreateWorkspaceResponse CreateWorkspaceResponse
-     */
-    public function createWorkspace($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createWorkspaceWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * @summary 删除应用成员
      *  *
      * @param string                 $appName
@@ -5694,50 +5613,6 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 冻结工作空间
-     *  *
-     * @param string         $workspaceId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
-     *
-     * @return FrozenWorkspaceResponse FrozenWorkspaceResponse
-     */
-    public function frozenWorkspaceWithOptions($workspaceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'FrozenWorkspace',
-            'version'     => '2021-06-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/frozen',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return FrozenWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 冻结工作空间
-     *  *
-     * @param string $workspaceId
-     *
-     * @return FrozenWorkspaceResponse FrozenWorkspaceResponse
-     */
-    public function frozenWorkspace($workspaceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->frozenWorkspaceWithOptions($workspaceId, $headers, $runtime);
-    }
-
-    /**
      * @summary 查找应用详情
      *  *
      * @param string                $appName
@@ -6996,63 +6871,6 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询推送规则
-     *  *
-     * @param string             $repositoryId
-     * @param string             $pushRuleId
-     * @param GetPushRuleRequest $request      GetPushRuleRequest
-     * @param string[]           $headers      map
-     * @param RuntimeOptions     $runtime      runtime options for this request RuntimeOptions
-     *
-     * @return GetPushRuleResponse GetPushRuleResponse
-     */
-    public function getPushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->accessToken)) {
-            $query['accessToken'] = $request->accessToken;
-        }
-        if (!Utils::isUnset($request->organizationId)) {
-            $query['organizationId'] = $request->organizationId;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetPushRule',
-            'version'     => '2021-06-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v4/projects/' . OpenApiUtilClient::getEncodeParam($repositoryId) . '/push_rule/' . OpenApiUtilClient::getEncodeParam($pushRuleId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetPushRuleResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询推送规则
-     *  *
-     * @param string             $repositoryId
-     * @param string             $pushRuleId
-     * @param GetPushRuleRequest $request      GetPushRuleRequest
-     *
-     * @return GetPushRuleResponse GetPushRuleResponse
-     */
-    public function getPushRule($repositoryId, $pushRuleId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getPushRuleWithOptions($repositoryId, $pushRuleId, $request, $headers, $runtime);
-    }
-
-    /**
      * @summary 获取研发阶段流水线运行实例
      *  *
      * @param string                            $appName
@@ -8044,50 +7862,6 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->getWorkitemTimeTypeListWithOptions($organizationId, $headers, $runtime);
-    }
-
-    /**
-     * @summary 查询工作空间详情
-     *  *
-     * @param string         $workspaceId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
-     *
-     * @return GetWorkspaceResponse GetWorkspaceResponse
-     */
-    public function getWorkspaceWithOptions($workspaceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'GetWorkspace',
-            'version'     => '2021-06-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询工作空间详情
-     *  *
-     * @param string $workspaceId
-     *
-     * @return GetWorkspaceResponse GetWorkspaceResponse
-     */
-    public function getWorkspace($workspaceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getWorkspaceWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**
@@ -12170,73 +11944,6 @@ class Devops extends OpenApiClient
     }
 
     /**
-     * @summary 查询工作空间列表
-     *  *
-     * @param ListWorkspacesRequest $tmpReq  ListWorkspacesRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ListWorkspacesResponse ListWorkspacesResponse
-     */
-    public function listWorkspacesWithOptions($tmpReq, $headers, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new ListWorkspacesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->statusList)) {
-            $request->statusListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'statusList', 'simple');
-        }
-        if (!Utils::isUnset($tmpReq->workspaceTemplateList)) {
-            $request->workspaceTemplateListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workspaceTemplateList, 'workspaceTemplateList', 'simple');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['maxResults'] = $request->maxResults;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['nextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->statusListShrink)) {
-            $query['statusList'] = $request->statusListShrink;
-        }
-        if (!Utils::isUnset($request->workspaceTemplateListShrink)) {
-            $query['workspaceTemplateList'] = $request->workspaceTemplateListShrink;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListWorkspaces',
-            'version'     => '2021-06-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/workspaces',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 查询工作空间列表
-     *  *
-     * @param ListWorkspacesRequest $request ListWorkspacesRequest
-     *
-     * @return ListWorkspacesResponse ListWorkspacesResponse
-     */
-    public function listWorkspaces($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listWorkspacesWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * @summary 获取流水线运行任务日志
      *  *
      * @param string         $organizationId
@@ -12624,50 +12331,6 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->refuseReleaseStagePipelineValidateWithOptions($appName, $releaseWorkflowSn, $releaseStageSn, $executionNumber, $request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 释放工作空间
-     *  *
-     * @param string         $workspaceId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
-     *
-     * @return ReleaseWorkspaceResponse ReleaseWorkspaceResponse
-     */
-    public function releaseWorkspaceWithOptions($workspaceId, $headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'ReleaseWorkspace',
-            'version'     => '2021-06-25',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/workspaces/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/release',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ReleaseWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 释放工作空间
-     *  *
-     * @param string $workspaceId
-     *
-     * @return ReleaseWorkspaceResponse ReleaseWorkspaceResponse
-     */
-    public function releaseWorkspace($workspaceId)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->releaseWorkspaceWithOptions($workspaceId, $headers, $runtime);
     }
 
     /**

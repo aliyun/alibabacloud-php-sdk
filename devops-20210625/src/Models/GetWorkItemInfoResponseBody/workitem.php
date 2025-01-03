@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody;
 
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\customFields;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\tagDetails;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponseBody\workitem\versions;
 use AlibabaCloud\Tea\Model;
 
 class workitem extends Model
@@ -189,6 +190,11 @@ class workitem extends Model
     public $verifier;
 
     /**
+     * @var versions[]
+     */
+    public $versions;
+
+    /**
      * @example 9uxxxxxxre573f5xxxxxx0
      *
      * @var string
@@ -223,6 +229,7 @@ class workitem extends Model
         'tracker'                => 'tracker',
         'updateStatusAt'         => 'updateStatusAt',
         'verifier'               => 'verifier',
+        'versions'               => 'versions',
         'workitemTypeIdentifier' => 'workitemTypeIdentifier',
     ];
 
@@ -328,6 +335,15 @@ class workitem extends Model
         }
         if (null !== $this->verifier) {
             $res['verifier'] = $this->verifier;
+        }
+        if (null !== $this->versions) {
+            $res['versions'] = [];
+            if (null !== $this->versions && \is_array($this->versions)) {
+                $n = 0;
+                foreach ($this->versions as $item) {
+                    $res['versions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->workitemTypeIdentifier) {
             $res['workitemTypeIdentifier'] = $this->workitemTypeIdentifier;
@@ -448,6 +464,15 @@ class workitem extends Model
         if (isset($map['verifier'])) {
             if (!empty($map['verifier'])) {
                 $model->verifier = $map['verifier'];
+            }
+        }
+        if (isset($map['versions'])) {
+            if (!empty($map['versions'])) {
+                $model->versions = [];
+                $n               = 0;
+                foreach ($map['versions'] as $item) {
+                    $model->versions[$n++] = null !== $item ? versions::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['workitemTypeIdentifier'])) {
