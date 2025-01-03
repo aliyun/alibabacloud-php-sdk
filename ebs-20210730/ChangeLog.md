@@ -1,3 +1,7 @@
+2025-01-03 Version: 3.0.2
+- Update API DescribeLensMonitorDisks: add param DiskIdPattern.
+
+
 2024-12-06 Version: 3.0.1
 - Update API DescribeEvents: add param EventLevel.
 - Update API DescribeEvents: update response param.

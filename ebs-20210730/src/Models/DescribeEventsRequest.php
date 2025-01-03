@@ -18,6 +18,14 @@ class DescribeEventsRequest extends Model
     public $endTime;
 
     /**
+     * @description The severity level of the event. Valid values:
+     *
+     *   **INFO**
+     *   **WARN**
+     *   **CRITICAL**
+     *
+     * @example WARN
+     *
      * @var string
      */
     public $eventLevel;
@@ -45,9 +53,9 @@ class DescribeEventsRequest extends Model
     public $eventName;
 
     /**
-     * @description The maximum number of entries per page. If you specify MaxResults, `MaxResults` and `NextToken` are used for a paged query.
+     * @description The number of entries to return on each page. If you specify MaxResults, `MaxResults` and `NextToken` are used for a paged query.
      *
-     * Default value: 10.
+     * Default value: 10
      * @example 10
      *
      * @var int

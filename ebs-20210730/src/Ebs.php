@@ -1858,6 +1858,9 @@ class Ebs extends OpenApiClient
         if (!Utils::isUnset($request->diskCategory)) {
             $query['DiskCategory'] = $request->diskCategory;
         }
+        if (!Utils::isUnset($request->diskIdPattern)) {
+            $query['DiskIdPattern'] = $request->diskIdPattern;
+        }
         if (!Utils::isUnset($request->diskIds)) {
             $query['DiskIds'] = $request->diskIds;
         }

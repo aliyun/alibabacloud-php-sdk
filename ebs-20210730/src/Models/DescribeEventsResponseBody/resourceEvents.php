@@ -69,6 +69,11 @@ class resourceEvents extends Model
     public $eventType;
 
     /**
+     * @description Extra attributes of event, possible fields are:
+     *
+     * - Adapter: cloud disk mount point.
+     * @example {\\"EcsInstanceId\\":\\"i-uf6dkn9qpcw6y94g7ag7\\",\\"Adapter\\":\\"hda\\"}
+     *
      * @var string
      */
     public $extraAttributes;

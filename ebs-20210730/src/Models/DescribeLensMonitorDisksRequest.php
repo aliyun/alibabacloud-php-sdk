@@ -18,6 +18,11 @@ class DescribeLensMonitorDisksRequest extends Model
     public $diskCategory;
 
     /**
+     * @var string
+     */
+    public $diskIdPattern;
+
+    /**
      * @description The list of disks.
      *
      * @example [\\"d-1\\", \\"d-2\\"]
@@ -76,12 +81,13 @@ class DescribeLensMonitorDisksRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'diskCategory' => 'DiskCategory',
-        'diskIds'      => 'DiskIds',
-        'lensTags'     => 'LensTags',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
+        'diskCategory'  => 'DiskCategory',
+        'diskIdPattern' => 'DiskIdPattern',
+        'diskIds'       => 'DiskIds',
+        'lensTags'      => 'LensTags',
+        'maxResults'    => 'MaxResults',
+        'nextToken'     => 'NextToken',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -93,6 +99,9 @@ class DescribeLensMonitorDisksRequest extends Model
         $res = [];
         if (null !== $this->diskCategory) {
             $res['DiskCategory'] = $this->diskCategory;
+        }
+        if (null !== $this->diskIdPattern) {
+            $res['DiskIdPattern'] = $this->diskIdPattern;
         }
         if (null !== $this->diskIds) {
             $res['DiskIds'] = $this->diskIds;
@@ -123,6 +132,9 @@ class DescribeLensMonitorDisksRequest extends Model
         $model = new self();
         if (isset($map['DiskCategory'])) {
             $model->diskCategory = $map['DiskCategory'];
+        }
+        if (isset($map['DiskIdPattern'])) {
+            $model->diskIdPattern = $map['DiskIdPattern'];
         }
         if (isset($map['DiskIds'])) {
             if (!empty($map['DiskIds'])) {
