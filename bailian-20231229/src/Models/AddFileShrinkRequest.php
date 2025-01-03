@@ -19,6 +19,11 @@ class AddFileShrinkRequest extends Model
     public $categoryId;
 
     /**
+     * @var string
+     */
+    public $categoryType;
+
+    /**
      * @description The lease ID, which corresponds to the `FileUploadLeaseId` parameter returned by the [ApplyFileUploadLease](https://www.alibabacloud.com/help/en/model-studio/developer-reference/api-bailian-2023-12-29-applyfileuploadlease) operation.
      *
      * This parameter is required.
@@ -47,10 +52,11 @@ class AddFileShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
-        'categoryId' => 'CategoryId',
-        'leaseId'    => 'LeaseId',
-        'parser'     => 'Parser',
-        'tagsShrink' => 'Tags',
+        'categoryId'   => 'CategoryId',
+        'categoryType' => 'CategoryType',
+        'leaseId'      => 'LeaseId',
+        'parser'       => 'Parser',
+        'tagsShrink'   => 'Tags',
     ];
 
     public function validate()
@@ -62,6 +68,9 @@ class AddFileShrinkRequest extends Model
         $res = [];
         if (null !== $this->categoryId) {
             $res['CategoryId'] = $this->categoryId;
+        }
+        if (null !== $this->categoryType) {
+            $res['CategoryType'] = $this->categoryType;
         }
         if (null !== $this->leaseId) {
             $res['LeaseId'] = $this->leaseId;
@@ -86,6 +95,9 @@ class AddFileShrinkRequest extends Model
         $model = new self();
         if (isset($map['CategoryId'])) {
             $model->categoryId = $map['CategoryId'];
+        }
+        if (isset($map['CategoryType'])) {
+            $model->categoryType = $map['CategoryType'];
         }
         if (isset($map['LeaseId'])) {
             $model->leaseId = $map['LeaseId'];

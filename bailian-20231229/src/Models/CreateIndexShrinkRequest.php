@@ -183,6 +183,11 @@ class CreateIndexShrinkRequest extends Model
     public $structureType;
 
     /**
+     * @var bool
+     */
+    public $enableHeaders;
+
+    /**
      * @var string
      */
     public $metaExtractColumnsShrink;
@@ -204,6 +209,7 @@ class CreateIndexShrinkRequest extends Model
         'sinkType'                 => 'SinkType',
         'sourceType'               => 'SourceType',
         'structureType'            => 'StructureType',
+        'enableHeaders'            => 'enableHeaders',
         'metaExtractColumnsShrink' => 'metaExtractColumns',
     ];
 
@@ -264,6 +270,9 @@ class CreateIndexShrinkRequest extends Model
         }
         if (null !== $this->structureType) {
             $res['StructureType'] = $this->structureType;
+        }
+        if (null !== $this->enableHeaders) {
+            $res['enableHeaders'] = $this->enableHeaders;
         }
         if (null !== $this->metaExtractColumnsShrink) {
             $res['metaExtractColumns'] = $this->metaExtractColumnsShrink;
@@ -330,6 +339,9 @@ class CreateIndexShrinkRequest extends Model
         }
         if (isset($map['StructureType'])) {
             $model->structureType = $map['StructureType'];
+        }
+        if (isset($map['enableHeaders'])) {
+            $model->enableHeaders = $map['enableHeaders'];
         }
         if (isset($map['metaExtractColumns'])) {
             $model->metaExtractColumnsShrink = $map['metaExtractColumns'];

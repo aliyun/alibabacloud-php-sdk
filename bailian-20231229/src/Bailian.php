@@ -205,6 +205,9 @@ class Bailian extends OpenApiClient
         if (!Utils::isUnset($request->categoryId)) {
             $body['CategoryId'] = $request->categoryId;
         }
+        if (!Utils::isUnset($request->categoryType)) {
+            $body['CategoryType'] = $request->categoryType;
+        }
         if (!Utils::isUnset($request->leaseId)) {
             $body['LeaseId'] = $request->leaseId;
         }
@@ -275,6 +278,9 @@ class Bailian extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->categoryType)) {
+            $body['CategoryType'] = $request->categoryType;
+        }
         if (!Utils::isUnset($request->fileName)) {
             $body['FileName'] = $request->fileName;
         }
@@ -482,6 +488,9 @@ class Bailian extends OpenApiClient
         }
         if (!Utils::isUnset($request->structureType)) {
             $query['StructureType'] = $request->structureType;
+        }
+        if (!Utils::isUnset($request->enableHeaders)) {
+            $query['enableHeaders'] = $request->enableHeaders;
         }
         if (!Utils::isUnset($request->metaExtractColumnsShrink)) {
             $query['metaExtractColumns'] = $request->metaExtractColumnsShrink;
