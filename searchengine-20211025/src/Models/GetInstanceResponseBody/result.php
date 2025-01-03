@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @var string
+     */
+    public $bsVersion;
+
+    /**
      * @description The billing method.
      *
      * @example POSYPAY
@@ -181,6 +186,7 @@ class result extends Model
      */
     public $version;
     protected $_name = [
+        'bsVersion'       => 'bsVersion',
         'chargeType'      => 'chargeType',
         'commodityCode'   => 'commodityCode',
         'createTime'      => 'createTime',
@@ -209,6 +215,9 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bsVersion) {
+            $res['bsVersion'] = $this->bsVersion;
+        }
         if (null !== $this->chargeType) {
             $res['chargeType'] = $this->chargeType;
         }
@@ -284,6 +293,9 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bsVersion'])) {
+            $model->bsVersion = $map['bsVersion'];
+        }
         if (isset($map['chargeType'])) {
             $model->chargeType = $map['chargeType'];
         }

@@ -2962,6 +2962,12 @@ class Searchengine extends OpenApiClient
         if (!Utils::isUnset($request->newMode)) {
             $query['newMode'] = $request->newMode;
         }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['type'] = $request->type;
         }

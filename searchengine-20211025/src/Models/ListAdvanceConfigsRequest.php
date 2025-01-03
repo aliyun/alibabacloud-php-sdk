@@ -36,6 +36,16 @@ class ListAdvanceConfigsRequest extends Model
     public $newMode;
 
     /**
+     * @var string
+     */
+    public $pageNumber;
+
+    /**
+     * @var string
+     */
+    public $pageSize;
+
+    /**
      * @description The type of advanced configurations that you want to query. Valid values: - online -offline (default)
      *
      * @example online
@@ -47,6 +57,8 @@ class ListAdvanceConfigsRequest extends Model
         'dataSourceName' => 'dataSourceName',
         'indexName'      => 'indexName',
         'newMode'        => 'newMode',
+        'pageNumber'     => 'pageNumber',
+        'pageSize'       => 'pageSize',
         'type'           => 'type',
     ];
 
@@ -65,6 +77,12 @@ class ListAdvanceConfigsRequest extends Model
         }
         if (null !== $this->newMode) {
             $res['newMode'] = $this->newMode;
+        }
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -89,6 +107,12 @@ class ListAdvanceConfigsRequest extends Model
         }
         if (isset($map['newMode'])) {
             $model->newMode = $map['newMode'];
+        }
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
+        }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];
