@@ -16,6 +16,11 @@ class RecoveryFileRequest extends Model
     public $androidInstanceIdList;
 
     /**
+     * @var bool
+     */
+    public $backupAll;
+
+    /**
      * @example bf-azhps4rdyi2th****
      *
      * @var string
@@ -42,6 +47,7 @@ class RecoveryFileRequest extends Model
     public $uploadType;
     protected $_name = [
         'androidInstanceIdList' => 'AndroidInstanceIdList',
+        'backupAll'             => 'BackupAll',
         'backupFileId'          => 'BackupFileId',
         'backupFilePath'        => 'BackupFilePath',
         'uploadEndpoint'        => 'UploadEndpoint',
@@ -57,6 +63,9 @@ class RecoveryFileRequest extends Model
         $res = [];
         if (null !== $this->androidInstanceIdList) {
             $res['AndroidInstanceIdList'] = $this->androidInstanceIdList;
+        }
+        if (null !== $this->backupAll) {
+            $res['BackupAll'] = $this->backupAll;
         }
         if (null !== $this->backupFileId) {
             $res['BackupFileId'] = $this->backupFileId;
@@ -86,6 +95,9 @@ class RecoveryFileRequest extends Model
             if (!empty($map['AndroidInstanceIdList'])) {
                 $model->androidInstanceIdList = $map['AndroidInstanceIdList'];
             }
+        }
+        if (isset($map['BackupAll'])) {
+            $model->backupAll = $map['BackupAll'];
         }
         if (isset($map['BackupFileId'])) {
             $model->backupFileId = $map['BackupFileId'];

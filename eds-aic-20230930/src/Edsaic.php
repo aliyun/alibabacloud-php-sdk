@@ -83,6 +83,8 @@ use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyKeyPairNameResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupShrinkRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\OperateAppRequest;
+use AlibabaCloud\SDK\Edsaic\V20230930\Models\OperateAppResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupRequest;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RebootAndroidInstancesInGroupResponse;
 use AlibabaCloud\SDK\Edsaic\V20230930\Models\RecoveryFileRequest;
@@ -264,6 +266,9 @@ class Edsaic extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->androidInstanceIdList)) {
             $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        }
+        if (!Utils::isUnset($request->backupAll)) {
+            $query['BackupAll'] = $request->backupAll;
         }
         if (!Utils::isUnset($request->backupFileName)) {
             $query['BackupFileName'] = $request->backupFileName;
@@ -1233,6 +1238,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 查询备份文件列表
+     *  *
      * @param DescribeBackupFilesRequest $request DescribeBackupFilesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
@@ -1247,6 +1254,9 @@ class Edsaic extends OpenApiClient
         }
         if (!Utils::isUnset($request->androidInstanceName)) {
             $query['AndroidInstanceName'] = $request->androidInstanceName;
+        }
+        if (!Utils::isUnset($request->backupAll)) {
+            $query['BackupAll'] = $request->backupAll;
         }
         if (!Utils::isUnset($request->backupFileId)) {
             $query['BackupFileId'] = $request->backupFileId;
@@ -1297,6 +1307,8 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 查询备份文件列表
+     *  *
      * @param DescribeBackupFilesRequest $request DescribeBackupFilesRequest
      *
      * @return DescribeBackupFilesResponse DescribeBackupFilesResponse
@@ -2323,6 +2335,59 @@ class Edsaic extends OpenApiClient
     }
 
     /**
+     * @summary 操作App
+     *  *
+     * @param OperateAppRequest $request OperateAppRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OperateAppResponse OperateAppResponse
+     */
+    public function operateAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->instanceIdList)) {
+            $query['InstanceIdList'] = $request->instanceIdList;
+        }
+        if (!Utils::isUnset($request->operateType)) {
+            $query['OperateType'] = $request->operateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OperateApp',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OperateAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 操作App
+     *  *
+     * @param OperateAppRequest $request OperateAppRequest
+     *
+     * @return OperateAppResponse OperateAppResponse
+     */
+    public function operateApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->operateAppWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 重启安卓实例
      *  *
      * @param RebootAndroidInstancesInGroupRequest $request RebootAndroidInstancesInGroupRequest
@@ -2386,6 +2451,9 @@ class Edsaic extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->androidInstanceIdList)) {
             $query['AndroidInstanceIdList'] = $request->androidInstanceIdList;
+        }
+        if (!Utils::isUnset($request->backupAll)) {
+            $query['BackupAll'] = $request->backupAll;
         }
         if (!Utils::isUnset($request->backupFileId)) {
             $query['BackupFileId'] = $request->backupFileId;

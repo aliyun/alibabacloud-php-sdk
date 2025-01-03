@@ -21,6 +21,11 @@ class data extends Model
     public $androidInstanceName;
 
     /**
+     * @var bool
+     */
+    public $backupAll;
+
+    /**
      * @example bf-b0qbg3pbpjkn7****
      *
      * @var string
@@ -124,6 +129,7 @@ class data extends Model
     protected $_name = [
         'androidInstanceId'   => 'AndroidInstanceId',
         'androidInstanceName' => 'AndroidInstanceName',
+        'backupAll'           => 'BackupAll',
         'backupFileId'        => 'BackupFileId',
         'backupFileName'      => 'BackupFileName',
         'backupFilePath'      => 'BackupFilePath',
@@ -154,6 +160,9 @@ class data extends Model
         }
         if (null !== $this->androidInstanceName) {
             $res['AndroidInstanceName'] = $this->androidInstanceName;
+        }
+        if (null !== $this->backupAll) {
+            $res['BackupAll'] = $this->backupAll;
         }
         if (null !== $this->backupFileId) {
             $res['BackupFileId'] = $this->backupFileId;
@@ -220,6 +229,9 @@ class data extends Model
         }
         if (isset($map['AndroidInstanceName'])) {
             $model->androidInstanceName = $map['AndroidInstanceName'];
+        }
+        if (isset($map['BackupAll'])) {
+            $model->backupAll = $map['BackupAll'];
         }
         if (isset($map['BackupFileId'])) {
             $model->backupFileId = $map['BackupFileId'];

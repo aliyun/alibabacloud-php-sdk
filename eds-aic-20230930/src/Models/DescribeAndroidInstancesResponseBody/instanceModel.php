@@ -115,6 +115,11 @@ class instanceModel extends Model
     /**
      * @var string
      */
+    public $imageVersion;
+
+    /**
+     * @var string
+     */
     public $instanceType;
 
     /**
@@ -152,6 +157,11 @@ class instanceModel extends Model
      * @var string
      */
     public $policyGroupId;
+
+    /**
+     * @var string
+     */
+    public $publicIpAddress;
 
     /**
      * @example 100
@@ -193,6 +203,7 @@ class instanceModel extends Model
         'gmtCreate'                => 'GmtCreate',
         'gmtExpired'               => 'GmtExpired',
         'gmtModified'              => 'GmtModified',
+        'imageVersion'             => 'ImageVersion',
         'instanceType'             => 'InstanceType',
         'keyPairId'                => 'KeyPairId',
         'memory'                   => 'Memory',
@@ -200,6 +211,7 @@ class instanceModel extends Model
         'officeSiteId'             => 'OfficeSiteId',
         'persistentAppInstanceId'  => 'PersistentAppInstanceId',
         'policyGroupId'            => 'PolicyGroupId',
+        'publicIpAddress'          => 'PublicIpAddress',
         'rate'                     => 'Rate',
         'regionId'                 => 'RegionId',
         'renderingType'            => 'RenderingType',
@@ -267,6 +279,9 @@ class instanceModel extends Model
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+        if (null !== $this->imageVersion) {
+            $res['ImageVersion'] = $this->imageVersion;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -287,6 +302,9 @@ class instanceModel extends Model
         }
         if (null !== $this->policyGroupId) {
             $res['PolicyGroupId'] = $this->policyGroupId;
+        }
+        if (null !== $this->publicIpAddress) {
+            $res['PublicIpAddress'] = $this->publicIpAddress;
         }
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
@@ -372,6 +390,9 @@ class instanceModel extends Model
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+        if (isset($map['ImageVersion'])) {
+            $model->imageVersion = $map['ImageVersion'];
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
@@ -392,6 +413,9 @@ class instanceModel extends Model
         }
         if (isset($map['PolicyGroupId'])) {
             $model->policyGroupId = $map['PolicyGroupId'];
+        }
+        if (isset($map['PublicIpAddress'])) {
+            $model->publicIpAddress = $map['PublicIpAddress'];
         }
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];

@@ -41,6 +41,11 @@ class data extends Model
     public $instanceName;
 
     /**
+     * @var string
+     */
+    public $instanceStatus;
+
+    /**
      * @example B8ED2BA9-0C6A-5643-818F-B5D60A64****
      *
      * @var string
@@ -135,6 +140,7 @@ class data extends Model
         'finishTime'        => 'FinishTime',
         'instanceId'        => 'InstanceId',
         'instanceName'      => 'InstanceName',
+        'instanceStatus'    => 'InstanceStatus',
         'invokeId'          => 'InvokeId',
         'level'             => 'Level',
         'operator'          => 'Operator',
@@ -176,6 +182,9 @@ class data extends Model
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
+        }
+        if (null !== $this->instanceStatus) {
+            $res['InstanceStatus'] = $this->instanceStatus;
         }
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
@@ -251,6 +260,9 @@ class data extends Model
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
+        }
+        if (isset($map['InstanceStatus'])) {
+            $model->instanceStatus = $map['InstanceStatus'];
         }
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];

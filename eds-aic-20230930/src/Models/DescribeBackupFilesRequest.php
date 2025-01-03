@@ -23,6 +23,11 @@ class DescribeBackupFilesRequest extends Model
     public $androidInstanceName;
 
     /**
+     * @var bool
+     */
+    public $backupAll;
+
+    /**
      * @example bf-dxrh5jrv0zpb8****
      *
      * @var string
@@ -88,6 +93,7 @@ class DescribeBackupFilesRequest extends Model
     protected $_name = [
         'androidInstanceId'   => 'AndroidInstanceId',
         'androidInstanceName' => 'AndroidInstanceName',
+        'backupAll'           => 'BackupAll',
         'backupFileId'        => 'BackupFileId',
         'backupFileName'      => 'BackupFileName',
         'description'         => 'Description',
@@ -112,6 +118,9 @@ class DescribeBackupFilesRequest extends Model
         }
         if (null !== $this->androidInstanceName) {
             $res['AndroidInstanceName'] = $this->androidInstanceName;
+        }
+        if (null !== $this->backupAll) {
+            $res['BackupAll'] = $this->backupAll;
         }
         if (null !== $this->backupFileId) {
             $res['BackupFileId'] = $this->backupFileId;
@@ -160,6 +169,9 @@ class DescribeBackupFilesRequest extends Model
         }
         if (isset($map['AndroidInstanceName'])) {
             $model->androidInstanceName = $map['AndroidInstanceName'];
+        }
+        if (isset($map['BackupAll'])) {
+            $model->backupAll = $map['BackupAll'];
         }
         if (isset($map['BackupFileId'])) {
             $model->backupFileId = $map['BackupFileId'];
