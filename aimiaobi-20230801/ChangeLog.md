@@ -1,3 +1,6 @@
+2025-01-03 Version: 1.19.1
+- Generated php 2023-08-01 for AiMiaoBi.
+
 2025-01-02 Version: 1.19.0
 - Support API RunBookIntroduction.
 - Support API RunBookSmartCard.
