@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterConfigChangeLogsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @example be.conf
      *
      * @var string
