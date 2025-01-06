@@ -1729,6 +1729,9 @@ class VoiceNavigator extends OpenApiClient
         if (!Utils::isUnset($request->configLevel)) {
             $query['ConfigLevel'] = $request->configLevel;
         }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
         if (!Utils::isUnset($request->entryId)) {
             $query['EntryId'] = $request->entryId;
         }

@@ -35,11 +35,23 @@ class data extends Model
      * @var string
      */
     public $asrVocabularyId;
+
+    /**
+     * @var string
+     */
+    public $engine;
+
+    /**
+     * @var string
+     */
+    public $engineXufei;
     protected $_name = [
         'asrAcousticModelId'   => 'AsrAcousticModelId',
         'asrClassVocabularyId' => 'AsrClassVocabularyId',
         'asrCustomizationId'   => 'AsrCustomizationId',
         'asrVocabularyId'      => 'AsrVocabularyId',
+        'engine'               => 'Engine',
+        'engineXufei'          => 'EngineXufei',
     ];
 
     public function validate()
@@ -60,6 +72,12 @@ class data extends Model
         }
         if (null !== $this->asrVocabularyId) {
             $res['AsrVocabularyId'] = $this->asrVocabularyId;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
+        }
+        if (null !== $this->engineXufei) {
+            $res['EngineXufei'] = $this->engineXufei;
         }
 
         return $res;
@@ -84,6 +102,12 @@ class data extends Model
         }
         if (isset($map['AsrVocabularyId'])) {
             $model->asrVocabularyId = $map['AsrVocabularyId'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
+        }
+        if (isset($map['EngineXufei'])) {
+            $model->engineXufei = $map['EngineXufei'];
         }
 
         return $model;

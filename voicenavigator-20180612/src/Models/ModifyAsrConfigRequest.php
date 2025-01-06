@@ -44,6 +44,11 @@ class ModifyAsrConfigRequest extends Model
     public $configLevel;
 
     /**
+     * @var string
+     */
+    public $engine;
+
+    /**
      * @example 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
      *
      * @var string
@@ -55,6 +60,7 @@ class ModifyAsrConfigRequest extends Model
         'asrCustomizationId'   => 'AsrCustomizationId',
         'asrVocabularyId'      => 'AsrVocabularyId',
         'configLevel'          => 'ConfigLevel',
+        'engine'               => 'Engine',
         'entryId'              => 'EntryId',
     ];
 
@@ -79,6 +85,9 @@ class ModifyAsrConfigRequest extends Model
         }
         if (null !== $this->configLevel) {
             $res['ConfigLevel'] = $this->configLevel;
+        }
+        if (null !== $this->engine) {
+            $res['Engine'] = $this->engine;
         }
         if (null !== $this->entryId) {
             $res['EntryId'] = $this->entryId;
@@ -109,6 +118,9 @@ class ModifyAsrConfigRequest extends Model
         }
         if (isset($map['ConfigLevel'])) {
             $model->configLevel = $map['ConfigLevel'];
+        }
+        if (isset($map['Engine'])) {
+            $model->engine = $map['Engine'];
         }
         if (isset($map['EntryId'])) {
             $model->entryId = $map['EntryId'];
