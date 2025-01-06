@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaPeriodVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaPeriodVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaStandardVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaStandardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyRequest;
@@ -57,8 +59,12 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InsertWhiteListSettingRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InsertWhiteListSettingResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\LivenessFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\LivenessFaceVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailStandardVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailStandardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaSimpleStandardVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaSimpleStandardVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaSimpleVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaSimpleVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\MobileDetectRequest;
@@ -1431,6 +1437,65 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * @summary 二要素有效期核验接口
+     *  *
+     * @param Id2MetaPeriodVerifyRequest $request Id2MetaPeriodVerifyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return Id2MetaPeriodVerifyResponse Id2MetaPeriodVerifyResponse
+     */
+    public function id2MetaPeriodVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $body['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $body['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['UserName'] = $request->userName;
+        }
+        if (!Utils::isUnset($request->validityEndDate)) {
+            $body['ValidityEndDate'] = $request->validityEndDate;
+        }
+        if (!Utils::isUnset($request->validityStartDate)) {
+            $body['ValidityStartDate'] = $request->validityStartDate;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Id2MetaPeriodVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Id2MetaPeriodVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 二要素有效期核验接口
+     *  *
+     * @param Id2MetaPeriodVerifyRequest $request Id2MetaPeriodVerifyRequest
+     *
+     * @return Id2MetaPeriodVerifyResponse Id2MetaPeriodVerifyResponse
+     */
+    public function id2MetaPeriodVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->id2MetaPeriodVerifyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 身份二要素标准版
      *  *
      * @param Id2MetaStandardVerifyRequest $request Id2MetaStandardVerifyRequest
@@ -1833,6 +1898,62 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * @summary 手机号三要素详版_标准版
+     *  *
+     * @param Mobile3MetaDetailStandardVerifyRequest $request Mobile3MetaDetailStandardVerifyRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return Mobile3MetaDetailStandardVerifyResponse Mobile3MetaDetailStandardVerifyResponse
+     */
+    public function mobile3MetaDetailStandardVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $body['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $body['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $body['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Mobile3MetaDetailStandardVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Mobile3MetaDetailStandardVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 手机号三要素详版_标准版
+     *  *
+     * @param Mobile3MetaDetailStandardVerifyRequest $request Mobile3MetaDetailStandardVerifyRequest
+     *
+     * @return Mobile3MetaDetailStandardVerifyResponse Mobile3MetaDetailStandardVerifyResponse
+     */
+    public function mobile3MetaDetailStandardVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobile3MetaDetailStandardVerifyWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 手机三要素详版接口
      *  *
      * @param Mobile3MetaDetailVerifyRequest $request Mobile3MetaDetailVerifyRequest
@@ -1886,6 +2007,62 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->mobile3MetaDetailVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 手机号三要素简版_标准版
+     *  *
+     * @param Mobile3MetaSimpleStandardVerifyRequest $request Mobile3MetaSimpleStandardVerifyRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return Mobile3MetaSimpleStandardVerifyResponse Mobile3MetaSimpleStandardVerifyResponse
+     */
+    public function mobile3MetaSimpleStandardVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $body['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $body['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $body['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $body['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Mobile3MetaSimpleStandardVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Mobile3MetaSimpleStandardVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 手机号三要素简版_标准版
+     *  *
+     * @param Mobile3MetaSimpleStandardVerifyRequest $request Mobile3MetaSimpleStandardVerifyRequest
+     *
+     * @return Mobile3MetaSimpleStandardVerifyResponse Mobile3MetaSimpleStandardVerifyResponse
+     */
+    public function mobile3MetaSimpleStandardVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobile3MetaSimpleStandardVerifyWithOptions($request, $runtime);
     }
 
     /**
