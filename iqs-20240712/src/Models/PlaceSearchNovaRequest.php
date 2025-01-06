@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PlaceSearchNovaRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $cityLimit;
+
+    /**
      * @var string
      */
     public $keywords;
@@ -39,11 +44,12 @@ class PlaceSearchNovaRequest extends Model
      */
     public $types;
     protected $_name = [
-        'keywords' => 'keywords',
-        'page'     => 'page',
-        'region'   => 'region',
-        'size'     => 'size',
-        'types'    => 'types',
+        'cityLimit' => 'cityLimit',
+        'keywords'  => 'keywords',
+        'page'      => 'page',
+        'region'    => 'region',
+        'size'      => 'size',
+        'types'     => 'types',
     ];
 
     public function validate()
@@ -53,6 +59,9 @@ class PlaceSearchNovaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cityLimit) {
+            $res['cityLimit'] = $this->cityLimit;
+        }
         if (null !== $this->keywords) {
             $res['keywords'] = $this->keywords;
         }
@@ -80,6 +89,9 @@ class PlaceSearchNovaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cityLimit'])) {
+            $model->cityLimit = $map['cityLimit'];
+        }
         if (isset($map['keywords'])) {
             $model->keywords = $map['keywords'];
         }

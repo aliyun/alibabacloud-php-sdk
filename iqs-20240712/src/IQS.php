@@ -421,6 +421,9 @@ class IQS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cityLimit)) {
+            $query['cityLimit'] = $request->cityLimit;
+        }
         if (!Utils::isUnset($request->keywords)) {
             $query['keywords'] = $request->keywords;
         }
@@ -489,6 +492,9 @@ class IQS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cityLimit)) {
+            $query['cityLimit'] = $request->cityLimit;
+        }
         if (!Utils::isUnset($request->keywords)) {
             $query['keywords'] = $request->keywords;
         }

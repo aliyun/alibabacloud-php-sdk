@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class NearbySearchNovaRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $cityLimit;
+
+    /**
      * @var string
      */
     public $keywords;
@@ -55,6 +60,7 @@ class NearbySearchNovaRequest extends Model
      */
     public $types;
     protected $_name = [
+        'cityLimit' => 'cityLimit',
         'keywords'  => 'keywords',
         'latitude'  => 'latitude',
         'longitude' => 'longitude',
@@ -71,6 +77,9 @@ class NearbySearchNovaRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cityLimit) {
+            $res['cityLimit'] = $this->cityLimit;
+        }
         if (null !== $this->keywords) {
             $res['keywords'] = $this->keywords;
         }
@@ -104,6 +113,9 @@ class NearbySearchNovaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['cityLimit'])) {
+            $model->cityLimit = $map['cityLimit'];
+        }
         if (isset($map['keywords'])) {
             $model->keywords = $map['keywords'];
         }
