@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description Image supplementary reference information.
+     *
      * @var ext
      */
     public $ext;
 
     /**
+     * @description The risk labels, confidence scores, and other parameters of image detection results, in an array structure.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description Risk level.
+     *
      * @example high
      *
      * @var string
@@ -28,6 +34,8 @@ class results extends Model
     public $riskLevel;
 
     /**
+     * @description The enhanced image detection service supports various detection services.
+     *
      * @example baselineCheck
      *
      * @var string

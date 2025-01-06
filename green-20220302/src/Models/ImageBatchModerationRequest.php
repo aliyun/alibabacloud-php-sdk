@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ImageBatchModerationRequest extends Model
 {
     /**
+     * @description The types of detection supported by the enhanced image review, separated by English commas. Values:
+     *
+     * - aigcCheck：AIGC image detection
+     * @example baselineCheck,tonalityImprove
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @description The set of relevant parameters for content detection objects.
+     *
      * @example {
      * "imageUrl": "https://img.alicdn.com/tfs/TB1U4r9AeH2gK0jSZJnXXaT1FXa-2880-480.png",
      * "dataId": "img123****"

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class logoData extends Model
 {
     /**
+     * @description The location information of the identifier.
+     *
      * @var location
      */
     public $location;
 
     /**
+     * @description identification information
+     *
      * @var logo[]
      */
     public $logo;

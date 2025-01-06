@@ -18,6 +18,16 @@ class data extends Model
     public $accountId;
 
     /**
+     * @var string
+     */
+    public $dataId;
+
+    /**
+     * @var string
+     */
+    public $descriptions;
+
+    /**
      * @description The device ID.
      *
      * @example xxxxxx
@@ -44,10 +54,12 @@ class data extends Model
      */
     public $reason;
     protected $_name = [
-        'accountId' => 'accountId',
-        'deviceId'  => 'deviceId',
-        'labels'    => 'labels',
-        'reason'    => 'reason',
+        'accountId'    => 'accountId',
+        'dataId'       => 'dataId',
+        'descriptions' => 'descriptions',
+        'deviceId'     => 'deviceId',
+        'labels'       => 'labels',
+        'reason'       => 'reason',
     ];
 
     public function validate()
@@ -59,6 +71,12 @@ class data extends Model
         $res = [];
         if (null !== $this->accountId) {
             $res['accountId'] = $this->accountId;
+        }
+        if (null !== $this->dataId) {
+            $res['dataId'] = $this->dataId;
+        }
+        if (null !== $this->descriptions) {
+            $res['descriptions'] = $this->descriptions;
         }
         if (null !== $this->deviceId) {
             $res['deviceId'] = $this->deviceId;
@@ -83,6 +101,12 @@ class data extends Model
         $model = new self();
         if (isset($map['accountId'])) {
             $model->accountId = $map['accountId'];
+        }
+        if (isset($map['dataId'])) {
+            $model->dataId = $map['dataId'];
+        }
+        if (isset($map['descriptions'])) {
+            $model->descriptions = $map['descriptions'];
         }
         if (isset($map['deviceId'])) {
             $model->deviceId = $map['deviceId'];

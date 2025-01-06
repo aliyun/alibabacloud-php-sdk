@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class customText extends Model
 {
     /**
+     * @description Custom words, separate multiple words with commas.
+     *
+     * @example Custom Word 1  and  Custom Word 2
+     *
      * @var string
      */
     public $keyWords;
 
     /**
+     * @description Custom library ID.
+     *
      * @example 123456
      *
      * @var string
@@ -21,6 +27,10 @@ class customText extends Model
     public $libId;
 
     /**
+     * @description Custom library name.
+     *
+     * @example Custom Library 1
+     *
      * @var string
      */
     public $libName;

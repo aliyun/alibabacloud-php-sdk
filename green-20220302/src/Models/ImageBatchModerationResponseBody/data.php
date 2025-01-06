@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description To detect the data ID corresponding to the object.
+     *
      * @example 26769ada6e264e7ba9aa048241e12be9
      *
      * @var string
@@ -18,16 +20,22 @@ class data extends Model
     public $dataId;
 
     /**
+     * @description The risk labels, confidence scores, and other parameters of image detection results, in an array structure.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The risk labels, confidence scores, and other parameters for each service\\"s image detection, in an array structure.
+     *
      * @var results[]
      */
     public $results;
 
     /**
+     * @description Risk level.
+     *
      * @example high
      *
      * @var string

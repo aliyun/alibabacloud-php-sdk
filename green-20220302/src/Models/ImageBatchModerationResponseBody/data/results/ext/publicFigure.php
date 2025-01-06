@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class publicFigure extends Model
 {
     /**
+     * @description Identify the encoded information of the person.
+     *
+     * @example 12324222
+     *
      * @var string
      */
     public $figureId;
 
     /**
+     * @description The identified person\\"s name information.
+     *
+     * @example xxxxx
+     *
      * @var string
      */
     public $figureName;
 
     /**
+     * @description The location information of the identifier.
+     *
      * @var location[]
      */
     public $location;

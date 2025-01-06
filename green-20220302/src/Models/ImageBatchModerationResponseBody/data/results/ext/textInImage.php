@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class textInImage extends Model
 {
     /**
+     * @description When a custom text library is matched, return the custom library ID, custom library name, and custom words.
+     *
      * @var customText[]
      */
     public $customText;
 
     /**
+     * @description Return the text information of each line recognized in the image.
+     *
      * @var ocrResult[]
      */
     public $ocrResult;
 
     /**
+     * @description hit risk keywords
+     *
      * @var string[]
      */
     public $riskWord;

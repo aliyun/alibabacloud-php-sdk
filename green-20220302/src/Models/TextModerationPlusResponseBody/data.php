@@ -18,6 +18,11 @@ class data extends Model
     public $advice;
 
     /**
+     * @var string
+     */
+    public $dataId;
+
+    /**
      * @description The results.
      *
      * @var result[]
@@ -43,6 +48,7 @@ class data extends Model
     public $score;
     protected $_name = [
         'advice'    => 'Advice',
+        'dataId'    => 'DataId',
         'result'    => 'Result',
         'riskLevel' => 'RiskLevel',
         'score'     => 'Score',
@@ -63,6 +69,9 @@ class data extends Model
                     $res['Advice'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dataId) {
+            $res['DataId'] = $this->dataId;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -99,6 +108,9 @@ class data extends Model
                     $model->advice[$n++] = null !== $item ? advice::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DataId'])) {
+            $model->dataId = $map['DataId'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logo extends Model
 {
     /**
+     * @description Confidence score, from 0 to 100, rounded to two decimal places.
+     *
      * @example 99.1
      *
      * @var float
@@ -16,6 +18,8 @@ class logo extends Model
     public $confidence;
 
     /**
+     * @description Identify the category.
+     *
      * @example logo_sns
      *
      * @var string
@@ -23,6 +27,10 @@ class logo extends Model
     public $label;
 
     /**
+     * @description identifier  name.
+     *
+     * @example Alibaba Cloud
+     *
      * @var string
      */
     public $name;

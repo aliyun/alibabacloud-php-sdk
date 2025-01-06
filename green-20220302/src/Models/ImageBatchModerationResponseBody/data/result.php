@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Confidence score, ranging from 0 to 100, retained to two decimal places. Some labels do not have a confidence score.
+     *
      * @example 81.22
      *
      * @var float
@@ -16,11 +18,17 @@ class result extends Model
     public $confidence;
 
     /**
+     * @description Description.
+     *
+     * @example No risk detected
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The labels returned after image content detection. A single image may be associated with multiple labels and corresponding scores.
+     *
      * @example violent_explosion
      *
      * @var string

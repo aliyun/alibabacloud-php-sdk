@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class location extends Model
 {
     /**
+     * @description The height of the text area, in pixels.
+     *
      * @example 33
      *
      * @var int
@@ -16,6 +18,8 @@ class location extends Model
     public $h;
 
     /**
+     * @description The width of the text area, in pixels.
+     *
      * @example 44
      *
      * @var int
@@ -23,6 +27,8 @@ class location extends Model
     public $w;
 
     /**
+     * @description The distance from the top-left corner of the text area to the y-axis, with the top-left corner of the image as the origin, in pixels.
+     *
      * @example 11
      *
      * @var int
@@ -30,6 +36,8 @@ class location extends Model
     public $x;
 
     /**
+     * @description The distance from the top-left corner of the text area to the x-axis, with the top-left corner of the image as the origin, in pixels.
+     *
      * @example 22
      *
      * @var int

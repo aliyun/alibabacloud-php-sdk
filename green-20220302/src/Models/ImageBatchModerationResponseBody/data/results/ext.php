@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class ext extends Model
 {
     /**
+     * @description Custom image library hit information list.
+     *
      * @var customImage[]
      */
     public $customImage;
 
     /**
+     * @description Logo identification information.
+     *
      * @var logoData
      */
     public $logoData;
 
     /**
+     * @description List of character information.
+     *
      * @var publicFigure[]
      */
     public $publicFigure;
 
     /**
+     * @description Return the text information from the recognized images.
+     *
      * @var textInImage
      */
     public $textInImage;

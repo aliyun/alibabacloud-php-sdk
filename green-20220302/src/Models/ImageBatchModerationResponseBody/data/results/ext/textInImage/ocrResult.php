@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ocrResult extends Model
 {
     /**
+     * @description Text line coordinate information.
+     *
      * @var location
      */
     public $location;
 
     /**
+     * @description Text information.
+     *
      * @example abcd
      *
      * @var string
