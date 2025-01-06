@@ -1,3 +1,8 @@
+2025-01-06 Version: 1.3.0
+- Support API GetEmbeddingTuning.
+- Support API GetPrediction.
+
+
 2024-09-12 Version: 1.2.0
 - Support API CreateImageAnalyzeTask.
 - Support API GetImageAnalyzeTaskStatus.

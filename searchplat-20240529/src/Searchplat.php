@@ -15,8 +15,13 @@ use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentRankRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentRankResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentSplitRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetDocumentSplitResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetEmbeddingTuningRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetEmbeddingTuningResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetImageAnalyzeTaskStatusResponse;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionHeaders;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionRequest;
+use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetPredictionResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetQueryAnalysisRequest;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetQueryAnalysisResponse;
 use AlibabaCloud\SDK\Searchplat\V20240529\Models\GetTextEmbeddingRequest;
@@ -322,6 +327,63 @@ class Searchplat extends OpenApiClient
     }
 
     /**
+     * @summary 向量微调
+     *  *
+     * @param string                    $workspaceName
+     * @param string                    $serviceId
+     * @param GetEmbeddingTuningRequest $request       GetEmbeddingTuningRequest
+     * @param string[]                  $headers       map
+     * @param RuntimeOptions            $runtime       runtime options for this request RuntimeOptions
+     *
+     * @return GetEmbeddingTuningResponse GetEmbeddingTuningResponse
+     */
+    public function getEmbeddingTuningWithOptions($workspaceName, $serviceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->input)) {
+            $body['input'] = $request->input;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $body['parameters'] = $request->parameters;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEmbeddingTuning',
+            'version'     => '2024-05-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v3/openapi/workspaces/' . $workspaceName . '/embedding-tuning/' . $serviceId . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEmbeddingTuningResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 向量微调
+     *  *
+     * @param string                    $workspaceName
+     * @param string                    $serviceId
+     * @param GetEmbeddingTuningRequest $request       GetEmbeddingTuningRequest
+     *
+     * @return GetEmbeddingTuningResponse GetEmbeddingTuningResponse
+     */
+    public function getEmbeddingTuning($workspaceName, $serviceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEmbeddingTuningWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 获取图片解析异步提取任务状态
      *  *
      * @param string                           $workspaceName
@@ -373,6 +435,61 @@ class Searchplat extends OpenApiClient
         $headers = [];
 
         return $this->getImageAnalyzeTaskStatusWithOptions($workspaceName, $serviceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取推理结果
+     *  *
+     * @param string               $deploymentId
+     * @param GetPredictionRequest $request      GetPredictionRequest
+     * @param GetPredictionHeaders $headers      GetPredictionHeaders
+     * @param RuntimeOptions       $runtime      runtime options for this request RuntimeOptions
+     *
+     * @return GetPredictionResponse GetPredictionResponse
+     */
+    public function getPredictionWithOptions($deploymentId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->token)) {
+            $realHeaders['Token'] = Utils::toJSONString($headers->token);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'GetPrediction',
+            'version'     => '2024-05-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v3/openapi/deployments/' . $deploymentId . '/predict',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'string',
+        ]);
+
+        return GetPredictionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取推理结果
+     *  *
+     * @param string               $deploymentId
+     * @param GetPredictionRequest $request      GetPredictionRequest
+     *
+     * @return GetPredictionResponse GetPredictionResponse
+     */
+    public function getPrediction($deploymentId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetPredictionHeaders([]);
+
+        return $this->getPredictionWithOptions($deploymentId, $request, $headers, $runtime);
     }
 
     /**
