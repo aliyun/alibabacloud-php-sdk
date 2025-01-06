@@ -32,6 +32,11 @@ class ConvertPostPayOrderRequest extends Model
     public $instanceId;
 
     /**
+     * @var int
+     */
+    public $paidType;
+
+    /**
      * @description The region ID of the instance.
      *
      * This parameter is required.
@@ -43,6 +48,7 @@ class ConvertPostPayOrderRequest extends Model
     protected $_name = [
         'duration'   => 'Duration',
         'instanceId' => 'InstanceId',
+        'paidType'   => 'PaidType',
         'regionId'   => 'RegionId',
     ];
 
@@ -58,6 +64,9 @@ class ConvertPostPayOrderRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->paidType) {
+            $res['PaidType'] = $this->paidType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -79,6 +88,9 @@ class ConvertPostPayOrderRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PaidType'])) {
+            $model->paidType = $map['PaidType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

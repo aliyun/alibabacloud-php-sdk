@@ -18,11 +18,19 @@ class offsetList extends Model
     public $brokerOffset;
 
     /**
+     * @description Client ID of the application.
+     *
+     * @example client-id-KafkaConsumerDemo
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 172.16.11.3
+     *
      * @var string
      */
     public $clientIp;
@@ -46,6 +54,10 @@ class offsetList extends Model
     public $lastTimestamp;
 
     /**
+     * @description Member ID.
+     *
+     * @example client-id-KafkaConsumerDemo-70b64883-a911-4882-8084-598b958848b4
+     *
      * @var string
      */
     public $memberId;

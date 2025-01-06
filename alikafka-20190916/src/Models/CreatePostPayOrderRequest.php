@@ -26,7 +26,7 @@ class CreatePostPayOrderRequest extends Model
     /**
      * @description The disk size.
      *
-     * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+     * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
      * @example 500
      *
      * @var int
@@ -34,12 +34,12 @@ class CreatePostPayOrderRequest extends Model
     public $diskSize;
 
     /**
-     * @description The disk type. Valid values:
+     * @description The disk type of the instance. Valid values:
      *
      *   **0**: ultra disk
      *   **1**: standard SSD
      *
-     * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+     * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
      * @example 0
      *
      * @var string
@@ -47,12 +47,12 @@ class CreatePostPayOrderRequest extends Model
     public $diskType;
 
     /**
-     * @description The maximum Internet traffic in the instance.
+     * @description The Internet traffic.
      *
      *   If you set **DeployType** to **4**, you must configure this parameter.
      *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
-     * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+     * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
      * @example 0
      *
      * @var int
@@ -65,7 +65,7 @@ class CreatePostPayOrderRequest extends Model
      *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
      *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
-     * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+     * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
      * @example 20
      *
      * @var int
@@ -78,7 +78,7 @@ class CreatePostPayOrderRequest extends Model
      *   You must configure at least one of IoMax and IoMaxSpec. If you configure both parameters, the value of IoMaxSpec takes effect. We recommend that you configure only IoMaxSpec.
      *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
-     * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+     * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
      * @example alikafka.hw.2xlarge
      *
      * @var string
@@ -88,8 +88,8 @@ class CreatePostPayOrderRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   1: the pay-as-you-go billing method for ApsaraMQ for Kafka V2 instances.
-     *   3: the pay-as-you-go billing method for serverless ApsaraMQ for Kafka V3 instances.
+     *   1: pay-as-you-go (reserved capacity).
+     *   3: pay-as-you-go (reserved capacity) + pay-as-you-go (on-demand capacity)
      *
      * @example 1
      *
@@ -104,7 +104,7 @@ class CreatePostPayOrderRequest extends Model
      *   If you configure PartitionNum and TopicQuota at the same time, the system verifies whether the price of the partitions equals the price of the topics based on the previous topic-based selling mode. If the price of the partitions does not equal the price of the topics, an error is returned. If the price of the partitions equals the price of the topics, the instance is purchased based on the partition number.
      *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
-     * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+     * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
      * @example 50
      *
      * @var int
@@ -132,7 +132,7 @@ class CreatePostPayOrderRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The parameters configured for the serverless ApsaraMQ for Kafka V3 instance. When you create a Serverless ApsaraMQ for Kafka V3 serverless instance, you must configure these parameters.
+     * @description The parameters configured for the serverless ApsaraMQ for Kafka instance. These parameters are required only when you create a serverless instance.
      *
      * @var serverlessConfig
      */
@@ -173,7 +173,7 @@ class CreatePostPayOrderRequest extends Model
      *   The default value of TopicQuota varies based on the value of IoMaxSpec. If the number of topics that you consume exceeds the default value, you are charged additional fees.
      *   For information about the valid values of this parameter, see [Billing](https://help.aliyun.com/document_detail/84737.html).
      *
-     * >  If you create a serverless ApsaraMQ for Kafka V3 instance, you do not need to configure this parameter.
+     * >  If you create a serverless ApsaraMQ for Kafka instance, you do not need to configure this parameter.
      * @example 50
      *
      * @var int

@@ -2,26 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\UpgradePostPayOrderRequest;
+namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayInstanceRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class serverlessConfig extends Model
 {
     /**
-     * @description The reserved capacity for publishing messages. You can specify only an integer for this parameter. Minimum value: 60.
-     *
-     * >  The maximum capacity that you can reserve for an instance varies based on available resources in a region. The reserved capacity range displayed on the buy page shall prevail.
-     * @example 50
+     * @example 60
      *
      * @var int
      */
     public $reservedPublishCapacity;
 
     /**
-     * @description The reserved capacity for subscribing to messages. You can specify only an integer for this parameter. Minimum value: 50.
-     *
-     * >  The maximum capacity that you can reserve for an instance varies based on available resources in a region. The reserved capacity range displayed on the buy page shall prevail.
      * @example 50
      *
      * @var int

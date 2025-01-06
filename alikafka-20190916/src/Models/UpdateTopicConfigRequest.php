@@ -11,10 +11,10 @@ class UpdateTopicConfigRequest extends Model
     /**
      * @description The key of the topic configuration.
      *
-     *   ApsaraMQ for Kafka V2 instances allow you to modify configurations only for topics that use local storage.
-     *   ApsaraMQ for Kafka V3 instances allow you to modify configurations for all topics.
-     *   The following keys are supported by `local topic` of ApsaraMQ for Kafka V2 instances: retention.ms, retention.bytes, and replications.
-     *   The following keys are supported by ApsaraMQ for Kafka V3 instances: retention.hours and max.message.bytes.
+     *   For reserved instances, you can modify only the configurations of the topics that use local storage.
+     *   For serverless instances, you can modify the configurations of all topics.
+     *   Reserved instances whose topics use local storage support the following keys: retention.ms, max.message.bytes, replications, message.timestamp.type, and message.timestamp.difference.max.ms.``
+     *   Serverless instances support the following keys: retention.hours, max.message.bytes, message.timestamp.type, message.timestamp.difference.max.ms.
      *
      * This parameter is required.
      * @example replications
@@ -54,10 +54,22 @@ class UpdateTopicConfigRequest extends Model
     public $topic;
 
     /**
-     * @description The configuration item that you want to update for the topic. The following configuration items are supported by ApsaraMQ for Kafka V3 instances:
+     * @description The value of the topic configuration.
      *
-     *   `retention.hours` specifies the message retention period. Value type: string. Valid values: 24 to 8760.
-     *   `max.message.bytes` specifies the maximum size of a sent message. Value type: string. Valid values: 1048576 to 10485760.
+     *   Serverless instances support the following values:
+     *
+     *   `retention.hours`: the message retention period. Value type: string. Valid values: 24 to 8760.
+     *   `max.message.bytes`: the maximum size of a sent message. Value type: string. Valid values: 1048576 to 10485760.
+     *   `message.timestamp.type`: the timestamp type of a message. Valid values: CreateTime and LogAppendTime. The value CreateTime specifies the timestamp that is specified by the producer when the message is sent. The value LogAppendTime specifies the time when the broker appends the message to its log. If you do not specify this parameter, the time when the message is created on the client is used.
+     *   `message.timestamp.difference.max.ms`: the maximum positive or negative difference allowed between the timestamp when the broker receives a message and the timestamp specified in the message. If you set message.timestamp.type to CreateTime, **a message is rejected** if the difference in timestamp exceeds the threshold. If you set message.timestamp.type to LogAppendTime, this configuration does not take effect.
+     *
+     *   Reserved instances support the following values:
+     *
+     *   `retention.ms`: the message retention period. Value type: string. Valid values: 3600000 to 31536000000.
+     *   `max.message.bytes`: the maximum size of a sent message. Value type: string. Valid values: 1048576 to 10485760.
+     *   `replications`: the number of replicas. Value type: string. Valid values: 1 to 3.
+     *   `message.timestamp.type`: the timestamp type of a message. Valid values: CreateTime and LogAppendTime. The value CreateTime specifies the timestamp that is specified by the producer when the message is sent. The value LogAppendTime specifies the time when the broker appends the message to its log. If you do not specify this parameter, the time when the message is created on the client is used.
+     *   `message.timestamp.difference.max.ms`: the maximum positive or negative difference allowed between the timestamp when the broker receives a message and the timestamp specified in the message. If you set message.timestamp.type to CreateTime, **a message is rejected** if the difference in timestamp exceeds the threshold. If you set message.timestamp.type to LogAppendTime, this configuration does not take effect.
      *
      * This parameter is required.
      * @example 3

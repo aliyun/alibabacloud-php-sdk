@@ -53,7 +53,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags that you want to add.
+     * @description The tags.
      *
      * This parameter is required.
      * @var tag[]

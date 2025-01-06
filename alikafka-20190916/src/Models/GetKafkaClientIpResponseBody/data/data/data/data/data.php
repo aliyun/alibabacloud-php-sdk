@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
      * @example 58.210.117.154
      *
      * @var string
@@ -16,6 +18,9 @@ class data extends Model
     public $ip;
 
     /**
+     * @description The statistics.
+     *
+     * >  The value of this parameter indicates the number of connections on different ports of the IP address within the specified period of time.
      * @example 3
      *
      * @var int

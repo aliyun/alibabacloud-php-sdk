@@ -2,19 +2,15 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\TagResourcesRequest;
+namespace AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayInstanceRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key.
+     * @description This parameter is required.
      *
-     *   You must specify this parameter.
-     *   The tag key can be up to 128 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
-     *
-     * This parameter is required.
      * @example FinanceDept
      *
      * @var string
@@ -22,12 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value.
-     *
-     *   You can leave this parameter empty.
-     *   The tag value can be up to 128 characters in length and cannot contain http:// or https://. The tag value cannot start with acs: or aliyun.
-     *
-     * @example FinanceJoshua
+     * @example test
      *
      * @var string
      */

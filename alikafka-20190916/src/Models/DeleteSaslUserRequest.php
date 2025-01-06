@@ -24,7 +24,7 @@ class DeleteSaslUserRequest extends Model
      *   SCRAM-SHA-512. This is the default value.
      *   SCRAM-SHA-256
      *
-     * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
      * @example SCRAM-SHA-256
      *
      * @var string

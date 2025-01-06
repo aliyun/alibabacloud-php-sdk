@@ -25,7 +25,6 @@ class EnableAutoTopicCreationRequest extends Model
      *   disable: disables the automatic topic creation feature.
      *   updatePartition: changes the number of partitions in topics that are automatically created.
      *
-     * This parameter is required.
      * @example enable
      *
      * @var string
@@ -51,11 +50,17 @@ class EnableAutoTopicCreationRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $updatePartition;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'operate'      => 'Operate',
-        'partitionNum' => 'PartitionNum',
-        'regionId'     => 'RegionId',
+        'instanceId'      => 'InstanceId',
+        'operate'         => 'Operate',
+        'partitionNum'    => 'PartitionNum',
+        'regionId'        => 'RegionId',
+        'updatePartition' => 'UpdatePartition',
     ];
 
     public function validate()
@@ -76,6 +81,9 @@ class EnableAutoTopicCreationRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->updatePartition) {
+            $res['UpdatePartition'] = $this->updatePartition;
         }
 
         return $res;
@@ -100,6 +108,9 @@ class EnableAutoTopicCreationRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UpdatePartition'])) {
+            $model->updatePartition = $map['UpdatePartition'];
         }
 
         return $model;

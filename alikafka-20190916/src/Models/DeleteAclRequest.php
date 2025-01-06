@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteAclRequest extends Model
 {
     /**
-     * @description The operation allowed by the access control list (ACL). Valid values:
+     * @description The type of the operation allowed by the access control list (ACL). Valid values:
      *
-     *   **Write**
-     *   **Read**
-     *   **Describe**: reads of transactional IDs
-     *   **IdempotentWrite**: idempotent data writes to clusters
-     *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
-     *   **DESCRIBE_CONFIGS**: configuration queries. This value is available only for ApsaraMQ for Kafka V3 instances.
+     *   **Write**: data writes.
+     *   **Read**: data reads.
+     *   **Describe**: reads of transaction IDs.
+     *   **IdempotentWrite**: idempotent data writes to clusters.
+     *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for serverless ApsaraMQ for Kafka instances.
+     *   **DESCRIBE_CONFIGS**: configuration query. This value is available only for serverless ApsaraMQ for Kafka instances.
      *
      * This parameter is required.
      * @example Write
@@ -26,18 +26,18 @@ class DeleteAclRequest extends Model
     public $aclOperationType;
 
     /**
-     * @description The operations allowed by the ACL. Separate multiple operations with commas (,).
+     * @description The types of operations allowed by the ACL. Separate multiple operations with commas (,).
      *
      * Valid values:
      *
-     *   **Write**: data writes
-     *   **Read**: data reads
-     *   **Describe**: reads of transactional IDs
-     *   **IdempotentWrite**: idempotent data writes to clusters
-     *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for ApsaraMQ for Kafka V3 instances.
-     *   **DESCRIBE_CONFIGS**: queries of configurations. This value is available only for ApsaraMQ for Kafka V3 instances.
+     *   **Write**: data writes.
+     *   **Read**: data reads.
+     *   **Describe**: reads of transaction IDs.
+     *   **IdempotentWrite**: idempotent data writes to clusters.
+     *   **IDEMPOTENT_WRITE**: idempotent data writes to clusters. This value is available only for serverless ApsaraMQ for Kafka instances.
+     *   **DESCRIBE_CONFIGS**: configuration query. This value is available only for serverless ApsaraMQ for Kafka instances.
      *
-     * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
      * @example Write,Read
      *
      * @var string
@@ -50,7 +50,7 @@ class DeleteAclRequest extends Model
      *   Deny
      *   ALLOW
      *
-     * >  This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
+     * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
      * @example DENY
      *
      * @var string
@@ -101,8 +101,12 @@ class DeleteAclRequest extends Model
     /**
      * @description The IP address of the source.
      *
-     * > - You can specify only a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
-     * >- This parameter is available only for serverless ApsaraMQ for Kafka V3 instances.
+     * >
+     *
+     *   You can specify only a specific IP address or use the asterisk (\\*) wildcard character to specify all IP addresses. CIDR blocks are not supported.
+     *
+     *   This parameter is available only for serverless ApsaraMQ for Kafka instances.
+     *
      * @example *
      *
      * @var string

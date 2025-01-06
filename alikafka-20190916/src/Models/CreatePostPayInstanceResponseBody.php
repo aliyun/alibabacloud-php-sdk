@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\Alikafka\V20190916\Models;
 
-use AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpResponseBody\data;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayInstanceResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetKafkaClientIpResponseBody extends Model
+class CreatePostPayInstanceResponseBody extends Model
 {
     /**
-     * @description The returned status code. The status code 200 indicates that the request was successful.
-     *
      * @example 200
      *
      * @var int
@@ -19,15 +17,11 @@ class GetKafkaClientIpResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The message returned.
-     *
      * @example operation success.
      *
      * @var string
@@ -35,17 +29,13 @@ class GetKafkaClientIpResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example E57A8862-DF68-4055-8E55-B80CB4****
+     * @example ABA4A7FD-E10F-45C7-9774-A5236015A***
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
      * @example true
      *
      * @var bool
@@ -88,7 +78,7 @@ class GetKafkaClientIpResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetKafkaClientIpResponseBody
+     * @return CreatePostPayInstanceResponseBody
      */
     public static function fromMap($map = [])
     {

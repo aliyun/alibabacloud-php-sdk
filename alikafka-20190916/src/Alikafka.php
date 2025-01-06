@@ -14,9 +14,15 @@ use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateAclRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateAclResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreateConsumerGroupResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayInstanceRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayInstanceResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayInstanceShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePostPayOrderShrinkRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayInstanceRequest;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayInstanceResponse;
+use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayInstanceShrinkRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderRequest;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderResponse;
 use AlibabaCloud\SDK\Alikafka\V20190916\Models\CreatePrePayOrderShrinkRequest;
@@ -220,6 +226,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->paidType)) {
+            $query['PaidType'] = $request->paidType;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -389,6 +398,91 @@ class Alikafka extends OpenApiClient
     }
 
     /**
+     * @summary 创建后付费实例。
+     *  *
+     * @param CreatePostPayInstanceRequest $tmpReq  CreatePostPayInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePostPayInstanceResponse CreatePostPayInstanceResponse
+     */
+    public function createPostPayInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePostPayInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
+            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->deployType)) {
+            $query['DeployType'] = $request->deployType;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->diskType)) {
+            $query['DiskType'] = $request->diskType;
+        }
+        if (!Utils::isUnset($request->eipMax)) {
+            $query['EipMax'] = $request->eipMax;
+        }
+        if (!Utils::isUnset($request->ioMaxSpec)) {
+            $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->paidType)) {
+            $query['PaidType'] = $request->paidType;
+        }
+        if (!Utils::isUnset($request->partitionNum)) {
+            $query['PartitionNum'] = $request->partitionNum;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->serverlessConfigShrink)) {
+            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
+        }
+        if (!Utils::isUnset($request->specType)) {
+            $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePostPayInstance',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePostPayInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建后付费实例。
+     *  *
+     * @param CreatePostPayInstanceRequest $request CreatePostPayInstanceRequest
+     *
+     * @return CreatePostPayInstanceResponse CreatePostPayInstanceResponse
+     */
+    public function createPostPayInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPostPayInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a pay-as-you-go ApsaraMQ for Kafka instance. Pay-as-you-go instances allow you to pay after you use the resources. You are charged for pay-as-you-go instances based on the actual resource usage. You can use pay-as-you-go instances in test scenarios or scenarios in which the peak traffic is uncertain.
      *  *
      * @description Before you call this operation, make sure that you understand the billing method and pricing of pay-as-you-go Message Queue for Apache Kafka instances. For more information, see [Billing](https://help.aliyun.com/document_detail/84737.html).
@@ -481,6 +575,94 @@ class Alikafka extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createPostPayOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建预付费实例
+     *  *
+     * @param CreatePrePayInstanceRequest $tmpReq  CreatePrePayInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePrePayInstanceResponse CreatePrePayInstanceResponse
+     */
+    public function createPrePayInstanceWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreatePrePayInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->confluentConfig)) {
+            $request->confluentConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->confluentConfig, 'ConfluentConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->confluentConfigShrink)) {
+            $query['ConfluentConfig'] = $request->confluentConfigShrink;
+        }
+        if (!Utils::isUnset($request->deployType)) {
+            $query['DeployType'] = $request->deployType;
+        }
+        if (!Utils::isUnset($request->diskSize)) {
+            $query['DiskSize'] = $request->diskSize;
+        }
+        if (!Utils::isUnset($request->diskType)) {
+            $query['DiskType'] = $request->diskType;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->eipMax)) {
+            $query['EipMax'] = $request->eipMax;
+        }
+        if (!Utils::isUnset($request->ioMaxSpec)) {
+            $query['IoMaxSpec'] = $request->ioMaxSpec;
+        }
+        if (!Utils::isUnset($request->paidType)) {
+            $query['PaidType'] = $request->paidType;
+        }
+        if (!Utils::isUnset($request->partitionNum)) {
+            $query['PartitionNum'] = $request->partitionNum;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->specType)) {
+            $query['SpecType'] = $request->specType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePrePayInstance',
+            'version'     => '2019-09-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePrePayInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建预付费实例
+     *  *
+     * @param CreatePrePayInstanceRequest $request CreatePrePayInstanceRequest
+     *
+     * @return CreatePrePayInstanceResponse CreatePrePayInstanceResponse
+     */
+    public function createPrePayInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPrePayInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1054,9 +1236,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scheduled scaling task for a serverless ApsaraMQ for Kafka V3 instance.
+     * @summary Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *  *
-     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instance.
+     * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
      *  *
      * @param DeleteScheduledScalingRuleRequest $request DeleteScheduledScalingRuleRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1095,9 +1277,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scheduled scaling task for a serverless ApsaraMQ for Kafka V3 instance.
+     * @summary Deletes the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *  *
-     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instance.
+     * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
      *  *
      * @param DeleteScheduledScalingRuleRequest $request DeleteScheduledScalingRuleRequest
      *
@@ -1361,6 +1543,9 @@ class Alikafka extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->updatePartition)) {
+            $query['UpdatePartition'] = $request->updatePartition;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1491,9 +1676,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of the scheduled scaling rule of a serverless ApsaraMQ for Kafka V3 instance.
+     * @summary Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *  *
-     * @description ###### [](#-v3-serverless-)**This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+     * @description ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
      *  *
      * @param GetAutoScalingConfigurationRequest $request GetAutoScalingConfigurationRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1529,9 +1714,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Queries the configurations of the scheduled scaling rule of a serverless ApsaraMQ for Kafka V3 instance.
+     * @summary Queries the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *  *
-     * @description ###### [](#-v3-serverless-)**This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+     * @description ###### [](#-serverless-)**This operation is available only for serverless ApsaraMQ for Kafka instances.
      *  *
      * @param GetAutoScalingConfigurationRequest $request GetAutoScalingConfigurationRequest
      *
@@ -1722,7 +1907,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 获取kafka客户端ip
+     * @summary Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+     *  *
+     * @description *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
+     * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
+     * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
      *  *
      * @param GetKafkaClientIpRequest $request GetKafkaClientIpRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1773,7 +1962,11 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary 获取kafka客户端ip
+     * @summary Queries the IP addresses of the clients that are connected to an ApsaraMQ for Kafka instance.
+     *  *
+     * @description *   The IP information is obtained from the sampled logs generated for the requests that the client sends to the broker by calling the API operations of ApsaraMQ for Kafka.
+     * *   Statistics refers to the number of connections on different ports of an IP address within a specific period of time.
+     * *   If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
      *  *
      * @param GetKafkaClientIpRequest $request GetKafkaClientIpRequest
      *
@@ -2170,9 +2363,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+     * @summary Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *  *
-     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+     * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
      *  *
      * @param ModifyScheduledScalingRuleRequest $request ModifyScheduledScalingRuleRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2214,9 +2407,9 @@ class Alikafka extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a scheduled scaling rule for a serverless ApsaraMQ for Kafka V3 instance.
+     * @summary Modifies the scheduled scaling policy of a serverless ApsaraMQ for Kafka instance after you deploy the instance.
      *  *
-     * @description ###### [](#-v3-serverless-)This operation is supported only by serverless ApsaraMQ for Kafka V3 instances.
+     * @description ###### [](#-serverless-)This operation is available only for serverless ApsaraMQ for Kafka instances.
      *  *
      * @param ModifyScheduledScalingRuleRequest $request ModifyScheduledScalingRuleRequest
      *

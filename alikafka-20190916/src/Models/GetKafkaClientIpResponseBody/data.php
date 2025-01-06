@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The value true indicates that the broker is not of the latest minor version.
+     *
+     * >  If the broker is not of the latest minor version, the sampled logs may not be accurate. This may cause inaccurate IP information. Therefore, we recommend that you update your broker to the latest version at the earliest opportunity.
      * @example true
      *
      * @var bool
@@ -16,11 +19,15 @@ class data extends Model
     public $alert;
 
     /**
+     * @description The data returned.
+     *
      * @var \AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpResponseBody\data\data
      */
     public $data;
 
     /**
+     * @description The end of the date range within which data is queried.
+     *
      * @example 1716343502000
      *
      * @var int
@@ -28,6 +35,9 @@ class data extends Model
     public $endDate;
 
     /**
+     * @description The time range within which the client IP addresses are queried.
+     *
+     * >  The valid value is 1 hour. If the beginning of the time range to query and the end of the time range to query exceeds 1 hour, only data within 1 hour is returned.
      * @example 1
      *
      * @var int
@@ -35,6 +45,8 @@ class data extends Model
     public $searchTimeRange;
 
     /**
+     * @description The beginning of the date range within which data is queried.
+     *
      * @example 1716343501000
      *
      * @var int
@@ -42,6 +54,9 @@ class data extends Model
     public $startDate;
 
     /**
+     * @description The date range within which the client IP addresses are queried.
+     *
+     * >  The valid value is 7 days. If the beginning of the date range to query and the end of the date range to query exceeds 7 days, only data within 7 days is returned.
      * @example 7
      *
      * @var int

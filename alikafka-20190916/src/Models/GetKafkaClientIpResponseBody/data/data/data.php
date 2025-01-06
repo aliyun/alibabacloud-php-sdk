@@ -9,11 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var \AlibabaCloud\SDK\Alikafka\V20190916\Models\GetKafkaClientIpResponseBody\data\data\data\data
      */
     public $data;
 
     /**
+     * @description The request name.
+     *
+     * >  The value of this parameter indicates the type of request that the client sends to the broker within the specified period of time.
      * @example OFFSET_COMMIT
      *
      * @var string

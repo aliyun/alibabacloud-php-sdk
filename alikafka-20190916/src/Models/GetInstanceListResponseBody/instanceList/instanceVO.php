@@ -22,16 +22,28 @@ class instanceVO extends Model
     public $allConfig;
 
     /**
+     * @description Indicates whether the flexible group creation feature is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateGroupEnable;
 
     /**
+     * @description Indicates whether the automatic topic creation feature is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateTopicEnable;
 
     /**
+     * @description The ID of the secondary zone.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $backupZoneId;
@@ -53,6 +65,10 @@ class instanceVO extends Model
     public $createTime;
 
     /**
+     * @description The number of partitions in a topic that is automatically created.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $defaultPartitionNum;
@@ -269,6 +285,13 @@ class instanceVO extends Model
     public $saslDomainEndpoint;
 
     /**
+     * @description The Simple Authentication and Security Layer (SASL) endpoint of the instance in IP address mode. ApsaraMQ for Kafka instances support endpoints in domain name mode and IP address mode.
+     *
+     *   Endpoints in domain name mode: An endpoint in this mode consists of the domain name of the instance and a port number. The format of an endpoint in this mode is `{Instance domain name}:{Port number}`.
+     *   Endpoints in IP address mode: An endpoint in this mode consists of the IP address of the broker and a port number. The format of an endpoint in this mode is `{Broker IP address}:{Port number}`.
+     *
+     * @example 172.16.3.XX:9094,172.16.3.XX:9094,172.16.3.XX:9094
+     *
      * @var string
      */
     public $saslEndPoint;
@@ -425,6 +448,8 @@ class instanceVO extends Model
     public $vSwitchId;
 
     /**
+     * @description The vSwitch IDs.
+     *
      * @var vSwitchIds
      */
     public $vSwitchIds;
@@ -467,11 +492,25 @@ class instanceVO extends Model
     public $vpcId;
 
     /**
+     * @description The SSL endpoint of the instance in domain name mode. You can use the endpoint to access the instance only in virtual private clouds (VPCs). ApsaraMQ for Kafka instances support endpoints in domain name mode and IP address mode.
+     *
+     *   Endpoints in domain name mode: An endpoint in this mode consists of the domain name of the instance and a port number. The format of an endpoint in this mode is `{Instance domain name}:{Port number}`.
+     *   Endpoints in IP address mode: An endpoint in this mode consists of the IP address of the broker and a port number. The format of an endpoint in this mode is `{Broker IP address}:{Port number}`.
+     *
+     * @example alikafka-post-cn-******-1-vpc.alikafka.aliyuncs.com:9095,alikafka-post-cn-******-2-vpc.alikafka.aliyuncs.com:9095,alikafka-post-cn-******-3-vpc.alikafka.aliyuncs.com:9095
+     *
      * @var string
      */
     public $vpcSaslDomainEndpoint;
 
     /**
+     * @description The Secure Sockets Layer (SSL) endpoint of the instance in IP address mode. You can use the endpoint to access the instance only in virtual private clouds (VPCs). ApsaraMQ for Kafka instances support endpoints in domain name mode and IP address mode.
+     *
+     *   Endpoints in domain name mode: An endpoint in this mode consists of the domain name of the instance and a port number. The format of an endpoint in this mode is `{Instance domain name}:{Port number}`.
+     *   Endpoints in IP address mode: An endpoint in this mode consists of the IP address of the broker and a port number. The format of an endpoint in this mode is `{Broker IP address}:{Port number}`.
+     *
+     * @example 172.16.3.XX:9095,172.16.3.XX:9095,172.16.3.XX:9095
+     *
      * @var string
      */
     public $vpcSaslEndPoint;

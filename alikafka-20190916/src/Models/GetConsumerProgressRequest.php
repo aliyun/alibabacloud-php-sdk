@@ -19,6 +19,16 @@ class GetConsumerProgressRequest extends Model
     public $consumerId;
 
     /**
+     * @description Specifies whether to hide LastTimestamp. Default value: false. We recommend that you set this parameter to true.
+     *
+     * >
+     *
+     *   If you set this parameter to true, -1 is returned for LastTimestamp. If you set this parameter to false, a specific value is returned for LastTimestamp. This parameter is supported only by topics that use cloud storage on reserved instances.
+     *
+     *   A large amount of data is processed by this operation, which causes performance loss. We recommend that you set this parameter to true to accelerate processing.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hideLastTimestamp;

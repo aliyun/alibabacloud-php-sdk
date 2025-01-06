@@ -24,10 +24,7 @@ class CreateSaslUserRequest extends Model
      *   SCRAM-SHA-512 (default)
      *   SCRAM-SHA-256
      *
-     * >
-     *
-     *   This parameter is available only for ApsaraMQ for Kafka V3 serverless instances.
-     *
+     * >  This parameter is available only for ApsaraMQ for Kafka serverless instances.
      * @example SCRAM-SHA-256
      *
      * @var string

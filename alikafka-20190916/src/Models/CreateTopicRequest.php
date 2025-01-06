@@ -22,7 +22,7 @@ class CreateTopicRequest extends Model
     public $compactTopic;
 
     /**
-     * @description The additional configurations.
+     * @description The additional configuration.
      *
      *   The value must be in JSON format.
      *   Set Key to **replications**. This value specifies the number of replicas of the topic. The value must be an integer that ranges from 1 to 3.

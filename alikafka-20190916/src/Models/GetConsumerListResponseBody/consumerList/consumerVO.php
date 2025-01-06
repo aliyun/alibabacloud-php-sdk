@@ -12,6 +12,8 @@ class consumerVO extends Model
     /**
      * @description Indicates that the consumer group was automatically created by the system.
      *
+     * @example false
+     *
      * @var bool
      */
     public $automaticallyCreatedGroup;
@@ -26,6 +28,10 @@ class consumerVO extends Model
     public $consumerId;
 
     /**
+     * @description The timestamp that indicates when the consumer group was created. Unit: milliseconds.
+     *
+     * @example 1729736584002
+     *
      * @var int
      */
     public $createTime;

@@ -11,7 +11,7 @@ class saslUserVO extends Model
     /**
      * @description The encryption method.
      *
-     * >  This field is available only for serverless ApsaraMQ for Kafka V3 instances.
+     * >  This parameter is available only for serverless ApsaraMQ for Kafka instances.
      * @example SCRAM-SHA-256
      *
      * @var string
