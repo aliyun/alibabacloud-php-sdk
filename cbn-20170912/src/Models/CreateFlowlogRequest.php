@@ -32,7 +32,7 @@ class CreateFlowlogRequest extends Model
     /**
      * @description The description of the flow log.
      *
-     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+     * The description is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
      * @example myFlowlog
      *
      * @var string
@@ -40,9 +40,9 @@ class CreateFlowlogRequest extends Model
     public $description;
 
     /**
-     * @description The name of the flow log.
+     * @description The flow log name.
      *
-     * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example myFlowlog
      *
      * @var string
@@ -59,7 +59,21 @@ class CreateFlowlogRequest extends Model
     public $interval;
 
     /**
-     * @description The Logstore where the flow log is stored.
+     * @description The strings that define the fields in the flow log.
+     *
+     * Format: `${Field 1}${Field 2}${Field 3}...{Field n}`
+     *
+     *   If you do not configure this parameter, all fields are included in the flow log.
+     *   If you configure this parameter, start the string with `${srcaddr}${dstaddr}${bytes}` because `${srcaddr}${dstaddr}${bytes}` are required variables. For more information about the fields supported by flow logs, see [Configure a flow log](https://help.aliyun.com/document_detail/339822.html).
+     *
+     * @example ${srcaddr}${dstaddr}${bytes}
+     *
+     * @var string
+     */
+    public $logFormatString;
+
+    /**
+     * @description The Logstore that stores the captured traffic data.
      *
      *   If a Logstore is already created in the selected region, enter the name of the Logstore.
      *
@@ -68,7 +82,7 @@ class CreateFlowlogRequest extends Model
      *   The name must be unique in a project.
      *   The name can contain only lowercase letters, digits, hyphens (-), and underscores (_).
      *   The name must start and end with a lowercase letter or a digit.
-     *   The name must be 3 to 63 characters in length.
+     *   The name must be 3 to 63 characters in length,
      *
      * This parameter is required.
      * @example FlowLogStore
@@ -88,18 +102,18 @@ class CreateFlowlogRequest extends Model
     public $ownerId;
 
     /**
-     * @description The Log Service project where the flow log is stored.
+     * @description The project that stores the captured traffic data.
      *
      *   If a project is already created in the selected region, enter the name of the project.
      *
      *   If no projects are created in the selected region, enter a name and the system automatically creates a project.
      *
-     * The project name must be unique in a region. You cannot change the name after you create the project. The naming conventions are:
+     * The project name must be unique in a region. You cannot change the name after the project is created. The name must meet the following requirements:
      *
      *   The name must be globally unique.
      *   The name can contain only lowercase letters, digits, and hyphens (-).
      *   The name must start and end with a lowercase letter or a digit.
-     *   The name must be 3 to 63 characters in length.
+     *   The name must be 3 to 63 characters in length,
      *
      * This parameter is required.
      * @example FlowLogProject
@@ -129,28 +143,38 @@ class CreateFlowlogRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The information about the tags.
+     * @description The tags.
      *
-     * You can specify at most 20 tags in each call.
+     * You can specify at most 20 tags.
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the inter-region connection or the VBR connection.
+     * @description The ID of the VPC connection, VPN connection, VBR connection, ECR connection, or inter-region connection.
      *
-     * > This parameter is required.
+     * If you create the flow log for a transfer router, skip this parameter.
      * @example tr-attach-r6g0m3epjehw57****
      *
      * @var string
      */
     public $transitRouterAttachmentId;
+
+    /**
+     * @description The ID of the transit router.
+     *
+     * @example tr-bp1rmwxnk221e3fas****
+     *
+     * @var string
+     */
+    public $transitRouterId;
     protected $_name = [
         'cenId'                     => 'CenId',
         'clientToken'               => 'ClientToken',
         'description'               => 'Description',
         'flowLogName'               => 'FlowLogName',
         'interval'                  => 'Interval',
+        'logFormatString'           => 'LogFormatString',
         'logStoreName'              => 'LogStoreName',
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
@@ -160,6 +184,7 @@ class CreateFlowlogRequest extends Model
         'resourceOwnerId'           => 'ResourceOwnerId',
         'tag'                       => 'Tag',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterId'           => 'TransitRouterId',
     ];
 
     public function validate()
@@ -183,6 +208,9 @@ class CreateFlowlogRequest extends Model
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
+        }
+        if (null !== $this->logFormatString) {
+            $res['LogFormatString'] = $this->logFormatString;
         }
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
@@ -217,6 +245,9 @@ class CreateFlowlogRequest extends Model
         if (null !== $this->transitRouterAttachmentId) {
             $res['TransitRouterAttachmentId'] = $this->transitRouterAttachmentId;
         }
+        if (null !== $this->transitRouterId) {
+            $res['TransitRouterId'] = $this->transitRouterId;
+        }
 
         return $res;
     }
@@ -243,6 +274,9 @@ class CreateFlowlogRequest extends Model
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
+        }
+        if (isset($map['LogFormatString'])) {
+            $model->logFormatString = $map['LogFormatString'];
         }
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
@@ -276,6 +310,9 @@ class CreateFlowlogRequest extends Model
         }
         if (isset($map['TransitRouterAttachmentId'])) {
             $model->transitRouterAttachmentId = $map['TransitRouterAttachmentId'];
+        }
+        if (isset($map['TransitRouterId'])) {
+            $model->transitRouterId = $map['TransitRouterId'];
         }
 
         return $model;

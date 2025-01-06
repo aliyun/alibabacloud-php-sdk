@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowLogAttributeRequest extends Model
 {
     /**
-     * @description The ID of the CEN instance.
+     * @description The CEN instance ID.
      *
-     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -59,6 +58,15 @@ class ModifyFlowLogAttributeRequest extends Model
     public $flowLogName;
 
     /**
+     * @description The time window for collecting log data. Unit: seconds. Valid values: **60** or **600** Default value: **600**.
+     *
+     * @example 600
+     *
+     * @var int
+     */
+    public $interval;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -93,6 +101,7 @@ class ModifyFlowLogAttributeRequest extends Model
         'description'          => 'Description',
         'flowLogId'            => 'FlowLogId',
         'flowLogName'          => 'FlowLogName',
+        'interval'             => 'Interval',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -121,6 +130,9 @@ class ModifyFlowLogAttributeRequest extends Model
         }
         if (null !== $this->flowLogName) {
             $res['FlowLogName'] = $this->flowLogName;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -163,6 +175,9 @@ class ModifyFlowLogAttributeRequest extends Model
         }
         if (isset($map['FlowLogName'])) {
             $model->flowLogName = $map['FlowLogName'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

@@ -87,7 +87,7 @@ class transitRouterAttachments extends Model
     public $status;
 
     /**
-     * @description The tag key.
+     * @description The tags.
      *
      * @var tags[]
      */
@@ -130,6 +130,8 @@ class transitRouterAttachments extends Model
     public $transitRouterId;
 
     /**
+     * @description The features of the VPC connection.
+     *
      * @var string[]
      */
     public $transitRouterVPCAttachmentOptions;

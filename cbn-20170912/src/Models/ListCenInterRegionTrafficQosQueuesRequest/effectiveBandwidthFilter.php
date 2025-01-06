@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class effectiveBandwidthFilter extends Model
 {
     /**
-     * @description 实际生效带宽大于或等于指定带宽值。
+     * @description The actual bandwidth is equal to or larger than the specified value.
      *
      * @example 50
      *
@@ -18,7 +18,7 @@ class effectiveBandwidthFilter extends Model
     public $gte;
 
     /**
-     * @description 实际生效带宽小于或等于指定带宽值。
+     * @description The actual bandwidth is equal to or smaller than the specified value.
      *
      * @example 20
      *

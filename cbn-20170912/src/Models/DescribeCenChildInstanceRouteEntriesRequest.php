@@ -53,6 +53,7 @@ class DescribeCenChildInstanceRouteEntriesRequest extends Model
      *   **VPC**: virtual private cloud (VPC)
      *   **VBR**: virtual border router (VBR)
      *   **CCN**: Cloud Connect Network (CCN) instance
+     *   **ECR**: Express Connect Router (ECR)
      *
      * This parameter is required.
      * @example VPC

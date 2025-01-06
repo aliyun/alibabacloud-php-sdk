@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCenInterRegionTrafficQosQueueResponseBody extends Model
 {
     /**
+     * @description The ID of the queue.
+     *
      * @example qos-queue-irqhi8k5fdyuu5****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateCenInterRegionTrafficQosQueueResponseBody extends Model
     public $qosQueueId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 845F66F6-5C27-53A1-9428-B859086237B2
      *
      * @var string

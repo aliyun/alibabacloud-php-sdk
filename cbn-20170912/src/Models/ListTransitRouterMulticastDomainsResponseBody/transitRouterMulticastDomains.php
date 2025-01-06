@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterMulticastDomainsResponseBody;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterMulticastDomainsResponseBody\transitRouterMulticastDomains\options;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterMulticastDomainsResponseBody\transitRouterMulticastDomains\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -17,6 +18,11 @@ class transitRouterMulticastDomains extends Model
      * @var string
      */
     public $cenId;
+
+    /**
+     * @var options
+     */
+    public $options;
 
     /**
      * @description The region ID of the transit router.
@@ -82,6 +88,7 @@ class transitRouterMulticastDomains extends Model
     public $transitRouterMulticastDomainName;
     protected $_name = [
         'cenId'                                   => 'CenId',
+        'options'                                 => 'Options',
         'regionId'                                => 'RegionId',
         'status'                                  => 'Status',
         'tags'                                    => 'Tags',
@@ -100,6 +107,9 @@ class transitRouterMulticastDomains extends Model
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = null !== $this->options ? $this->options->toMap() : null;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -142,6 +152,9 @@ class transitRouterMulticastDomains extends Model
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
+        }
+        if (isset($map['Options'])) {
+            $model->options = options::fromMap($map['Options']);
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

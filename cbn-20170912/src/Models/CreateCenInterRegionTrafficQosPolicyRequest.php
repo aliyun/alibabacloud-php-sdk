@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class CreateCenInterRegionTrafficQosPolicyRequest extends Model
 {
     /**
+     * @description The allocation mode of the guaranteed bandwidth. You can specify an absolute bandwidth value or a bandwidth percentage. Valid values:
+     *
+     *   **byBandwidth**: allocates an absolute bandwidth value for the QoS queue.
+     *   **byBandwidthPercent** (default): allocates a bandwidth percentage for the OoS queue.
+     *
+     * @example byBandwidthPercent
+     *
      * @var string
      */
     public $bandwidthGuaranteeMode;

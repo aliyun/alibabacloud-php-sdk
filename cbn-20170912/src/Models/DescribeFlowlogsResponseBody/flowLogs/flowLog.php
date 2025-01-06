@@ -56,6 +56,11 @@ class flowLog extends Model
     public $flowLogName;
 
     /**
+     * @description The flow log version.
+     *
+     * Flow logs are automatically created in the latest version, which is **3**.
+     * @example 3
+     *
      * @var string
      */
     public $flowLogVersion;
@@ -70,6 +75,11 @@ class flowLog extends Model
     public $interval;
 
     /**
+     * @description The string that defines the format of the flow log. Format:
+     *
+     * `${Field 1}${Field 2}${Field 3}`
+     * @example ${srcaddr}${dstaddr}${bytes}
+     *
      * @var string
      */
     public $logFormatString;
@@ -114,7 +124,7 @@ class flowLog extends Model
     public $status;
 
     /**
-     * @description A list of tags.
+     * @description The tags.
      *
      * @var tags
      */
@@ -130,6 +140,10 @@ class flowLog extends Model
     public $transitRouterAttachmentId;
 
     /**
+     * @description The ID of the transit router.
+     *
+     * @example tr-bp1g9313sx675zr1lajmj
+     *
      * @var string
      */
     public $transitRouterId;

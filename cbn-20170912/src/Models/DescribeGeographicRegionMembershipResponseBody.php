@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGeographicRegionMembershipResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeGeographicRegionMembershipResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 2
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribeGeographicRegionMembershipResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The list of regions.
+     *
      * @var regionIds
      */
     public $regionIds;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DC9EB0C9-60AF-4A09-A36C-608F70130274
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeGeographicRegionMembershipResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

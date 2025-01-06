@@ -11,7 +11,6 @@ class ActiveFlowLogRequest extends Model
     /**
      * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
-     * This parameter is required.
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string

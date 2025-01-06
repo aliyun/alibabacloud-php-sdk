@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,6 +19,11 @@ class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request.
+     *
      * @example false
      *
      * @var bool
@@ -43,8 +51,9 @@ class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the traffic marking policy.
      *
+     * This parameter is required.
      * @example tm-u9nxup5kww5po8****
      *
      * @var string
@@ -52,6 +61,9 @@ class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $trafficMarkingPolicyId;
 
     /**
+     * @description The description of the traffic classification rule.
+     *
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
      * @example descriptiontest
      *
      * @var string
@@ -59,8 +71,9 @@ class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $trafficMatchRuleDescription;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the traffic classification rule.
      *
+     * This parameter is required.
      * @example tm-rule-fa9kgq1e90rmhc****
      *
      * @var string
@@ -68,6 +81,9 @@ class ModifyTrafficMatchRuleToTrafficMarkingPolicyRequest extends Model
     public $trafficMatchRuleId;
 
     /**
+     * @description The name of the traffic classification rule.
+     *
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string

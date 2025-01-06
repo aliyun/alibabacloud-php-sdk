@@ -95,9 +95,7 @@ class UpdateTransitRouterVpcAttachmentAttributeShrinkRequest extends Model
     public $transitRouterAttachmentName;
 
     /**
-     * @description Feature configurations of the VPC connection.
-     *
-     *   ipv6Support: specifies whether to enable IPv6. Valid values: true and false. The default value is the status of the VPC connection.
+     * @description The features of the VPC connection.
      *
      * @var string
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListCenInterRegionTrafficQosQueuesRequest extends Model
 {
     /**
-     * @description 按照实际的生效带宽值进行过滤，只允许输入正整数，单位Mbps。
+     * @description The filter works based on the actual bandwidth. Enter a positive integer. Unit: Mbit/s.
      *
      * @var effectiveBandwidthFilter
      */

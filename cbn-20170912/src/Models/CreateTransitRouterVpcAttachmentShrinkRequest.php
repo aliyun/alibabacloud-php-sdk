@@ -130,6 +130,8 @@ class CreateTransitRouterVpcAttachmentShrinkRequest extends Model
     public $transitRouterId;
 
     /**
+     * @description Feature configurations of the VPC connection.
+     *
      * @var string
      */
     public $transitRouterVPCAttachmentOptionsShrink;

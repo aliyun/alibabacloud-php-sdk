@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
+     * @description The absolute bandwidth that can be consumed by the QoS queue. Unit: Mbit/s.
+     *
+     * >  The sum of the absolute bandwidth values of all the queues in a QoS policy cannot exceed the total bandwidth of the inter-region connection.
+     * @example 1
+     *
      * @var string
      */
     public $bandwidth;
@@ -44,7 +49,7 @@ class trafficQosQueues extends Model
     /**
      * @description The percentage of the inter-region bandwidth that can be used by the queue.
      *
-     * Each QoS policy supports at most three queues. You can specify a valid percentage for each queue.
+     * Each QoS policy supports at most 10 queues. You can specify a valid percentage for each queue.
      *
      * For example, a value of **1** specifies that the queue can consume 1% of the inter-region bandwidth.
      *

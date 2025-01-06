@@ -29,9 +29,10 @@ class conflict extends Model
     /**
      * @description The type of the peer network instance on which the overlapping routes are found. Valid values:
      *
-     *   **VPC**
-     *   **VBR**
-     *   **CCN**
+     *   **VPC**: VPC
+     *   **VBR**: VBR
+     *   **CCN**: CCN instance
+     *   **ECR**: ECR
      *
      * @example CCN
      *

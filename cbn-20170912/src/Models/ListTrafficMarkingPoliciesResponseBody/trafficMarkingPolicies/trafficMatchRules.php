@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class trafficMatchRules extends Model
 {
     /**
+     * @description The address family. You can set the value to IPv4 or IPv6, or leave the value empty.
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $addressFamily;
 
     /**
-     * @description The destination CIDR block that is used to match packets.
+     * @description The destination CIDR block of packets. IPv4 and IPv6 addresses are supported.
      *
      * @example 192.168.120.0/24
      *
@@ -50,7 +54,7 @@ class trafficMatchRules extends Model
     public $protocol;
 
     /**
-     * @description The source CIDR block that is used to match packets.
+     * @description The source CIDR block of packets. IPv6 and IPv4 addresses are supported.
      *
      * @example 192.168.10.0/24
      *

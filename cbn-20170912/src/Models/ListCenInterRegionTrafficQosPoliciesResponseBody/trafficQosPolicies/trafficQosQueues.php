@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class trafficQosQueues extends Model
 {
     /**
-     * @description 带宽保障类型为按绝对值模式时，当前队列分配的跨地域带宽的值。
+     * @description If the QoS queues are assigned absolute bandwidth values, this parameter indicates the absolute bandwidth value that is allocated to the queue.
      *
      * @example 1
      *
@@ -25,7 +25,7 @@ class trafficQosQueues extends Model
     public $dscps;
 
     /**
-     * @description 当前队列实际生效的带宽值。
+     * @description The actual bandwidth value of the current queue.
      *
      * @example 1.35
      *
@@ -61,7 +61,7 @@ class trafficQosQueues extends Model
     public $qosQueueName;
 
     /**
-     * @description The percentage of the inter-region bandwidth that can be used by the queue.
+     * @description If the QoS queues are assigned bandwidth percentages, this parameter indicates the percentage of bandwidth that is allocated to the queue.
      *
      * @example 1
      *

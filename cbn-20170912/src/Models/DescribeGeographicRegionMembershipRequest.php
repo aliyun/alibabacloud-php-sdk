@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeGeographicRegionMembershipRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the area that you want to query. Valid values:
      *
+     *   **china**: the Chinese mainland
+     *   **asia-pacific**: Asia Pacific
+     *   **europe**: Europe
+     *   **north-america**: North America
+     *
+     * This parameter is required.
      * @example china
      *
      * @var string
@@ -28,6 +34,8 @@ class DescribeGeographicRegionMembershipRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +43,8 @@ class DescribeGeographicRegionMembershipRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int

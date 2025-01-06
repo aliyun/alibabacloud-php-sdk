@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateCenInterRegionTrafficQosQueueRequest extends Model
 {
     /**
+     * @description The maximum absolute bandwidth value that can be allocated to the queue. Unit: Mbit/s.
+     *
+     * - The sum of the bandwidth values specified for all queues that belong to the same inter-region connection cannot exceed the maximum bandwidth of the inter-region connection.
+     * @example 20
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426****
      *
      * @var string
@@ -21,6 +29,10 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     * - **true**: performs a dry run. The system checks the required parameters, the request format, and the service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     * - **false** (default): performs a dry run and sends the request.
      * @example false
      *
      * @var bool
@@ -28,8 +40,9 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $dryRun;
 
     /**
-     * @description This parameter is required.
+     * @description The differentiated services code point (DSCP) value that matches the current queue.
      *
+     * This parameter is required.
      * @var int[]
      */
     public $dscps;
@@ -45,6 +58,9 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the queue.
+     *
+     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
      * @example desctest
      *
      * @var string
@@ -52,6 +68,9 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $qosQueueDescription;
 
     /**
+     * @description The name of the queue.
+     *
+     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
      * @example nametest
      *
      * @var string
@@ -59,6 +78,9 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $qosQueueName;
 
     /**
+     * @description The maximum percentage of inter-region bandwidth that can be allocated to the queue.
+     *
+     * - The sum of the percentage values specified for all queues that belong to the same inter-region connection cannot exceed 100%.
      * @example 20
      *
      * @var string
@@ -76,8 +98,9 @@ class CreateCenInterRegionTrafficQosQueueRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the QoS policy.
      *
+     * This parameter is required.
      * @example qos-qdvybn468kaoxx****
      *
      * @var string

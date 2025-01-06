@@ -58,6 +58,25 @@ class DescribeFlowlogsRequest extends Model
     public $flowLogName;
 
     /**
+     * @description The flow log version.
+     *
+     * Flow logs are automatically created in the latest version, which is **3**.
+     * @example 3
+     *
+     * @var string
+     */
+    public $flowLogVersion;
+
+    /**
+     * @description The time window for collecting log data. Unit: seconds Valid values: **60** or **600** Default value: **600**.
+     *
+     * @example 600
+     *
+     * @var int
+     */
+    public $interval;
+
+    /**
      * @description The name of the Logstore where the flow log is stored.
      *
      * The name must be 3 to 63 characters in length, and can contain lowercase letters, digits, underscores (_), and hyphens (-). It must start or end with a lowercase letter or a digit.
@@ -78,7 +97,7 @@ class DescribeFlowlogsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Default value: **1**.
+     * @description The page number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -153,12 +172,23 @@ class DescribeFlowlogsRequest extends Model
      * @var string
      */
     public $transitRouterAttachmentId;
+
+    /**
+     * @description The ID of the transit router.
+     *
+     * @example tr-uf654ttymmljlvh2x****
+     *
+     * @var string
+     */
+    public $transitRouterId;
     protected $_name = [
         'cenId'                     => 'CenId',
         'clientToken'               => 'ClientToken',
         'description'               => 'Description',
         'flowLogId'                 => 'FlowLogId',
         'flowLogName'               => 'FlowLogName',
+        'flowLogVersion'            => 'FlowLogVersion',
+        'interval'                  => 'Interval',
         'logStoreName'              => 'LogStoreName',
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
@@ -171,6 +201,7 @@ class DescribeFlowlogsRequest extends Model
         'status'                    => 'Status',
         'tag'                       => 'Tag',
         'transitRouterAttachmentId' => 'TransitRouterAttachmentId',
+        'transitRouterId'           => 'TransitRouterId',
     ];
 
     public function validate()
@@ -194,6 +225,12 @@ class DescribeFlowlogsRequest extends Model
         }
         if (null !== $this->flowLogName) {
             $res['FlowLogName'] = $this->flowLogName;
+        }
+        if (null !== $this->flowLogVersion) {
+            $res['FlowLogVersion'] = $this->flowLogVersion;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
@@ -237,6 +274,9 @@ class DescribeFlowlogsRequest extends Model
         if (null !== $this->transitRouterAttachmentId) {
             $res['TransitRouterAttachmentId'] = $this->transitRouterAttachmentId;
         }
+        if (null !== $this->transitRouterId) {
+            $res['TransitRouterId'] = $this->transitRouterId;
+        }
 
         return $res;
     }
@@ -263,6 +303,12 @@ class DescribeFlowlogsRequest extends Model
         }
         if (isset($map['FlowLogName'])) {
             $model->flowLogName = $map['FlowLogName'];
+        }
+        if (isset($map['FlowLogVersion'])) {
+            $model->flowLogVersion = $map['FlowLogVersion'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
@@ -305,6 +351,9 @@ class DescribeFlowlogsRequest extends Model
         }
         if (isset($map['TransitRouterAttachmentId'])) {
             $model->transitRouterAttachmentId = $map['TransitRouterAttachmentId'];
+        }
+        if (isset($map['TransitRouterId'])) {
+            $model->transitRouterId = $map['TransitRouterId'];
         }
 
         return $model;

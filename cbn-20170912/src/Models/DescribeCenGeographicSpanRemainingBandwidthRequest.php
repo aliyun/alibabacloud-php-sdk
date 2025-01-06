@@ -25,7 +25,6 @@ class DescribeCenGeographicSpanRemainingBandwidthRequest extends Model
      *   **North-America**: North America
      *   **Asia-Pacific**: Asia Pacific
      *   **Europe**: Europe
-     *   **Australia**: Australia
      *
      * This parameter is required.
      * @example China
@@ -41,7 +40,6 @@ class DescribeCenGeographicSpanRemainingBandwidthRequest extends Model
      *   **North-America**: North America
      *   **Asia-Pacific**: Asia Pacific
      *   **Europe**: Europe
-     *   **Australia**: Australia
      *
      * This parameter is required.
      * @example North-America

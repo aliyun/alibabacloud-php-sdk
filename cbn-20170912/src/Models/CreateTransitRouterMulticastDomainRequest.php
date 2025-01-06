@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterMulticastDomainRequest\options;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterMulticastDomainRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -39,6 +40,11 @@ class CreateTransitRouterMulticastDomainRequest extends Model
      * @var bool
      */
     public $dryRun;
+
+    /**
+     * @var options
+     */
+    public $options;
 
     /**
      * @var string
@@ -110,6 +116,7 @@ class CreateTransitRouterMulticastDomainRequest extends Model
         'cenId'                                   => 'CenId',
         'clientToken'                             => 'ClientToken',
         'dryRun'                                  => 'DryRun',
+        'options'                                 => 'Options',
         'ownerAccount'                            => 'OwnerAccount',
         'ownerId'                                 => 'OwnerId',
         'regionId'                                => 'RegionId',
@@ -136,6 +143,9 @@ class CreateTransitRouterMulticastDomainRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->options) {
+            $res['Options'] = null !== $this->options ? $this->options->toMap() : null;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -190,6 +200,9 @@ class CreateTransitRouterMulticastDomainRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['Options'])) {
+            $model->options = options::fromMap($map['Options']);
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

@@ -91,7 +91,6 @@ class cenBandwidthPackage extends Model
      *   **china**: Chinese mainland.
      *   **asia-pacific**: Asia Pacific
      *   **europe**: Europe
-     *   **australia**: Australia
      *   **north-america**: North America
      *
      * @example china
@@ -106,7 +105,6 @@ class cenBandwidthPackage extends Model
      *   **china**: Chinese mainland.
      *   **asia-pacific**: Asia Pacific
      *   **europe**: Europe
-     *   **australia**: Australia
      *   **north-america**: North America
      *
      * @example north-america
