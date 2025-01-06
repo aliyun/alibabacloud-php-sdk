@@ -14,6 +14,22 @@
 - Update API ModifyTransitRouterMulticastDomain: add param Options.
 
 
+2025-01-06 Version: 1.2.2
+- Update API ActiveFlowLog: update param CenId.
+- Update API CreateFlowlog: add param LogFormatString.
+- Update API CreateFlowlog: add param TransitRouterId.
+- Update API CreateTransitRouterMulticastDomain: add param Options.
+- Update API DeactiveFlowLog: update param CenId.
+- Update API DeleteFlowlog: update param CenId.
+- Update API DescribeFlowlogs: add param FlowLogVersion.
+- Update API DescribeFlowlogs: add param Interval.
+- Update API DescribeFlowlogs: add param TransitRouterId.
+- Update API ListTransitRouterMulticastDomains: update response param.
+- Update API ModifyFlowLogAttribute: add param Interval.
+- Update API ModifyFlowLogAttribute: update param CenId.
+- Update API ModifyTransitRouterMulticastDomain: add param Options.
+
+
 2024-10-25 Version: 1.2.1
 - Update API CreateTransitRouterVpnAttachment: update param Zone.
 - Update API DescribeCenChildInstanceRouteEntries: update response param.
