@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
+     * @var string
+     */
+    public $enable;
+
+    /**
      * @var entryRules[]
      */
     public $entryRules;
@@ -102,6 +109,7 @@ class data extends Model
      */
     public $gmtModified;
     protected $_name = [
+        'enable'                          => 'Enable',
         'entryRules'                      => 'EntryRules',
         'gatewaySwimmingLaneRoute'        => 'GatewaySwimmingLaneRoute',
         'groupId'                         => 'GroupId',
@@ -127,6 +135,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enable) {
+            $res['Enable'] = $this->enable;
+        }
         if (null !== $this->entryRules) {
             $res['EntryRules'] = [];
             if (null !== $this->entryRules && \is_array($this->entryRules)) {
@@ -193,6 +204,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Enable'])) {
+            $model->enable = $map['Enable'];
+        }
         if (isset($map['EntryRules'])) {
             if (!empty($map['EntryRules'])) {
                 $model->entryRules = [];

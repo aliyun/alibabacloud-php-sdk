@@ -202,6 +202,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetImportFileUrlRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetImportFileUrlResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetKubernetesSourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetKubernetesSourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetLocalityRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetLocalityRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetLosslessRuleByAppRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetLosslessRuleByAppResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetMseFeatureSwitchRequest;
@@ -482,6 +484,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateImageResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateIsolationRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateIsolationRuleResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateLocalityRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateLocalityRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateMessageQueueRouteShrinkRequest;
@@ -6569,6 +6573,68 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @summary 获取同AZ路由规则
+     *  *
+     * @param GetLocalityRuleRequest $request GetLocalityRuleRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetLocalityRuleResponse GetLocalityRuleResponse
+     */
+    public function getLocalityRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLocalityRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLocalityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取同AZ路由规则
+     *  *
+     * @param GetLocalityRuleRequest $request GetLocalityRuleRequest
+     *
+     * @return GetLocalityRuleResponse GetLocalityRuleResponse
+     */
+    public function getLocalityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLocalityRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries the rules for graceful start and shutdown of an application.
      *  *
      * @description You can call this operation to query the rules for graceful start and shutdown of an application.
@@ -9355,7 +9421,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of routes for which authentication is enabled.
+     * @summary 获取网关开启鉴权的路由
      *  *
      * @param ListGatewayRouteOnAuthRequest $request ListGatewayRouteOnAuthRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9394,7 +9460,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of routes for which authentication is enabled.
+     * @summary 获取网关开启鉴权的路由
      *  *
      * @param ListGatewayRouteOnAuthRequest $request ListGatewayRouteOnAuthRequest
      *
@@ -14718,6 +14784,77 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateIsolationRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新同AZ路由规则
+     *  *
+     * @param UpdateLocalityRuleRequest $request UpdateLocalityRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateLocalityRuleResponse UpdateLocalityRuleResponse
+     */
+    public function updateLocalityRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $query['Rules'] = $request->rules;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLocalityRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateLocalityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新同AZ路由规则
+     *  *
+     * @param UpdateLocalityRuleRequest $request UpdateLocalityRuleRequest
+     *
+     * @return UpdateLocalityRuleResponse UpdateLocalityRuleResponse
+     */
+    public function updateLocalityRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateLocalityRuleWithOptions($request, $runtime);
     }
 
     /**

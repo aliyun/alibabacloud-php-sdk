@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class pathPredicates extends Model
 {
     /**
-     * @description The path.
-     *
-     * @example /api
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description The matching type.
-     *
-     * @example PRE
-     *
      * @var string
      */
     public $type;

@@ -4,22 +4,29 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
-use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayRouteOnAuthResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class ListGatewayRouteOnAuthResponseBody extends Model
+class GetLocalityRuleResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
-     * @var data[]
+     * @example {
+     * "enable":false,
+     * "appId":"hkhon1po62@3aa3582********",
+     * }
+     * @var string
      */
     public $data;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
@@ -30,12 +37,16 @@ class ListGatewayRouteOnAuthResponseBody extends Model
     public $message;
 
     /**
+     * @example D3971C60-3F07-58B0-8EA0-A194********
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var bool
+     * @example true
+     *
+     * @var string
      */
     public $success;
     protected $_name = [
@@ -58,13 +69,7 @@ class ListGatewayRouteOnAuthResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = [];
-            if (null !== $this->data && \is_array($this->data)) {
-                $n = 0;
-                foreach ($this->data as $item) {
-                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+            $res['Data'] = $this->data;
         }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
@@ -85,7 +90,7 @@ class ListGatewayRouteOnAuthResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ListGatewayRouteOnAuthResponseBody
+     * @return GetLocalityRuleResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -94,13 +99,7 @@ class ListGatewayRouteOnAuthResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            if (!empty($map['Data'])) {
-                $model->data = [];
-                $n           = 0;
-                foreach ($map['Data'] as $item) {
-                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
-                }
-            }
+            $model->data = $map['Data'];
         }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];

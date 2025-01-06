@@ -1,3 +1,9 @@
+2025-01-06 Version: 6.17.0
+- Support API GetLocalityRule.
+- Support API UpdateLocalityRule.
+- Update API QueryAllSwimmingLane: update response param.
+
+
 2024-12-20 Version: 6.16.1
 - Update API GetApplicationInstanceList: update param AppName.
 - Update API GetServiceListPage: update param AppName.
