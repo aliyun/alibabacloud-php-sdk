@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticTaskRequest extends Model
 {
     /**
+     * @description Log information
+     *
      * @var aiJobLogInfo
      */
     public $aiJobLogInfo;
 
     /**
+     * @description Cluster ID
+     *
      * @example i118913031696573280136
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateDiagnosticTaskRequest extends Model
     public $clusterId;
 
     /**
+     * @description Diagnostic type.
+     *
      * @example CheckByAiJobLogs
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateDiagnosticTaskRequest extends Model
     public $diagnosticType;
 
     /**
+     * @description List of node IDs
+     *
      * @var string[]
      */
     public $nodeIds;

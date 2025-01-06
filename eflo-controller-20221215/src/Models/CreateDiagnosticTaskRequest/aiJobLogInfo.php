@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class aiJobLogInfo extends Model
 {
     /**
+     * @description Task logs
+     *
      * @var aiJobLogs[]
      */
     public $aiJobLogs;
 
     /**
+     * @description End time. In timestamp format, unit: seconds.
+     * > Must be on the hour or half-hour mark.
      * @example 2024-08-05T10:10:01
      *
      * @var string
@@ -22,6 +26,8 @@ class aiJobLogInfo extends Model
     public $endTime;
 
     /**
+     * @description Start time. In timestamp format, unit: seconds.
+     * > Must be on the hour or half-hour mark.
      * @example 2024-10-11T00:00:00Z
      *
      * @var string

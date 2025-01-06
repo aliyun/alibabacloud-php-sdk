@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticTaskResponseBody extends Model
 {
     /**
+     * @description Diagnosis ID
+     *
      * @example diag-i150553931717380274931
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDiagnosticTaskResponseBody extends Model
     public $diagnosticId;
 
     /**
+     * @description Request ID
+     *
      * @example A511C02A-0127-51AA-A9F9-966382C9A1B5
      *
      * @var string

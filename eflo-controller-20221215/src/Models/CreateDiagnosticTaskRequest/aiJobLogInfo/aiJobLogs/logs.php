@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
+     * @description Sent date, in the format yyyymmdd.
+     *
      * @example 2024-08-05T10:10:01
      *
      * @var string
@@ -16,6 +18,8 @@ class logs extends Model
     public $datetime;
 
     /**
+     * @description Log content
+     *
      * @example success
      *
      * @var string

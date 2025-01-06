@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class aiJobLogs extends Model
 {
     /**
+     * @description Instance ID
+     *
      * @example null
      *
      * @var string
@@ -17,11 +19,15 @@ class aiJobLogs extends Model
     public $aiInstance;
 
     /**
+     * @description Log object
+     *
      * @var logs[]
      */
     public $logs;
 
     /**
+     * @description Node ID
+     *
      * @example e01-tw-p2p2al5u1hn
      *
      * @var string

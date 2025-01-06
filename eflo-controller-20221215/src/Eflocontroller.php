@@ -41,6 +41,10 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClustersRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListClustersResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeNodesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListFreeNodesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineTypesRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListMachineTypesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupsRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListNodeGroupsResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\RebootNodesRequest;
@@ -304,7 +308,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 诊断任务创建接口
+     * @summary Diagnostic Task Creation Interface
      *  *
      * @param CreateDiagnosticTaskRequest $tmpReq  CreateDiagnosticTaskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -354,7 +358,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 诊断任务创建接口
+     * @summary Diagnostic Task Creation Interface
      *  *
      * @param CreateDiagnosticTaskRequest $request CreateDiagnosticTaskRequest
      *
@@ -994,6 +998,109 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listFreeNodesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询用户可用的机型列表
+     *  *
+     * @param ListMachineTypesRequest $request ListMachineTypesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListMachineTypesResponse ListMachineTypesResponse
+     */
+    public function listMachineTypesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListMachineTypes',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListMachineTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询用户可用的机型列表
+     *  *
+     * @param ListMachineTypesRequest $request ListMachineTypesRequest
+     *
+     * @return ListMachineTypesResponse ListMachineTypesResponse
+     */
+    public function listMachineTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMachineTypesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Query Node Group Information Under the Cluster
+     *  *
+     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListNodeGroupsResponse ListNodeGroupsResponse
+     */
+    public function listNodeGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->nodeGroupId)) {
+            $body['NodeGroupId'] = $request->nodeGroupId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNodeGroups',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNodeGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Query Node Group Information Under the Cluster
+     *  *
+     * @param ListNodeGroupsRequest $request ListNodeGroupsRequest
+     *
+     * @return ListNodeGroupsResponse ListNodeGroupsResponse
+     */
+    public function listNodeGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNodeGroupsWithOptions($request, $runtime);
     }
 
     /**
