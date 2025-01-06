@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DCV extends Model
 {
     /**
-     * @description DCV ID。
+     * @description DCV ID.
      *
      * @example bababf7cdd1546a2ad04c0def1f4c980
      *

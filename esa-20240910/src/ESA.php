@@ -152,6 +152,10 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeCustomScenePoliciesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeCustomScenePoliciesResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSAllEventListRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSAllEventListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSBpsListRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSBpsListResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSL7QpsListRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSL7QpsListResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProtectionRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackIntelligentProtectionResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeHttpDDoSAttackProtectionRequest;
@@ -4460,6 +4464,109 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDDoSAllEventListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询DCDN DDoS用户bps、pps数据
+     *  *
+     * @param DescribeDDoSBpsListRequest $request DescribeDDoSBpsListRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDDoSBpsListResponse DescribeDDoSBpsListResponse
+     */
+    public function describeDDoSBpsListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDoSBpsList',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDDoSBpsListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询DCDN DDoS用户bps、pps数据
+     *  *
+     * @param DescribeDDoSBpsListRequest $request DescribeDDoSBpsListRequest
+     *
+     * @return DescribeDDoSBpsListResponse DescribeDDoSBpsListResponse
+     */
+    public function describeDDoSBpsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDDoSBpsListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary ddos分析七层qps走势图接口
+     *  *
+     * @param DescribeDDoSL7QpsListRequest $request DescribeDDoSL7QpsListRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDDoSL7QpsListResponse DescribeDDoSL7QpsListResponse
+     */
+    public function describeDDoSL7QpsListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        if (!Utils::isUnset($request->siteId)) {
+            $query['SiteId'] = $request->siteId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDDoSL7QpsList',
+            'version'     => '2024-09-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDDoSL7QpsListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary ddos分析七层qps走势图接口
+     *  *
+     * @param DescribeDDoSL7QpsListRequest $request DescribeDDoSL7QpsListRequest
+     *
+     * @return DescribeDDoSL7QpsListResponse DescribeDDoSL7QpsListResponse
+     */
+    public function describeDDoSL7QpsList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDDoSL7QpsListWithOptions($request, $runtime);
     }
 
     /**
