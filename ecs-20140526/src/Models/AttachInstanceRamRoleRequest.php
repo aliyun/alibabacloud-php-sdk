@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachInstanceRamRoleRequest extends Model
 {
     /**
-     * @description The IDs of the instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
+     * @description The IDs of ECS instances. You can specify 1 to 100 ECS instances.
      *
      * This parameter is required.
      * @example [“i-bp14ss25xca5ex1u****”, “i-bp154z5o1qjalfse****”, “i-bp10ws62o04ubhvi****”…]
@@ -24,7 +24,7 @@ class AttachInstanceRamRoleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The policy. The policy document must be 1 to 1,024 characters in length. When you attach an instance RAM role to one or more instances, you can specify an additional policy to further limit the permissions of the role. For more information, see [Policy overview](https://help.aliyun.com/document_detail/93732.html).
+     * @description The additional policy. When you attach an instance RAM role to instances, you can specify an additional policy to further limit the permissions of the role. For more information, see [Policy overview](https://help.aliyun.com/document_detail/93732.html). The value of this parameter must be 1 to 1,024 characters in length.
      *
      * @example {"Statement": [{"Action": ["*"],"Effect": "Allow","Resource": ["*"]}],"Version":"1"}
      *

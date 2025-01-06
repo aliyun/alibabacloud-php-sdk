@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class copyEncryptionConfiguration extends Model
 {
     /**
-     * @description This parameter is not publicly available.
+     * @description >  This parameter is not publicly available.
      *
      * @var arn[]
      */
@@ -30,7 +30,7 @@ class copyEncryptionConfiguration extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the KMS key used in cross-region snapshot replication and encryption.
+     * @description The ID of the Key Management Service (KMS) key used in cross-region snapshot replication and encryption.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
      *

@@ -19,7 +19,7 @@ class ModifyManagedInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The request ID.
+     * @description The new name of the managed instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with a special character or a digit. The name can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:) and cannot start with `http://` or `https://`.
      *
      * This parameter is required.
      * @example testInstanceName
@@ -39,7 +39,7 @@ class ModifyManagedInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the managed instance.
+     * @description The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
      *
      * This parameter is required.
      * @example cn-hangzhou

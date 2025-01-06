@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class snapshotPackage extends Model
 {
     /**
-     * @description The time when the OSS storage plan was purchased. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The name of the OSS storage plan.
      *
      * @example testDisplayName
      *
@@ -18,7 +18,7 @@ class snapshotPackage extends Model
     public $displayName;
 
     /**
-     * @description The maximum storage capacity offered by the OSS storage plan.
+     * @description The time when the OSS storage plan expires. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2018-11-30T06:32:31Z
      *
@@ -27,6 +27,8 @@ class snapshotPackage extends Model
     public $endTime;
 
     /**
+     * @description The maximum storage capacity offered by the OSS storage plan.
+     *
      * @example 500
      *
      * @var int
@@ -34,7 +36,7 @@ class snapshotPackage extends Model
     public $initCapacity;
 
     /**
-     * @description DescribeSnapshotPackage
+     * @description The time when the OSS storage plan was purchased. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2017-11-30T06:32:31Z
      *

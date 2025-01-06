@@ -65,7 +65,7 @@ class StartImagePipelineExecutionRequest extends Model
     public $tag;
 
     /**
-     * @description > This parameter is deprecated.
+     * @description >  This parameter is deprecated.
      *
      * @deprecated
      *

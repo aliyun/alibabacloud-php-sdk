@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeregisterManagedInstanceResponseBody extends Model
 {
     /**
-     * @description The managed instance.
+     * @description Details of the managed instances.
      *
      * @var instance
      */

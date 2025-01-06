@@ -44,7 +44,7 @@ class CreateImageComponentRequest extends Model
     public $componentVersion;
 
     /**
-     * @description The content of the image component. The content consists of up to 127 commands.
+     * @description The content of the image component. The image component consists of multiple commands. The command content cannot exceed 16 KB in size. For information about the commands supported by Image Builder and the formats of the commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
      *
      * @example RUN yum update -y
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the image.
+     * @description The tag key of the custom image.
      *
      * @example TestKey
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @description The tag value of the image.
+     * @description The tag value of the custom image.
      *
      * @example TestValue
      *

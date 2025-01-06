@@ -103,13 +103,14 @@ class DescribeElasticityAssurancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The status of the elasticity assurances. Valid values:
+     * @description The status of the elasticity assurance. Valid values:
      *
-     *   All
-     *   Preparing
-     *   Prepared
-     *   Active
-     *   Released
+     *   All: All states.
+     *   Deactivated: The elasticity assurance is pending activation. This state is in invitational preview.
+     *   Preparing: The elasticity assurance is being prepared.
+     *   Prepared: The elasticity assurance is to take effect.
+     *   Active: The elasticity assurance is in effect.
+     *   Released: The elasticity assurance is released.
      *
      * Default value: Active.
      * @example Active

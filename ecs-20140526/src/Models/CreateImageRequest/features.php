@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class features extends Model
 {
     /**
+     * @example v2
+     *
      * @var string
      */
     public $imdsSupport;

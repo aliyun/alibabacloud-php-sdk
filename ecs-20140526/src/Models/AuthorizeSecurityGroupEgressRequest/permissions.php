@@ -33,11 +33,6 @@ class permissions extends Model
      *   If you specify `DestGroupId` but do not specify `DestCidrIp`, you must set `NicType` to intranet.
      *   If you specify both `DestGroupId` and `DestCidrIp`, `DestCidrIp` takes precedence.
      *
-     * When you specify this parameter, take note of the following items:
-     *
-     *   Advanced security groups do not support security group rules that reference security groups as authorization objects.
-     *   Each basic security group can contain up to 20 security group rules that reference security groups as authorization objects.
-     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -109,7 +104,7 @@ class permissions extends Model
     public $ipv6DestCidrIp;
 
     /**
-     * @description The source IPv6 CIDR block. IPv6 CIDR blocks and IPv6 addresses are supported.
+     * @description The source IPv6 CIDR block or IPv6 address.
      *
      * >  This parameter is valid only for ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify this parameter and `DestCidrIp` in the same request.
      * @example 2001:db8:1234:1a00::***

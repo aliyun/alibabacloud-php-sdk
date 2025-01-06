@@ -17,7 +17,7 @@ class ListPluginStatusResponseBody extends Model
     public $instancePluginStatusSet;
 
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
      *
      * @example AAAAAdDWBF2
      *

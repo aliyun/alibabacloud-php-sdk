@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelineExecutionsResponseBody extends Model
 {
     /**
-     * @description Details of the image creation task.
+     * @description Details of the image creation tasks.
      *
      * @var imagePipelineExecution
      */

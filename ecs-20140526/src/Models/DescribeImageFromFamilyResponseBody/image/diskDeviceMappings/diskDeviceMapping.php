@@ -11,7 +11,7 @@ class diskDeviceMapping extends Model
     /**
      * @description The device name of the disk. Example: /dev/xvdb.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * >  This parameter will be removed in the future. To ensure compatibility, we recommend that you use other parameters.
      * @example /dev/xvdb
      *
      * @var string
@@ -19,7 +19,7 @@ class diskDeviceMapping extends Model
     public $device;
 
     /**
-     * @description The format of the image.
+     * @description The image format.
      *
      * @example qcow2
      *
@@ -37,7 +37,7 @@ class diskDeviceMapping extends Model
     public $importOSSBucket;
 
     /**
-     * @description The OSS object corresponding to the imported image file.
+     * @description The OSS object to which the imported image belongs.
      *
      * @example imageImport
      *
@@ -55,7 +55,7 @@ class diskDeviceMapping extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot.
+     * @description The snapshot ID.
      *
      * @example s-bp17ot2q7x72ggtw****
      *
@@ -64,7 +64,7 @@ class diskDeviceMapping extends Model
     public $snapshotId;
 
     /**
-     * @description The type of the image.
+     * @description The image type.
      *
      * @example custom
      *

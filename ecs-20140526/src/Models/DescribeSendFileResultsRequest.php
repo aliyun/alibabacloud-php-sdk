@@ -81,9 +81,8 @@ class DescribeSendFileResultsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -91,9 +90,8 @@ class DescribeSendFileResultsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int

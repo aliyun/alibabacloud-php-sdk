@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteActivationResponseBody extends Model
 {
     /**
-     * @description The time when the activation code was created.
+     * @description Details about the activation code and its usage information.
      *
      * @var activation
      */
     public $activation;
 
     /**
-     * @description Details of the activation code and its usage information.
+     * @description The request ID.
      *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F74942176
      *

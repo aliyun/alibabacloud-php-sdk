@@ -97,8 +97,8 @@ class ResizeDiskRequest extends Model
     /**
      * @description The method that you want to use to resize the disk. Valid values:
      *
-     *   offline (default): resizes the disk offline. After you resize a disk offline, you must restart the ECS instance to which the disk is attached in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation to allow the resizing operation to take effect. For information about how to restart an ECS instance in the ECS console, see [Restart an ECS instance](https://help.aliyun.com/document_detail/25440.html).
-     *   online: resizes the disk online. After you resize a disk online, the resizing operation immediately takes effect. You do not need to restart the ECS instance to which the disk is attached. You can resize ultra disks, standard SSDs, Enterprise SSDs (ESSDs), and elastic ephemeral disks online.
+     *   offline (default): resizes the disk offline. After you resize a disk offline, you must restart the associated instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the resizing operation to take effect. For information about how to restart an ECS instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html).
+     *   online: resizes the disk online. After you resize a disk online, the resizing operation immediately takes effect. You do not need to restart the associated instance. You can resize ultra disks, standard SSDs, Enterprise SSDs (ESSDs), and elastic ephemeral disks online.
      *
      * @example offline
      *

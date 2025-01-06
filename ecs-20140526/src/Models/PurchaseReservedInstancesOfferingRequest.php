@@ -128,7 +128,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $platform;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The ID of the region in which to purchase a reserved instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -179,9 +179,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $scope;
 
     /**
-     * @description The time when the reserved instance takes effect. Specify the time in the [ISO 8601 standard](https://help.aliyun.com/document_detail/25696.html) in the `yyyy-MM-ddTHHZ` format. The time must be in UTC.
+     * @description The time when you want the reserved instance to take effect. Specify the time in the [ISO 8601 standard](https://help.aliyun.com/document_detail/25696.html) in the `yyyy-MM-ddTHHZ` format. The time must be in UTC.
      *
-     * >  If you do not specify this parameter, the reserved instance takes effect starting on the hour when the reserved instance is purchased. For example, if you purchased a reserved instance at 13:45:35 on November 1, 2024, the instance took effect starting 13:00:00 on November 1, 2024.
+     * >  If you do not specify this parameter, the reserved instance takes effect starting on the hour when the reserved instance is purchased. For example, if you purchase a reserved instance at 13:45:35 on November 1, 2024, the reserved instance takes effect starting 13:00:00 on November 1, 2024.
      * @example 2024-07-04T15Z
      *
      * @var string
@@ -196,7 +196,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $tag;
 
     /**
-     * @description The ID of the zone in which to purchase the reserved instance. This parameter is required when `Scope` is set to `Zone`. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+     * @description The ID of the zone in which to purchase the reserved instance. This parameter takes effect and is required only if you set `Scope` to `Zone`. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *

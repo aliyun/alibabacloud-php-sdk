@@ -19,6 +19,8 @@ class features extends Model
     public $cpuOnlineUpgrade;
 
     /**
+     * @example v2
+     *
      * @var string
      */
     public $imdsSupport;

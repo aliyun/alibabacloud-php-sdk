@@ -62,10 +62,7 @@ class ListPluginStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number.
-     *
-     *   Pages start from page 1.
-     *   Default value: 1.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
      * @example 1
      *
@@ -74,10 +71,7 @@ class ListPluginStatusRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
-     *
-     *   Valid values: 1 to 50.
-     *   Default value: 10.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
      * @example 10
      *

@@ -45,7 +45,7 @@ class CreateImagePipelineRequest extends Model
     public $baseImageType;
 
     /**
-     * @description The content of the image template. The content cannot exceed 16 KB in size and can contain up to 127 commands. For more information about the commands that are supported, see the "Usage notes" section of this topic.
+     * @description The build content in the image template. The content cannot exceed 16 KB in size. For information about the commands supported by Image Builder, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
      *
      * @example FROM IMAGE:m-bp67acfmxazb4p****
      *
@@ -85,7 +85,7 @@ class CreateImagePipelineRequest extends Model
     public $description;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The image family. The image family name must be 2 to 128 characters in length. The name must start with a letter and cannot start with acs: or aliyun. The name cannot contain http:// or https:// and can contain letters, digits, colons (:), underscores (_), and hyphens (-).
      *
      * @example null
      *
@@ -154,8 +154,29 @@ class CreateImagePipelineRequest extends Model
     public $regionId;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The repair mode of the image template.
      *
+     * Valid values:
+     *
+     *   Standard: the standard mode.
+     *
+     * Supported check items in Linux operating systems:
+     *
+     *   GUESTOS.CloudInit
+     *   GUESTOS.Dhcp
+     *   GUESTOS.Virtio
+     *   GUESTOS.OnlineResizeFS
+     *   GUESTOS.Grub
+     *   GUESTOS.Fstab
+     *
+     * Supported check items in Windows operating systems:
+     *
+     *   GUESTOS.Virtio
+     *   GUESTOS.Updat
+     *   GUESTOS.Hotfix
+     *   GUESTOS.Server
+     *
+     * >  As the check and repair capabilities continue to improve, the number of check items may increase. For more information about check items, see [Overview of image check](https://help.aliyun.com/document_detail/439819.html).
      * @example null
      *
      * @var string
@@ -199,7 +220,7 @@ class CreateImagePipelineRequest extends Model
     public $tag;
 
     /**
-     * @description >  This parameter is in invitational preview and is not publicly available.
+     * @description The test content in the image template. The content cannot exceed 16 KB in size. For information about the commands supported by Image Builder, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
      *
      * @example null
      *

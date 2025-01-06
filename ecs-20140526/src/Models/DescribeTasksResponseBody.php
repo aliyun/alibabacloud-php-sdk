@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeTasksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeTasksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the task.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -37,7 +37,7 @@ class DescribeTasksResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskSpecRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $destinationZoneId;
+
+    /**
      * @description The new disk category of the cloud disk. Valid values:
      *
      *   cloud_essd: ESSD
@@ -102,6 +107,7 @@ class ModifyDiskSpecRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'destinationZoneId'         => 'DestinationZoneId',
         'diskCategory'              => 'DiskCategory',
         'diskId'                    => 'DiskId',
         'dryRun'                    => 'DryRun',
@@ -121,6 +127,9 @@ class ModifyDiskSpecRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->destinationZoneId) {
+            $res['DestinationZoneId'] = $this->destinationZoneId;
+        }
         if (null !== $this->diskCategory) {
             $res['DiskCategory'] = $this->diskCategory;
         }
@@ -163,6 +172,9 @@ class ModifyDiskSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DestinationZoneId'])) {
+            $model->destinationZoneId = $map['DestinationZoneId'];
+        }
         if (isset($map['DiskCategory'])) {
             $model->diskCategory = $map['DiskCategory'];
         }

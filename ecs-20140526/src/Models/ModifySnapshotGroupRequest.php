@@ -18,7 +18,7 @@ class ModifySnapshotGroupRequest extends Model
     public $description;
 
     /**
-     * @description The new name of the snapshot-consistent group. The name must be 2 to 128 characters in length. The name can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:). The name must start with a letter and cannot start with `http://` or `https://`.
+     * @description The new name of the snapshot-consistent group. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with a `http://` or `https://`. The name can contain letters, digits, periods (.), underscores (_), hyphens (-), and colons (:).
      *
      * @example testName02
      *

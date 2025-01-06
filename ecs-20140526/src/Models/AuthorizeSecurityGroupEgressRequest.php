@@ -139,7 +139,7 @@ class AuthorizeSecurityGroupEgressRequest extends Model
     public $ownerId;
 
     /**
-     * @description The security group rules. Valid values of N: 1 to 100.
+     * @description An array of security group rules. You can specify 1 to 100 security group rules.
      *
      * @var permissions[]
      */

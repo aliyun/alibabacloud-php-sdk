@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSupportInstanceTypesRequest extends Model
 {
     /**
-     * @description The scenario in which you want to use the image. Valid values:
+     * @description The scenario in which the image is used. Valid values:
      *
-     * - ChangeOS: replacement of the system disk or operating system
+     *   CreateEcs (default): instance creation
+     *   ChangeOS: replacement of the system disk or operating system
+     *
      * @example CreateEcs
      *
      * @var string

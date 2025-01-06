@@ -19,7 +19,7 @@ class DescribeSecurityGroupReferencesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the security group.
+     * @description The ID of the region. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -39,7 +39,7 @@ class DescribeSecurityGroupReferencesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IDs of N security groups that you want to query. Valid values of N: 1 to 10.
+     * @description The IDs of security groups. You can specify up to 10 IDs of security groups.
      *
      * This parameter is required.
      * @example sg-bp14vtedjtobkvi****

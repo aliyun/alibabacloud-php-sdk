@@ -60,9 +60,8 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -70,9 +69,8 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. If you specify **InstanceId**, this parameter does not take effect. Valid values: 1 to 50.
+     * @description >  This parameter will be removed in the future. We recommend that you use NextToken and MaxResults for a paged query.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int

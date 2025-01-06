@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAutoSnapshotPolicyRequest extends Model
 {
     /**
+     * @description RAM用户的虚拟账号ID。
+     *
      * @example 155780923770
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description 资源主账号的账号名称。
+     *
      * @example ECSforCloud
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description 资源主账号的ID，亦即UID。
+     *
      * @example 155780923770
      *
      * @var int
@@ -30,7 +36,7 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the automatic snapshot policy. You can call the [DescribeAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25530.html) operation to query the available automatic snapshot policies.
+     * @description The ID of the automatic snapshot policy. You can call the [DescribeAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25530.html) operation to query the IDs of available automatic snapshot policies.
      *
      * This parameter is required.
      * @example sp-bp14yziiuvu3s6jn****
@@ -40,7 +46,7 @@ class DeleteAutoSnapshotPolicyRequest extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description The region ID of the automatic snapshot policy. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The ID of the region to which the automatic snapshot policy belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou

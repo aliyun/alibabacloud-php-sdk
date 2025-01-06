@@ -18,7 +18,7 @@ class priceInfo extends Model
     public $price;
 
     /**
-     * @description The promotion rules.
+     * @description The information about the promotion rules.
      *
      * @var rules
      */

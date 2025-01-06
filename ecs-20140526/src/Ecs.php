@@ -1548,7 +1548,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch connected to the ENI. You can also specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
+     * @summary Assigns secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify the number of private IP addresses that are automatically assigned from the CIDR block of the vSwitch to the ENI.
      *  *
      * @description ## [](#)Usage notes
      * *   The ENI to which you want to assign secondary private IP addresses must be in the Available (Available) or InUse (InUse) state.
@@ -1620,7 +1620,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Assigns one or more secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch connected to the ENI. You can also specify a number of private IP addresses to automatically assign from the CIDR block of the vSwitch to the ENI.
+     * @summary Assigns secondary private IP addresses to an elastic network interface (ENI). You can specify available private IP addresses within the CIDR block of the vSwitch that is connected to the ENI. Alternatively, you can specify the number of private IP addresses that are automatically assigned from the CIDR block of the vSwitch to the ENI.
      *  *
      * @description ## [](#)Usage notes
      * *   The ENI to which you want to assign secondary private IP addresses must be in the Available (Available) or InUse (InUse) state.
@@ -1970,7 +1970,7 @@ class Ecs extends OpenApiClient
     /**
      * @summary Attaches an instance Resource Access Management (RAM) role to Elastic Compute Service (ECS) instances.
      *  *
-     * @description You can call the [DescribeInstanceRamRole](https://help.aliyun.com/document_detail/2679686.html) operation to query the instance RAM roles that are attached to ECS instances.
+     * @description You can call the [DescribeInstanceRamRole](https://help.aliyun.com/document_detail/2679686.html) operation to query the [instance RAM roles](https://help.aliyun.com/document_detail/61175.html) that are attached to ECS instances.
      * >  If an ECS instance already has an instance RAM role, an error is returned when you attach another instance RAM role to the instance.
      *  *
      * @param AttachInstanceRamRoleRequest $request AttachInstanceRamRoleRequest
@@ -2024,7 +2024,7 @@ class Ecs extends OpenApiClient
     /**
      * @summary Attaches an instance Resource Access Management (RAM) role to Elastic Compute Service (ECS) instances.
      *  *
-     * @description You can call the [DescribeInstanceRamRole](https://help.aliyun.com/document_detail/2679686.html) operation to query the instance RAM roles that are attached to ECS instances.
+     * @description You can call the [DescribeInstanceRamRole](https://help.aliyun.com/document_detail/2679686.html) operation to query the [instance RAM roles](https://help.aliyun.com/document_detail/61175.html) that are attached to ECS instances.
      * >  If an ECS instance already has an instance RAM role, an error is returned when you attach another instance RAM role to the instance.
      *  *
      * @param AttachInstanceRamRoleRequest $request AttachInstanceRamRoleRequest
@@ -2218,48 +2218,48 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates inbound rules in a security group. You can use the created rules to allow or deny inbound traffic from other hosts to instances in the security group.
+     * @summary Creates inbound security group rules in a security group. You can use the created rules to allow or deny inbound traffic from other objects to Elastic Compute Service (ECS) instances in the security group for fine-grained network access control.
      *  *
-     * @description Take note of the following items:
-     * *   The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
-     * *   The valid values of Priority range from 1 to 100. A smaller value indicates a higher priority.
-     * *   When multiple security group rules have the same priority, drop rules take precedence.
-     * *   The source can be a CIDR block that is specified by SourceCidrIp, Ipv6SourceCidrIp, or SourcePrefixListId. The source can also be Elastic Compute Service (ECS) instances in a security group that is specified by SourceGroupId.
-     * *   You cannot reference security groups as sources or destinations in the rules of advanced security groups.
-     * *   You can reference up to 20 security groups as sources or destinations in the rules of each basic security group.
-     * *   If the specified security group rule already exists in the security group, the call is successful but no security group rule is created.
-     * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified at the same time. We recommend that you use the `Permissions.N`-prefixed parameters.
-     * *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     *     *   Parameters used to specify an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set NicType to intranet. For a security group of the classic network type, you can set NicType to either internet or intranet. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourceCidrIp=10.0.0.0/8
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=22/22
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=Accept
-     *             &<Common request parameters>
-     *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set NicType to intranet. For mutual access between security groups in the classic network, you can allow or deny another security group within the same region access to your security group. The security group that is allowed access to your security group can belong to your own Alibaba Cloud account or another Alibaba Cloud account specified by SourceGroupOwnerAccount. For mutual access between security groups in VPCs, you can allow or deny another security group within the same VPC access to your security group. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourceGroupId=sg-1651FBB**
-     *             &Permissions.1.SourceGroupOwnerAccount=test@aliyun.com
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=22/22
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=Drop
-     *             &<Common request parameters>
-     *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. In this case, prefix lists support only security groups in VPCs. NicType must be set to intranet. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
-     *             &Permissions.1.SourceGroupOwnerAccount=test@aliyun.com
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=22/22
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=Drop
-     *             &<Common request parameters>
-     * *   For information about examples on security group rule settings, see [Security groups for different use cases](https://help.aliyun.com/document_detail/25475.html) and [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+     * @description ### [](#)Limits
+     * *   **Quantity limit**: The total number of inbound security group rules in each security group cannot exceed 200. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits" topic.
+     * *   **Rule types**: For inbound security group rules, you can set Policy to accept or drop to specify whether to allow or deny access.
+     * *   **Rule priorities**: For inbound security group rules, the valid values of Priority range from 1 to 100. A smaller value indicates a higher priority. When multiple security group rules have the same priority, drop rules take precedence.
+     * ### [](#)Considerations
+     * *   If the security group rule that you call the AuthorizeSecurityGroup operation to create exists in the security group, the call is successful but no security group rule is created.
+     * ### [](#)Parameters that define a security group rule
+     * Define an inbound security group rule by configuring the following parameters together:
+     * *   Source: You can specify one parameter from SourceCidrIp (IPv4 address), Ipv6SourceCidrIp (IPv6 address), SourcetPrefixListId (prefix list ID), and SourceGroupId (source security group ID).
+     * *   PortRange: specifies the range of destination port numbers.
+     * *   IpProtocol: specifies the protocol.
+     * *   Policy: specifies the action.
+     * >  Advanced security groups do not support security group rules that reference security groups as authorization objects. Each basic security group can contain up to 20 security group rules that reference security groups as authorization objects.
+     * ### [](#)Sample requests
+     * Sample requests to create inbound security group rules that control access to different sources in a security group in the China (Hangzhou) region:---to different sources or from different sources?
+     * *   Sample request to create an inbound security group rule that controls access to a specific CIDR block: to or from?
+     *         "RegionId":"cn-hangzhou", // The region ID.
+     *         "SecurityGroupId":"sg-bp67acfmxazb4p****",   // The ID of the security group."Permissions":[
+     *              {
+     *                "SourceCidrIp":"10.0.0.0/8", // The source IPv4 CIDR block.       "PortRange":"22/22" // The port range.
+     *                "IpProtocol":"TCP", //The protocol.
+     *                "IpProtocol":"TCP", //The action.
+     *              }
+     *         ]
+     * *   Sample request to create an inbound security group rule that controls access to a security group and an inbound security group rule that controls access to a prefix list:----to or from?
+     *         "RegionId":"cn-hangzhou",
+     *         "SecurityGroupId":"sg-bp67acfmxazb4p****",
+     *         "Permissions":[
+     *              {
+     *                "SourceGroupId":"sg-bp17vs63txqxbd****", // The source security group.
+     *                "PortRange":"22/22",
+     *                "IpProtocol":"TCP",
+     *                "Policy":"Drop"
+     *              },{
+     *                "SourcePrefixListId":"pl-x1j1k5ykzqlixdcy****", //The ID of the source prefix list.
+     *                "PortRange":"22/22",
+     *                "IpProtocol":"TCP",
+     *                "Policy":"Drop"
+     *              }
+     *         ]
      *  *
      * @param AuthorizeSecurityGroupRequest $request AuthorizeSecurityGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2370,48 +2370,48 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates inbound rules in a security group. You can use the created rules to allow or deny inbound traffic from other hosts to instances in the security group.
+     * @summary Creates inbound security group rules in a security group. You can use the created rules to allow or deny inbound traffic from other objects to Elastic Compute Service (ECS) instances in the security group for fine-grained network access control.
      *  *
-     * @description Take note of the following items:
-     * *   The total number of outbound and inbound rules in each security group cannot exceed 200. For more information, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
-     * *   The valid values of Priority range from 1 to 100. A smaller value indicates a higher priority.
-     * *   When multiple security group rules have the same priority, drop rules take precedence.
-     * *   The source can be a CIDR block that is specified by SourceCidrIp, Ipv6SourceCidrIp, or SourcePrefixListId. The source can also be Elastic Compute Service (ECS) instances in a security group that is specified by SourceGroupId.
-     * *   You cannot reference security groups as sources or destinations in the rules of advanced security groups.
-     * *   You can reference up to 20 security groups as sources or destinations in the rules of each basic security group.
-     * *   If the specified security group rule already exists in the security group, the call is successful but no security group rule is created.
-     * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified at the same time. We recommend that you use the `Permissions.N`-prefixed parameters.
-     * *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     *     *   Parameters used to specify an inbound security group rule that controls access from a specific CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourceCidrIp. For a security group of the Virtual Private Cloud (VPC) type, you must set NicType to intranet. For a security group of the classic network type, you can set NicType to either internet or intranet. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourceCidrIp=10.0.0.0/8
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=22/22
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=Accept
-     *             &<Common request parameters>
-     *     *   Parameters used to determine an inbound security group rule that controls access from a security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceGroupOwnerAccount, and SourceGroupId. In this case, you must set NicType to intranet. For mutual access between security groups in the classic network, you can allow or deny another security group within the same region access to your security group. The security group that is allowed access to your security group can belong to your own Alibaba Cloud account or another Alibaba Cloud account specified by SourceGroupOwnerAccount. For mutual access between security groups in VPCs, you can allow or deny another security group within the same VPC access to your security group. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourceGroupId=sg-1651FBB**
-     *             &Permissions.1.SourceGroupOwnerAccount=test@aliyun.com
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=22/22
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=Drop
-     *             &<Common request parameters>
-     *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, and SourcePrefixListId. In this case, prefix lists support only security groups in VPCs. NicType must be set to intranet. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=AuthorizeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
-     *             &Permissions.1.SourceGroupOwnerAccount=test@aliyun.com
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=22/22
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=Drop
-     *             &<Common request parameters>
-     * *   For information about examples on security group rule settings, see [Security groups for different use cases](https://help.aliyun.com/document_detail/25475.html) and [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
+     * @description ### [](#)Limits
+     * *   **Quantity limit**: The total number of inbound security group rules in each security group cannot exceed 200. For more information, see the [Security group limits](~~25412#SecurityGroupQuota1~~) section of the "Limits" topic.
+     * *   **Rule types**: For inbound security group rules, you can set Policy to accept or drop to specify whether to allow or deny access.
+     * *   **Rule priorities**: For inbound security group rules, the valid values of Priority range from 1 to 100. A smaller value indicates a higher priority. When multiple security group rules have the same priority, drop rules take precedence.
+     * ### [](#)Considerations
+     * *   If the security group rule that you call the AuthorizeSecurityGroup operation to create exists in the security group, the call is successful but no security group rule is created.
+     * ### [](#)Parameters that define a security group rule
+     * Define an inbound security group rule by configuring the following parameters together:
+     * *   Source: You can specify one parameter from SourceCidrIp (IPv4 address), Ipv6SourceCidrIp (IPv6 address), SourcetPrefixListId (prefix list ID), and SourceGroupId (source security group ID).
+     * *   PortRange: specifies the range of destination port numbers.
+     * *   IpProtocol: specifies the protocol.
+     * *   Policy: specifies the action.
+     * >  Advanced security groups do not support security group rules that reference security groups as authorization objects. Each basic security group can contain up to 20 security group rules that reference security groups as authorization objects.
+     * ### [](#)Sample requests
+     * Sample requests to create inbound security group rules that control access to different sources in a security group in the China (Hangzhou) region:---to different sources or from different sources?
+     * *   Sample request to create an inbound security group rule that controls access to a specific CIDR block: to or from?
+     *         "RegionId":"cn-hangzhou", // The region ID.
+     *         "SecurityGroupId":"sg-bp67acfmxazb4p****",   // The ID of the security group."Permissions":[
+     *              {
+     *                "SourceCidrIp":"10.0.0.0/8", // The source IPv4 CIDR block.       "PortRange":"22/22" // The port range.
+     *                "IpProtocol":"TCP", //The protocol.
+     *                "IpProtocol":"TCP", //The action.
+     *              }
+     *         ]
+     * *   Sample request to create an inbound security group rule that controls access to a security group and an inbound security group rule that controls access to a prefix list:----to or from?
+     *         "RegionId":"cn-hangzhou",
+     *         "SecurityGroupId":"sg-bp67acfmxazb4p****",
+     *         "Permissions":[
+     *              {
+     *                "SourceGroupId":"sg-bp17vs63txqxbd****", // The source security group.
+     *                "PortRange":"22/22",
+     *                "IpProtocol":"TCP",
+     *                "Policy":"Drop"
+     *              },{
+     *                "SourcePrefixListId":"pl-x1j1k5ykzqlixdcy****", //The ID of the source prefix list.
+     *                "PortRange":"22/22",
+     *                "IpProtocol":"TCP",
+     *                "Policy":"Drop"
+     *              }
+     *         ]
      *  *
      * @param AuthorizeSecurityGroupRequest $request AuthorizeSecurityGroupRequest
      *
@@ -2433,9 +2433,8 @@ class Ecs extends OpenApiClient
      * *   **Rule priorities**: For outbound security group rules, the valid values of Priority range from 1 to 100. A smaller value indicates a higher priority. When multiple security group rules have the same priority, drop rules take precedence.
      * ### [](#)Considerations
      * *   If the security group rule that you call the AuthorizeSecurityGroupEgress operation to create exists in the security group, the call is successful but no security group rule is created.
-     * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified in the same request. We recommend that you use the `Permissions.N`-prefixed parameters.
      * ### [](#)Parameters that define a security group rule
-     * Define a security group rule by configuring the following parameters together:
+     * Define an outbound security group rule by configuring the following parameters together:
      * *   One of the following parameters: DestCidrIp, Ipv6DestCidrIp, DestPrefixListId, and DestGroupId. DestCidrIp specifies the destination IPv4 CIDR block. Ipv6DestCidrIp specifies the destination IPv6 CIDR block. DestPrefixListId specifies the ID of the destination prefix list. DestGroupId specifies the destination security group.
      * *   PortRange: specifies the range of destination port numbers.
      * *   IpProtocol: specifies the protocol.
@@ -2443,15 +2442,14 @@ class Ecs extends OpenApiClient
      * >  Advanced security groups do not support security group rules that reference security groups as authorization objects. Each basic security group can contain up to 20 security group rules that reference security groups as authorization objects.
      * ### [](#)Sample requests
      * Sample requests to create outbound security group rules that control access to different destinations in a security group in the China (Hangzhou) region:
-     * *   Sample request to create an outbound security group rule that controls access to a specific CIDR block:
-     *         "RegionId":"cn-hangzhou",  //The region ID of the source security group.
+     * *   Sample request to create an outbound security group rule that controls access to a specified CIDR block:
+     *         "RegionId":"cn-hangzhou", //The region ID.
      *         "SecurityGroupId":"sg-bp17vs63txqxbds9***", //The ID of the source security group.
      *         "Permissions":[
      *              {
-     *                "DestCidrIp": "10.0.0.0/8", //The destination IPv4 CIDR block.
-     *                "PortRange": "-1/-1", //The range of destination port numbers.
-     *                "IpProtocol": "ICMP", //The protocol.
-     *                "Policy": "Accept" //The action.
+     *                "DestCidrIp":"10.0.0.0/8", //The destination IPv4 CIDR block.
+     *                "PortRange":"-1/-1", //The range of destination port numbers.
+     *                "IpProtocol":"ICMP", //The protocol.       "Policy":"Accept" //The action.
      *              }
      *         ]
      * *   Sample request to create an outbound security group rule that controls access to a security group and an outbound security group rule that controls access to a prefix list:
@@ -2459,15 +2457,15 @@ class Ecs extends OpenApiClient
      *         "SecurityGroupId":"sg-bp17vs63txqxbds9***",
      *         "Permissions":[
      *              {
-     *                "DestGroupId": "sg-bp67acfmxazb4pi***", //The ID of the destination security group.
-     *                "PortRange": "22/22",
-     *                "IpProtocol": "TCP",
-     *                "Policy": "Drop"
+     *                "DestGroupId":"sg-bp67acfmxazb4pi***", //The ID of the destination security group.
+     *                "PortRange":"22/22",
+     *                "IpProtocol":"TCP",
+     *                "Policy":"Drop"
      *              },{
-     *                "DestPrefixListId": "pl-x1j1k5ykzqlixdcy****", //The ID of the destination prefix list.
-     *                "PortRange": "22/22",
-     *                "IpProtocol": "TCP",
-     *                "Policy": "Drop"
+     *                "DestPrefixListId":"pl-x1j1k5ykzqlixdcy****", //The ID of the destination prefix list.
+     *                "PortRange":"22/22",
+     *                "IpProtocol":"TCP",
+     *                "Policy":"Drop"
      *              }
      *         ]
      *  *
@@ -2588,9 +2586,8 @@ class Ecs extends OpenApiClient
      * *   **Rule priorities**: For outbound security group rules, the valid values of Priority range from 1 to 100. A smaller value indicates a higher priority. When multiple security group rules have the same priority, drop rules take precedence.
      * ### [](#)Considerations
      * *   If the security group rule that you call the AuthorizeSecurityGroupEgress operation to create exists in the security group, the call is successful but no security group rule is created.
-     * *   Parameters and their `Permissions.N`-prefixed counterparts cannot be specified in the same request. We recommend that you use the `Permissions.N`-prefixed parameters.
      * ### [](#)Parameters that define a security group rule
-     * Define a security group rule by configuring the following parameters together:
+     * Define an outbound security group rule by configuring the following parameters together:
      * *   One of the following parameters: DestCidrIp, Ipv6DestCidrIp, DestPrefixListId, and DestGroupId. DestCidrIp specifies the destination IPv4 CIDR block. Ipv6DestCidrIp specifies the destination IPv6 CIDR block. DestPrefixListId specifies the ID of the destination prefix list. DestGroupId specifies the destination security group.
      * *   PortRange: specifies the range of destination port numbers.
      * *   IpProtocol: specifies the protocol.
@@ -2598,15 +2595,14 @@ class Ecs extends OpenApiClient
      * >  Advanced security groups do not support security group rules that reference security groups as authorization objects. Each basic security group can contain up to 20 security group rules that reference security groups as authorization objects.
      * ### [](#)Sample requests
      * Sample requests to create outbound security group rules that control access to different destinations in a security group in the China (Hangzhou) region:
-     * *   Sample request to create an outbound security group rule that controls access to a specific CIDR block:
-     *         "RegionId":"cn-hangzhou",  //The region ID of the source security group.
+     * *   Sample request to create an outbound security group rule that controls access to a specified CIDR block:
+     *         "RegionId":"cn-hangzhou", //The region ID.
      *         "SecurityGroupId":"sg-bp17vs63txqxbds9***", //The ID of the source security group.
      *         "Permissions":[
      *              {
-     *                "DestCidrIp": "10.0.0.0/8", //The destination IPv4 CIDR block.
-     *                "PortRange": "-1/-1", //The range of destination port numbers.
-     *                "IpProtocol": "ICMP", //The protocol.
-     *                "Policy": "Accept" //The action.
+     *                "DestCidrIp":"10.0.0.0/8", //The destination IPv4 CIDR block.
+     *                "PortRange":"-1/-1", //The range of destination port numbers.
+     *                "IpProtocol":"ICMP", //The protocol.       "Policy":"Accept" //The action.
      *              }
      *         ]
      * *   Sample request to create an outbound security group rule that controls access to a security group and an outbound security group rule that controls access to a prefix list:
@@ -2614,15 +2610,15 @@ class Ecs extends OpenApiClient
      *         "SecurityGroupId":"sg-bp17vs63txqxbds9***",
      *         "Permissions":[
      *              {
-     *                "DestGroupId": "sg-bp67acfmxazb4pi***", //The ID of the destination security group.
-     *                "PortRange": "22/22",
-     *                "IpProtocol": "TCP",
-     *                "Policy": "Drop"
+     *                "DestGroupId":"sg-bp67acfmxazb4pi***", //The ID of the destination security group.
+     *                "PortRange":"22/22",
+     *                "IpProtocol":"TCP",
+     *                "Policy":"Drop"
      *              },{
-     *                "DestPrefixListId": "pl-x1j1k5ykzqlixdcy****", //The ID of the destination prefix list.
-     *                "PortRange": "22/22",
-     *                "IpProtocol": "TCP",
-     *                "Policy": "Drop"
+     *                "DestPrefixListId":"pl-x1j1k5ykzqlixdcy****", //The ID of the destination prefix list.
+     *                "PortRange":"22/22",
+     *                "IpProtocol":"TCP",
+     *                "Policy":"Drop"
      *              }
      *         ]
      *  *
@@ -2767,9 +2763,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to cancel an image build task.
+     * @summary Cancels an image building task.
      *  *
-     * @description Before you call this operation, make sure that the image build task to be canceled is in the BUILDING, DISTRIBUTING, or RELEASING state.
+     * @description Before you call the CancelImagePipelineExecution operation, make sure that the image building task to be canceled is in the BUILDING, PREPARING, or REPAIRING state.
      *  *
      * @param CancelImagePipelineExecutionRequest $request CancelImagePipelineExecutionRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -2823,9 +2819,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to cancel an image build task.
+     * @summary Cancels an image building task.
      *  *
-     * @description Before you call this operation, make sure that the image build task to be canceled is in the BUILDING, DISTRIBUTING, or RELEASING state.
+     * @description Before you call the CancelImagePipelineExecution operation, make sure that the image building task to be canceled is in the BUILDING, PREPARING, or REPAIRING state.
      *  *
      * @param CancelImagePipelineExecutionRequest $request CancelImagePipelineExecutionRequest
      *
@@ -2976,7 +2972,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The region ID of the task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @summary Cancels a running task. You can cancel the running tasks generated by the ImportImage or ExportImage operation.
      *  *
      * @param CancelTaskRequest $request CancelTaskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -3021,7 +3017,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The region ID of the task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @summary Cancels a running task. You can cancel the running tasks generated by the ImportImage or ExportImage operation.
      *  *
      * @param CancelTaskRequest $request CancelTaskRequest
      *
@@ -3659,14 +3655,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for system disks or data disks on a regular basis to back up disk data. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region.
+     * @summary Creates an automatic snapshot policy in a specific region. You can specify the schedule on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the automatic snapshot policy. The automatic snapshot policy can be applied to create snapshots for system disks or data disks to back up disk data.
      *  *
-     * @description ## [](#)Usage notes
-     * When you call this operation to create an automatic snapshot policy, you can specify the days of the week on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the policy to meet your diverse data backup requirements. After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
+     * @description Before you call this operation, learn about how to [create an automatic snapshot policy](https://help.aliyun.com/document_detail/127767.html).
      * Take note of the following items:
-     * *   You can create up to 100 automatic snapshot policies per region for a single Alibaba Cloud account.
-     * *   If an automatic snapshot is being created when the time scheduled for creating another automatic snapshot is due, the new snapshot task is skipped. This may occur when a disk contains a large volume of data. For example, you have scheduled snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a disk. The system starts to create a snapshot for the disk at 09:00:00. The process takes 80 minutes to complete because the disk contains a large volume of data and ends at 10:20:00. In this case, the system does not create a snapshot at 10:00, but creates a snapshot at 11:00.
-     * *   For information about how to copy a snapshot from one region to another region, see the "Background information" section in [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
+     * *   You can create up to 100 automatic snapshot policies per region for a single Alibaba Cloud account. If the maximum number of automatic snapshots for a disk is reached and a new snapshot creation task is created, the system deletes the oldest automatic snapshot of the disk.
+     * *   If the instance to which a disk is attached is being stopped or restarted, the system cannot create snapshots for the disk based on the associated automatic snapshot policy.
+     * *   If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region. For more information about the limits on cross-region snapshot replication, see [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
+     * After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
      *  *
      * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3741,14 +3737,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Creates an automatic snapshot policy in a specific region. Automatic snapshot policies allow Elastic Compute Service (ECS) to create snapshots for system disks or data disks on a regular basis to back up disk data. If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region.
+     * @summary Creates an automatic snapshot policy in a specific region. You can specify the schedule on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the automatic snapshot policy. The automatic snapshot policy can be applied to create snapshots for system disks or data disks to back up disk data.
      *  *
-     * @description ## [](#)Usage notes
-     * When you call this operation to create an automatic snapshot policy, you can specify the days of the week on which to create automatic snapshots, the retention period of the automatic snapshots, and whether to enable cross-region replication for the snapshots in the policy to meet your diverse data backup requirements. After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
+     * @description Before you call this operation, learn about how to [create an automatic snapshot policy](https://help.aliyun.com/document_detail/127767.html).
      * Take note of the following items:
-     * *   You can create up to 100 automatic snapshot policies per region for a single Alibaba Cloud account.
-     * *   If an automatic snapshot is being created when the time scheduled for creating another automatic snapshot is due, the new snapshot task is skipped. This may occur when a disk contains a large volume of data. For example, you have scheduled snapshots to be created at 09:00:00, 10:00:00, 11:00:00, and 12:00:00 for a disk. The system starts to create a snapshot for the disk at 09:00:00. The process takes 80 minutes to complete because the disk contains a large volume of data and ends at 10:20:00. In this case, the system does not create a snapshot at 10:00, but creates a snapshot at 11:00.
-     * *   For information about how to copy a snapshot from one region to another region, see the "Background information" section in [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
+     * *   You can create up to 100 automatic snapshot policies per region for a single Alibaba Cloud account. If the maximum number of automatic snapshots for a disk is reached and a new snapshot creation task is created, the system deletes the oldest automatic snapshot of the disk.
+     * *   If the instance to which a disk is attached is being stopped or restarted, the system cannot create snapshots for the disk based on the associated automatic snapshot policy.
+     * *   If cross-region snapshot replication is enabled and no encryption parameters are configured, encrypted snapshots are copied to the destination region and snapshot copies are encrypted by using the service key of the destination region. For more information about the limits on cross-region snapshot replication, see [Copy a snapshot](https://help.aliyun.com/document_detail/159441.html).
+     * After the automatic snapshot policy is created, call the [ApplyAutoSnapshotPolicy](https://help.aliyun.com/document_detail/25531.html) operation to apply the policy to disks. If you want to modify the automatic snapshot policy, call the [ModifyAutoSnapshotPolicyEx](https://help.aliyun.com/document_detail/25529.html) operation.
      *  *
      * @param CreateAutoSnapshotPolicyRequest $request CreateAutoSnapshotPolicyRequest
      *
@@ -4999,10 +4995,9 @@ class Ecs extends OpenApiClient
      * @description ## [](#)Usage notes
      * Take note of the following items:
      * *   You can create only custom image components.
-     * *   Only Linux operating systems are supported. Set `SystemType` to Linux.
-     * *   Only image build components are supported. Set `ComponentType` to Build.
-     * *   You can use Dockerfile to edit the content of image components and pass the edited content into the `Content` parameter. The content size can be up to 16 KB. `FROM` commands cannot be used in image components. An image component supports up to 127 commands. For information about the supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
-     * You can use image components to create image templates in the Elastic Compute Service (ECS) console, but cannot call API operations to create image templates from image components. For more information, see [What is Image Builder](https://help.aliyun.com/document_detail/197410.html).
+     * *   Each version number of an image component must be unique. When you add a version of an image component to an image template, you can specify the component by its name and version number.
+     * *   The content size of an image component cannot exceed 16 KB. For information about the commands supported by Image Builder, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+     * For more information, see [Image Builder](https://help.aliyun.com/document_detail/197410.html).
      *  *
      * @param CreateImageComponentRequest $request CreateImageComponentRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5085,10 +5080,9 @@ class Ecs extends OpenApiClient
      * @description ## [](#)Usage notes
      * Take note of the following items:
      * *   You can create only custom image components.
-     * *   Only Linux operating systems are supported. Set `SystemType` to Linux.
-     * *   Only image build components are supported. Set `ComponentType` to Build.
-     * *   You can use Dockerfile to edit the content of image components and pass the edited content into the `Content` parameter. The content size can be up to 16 KB. `FROM` commands cannot be used in image components. An image component supports up to 127 commands. For information about the supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
-     * You can use image components to create image templates in the Elastic Compute Service (ECS) console, but cannot call API operations to create image templates from image components. For more information, see [What is Image Builder](https://help.aliyun.com/document_detail/197410.html).
+     * *   Each version number of an image component must be unique. When you add a version of an image component to an image template, you can specify the component by its name and version number.
+     * *   The content size of an image component cannot exceed 16 KB. For information about the commands supported by Image Builder, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+     * For more information, see [Image Builder](https://help.aliyun.com/document_detail/197410.html).
      *  *
      * @param CreateImageComponentRequest $request CreateImageComponentRequest
      *
@@ -5107,13 +5101,12 @@ class Ecs extends OpenApiClient
      * @description ## [](#)Usage notes
      * You can use image templates to customize image content and create images across regions and accounts. Take note of the following items:
      * *   You can create only custom image templates.
-     * *   You can configure only public, custom, or shared Linux images or image families as the source images when you create image templates.
-     * *   When you create an image from an image template, an intermediate Elastic Compute Service (ECS) instance that uses the pay-as-you-go billing method is created. You are charged for the instance. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
-     * When you use the `BuildContent` parameter to specify the content of the image template, take note of the following items:
-     * *   If the `BuildContent` value contains `FROM` commands, the `FROM` commands override the values of `BaseImageType` that specifies the type of the source image and `BaseImage` that specifies the source image.
-     * *   If the `BuildContent` value does not contain `FROM` commands, the system creates a `FROM` command that consists of the `BaseImageType` and `BaseImage` values in the format of `<BaseImageType>:<BaseImage>` and adds the command to the first line of the template content.
-     * *   You can use Dockerfile to edit the content of the image template and then pass the edited content into the `BuildContent` parameter. The content cannot be greater than 16 KB in size and can contain up to 127 commands. For information about commands supported by image templates, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
-     * You can use image components to create image templates in the ECS console, but cannot call API operations to use image components to create image templates. For more information, see [What is Image Builder](https://help.aliyun.com/document_detail/197410.html).
+     * *   You can specify only a public image, a custom image, a shared image, or an image family as the source image when you create an image template.
+     * *   When you use an image template to create an image, multiple intermediate instances are created. You are charged for the intermediate instances on a pay-as-you-go basis. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
+     * When you use `BuildContent` to specify the build content in an image template, take note of the following items:
+     * *   The `FROM` command is deprecated. Regardless of whether you specify the `FROM` command in `BuildContent`, the system uses the source image specified by `BaseImageType` and `BaseImage`. BaseImageType specifies the type of the source image and BaseImage specifies the source image.
+     * *   The size of BuildContent cannot exceed 16 KB. For information about the commands supported by Image Builder, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+     * For more information, see [Image Builder](https://help.aliyun.com/document_detail/197410.html).
      *  *
      * @param CreateImagePipelineRequest $request CreateImagePipelineRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -5226,13 +5219,12 @@ class Ecs extends OpenApiClient
      * @description ## [](#)Usage notes
      * You can use image templates to customize image content and create images across regions and accounts. Take note of the following items:
      * *   You can create only custom image templates.
-     * *   You can configure only public, custom, or shared Linux images or image families as the source images when you create image templates.
-     * *   When you create an image from an image template, an intermediate Elastic Compute Service (ECS) instance that uses the pay-as-you-go billing method is created. You are charged for the instance. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
-     * When you use the `BuildContent` parameter to specify the content of the image template, take note of the following items:
-     * *   If the `BuildContent` value contains `FROM` commands, the `FROM` commands override the values of `BaseImageType` that specifies the type of the source image and `BaseImage` that specifies the source image.
-     * *   If the `BuildContent` value does not contain `FROM` commands, the system creates a `FROM` command that consists of the `BaseImageType` and `BaseImage` values in the format of `<BaseImageType>:<BaseImage>` and adds the command to the first line of the template content.
-     * *   You can use Dockerfile to edit the content of the image template and then pass the edited content into the `BuildContent` parameter. The content cannot be greater than 16 KB in size and can contain up to 127 commands. For information about commands supported by image templates, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
-     * You can use image components to create image templates in the ECS console, but cannot call API operations to use image components to create image templates. For more information, see [What is Image Builder](https://help.aliyun.com/document_detail/197410.html).
+     * *   You can specify only a public image, a custom image, a shared image, or an image family as the source image when you create an image template.
+     * *   When you use an image template to create an image, multiple intermediate instances are created. You are charged for the intermediate instances on a pay-as-you-go basis. For more information, see [Pay-as-you-go](https://help.aliyun.com/document_detail/40653.html).
+     * When you use `BuildContent` to specify the build content in an image template, take note of the following items:
+     * *   The `FROM` command is deprecated. Regardless of whether you specify the `FROM` command in `BuildContent`, the system uses the source image specified by `BaseImageType` and `BaseImage`. BaseImageType specifies the type of the source image and BaseImage specifies the source image.
+     * *   The size of BuildContent cannot exceed 16 KB. For information about the commands supported by Image Builder, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
+     * For more information, see [Image Builder](https://help.aliyun.com/document_detail/197410.html).
      *  *
      * @param CreateImagePipelineRequest $request CreateImagePipelineRequest
      *
@@ -7660,10 +7652,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary ## Description
-     * Before you call this operation to delete an activation code, make sure that the activation code has never been used to register managed instances.
+     * @summary Deletes an unused activation code.
      *  *
-     * @description $.parameters[4].schema.description
+     * @description ## [](#)Usage notes
+     * Before you call this operation to delete an activation code, make sure that no managed instances are registered with the activation code.
      *  *
      * @param DeleteActivationRequest $request DeleteActivationRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7714,10 +7706,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary ## Description
-     * Before you call this operation to delete an activation code, make sure that the activation code has never been used to register managed instances.
+     * @summary Deletes an unused activation code.
      *  *
-     * @description $.parameters[4].schema.description
+     * @description ## [](#)Usage notes
+     * Before you call this operation to delete an activation code, make sure that no managed instances are registered with the activation code.
      *  *
      * @param DeleteActivationRequest $request DeleteActivationRequest
      *
@@ -7796,7 +7788,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to delete an automatic snapshot policy. After you delete an automatic snapshot policy, the policy will no longer be applied to the disks that it previously took effect on.
+     * @summary Deletes an automatic snapshot policy. After you delete an automatic snapshot policy, the policy is no longer applied to the disks on which it previously took effect.
      *  *
      * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7841,7 +7833,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to delete an automatic snapshot policy. After you delete an automatic snapshot policy, the policy will no longer be applied to the disks that it previously took effect on.
+     * @summary Deletes an automatic snapshot policy. After you delete an automatic snapshot policy, the policy is no longer applied to the disks on which it previously took effect.
      *  *
      * @param DeleteAutoSnapshotPolicyRequest $request DeleteAutoSnapshotPolicyRequest
      *
@@ -8511,7 +8503,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 删除hpc集群
+     * @summary Deletes a high performance computing (HPC) cluster.
      *  *
      * @param DeleteHpcClusterRequest $request DeleteHpcClusterRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -8565,7 +8557,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 删除hpc集群
+     * @summary Deletes a high performance computing (HPC) cluster.
      *  *
      * @param DeleteHpcClusterRequest $request DeleteHpcClusterRequest
      *
@@ -8786,14 +8778,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Releases a pay-as-you-go Elastic Compute Service (ECS) instance or an expired subscription ECS instance. You can configure parameters to specify whether to release the disks attached to the instance or retain the disks as pay-as-you-go disks.
+     * @summary Deletes or releases a pay-as-you-go Elastic Compute Service (ECS) instance or an expired subscription ECS instance. You can configure parameters to specify whether to release the disks attached to the instance or retain the disks as pay-as-you-go disks.
      *  *
      * @description **
      * **Warning** After an instance is released, all physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
-     * *   **Precautions**
-     *     When you release an instance, manual snapshots of the cloud disks are retained. The settings configured during the creation of the instance determine whether the cloud disks attached to the instance and automatic snapshots are released. Before you release the instance, you can call the [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) operation to query the parameter settings for the cloud disks attached to the instance and the automatic snapshots.
-     *     *   The cloud disks for which `DeleteWithInstance` is set to false are retained as pay-as-you-go disks after the instance is released. The cloud disks for which DeleteWithInstance is set to true are released along with the instance.
-     *     *   If `DeleteAutoSnapshot` is set to false for a cloud disk attached to the instance, the automatic snapshots of the cloud disk are retained when the instance is released. If DeleteAutoSnapshot is set to true for the cloud disk, the cloud disk is released along with the instance.
+     * After you release an instance, the manual snapshots of the cloud disks attached to the instance are retained. Whether the cloud disks and the automatic snapshots of the disks are released is determined by the options that you configured when you created the instance and disks. Before you release the instance, you can call the [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) operation to query the parameter settings for the cloud disks attached to the instance and the automatic snapshots.
+     * *   The cloud disks for which `DeleteWithInstance` is set to false are retained as pay-as-you-go disks after the instance is released. The cloud disks for which DeleteWithInstance is set to true are released along with the instance.
+     * *   If `DeleteAutoSnapshot` is set to false for a cloud disk attached to the instance, the automatic snapshots of the cloud disk are retained when the instance is released. If DeleteAutoSnapshot is set to true for the cloud disk, the automatic snapshots of the disk are released along with the instance.
      * >  When you release an instance that is locked for security reasons, the cloud disks attached to the instance are released even if DeleteWithInstance is set to false.
      *  *
      * @param DeleteInstanceRequest $request DeleteInstanceRequest
@@ -8848,14 +8839,13 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Releases a pay-as-you-go Elastic Compute Service (ECS) instance or an expired subscription ECS instance. You can configure parameters to specify whether to release the disks attached to the instance or retain the disks as pay-as-you-go disks.
+     * @summary Deletes or releases a pay-as-you-go Elastic Compute Service (ECS) instance or an expired subscription ECS instance. You can configure parameters to specify whether to release the disks attached to the instance or retain the disks as pay-as-you-go disks.
      *  *
      * @description **
      * **Warning** After an instance is released, all physical resources used by the instance are recycled. Relevant data is erased and cannot be restored.
-     * *   **Precautions**
-     *     When you release an instance, manual snapshots of the cloud disks are retained. The settings configured during the creation of the instance determine whether the cloud disks attached to the instance and automatic snapshots are released. Before you release the instance, you can call the [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) operation to query the parameter settings for the cloud disks attached to the instance and the automatic snapshots.
-     *     *   The cloud disks for which `DeleteWithInstance` is set to false are retained as pay-as-you-go disks after the instance is released. The cloud disks for which DeleteWithInstance is set to true are released along with the instance.
-     *     *   If `DeleteAutoSnapshot` is set to false for a cloud disk attached to the instance, the automatic snapshots of the cloud disk are retained when the instance is released. If DeleteAutoSnapshot is set to true for the cloud disk, the cloud disk is released along with the instance.
+     * After you release an instance, the manual snapshots of the cloud disks attached to the instance are retained. Whether the cloud disks and the automatic snapshots of the disks are released is determined by the options that you configured when you created the instance and disks. Before you release the instance, you can call the [DescribeDisks](https://help.aliyun.com/document_detail/2679767.html) operation to query the parameter settings for the cloud disks attached to the instance and the automatic snapshots.
+     * *   The cloud disks for which `DeleteWithInstance` is set to false are retained as pay-as-you-go disks after the instance is released. The cloud disks for which DeleteWithInstance is set to true are released along with the instance.
+     * *   If `DeleteAutoSnapshot` is set to false for a cloud disk attached to the instance, the automatic snapshots of the cloud disk are retained when the instance is released. If DeleteAutoSnapshot is set to true for the cloud disk, the automatic snapshots of the disk are released along with the instance.
      * >  When you release an instance that is locked for security reasons, the cloud disks attached to the instance are released even if DeleteWithInstance is set to false.
      *  *
      * @param DeleteInstanceRequest $request DeleteInstanceRequest
@@ -10386,9 +10376,10 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries existing activation codes and their usage information.
      *  *
-     * @description You can use one of the following methods to check the responses:
-     * - Method 1: When you call the DescribeActivations operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeActivations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
-     * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * You can use one of the following methods to check the responses:
+     * *   Method 1: During a paged query, when you call the DescribeActivations operation to retrieve the first page of results, use `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeActivations operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     * *   Method 2: Use `PageSize` to specify the number of entries to return on each page, and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeActivationsRequest $request DescribeActivationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -10462,9 +10453,10 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries existing activation codes and their usage information.
      *  *
-     * @description You can use one of the following methods to check the responses:
-     * - Method 1: When you call the DescribeActivations operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeActivations operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
-     * - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description ## [](#)Usage notes
+     * You can use one of the following methods to check the responses:
+     * *   Method 1: During a paged query, when you call the DescribeActivations operation to retrieve the first page of results, use `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the DescribeActivations operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
+     * *   Method 2: Use `PageSize` to specify the number of entries to return on each page, and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
      *  *
      * @param DescribeActivationsRequest $request DescribeActivationsRequest
      *
@@ -10700,7 +10692,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries existing automatic snapshot policies in a region.
+     * @summary Queries the details of automatic snapshot policies that are created in a specific region.
      *  *
      * @param DescribeAutoSnapshotPolicyExRequest $request DescribeAutoSnapshotPolicyExRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -10763,7 +10755,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries existing automatic snapshot policies in a region.
+     * @summary Queries the details of automatic snapshot policies that are created in a specific region.
      *  *
      * @param DescribeAutoSnapshotPolicyExRequest $request DescribeAutoSnapshotPolicyExRequest
      *
@@ -11211,7 +11203,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries Elastic Compute Service (ECS) instances that reside in the classic network and have established ClassicLink connections with virtual private clouds (VPCs).
+     * @summary Queries instances located in the classic network that have established ClassicLink connections with virtual private clouds (VPCs).
      *  *
      * @description Take note of the following items:
      * *   This operation applies only to instances that reside in the classic network.
@@ -11270,7 +11262,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries Elastic Compute Service (ECS) instances that reside in the classic network and have established ClassicLink connections with virtual private clouds (VPCs).
+     * @summary Queries instances located in the classic network that have established ClassicLink connections with virtual private clouds (VPCs).
      *  *
      * @description Take note of the following items:
      * *   This operation applies only to instances that reside in the classic network.
@@ -11355,9 +11347,7 @@ class Ecs extends OpenApiClient
      *  *
      * @description ## [](#)Usage notes
      * *   Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeCloudAssistantStatus operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   During a paged query, when you call the DescribeCloudAssistantStatus operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -11427,9 +11417,7 @@ class Ecs extends OpenApiClient
      *  *
      * @description ## [](#)Usage notes
      * *   Before you run commands on or send files to instances, especially new instances, we recommend that you query the status of Cloud Assistant on the instances by calling this operation and checking the return value of CloudAssistantStatus. Run commands on or send files to the instances only when the return value is true.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeCloudAssistantStatus operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   During a paged query, when you call the DescribeCloudAssistantStatus operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeCloudAssistantStatus operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
      *
@@ -11510,9 +11498,7 @@ class Ecs extends OpenApiClient
      *  *
      * @description ## [](#)Usage notes
      * *   If you specify only `Action` and `RegionId`, all available commands (`CommandId`) that you created in the specified region are queried by default.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeCommandsRequest $request DescribeCommandsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -11603,9 +11589,7 @@ class Ecs extends OpenApiClient
      *  *
      * @description ## [](#)Usage notes
      * *   If you specify only `Action` and `RegionId`, all available commands (`CommandId`) that you created in the specified region are queried by default.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   During a paged query, when you call the DescribeCommands operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeCommands operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeCommandsRequest $request DescribeCommandsRequest
      *
@@ -13633,11 +13617,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 查询镜像族系内可用镜像
+     * @summary Queries available custom images that are most recently created in a specific image family.
      *  *
-     * @description ## Description
-     * *   This API operation only returns the available custom images that are newly created in the specified image family. Public images, Alibaba Cloud Marketplace images, community images, or shared images are not queried.
-     * *   If no available custom images exist in the specified image family, the response is empty.
+     * @description ## [](#)Usage notes
+     * If no available image exists in a specific image family, the response is empty.
      *  *
      * @param DescribeImageFromFamilyRequest $request DescribeImageFromFamilyRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -13685,11 +13668,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 查询镜像族系内可用镜像
+     * @summary Queries available custom images that are most recently created in a specific image family.
      *  *
-     * @description ## Description
-     * *   This API operation only returns the available custom images that are newly created in the specified image family. Public images, Alibaba Cloud Marketplace images, community images, or shared images are not queried.
-     * *   If no available custom images exist in the specified image family, the response is empty.
+     * @description ## [](#)Usage notes
+     * If no available image exists in a specific image family, the response is empty.
      *  *
      * @param DescribeImageFromFamilyRequest $request DescribeImageFromFamilyRequest
      *
@@ -14226,7 +14208,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of an Elastic Compute Service (ECS) instance.
+     * @summary Queries the attributes of a specific Elastic Compute Service (ECS) instance.
      *  *
      * @param DescribeInstanceAttributeRequest $request DescribeInstanceAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -14271,7 +14253,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the attributes of an Elastic Compute Service (ECS) instance.
+     * @summary Queries the attributes of a specific Elastic Compute Service (ECS) instance.
      *  *
      * @param DescribeInstanceAttributeRequest $request DescribeInstanceAttributeRequest
      *
@@ -15588,9 +15570,7 @@ class Ecs extends OpenApiClient
      * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
      * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
      * *   You can [subscribe to Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain command execution results from the events. This helps you reduce the number of times to poll API operations and improve efficiency.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      * *   Comparison between the `DescribeInvocations` and `DescribeInvocationResults` operations:
      *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on multiple instances:
      *         *   The `DescribeInvocations` operation queries the execution status of the command on each instance and the overall execution status of the command on all instances.
@@ -15688,9 +15668,7 @@ class Ecs extends OpenApiClient
      * *   After you run a command, the command may fail to run or may return unexpected results. You can call this operation to query the execution results.
      * *   You can query information about command executions within the last four weeks. Up to 100,000 pieces of execution information can be retained.
      * *   You can [subscribe to Cloud Assistant task status events](https://help.aliyun.com/document_detail/2669130.html) to obtain command execution results from the events. This helps you reduce the number of times to poll API operations and improve efficiency.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries per page, and then use `PageNumber` to specify the page number. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   During a paged query, when you call the DescribeInvocationResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeInvocationResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      * *   Comparison between the `DescribeInvocations` and `DescribeInvocationResults` operations:
      *     *   Scenario in which the `RunCommand` or `InvokeCommand` operation is called to run a Cloud Assistant command on multiple instances:
      *         *   The `DescribeInvocations` operation queries the execution status of the command on each instance and the overall execution status of the command on all instances.
@@ -16159,10 +16137,7 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries managed instances.
      *  *
-     * @description ## [](#)Usage notes
-     * You can use one of the following methods to check the responses:
-     * *   Method 1: During a paged query, when you call the DescribeManagedInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeManagedInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     * *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * @description During a paged query, when you call the DescribeManagedInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeManagedInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeManagedInstancesRequest $request DescribeManagedInstancesRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -16245,10 +16220,7 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries managed instances.
      *  *
-     * @description ## [](#)Usage notes
-     * You can use one of the following methods to check the responses:
-     * *   Method 1: During a paged query, when you call the DescribeManagedInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeManagedInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     * *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * @description During a paged query, when you call the DescribeManagedInstances operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeManagedInstances operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeManagedInstancesRequest $request DescribeManagedInstancesRequest
      *
@@ -18154,12 +18126,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the security groups that are referencing specific security groups. When you call this operation, you can specify SecurityGroupId.
+     * @summary Queries the security groups whose rules reference security groups as authorization objects.
      *  *
-     * @description When you call this operation, take note of the following items:
-     * *   A security group can be referenced by the inbound or outbound rules of other security groups.
-     * *   Up to 100 entries can be returned each time.
-     * *   If a security group cannot be deleted by calling the [DeleteSecurityGroup](https://help.aliyun.com/document_detail/25558.html) operation, you can call the DescribeSecurityGroupReferences operation to check whether the security group is referenced by the rules of other security groups. If the security group is referenced by the rules of other security groups, you must remove the reference before you can delete the security group.
+     * @description *   If you cannot delete a security group by calling the [DeleteSecurityGroup](https://help.aliyun.com/document_detail/25558.html) operation, call the DescribeSecurityGroupReferences operation to check whether the security group is referenced by the rules of other security groups. If the security group is referenced by the rules of other security groups, you must call the [RevokeSecurityGroup](https://help.aliyun.com/document_detail/2679855.html) and [RevokeSecurityGroupEgress](https://help.aliyun.com/document_detail/2679856.html) operations to remove the references before you can delete the security group.
      *  *
      * @param DescribeSecurityGroupReferencesRequest $request DescribeSecurityGroupReferencesRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -18207,12 +18176,9 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the security groups that are referencing specific security groups. When you call this operation, you can specify SecurityGroupId.
+     * @summary Queries the security groups whose rules reference security groups as authorization objects.
      *  *
-     * @description When you call this operation, take note of the following items:
-     * *   A security group can be referenced by the inbound or outbound rules of other security groups.
-     * *   Up to 100 entries can be returned each time.
-     * *   If a security group cannot be deleted by calling the [DeleteSecurityGroup](https://help.aliyun.com/document_detail/25558.html) operation, you can call the DescribeSecurityGroupReferences operation to check whether the security group is referenced by the rules of other security groups. If the security group is referenced by the rules of other security groups, you must remove the reference before you can delete the security group.
+     * @description *   If you cannot delete a security group by calling the [DeleteSecurityGroup](https://help.aliyun.com/document_detail/25558.html) operation, call the DescribeSecurityGroupReferences operation to check whether the security group is referenced by the rules of other security groups. If the security group is referenced by the rules of other security groups, you must call the [RevokeSecurityGroup](https://help.aliyun.com/document_detail/2679855.html) and [RevokeSecurityGroupEgress](https://help.aliyun.com/document_detail/2679856.html) operations to remove the references before you can delete the security group.
      *  *
      * @param DescribeSecurityGroupReferencesRequest $request DescribeSecurityGroupReferencesRequest
      *
@@ -18347,12 +18313,10 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the files sent by Cloud Assistant and their status.
      *  *
-     * @description ## [](#)Usage notes:
+     * @description ## [](#)Usage notes
      * *   When you send a file, the file may fail to be sent to specific Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
      * *   You can call this operation to query the file sending records within the last six weeks.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -18432,12 +18396,10 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the files sent by Cloud Assistant and their status.
      *  *
-     * @description ## [](#)Usage notes:
+     * @description ## [](#)Usage notes
      * *   When you send a file, the file may fail to be sent to specific Elastic Compute Service (ECS) instances. You can call this operation to check the file sending results.
      * *   You can call this operation to query the file sending records within the last six weeks.
-     * *   You can use one of the following methods to check the responses:
-     *     *   Method 1: During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token, which can be used in the next request to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
-     *     *   Method 2: Use `PageSize` to specify the number of entries to return on each page and then use `PageNumber` to specify the number of the page to return. You can use only one of the preceding methods. If you specify `MaxResults` or `NextToken`, the `PageSize` and `PageNumber` request parameters do not take effect and the `TotalCount` response parameter is invalid.
+     * *   During a paged query, when you call the DescribeSendFileResults operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the DescribeSendFileResults operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param DescribeSendFileResultsRequest $request DescribeSendFileResultsRequest
      *
@@ -18706,8 +18668,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The number of the page to return. Pages start from page 1.
-     * Default value: 1.
+     * @summary Queries the Object Storage Service (OSS) storage plans that you purchased in an Alibaba Cloud region. OSS storage plans can be used to offset the storage fees for standard snapshots instead of local snapshots.
      *  *
      * @param DescribeSnapshotPackageRequest $request DescribeSnapshotPackageRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -18758,8 +18719,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary The number of the page to return. Pages start from page 1.
-     * Default value: 1.
+     * @summary Queries the Object Storage Service (OSS) storage plans that you purchased in an Alibaba Cloud region. OSS storage plans can be used to offset the storage fees for standard snapshots instead of local snapshots.
      *  *
      * @param DescribeSnapshotPackageRequest $request DescribeSnapshotPackageRequest
      *
@@ -19173,7 +19133,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more SCUs.
+     * @summary Queries the details of storage capacity units (SCUs). In the request, you can specify the name, status, or capacity of each SCU.
      *  *
      * @param DescribeStorageCapacityUnitsRequest $request DescribeStorageCapacityUnitsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -19242,7 +19202,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of one or more SCUs.
+     * @summary Queries the details of storage capacity units (SCUs). In the request, you can specify the name, status, or capacity of each SCU.
      *  *
      * @param DescribeStorageCapacityUnitsRequest $request DescribeStorageCapacityUnitsRequest
      *
@@ -19555,7 +19515,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the progress of one or more asynchronous requests.
+     * @summary Queries the progress of one or more asynchronous tasks.
      *  *
      * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeTasks\\&type=RPC\\&version=2014-05-26)
@@ -19627,7 +19587,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Queries the progress of one or more asynchronous requests.
+     * @summary Queries the progress of one or more asynchronous tasks.
      *  *
      * @description ## Debugging
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Ecs\\&api=DescribeTasks\\&type=RPC\\&version=2014-05-26)
@@ -20361,11 +20321,8 @@ class Ecs extends OpenApiClient
      * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
      *  *
      * @description Take note of the following items:
-     * *   The disk that you want to detach must be attached to an ECS instance and in the In Use (`In_use`) state.
-     * *   The instance from which you want to detach a data disk must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
-     * *   The instance from which you want to detach a system disk must be in the **Stopped** state.``
-     * *   If the `OperationLocks` parameter in the response contains `"LockReason" : "security"` when you query the instance information, the instance is locked for security reasons and all operations are prohibited on the instance.
-     * *   DetachDisk is an asynchronous operation. After you call the operation to detach a disk from an ECS instance, the disk is detached in approximately 1 minute.
+     * *   This operation is an asynchronous operation. After you call the operation to detach a disk from an ECS instance, the disk is detached in approximately 1 minute.
+     * *   If `OperationLocks` in the response contains `"LockReason" : "security"` when you query information about an instance, the instance is locked for security reasons and all operations are prohibited on the instance.
      * *   If you want to attach an elastic ephemeral disk that you detached from an instance, you can attach the disk only to the instance.
      *  *
      * @param DetachDiskRequest $request DetachDiskRequest
@@ -20420,11 +20377,8 @@ class Ecs extends OpenApiClient
      * @summary Detaches a pay-as-you-go data disk or a system disk from an Elastic Compute Service (ECS) instance.
      *  *
      * @description Take note of the following items:
-     * *   The disk that you want to detach must be attached to an ECS instance and in the In Use (`In_use`) state.
-     * *   The instance from which you want to detach a data disk must be in the **Running** (`Running`) or **Stopped** (`Stopped`) state.
-     * *   The instance from which you want to detach a system disk must be in the **Stopped** state.``
-     * *   If the `OperationLocks` parameter in the response contains `"LockReason" : "security"` when you query the instance information, the instance is locked for security reasons and all operations are prohibited on the instance.
-     * *   DetachDisk is an asynchronous operation. After you call the operation to detach a disk from an ECS instance, the disk is detached in approximately 1 minute.
+     * *   This operation is an asynchronous operation. After you call the operation to detach a disk from an ECS instance, the disk is detached in approximately 1 minute.
+     * *   If `OperationLocks` in the response contains `"LockReason" : "security"` when you query information about an instance, the instance is locked for security reasons and all operations are prohibited on the instance.
      * *   If you want to attach an elastic ephemeral disk that you detached from an instance, you can attach the disk only to the instance.
      *  *
      * @param DetachDiskRequest $request DetachDiskRequest
@@ -20664,8 +20618,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary To prevent an activation code from being leaked, you can call the DisableActivation operation to disable the activation code. Disabled activation codes cannot be used to register new managed instances. However, managed instances that are already registered are not affected.
      *  *
-     * @description The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description ## [](#)Usage notes
+     * To prevent an activation code from being leaked, you can call the DisableActivation operation to disable the activation code. Disabled activation codes cannot be used to register new managed instances. However, managed instances that are already registered are not affected.
      *  *
      * @param DisableActivationRequest $request DisableActivationRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -20718,8 +20672,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary To prevent an activation code from being leaked, you can call the DisableActivation operation to disable the activation code. Disabled activation codes cannot be used to register new managed instances. However, managed instances that are already registered are not affected.
      *  *
-     * @description The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description ## [](#)Usage notes
+     * To prevent an activation code from being leaked, you can call the DisableActivation operation to disable the activation code. Disabled activation codes cannot be used to register new managed instances. However, managed instances that are already registered are not affected.
      *  *
      * @param DisableActivationRequest $request DisableActivationRequest
      *
@@ -21109,6 +21063,8 @@ class Ecs extends OpenApiClient
     /**
      * @deprecated OpenAPI ExportSnapshot is deprecated
      *  *
+     * @summary 将快照导出到指定的对象存储
+     *  *
      * Deprecated
      *
      * @param ExportSnapshotRequest $request ExportSnapshotRequest
@@ -21161,6 +21117,8 @@ class Ecs extends OpenApiClient
 
     /**
      * @deprecated OpenAPI ExportSnapshot is deprecated
+     *  *
+     * @summary 将快照导出到指定的对象存储
      *  *
      * Deprecated
      *
@@ -21608,7 +21566,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Imports the public key of a Rivest–Shamir–Adleman (RSA)-encrypted key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely lock away the private key.
+     * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely lock away the private key.
      *  *
      * @description Take note of the following items:
      * *   A maximum of 500 key pairs can be created in each region.
@@ -21678,7 +21636,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Imports the public key of a Rivest–Shamir–Adleman (RSA)-encrypted key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely lock away the private key.
+     * @summary Imports the public key of a Rivest-Shamir-Adleman (RSA) key pair that is generated by a third-party tool. After the key pair is imported, Alibaba Cloud stores the public key. You must securely lock away the private key.
      *  *
      * @description Take note of the following items:
      * *   A maximum of 500 key pairs can be created in each region.
@@ -22179,13 +22137,10 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the states of Cloud Assistant plug-ins on Elastic Compute Service (ECS) instances.
      *  *
-     * @description ## Usage notes
-     * - Before you call this operation to query the status of Cloud Assistant plug-ins on ECS instances, make sure that the versions of Cloud Assistant Agent on the instances are not earlier than the following ones:
-     *   *   2.2.3.344 for Linux instances
-     *   *   2.1.3.344 for Windows instances
-     * - You can use one of the following methods to check the responses:
-     *   - Method 1: When you call the ListPluginStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the ListPluginStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
-     *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description *   Before you call this operation to query the status of Cloud Assistant plug-ins on ECS instances, make sure that the versions of Cloud Assistant Agent on the instances are not earlier than the following ones:
+     *     *   2.2.3.344 for Linux instances
+     *     *   2.1.3.344 for Windows instances
+     * *   During a paged query, when you call the ListPluginStatus operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the ListPluginStatus operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param ListPluginStatusRequest $request ListPluginStatusRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -22253,13 +22208,10 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the states of Cloud Assistant plug-ins on Elastic Compute Service (ECS) instances.
      *  *
-     * @description ## Usage notes
-     * - Before you call this operation to query the status of Cloud Assistant plug-ins on ECS instances, make sure that the versions of Cloud Assistant Agent on the instances are not earlier than the following ones:
-     *   *   2.2.3.344 for Linux instances
-     *   *   2.1.3.344 for Windows instances
-     * - You can use one of the following methods to check the responses:
-     *   - Method 1: When you call the ListPluginStatus operation to retrieve the first page of results during a paged query, use MaxResults to specify the maximum number of entries to return in the call. The return value of NextToken is a pagination token, which you can use in the next request to retrieve a new page of results. When you call the ListPluginStatus operation to retrieve a new page of results, set NextToken to the NextToken value returned in the previous call and use MaxResults to specify the maximum number of entries to return in this call.
-     *   - Method 2: Use PageSize to specify the number of entries to return on each page, and then use PageNumber to specify the number of the page to return. You can use only one of the preceding methods. If you specify MaxResults or NextToken, the PageSize and PageNumber request parameters do not take effect and the TotalCount response parameter is invalid.
+     * @description *   Before you call this operation to query the status of Cloud Assistant plug-ins on ECS instances, make sure that the versions of Cloud Assistant Agent on the instances are not earlier than the following ones:
+     *     *   2.2.3.344 for Linux instances
+     *     *   2.1.3.344 for Windows instances
+     * *   During a paged query, when you call the ListPluginStatus operation to retrieve the first page of results, set `MaxResults` to specify the maximum number of entries to return in the call. The return value of `NextToken` is a pagination token that can be used in the next call to retrieve a new page of results. When you call the ListPluginStatus operation to retrieve a new page of results, set `NextToken` to the `NextToken` value returned in the previous call and set `MaxResults` to specify the maximum number of entries to return in this call.
      *  *
      * @param ListPluginStatusRequest $request ListPluginStatusRequest
      *
@@ -23956,6 +23908,9 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->destinationZoneId)) {
+            $query['DestinationZoneId'] = $request->destinationZoneId;
+        }
         if (!Utils::isUnset($request->diskCategory)) {
             $query['DiskCategory'] = $request->diskCategory;
         }
@@ -24748,28 +24703,7 @@ class Ecs extends OpenApiClient
     /**
      * @summary Modifies the attributes of an Elastic Compute Service (ECS) instance, such as the password, name, description, hostname, security groups, maximum transmission unit (MTU), and user data of the instance.
      *  *
-     * @description ## [](#)Usage notes
-     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and no operations are allowed on the instance.
-     * Take note of the following items:
-     * *   If you change the hostname (`HostName`), restart the instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). The new hostname may not take effect if you restart the instance from within the operating system.
-     * *   If you reset the password (`Password`), take note of the following items:
-     *     *   The instance cannot be in the **Starting** (`Starting`) state.
-     *     *   After you reset the password, restart the instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). The new password does not take effect if you restart the instance from within the operating system.
-     * *   If you modify user data (`UserData`), take note of the following items: The instance must meet the limits for user data. For more information, see [Instance user data](https://help.aliyun.com/document_detail/49121.html).
-     *     **
-     *     **Note** After you restart the instance, the new user data is displayed but not run as scripts.
-     * *   If you change the security groups (`SecurityGroupIds.N`), take note of the following items:
-     *     *   You can move the instance to a security group of a different type. If you want to move the instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
-     *     *   Security groups of instances in the classic network cannot be changed. For more information, see the description of `SecurityGroupIds.N`.
-     * *   If you change the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`), take note of the following items:
-     *     *   The instance must be in the Stopped (`Stopped`) state.
-     *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI.
-     *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and view the values of the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` response parameters.
-     *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To query the default number of queues supported per primary ENI for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and view the value of the `PrimaryEniQueueNumber` response parameter.
-     * *   If you enable or disable the Jumbo Frames feature (`EnableJumboFrame`), take note of the following items. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
-     *     *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
-     *     *   The instance must reside in a virtual private cloud (VPC).
-     *     *   After the Jumbo Frames feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frames feature is disabled, the MTU value of the instance is set to 1500.
+     * @description You cannot call this operation to modify the attributes of the ECS instances that are locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
      *  *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -24858,28 +24792,7 @@ class Ecs extends OpenApiClient
     /**
      * @summary Modifies the attributes of an Elastic Compute Service (ECS) instance, such as the password, name, description, hostname, security groups, maximum transmission unit (MTU), and user data of the instance.
      *  *
-     * @description ## [](#)Usage notes
-     * If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query the information of the instance, the instance is locked for security reasons and no operations are allowed on the instance.
-     * Take note of the following items:
-     * *   If you change the hostname (`HostName`), restart the instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new hostname to take effect. For information about how to restart an instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). The new hostname may not take effect if you restart the instance from within the operating system.
-     * *   If you reset the password (`Password`), take note of the following items:
-     *     *   The instance cannot be in the **Starting** (`Starting`) state.
-     *     *   After you reset the password, restart the instance in the ECS console or by calling the [RebootInstance](https://help.aliyun.com/document_detail/25502.html) operation for the new password to take effect. For information about how to restart an instance in the ECS console, see [Restart an instance](https://help.aliyun.com/document_detail/25440.html). The new password does not take effect if you restart the instance from within the operating system.
-     * *   If you modify user data (`UserData`), take note of the following items: The instance must meet the limits for user data. For more information, see [Instance user data](https://help.aliyun.com/document_detail/49121.html).
-     *     **
-     *     **Note** After you restart the instance, the new user data is displayed but not run as scripts.
-     * *   If you change the security groups (`SecurityGroupIds.N`), take note of the following items:
-     *     *   You can move the instance to a security group of a different type. If you want to move the instance to a security group of a different type, you must familiarize yourself with the differences between the rule configurations of the two security group types to prevent impacts on the instance network.
-     *     *   Security groups of instances in the classic network cannot be changed. For more information, see the description of `SecurityGroupIds.N`.
-     * *   If you change the number of queues supported by the primary elastic network interface (ENI) (`NetworkInterfaceQueueNumber`), take note of the following items:
-     *     *   The instance must be in the Stopped (`Stopped`) state.
-     *     *   The value of this parameter cannot exceed the maximum number of queues allowed per ENI.
-     *     *   The total number of queues for all ENIs on the instance cannot exceed the queue quota for the instance type. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and view the values of the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` response parameters.
-     *     *   If you set this parameter to -1, the value is reset to the default value for the instance type. To query the default number of queues supported per primary ENI for an instance type, you can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) operation and view the value of the `PrimaryEniQueueNumber` response parameter.
-     * *   If you enable or disable the Jumbo Frames feature (`EnableJumboFrame`), take note of the following items. For more information, see [MTUs](https://help.aliyun.com/document_detail/200512.html).
-     *     *   The instance must be in the Running (`Running`) or Stopped (`Stopped`) state.
-     *     *   The instance must reside in a virtual private cloud (VPC).
-     *     *   After the Jumbo Frames feature is enabled, the MTU value of the instance is set to 8500. After the Jumbo Frames feature is disabled, the MTU value of the instance is set to 1500.
+     * @description You cannot call this operation to modify the attributes of the ECS instances that are locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
      *  *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
@@ -26018,10 +25931,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ModifyManagedInstance operation to change only the name of a managed instance.
+     * @summary Modifies the information of a managed instance.
      *  *
-     * @description The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description ## [](#)Usage notes
+     * The ModifyManagedInstance operation can be called to change only the name of a single managed instance.
      *  *
      * @param ModifyManagedInstanceRequest $request ModifyManagedInstanceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -26075,10 +25988,10 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call the ModifyManagedInstance operation to change only the name of a managed instance.
+     * @summary Modifies the information of a managed instance.
      *  *
-     * @description The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
-     * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description ## [](#)Usage notes
+     * The ModifyManagedInstance operation can be called to change only the name of a single managed instance.
      *  *
      * @param ModifyManagedInstanceRequest $request ModifyManagedInstanceRequest
      *
@@ -26569,7 +26482,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the auto-renewal attributes of reserved instances. You can disable the auto-renewal feature for reserved instances.
+     * @summary Modifies the auto-renewal attributes of reserved instances. You can cancel or disable the auto-renewal feature for reserved instances.
      *  *
      * @param ModifyReservedInstanceAutoRenewAttributeRequest $request ModifyReservedInstanceAutoRenewAttributeRequest
      * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
@@ -26626,7 +26539,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Modifies the auto-renewal attributes of reserved instances. You can disable the auto-renewal feature for reserved instances.
+     * @summary Modifies the auto-renewal attributes of reserved instances. You can cancel or disable the auto-renewal feature for reserved instances.
      *  *
      * @param ModifyReservedInstanceAutoRenewAttributeRequest $request ModifyReservedInstanceAutoRenewAttributeRequest
      *
@@ -26642,8 +26555,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary Modifies the configurations of a reserved instance, such as the instance type, quantity, and zone, to split, merge, or change the scope of the reserved instance.
      *  *
-     * @description This operation is an asynchronous operation. After you call this operation to modify a reserved instance, the operation starts the modification process and returns the ID of the resulting new reserved instance. The original reserved instance enters the Updating state and then the Inactive state. At the same time, the resulting new reserved instance is generated and enters the Creating state and then the Active state. You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/2679781.html) operation to query the states of the reserved instance.
-     * *   You can modify the configurations of a reserved instance only when the reserved instance is in the **Active** state.
+     * @description This operation is an asynchronous operation. After you call this operation to modify a reserved instance, the operation starts the modification process and returns the ID of the resulting new reserved instance. The original reserved instance enters the `Updating` state and then the `Inactive` state. At the same time, the resulting new reserved instance is generated and enters the Creating state and then the Active state. You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/2679781.html) operation to query the states of the reserved instance.
+     * *   You can modify the configurations of a reserved instance only if the reserved instance is in the **Active** state.
      * *   Make sure that the [computing power](~~140660#2742f3844abzz~~) of the reserved instance remains unchanged before and after the modification. Otherwise, the modification fails.
      * *   You cannot split, merge, or change the scope of a reserved instance at the same time.
      * For more information, see [Split, merge, or modify reserved instances](https://help.aliyun.com/document_detail/100375.html).
@@ -26666,7 +26579,7 @@ class Ecs extends OpenApiClient
      *         "InstanceAmount":1
      *       }
      *     ]
-     * *   **Sample request to merge reserved instance:**: Merge two zonal reserved instances that are scoped to Hangzhou Zone H and can match four pay-as-you-go instances of the ecs.g5.xlarge instance type into one zonal reserved instance that is scoped to Hangzhou Zone H and can match two pay-as-you-go instance of the ecs.g5.4xlarge instance type:
+     * *   **Sample request to merge reserved instance:**: Merge two zonal reserved instances that are scoped to Hangzhou Zone H and can match four pay-as-you-go instances of the ecs.g5.xlarge instance type into one zonal reserved instance that is scoped to Hangzhou Zone H and can match two pay-as-you-go instances of the ecs.g5.4xlarge instance type:
      * <!---->
      *     "RegionId":"cn-hangzhou", //The ID of the region.
      *     "ReservedInstanceId":["ecsri-bp1hd03e9uv16b75****",""ecsri-bp1hd03e9uv16b76****""], //The IDs of the reserved instances that you want to merge.
@@ -26743,8 +26656,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary Modifies the configurations of a reserved instance, such as the instance type, quantity, and zone, to split, merge, or change the scope of the reserved instance.
      *  *
-     * @description This operation is an asynchronous operation. After you call this operation to modify a reserved instance, the operation starts the modification process and returns the ID of the resulting new reserved instance. The original reserved instance enters the Updating state and then the Inactive state. At the same time, the resulting new reserved instance is generated and enters the Creating state and then the Active state. You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/2679781.html) operation to query the states of the reserved instance.
-     * *   You can modify the configurations of a reserved instance only when the reserved instance is in the **Active** state.
+     * @description This operation is an asynchronous operation. After you call this operation to modify a reserved instance, the operation starts the modification process and returns the ID of the resulting new reserved instance. The original reserved instance enters the `Updating` state and then the `Inactive` state. At the same time, the resulting new reserved instance is generated and enters the Creating state and then the Active state. You can call the [DescribeReservedInstances](https://help.aliyun.com/document_detail/2679781.html) operation to query the states of the reserved instance.
+     * *   You can modify the configurations of a reserved instance only if the reserved instance is in the **Active** state.
      * *   Make sure that the [computing power](~~140660#2742f3844abzz~~) of the reserved instance remains unchanged before and after the modification. Otherwise, the modification fails.
      * *   You cannot split, merge, or change the scope of a reserved instance at the same time.
      * For more information, see [Split, merge, or modify reserved instances](https://help.aliyun.com/document_detail/100375.html).
@@ -26767,7 +26680,7 @@ class Ecs extends OpenApiClient
      *         "InstanceAmount":1
      *       }
      *     ]
-     * *   **Sample request to merge reserved instance:**: Merge two zonal reserved instances that are scoped to Hangzhou Zone H and can match four pay-as-you-go instances of the ecs.g5.xlarge instance type into one zonal reserved instance that is scoped to Hangzhou Zone H and can match two pay-as-you-go instance of the ecs.g5.4xlarge instance type:
+     * *   **Sample request to merge reserved instance:**: Merge two zonal reserved instances that are scoped to Hangzhou Zone H and can match four pay-as-you-go instances of the ecs.g5.xlarge instance type into one zonal reserved instance that is scoped to Hangzhou Zone H and can match two pay-as-you-go instances of the ecs.g5.4xlarge instance type:
      * <!---->
      *     "RegionId":"cn-hangzhou", //The ID of the region.
      *     "ReservedInstanceId":["ecsri-bp1hd03e9uv16b75****",""ecsri-bp1hd03e9uv16b76****""], //The IDs of the reserved instances that you want to merge.
@@ -27039,7 +26952,7 @@ class Ecs extends OpenApiClient
      *  *
      * @description Take note of the following items:
      * *   An authorization object in a security group rule can be of one of the following types: IPv4 CIDR block or address, IPv6 CIDR block or address, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you can change the authorization object to a different IPv4 CIDR block or an IPv4 address, but you cannot change the authorization object to an IPv6 CIDR block or address, a security group, or a prefix list.
-     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create a security group rule and delete the original security group rule.
+     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create another rule and delete the original rule.
      *  *
      * @param ModifySecurityGroupEgressRuleRequest $request ModifySecurityGroupEgressRuleRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -27145,7 +27058,7 @@ class Ecs extends OpenApiClient
      *  *
      * @description Take note of the following items:
      * *   An authorization object in a security group rule can be of one of the following types: IPv4 CIDR block or address, IPv6 CIDR block or address, security group, or prefix list. You cannot call this operation to change the type of an existing authorization object. For example, if an authorization object is an IPv4 CIDR block, you can change the authorization object to a different IPv4 CIDR block or an IPv4 address, but you cannot change the authorization object to an IPv6 CIDR block or address, a security group, or a prefix list.
-     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create a security group rule and delete the original security group rule.
+     * *   You cannot delete the value of a non-empty parameter. If you want to delete the values of non-empty parameters, we recommend that you create another rule and delete the original rule.
      *  *
      * @param ModifySecurityGroupEgressRuleRequest $request ModifySecurityGroupEgressRuleRequest
      *
@@ -28407,17 +28320,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Re-initializes a disk to the state that it was in when it was created.
+     * @summary Re-initializes a cloud disk to the state when the cloud disk was created.
      *  *
-     * @description ## [](#)Usage notes
-     * Take note of the following items:
-     * *   The disk that you want to re-initialize must be in the **In Use** (In_use) state and the instance to which the disk is attached must be in the **Stopped** (Stopped) state.
+     * @description Take note of the following items:
+     * *   The disk that you want to re-initialize must be in the **In Use** (`In_use`) state and the instance to which the disk is attached must be in the **Stopped** (`Stoppe`) state.
      * *   If an instance has never been started since it was created, the disks attached to it cannot be re-initialized.
      * *   If a local snapshot has been created for a disk, the disk cannot be re-initialized.
      * *   If a system disk is re-initialized, the disk is restored to the state of the image from which it was created. If the image has been deleted, the disk cannot be re-initialized.
-     * *   If a separately created data disk is re-initialized, the disk is restored to an empty data disk.
-     * *   If a data disk that was created from a snapshot is re-initialized, the disk is restored to the state of the snapshot.
-     * >  If the source snapshot is deleted, the disk cannot be re-initialized and an error is returned.
+     * *   For a data disk that was created from scratch, the disk is initialized to the empty disk state. For a data disk that is created from a snapshot, the disk is initialized to the snapshot state. If the snapshots were deleted, the disks cannot be re-initialized and an error is returned.
      *  *
      * @param ReInitDiskRequest $request ReInitDiskRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -28474,17 +28384,14 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Re-initializes a disk to the state that it was in when it was created.
+     * @summary Re-initializes a cloud disk to the state when the cloud disk was created.
      *  *
-     * @description ## [](#)Usage notes
-     * Take note of the following items:
-     * *   The disk that you want to re-initialize must be in the **In Use** (In_use) state and the instance to which the disk is attached must be in the **Stopped** (Stopped) state.
+     * @description Take note of the following items:
+     * *   The disk that you want to re-initialize must be in the **In Use** (`In_use`) state and the instance to which the disk is attached must be in the **Stopped** (`Stoppe`) state.
      * *   If an instance has never been started since it was created, the disks attached to it cannot be re-initialized.
      * *   If a local snapshot has been created for a disk, the disk cannot be re-initialized.
      * *   If a system disk is re-initialized, the disk is restored to the state of the image from which it was created. If the image has been deleted, the disk cannot be re-initialized.
-     * *   If a separately created data disk is re-initialized, the disk is restored to an empty data disk.
-     * *   If a data disk that was created from a snapshot is re-initialized, the disk is restored to the state of the snapshot.
-     * >  If the source snapshot is deleted, the disk cannot be re-initialized and an error is returned.
+     * *   For a data disk that was created from scratch, the disk is initialized to the empty disk state. For a data disk that is created from a snapshot, the disk is initialized to the snapshot state. If the snapshots were deleted, the disks cannot be re-initialized and an error is returned.
      *  *
      * @param ReInitDiskRequest $request ReInitDiskRequest
      *
@@ -28500,10 +28407,10 @@ class Ecs extends OpenApiClient
     /**
      * @summary Restarts an Elastic Compute Service (ECS) instance.
      *  *
-     * @description This operation is an asynchronous operation. After you call this operation to restart an ECS instance, the operation sets the status of the ECS instance to `Starting` and begins the restart process. You can call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the status of the ECS instance. When the status of the ECS instance changes to `Running`, the instance is restarted.
-     * *   **Notes**
-     *     *   You cannot call this operation to restart an ECS instance that is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
-     *     *   The ECS instance that you want to restart must be in the **Running** (`Running`) state.
+     * @description This operation is an asynchronous operation. After you call this operation to restart an ECS instance, the operation sets the status of the ECS instance to `Starting` and begins the restart process. You can call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the status of the instance. When the status of the ECS instance changes to `Running`, the instance is restarted.
+     * ### [](#)Considerations
+     * *   You cannot call this operation to restart an ECS instance that is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
+     * *   The ECS instance that you want to restart must be in the **Running** (`Running`) state.
      *  *
      * @param RebootInstanceRequest $request RebootInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -28556,10 +28463,10 @@ class Ecs extends OpenApiClient
     /**
      * @summary Restarts an Elastic Compute Service (ECS) instance.
      *  *
-     * @description This operation is an asynchronous operation. After you call this operation to restart an ECS instance, the operation sets the status of the ECS instance to `Starting` and begins the restart process. You can call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the status of the ECS instance. When the status of the ECS instance changes to `Running`, the instance is restarted.
-     * *   **Notes**
-     *     *   You cannot call this operation to restart an ECS instance that is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
-     *     *   The ECS instance that you want to restart must be in the **Running** (`Running`) state.
+     * @description This operation is an asynchronous operation. After you call this operation to restart an ECS instance, the operation sets the status of the ECS instance to `Starting` and begins the restart process. You can call the [DescribeInstanceStatus](https://help.aliyun.com/document_detail/2679688.html) operation to query the status of the instance. When the status of the ECS instance changes to `Running`, the instance is restarted.
+     * ### [](#)Considerations
+     * *   You cannot call this operation to restart an ECS instance that is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
+     * *   The ECS instance that you want to restart must be in the **Running** (`Running`) state.
      *  *
      * @param RebootInstanceRequest $request RebootInstanceRequest
      *
@@ -29106,7 +29013,7 @@ class Ecs extends OpenApiClient
     /**
      * @deprecated OpenAPI ReleasePublicIpAddress is deprecated
      *  *
-     * @summary 释放公网IP
+     * @summary Disassociates a public IP address from an Elastic Compute Service (ECS) instance.
      *  *
      * Deprecated
      *
@@ -29152,7 +29059,7 @@ class Ecs extends OpenApiClient
     /**
      * @deprecated OpenAPI ReleasePublicIpAddress is deprecated
      *  *
-     * @summary 释放公网IP
+     * @summary Disassociates a public IP address from an Elastic Compute Service (ECS) instance.
      *  *
      * Deprecated
      *
@@ -29242,7 +29149,7 @@ class Ecs extends OpenApiClient
     /**
      * @deprecated openAPI RemoveTags is deprecated, please use Ecs::2014-05-26::UntagResources instead
      *  *
-     * @summary Removes one or more tags from a resource such as an instance, disk, snapshot, image, or security group.
+     * @summary Removes tags from a resource, such as an Elastic Compute Service (ECS) instance, disk, snapshot, image, or security group.
      *  *
      * Deprecated
      *
@@ -29297,7 +29204,7 @@ class Ecs extends OpenApiClient
     /**
      * @deprecated openAPI RemoveTags is deprecated, please use Ecs::2014-05-26::UntagResources instead
      *  *
-     * @summary Removes one or more tags from a resource such as an instance, disk, snapshot, image, or security group.
+     * @summary Removes tags from a resource, such as an Elastic Compute Service (ECS) instance, disk, snapshot, image, or security group.
      *  *
      * Deprecated
      *
@@ -29852,11 +29759,11 @@ class Ecs extends OpenApiClient
     /**
      * @summary Rolls back a cloud disk to a snapshot from an earlier point in time.
      *  *
-     * @description When you call this operation, take note of the following items:
-     * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-     * *   The Elastic Compute Service (ECS) instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstances](https://help.aliyun.com/document_detail/155372.html) operation to stop an instance.
-     * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-     * *   When you call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query instance information and the response contains `{"OperationLocks": {"LockReason" : "security"}}`, then this indicates that the instance is locked for security reasons and no operations can be performed on the instance.
+     * @description Take note of the following items:
+     * *   The cloud disk that you want to roll back must be in the In Use (`In_use`) or Unattached (`Available`) state.
+     * *   The instance to which the cloud disk is attached must be in the `Stopped` state. You can call the [StopInstances](https://help.aliyun.com/document_detail/155372.html) operation to stop the instance.
+     * *   The snapshot specified by `SnapshotId` must be created from the disk specified by `DiskId`.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an instance by calling the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation, the instance is locked for security reasons and no operations can be performed on the instance.
      *  *
      * @param ResetDiskRequest $request ResetDiskRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -29909,11 +29816,11 @@ class Ecs extends OpenApiClient
     /**
      * @summary Rolls back a cloud disk to a snapshot from an earlier point in time.
      *  *
-     * @description When you call this operation, take note of the following items:
-     * *   The disk must be in the In Use (In_Use) or Unattached (Available) state.
-     * *   The Elastic Compute Service (ECS) instance to which the disk is attached must be in the Stopped (Stopped) state. You can call the [StopInstances](https://help.aliyun.com/document_detail/155372.html) operation to stop an instance.
-     * *   The snapshot specified by the SnapshotId parameter must be created from the disk specified by the DiskId parameter.
-     * *   When you call the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation to query instance information and the response contains `{"OperationLocks": {"LockReason" : "security"}}`, then this indicates that the instance is locked for security reasons and no operations can be performed on the instance.
+     * @description Take note of the following items:
+     * *   The cloud disk that you want to roll back must be in the In Use (`In_use`) or Unattached (`Available`) state.
+     * *   The instance to which the cloud disk is attached must be in the `Stopped` state. You can call the [StopInstances](https://help.aliyun.com/document_detail/155372.html) operation to stop the instance.
+     * *   The snapshot specified by `SnapshotId` must be created from the disk specified by `DiskId`.
+     * *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}` when you query information about an instance by calling the [DescribeInstances](https://help.aliyun.com/document_detail/25506.html) operation, the instance is locked for security reasons and no operations can be performed on the instance.
      *  *
      * @param ResetDiskRequest $request ResetDiskRequest
      *
@@ -30144,47 +30051,54 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more inbound security group rules.
+     * @summary Deletes inbound security group rules from a specific security group.
      *  *
-     * @description In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
+     * @description >  Alibaba Cloud modified verification rules for the RevokeSecurityGroup operation on July 8, 2024. When you use the RevokeSecurityGroup operation to delete a security group rule that does not exist, the "InvalidSecurityGroupRule.RuleNotExist" error code is returned instead of a success response. Update the RevokeSecurityGroup operation to use the new verification rules with the new error code based on your business requirements.
      * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
-     * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the security group rule ID that you specify does not exist, an error is reported. - You cannot specify the parameters that are no longer available and their Permissions.N-prefixed counterparts at the same time. - Sample request:
-     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
-     *         &SecurityGroupId=sg-bp67acfmxazb4p****
-     *         &SecurityGroupRuleId.1=sgr-bpdfmk****
-     *         &SecurityGroupRuleId.2=sgr-bpdfmg****
-     *         &<Common request parameters>
-     * *   Parameters that are prefixed with Permissions.N.
+     * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules.
+     *     *   If a security group rule ID that you specify does not exist, an error is reported.
+     * *   Parameters that start with Permissions.
      *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroup is successful but no security group rules are deleted.
-     *     *   You cannot specify SecurityGroupRuleId.N or the parameters that are not prefixed with Permissions.N.
-     *     *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine an inbound security group rule by specifying only one parameter.
-     *     *   Parameters used to determine an inbound security group rule that controls access from a CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp (optional), and SourceCidrIp. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourceCidrIp=10.0.0.0/8
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=80/80
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=accept
-     *             &<Common request parameters>
-     *     *   Parameters used to determine an inbound security group rule that controls access from another security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp (optional), and SourceGroupId. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourceGroupId=sg-bp67acfmxa123b****
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=80/80
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=accept
-     *             &<Common request parameters>
-     *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp (optional), and SourcePrefixListId. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=80/80
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=accept
-     *             &<Common request parameters>
+     *     *   Define an inbound security group rule by configuring the following parameters together:
+     *         *   Source: You can specify one parameter from SourceCidrIp (IPv4 address), Ipv6SourceCidrIp (IPv6 address), SourcePrefixListId (prefix list ID), and SourceGroupId (source security group ID).
+     *         *   PortRange: specifies the range of destination port numbers.
+     *         *   IpProtocol: specifies the protocol.
+     *         *   Policy: specifies the action.
+     * >  You cannot specify the security group rule IDs and the parameters that start with Permissions in the same request.
+     * ### [](#)Sample requests
+     * *   Delete security group rules by specifying their IDs.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****", // The security group ID.
+     *     "SecurityGroupRuleId":["sgr-bpdfmk****","sgr-bpdfmg****"] // The IDs of the security group rules.
+     * *   Delete security group rules by specifying a CIDR block.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****",
+     *     "Permissions":[
+     *       {
+     *     "SourceCidrIp":"10.0.0.0/8", // The source IPv4 CIDR block.
+     *     "IpProtocol":"TCP", // The protocol.
+     *         "PortRange":"80/80", // The range of destination port numbers.    "Policy":"accept" // The action.  }
+     *     ]
+     * *   Delete security group rules in which a security group is specified.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****",
+     *     "Permissions":[
+     *       {
+     *         "SourceGroupId":"sg-bp67acfmxa123b****", // The ID of the source security group.    "IpProtocol":"TCP,"
+     *         "PortRange":"80/80",
+     *         "Policy":"accept"
+     *       ]
+     *     }
+     * *   Delete security group rules in which a prefix list is specified.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****",
+     *     "Permissions":[
+     *       {
+     *        "SourcePrefixListId":"pl-x1j1k5ykzqlixdcy****", // The ID of the source prefix list.    "IpProtocol":"TCP",
+     *         "PortRange":"80/80",
+     *         "Policy":"accept"
+     *       }
+     *     ]
      *  *
      * @param RevokeSecurityGroupRequest $request RevokeSecurityGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -30295,47 +30209,54 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes one or more inbound security group rules.
+     * @summary Deletes inbound security group rules from a specific security group.
      *  *
-     * @description In the security group-related API documents, inbound traffic refers to the traffic sent by the source and received by the destination.
+     * @description >  Alibaba Cloud modified verification rules for the RevokeSecurityGroup operation on July 8, 2024. When you use the RevokeSecurityGroup operation to delete a security group rule that does not exist, the "InvalidSecurityGroupRule.RuleNotExist" error code is returned instead of a success response. Update the RevokeSecurityGroup operation to use the new verification rules with the new error code based on your business requirements.
      * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
-     * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the security group rule ID that you specify does not exist, an error is reported. - You cannot specify the parameters that are no longer available and their Permissions.N-prefixed counterparts at the same time. - Sample request:
-     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
-     *         &SecurityGroupId=sg-bp67acfmxazb4p****
-     *         &SecurityGroupRuleId.1=sgr-bpdfmk****
-     *         &SecurityGroupRuleId.2=sgr-bpdfmg****
-     *         &<Common request parameters>
-     * *   Parameters that are prefixed with Permissions.N.
+     * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules.
+     *     *   If a security group rule ID that you specify does not exist, an error is reported.
+     * *   Parameters that start with Permissions.
      *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroup is successful but no security group rules are deleted.
-     *     *   You cannot specify SecurityGroupRuleId.N or the parameters that are not prefixed with Permissions.N.
-     *     *   You can determine an inbound security group rule by specifying one of the following groups of parameters. You cannot determine an inbound security group rule by specifying only one parameter.
-     *     *   Parameters used to determine an inbound security group rule that controls access from a CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp (optional), and SourceCidrIp. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourceCidrIp=10.0.0.0/8
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=80/80
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=accept
-     *             &<Common request parameters>
-     *     *   Parameters used to determine an inbound security group rule that controls access from another security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp (optional), and SourceGroupId. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourceGroupId=sg-bp67acfmxa123b****
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=80/80
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=accept
-     *             &<Common request parameters>
-     *     *   Parameters used to determine an inbound security group rule that controls access from a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, DestCidrIp (optional), and SourcePrefixListId. Sample request:
-     *             http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroup
-     *             &SecurityGroupId=sg-bp67acfmxazb4p****
-     *             &Permissions.1.SourcePrefixListId=pl-x1j1k5ykzqlixdcy****
-     *             &Permissions.1.IpProtocol=TCP
-     *             &Permissions.1.PortRange=80/80
-     *             &Permissions.1.NicType=intranet
-     *             &Permissions.1.Policy=accept
-     *             &<Common request parameters>
+     *     *   Define an inbound security group rule by configuring the following parameters together:
+     *         *   Source: You can specify one parameter from SourceCidrIp (IPv4 address), Ipv6SourceCidrIp (IPv6 address), SourcePrefixListId (prefix list ID), and SourceGroupId (source security group ID).
+     *         *   PortRange: specifies the range of destination port numbers.
+     *         *   IpProtocol: specifies the protocol.
+     *         *   Policy: specifies the action.
+     * >  You cannot specify the security group rule IDs and the parameters that start with Permissions in the same request.
+     * ### [](#)Sample requests
+     * *   Delete security group rules by specifying their IDs.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****", // The security group ID.
+     *     "SecurityGroupRuleId":["sgr-bpdfmk****","sgr-bpdfmg****"] // The IDs of the security group rules.
+     * *   Delete security group rules by specifying a CIDR block.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****",
+     *     "Permissions":[
+     *       {
+     *     "SourceCidrIp":"10.0.0.0/8", // The source IPv4 CIDR block.
+     *     "IpProtocol":"TCP", // The protocol.
+     *         "PortRange":"80/80", // The range of destination port numbers.    "Policy":"accept" // The action.  }
+     *     ]
+     * *   Delete security group rules in which a security group is specified.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****",
+     *     "Permissions":[
+     *       {
+     *         "SourceGroupId":"sg-bp67acfmxa123b****", // The ID of the source security group.    "IpProtocol":"TCP,"
+     *         "PortRange":"80/80",
+     *         "Policy":"accept"
+     *       ]
+     *     }
+     * *   Delete security group rules in which a prefix list is specified.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****",
+     *     "Permissions":[
+     *       {
+     *        "SourcePrefixListId":"pl-x1j1k5ykzqlixdcy****", // The ID of the source prefix list.    "IpProtocol":"TCP",
+     *         "PortRange":"80/80",
+     *         "Policy":"accept"
+     *       }
+     *     ]
      *  *
      * @param RevokeSecurityGroupRequest $request RevokeSecurityGroupRequest
      *
@@ -30349,47 +30270,56 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes outbound security group rules.
+     * @summary Deletes outbound security group rules from a specified security group.
      *  *
-     * @description In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
-     * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
-     * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the security group rule ID that you specify does not exist, an error is reported. - You cannot specify the parameters that are no longer available and their Permissions.N-prefixed counterparts at the same time. - Sample request:
-     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
-     *         &SecurityGroupId=sg-bp67acfmxazb4p****
-     *         &SecurityGroupRuleId.1=sgr-bpdfmk****
-     *         &SecurityGroupRuleId.2=sgr-bpdfmg****
-     *         &<Common request parameters>
-     * *   Parameters that are prefixed with Permissions.N.
-     *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rules are deleted.
-     *     *   You cannot specify SecurityGroupRuleId.N or the parameters that are not prefixed with Permissions.N.
-     *     *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     *         *   Parameters used to determine an outbound security group rule that controls access to a CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestCidrIp. Sample request:
-     *                 http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
-     *                 &SecurityGroupId=sg-bp67acfmxazb4ph***
-     *                 &Permissions.1.IpProtocol=TCP
-     *                 &Permissions.1.DestCidrIp=10.0.0.0/8
-     *                 &Permissions.1.PortRange=-22/22
-     *                 &Permissions.1.NicType=intranet
-     *                 &Permissions.1.Policy=accept
-     *                 &<Common request parameters>
-     *         *   Parameters used to determine an outbound security group rule that controls access to another security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId. Sample request:
-     *                 http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
-     *                 &SecurityGroupId=sg-bp67acfmxazb4ph***
-     *                 &Permissions.1.DestGroupId=sg-bp67acfmxa123b****
-     *                 &Permissions.1.IpProtocol=TCP
-     *                 &Permissions.1.PortRange=22/22
-     *                 &Permissions.1.NicType=intranet
-     *                 &Permissions.1.Policy=accept
-     *                 &<Common request parameters>
-     *         *   Parameters used to determine an outbound security group rule that controls access to a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId. Sample request:
-     *                 http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
-     *                 &SecurityGroupId=sg-bp67acfmxazb4ph***
-     *                 &Permissions.1.IpProtocol=TCP
-     *                 &Permissions.1.DestPrefixListId=pl-x1j1k5ykzqlixdcy****
-     *                 &Permissions.1.PortRange=-22/22
-     *                 &Permissions.1.NicType=intranet
-     *                 &Permissions.1.Policy=accept
-     *                 &<Common request parameters>
+     * @description >  Alibaba Cloud modified verification rules for the RevokeSecurityGroupEgress operation on July 8, 2024. When you use the RevokeSecurityGroupEgress operation to delete a security group rule that does not exist, the "InvalidSecurityGroupRule.RuleNotExist" error code is returned instead of a success response. Update the RevokeSecurityGroupEgress operation to use the new verification rules with the new error code based on your business requirements.
+     * You can use one of the following methods to delete a security group rule:
+     * *   Delete a rule by specifying the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules.
+     *     *   If a security group rule ID that you specify does not exist, an error is reported.
+     * *   Delete a rule by specifying the Permissions parameter.
+     *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroup is successful but no security group rules are deleted.
+     *     *   Delete a security group rule by configuring the following parameters together:
+     *         *   One of the following parameters: DestCidrIp, Ipv6DestCidrIp, DestPrefixListId, and DestGroupId. DestCidrIp specifies the destination IPv4 CIDR block. Ipv6DestCidrIp specifies the destination IPv6 CIDR block. DestPrefixListId specifies the ID of the destination prefix list. DestGroupId specifies the destination security group.
+     *         *   PortRange: specifies the range of destination port numbers.
+     *         *   IpProtocol: specifies the protocol.
+     *         *   Policy: specifies the action.
+     * >  You cannot set the security group rule ID and the Permissions parameter at the same time.
+     * ### [](#)Sample requests
+     * *   Delete a security group rule.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****", //The security group ID.
+     *     "SecurityGroupRuleId":["sgr-bpdfmk****","sgr-bpdfmg****"]  //The ID of the security group rule.
+     * *   Delete a security group rule based on the CIDR block.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4ph***",
+     *     "Permissions":[
+     *       {
+     *     "IpProtocol":"TCP", //The protocol.
+     *            "DestCidrIp":"10.0.0.0/8", //The destination IPv4 CIDR block.
+     *     "PortRange":"22/22", //The destination port range.
+     *            "Policy":"accept" //The action.  }
+     *     ]
+     * *   Delete a security group rule based on the ID of the destination security group.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4ph***",
+     *     "Permissions":[
+     *       {
+     *         "DestGroupId":"sg-bp67acfmxa123b****", //Set the ID of the target security group.
+     *         "IpProtocol":"TCP",
+     *         "PortRange":"22/22",
+     *         "Policy":"accept"
+     *       }
+     *     ]
+     * *   Delete a security group rule based on a specified prefix list.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4ph***",
+     *     "Permissions":[
+     *       {
+     *         "IpProtocol":"TCP",
+     *            "DestPrefixListId":"pl-x1j1k5ykzqlixdcy****", //The ID of the destination prefix list.    "PortRange":"22/22",
+     *         "Policy":"accept",
+     *       }
+     *     ]
      *  *
      * @param RevokeSecurityGroupEgressRequest $request RevokeSecurityGroupEgressRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -30503,47 +30433,56 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Deletes outbound security group rules.
+     * @summary Deletes outbound security group rules from a specified security group.
      *  *
-     * @description In the security group-related API documents, outbound traffic refers to the traffic sent by the source and received by the destination.
-     * When you call this operation, you can use one of the following groups of parameters to specify the security group rules that you want to delete:
-     * *   Parameters used to specify the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules. - If the security group rule ID that you specify does not exist, an error is reported. - You cannot specify the parameters that are no longer available and their Permissions.N-prefixed counterparts at the same time. - Sample request:
-     *         http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
-     *         &SecurityGroupId=sg-bp67acfmxazb4p****
-     *         &SecurityGroupRuleId.1=sgr-bpdfmk****
-     *         &SecurityGroupRuleId.2=sgr-bpdfmg****
-     *         &<Common request parameters>
-     * *   Parameters that are prefixed with Permissions.N.
-     *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroupEgress is successful but no security group rules are deleted.
-     *     *   You cannot specify SecurityGroupRuleId.N or the parameters that are not prefixed with Permissions.N.
-     *     *   You can determine a security group rule by specifying one of the following groups of parameters. You cannot determine a security group rule by specifying only one parameter.
-     *         *   Parameters used to determine an outbound security group rule that controls access to a CIDR block: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestCidrIp. Sample request:
-     *                 http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
-     *                 &SecurityGroupId=sg-bp67acfmxazb4ph***
-     *                 &Permissions.1.IpProtocol=TCP
-     *                 &Permissions.1.DestCidrIp=10.0.0.0/8
-     *                 &Permissions.1.PortRange=-22/22
-     *                 &Permissions.1.NicType=intranet
-     *                 &Permissions.1.Policy=accept
-     *                 &<Common request parameters>
-     *         *   Parameters used to determine an outbound security group rule that controls access to another security group: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestGroupId. Sample request:
-     *                 http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
-     *                 &SecurityGroupId=sg-bp67acfmxazb4ph***
-     *                 &Permissions.1.DestGroupId=sg-bp67acfmxa123b****
-     *                 &Permissions.1.IpProtocol=TCP
-     *                 &Permissions.1.PortRange=22/22
-     *                 &Permissions.1.NicType=intranet
-     *                 &Permissions.1.Policy=accept
-     *                 &<Common request parameters>
-     *         *   Parameters used to determine an outbound security group rule that controls access to a prefix list: IpProtocol, PortRange, SourcePortRange (optional), NicType, Policy, SourceCidrIp (optional), and DestPrefixListId. Sample request:
-     *                 http(s)://ecs.aliyuncs.com/?Action=RevokeSecurityGroupEgress
-     *                 &SecurityGroupId=sg-bp67acfmxazb4ph***
-     *                 &Permissions.1.IpProtocol=TCP
-     *                 &Permissions.1.DestPrefixListId=pl-x1j1k5ykzqlixdcy****
-     *                 &Permissions.1.PortRange=-22/22
-     *                 &Permissions.1.NicType=intranet
-     *                 &Permissions.1.Policy=accept
-     *                 &<Common request parameters>
+     * @description >  Alibaba Cloud modified verification rules for the RevokeSecurityGroupEgress operation on July 8, 2024. When you use the RevokeSecurityGroupEgress operation to delete a security group rule that does not exist, the "InvalidSecurityGroupRule.RuleNotExist" error code is returned instead of a success response. Update the RevokeSecurityGroupEgress operation to use the new verification rules with the new error code based on your business requirements.
+     * You can use one of the following methods to delete a security group rule:
+     * *   Delete a rule by specifying the IDs of security group rules. We recommend that you specify the IDs of security group rules to delete the rules.
+     *     *   If a security group rule ID that you specify does not exist, an error is reported.
+     * *   Delete a rule by specifying the Permissions parameter.
+     *     *   If no security group rule matches the specified parameters, the call to RevokeSecurityGroup is successful but no security group rules are deleted.
+     *     *   Delete a security group rule by configuring the following parameters together:
+     *         *   One of the following parameters: DestCidrIp, Ipv6DestCidrIp, DestPrefixListId, and DestGroupId. DestCidrIp specifies the destination IPv4 CIDR block. Ipv6DestCidrIp specifies the destination IPv6 CIDR block. DestPrefixListId specifies the ID of the destination prefix list. DestGroupId specifies the destination security group.
+     *         *   PortRange: specifies the range of destination port numbers.
+     *         *   IpProtocol: specifies the protocol.
+     *         *   Policy: specifies the action.
+     * >  You cannot set the security group rule ID and the Permissions parameter at the same time.
+     * ### [](#)Sample requests
+     * *   Delete a security group rule.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4p****", //The security group ID.
+     *     "SecurityGroupRuleId":["sgr-bpdfmk****","sgr-bpdfmg****"]  //The ID of the security group rule.
+     * *   Delete a security group rule based on the CIDR block.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4ph***",
+     *     "Permissions":[
+     *       {
+     *     "IpProtocol":"TCP", //The protocol.
+     *            "DestCidrIp":"10.0.0.0/8", //The destination IPv4 CIDR block.
+     *     "PortRange":"22/22", //The destination port range.
+     *            "Policy":"accept" //The action.  }
+     *     ]
+     * *   Delete a security group rule based on the ID of the destination security group.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4ph***",
+     *     "Permissions":[
+     *       {
+     *         "DestGroupId":"sg-bp67acfmxa123b****", //Set the ID of the target security group.
+     *         "IpProtocol":"TCP",
+     *         "PortRange":"22/22",
+     *         "Policy":"accept"
+     *       }
+     *     ]
+     * *   Delete a security group rule based on a specified prefix list.
+     * <!---->
+     *     "SecurityGroupId":"sg-bp67acfmxazb4ph***",
+     *     "Permissions":[
+     *       {
+     *         "IpProtocol":"TCP",
+     *            "DestPrefixListId":"pl-x1j1k5ykzqlixdcy****", //The ID of the destination prefix list.    "PortRange":"22/22",
+     *         "Policy":"accept",
+     *       }
+     *     ]
      *  *
      * @param RevokeSecurityGroupEgressRequest $request RevokeSecurityGroupEgressRequest
      *

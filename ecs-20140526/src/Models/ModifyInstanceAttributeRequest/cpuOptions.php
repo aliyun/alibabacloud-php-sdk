@@ -21,15 +21,14 @@ class cpuOptions extends Model
     /**
      * @description The CPU topology type of the instance. Valid values:
      *
-     *   `ContinuousCoreToHTMapping`: The Hyper-Threading (HT) technology allows continuous threads to run on the same core in the CPU topology of the instance.
-     *   `DiscreteCoreToHTMapping`: The HT technology allows discrete threads to run on the same core in the CPU topology of the instance.
+     *   ContinuousCoreToHTMapping: The Hyper-Threading (HT) technology allows continuous threads to run on the same core in the CPU topology of the instance.
+     *   DiscreteCoreToHTMapping: The HT technology allows discrete threads to run on the same core.
      *
-     * >
+     * Take note of the following items:
      *
-     *   This parameter is supported only by specific instance families. For information about the supported instance families, see [View and modify CPU topologies](https://help.aliyun.com/document_detail/2636059.html).
+     *   The instance must be in the Stopped (`Stopped`) state.
      *
-     *   Before you specify this parameter, make sure that the instance is in the Stopped (`Stopped`) state.
-     *
+     * >  This parameter is supported only for specific instance families. For information about the supported instance families, see [View and modify CPU topologies](https://help.aliyun.com/document_detail/2636059.html).
      * @example DiscreteCoreToHTMapping
      *
      * @var string

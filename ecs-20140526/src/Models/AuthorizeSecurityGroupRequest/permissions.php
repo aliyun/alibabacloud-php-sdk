@@ -11,7 +11,6 @@ class permissions extends Model
     /**
      * @description The description of the security group rule. The description must be 1 to 512 characters in length.
      *
-     * Valid values of N: 1 to 100.
      * @example This is description.
      *
      * @var string
@@ -21,7 +20,7 @@ class permissions extends Model
     /**
      * @description The destination IPv4 CIDR block. IPv4 CIDR blocks and IPv4 addresses are supported.
      *
-     * Valid values of N: 1 to 100.
+     * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
      * @example 10.0.0.0/8
      *
      * @var string
@@ -71,7 +70,7 @@ class permissions extends Model
      *   internet: public NIC.
      *   intranet: internal NIC.
      *
-     * Valid values of N: 1 to 100.
+     * Default value: internet.
      * @example intranet
      *
      * @var string
@@ -84,7 +83,7 @@ class permissions extends Model
      *   accept: allows inbound access.
      *   drop: denies inbound access and returns no responses. In this case, the request times out or the connection cannot be established.
      *
-     * Valid values of N: 1 to 100.
+     * Default value: accept.
      * @example accept
      *
      * @var string
@@ -99,7 +98,7 @@ class permissions extends Model
      *   If you set IpProtocol to GRE, the port number range is -1/-1.
      *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
      *
-     * Valid values of N: 1 to 100.
+     * For more information, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
      * @example 80/80
      *
      * @var string
@@ -109,7 +108,7 @@ class permissions extends Model
     /**
      * @description The priority of the security group rule. A smaller value specifies a higher priority. Valid values: 1 to 100.
      *
-     * Valid values of N: 1 to 100.
+     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -119,7 +118,6 @@ class permissions extends Model
     /**
      * @description The source IPv4 CIDR block of the security group rule. IPv4 CIDR blocks and IPv4 addresses are supported.
      *
-     * Valid values of N: 1 to 100.
      * @example 10.0.0.0/8
      *
      * @var string
@@ -133,11 +131,6 @@ class permissions extends Model
      *   If you specify `SourceGroupId` but do not specify `SourceCidrIp` or `Ipv6SourceCidrIp`, you must set `NicType` to `intranet`.
      *   If you specify both `SourceGroupId` and `SourceCidrIp`, `SourceCidrIp` takes precedence.
      *
-     * When you specify this parameter, take note of the following items:
-     *
-     *   In advanced security groups, security groups cannot be used as authorization objects.
-     *   In each basic security group, up to 20 security groups can be used as authorization objects in security group rules.
-     *
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -150,7 +143,6 @@ class permissions extends Model
      *   If both `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are empty, access permissions are configured for another security group in your Alibaba Cloud account.
      *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
      *
-     * Valid values of N: 1 to 100.
      * @example test@aliyun.com
      *
      * @var string
@@ -163,7 +155,6 @@ class permissions extends Model
      *   If both `SourceGroupOwnerAccount` and `SourceGroupOwnerId` are empty, access permissions are configured for another security group in your Alibaba Cloud account.
      *   If you specify `SourceCidrIp`, `SourceGroupOwnerAccount` is ignored.
      *
-     * Valid values of N: 1 to 100.
      * @example 1234567890
      *
      * @var int
@@ -178,7 +169,7 @@ class permissions extends Model
      *   If you set IpProtocol to GRE, the port number range is -1/-1.
      *   If you set IpProtocol to ALL, the port number range is -1/-1, which indicates all port numbers.
      *
-     * Valid values of N: 1 to 100.
+     * This parameter is used to support quintuple rules. For more information, see [Security group quintuple rules](https://help.aliyun.com/document_detail/97439.html).
      * @example 7000/8000
      *
      * @var string

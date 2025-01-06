@@ -95,7 +95,7 @@ class RevokeSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description Security group rule N. Valid values of N: 1 to 100.
+     * @description The content of security group rules. You can specify 1 to 100 security group rules in a request.
      *
      * @var permissions[]
      */
@@ -165,7 +165,7 @@ class RevokeSecurityGroupRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security group rules. Valid values of N: 1 to 100.
+     * @description The security group rule IDs. You can specify 1 to 100 security group rule IDs in a request.
      *
      * @var string[]
      */

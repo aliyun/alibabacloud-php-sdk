@@ -12,11 +12,11 @@ class ModifyImageAttributeRequest extends Model
     /**
      * @description The new boot mode of the image. Valid values:
      *
-     *   BIOS: Basic Input/Output System (BIOS)
-     *   UEFI: Unified Extensible Firmware Interface (UEFI)
-     *   UEFI-Preferred: BIOS and UEFI
+     *   BIOS: BIOS mode
+     *   UEFI: Unified Extensible Firmware Interface (UEFI) mode
+     *   UEFI-Preferred: BIOS mode and UEFI mode
      *
-     * >  For information about the UEFI-Preferred boot mode, see [Best practices for ECS instance boot modes](https://help.aliyun.com/document_detail/2244655.html).
+     * >  Before you change this parameter, make sure that you are familiar with the boot modes supported by the image. If you specify a boot mode that is not supported by the image, ECS instances created from the image cannot start as expected. For information about the boot modes of images, see the [Boot modes of custom images](~~2244655#b9caa9b8bb1wf~~) section of the "Best practices for ECS instance boot modes" topic.
      * @example BIOS
      *
      * @var string

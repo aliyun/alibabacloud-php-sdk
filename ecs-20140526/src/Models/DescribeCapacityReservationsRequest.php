@@ -29,7 +29,7 @@ class DescribeCapacityReservationsRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type.
+     * @description The instance type of the capacity reservation. You can specify this parameter to query only effective capacity reservations. To query capacity reservations that are released, you must specify PrivatePoolOptions.Ids.
      *
      * @example ecs.c6.large
      *
@@ -111,16 +111,16 @@ class DescribeCapacityReservationsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The state of the capacity reservation. Valid values:
+     * @description The status of the capacity reservation. Valid values:
      *
      *   All: All states.
      *   Pending: The capacity reservation is being initialized. Scheduled capacity reservations enter the Pending state after they are created.
      *   Preparing: The capacity reservation is being prepared. Scheduled capacity reservations are in the Preparing state while resources are being provisioned.
      *   Prepared: The capacity reservation is to take effect. After resources are provisioned, scheduled capacity reservations remain in the Prepared state until they take effect.
      *   Active: The capacity reservation is in effect.
-     *   Released: The capacity reservation has been released manually or automatically when it expired.
+     *   Released: The capacity reservation is manually or automatically released when it expires.
      *
-     * Default value: Active.
+     * If you do not specify this parameter, capacity reservations in states other than Pending and Released are queried.
      * @example Active
      *
      * @var string
@@ -128,7 +128,7 @@ class DescribeCapacityReservationsRequest extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The tags of the capacity reservation.
      *
      * @var tag[]
      */

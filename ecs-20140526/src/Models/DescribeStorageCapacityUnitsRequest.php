@@ -61,7 +61,7 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 1

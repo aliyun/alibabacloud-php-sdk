@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class referencingSecurityGroup extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account to which the security group belongs.
+     * @description The ID of the Alibaba Cloud account to which the security group whose rules reference the specified security group belongs.
      *
      * @example 123456****
      *
@@ -18,7 +18,7 @@ class referencingSecurityGroup extends Model
     public $aliUid;
 
     /**
-     * @description The ID of the security group.
+     * @description The ID of the security group whose rules reference the specified security group.
      *
      * @example sg-bp67acfmxazb4j****
      *

@@ -48,7 +48,7 @@ class DescribeEniMonitorDataRequest extends Model
     public $ownerId;
 
     /**
-     * @description The interval at which to retrieve monitoring data. Unit: seconds. Valid values:
+     * @description The interval at which to retrieve the monitoring data. Unit: seconds. Valid values:
      *
      *   60
      *   600

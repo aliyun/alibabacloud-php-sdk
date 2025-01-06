@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
-     * @description The image architecture. Valid values:
+     * @description The architecture of the image. Valid values:
      *
      *   i386
      *   x86_64
@@ -32,7 +32,7 @@ class image extends Model
     public $creationTime;
 
     /**
-     * @description The description of the image.
+     * @description The description of the volume.
      *
      * @example testDescription
      *
@@ -41,7 +41,7 @@ class image extends Model
     public $description;
 
     /**
-     * @description The mappings between the disks and snapshots under the image.
+     * @description The mappings between the disk and the snapshot in the image.
      *
      * @var diskDeviceMappings
      */
@@ -57,7 +57,7 @@ class image extends Model
     public $imageFamily;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example m-bp1g7004ksh0oeuc****
      *
@@ -77,7 +77,11 @@ class image extends Model
     /**
      * @description The alias of the image owner. Valid values:
      *
-     * - marketplace: Alibaba Cloud Marketplace images
+     *   system: public images provided by Alibaba Cloud
+     *   self: your custom images
+     *   others: shared images from other Alibaba Cloud accounts
+     *   marketplace: Alibaba Cloud Marketplace images
+     *
      * @example self
      *
      * @var string
@@ -85,7 +89,7 @@ class image extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The version of the image.
+     * @description The image version.
      *
      * @example 2
      *
@@ -103,7 +107,7 @@ class image extends Model
     public $isCopied;
 
     /**
-     * @description Indicates whether the image has been shared to other Alibaba Cloud accounts.
+     * @description Indicates whether the custom image was shared to other Alibaba Cloud accounts.
      *
      * @example true
      *
@@ -112,7 +116,7 @@ class image extends Model
     public $isSelfShared;
 
     /**
-     * @description Indicates whether you have subscribed to the image corresponding to the specified product code.
+     * @description Indicates whether you have subscribed to the service terms of the image product corresponding to the image product code.
      *
      * @example false
      *
@@ -121,7 +125,7 @@ class image extends Model
     public $isSubscribed;
 
     /**
-     * @description Indicates whether the image supports cloud-init.
+     * @description Indicates whether cloud-init is supported.
      *
      * @example true
      *
@@ -139,7 +143,7 @@ class image extends Model
     public $isSupportIoOptimized;
 
     /**
-     * @description The name of the operating system.
+     * @description The display name of the operating system in Chinese.
      *
      * @example Alibaba Cloud Linux 2.1903
      *
@@ -150,7 +154,9 @@ class image extends Model
     /**
      * @description The type of the operating system. Valid values:
      *
-     * - linux
+     *   windows
+     *   linux
+     *
      * @example linux
      *
      * @var string
@@ -158,7 +164,7 @@ class image extends Model
     public $OSType;
 
     /**
-     * @description The platform of the operating system.
+     * @description The operating system.
      *
      * @example Aliyun
      *
@@ -176,7 +182,7 @@ class image extends Model
     public $productCode;
 
     /**
-     * @description The image creation progress. Unit: percent (%).
+     * @description The image creation progress in percentage.
      *
      * @example 100
      *
@@ -194,9 +200,13 @@ class image extends Model
     public $size;
 
     /**
-     * @description The status of the image. Valid values:
+     * @description The state of the image. Valid values:
      *
-     * - CreateFailed: The image failed to be created.
+     *   UnAvailable
+     *   Available
+     *   Creating
+     *   CreateFailed
+     *
      * @example Available
      *
      * @var string
@@ -204,7 +214,7 @@ class image extends Model
     public $status;
 
     /**
-     * @description An array that consists of Tag data.
+     * @description The tags of the image.
      *
      * @var tags
      */
@@ -213,7 +223,9 @@ class image extends Model
     /**
      * @description Indicates whether the image has been used to create ECS instances. Valid values:
      *
-     * - none: The image has not been used to create ECS instances.
+     *   instance: The image was used to create one or more ECS instances.
+     *   none: The image was not used to create ECS instances.
+     *
      * @example none
      *
      * @var string

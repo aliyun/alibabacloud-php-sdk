@@ -19,7 +19,7 @@ class DescribeReservedInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the reserved instances. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The region ID of the reserved instance.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -29,7 +29,7 @@ class DescribeReservedInstanceAutoRenewAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the reserved instances.
+     * @description The IDs of reserved instances.
      *
      * @var string[]
      */

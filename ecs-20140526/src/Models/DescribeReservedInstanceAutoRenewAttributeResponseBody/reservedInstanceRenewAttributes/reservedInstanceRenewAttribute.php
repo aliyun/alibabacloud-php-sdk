@@ -30,8 +30,8 @@ class reservedInstanceRenewAttribute extends Model
     /**
      * @description The auto-renewal status of the reserved instance. Valid values:
      *
-     *   AutoRenewal: The reserved instance is automatically renewed.
-     *   Normal: You must manually renew the reserved instance.
+     *   AutoRenewal: automatically renews the reserved instance.
+     *   Normal: manually renews the reserved instances.
      *
      * @example AutoRenewal
      *

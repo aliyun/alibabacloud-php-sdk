@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ResetDiskRequest extends Model
 {
     /**
-     * @description The ID of the disk that you want to roll back.
+     * @description The ID of the cloud disk that you want to roll back.
      *
      * This parameter is required.
      * @example d-bp199lyny9b3****
@@ -52,7 +52,7 @@ class ResetDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the snapshot that you want to use to roll back the disk.
+     * @description The ID of the snapshot that you want to use to roll back the cloud disk.
      *
      * This parameter is required.
      * @example s-bp199lyny9b3****

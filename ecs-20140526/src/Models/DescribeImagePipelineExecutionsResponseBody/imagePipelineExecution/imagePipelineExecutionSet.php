@@ -75,13 +75,18 @@ class imagePipelineExecutionSet extends Model
     /**
      * @description The status of the image creation task. Valid values:
      *
-     *   BUILDING
-     *   DISTRIBUTING
-     *   RELEASING
-     *   SUCCESS
-     *   FAILED
-     *   CANCELLING
-     *   CANCELLED
+     *   PREPARING: Resources, such as intermediate instances, are being created.
+     *   REPAIRING: The source image is being repaired.
+     *   BUILDING: The user-defined commands are being run and an image is being created.
+     *   TESTING: The user-defined test commands are being run.
+     *   DISTRIBUTING: The created image is being copied and shared.
+     *   RELEASING: The temporary resources generated during the image creation process are being released.
+     *   SUCCESS The image creation task is completed.
+     *   PARTITION_SUCCESS: The image creation task is partially completed. The image is created, but exceptions may occur when the image was copied or shared or when temporary resources were released.
+     *   FAILED: The image creation task fails.
+     *   TEST_FAILED: The image is created, but the test fails.
+     *   CANCELLING: The image creation task is being canceled.
+     *   CANCELLED: The image creation task is canceled.
      *
      * @example BUILDING
      *

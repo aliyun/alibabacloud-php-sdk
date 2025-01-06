@@ -29,6 +29,10 @@ class DetachDiskRequest extends Model
     /**
      * @description The ID of the disk that you want to detach.
      *
+     *   The disk that you want to detach must be attached to an ECS instance and in the In Use (`In_use`) state.
+     *   The instance from which you want to detach a data disk must be in the `Running` or `Stopped` state.
+     *   The instance from which you want to detach the system disk must be in the `Stopped` state.
+     *
      * This parameter is required.
      * @example d-bp67acfmxazb4p****
      *

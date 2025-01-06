@@ -29,7 +29,7 @@ class DisableActivationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The activation code ID.
+     * @description The region ID. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Singapore, Japan (Tokyo), US (Silicon Valley), and US (Virginia).
      *
      * This parameter is required.
      * @example cn-hangzhou

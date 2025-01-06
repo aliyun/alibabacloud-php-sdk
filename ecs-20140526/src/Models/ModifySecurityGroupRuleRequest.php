@@ -72,7 +72,7 @@ class ModifySecurityGroupRuleRequest extends Model
     public $ipv6SourceCidrIp;
 
     /**
-     * @description The network interface controller (NIC) type.
+     * @description The type of the network interface controller (NIC).
      *
      * >  You cannot modify this parameter when you modify a security group rule by specifying the ID of the rule. If you want to change the NIC type of a security group rule, you can create a security group rule of a desired NIC type and delete the existing rule.
      * @example intranet

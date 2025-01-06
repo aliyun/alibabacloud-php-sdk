@@ -27,7 +27,7 @@ class ModifyReservedInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The IDs of reserved instances. Valid values of N: 1 to 20.
+     * @description The region ID of the reserved instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

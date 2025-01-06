@@ -23,8 +23,9 @@ class DescribeReservedInstancesRequest extends Model
     public $allocationType;
 
     /**
-     * @description The instance type. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+     * @description The instance type of the reserved instance. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
+     * >  Specify the instance type that you selected when you purchased the reserved instance. If the reserved instance is a regional reserved instance, it can be used to offset the bills of instance types that belong to the same instance family as the specified instance type, regardless of instance specifications.
      * @example ecs.g5.large
      *
      * @var string
@@ -32,7 +33,7 @@ class DescribeReservedInstancesRequest extends Model
     public $instanceType;
 
     /**
-     * @description The instance family. For more information, see [Instance families](https://help.aliyun.com/document_detail/25378.html).
+     * @description The instance family of the reserved instance. For information about the valid values, see [Overview of instance families](https://help.aliyun.com/document_detail/25378.html).
      *
      * @example ecs.g5
      *
@@ -117,6 +118,7 @@ class DescribeReservedInstancesRequest extends Model
     /**
      * @description The name of the reserved instance.
      *
+     * >  Only exact search is supported.
      * @example testReservedInstanceName
      *
      * @var string
@@ -134,12 +136,11 @@ class DescribeReservedInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The scope of the reserved instance. Valid values:
+     * @description The scope level of the reserved instance. Valid values:
      *
      *   Region: regional
      *   Zone: zonal
      *
-     * Default value: Region.
      * @example Region
      *
      * @var string
@@ -147,7 +148,7 @@ class DescribeReservedInstancesRequest extends Model
     public $scope;
 
     /**
-     * @description The statuses of the reserved instances.
+     * @description The status of the reserved instances.
      *
      * @example Active
      *
@@ -163,7 +164,7 @@ class DescribeReservedInstancesRequest extends Model
     public $tag;
 
     /**
-     * @description The zone ID of the reserved instances. This parameter is required when Scope is set to Zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+     * @description The zone ID of the reserved instance. This parameter is valid and required if you set Scope to Zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-z
      *

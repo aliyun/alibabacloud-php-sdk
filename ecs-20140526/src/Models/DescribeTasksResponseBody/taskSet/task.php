@@ -18,7 +18,7 @@ class task extends Model
     public $creationTime;
 
     /**
-     * @description The time when the task was completed.
+     * @description The time when the task ended.
      *
      * @example 2020-11-24T12:50Z
      *
@@ -27,7 +27,7 @@ class task extends Model
     public $finishedTime;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example m-bp1i8huqm5u7****
      *
@@ -45,7 +45,7 @@ class task extends Model
     public $supportCancel;
 
     /**
-     * @description The name of the task.
+     * @description The name of the operation that generates the task.
      *
      * @example ImportImage
      *
@@ -54,7 +54,7 @@ class task extends Model
     public $taskAction;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example t-bp1hvgwromzv32iq****
      *
@@ -63,7 +63,7 @@ class task extends Model
     public $taskId;
 
     /**
-     * @description The state of the task.
+     * @description The task status.
      *
      * @example Finished
      *

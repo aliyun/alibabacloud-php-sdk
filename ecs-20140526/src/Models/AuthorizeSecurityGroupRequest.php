@@ -95,7 +95,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description Security group rule N. Valid values of N: 1 to 100.
+     * @description The security group rules. You can create 1 to 100 security group rules in a request.
      *
      * @var permissions[]
      */

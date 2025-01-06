@@ -139,7 +139,7 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $ownerId;
 
     /**
-     * @description Security group rule N. Valid values of N: 1 to 100.
+     * @description An array of security group rules. You can specify 1 to 100 security group rules.
      *
      * @var permissions[]
      */
@@ -209,7 +209,7 @@ class RevokeSecurityGroupEgressRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group rule N. Valid values of N: 1 to 100.
+     * @description An array of security group rule IDs. You can specify 1 to 100 security group rules.
      *
      * @var string[]
      */

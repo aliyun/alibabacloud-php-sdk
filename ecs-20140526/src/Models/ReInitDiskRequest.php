@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ReInitDiskRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically start the instance after the disk is re-initialized.
+     * @description Specifies whether to automatically start the instance after the disk is re-initialized. Valid values:
+     *
+     *   true
+     *   false
      *
      * Default value: false.
      * @example true

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
-     * @description The end point of the time period for which to query created tasks. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The end of the time range to query. The time range refers to the period of time during which the task is created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2020-11-23T15:16:00Z
      *
@@ -28,7 +28,7 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -38,7 +38,7 @@ class DescribeTasksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -48,7 +48,7 @@ class DescribeTasksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the task. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -58,11 +58,7 @@ class DescribeTasksRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of resource N that is associated with the task. Valid values of N: 1 to 100.
-     *
-     *   If TaskAction is set to ImportImage or ExportImage, set the resource ID to an image ID.
-     *   If TaskAction is set to RedeployInstance, set the resource ID to an Elastic Compute Service (ECS) instance ID.
-     *   If TaskAction is set to ModifyDiskSpec, set the resource ID to a disk ID.
+     * @description The IDs of the resources associated with the task. Valid values of N: 1 to 100.
      *
      * @var string[]
      */
@@ -79,7 +75,7 @@ class DescribeTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The start point of the time period for which to query created tasks. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The beginning of the time range to query. The time range refers to the period of time during which the task is created. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2020-11-23T15:10:00Z
      *
@@ -102,7 +98,7 @@ class DescribeTasksRequest extends Model
     public $taskAction;
 
     /**
-     * @description The ID of the task. You can specify up to 100 task IDs at a time. Separate the task IDs with commas (,).
+     * @description The task IDs. You can specify up to 100 task IDs at a time. Separate the task IDs with commas (,).
      *
      * @example t-bp1hvgwromzv32iq****,t-bp179lofu2pv768w****
      *
@@ -111,13 +107,13 @@ class DescribeTasksRequest extends Model
     public $taskIds;
 
     /**
-     * @description The state of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   Finished
      *   Processing
      *   Failed
      *
-     * >  The system only retrieves tasks in the Finished, Processing, and Failed states and ignores other values.
+     * >  The system only queries tasks in the Finished, Processing, and Failed states and ignores other values.
      * @example Finished
      *
      * @var string

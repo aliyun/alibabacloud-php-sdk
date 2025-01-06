@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotPackageResponseBody extends Model
 {
     /**
-     * @description Details about the OSS storage plans.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeSnapshotPackageResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeSnapshotPackageResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The total number of returned OSS storage plans.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -37,14 +37,14 @@ class DescribeSnapshotPackageResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the OSS storage plan expires. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description Details about the OSS storage plans.
      *
      * @var snapshotPackages
      */
     public $snapshotPackages;
 
     /**
-     * @description The name of the OSS storage plan.
+     * @description The total number of OSS storage plans.
      *
      * @example 1
      *

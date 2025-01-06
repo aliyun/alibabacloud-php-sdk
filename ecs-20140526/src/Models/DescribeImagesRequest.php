@@ -250,8 +250,8 @@ class DescribeImagesRequest extends Model
      *   Waiting: The image is waiting to be processed.
      *   Available: The image is available.
      *   UnAvailable: The image is unavailable.
-     *   CreateFailed: The image failed to be created.
-     *   Deprecated: The image is deprecated.
+     *   CreateFailed: The image fails to be created.
+     *   Deprecated: The image is no longer used.
      *
      * Default value: Available. You can specify multiple values for this parameter. Separate the values with commas (,).
      * @example Available
