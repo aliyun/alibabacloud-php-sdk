@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiGroupsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $basePath;
+
+    /**
      * @description Specifies whether to enable tag verification.
      *
      * @example true
@@ -87,6 +92,7 @@ class DescribeApiGroupsRequest extends Model
      */
     public $tag;
     protected $_name = [
+        'basePath'      => 'BasePath',
         'enableTagAuth' => 'EnableTagAuth',
         'groupId'       => 'GroupId',
         'groupName'     => 'GroupName',
@@ -105,6 +111,9 @@ class DescribeApiGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->basePath) {
+            $res['BasePath'] = $this->basePath;
+        }
         if (null !== $this->enableTagAuth) {
             $res['EnableTagAuth'] = $this->enableTagAuth;
         }
@@ -150,6 +159,9 @@ class DescribeApiGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BasePath'])) {
+            $model->basePath = $map['BasePath'];
+        }
         if (isset($map['EnableTagAuth'])) {
             $model->enableTagAuth = $map['EnableTagAuth'];
         }

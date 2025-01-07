@@ -345,6 +345,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceAttributeResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceAttributeShrinkRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceSpecRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceSpecResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceVpcAttributeForConsoleRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyInstanceVpcAttributeForConsoleResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyIntranetDomainPolicyRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyIntranetDomainPolicyResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ModifyIpControlPolicyItemRequest;
@@ -4354,6 +4356,9 @@ class CloudAPI extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->basePath)) {
+            $query['BasePath'] = $request->basePath;
+        }
         if (!Utils::isUnset($request->enableTagAuth)) {
             $query['EnableTagAuth'] = $request->enableTagAuth;
         }
@@ -10909,6 +10914,68 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceSpecWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary Modify instance client VPC config.
+     *  *
+     * @param ModifyInstanceVpcAttributeForConsoleRequest $request ModifyInstanceVpcAttributeForConsoleRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyInstanceVpcAttributeForConsoleResponse ModifyInstanceVpcAttributeForConsoleResponse
+     */
+    public function modifyInstanceVpcAttributeForConsoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deleteVpcAccess)) {
+            $query['DeleteVpcAccess'] = $request->deleteVpcAccess;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vpcOwnerId)) {
+            $query['VpcOwnerId'] = $request->vpcOwnerId;
+        }
+        if (!Utils::isUnset($request->vswitchId)) {
+            $query['VswitchId'] = $request->vswitchId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceVpcAttributeForConsole',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceVpcAttributeForConsoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary Modify instance client VPC config.
+     *  *
+     * @param ModifyInstanceVpcAttributeForConsoleRequest $request ModifyInstanceVpcAttributeForConsoleRequest
+     *
+     * @return ModifyInstanceVpcAttributeForConsoleResponse ModifyInstanceVpcAttributeForConsoleResponse
+     */
+    public function modifyInstanceVpcAttributeForConsole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceVpcAttributeForConsoleWithOptions($request, $runtime);
     }
 
     /**
