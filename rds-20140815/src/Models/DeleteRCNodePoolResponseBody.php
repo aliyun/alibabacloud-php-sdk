@@ -6,13 +6,9 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReplaceRCInstanceSystemDiskResponseBody extends Model
+class DeleteRCNodePoolResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 8B993DA9-5272-5414-94E3-4CA8BA0146C2
-     *
      * @var string
      */
     public $requestId;
@@ -37,7 +33,7 @@ class ReplaceRCInstanceSystemDiskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ReplaceRCInstanceSystemDiskResponseBody
+     * @return DeleteRCNodePoolResponseBody
      */
     public static function fromMap($map = [])
     {

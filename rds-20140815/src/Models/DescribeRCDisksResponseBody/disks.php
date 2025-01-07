@@ -84,7 +84,7 @@ class disks extends Model
     /**
      * @description The billing method of the disk.
      *
-     * PostPaid: pay-as-you-go
+     * Only **PostPaid** (pay-as-you-go) is supported.
      * @example PostPaid
      *
      * @var string
@@ -131,7 +131,7 @@ class disks extends Model
     public $expiredTime;
 
     /**
-     * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Storage capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Storage capacity, 50,000}.
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × *Capacity, 50,000}
      *
      * This parameter is available only when the `Category` parameter is set to `cloud_auto`.
      * @example 4000

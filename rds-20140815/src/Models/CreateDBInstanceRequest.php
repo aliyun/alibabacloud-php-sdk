@@ -421,9 +421,14 @@ class CreateDBInstanceRequest extends Model
      *   **VPC**: a virtual private cloud (VPC)
      *   **Classic**: the classic network
      *
-     * > *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
-     * > *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
-     * > *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+     * >
+     *
+     *   If the instance runs MySQL and uses cloud disks, you must set this parameter to **VPC**.
+     *
+     *   If the instance runs PostgreSQL or MariaDB, you must set this parameter to **VPC**.
+     *
+     *   If the instance runs SQL Server Basic or SQL Server Web, you can set this parameter to VPC or Classic. If the instance runs other database engine, you must set this parameter to **VPC**.
+     *
      * @example Classic
      *
      * @var string
@@ -444,7 +449,7 @@ class CreateDBInstanceRequest extends Model
     public $ioAccelerationEnabled;
 
     /**
-     * @description Specifies whether to enable the write optimization feature.
+     * @description Specifies whether to enable the write optimization feature. Valid values:
      *
      *   **optimized**: enables the feature.
      *   **none**: disables the feature.

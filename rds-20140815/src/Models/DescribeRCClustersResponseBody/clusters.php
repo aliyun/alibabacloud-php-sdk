@@ -32,6 +32,11 @@ class clusters extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $profile;
+
+    /**
      * @description The cluster status. Valid values:
      *
      *   **Pending**
@@ -54,6 +59,7 @@ class clusters extends Model
         'clusterId'   => 'ClusterId',
         'clusterName' => 'ClusterName',
         'createTime'  => 'CreateTime',
+        'profile'     => 'Profile',
         'status'      => 'Status',
         'vpcId'       => 'VpcId',
     ];
@@ -73,6 +79,9 @@ class clusters extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->profile) {
+            $res['Profile'] = $this->profile;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -100,6 +109,9 @@ class clusters extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['Profile'])) {
+            $model->profile = $map['Profile'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

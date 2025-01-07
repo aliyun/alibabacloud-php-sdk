@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SyncRCSecurityGroupRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example rc-i322y2t562oh7o******
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The security group ID.
+     *
+     * @example sg-bp196e4d2ndjgy******
+     *
      * @var string
      */
     public $securityGroupId;

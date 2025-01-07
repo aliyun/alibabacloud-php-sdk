@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\createAckEdgeParam;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\dataDisk;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\systemDisk;
 use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesRequest\tag;
@@ -56,6 +57,16 @@ class RunRCInstancesRequest extends Model
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @var createAckEdgeParam
+     */
+    public $createAckEdgeParam;
+
+    /**
+     * @var string
+     */
+    public $createExtraParam;
 
     /**
      * @var string
@@ -247,6 +258,11 @@ class RunRCInstancesRequest extends Model
     public $spotStrategy;
 
     /**
+     * @var string
+     */
+    public $supportCase;
+
+    /**
      * @description The specification of the system disk.
      *
      * @var systemDisk
@@ -282,6 +298,8 @@ class RunRCInstancesRequest extends Model
         'autoPay'                     => 'AutoPay',
         'autoRenew'                   => 'AutoRenew',
         'clientToken'                 => 'ClientToken',
+        'createAckEdgeParam'          => 'CreateAckEdgeParam',
+        'createExtraParam'            => 'CreateExtraParam',
         'createMode'                  => 'CreateMode',
         'dataDisk'                    => 'DataDisk',
         'deploymentSetId'             => 'DeploymentSetId',
@@ -304,6 +322,7 @@ class RunRCInstancesRequest extends Model
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
         'securityGroupId'             => 'SecurityGroupId',
         'spotStrategy'                => 'SpotStrategy',
+        'supportCase'                 => 'SupportCase',
         'systemDisk'                  => 'SystemDisk',
         'tag'                         => 'Tag',
         'vSwitchId'                   => 'VSwitchId',
@@ -328,6 +347,12 @@ class RunRCInstancesRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->createAckEdgeParam) {
+            $res['CreateAckEdgeParam'] = null !== $this->createAckEdgeParam ? $this->createAckEdgeParam->toMap() : null;
+        }
+        if (null !== $this->createExtraParam) {
+            $res['CreateExtraParam'] = $this->createExtraParam;
         }
         if (null !== $this->createMode) {
             $res['CreateMode'] = $this->createMode;
@@ -401,6 +426,9 @@ class RunRCInstancesRequest extends Model
         if (null !== $this->spotStrategy) {
             $res['SpotStrategy'] = $this->spotStrategy;
         }
+        if (null !== $this->supportCase) {
+            $res['SupportCase'] = $this->supportCase;
+        }
         if (null !== $this->systemDisk) {
             $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
         }
@@ -442,6 +470,12 @@ class RunRCInstancesRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['CreateAckEdgeParam'])) {
+            $model->createAckEdgeParam = createAckEdgeParam::fromMap($map['CreateAckEdgeParam']);
+        }
+        if (isset($map['CreateExtraParam'])) {
+            $model->createExtraParam = $map['CreateExtraParam'];
         }
         if (isset($map['CreateMode'])) {
             $model->createMode = $map['CreateMode'];
@@ -514,6 +548,9 @@ class RunRCInstancesRequest extends Model
         }
         if (isset($map['SpotStrategy'])) {
             $model->spotStrategy = $map['SpotStrategy'];
+        }
+        if (isset($map['SupportCase'])) {
+            $model->supportCase = $map['SupportCase'];
         }
         if (isset($map['SystemDisk'])) {
             $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);

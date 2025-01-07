@@ -102,6 +102,9 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDeploymentSetResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCDiskResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolShrinkRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCSnapshotRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCSnapshotResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReadOnlyDBInstanceRequest;
@@ -159,6 +162,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstancesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstancesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCInstancesShrinkRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCNodePoolRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCNodePoolResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCSnapshotRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteRCSnapshotResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteReplicationLinkRequest;
@@ -291,8 +296,6 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDedicatedHostsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDetachedBackupsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDetachedBackupsResponse;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDiagnosticReportListRequest;
-use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDiagnosticReportListResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDTCSecurityIpHostsForSQLServerRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDTCSecurityIpHostsForSQLServerResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeErrorLogsRequest;
@@ -384,6 +387,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceVncUrlRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceVncUrlResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCMetricListRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCMetricListResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCNodePoolRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCNodePoolResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCSnapshotsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCSnapshotsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRdsResourceSettingsRequest;
@@ -531,6 +536,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceNetworkTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceNetworkTypeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstancePayTypeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstancePayTypeResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceReplicationSwitchRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceReplicationSwitchResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSecurityGroupRuleRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSecurityGroupRuleResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceSpecRequest;
@@ -1217,7 +1224,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 挂载RC云盘
+     * @summary Attaches a pay-as-you-go data disk or a system disk to an RDS Custom instance. The instance and the disk must reside in the same zone.
      *  *
      * @param AttachRCDiskRequest $request AttachRCDiskRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -1259,7 +1266,7 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 挂载RC云盘
+     * @summary Attaches a pay-as-you-go data disk or a system disk to an RDS Custom instance. The instance and the disk must reside in the same zone.
      *  *
      * @param AttachRCDiskRequest $request AttachRCDiskRequest
      *
@@ -4831,6 +4838,157 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 创建RC节点池模版
+     *  *
+     * @param CreateRCNodePoolRequest $tmpReq  CreateRCNodePoolRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateRCNodePoolResponse CreateRCNodePoolResponse
+     */
+    public function createRCNodePoolWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateRCNodePoolShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dataDisk)) {
+            $request->dataDiskShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataDisk, 'DataDisk', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->systemDisk)) {
+            $request->systemDiskShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->systemDisk, 'SystemDisk', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->amount)) {
+            $query['Amount'] = $request->amount;
+        }
+        if (!Utils::isUnset($request->autoPay)) {
+            $query['AutoPay'] = $request->autoPay;
+        }
+        if (!Utils::isUnset($request->autoRenew)) {
+            $query['AutoRenew'] = $request->autoRenew;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->createMode)) {
+            $query['CreateMode'] = $request->createMode;
+        }
+        if (!Utils::isUnset($request->dataDiskShrink)) {
+            $query['DataDisk'] = $request->dataDiskShrink;
+        }
+        if (!Utils::isUnset($request->deploymentSetId)) {
+            $query['DeploymentSetId'] = $request->deploymentSetId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->hostName)) {
+            $query['HostName'] = $request->hostName;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceChargeType)) {
+            $query['InstanceChargeType'] = $request->instanceChargeType;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->internetChargeType)) {
+            $query['InternetChargeType'] = $request->internetChargeType;
+        }
+        if (!Utils::isUnset($request->internetMaxBandwidthOut)) {
+            $query['InternetMaxBandwidthOut'] = $request->internetMaxBandwidthOut;
+        }
+        if (!Utils::isUnset($request->ioOptimized)) {
+            $query['IoOptimized'] = $request->ioOptimized;
+        }
+        if (!Utils::isUnset($request->keyPairName)) {
+            $query['KeyPairName'] = $request->keyPairName;
+        }
+        if (!Utils::isUnset($request->nodePoolName)) {
+            $query['NodePoolName'] = $request->nodePoolName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->periodUnit)) {
+            $query['PeriodUnit'] = $request->periodUnit;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityEnhancementStrategy)) {
+            $query['SecurityEnhancementStrategy'] = $request->securityEnhancementStrategy;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->spotStrategy)) {
+            $query['SpotStrategy'] = $request->spotStrategy;
+        }
+        if (!Utils::isUnset($request->supportCase)) {
+            $query['SupportCase'] = $request->supportCase;
+        }
+        if (!Utils::isUnset($request->systemDiskShrink)) {
+            $query['SystemDisk'] = $request->systemDiskShrink;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRCNodePool',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRCNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建RC节点池模版
+     *  *
+     * @param CreateRCNodePoolRequest $request CreateRCNodePoolRequest
+     *
+     * @return CreateRCNodePoolResponse CreateRCNodePoolResponse
+     */
+    public function createRCNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRCNodePoolWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a snapshot for a cloud disk.
      *  *
      * @description In the following scenarios, you cannot create snapshots for a specific disk:
@@ -6918,6 +7076,59 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRCInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除RC模版
+     *  *
+     * @param DeleteRCNodePoolRequest $request DeleteRCNodePoolRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteRCNodePoolResponse DeleteRCNodePoolResponse
+     */
+    public function deleteRCNodePoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->nodePoolId)) {
+            $query['NodePoolId'] = $request->nodePoolId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRCNodePool',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRCNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除RC模版
+     *  *
+     * @param DeleteRCNodePoolRequest $request DeleteRCNodePoolRequest
+     *
+     * @return DeleteRCNodePoolResponse DeleteRCNodePoolResponse
+     */
+    public function deleteRCNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRCNodePoolWithOptions($request, $runtime);
     }
 
     /**
@@ -12194,68 +12405,6 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
-     *  *
-     * @summary Queries the information about diagnostics reports.
-     *  *
-     * @description >  This operation is phased out.
-     *  *
-     * Deprecated
-     *
-     * @param DescribeDiagnosticReportListRequest $request DescribeDiagnosticReportListRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeDiagnosticReportListResponse DescribeDiagnosticReportListResponse
-     */
-    public function describeDiagnosticReportListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDiagnosticReportList',
-            'version'     => '2014-08-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDiagnosticReportListResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated OpenAPI DescribeDiagnosticReportList is deprecated
-     *  *
-     * @summary Queries the information about diagnostics reports.
-     *  *
-     * @description >  This operation is phased out.
-     *  *
-     * Deprecated
-     *
-     * @param DescribeDiagnosticReportListRequest $request DescribeDiagnosticReportListRequest
-     *
-     * @return DescribeDiagnosticReportListResponse DescribeDiagnosticReportListResponse
-     */
-    public function describeDiagnosticReportList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDiagnosticReportListWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Queries the error logs of an instance over a specific time range.
      *  *
      * @description ### [](#)Supported database engines
@@ -15069,6 +15218,9 @@ class Rds extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->profile)) {
+            $query['Profile'] = $request->profile;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -15453,6 +15605,50 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRCMetricListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 描述RC模版
+     *  *
+     * @param DescribeRCNodePoolRequest $request DescribeRCNodePoolRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeRCNodePoolResponse DescribeRCNodePoolResponse
+     */
+    public function describeRCNodePoolWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRCNodePool',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRCNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 描述RC模版
+     *  *
+     * @param DescribeRCNodePoolRequest $request DescribeRCNodePoolRequest
+     *
+     * @return DescribeRCNodePoolResponse DescribeRCNodePoolResponse
+     */
+    public function describeRCNodePool($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRCNodePoolWithOptions($request, $runtime);
     }
 
     /**
@@ -21103,6 +21299,65 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @summary 修改数据库复制
+     *  *
+     * @param ModifyDBInstanceReplicationSwitchRequest $request ModifyDBInstanceReplicationSwitchRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBInstanceReplicationSwitchResponse ModifyDBInstanceReplicationSwitchResponse
+     */
+    public function modifyDBInstanceReplicationSwitchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->externalReplication)) {
+            $query['ExternalReplication'] = $request->externalReplication;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceReplicationSwitch',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceReplicationSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改数据库复制
+     *  *
+     * @param ModifyDBInstanceReplicationSwitchRequest $request ModifyDBInstanceReplicationSwitchRequest
+     *
+     * @return ModifyDBInstanceReplicationSwitchResponse ModifyDBInstanceReplicationSwitchResponse
+     */
+    public function modifyDBInstanceReplicationSwitch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceReplicationSwitchWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Modifies the SSL encryption settings of an instance.
      *  *
      * @description ### [](#)Supported database engines
@@ -23776,13 +24031,10 @@ class Rds extends OpenApiClient
     /**
      * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
      *  *
-     * @description ### [](#)Supported database engines
-     * *   MySQL
-     * *   PostgreSQL
-     * *   SQL Server
-     * >  If DAS Enterprise Edition is supported in the region in which the instance resides, the most recent version of DAS Enterprise Edition is enabled when you call the operation to enable the SQL Audit feature for the instance. For more information about the database engines and regions supported by each version of DAS Enterprise Edition, see [Supported databases and regions](https://help.aliyun.com/document_detail/156204.html).
+     * @description ### [](#)Note:
+     * This operation is no longer maintained. We recommend that you enable or configure Database Autonomy Service (DAS) Enterprise Edition. For more information, see [Enable or configure DAS Enterprise Edition](https://help.aliyun.com/document_detail/2778835.html).
      * ### [](#)References
-     * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
      * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
      * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
      * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
@@ -23838,13 +24090,10 @@ class Rds extends OpenApiClient
     /**
      * @summary Enables or disables the SQL Explorer (SQL Audit) feature for an instance.
      *  *
-     * @description ### [](#)Supported database engines
-     * *   MySQL
-     * *   PostgreSQL
-     * *   SQL Server
-     * >  If DAS Enterprise Edition is supported in the region in which the instance resides, the most recent version of DAS Enterprise Edition is enabled when you call the operation to enable the SQL Audit feature for the instance. For more information about the database engines and regions supported by each version of DAS Enterprise Edition, see [Supported databases and regions](https://help.aliyun.com/document_detail/156204.html).
+     * @description ### [](#)Note:
+     * This operation is no longer maintained. We recommend that you enable or configure Database Autonomy Service (DAS) Enterprise Edition. For more information, see [Enable or configure DAS Enterprise Edition](https://help.aliyun.com/document_detail/2778835.html).
      * ### [](#)References
-     * >  Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     * >  Before you call this operation, read the following topics and make sure that you fully understand the prerequisites and impacts of this operation.
      * *   [Use the SQL Explorer and Audit feature for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/476574.html)
      * *   [Use the SQL Audit feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96766.html)
      * *   [Use the SQL Audit feature for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95712.html)
@@ -25378,7 +25627,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 更换rds custom实例系统盘
+     * @summary Reinstalls the operating system (OS) of an RDS Custom instance.
+     *  *
+     * @description *   The instance must be in the Stopped state.
+     * *   If you reinstall the system, the data on the original system disk is lost. Exercise caution when you perform this operation.
      *  *
      * @param ReplaceRCInstanceSystemDiskRequest $request ReplaceRCInstanceSystemDiskRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -25426,7 +25678,10 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 更换rds custom实例系统盘
+     * @summary Reinstalls the operating system (OS) of an RDS Custom instance.
+     *  *
+     * @description *   The instance must be in the Stopped state.
+     * *   If you reinstall the system, the data on the original system disk is lost. Exercise caution when you perform this operation.
      *  *
      * @param ReplaceRCInstanceSystemDiskRequest $request ReplaceRCInstanceSystemDiskRequest
      *
@@ -26131,6 +26386,9 @@ class Rds extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new RunRCInstancesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->createAckEdgeParam)) {
+            $request->createAckEdgeParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->createAckEdgeParam, 'CreateAckEdgeParam', 'json');
+        }
         if (!Utils::isUnset($tmpReq->dataDisk)) {
             $request->dataDiskShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dataDisk, 'DataDisk', 'json');
         }
@@ -26149,6 +26407,12 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->createAckEdgeParamShrink)) {
+            $query['CreateAckEdgeParam'] = $request->createAckEdgeParamShrink;
+        }
+        if (!Utils::isUnset($request->createExtraParam)) {
+            $query['CreateExtraParam'] = $request->createExtraParam;
         }
         if (!Utils::isUnset($request->createMode)) {
             $query['CreateMode'] = $request->createMode;
@@ -26215,6 +26479,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->spotStrategy)) {
             $query['SpotStrategy'] = $request->spotStrategy;
+        }
+        if (!Utils::isUnset($request->supportCase)) {
+            $query['SupportCase'] = $request->supportCase;
         }
         if (!Utils::isUnset($request->systemDiskShrink)) {
             $query['SystemDisk'] = $request->systemDiskShrink;
@@ -26871,7 +27138,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 同步RDS Custom的安全组
+     * @summary Adds security group rules to an RDS Custom for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
      *  *
      * @param SyncRCSecurityGroupRequest $request SyncRCSecurityGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -26910,7 +27182,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 同步RDS Custom的安全组
+     * @summary Adds security group rules to an RDS Custom for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
      *  *
      * @param SyncRCSecurityGroupRequest $request SyncRCSecurityGroupRequest
      *
@@ -27185,7 +27462,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 解绑RDS Custom实例的弹性公网
+     * @summary Unbinds a elastic IP address (EIP) from an RDS Custom for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
      *  *
      * @param UnassociateEipAddressWithRCInstanceRequest $request UnassociateEipAddressWithRCInstanceRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -27224,7 +27506,12 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 解绑RDS Custom实例的弹性公网
+     * @summary Unbinds a elastic IP address (EIP) from an RDS Custom for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
      *  *
      * @param UnassociateEipAddressWithRCInstanceRequest $request UnassociateEipAddressWithRCInstanceRequest
      *

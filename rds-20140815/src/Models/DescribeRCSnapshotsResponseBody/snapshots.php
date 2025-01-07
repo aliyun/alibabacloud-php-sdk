@@ -102,6 +102,8 @@ class snapshots extends Model
     /**
      * @description The snapshot name.
      *
+     * @example s-2ze8klip00xcogcwer76
+     *
      * @var string
      */
     public $snapshotName;

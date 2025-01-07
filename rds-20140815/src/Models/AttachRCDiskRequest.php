@@ -18,8 +18,9 @@ class AttachRCDiskRequest extends Model
     public $deleteWithInstance;
 
     /**
-     * @description This parameter is required.
+     * @description The disk ID.
      *
+     * This parameter is required.
      * @example rcd-wz98hnpj2sjo85zc7t2w
      *
      * @var string
@@ -27,8 +28,9 @@ class AttachRCDiskRequest extends Model
     public $diskId;
 
     /**
-     * @description This parameter is required.
+     * @description The instance ID.
      *
+     * This parameter is required.
      * @example rc-dh2jf9n6j4s14926****
      *
      * @var string
@@ -36,8 +38,9 @@ class AttachRCDiskRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRCClustersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $profile;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -22,6 +27,7 @@ class DescribeRCClustersRequest extends Model
      */
     public $vpcId;
     protected $_name = [
+        'profile'  => 'Profile',
         'regionId' => 'RegionId',
         'vpcId'    => 'VpcId',
     ];
@@ -33,6 +39,9 @@ class DescribeRCClustersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->profile) {
+            $res['Profile'] = $this->profile;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -51,6 +60,9 @@ class DescribeRCClustersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Profile'])) {
+            $model->profile = $map['Profile'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

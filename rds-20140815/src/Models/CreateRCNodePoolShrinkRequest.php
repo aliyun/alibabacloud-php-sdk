@@ -4,66 +4,37 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
-use AlibabaCloud\SDK\Rds\V20140815\Models\RunRCInstancesShrinkRequest\tag;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreateRCNodePoolShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
-class RunRCInstancesShrinkRequest extends Model
+class CreateRCNodePoolShrinkRequest extends Model
 {
     /**
-     * @description The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
-     *
-     * Valid values: **1** to **10**. Default value: **1**.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $amount;
 
     /**
-     * @description Specifies whether to enable the automatic payment feature. Valid values:
-     *
-     *   **true** (default): enables the feature. Make sure that your account balance is sufficient.
-     *   **false**: disables the feature. An unpaid order is generated.
-     *
-     * >  If your account balance is insufficient, you can set the AutoPay parameter to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
-     * @example false
-     *
      * @var bool
      */
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
-     *
-     *   **true** (default)
-     *   **false**
-     *
-     * @example false
-     *
      * @var bool
      */
     public $autoRenew;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * @example ETnLKlblzczshOTUbOCz****
-     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description This parameter is required.
+     *
      * @var string
      */
-    public $createAckEdgeParamShrink;
-
-    /**
-     * @var string
-     */
-    public $createExtraParam;
+    public $clusterId;
 
     /**
      * @var string
@@ -71,38 +42,21 @@ class RunRCInstancesShrinkRequest extends Model
     public $createMode;
 
     /**
-     * @description The information about the data disks.
-     *
      * @var string
      */
     public $dataDiskShrink;
 
     /**
-     * @description The deployment set ID.
-     *
-     * @example ds-uf6670sipmph5j5b6ke4
-     *
      * @var string
      */
     public $deploymentSetId;
 
     /**
-     * @description The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
-     *
-     * @example Instance_Description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-     *
-     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
-     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $dryRun;
@@ -113,113 +67,69 @@ class RunRCInstancesShrinkRequest extends Model
     public $hostName;
 
     /**
-     * @description The ID of the image used by the instance.
-     *
-     * @example image-dsvjzw2ii8n4fvr6de
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The billing method of the instance. Set the value to **Prepaid**, which indicates the subscription billing method.
-     *
-     * @example Prepaid
-     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description The instance name.
-     *
-     * @example ceshi
-     *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types for RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
-     *
-     * This parameter is required.
-     * @example mysql.i8.large.2cm
+     * @description This parameter is required.
      *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The reserved parameter. This parameter is not supported.
-     *
-     * @example null
-     *
      * @var string
      */
     public $internetChargeType;
 
     /**
-     * @description The reserved parameter. This parameter is not supported.
-     *
-     * @example null
-     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
-     * @description The reserved parameter. This parameter is not supported.
-     *
-     * @example null
-     *
      * @var string
      */
     public $ioOptimized;
 
     /**
-     * @description The name of the AccessKey pair. You can specify only one name.
-     *
-     * @example dell5502
-     *
      * @var string
      */
     public $keyPairName;
 
     /**
-     * @description The password of the account that is used to log on to the instance.
-     *
-     * @example 2F9e9@a69c!e18b569c8
-     *
+     * @var string
+     */
+    public $nodePoolName;
+
+    /**
      * @var string
      */
     public $password;
 
     /**
-     * @description The subscription duration of the instance. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The unit of the subscription duration. Valid values:
-     *
-     *   **Year**
-     *   **Month** (default)
-     *
-     * @example Year
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-beijing
+     * @description This parameter is required.
      *
      * @var string
      */
@@ -231,20 +141,11 @@ class RunRCInstancesShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The reserved parameter. This parameter is not supported.
-     *
-     * @example null
-     *
      * @var string
      */
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group to which you want to add the new instance. Instances in the same security group can communicate with each other. The maximum number of instances allowed in a security group varies based on the type of the security group. For more information, see the "Security group limits" section in [Limits](https://help.aliyun.com/document_detail/25412.html).
-     *
-     * >  The network type of the instance is determined by the security group specified by the SecurityGroupId parameter. For example, if the network type of the specified security group is VPC, the instance is a VPC-type instance. In this case, you must specify the VSwitchId parameter.
-     * @example sg-uf6av412xaxixuezol6w
-     *
      * @var string
      */
     public $securityGroupId;
@@ -260,8 +161,6 @@ class RunRCInstancesShrinkRequest extends Model
     public $supportCase;
 
     /**
-     * @description The specification of the system disk.
-     *
      * @var string
      */
     public $systemDiskShrink;
@@ -272,21 +171,13 @@ class RunRCInstancesShrinkRequest extends Model
     public $tag;
 
     /**
-     * @description The vSwitch ID of the instance. You must specify this parameter when you create an instance of the virtual private cloud (VPC) type. The specified vSwitch and security group must belong to the same VPC.
-     *
-     * This parameter is required.
-     * @example vsw-2vcd61ngm890sk****
+     * @description This parameter is required.
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the instance. You can call the DescribeZones operation to query the zone IDs.
-     *
-     * >  If you specify the VSwitchId parameter, the zone specified by the ZoneId parameter must be the same as the zone in which the specified vSwitch resides. You can leave the ZoneId parameter empty. In this case, the system uses the zone in which the specified vSwitch resides.
-     * @example cn-beijing-f
-     *
      * @var string
      */
     public $zoneId;
@@ -295,8 +186,7 @@ class RunRCInstancesShrinkRequest extends Model
         'autoPay'                     => 'AutoPay',
         'autoRenew'                   => 'AutoRenew',
         'clientToken'                 => 'ClientToken',
-        'createAckEdgeParamShrink'    => 'CreateAckEdgeParam',
-        'createExtraParam'            => 'CreateExtraParam',
+        'clusterId'                   => 'ClusterId',
         'createMode'                  => 'CreateMode',
         'dataDiskShrink'              => 'DataDisk',
         'deploymentSetId'             => 'DeploymentSetId',
@@ -311,6 +201,7 @@ class RunRCInstancesShrinkRequest extends Model
         'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
         'ioOptimized'                 => 'IoOptimized',
         'keyPairName'                 => 'KeyPairName',
+        'nodePoolName'                => 'NodePoolName',
         'password'                    => 'Password',
         'period'                      => 'Period',
         'periodUnit'                  => 'PeriodUnit',
@@ -345,11 +236,8 @@ class RunRCInstancesShrinkRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->createAckEdgeParamShrink) {
-            $res['CreateAckEdgeParam'] = $this->createAckEdgeParamShrink;
-        }
-        if (null !== $this->createExtraParam) {
-            $res['CreateExtraParam'] = $this->createExtraParam;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->createMode) {
             $res['CreateMode'] = $this->createMode;
@@ -392,6 +280,9 @@ class RunRCInstancesShrinkRequest extends Model
         }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
+        }
+        if (null !== $this->nodePoolName) {
+            $res['NodePoolName'] = $this->nodePoolName;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -445,7 +336,7 @@ class RunRCInstancesShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return RunRCInstancesShrinkRequest
+     * @return CreateRCNodePoolShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -462,11 +353,8 @@ class RunRCInstancesShrinkRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['CreateAckEdgeParam'])) {
-            $model->createAckEdgeParamShrink = $map['CreateAckEdgeParam'];
-        }
-        if (isset($map['CreateExtraParam'])) {
-            $model->createExtraParam = $map['CreateExtraParam'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['CreateMode'])) {
             $model->createMode = $map['CreateMode'];
@@ -509,6 +397,9 @@ class RunRCInstancesShrinkRequest extends Model
         }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
+        }
+        if (isset($map['NodePoolName'])) {
+            $model->nodePoolName = $map['NodePoolName'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AttachRCDiskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example C19D1668-70CB-5421-AA91-D6D8EE3AB664
      *
      * @var string

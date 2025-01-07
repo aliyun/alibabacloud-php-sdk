@@ -127,11 +127,19 @@ class DBInstanceAttribute extends Model
     public $collation;
 
     /**
+     * @description The storage compression mode.
+     *
+     * @example on, off
+     *
      * @var string
      */
     public $compressionMode;
 
     /**
+     * @description The storage compression ratio.
+     *
+     * @example 1.25
+     *
      * @var string
      */
     public $compressionRatio;
@@ -713,6 +721,10 @@ class DBInstanceAttribute extends Model
     public $superPermissionMode;
 
     /**
+     * @description Indicates whether the storage compression mode can be enabled for the instance.
+     *
+     * @example true, false
+     *
      * @var bool
      */
     public $supportCompression;

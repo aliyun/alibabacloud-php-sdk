@@ -77,6 +77,10 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $coldDataEnabled;
 
     /**
+     * @description Whether to enable storage compression.
+     * - off: Disable
+     * @example on
+     *
      * @var string
      */
     public $compressionMode;

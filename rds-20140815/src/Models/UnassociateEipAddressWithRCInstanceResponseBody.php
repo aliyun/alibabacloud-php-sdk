@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnassociateEipAddressWithRCInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example CDEAC7BF-D64B-54A1-9051-BE9AC0990E68
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReplaceRCInstanceSystemDiskRequest extends Model
 {
     /**
+     * @description The image ID that is used when you reinstall the OS.
+     *
      * @example m-2zec4lvlhcdkyd13****
      *
      * @var string
@@ -16,6 +18,8 @@ class ReplaceRCInstanceSystemDiskRequest extends Model
     public $imageId;
 
     /**
+     * @description The instance ID.
+     *
      * @example rc-m5ei7b1w38w2l91x****
      *
      * @var string
@@ -23,6 +27,8 @@ class ReplaceRCInstanceSystemDiskRequest extends Model
     public $instanceId;
 
     /**
+     * @description The reserved parameter. This parameter is not supported.
+     *
      * @example None
      *
      * @var bool
@@ -30,6 +36,8 @@ class ReplaceRCInstanceSystemDiskRequest extends Model
     public $isLocalDisk;
 
     /**
+     * @description The name of the new key pair. If you do not specify this parameter, you must reset the key pair after the OS is reinstalled.
+     *
      * @example testKeyPairName
      *
      * @var string
@@ -37,6 +45,11 @@ class ReplaceRCInstanceSystemDiskRequest extends Model
     public $keyPairName;
 
     /**
+     * @description The new logon password of the RDS Custom instance. If you do not specify this parameter, you must reset the logon password after the OS is reinstalled.
+     *
+     *   The value must be 8 to 30 characters in length.
+     *   The value must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Supported special characters include: ( ) \\` ~ ! @ # $ % ^ & \\* - _ + =
+     *
      * @example testPassword
      *
      * @var string
@@ -44,6 +57,8 @@ class ReplaceRCInstanceSystemDiskRequest extends Model
     public $password;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-beijing
      *
      * @var string

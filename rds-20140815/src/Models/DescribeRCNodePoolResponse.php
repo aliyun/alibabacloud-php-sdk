@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDiagnosticReportListResponse extends Model
+class DescribeRCNodePoolResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeDiagnosticReportListResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeDiagnosticReportListResponseBody
+     * @var DescribeRCNodePoolResponseBody
      */
     public $body;
     protected $_name = [
@@ -51,7 +51,7 @@ class DescribeDiagnosticReportListResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDiagnosticReportListResponse
+     * @return DescribeRCNodePoolResponse
      */
     public static function fromMap($map = [])
     {
@@ -63,7 +63,7 @@ class DescribeDiagnosticReportListResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeDiagnosticReportListResponseBody::fromMap($map['body']);
+            $model->body = DescribeRCNodePoolResponseBody::fromMap($map['body']);
         }
 
         return $model;

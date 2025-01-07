@@ -6,32 +6,26 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AssociateEipAddressWithRCInstanceRequest extends Model
+class DescribeRCNodePoolRequest extends Model
 {
     /**
-     * @example eip-bp166out2x4bpcf******
-     *
      * @var string
      */
-    public $allocationId;
+    public $clusterId;
 
     /**
-     * @example rc-i322y2t562oh7o******
-     *
      * @var string
      */
-    public $instanceId;
+    public $nodePoolId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'allocationId' => 'AllocationId',
-        'instanceId'   => 'InstanceId',
-        'regionId'     => 'RegionId',
+        'clusterId'  => 'ClusterId',
+        'nodePoolId' => 'NodePoolId',
+        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -41,11 +35,11 @@ class AssociateEipAddressWithRCInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->allocationId) {
-            $res['AllocationId'] = $this->allocationId;
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->nodePoolId) {
+            $res['NodePoolId'] = $this->nodePoolId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -57,16 +51,16 @@ class AssociateEipAddressWithRCInstanceRequest extends Model
     /**
      * @param array $map
      *
-     * @return AssociateEipAddressWithRCInstanceRequest
+     * @return DescribeRCNodePoolRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AllocationId'])) {
-            $model->allocationId = $map['AllocationId'];
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['NodePoolId'])) {
+            $model->nodePoolId = $map['NodePoolId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

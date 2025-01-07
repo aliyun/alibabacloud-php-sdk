@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReplaceRCInstanceSystemDiskResponseBody extends Model
+class ModifyDBInstanceReplicationSwitchResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
-     * @example 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+     * @example 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class ReplaceRCInstanceSystemDiskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ReplaceRCInstanceSystemDiskResponseBody
+     * @return ModifyDBInstanceReplicationSwitchResponseBody
      */
     public static function fromMap($map = [])
     {

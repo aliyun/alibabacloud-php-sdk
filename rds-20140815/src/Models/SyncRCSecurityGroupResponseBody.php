@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SyncRCSecurityGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 300333A0-68E5-59CE-94AD-75153D17639E
+     *
      * @var string
      */
     public $requestId;
