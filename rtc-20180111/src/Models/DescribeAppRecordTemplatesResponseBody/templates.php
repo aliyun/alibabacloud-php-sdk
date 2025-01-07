@@ -11,7 +11,7 @@ class templates extends Model
     /**
      * @example 2020-09-04T06:22:15Z
      *
-     * @var int[]
+     * @var string
      */
     public $createTime;
 
@@ -42,7 +42,7 @@ class templates extends Model
     public $formats;
 
     /**
-     * @var int[]
+     * @var string[]
      */
     public $layoutIds;
 
