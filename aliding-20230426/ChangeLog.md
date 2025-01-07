@@ -1,3 +1,37 @@
+2025-01-07 Version: 2.23.0
+- Support API AddRecordPermission.
+- Support API AddTicketMemo.
+- Support API AssignTicket.
+- Support API CopyDentry.
+- Support API CreateTicket.
+- Support API FinishTicket.
+- Support API GetDeptNo.
+- Support API GetGroupLiveList.
+- Support API GetMultiDimTableAllFields.
+- Support API GetMultiDimTableAllSheets.
+- Support API GetMultiDimTableRecord.
+- Support API GetMultiDimTableSheet.
+- Support API GetOrgLiveList.
+- Support API GetOrgOrWebOpenDocContentTaskId.
+- Support API GetTicket.
+- Support API GetTodoTask.
+- Support API GetUserIdByOrgIdAndStaffId.
+- Support API ListMultiDimTableRecords.
+- Support API ListTemplate.
+- Support API ListTicketOperateRecord.
+- Support API QueryConferenceInfoByRoomCode.
+- Support API QueryGroupLiveInfo.
+- Support API QueryRecordMinutesUrl.
+- Support API RespondEvent.
+- Support API SetConferenceHosts.
+- Support API TransferTicket.
+- Update API CreatePersonalTodoTask: add param ReminderTimeStamp.
+- Update API CreateScheduleConference: add param ScheduleConfSettingModel.
+- Update API GetUser: update response param.
+- Update API QueryMeetingRoom: update response param.
+- Update API UpdateScheduleConfSettings: update param ScheduleConfSettingModel.
+
+
 2024-12-24 Version: 2.23.0
 - Support API AddRecordPermission.
 - Support API AddTicketMemo.

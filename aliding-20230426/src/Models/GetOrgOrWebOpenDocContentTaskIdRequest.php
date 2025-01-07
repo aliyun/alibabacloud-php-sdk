@@ -24,6 +24,13 @@ class GetOrgOrWebOpenDocContentTaskIdRequest extends Model
     public $generateCp;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $scopeType;
+
+    /**
      * @example markdown
      *
      * @var string
@@ -37,6 +44,7 @@ class GetOrgOrWebOpenDocContentTaskIdRequest extends Model
     protected $_name = [
         'dentryUuid'    => 'DentryUuid',
         'generateCp'    => 'GenerateCp',
+        'scopeType'     => 'ScopeType',
         'targetFormat'  => 'TargetFormat',
         'tenantContext' => 'TenantContext',
     ];
@@ -53,6 +61,9 @@ class GetOrgOrWebOpenDocContentTaskIdRequest extends Model
         }
         if (null !== $this->generateCp) {
             $res['GenerateCp'] = $this->generateCp;
+        }
+        if (null !== $this->scopeType) {
+            $res['ScopeType'] = $this->scopeType;
         }
         if (null !== $this->targetFormat) {
             $res['TargetFormat'] = $this->targetFormat;
@@ -77,6 +88,9 @@ class GetOrgOrWebOpenDocContentTaskIdRequest extends Model
         }
         if (isset($map['GenerateCp'])) {
             $model->generateCp = $map['GenerateCp'];
+        }
+        if (isset($map['ScopeType'])) {
+            $model->scopeType = $map['ScopeType'];
         }
         if (isset($map['TargetFormat'])) {
             $model->targetFormat = $map['TargetFormat'];

@@ -9309,6 +9309,9 @@ class Aliding extends OpenApiClient
         if (!Utils::isUnset($request->generateCp)) {
             $body['GenerateCp'] = $request->generateCp;
         }
+        if (!Utils::isUnset($request->scopeType)) {
+            $body['ScopeType'] = $request->scopeType;
+        }
         if (!Utils::isUnset($request->targetFormat)) {
             $body['TargetFormat'] = $request->targetFormat;
         }
