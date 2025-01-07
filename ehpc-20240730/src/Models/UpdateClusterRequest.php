@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateClusterRequest\clusterCustomConfiguration;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateClusterRequest\monitorSpec;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\UpdateClusterRequest\schedulerSpec;
 use AlibabaCloud\Tea\Model;
 
 class UpdateClusterRequest extends Model
@@ -131,6 +132,11 @@ class UpdateClusterRequest extends Model
      * @var monitorSpec
      */
     public $monitorSpec;
+
+    /**
+     * @var schedulerSpec
+     */
+    public $schedulerSpec;
     protected $_name = [
         'clientVersion'              => 'ClientVersion',
         'clusterCustomConfiguration' => 'ClusterCustomConfiguration',
@@ -145,6 +151,7 @@ class UpdateClusterRequest extends Model
         'maxCoreCount'               => 'MaxCoreCount',
         'maxCount'                   => 'MaxCount',
         'monitorSpec'                => 'MonitorSpec',
+        'schedulerSpec'              => 'SchedulerSpec',
     ];
 
     public function validate()
@@ -192,6 +199,9 @@ class UpdateClusterRequest extends Model
         }
         if (null !== $this->monitorSpec) {
             $res['MonitorSpec'] = null !== $this->monitorSpec ? $this->monitorSpec->toMap() : null;
+        }
+        if (null !== $this->schedulerSpec) {
+            $res['SchedulerSpec'] = null !== $this->schedulerSpec ? $this->schedulerSpec->toMap() : null;
         }
 
         return $res;
@@ -243,6 +253,9 @@ class UpdateClusterRequest extends Model
         }
         if (isset($map['MonitorSpec'])) {
             $model->monitorSpec = monitorSpec::fromMap($map['MonitorSpec']);
+        }
+        if (isset($map['SchedulerSpec'])) {
+            $model->schedulerSpec = schedulerSpec::fromMap($map['SchedulerSpec']);
         }
 
         return $model;

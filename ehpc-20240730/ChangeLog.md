@@ -1,3 +1,10 @@
+2025-01-07 Version: 2.0.4
+- Update API GetCluster: update response param.
+- Update API ListJobs: update param JobFilter.
+- Update API ListJobs: update response param.
+- Update API UpdateCluster: add param SchedulerSpec.
+
+
 2024-12-09 Version: 2.0.3
 - Update API ListJobs: update param JobFilter.
 - Update API ListJobs: update response param.

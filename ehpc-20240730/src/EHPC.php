@@ -2337,6 +2337,9 @@ class EHPC extends OpenApiClient
         if (!Utils::isUnset($tmpReq->monitorSpec)) {
             $request->monitorSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorSpec, 'MonitorSpec', 'json');
         }
+        if (!Utils::isUnset($tmpReq->schedulerSpec)) {
+            $request->schedulerSpecShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->schedulerSpec, 'SchedulerSpec', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clientVersion)) {
             $query['ClientVersion'] = $request->clientVersion;
@@ -2376,6 +2379,9 @@ class EHPC extends OpenApiClient
         }
         if (!Utils::isUnset($request->monitorSpecShrink)) {
             $query['MonitorSpec'] = $request->monitorSpecShrink;
+        }
+        if (!Utils::isUnset($request->schedulerSpecShrink)) {
+            $query['SchedulerSpec'] = $request->schedulerSpecShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

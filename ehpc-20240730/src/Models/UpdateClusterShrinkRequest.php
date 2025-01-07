@@ -129,6 +129,11 @@ class UpdateClusterShrinkRequest extends Model
      * @var string
      */
     public $monitorSpecShrink;
+
+    /**
+     * @var string
+     */
+    public $schedulerSpecShrink;
     protected $_name = [
         'clientVersion'                    => 'ClientVersion',
         'clusterCustomConfigurationShrink' => 'ClusterCustomConfiguration',
@@ -143,6 +148,7 @@ class UpdateClusterShrinkRequest extends Model
         'maxCoreCount'                     => 'MaxCoreCount',
         'maxCount'                         => 'MaxCount',
         'monitorSpecShrink'                => 'MonitorSpec',
+        'schedulerSpecShrink'              => 'SchedulerSpec',
     ];
 
     public function validate()
@@ -190,6 +196,9 @@ class UpdateClusterShrinkRequest extends Model
         }
         if (null !== $this->monitorSpecShrink) {
             $res['MonitorSpec'] = $this->monitorSpecShrink;
+        }
+        if (null !== $this->schedulerSpecShrink) {
+            $res['SchedulerSpec'] = $this->schedulerSpecShrink;
         }
 
         return $res;
@@ -241,6 +250,9 @@ class UpdateClusterShrinkRequest extends Model
         }
         if (isset($map['MonitorSpec'])) {
             $model->monitorSpecShrink = $map['MonitorSpec'];
+        }
+        if (isset($map['SchedulerSpec'])) {
+            $model->schedulerSpecShrink = $map['SchedulerSpec'];
         }
 
         return $model;

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\EHPC\V20240730\Models;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\clusterCustomConfiguration;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\manager;
 use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\monitorSpec;
+use AlibabaCloud\SDK\EHPC\V20240730\Models\GetClusterResponseBody\schedulerSpec;
 use AlibabaCloud\Tea\Model;
 
 class GetClusterResponseBody extends Model
@@ -237,6 +238,11 @@ class GetClusterResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @var schedulerSpec
+     */
+    public $schedulerSpec;
+
+    /**
      * @description The security group ID.
      *
      * @example sg-f8z9vb2zaezpkr69a21k
@@ -268,6 +274,7 @@ class GetClusterResponseBody extends Model
         'monitorSpec'                => 'MonitorSpec',
         'requestId'                  => 'RequestId',
         'resourceGroupId'            => 'ResourceGroupId',
+        'schedulerSpec'              => 'SchedulerSpec',
         'securityGroupId'            => 'SecurityGroupId',
     ];
 
@@ -346,6 +353,9 @@ class GetClusterResponseBody extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->schedulerSpec) {
+            $res['SchedulerSpec'] = null !== $this->schedulerSpec ? $this->schedulerSpec->toMap() : null;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -430,6 +440,9 @@ class GetClusterResponseBody extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SchedulerSpec'])) {
+            $model->schedulerSpec = schedulerSpec::fromMap($map['SchedulerSpec']);
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

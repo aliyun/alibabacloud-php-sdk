@@ -23,6 +23,13 @@ class dataDisks extends Model
     public $deleteWithInstance;
 
     /**
+     * @example /dev/xvdb
+     *
+     * @var string
+     */
+    public $device;
+
+    /**
      * @example PL0
      *
      * @var string
@@ -42,12 +49,21 @@ class dataDisks extends Model
      * @var int
      */
     public $size;
+
+    /**
+     * @example s-bp1ei2b44ripxuo46hym
+     *
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
         'category'           => 'Category',
         'deleteWithInstance' => 'DeleteWithInstance',
+        'device'             => 'Device',
         'level'              => 'Level',
         'mountDir'           => 'MountDir',
         'size'               => 'Size',
+        'snapshotId'         => 'SnapshotId',
     ];
 
     public function validate()
@@ -63,6 +79,9 @@ class dataDisks extends Model
         if (null !== $this->deleteWithInstance) {
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
+        }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
@@ -71,6 +90,9 @@ class dataDisks extends Model
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -90,6 +112,9 @@ class dataDisks extends Model
         if (isset($map['DeleteWithInstance'])) {
             $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
+        }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
@@ -98,6 +123,9 @@ class dataDisks extends Model
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;
