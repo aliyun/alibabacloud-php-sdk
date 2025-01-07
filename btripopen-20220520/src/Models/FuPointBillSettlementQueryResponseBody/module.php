@@ -2,72 +2,67 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
+namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FuPointBillSettlementQueryResponseBody;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FuPointBillSettlementQueryResponseBody\module\items;
 use AlibabaCloud\Tea\Model;
 
-class IeHotelBillSettlementQueryRequest extends Model
+class module extends Model
 {
     /**
-     * @var string
-     */
-    public $billBatch;
-
-    /**
-     * @example 12
+     * @example 10
      *
      * @var int
      */
     public $category;
 
     /**
-     * @description This parameter is required.
+     * @example corpid
      *
-     * @example 1
-     *
-     * @var int
+     * @var string
      */
-    public $pageNo;
+    public $corpId;
 
     /**
-     * @example 100
-     *
-     * @var int
+     * @var items[]
      */
-    public $pageSize;
+    public $items;
 
     /**
-     * @example 2021-10-02
+     * @example 2022-07-02
      *
      * @var string
      */
     public $periodEnd;
 
     /**
-     * @example 2021-10-01
+     * @example 2021-10-13
      *
      * @var string
      */
     public $periodStart;
 
     /**
+     * @example 1qwe
+     *
      * @var string
      */
     public $scrollId;
 
     /**
-     * @var bool
+     * @example 30
+     *
+     * @var int
      */
-    public $scrollMod;
+    public $totalSize;
     protected $_name = [
-        'billBatch'   => 'bill_batch',
         'category'    => 'category',
-        'pageNo'      => 'page_no',
-        'pageSize'    => 'page_size',
+        'corpId'      => 'corp_id',
+        'items'       => 'items',
         'periodEnd'   => 'period_end',
         'periodStart' => 'period_start',
         'scrollId'    => 'scroll_id',
-        'scrollMod'   => 'scroll_mod',
+        'totalSize'   => 'total_size',
     ];
 
     public function validate()
@@ -77,17 +72,20 @@ class IeHotelBillSettlementQueryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->billBatch) {
-            $res['bill_batch'] = $this->billBatch;
-        }
         if (null !== $this->category) {
             $res['category'] = $this->category;
         }
-        if (null !== $this->pageNo) {
-            $res['page_no'] = $this->pageNo;
+        if (null !== $this->corpId) {
+            $res['corp_id'] = $this->corpId;
         }
-        if (null !== $this->pageSize) {
-            $res['page_size'] = $this->pageSize;
+        if (null !== $this->items) {
+            $res['items'] = [];
+            if (null !== $this->items && \is_array($this->items)) {
+                $n = 0;
+                foreach ($this->items as $item) {
+                    $res['items'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->periodEnd) {
             $res['period_end'] = $this->periodEnd;
@@ -98,8 +96,8 @@ class IeHotelBillSettlementQueryRequest extends Model
         if (null !== $this->scrollId) {
             $res['scroll_id'] = $this->scrollId;
         }
-        if (null !== $this->scrollMod) {
-            $res['scroll_mod'] = $this->scrollMod;
+        if (null !== $this->totalSize) {
+            $res['total_size'] = $this->totalSize;
         }
 
         return $res;
@@ -108,22 +106,25 @@ class IeHotelBillSettlementQueryRequest extends Model
     /**
      * @param array $map
      *
-     * @return IeHotelBillSettlementQueryRequest
+     * @return module
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['bill_batch'])) {
-            $model->billBatch = $map['bill_batch'];
-        }
         if (isset($map['category'])) {
             $model->category = $map['category'];
         }
-        if (isset($map['page_no'])) {
-            $model->pageNo = $map['page_no'];
+        if (isset($map['corp_id'])) {
+            $model->corpId = $map['corp_id'];
         }
-        if (isset($map['page_size'])) {
-            $model->pageSize = $map['page_size'];
+        if (isset($map['items'])) {
+            if (!empty($map['items'])) {
+                $model->items = [];
+                $n            = 0;
+                foreach ($map['items'] as $item) {
+                    $model->items[$n++] = null !== $item ? items::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['period_end'])) {
             $model->periodEnd = $map['period_end'];
@@ -134,8 +135,8 @@ class IeHotelBillSettlementQueryRequest extends Model
         if (isset($map['scroll_id'])) {
             $model->scrollId = $map['scroll_id'];
         }
-        if (isset($map['scroll_mod'])) {
-            $model->scrollMod = $map['scroll_mod'];
+        if (isset($map['total_size'])) {
+            $model->totalSize = $map['total_size'];
         }
 
         return $model;

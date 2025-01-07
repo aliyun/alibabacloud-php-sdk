@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CooperatorHotelBillSettlementQueryRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $billBatch;
+
+    /**
      * @example cooperator_alibtrip
      *
      * @var string
@@ -34,8 +39,6 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
      * @example 2021-10-02
      *
      * @var string
@@ -48,12 +51,25 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
      * @var string
      */
     public $periodStart;
+
+    /**
+     * @var string
+     */
+    public $scrollId;
+
+    /**
+     * @var bool
+     */
+    public $scrollMod;
     protected $_name = [
+        'billBatch'    => 'bill_batch',
         'cooperatorId' => 'cooperator_id',
         'pageNo'       => 'page_no',
         'pageSize'     => 'page_size',
         'periodEnd'    => 'period_end',
         'periodStart'  => 'period_start',
+        'scrollId'     => 'scroll_id',
+        'scrollMod'    => 'scroll_mod',
     ];
 
     public function validate()
@@ -63,6 +79,9 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->billBatch) {
+            $res['bill_batch'] = $this->billBatch;
+        }
         if (null !== $this->cooperatorId) {
             $res['cooperator_id'] = $this->cooperatorId;
         }
@@ -78,6 +97,12 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
         if (null !== $this->periodStart) {
             $res['period_start'] = $this->periodStart;
         }
+        if (null !== $this->scrollId) {
+            $res['scroll_id'] = $this->scrollId;
+        }
+        if (null !== $this->scrollMod) {
+            $res['scroll_mod'] = $this->scrollMod;
+        }
 
         return $res;
     }
@@ -90,6 +115,9 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bill_batch'])) {
+            $model->billBatch = $map['bill_batch'];
+        }
         if (isset($map['cooperator_id'])) {
             $model->cooperatorId = $map['cooperator_id'];
         }
@@ -104,6 +132,12 @@ class CooperatorHotelBillSettlementQueryRequest extends Model
         }
         if (isset($map['period_start'])) {
             $model->periodStart = $map['period_start'];
+        }
+        if (isset($map['scroll_id'])) {
+            $model->scrollId = $map['scroll_id'];
+        }
+        if (isset($map['scroll_mod'])) {
+            $model->scrollMod = $map['scroll_mod'];
         }
 
         return $model;

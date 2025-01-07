@@ -48,6 +48,11 @@ class module extends Model
     public $periodStart;
 
     /**
+     * @var string
+     */
+    public $scrollId;
+
+    /**
      * @example 2695
      *
      * @var int
@@ -67,6 +72,7 @@ class module extends Model
         'orderId'     => 'order_id',
         'periodEnd'   => 'period_end',
         'periodStart' => 'period_start',
+        'scrollId'    => 'scroll_id',
         'totalNum'    => 'total_num',
         'totalSize'   => 'total_size',
     ];
@@ -101,6 +107,9 @@ class module extends Model
         }
         if (null !== $this->periodStart) {
             $res['period_start'] = $this->periodStart;
+        }
+        if (null !== $this->scrollId) {
+            $res['scroll_id'] = $this->scrollId;
         }
         if (null !== $this->totalNum) {
             $res['total_num'] = $this->totalNum;
@@ -143,6 +152,9 @@ class module extends Model
         }
         if (isset($map['period_start'])) {
             $model->periodStart = $map['period_start'];
+        }
+        if (isset($map['scroll_id'])) {
+            $model->scrollId = $map['scroll_id'];
         }
         if (isset($map['total_num'])) {
             $model->totalNum = $map['total_num'];

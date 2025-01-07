@@ -142,6 +142,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $categoryDesc;
+
+    /**
+     * @var string
+     */
     public $costCenter;
 
     /**
@@ -239,6 +244,11 @@ class dataList extends Model
      * @var string
      */
     public $feeType;
+
+    /**
+     * @var string
+     */
+    public $feeTypeDesc;
 
     /**
      * @example 4988580
@@ -364,6 +374,11 @@ class dataList extends Model
     public $serviceFee;
 
     /**
+     * @var string
+     */
+    public $settleTypeDesc;
+
+    /**
      * @example 5
      *
      * @var float
@@ -409,6 +424,11 @@ class dataList extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $statusDesc;
+
+    /**
      * @example 123123232
      *
      * @var string
@@ -438,6 +458,11 @@ class dataList extends Model
      * @var string
      */
     public $timeType;
+
+    /**
+     * @var string
+     */
+    public $tradeActionDesc;
 
     /**
      * @var string
@@ -511,6 +536,7 @@ class dataList extends Model
         'capitalDirection'       => 'capital_direction',
         'carLevel'               => 'car_level',
         'cascadeDepartment'      => 'cascade_department',
+        'categoryDesc'           => 'category_desc',
         'costCenter'             => 'cost_center',
         'costCenterNumber'       => 'cost_center_number',
         'coupon'                 => 'coupon',
@@ -528,6 +554,7 @@ class dataList extends Model
         'estimateDriveDistance'  => 'estimate_drive_distance',
         'estimatePrice'          => 'estimate_price',
         'feeType'                => 'fee_type',
+        'feeTypeDesc'            => 'fee_type_desc',
         'index'                  => 'index',
         'invoiceTitle'           => 'invoice_title',
         'levelName'              => 'level_name',
@@ -549,6 +576,7 @@ class dataList extends Model
         'sceneId'                => 'scene_id',
         'sceneName'              => 'scene_name',
         'serviceFee'             => 'service_fee',
+        'settleTypeDesc'         => 'settle_type_desc',
         'settlementFee'          => 'settlement_fee',
         'settlementGrantFee'     => 'settlement_grant_fee',
         'settlementTime'         => 'settlement_time',
@@ -556,11 +584,13 @@ class dataList extends Model
         'specialOrder'           => 'special_order',
         'specialReason'          => 'special_reason',
         'status'                 => 'status',
+        'statusDesc'             => 'status_desc',
         'subOrderId'             => 'sub_order_id',
         'supplementApplyId'      => 'supplement_apply_id',
         'taxRate'                => 'tax_rate',
         'thirdItineraryId'       => 'third_itinerary_id',
         'timeType'               => 'time_type',
+        'tradeActionDesc'        => 'trade_action_desc',
         'travelerId'             => 'traveler_id',
         'travelerJobNo'          => 'traveler_job_no',
         'travelerMemberTypeName' => 'traveler_member_type_name',
@@ -648,6 +678,9 @@ class dataList extends Model
         if (null !== $this->cascadeDepartment) {
             $res['cascade_department'] = $this->cascadeDepartment;
         }
+        if (null !== $this->categoryDesc) {
+            $res['category_desc'] = $this->categoryDesc;
+        }
         if (null !== $this->costCenter) {
             $res['cost_center'] = $this->costCenter;
         }
@@ -698,6 +731,9 @@ class dataList extends Model
         }
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
+        }
+        if (null !== $this->feeTypeDesc) {
+            $res['fee_type_desc'] = $this->feeTypeDesc;
         }
         if (null !== $this->index) {
             $res['index'] = $this->index;
@@ -762,6 +798,9 @@ class dataList extends Model
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
         }
+        if (null !== $this->settleTypeDesc) {
+            $res['settle_type_desc'] = $this->settleTypeDesc;
+        }
         if (null !== $this->settlementFee) {
             $res['settlement_fee'] = $this->settlementFee;
         }
@@ -783,6 +822,9 @@ class dataList extends Model
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+        if (null !== $this->statusDesc) {
+            $res['status_desc'] = $this->statusDesc;
+        }
         if (null !== $this->subOrderId) {
             $res['sub_order_id'] = $this->subOrderId;
         }
@@ -797,6 +839,9 @@ class dataList extends Model
         }
         if (null !== $this->timeType) {
             $res['time_type'] = $this->timeType;
+        }
+        if (null !== $this->tradeActionDesc) {
+            $res['trade_action_desc'] = $this->tradeActionDesc;
         }
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
@@ -906,6 +951,9 @@ class dataList extends Model
         if (isset($map['cascade_department'])) {
             $model->cascadeDepartment = $map['cascade_department'];
         }
+        if (isset($map['category_desc'])) {
+            $model->categoryDesc = $map['category_desc'];
+        }
         if (isset($map['cost_center'])) {
             $model->costCenter = $map['cost_center'];
         }
@@ -956,6 +1004,9 @@ class dataList extends Model
         }
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
+        }
+        if (isset($map['fee_type_desc'])) {
+            $model->feeTypeDesc = $map['fee_type_desc'];
         }
         if (isset($map['index'])) {
             $model->index = $map['index'];
@@ -1020,6 +1071,9 @@ class dataList extends Model
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];
         }
+        if (isset($map['settle_type_desc'])) {
+            $model->settleTypeDesc = $map['settle_type_desc'];
+        }
         if (isset($map['settlement_fee'])) {
             $model->settlementFee = $map['settlement_fee'];
         }
@@ -1041,6 +1095,9 @@ class dataList extends Model
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+        if (isset($map['status_desc'])) {
+            $model->statusDesc = $map['status_desc'];
+        }
         if (isset($map['sub_order_id'])) {
             $model->subOrderId = $map['sub_order_id'];
         }
@@ -1055,6 +1112,9 @@ class dataList extends Model
         }
         if (isset($map['time_type'])) {
             $model->timeType = $map['time_type'];
+        }
+        if (isset($map['trade_action_desc'])) {
+            $model->tradeActionDesc = $map['trade_action_desc'];
         }
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];

@@ -68,6 +68,11 @@ class items extends Model
     /**
      * @var string
      */
+    public $categoryDesc;
+
+    /**
+     * @var string
+     */
     public $consumeReportAddress;
 
     /**
@@ -124,6 +129,11 @@ class items extends Model
     public $feeType;
 
     /**
+     * @var string
+     */
+    public $feeTypeDesc;
+
+    /**
      * @example 1
      *
      * @var string
@@ -160,6 +170,11 @@ class items extends Model
      * @var string
      */
     public $mealCityCode;
+
+    /**
+     * @var string
+     */
+    public $mealReason;
 
     /**
      * @var string
@@ -243,6 +258,11 @@ class items extends Model
     public $serviceFee;
 
     /**
+     * @var string
+     */
+    public $settleTypeDesc;
+
+    /**
      * @example 110.0
      *
      * @var float
@@ -274,6 +294,11 @@ class items extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $statusDesc;
 
     /**
      * @example XXXX
@@ -309,6 +334,11 @@ class items extends Model
      * @var string
      */
     public $thirdpartApplyId;
+
+    /**
+     * @var string
+     */
+    public $tradeActionDesc;
 
     /**
      * @example 1234
@@ -355,6 +385,7 @@ class items extends Model
         'bookerName'             => 'booker_name',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
+        'categoryDesc'           => 'category_desc',
         'consumeReportAddress'   => 'consume_report_address',
         'consumeReportCity'      => 'consume_report_city',
         'consumeReportCityCode'  => 'consume_report_city_code',
@@ -365,12 +396,14 @@ class items extends Model
         'department'             => 'department',
         'departmentId'           => 'department_id',
         'feeType'                => 'fee_type',
+        'feeTypeDesc'            => 'fee_type_desc',
         'index'                  => 'index',
         'invoiceTitle'           => 'invoice_title',
         'mainApplyId'            => 'main_apply_id',
         'mealAddress'            => 'meal_address',
         'mealCity'               => 'meal_city',
         'mealCityCode'           => 'meal_city_code',
+        'mealReason'             => 'meal_reason',
         'mealRule'               => 'meal_rule',
         'mealScene'              => 'meal_scene',
         'merchantCategory'       => 'merchant_category',
@@ -384,16 +417,19 @@ class items extends Model
         'projectName'            => 'project_name',
         'remark'                 => 'remark',
         'serviceFee'             => 'service_fee',
+        'settleTypeDesc'         => 'settle_type_desc',
         'settlementFee'          => 'settlement_fee',
         'settlementTime'         => 'settlement_time',
         'settlementType'         => 'settlement_type',
         'shareDinner'            => 'share_dinner',
         'status'                 => 'status',
+        'statusDesc'             => 'status_desc',
         'storeAddress'           => 'store_address',
         'taxRate'                => 'tax_rate',
         'thirdInvoiceId'         => 'third_invoice_id',
         'thirdPartBusinessId'    => 'third_part_business_id',
         'thirdpartApplyId'       => 'thirdpart_apply_id',
+        'tradeActionDesc'        => 'trade_action_desc',
         'travelerId'             => 'traveler_id',
         'travelerJobNo'          => 'traveler_job_no',
         'travelerMemberTypeName' => 'traveler_member_type_name',
@@ -436,6 +472,9 @@ class items extends Model
         if (null !== $this->cascadeDepartment) {
             $res['cascade_department'] = $this->cascadeDepartment;
         }
+        if (null !== $this->categoryDesc) {
+            $res['category_desc'] = $this->categoryDesc;
+        }
         if (null !== $this->consumeReportAddress) {
             $res['consume_report_address'] = $this->consumeReportAddress;
         }
@@ -466,6 +505,9 @@ class items extends Model
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
         }
+        if (null !== $this->feeTypeDesc) {
+            $res['fee_type_desc'] = $this->feeTypeDesc;
+        }
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
@@ -483,6 +525,9 @@ class items extends Model
         }
         if (null !== $this->mealCityCode) {
             $res['meal_city_code'] = $this->mealCityCode;
+        }
+        if (null !== $this->mealReason) {
+            $res['meal_reason'] = $this->mealReason;
         }
         if (null !== $this->mealRule) {
             $res['meal_rule'] = $this->mealRule;
@@ -523,6 +568,9 @@ class items extends Model
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
         }
+        if (null !== $this->settleTypeDesc) {
+            $res['settle_type_desc'] = $this->settleTypeDesc;
+        }
         if (null !== $this->settlementFee) {
             $res['settlement_fee'] = $this->settlementFee;
         }
@@ -538,6 +586,9 @@ class items extends Model
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+        if (null !== $this->statusDesc) {
+            $res['status_desc'] = $this->statusDesc;
+        }
         if (null !== $this->storeAddress) {
             $res['store_address'] = $this->storeAddress;
         }
@@ -552,6 +603,9 @@ class items extends Model
         }
         if (null !== $this->thirdpartApplyId) {
             $res['thirdpart_apply_id'] = $this->thirdpartApplyId;
+        }
+        if (null !== $this->tradeActionDesc) {
+            $res['trade_action_desc'] = $this->tradeActionDesc;
         }
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
@@ -610,6 +664,9 @@ class items extends Model
         if (isset($map['cascade_department'])) {
             $model->cascadeDepartment = $map['cascade_department'];
         }
+        if (isset($map['category_desc'])) {
+            $model->categoryDesc = $map['category_desc'];
+        }
         if (isset($map['consume_report_address'])) {
             $model->consumeReportAddress = $map['consume_report_address'];
         }
@@ -640,6 +697,9 @@ class items extends Model
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
         }
+        if (isset($map['fee_type_desc'])) {
+            $model->feeTypeDesc = $map['fee_type_desc'];
+        }
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
@@ -657,6 +717,9 @@ class items extends Model
         }
         if (isset($map['meal_city_code'])) {
             $model->mealCityCode = $map['meal_city_code'];
+        }
+        if (isset($map['meal_reason'])) {
+            $model->mealReason = $map['meal_reason'];
         }
         if (isset($map['meal_rule'])) {
             $model->mealRule = $map['meal_rule'];
@@ -697,6 +760,9 @@ class items extends Model
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];
         }
+        if (isset($map['settle_type_desc'])) {
+            $model->settleTypeDesc = $map['settle_type_desc'];
+        }
         if (isset($map['settlement_fee'])) {
             $model->settlementFee = $map['settlement_fee'];
         }
@@ -712,6 +778,9 @@ class items extends Model
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+        if (isset($map['status_desc'])) {
+            $model->statusDesc = $map['status_desc'];
+        }
         if (isset($map['store_address'])) {
             $model->storeAddress = $map['store_address'];
         }
@@ -726,6 +795,9 @@ class items extends Model
         }
         if (isset($map['thirdpart_apply_id'])) {
             $model->thirdpartApplyId = $map['thirdpart_apply_id'];
+        }
+        if (isset($map['trade_action_desc'])) {
+            $model->tradeActionDesc = $map['trade_action_desc'];
         }
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];

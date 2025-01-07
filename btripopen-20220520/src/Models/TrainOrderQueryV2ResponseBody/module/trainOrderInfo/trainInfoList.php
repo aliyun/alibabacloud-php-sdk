@@ -53,6 +53,26 @@ class trainInfoList extends Model
     /**
      * @var string
      */
+    public $subFromCityAdCode;
+
+    /**
+     * @var string
+     */
+    public $subFromCityAdName;
+
+    /**
+     * @var string
+     */
+    public $subToCityCode;
+
+    /**
+     * @var string
+     */
+    public $subToCityName;
+
+    /**
+     * @var string
+     */
     public $toCityAdCode;
 
     /**
@@ -77,18 +97,22 @@ class trainInfoList extends Model
      */
     public $trainTicketInfos;
     protected $_name = [
-        'arrTime'          => 'arr_time',
-        'depTime'          => 'dep_time',
-        'fromCityAdCode'   => 'from_city_ad_code',
-        'fromCityName'     => 'from_city_name',
-        'fromStationName'  => 'from_station_name',
-        'itemId'           => 'item_id',
-        'runTime'          => 'run_time',
-        'toCityAdCode'     => 'to_city_ad_code',
-        'toCityName'       => 'to_city_name',
-        'toStationName'    => 'to_station_name',
-        'trainNo'          => 'train_no',
-        'trainTicketInfos' => 'train_ticket_infos',
+        'arrTime'           => 'arr_time',
+        'depTime'           => 'dep_time',
+        'fromCityAdCode'    => 'from_city_ad_code',
+        'fromCityName'      => 'from_city_name',
+        'fromStationName'   => 'from_station_name',
+        'itemId'            => 'item_id',
+        'runTime'           => 'run_time',
+        'subFromCityAdCode' => 'sub_from_city_ad_code',
+        'subFromCityAdName' => 'sub_from_city_ad_name',
+        'subToCityCode'     => 'sub_to_city_code',
+        'subToCityName'     => 'sub_to_city_name',
+        'toCityAdCode'      => 'to_city_ad_code',
+        'toCityName'        => 'to_city_name',
+        'toStationName'     => 'to_station_name',
+        'trainNo'           => 'train_no',
+        'trainTicketInfos'  => 'train_ticket_infos',
     ];
 
     public function validate()
@@ -118,6 +142,18 @@ class trainInfoList extends Model
         }
         if (null !== $this->runTime) {
             $res['run_time'] = $this->runTime;
+        }
+        if (null !== $this->subFromCityAdCode) {
+            $res['sub_from_city_ad_code'] = $this->subFromCityAdCode;
+        }
+        if (null !== $this->subFromCityAdName) {
+            $res['sub_from_city_ad_name'] = $this->subFromCityAdName;
+        }
+        if (null !== $this->subToCityCode) {
+            $res['sub_to_city_code'] = $this->subToCityCode;
+        }
+        if (null !== $this->subToCityName) {
+            $res['sub_to_city_name'] = $this->subToCityName;
         }
         if (null !== $this->toCityAdCode) {
             $res['to_city_ad_code'] = $this->toCityAdCode;
@@ -172,6 +208,18 @@ class trainInfoList extends Model
         }
         if (isset($map['run_time'])) {
             $model->runTime = $map['run_time'];
+        }
+        if (isset($map['sub_from_city_ad_code'])) {
+            $model->subFromCityAdCode = $map['sub_from_city_ad_code'];
+        }
+        if (isset($map['sub_from_city_ad_name'])) {
+            $model->subFromCityAdName = $map['sub_from_city_ad_name'];
+        }
+        if (isset($map['sub_to_city_code'])) {
+            $model->subToCityCode = $map['sub_to_city_code'];
+        }
+        if (isset($map['sub_to_city_name'])) {
+            $model->subToCityName = $map['sub_to_city_name'];
         }
         if (isset($map['to_city_ad_code'])) {
             $model->toCityAdCode = $map['to_city_ad_code'];

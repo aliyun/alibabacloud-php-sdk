@@ -43,6 +43,11 @@ class module extends Model
     public $periodStart;
 
     /**
+     * @var string
+     */
+    public $scrollId;
+
+    /**
      * @example 30
      *
      * @var int
@@ -54,6 +59,7 @@ class module extends Model
         'items'       => 'items',
         'periodEnd'   => 'period_end',
         'periodStart' => 'period_start',
+        'scrollId'    => 'scroll_id',
         'totalSize'   => 'total_size',
     ];
 
@@ -84,6 +90,9 @@ class module extends Model
         }
         if (null !== $this->periodStart) {
             $res['period_start'] = $this->periodStart;
+        }
+        if (null !== $this->scrollId) {
+            $res['scroll_id'] = $this->scrollId;
         }
         if (null !== $this->totalSize) {
             $res['total_size'] = $this->totalSize;
@@ -120,6 +129,9 @@ class module extends Model
         }
         if (isset($map['period_start'])) {
             $model->periodStart = $map['period_start'];
+        }
+        if (isset($map['scroll_id'])) {
+            $model->scrollId = $map['scroll_id'];
         }
         if (isset($map['total_size'])) {
             $model->totalSize = $map['total_size'];

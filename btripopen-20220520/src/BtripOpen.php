@@ -298,6 +298,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalV2ShrinkReques
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FuPointBillSettlementQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FuPointBillSettlementQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FuPointBillSettlementQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupCorpTokenHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupCorpTokenRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupCorpTokenResponse;
@@ -502,6 +505,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillConfirmResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\MonthBillGetResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\OrderRefundDetailQueryHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\OrderRefundDetailQueryRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\OrderRefundDetailQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectAddHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectAddRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectAddResponse;
@@ -511,6 +517,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectDeleteResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\ProjectModifyResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCorpDetailInfoHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCorpDetailInfoRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryCorpDetailInfoResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryEmployeeDetailHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryEmployeeDetailRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\QueryEmployeeDetailResponse;
@@ -2520,6 +2529,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['page_no'] = $request->pageNo;
         }
@@ -2531,6 +2543,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -3054,6 +3072,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->cooperatorId)) {
             $query['cooperator_id'] = $request->cooperatorId;
         }
@@ -3068,6 +3089,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -3123,6 +3150,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->cooperatorId)) {
             $query['cooperator_id'] = $request->cooperatorId;
         }
@@ -3137,6 +3167,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -4878,6 +4914,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['page_no'] = $request->pageNo;
         }
@@ -4889,6 +4928,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -7390,6 +7435,84 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @summary 查询福豆记账数据
+     *  *
+     * @param FuPointBillSettlementQueryRequest $request FuPointBillSettlementQueryRequest
+     * @param FuPointBillSettlementQueryHeaders $headers FuPointBillSettlementQueryHeaders
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return FuPointBillSettlementQueryResponse FuPointBillSettlementQueryResponse
+     */
+    public function fuPointBillSettlementQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
+        if (!Utils::isUnset($request->cooperatorId)) {
+            $query['cooperator_id'] = $request->cooperatorId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['page_no'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->periodEnd)) {
+            $query['period_end'] = $request->periodEnd;
+        }
+        if (!Utils::isUnset($request->periodStart)) {
+            $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FuPointBillSettlementQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/fupoint/v1/bill-settlement',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FuPointBillSettlementQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询福豆记账数据
+     *  *
+     * @param FuPointBillSettlementQueryRequest $request FuPointBillSettlementQueryRequest
+     *
+     * @return FuPointBillSettlementQueryResponse FuPointBillSettlementQueryResponse
+     */
+    public function fuPointBillSettlementQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FuPointBillSettlementQueryHeaders([]);
+
+        return $this->fuPointBillSettlementQueryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 换取GroupCorpToken接口
      *  *
      * @param GroupCorpTokenRequest $request GroupCorpTokenRequest
@@ -7732,6 +7855,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['page_no'] = $request->pageNo;
         }
@@ -7743,6 +7869,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -9386,6 +9518,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['page_no'] = $request->pageNo;
         }
@@ -9397,6 +9532,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -9452,6 +9593,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->category)) {
             $query['category'] = $request->category;
         }
@@ -9466,6 +9610,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -11601,6 +11751,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['page_no'] = $request->pageNo;
         }
@@ -11612,6 +11765,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -11843,6 +12002,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->billMonth)) {
             $query['bill_month'] = $request->billMonth;
         }
@@ -11885,6 +12047,66 @@ class BtripOpen extends OpenApiClient
         $headers = new MonthBillGetHeaders([]);
 
         return $this->monthBillGetWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询订单退款明细
+     *  *
+     * @param OrderRefundDetailQueryRequest $request OrderRefundDetailQueryRequest
+     * @param OrderRefundDetailQueryHeaders $headers OrderRefundDetailQueryHeaders
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OrderRefundDetailQueryResponse OrderRefundDetailQueryResponse
+     */
+    public function orderRefundDetailQueryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cooperatorOrderId)) {
+            $body['cooperator_order_id'] = $request->cooperatorOrderId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $body['order_id'] = $request->orderId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'OrderRefundDetailQuery',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/coop-hotel/v1/refund/action/detail',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OrderRefundDetailQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询订单退款明细
+     *  *
+     * @param OrderRefundDetailQueryRequest $request OrderRefundDetailQueryRequest
+     *
+     * @return OrderRefundDetailQueryResponse OrderRefundDetailQueryResponse
+     */
+    public function orderRefundDetailQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new OrderRefundDetailQueryHeaders([]);
+
+        return $this->orderRefundDetailQueryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -12080,6 +12302,63 @@ class BtripOpen extends OpenApiClient
         $headers = new ProjectModifyHeaders([]);
 
         return $this->projectModifyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 查询企业信息详情
+     *  *
+     * @param QueryCorpDetailInfoRequest $request QueryCorpDetailInfoRequest
+     * @param QueryCorpDetailInfoHeaders $headers QueryCorpDetailInfoHeaders
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryCorpDetailInfoResponse QueryCorpDetailInfoResponse
+     */
+    public function queryCorpDetailInfoWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->targetCorpId)) {
+            $query['target_corp_id'] = $request->targetCorpId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCorpDetailInfo',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/corps/v1/corps/detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCorpDetailInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询企业信息详情
+     *  *
+     * @param QueryCorpDetailInfoRequest $request QueryCorpDetailInfoRequest
+     *
+     * @return QueryCorpDetailInfoResponse QueryCorpDetailInfoResponse
+     */
+    public function queryCorpDetailInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryCorpDetailInfoHeaders([]);
+
+        return $this->queryCorpDetailInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -13114,6 +13393,9 @@ class BtripOpen extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->billBatch)) {
+            $query['bill_batch'] = $request->billBatch;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['page_no'] = $request->pageNo;
         }
@@ -13125,6 +13407,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->periodStart)) {
             $query['period_start'] = $request->periodStart;
+        }
+        if (!Utils::isUnset($request->scrollId)) {
+            $query['scroll_id'] = $request->scrollId;
+        }
+        if (!Utils::isUnset($request->scrollMod)) {
+            $query['scroll_mod'] = $request->scrollMod;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {

@@ -44,6 +44,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $mealReason;
+
+    /**
+     * @var string
+     */
     public $merchantName;
 
     /**
@@ -143,6 +148,7 @@ class module extends Model
         'corpId'             => 'corp_id',
         'corpPayAmount'      => 'corp_pay_amount',
         'corpRefundAmount'   => 'corp_refund_amount',
+        'mealReason'         => 'meal_reason',
         'merchantName'       => 'merchant_name',
         'orderId'            => 'order_id',
         'orderStatus'        => 'order_status',
@@ -181,6 +187,9 @@ class module extends Model
         }
         if (null !== $this->corpRefundAmount) {
             $res['corp_refund_amount'] = $this->corpRefundAmount;
+        }
+        if (null !== $this->mealReason) {
+            $res['meal_reason'] = $this->mealReason;
         }
         if (null !== $this->merchantName) {
             $res['merchant_name'] = $this->merchantName;
@@ -253,6 +262,9 @@ class module extends Model
         }
         if (isset($map['corp_refund_amount'])) {
             $model->corpRefundAmount = $map['corp_refund_amount'];
+        }
+        if (isset($map['meal_reason'])) {
+            $model->mealReason = $map['meal_reason'];
         }
         if (isset($map['merchant_name'])) {
             $model->merchantName = $map['merchant_name'];

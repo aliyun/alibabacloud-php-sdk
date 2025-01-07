@@ -74,6 +74,36 @@ class trainTransferInfo extends Model
     /**
      * @var string
      */
+    public $subFromCityAdCode;
+
+    /**
+     * @var string
+     */
+    public $subFromCityAdName;
+
+    /**
+     * @var string
+     */
+    public $subMiddleCityCode;
+
+    /**
+     * @var string
+     */
+    public $subMiddleCityName;
+
+    /**
+     * @var string
+     */
+    public $subToCityCode;
+
+    /**
+     * @var string
+     */
+    public $subToCityName;
+
+    /**
+     * @var string
+     */
     public $toCityAdCode;
 
     /**
@@ -93,21 +123,27 @@ class trainTransferInfo extends Model
      */
     public $waitTime;
     protected $_name = [
-        'costTime'         => 'cost_time',
-        'endTime'          => 'end_time',
-        'fromCityAdCode'   => 'from_city_ad_code',
-        'fromCityName'     => 'from_city_name',
-        'fromStationName'  => 'from_station_name',
-        'middleCity'       => 'middle_city',
-        'middleCityAdCode' => 'middle_city_ad_code',
-        'middleDate'       => 'middle_date',
-        'middleStation'    => 'middle_station',
-        'middleType'       => 'middle_type',
-        'startTime'        => 'start_time',
-        'toCityAdCode'     => 'to_city_ad_code',
-        'toCityName'       => 'to_city_name',
-        'toStationName'    => 'to_station_name',
-        'waitTime'         => 'wait_time',
+        'costTime'          => 'cost_time',
+        'endTime'           => 'end_time',
+        'fromCityAdCode'    => 'from_city_ad_code',
+        'fromCityName'      => 'from_city_name',
+        'fromStationName'   => 'from_station_name',
+        'middleCity'        => 'middle_city',
+        'middleCityAdCode'  => 'middle_city_ad_code',
+        'middleDate'        => 'middle_date',
+        'middleStation'     => 'middle_station',
+        'middleType'        => 'middle_type',
+        'startTime'         => 'start_time',
+        'subFromCityAdCode' => 'sub_from_city_ad_code',
+        'subFromCityAdName' => 'sub_from_city_ad_name',
+        'subMiddleCityCode' => 'sub_middle_city_code',
+        'subMiddleCityName' => 'sub_middle_city_name',
+        'subToCityCode'     => 'sub_to_city_code',
+        'subToCityName'     => 'sub_to_city_name',
+        'toCityAdCode'      => 'to_city_ad_code',
+        'toCityName'        => 'to_city_name',
+        'toStationName'     => 'to_station_name',
+        'waitTime'          => 'wait_time',
     ];
 
     public function validate()
@@ -149,6 +185,24 @@ class trainTransferInfo extends Model
         }
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
+        }
+        if (null !== $this->subFromCityAdCode) {
+            $res['sub_from_city_ad_code'] = $this->subFromCityAdCode;
+        }
+        if (null !== $this->subFromCityAdName) {
+            $res['sub_from_city_ad_name'] = $this->subFromCityAdName;
+        }
+        if (null !== $this->subMiddleCityCode) {
+            $res['sub_middle_city_code'] = $this->subMiddleCityCode;
+        }
+        if (null !== $this->subMiddleCityName) {
+            $res['sub_middle_city_name'] = $this->subMiddleCityName;
+        }
+        if (null !== $this->subToCityCode) {
+            $res['sub_to_city_code'] = $this->subToCityCode;
+        }
+        if (null !== $this->subToCityName) {
+            $res['sub_to_city_name'] = $this->subToCityName;
         }
         if (null !== $this->toCityAdCode) {
             $res['to_city_ad_code'] = $this->toCityAdCode;
@@ -206,6 +260,24 @@ class trainTransferInfo extends Model
         }
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];
+        }
+        if (isset($map['sub_from_city_ad_code'])) {
+            $model->subFromCityAdCode = $map['sub_from_city_ad_code'];
+        }
+        if (isset($map['sub_from_city_ad_name'])) {
+            $model->subFromCityAdName = $map['sub_from_city_ad_name'];
+        }
+        if (isset($map['sub_middle_city_code'])) {
+            $model->subMiddleCityCode = $map['sub_middle_city_code'];
+        }
+        if (isset($map['sub_middle_city_name'])) {
+            $model->subMiddleCityName = $map['sub_middle_city_name'];
+        }
+        if (isset($map['sub_to_city_code'])) {
+            $model->subToCityCode = $map['sub_to_city_code'];
+        }
+        if (isset($map['sub_to_city_name'])) {
+            $model->subToCityName = $map['sub_to_city_name'];
         }
         if (isset($map['to_city_ad_code'])) {
             $model->toCityAdCode = $map['to_city_ad_code'];

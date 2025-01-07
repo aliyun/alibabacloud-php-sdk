@@ -6,19 +6,21 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class IeHotelBillSettlementQueryRequest extends Model
+class FuPointBillSettlementQueryRequest extends Model
 {
     /**
+     * @example 20240101
+     *
      * @var string
      */
     public $billBatch;
 
     /**
-     * @example 12
+     * @example cooperator_alibtrip
      *
-     * @var int
+     * @var string
      */
-    public $category;
+    public $cooperatorId;
 
     /**
      * @description This parameter is required.
@@ -30,6 +32,8 @@ class IeHotelBillSettlementQueryRequest extends Model
     public $pageNo;
 
     /**
+     * @description This parameter is required.
+     *
      * @example 100
      *
      * @var int
@@ -51,23 +55,27 @@ class IeHotelBillSettlementQueryRequest extends Model
     public $periodStart;
 
     /**
+     * @example 1qwe
+     *
      * @var string
      */
     public $scrollId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $scrollMod;
     protected $_name = [
-        'billBatch'   => 'bill_batch',
-        'category'    => 'category',
-        'pageNo'      => 'page_no',
-        'pageSize'    => 'page_size',
-        'periodEnd'   => 'period_end',
-        'periodStart' => 'period_start',
-        'scrollId'    => 'scroll_id',
-        'scrollMod'   => 'scroll_mod',
+        'billBatch'    => 'bill_batch',
+        'cooperatorId' => 'cooperator_id',
+        'pageNo'       => 'page_no',
+        'pageSize'     => 'page_size',
+        'periodEnd'    => 'period_end',
+        'periodStart'  => 'period_start',
+        'scrollId'     => 'scroll_id',
+        'scrollMod'    => 'scroll_mod',
     ];
 
     public function validate()
@@ -80,8 +88,8 @@ class IeHotelBillSettlementQueryRequest extends Model
         if (null !== $this->billBatch) {
             $res['bill_batch'] = $this->billBatch;
         }
-        if (null !== $this->category) {
-            $res['category'] = $this->category;
+        if (null !== $this->cooperatorId) {
+            $res['cooperator_id'] = $this->cooperatorId;
         }
         if (null !== $this->pageNo) {
             $res['page_no'] = $this->pageNo;
@@ -108,7 +116,7 @@ class IeHotelBillSettlementQueryRequest extends Model
     /**
      * @param array $map
      *
-     * @return IeHotelBillSettlementQueryRequest
+     * @return FuPointBillSettlementQueryRequest
      */
     public static function fromMap($map = [])
     {
@@ -116,8 +124,8 @@ class IeHotelBillSettlementQueryRequest extends Model
         if (isset($map['bill_batch'])) {
             $model->billBatch = $map['bill_batch'];
         }
-        if (isset($map['category'])) {
-            $model->category = $map['category'];
+        if (isset($map['cooperator_id'])) {
+            $model->cooperatorId = $map['cooperator_id'];
         }
         if (isset($map['page_no'])) {
             $model->pageNo = $map['page_no'];

@@ -197,6 +197,11 @@ class items extends Model
     public $cascadeDepartment;
 
     /**
+     * @var string
+     */
+    public $categoryDesc;
+
+    /**
      * @example 100.0
      *
      * @var float
@@ -326,6 +331,11 @@ class items extends Model
      * @var string
      */
     public $feeType;
+
+    /**
+     * @var string
+     */
+    public $feeTypeDesc;
 
     /**
      * @example CZ3590
@@ -553,6 +563,11 @@ class items extends Model
     public $serviceFee;
 
     /**
+     * @var string
+     */
+    public $settleTypeDesc;
+
+    /**
      * @example 200.0
      *
      * @var float
@@ -584,6 +599,11 @@ class items extends Model
      * @var int
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $statusDesc;
 
     /**
      * @example 169551103
@@ -626,6 +646,11 @@ class items extends Model
      * @var string
      */
     public $trade;
+
+    /**
+     * @var string
+     */
+    public $tradeActionDesc;
 
     /**
      * @example A1234
@@ -710,6 +735,7 @@ class items extends Model
         'cabinClass'             => 'cabin_class',
         'capitalDirection'       => 'capital_direction',
         'cascadeDepartment'      => 'cascade_department',
+        'categoryDesc'           => 'category_desc',
         'changeFee'              => 'change_fee',
         'changeResult'           => 'change_result',
         'cooperatorBillCode'     => 'cooperator_bill_code',
@@ -731,6 +757,7 @@ class items extends Model
         'discount'               => 'discount',
         'exceedReason'           => 'exceed_reason',
         'feeType'                => 'fee_type',
+        'feeTypeDesc'            => 'fee_type_desc',
         'flightNo'               => 'flight_no',
         'index'                  => 'index',
         'insOrderId'             => 'ins_order_id',
@@ -766,17 +793,20 @@ class items extends Model
         'repeatRefund'           => 'repeat_refund',
         'sealPrice'              => 'seal_price',
         'serviceFee'             => 'service_fee',
+        'settleTypeDesc'         => 'settle_type_desc',
         'settlementFee'          => 'settlement_fee',
         'settlementGrantFee'     => 'settlement_grant_fee',
         'settlementTime'         => 'settlement_time',
         'settlementType'         => 'settlement_type',
         'status'                 => 'status',
+        'statusDesc'             => 'status_desc',
         'subOrderId'             => 'sub_order_id',
         'taxRate'                => 'tax_rate',
         'thirdInvoiceId'         => 'third_invoice_id',
         'thirdItineraryId'       => 'third_itinerary_id',
         'ticketId'               => 'ticket_id',
         'trade'                  => 'trade',
+        'tradeActionDesc'        => 'trade_action_desc',
         'travelerId'             => 'traveler_id',
         'travelerJobNo'          => 'traveler_job_no',
         'travelerMemberType'     => 'traveler_member_type',
@@ -885,6 +915,9 @@ class items extends Model
         if (null !== $this->cascadeDepartment) {
             $res['cascade_department'] = $this->cascadeDepartment;
         }
+        if (null !== $this->categoryDesc) {
+            $res['category_desc'] = $this->categoryDesc;
+        }
         if (null !== $this->changeFee) {
             $res['change_fee'] = $this->changeFee;
         }
@@ -947,6 +980,9 @@ class items extends Model
         }
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
+        }
+        if (null !== $this->feeTypeDesc) {
+            $res['fee_type_desc'] = $this->feeTypeDesc;
         }
         if (null !== $this->flightNo) {
             $res['flight_no'] = $this->flightNo;
@@ -1053,6 +1089,9 @@ class items extends Model
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
         }
+        if (null !== $this->settleTypeDesc) {
+            $res['settle_type_desc'] = $this->settleTypeDesc;
+        }
         if (null !== $this->settlementFee) {
             $res['settlement_fee'] = $this->settlementFee;
         }
@@ -1067,6 +1106,9 @@ class items extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->statusDesc) {
+            $res['status_desc'] = $this->statusDesc;
         }
         if (null !== $this->subOrderId) {
             $res['sub_order_id'] = $this->subOrderId;
@@ -1085,6 +1127,9 @@ class items extends Model
         }
         if (null !== $this->trade) {
             $res['trade'] = $this->trade;
+        }
+        if (null !== $this->tradeActionDesc) {
+            $res['trade_action_desc'] = $this->tradeActionDesc;
         }
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
@@ -1215,6 +1260,9 @@ class items extends Model
         if (isset($map['cascade_department'])) {
             $model->cascadeDepartment = $map['cascade_department'];
         }
+        if (isset($map['category_desc'])) {
+            $model->categoryDesc = $map['category_desc'];
+        }
         if (isset($map['change_fee'])) {
             $model->changeFee = $map['change_fee'];
         }
@@ -1277,6 +1325,9 @@ class items extends Model
         }
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
+        }
+        if (isset($map['fee_type_desc'])) {
+            $model->feeTypeDesc = $map['fee_type_desc'];
         }
         if (isset($map['flight_no'])) {
             $model->flightNo = $map['flight_no'];
@@ -1383,6 +1434,9 @@ class items extends Model
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];
         }
+        if (isset($map['settle_type_desc'])) {
+            $model->settleTypeDesc = $map['settle_type_desc'];
+        }
         if (isset($map['settlement_fee'])) {
             $model->settlementFee = $map['settlement_fee'];
         }
@@ -1397,6 +1451,9 @@ class items extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['status_desc'])) {
+            $model->statusDesc = $map['status_desc'];
         }
         if (isset($map['sub_order_id'])) {
             $model->subOrderId = $map['sub_order_id'];
@@ -1415,6 +1472,9 @@ class items extends Model
         }
         if (isset($map['trade'])) {
             $model->trade = $map['trade'];
+        }
+        if (isset($map['trade_action_desc'])) {
+            $model->tradeActionDesc = $map['trade_action_desc'];
         }
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];

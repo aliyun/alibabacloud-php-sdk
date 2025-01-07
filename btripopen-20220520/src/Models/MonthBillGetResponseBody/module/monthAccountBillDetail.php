@@ -82,6 +82,11 @@ class monthAccountBillDetail extends Model
     public $mailBillDate;
 
     /**
+     * @var float
+     */
+    public $mealAmount;
+
+    /**
      * @description 服务费金额（单位：元）
      *
      * @example xx.xx
@@ -98,6 +103,11 @@ class monthAccountBillDetail extends Model
      * @var float
      */
     public $trainAmount;
+
+    /**
+     * @var float
+     */
+    public $vasAmount;
     protected $_name = [
         'billConfirmed'  => 'billConfirmed',
         'carAmount'      => 'carAmount',
@@ -108,8 +118,10 @@ class monthAccountBillDetail extends Model
         'ieFlightAmount' => 'ieFlightAmount',
         'ieHotelAmount'  => 'ieHotelAmount',
         'mailBillDate'   => 'mailBillDate',
+        'mealAmount'     => 'mealAmount',
         'serviceAmount'  => 'serviceAmount',
         'trainAmount'    => 'trainAmount',
+        'vasAmount'      => 'vasAmount',
     ];
 
     public function validate()
@@ -146,11 +158,17 @@ class monthAccountBillDetail extends Model
         if (null !== $this->mailBillDate) {
             $res['mailBillDate'] = $this->mailBillDate;
         }
+        if (null !== $this->mealAmount) {
+            $res['mealAmount'] = $this->mealAmount;
+        }
         if (null !== $this->serviceAmount) {
             $res['serviceAmount'] = $this->serviceAmount;
         }
         if (null !== $this->trainAmount) {
             $res['trainAmount'] = $this->trainAmount;
+        }
+        if (null !== $this->vasAmount) {
+            $res['vasAmount'] = $this->vasAmount;
         }
 
         return $res;
@@ -191,11 +209,17 @@ class monthAccountBillDetail extends Model
         if (isset($map['mailBillDate'])) {
             $model->mailBillDate = $map['mailBillDate'];
         }
+        if (isset($map['mealAmount'])) {
+            $model->mealAmount = $map['mealAmount'];
+        }
         if (isset($map['serviceAmount'])) {
             $model->serviceAmount = $map['serviceAmount'];
         }
         if (isset($map['trainAmount'])) {
             $model->trainAmount = $map['trainAmount'];
+        }
+        if (isset($map['vasAmount'])) {
+            $model->vasAmount = $map['vasAmount'];
         }
 
         return $model;

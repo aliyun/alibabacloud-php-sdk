@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class MealBillSettlementQueryRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $billBatch;
+
+    /**
      * @description This parameter is required.
      *
      * @example 1
@@ -27,8 +32,6 @@ class MealBillSettlementQueryRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
      * @example 2022-07-02
      *
      * @var string
@@ -36,18 +39,29 @@ class MealBillSettlementQueryRequest extends Model
     public $periodEnd;
 
     /**
-     * @description This parameter is required.
-     *
      * @example 2022-07-01
      *
      * @var string
      */
     public $periodStart;
+
+    /**
+     * @var string
+     */
+    public $scrollId;
+
+    /**
+     * @var bool
+     */
+    public $scrollMod;
     protected $_name = [
+        'billBatch'   => 'bill_batch',
         'pageNo'      => 'page_no',
         'pageSize'    => 'page_size',
         'periodEnd'   => 'period_end',
         'periodStart' => 'period_start',
+        'scrollId'    => 'scroll_id',
+        'scrollMod'   => 'scroll_mod',
     ];
 
     public function validate()
@@ -57,6 +71,9 @@ class MealBillSettlementQueryRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->billBatch) {
+            $res['bill_batch'] = $this->billBatch;
+        }
         if (null !== $this->pageNo) {
             $res['page_no'] = $this->pageNo;
         }
@@ -68,6 +85,12 @@ class MealBillSettlementQueryRequest extends Model
         }
         if (null !== $this->periodStart) {
             $res['period_start'] = $this->periodStart;
+        }
+        if (null !== $this->scrollId) {
+            $res['scroll_id'] = $this->scrollId;
+        }
+        if (null !== $this->scrollMod) {
+            $res['scroll_mod'] = $this->scrollMod;
         }
 
         return $res;
@@ -81,6 +104,9 @@ class MealBillSettlementQueryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['bill_batch'])) {
+            $model->billBatch = $map['bill_batch'];
+        }
         if (isset($map['page_no'])) {
             $model->pageNo = $map['page_no'];
         }
@@ -92,6 +118,12 @@ class MealBillSettlementQueryRequest extends Model
         }
         if (isset($map['period_start'])) {
             $model->periodStart = $map['period_start'];
+        }
+        if (isset($map['scroll_id'])) {
+            $model->scrollId = $map['scroll_id'];
+        }
+        if (isset($map['scroll_mod'])) {
+            $model->scrollMod = $map['scroll_mod'];
         }
 
         return $model;
