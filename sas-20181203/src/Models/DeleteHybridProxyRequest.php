@@ -9,15 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridProxyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the proxy cluster.
+     *
+     * This parameter is required.
+     * @example test
      *
      * @var string
      */
     public $clusterName;
 
     /**
-     * @description This parameter is required.
+     * @description The UUID of the proxy node that you want to remove. The value starts with inet-proxy.
      *
+     * This parameter is required.
      * @example inet-proxy-d2d94e8b-bb25-4744-8004-1e08a53c****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class proxyList extends Model
 {
     /**
+     * @description The number of servers that are connected to the proxy instance.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class proxyList extends Model
     public $clientCount;
 
     /**
+     * @description The version of the proxy instance.
+     *
      * @example proxy_01_05
      *
      * @var string
@@ -23,6 +27,8 @@ class proxyList extends Model
     public $currentVersion;
 
     /**
+     * @description The instance ID.
+     *
      * @example i-uf61q03boqhhmeai1XXX
      *
      * @var string
@@ -30,6 +36,8 @@ class proxyList extends Model
     public $instanceId;
 
     /**
+     * @description The instance name.
+     *
      * @example dev
      *
      * @var string
@@ -37,6 +45,8 @@ class proxyList extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 47.76.XXX.XXX
      *
      * @var string
@@ -44,6 +54,8 @@ class proxyList extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 172.23.XXX.XXX
      *
      * @var string
@@ -51,6 +63,8 @@ class proxyList extends Model
     public $intranetIp;
 
     /**
+     * @description The UUID of the proxy node.
+     *
      * @example inet-proxy-3bb11fad-37d6-4aee-9c37-b0ad1612a18e
      *
      * @var string
@@ -58,6 +72,11 @@ class proxyList extends Model
     public $proxyUuid;
 
     /**
+     * @description The status of the proxy server. Valid values:
+     *
+     *   **online**
+     *   **offline**
+     *
      * @example online
      *
      * @var string
@@ -65,7 +84,9 @@ class proxyList extends Model
     public $status;
 
     /**
-     * @example 59a9d158-b2f0-4766-a893-ae67b9432721
+     * @description The UUID of the server that is connected to the proxy instance.
+     *
+     * @example 59a9d158-b2f0-4766-a893-ae67b943XXXX
      *
      * @var string
      */

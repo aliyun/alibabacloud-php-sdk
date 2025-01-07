@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataSourceResponseBody extends Model
 {
     /**
+     * @description The metadata of the data sources.
+     *
      * @var metaDatas[]
      */
     public $metaDatas;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 7532B7EE-7CE7-5F4D-BF04-B12447DDXXXX
      *
      * @var string

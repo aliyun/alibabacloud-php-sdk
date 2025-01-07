@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetImageSensitiveFileStatusRequest extends Model
 {
     /**
+     * @var int[]
+     */
+    public $idList;
+
+    /**
      * @description The UUID of the image. Separate multiple UUIDs with commas (,).
      *
      * @example f382fccd88b94c5c8c864def6815b854,ac32fccd88b94c5c8c864def6815bo9z
@@ -16,6 +21,11 @@ class SetImageSensitiveFileStatusRequest extends Model
      * @var string
      */
     public $imageUuids;
+
+    /**
+     * @var string[]
+     */
+    public $scanRange;
 
     /**
      * @description The alert type of the sensitive file. Valid values:
@@ -152,7 +162,9 @@ class SetImageSensitiveFileStatusRequest extends Model
      */
     public $status;
     protected $_name = [
+        'idList'           => 'IdList',
         'imageUuids'       => 'ImageUuids',
+        'scanRange'        => 'ScanRange',
         'sensitiveFileKey' => 'SensitiveFileKey',
         'status'           => 'Status',
     ];
@@ -164,8 +176,14 @@ class SetImageSensitiveFileStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->idList) {
+            $res['IdList'] = $this->idList;
+        }
         if (null !== $this->imageUuids) {
             $res['ImageUuids'] = $this->imageUuids;
+        }
+        if (null !== $this->scanRange) {
+            $res['ScanRange'] = $this->scanRange;
         }
         if (null !== $this->sensitiveFileKey) {
             $res['SensitiveFileKey'] = $this->sensitiveFileKey;
@@ -185,8 +203,18 @@ class SetImageSensitiveFileStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IdList'])) {
+            if (!empty($map['IdList'])) {
+                $model->idList = $map['IdList'];
+            }
+        }
         if (isset($map['ImageUuids'])) {
             $model->imageUuids = $map['ImageUuids'];
+        }
+        if (isset($map['ScanRange'])) {
+            if (!empty($map['ScanRange'])) {
+                $model->scanRange = $map['ScanRange'];
+            }
         }
         if (isset($map['SensitiveFileKey'])) {
             $model->sensitiveFileKey = $map['SensitiveFileKey'];

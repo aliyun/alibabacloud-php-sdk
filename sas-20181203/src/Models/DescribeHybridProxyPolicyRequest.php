@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridProxyPolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the proxy cluster. You can query the name of the proxy cluster in the Security Center console.
      *
+     * This parameter is required.
      * @example test-idc
      *
      * @var string

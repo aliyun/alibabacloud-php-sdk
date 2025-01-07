@@ -194,7 +194,7 @@ class snapshots extends Model
      *
      *   **ECS_FILE**: ECS files
      *   **OSS**: Object Storage Service (OSS) buckets
-     *   **NAS**: Apsara File Storage NAS file systems
+     *   **NAS**: File Storage NAS file systems
      *   **OTS_TABLE**: Tablestore instances
      *
      * @example ECS_FILE

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether automatic upgrade is enabled. Valid values:
+     *
+     *   **1**: yes.
+     *   **0**: no.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,11 @@ class data extends Model
     public $autoUpgrade;
 
     /**
+     * @description Indicates whether you can enable custom upgrade for the Security Center agent. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +33,8 @@ class data extends Model
     public $bigCustomer;
 
     /**
+     * @description The version of the Security Center agent.
+     *
      * @example 0.0.8
      *
      * @var string
@@ -30,6 +42,8 @@ class data extends Model
     public $curVersion;
 
     /**
+     * @description The timestamp when the Security Center agent was forcibly upgraded.
+     *
      * @example 1732506308000
      *
      * @var int
@@ -37,6 +51,11 @@ class data extends Model
     public $forceUpgradeTime;
 
     /**
+     * @description Indicates whether the canary release policy is enabled. Valid values:
+     *
+     *   **1**: yes.
+     *   .**0**: no.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +63,8 @@ class data extends Model
     public $graySwitchStatus;
 
     /**
+     * @description The latest version of the Security Center agent.
+     *
      * @example 0.0.9
      *
      * @var string
@@ -51,6 +72,8 @@ class data extends Model
     public $latestVersion;
 
     /**
+     * @description The timestamp when the latest version of the Security Center agent was created.
+     *
      * @example 1662639150000
      *
      * @var int
@@ -58,6 +81,8 @@ class data extends Model
     public $latestVersionCreate;
 
     /**
+     * @description The description of about the latest version.
+     *
      * @example test
      *
      * @var string
@@ -65,6 +90,14 @@ class data extends Model
     public $latestVersionDesc;
 
     /**
+     * @description The publish status of the Security Center agent. Valid values:
+     *
+     *   **0**: not started.
+     *   **1**: publishing.
+     *   **2**: published.
+     *   **3**: publish suspended.
+     *   **4**: forcibly upgrading.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +105,8 @@ class data extends Model
     public $publishStatus;
 
     /**
+     * @description The destination version of the Security Center agent.
+     *
      * @example 0.0.9
      *
      * @var string

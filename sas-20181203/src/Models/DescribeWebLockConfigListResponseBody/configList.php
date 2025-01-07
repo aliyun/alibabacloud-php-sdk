@@ -60,7 +60,7 @@ class configList extends Model
     public $exclusiveFileType;
 
     /**
-     * @description The ID of the directory that has web tamper proofing enabled.
+     * @description The configuration ID of the protected directory.
      *
      * @example 11
      *

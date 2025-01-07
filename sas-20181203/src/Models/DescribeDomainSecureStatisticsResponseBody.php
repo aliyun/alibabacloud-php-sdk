@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSecureStatisticsResponseBody extends Model
 {
     /**
+     * @description The number of domain names that trigger security alerts.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeDomainSecureStatisticsResponseBody extends Model
     public $alarmCount;
 
     /**
+     * @description The number of the websites for which no certificates are installed.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeDomainSecureStatisticsResponseBody extends Model
     public $noSslCount;
 
     /**
+     * @description The request ID.
+     *
      * @example 1EE7B150-D67E-53FD-A52D-3E8E669A****
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDomainSecureStatisticsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of the domain names that have security risks.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeDomainSecureStatisticsResponseBody extends Model
     public $riskCount;
 
     /**
+     * @description The total number of domain names.
+     *
      * @example 72
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeDomainSecureStatisticsResponseBody extends Model
     public $totalDomainCount;
 
     /**
+     * @description The number of the domain names that have vulnerabilities.
+     *
      * @example 2
      *
      * @var int

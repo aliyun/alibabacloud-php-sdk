@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The configuration ID for scanning image build command risks.
+     *
      * @example 1
      *
      * @var int

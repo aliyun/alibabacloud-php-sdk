@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublishGraySwitchRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the canary release feature. Valid values:
      *
+     *   **1**: enabled.
+     *   **0**: disabled.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int

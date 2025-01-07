@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSecureVulListResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7532B7EE-7CE7-5F4D-BF04-B12447DD****
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDomainSecureVulListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of vulnerabilities returned.
+     *
      * @example 100
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeDomainSecureVulListResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The domain name-related vulnerabilities.
+     *
      * @var vulList[]
      */
     public $vulList;

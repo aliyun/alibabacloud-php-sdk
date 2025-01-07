@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataSourceRequest extends Model
 {
     /**
+     * @description The method that is used to send alert notifications. Set the value to DingTalk.
+     *
      * @example DingTalk
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeDataSourceRequest extends Model
     public $configType;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDataSourceRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address.
+     *
      * @example 39.155.*.*
      *
      * @var string

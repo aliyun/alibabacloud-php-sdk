@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCanTrySasResponseBody extends Model
 {
     /**
+     * @description Indicates whether you have the permissions on the trial use of Security Center. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class DescribeCanTrySasResponseBody extends Model
     public $canTry;
 
     /**
+     * @description The request ID.
+     *
      * @example E90DE229-9FC6-58F6-BF4B-03AD6179****
      *
      * @var string

@@ -37,14 +37,13 @@ class assetDetail extends Model
     public $authModifyTime;
 
     /**
-     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
+     * @description The edition of Security Center that is authorized to protect the server. Valid values:
      *
-     *   **1**: Basic edition
+     *   **1**: Basic edition (Unauthorized)
      *   **6**: Anti-virus edition
      *   **5**: Advanced edition
      *   **3**: Enterprise edition
      *   **7**: Ultimate edition
-     *   **10**: Value-added Plan edition
      *
      * @example 7
      *
@@ -76,6 +75,11 @@ class assetDetail extends Model
      * @var string
      */
     public $clientStatus;
+
+    /**
+     * @var string
+     */
+    public $clientSubStatus;
 
     /**
      * @description The version of the Security Center agent.
@@ -326,39 +330,40 @@ class assetDetail extends Model
      */
     public $vpcInstanceId;
     protected $_name = [
-        'assetType'      => 'AssetType',
-        'authModifyTime' => 'AuthModifyTime',
-        'authVersion'    => 'AuthVersion',
-        'bind'           => 'Bind',
-        'clientStatus'   => 'ClientStatus',
-        'clientVersion'  => 'ClientVersion',
-        'cpu'            => 'Cpu',
-        'cpuInfo'        => 'CpuInfo',
-        'createTime'     => 'CreateTime',
-        'diskInfoList'   => 'DiskInfoList',
-        'flag'           => 'Flag',
-        'groupTrace'     => 'GroupTrace',
-        'hostName'       => 'HostName',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
-        'ip'             => 'Ip',
-        'ipList'         => 'IpList',
-        'kernel'         => 'Kernel',
-        'macList'        => 'MacList',
-        'mem'            => 'Mem',
-        'memory'         => 'Memory',
-        'os'             => 'Os',
-        'osDetail'       => 'OsDetail',
-        'osName'         => 'OsName',
-        'region'         => 'Region',
-        'regionId'       => 'RegionId',
-        'regionName'     => 'RegionName',
-        'sysInfo'        => 'SysInfo',
-        'tag'            => 'Tag',
-        'uuid'           => 'Uuid',
-        'vpcInstanceId'  => 'VpcInstanceId',
+        'assetType'       => 'AssetType',
+        'authModifyTime'  => 'AuthModifyTime',
+        'authVersion'     => 'AuthVersion',
+        'bind'            => 'Bind',
+        'clientStatus'    => 'ClientStatus',
+        'clientSubStatus' => 'ClientSubStatus',
+        'clientVersion'   => 'ClientVersion',
+        'cpu'             => 'Cpu',
+        'cpuInfo'         => 'CpuInfo',
+        'createTime'      => 'CreateTime',
+        'diskInfoList'    => 'DiskInfoList',
+        'flag'            => 'Flag',
+        'groupTrace'      => 'GroupTrace',
+        'hostName'        => 'HostName',
+        'instanceId'      => 'InstanceId',
+        'instanceName'    => 'InstanceName',
+        'internetIp'      => 'InternetIp',
+        'intranetIp'      => 'IntranetIp',
+        'ip'              => 'Ip',
+        'ipList'          => 'IpList',
+        'kernel'          => 'Kernel',
+        'macList'         => 'MacList',
+        'mem'             => 'Mem',
+        'memory'          => 'Memory',
+        'os'              => 'Os',
+        'osDetail'        => 'OsDetail',
+        'osName'          => 'OsName',
+        'region'          => 'Region',
+        'regionId'        => 'RegionId',
+        'regionName'      => 'RegionName',
+        'sysInfo'         => 'SysInfo',
+        'tag'             => 'Tag',
+        'uuid'            => 'Uuid',
+        'vpcInstanceId'   => 'VpcInstanceId',
     ];
 
     public function validate()
@@ -382,6 +387,9 @@ class assetDetail extends Model
         }
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
+        }
+        if (null !== $this->clientSubStatus) {
+            $res['ClientSubStatus'] = $this->clientSubStatus;
         }
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
@@ -499,6 +507,9 @@ class assetDetail extends Model
         }
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
+        }
+        if (isset($map['ClientSubStatus'])) {
+            $model->clientSubStatus = $map['ClientSubStatus'];
         }
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];

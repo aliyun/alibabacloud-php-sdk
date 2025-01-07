@@ -40,7 +40,7 @@ class GetCloudAssetDetailRequest extends Model
      *   **19**: PolarDB.
      *   **20**: ApsaraDB RDS for PostgreSQL.
      *   **21**: Microservices Engine (MSE).
-     *   **22**: Apsara File Storage NAS (NAS).
+     *   **22**: File Storage NAS (NAS).
      *   **23**: Data Security Center (DSC).
      *   **24**: Elastic IP Address (EIP).
      *   **25**: Identity as a Service (IDaaS)-Employee Identity and Access Management (EIAM).

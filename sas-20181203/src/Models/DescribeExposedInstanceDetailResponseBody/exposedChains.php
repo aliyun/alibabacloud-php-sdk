@@ -19,6 +19,8 @@ class exposedChains extends Model
     public $allVulList;
 
     /**
+     * @description The list of configuration risks.
+     *
      * @var cspmRiskList[]
      */
     public $cspmRiskList;
@@ -33,7 +35,7 @@ class exposedChains extends Model
     public $exposureComponent;
 
     /**
-     * @description The public IP address.
+     * @description The IP address of the server or the public endpoint of the database.
      *
      * @example 47.99.XX.XX
      *
@@ -51,12 +53,13 @@ class exposedChains extends Model
     public $exposurePort;
 
     /**
-     * @description The resource from which the server is exposed. Valid values:
+     * @description The resource from which the server or database is exposed. Valid values:
      *
-     *   **INTERNET_IP**: the public IP address of an Elastic Compute Service (ECS) instance
-     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
-     *   **EIP**: an elastic IP address (EIP)
-     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     *   **INTERNET_IP**: the public IP address of an Elastic Compute Service (ECS) instance.
+     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance.
+     *   **EIP**: an elastic IP address (EIP).
+     *   **DNAT**: the Network Address Translation (NAT) gateway that connects to the Internet by using the Destination Network Address Translation (DNAT) feature
+     *   **DB_CONNECTION**: the public endpoint of a database.
      *
      * @example INTERNET_IP
      *
@@ -67,10 +70,11 @@ class exposedChains extends Model
     /**
      * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
      *
-     *   If the value of the ExposureType parameter is **INTERNET_IP**, the value of this parameter is an empty string.
-     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the Internet-facing SLB instance.
+     *   If the value of the ExposureType parameter is **INTERNET_IP**, this parameter is empty.
+     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the SLB instance.
      *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
      *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
+     *   If the value of the ExposureType parameter is **DB_CONNECTION**, the value of this parameter is the ID of the database.
      *
      * @example eip-bp1bkgowzam49rld3****
      *
@@ -88,7 +92,7 @@ class exposedChains extends Model
     public $groupNo;
 
     /**
-     * @description The ID of the server.
+     * @description The instance ID.
      *
      * @example i-bp116qem8npvchqc****
      *
@@ -97,7 +101,7 @@ class exposedChains extends Model
     public $instanceId;
 
     /**
-     * @description The name of the server.
+     * @description The instance name.
      *
      * @example worker-k8s-for-cs-c929ee2a145214f89a8b248005be5****
      *
@@ -131,9 +135,9 @@ class exposedChains extends Model
     public $realVulList;
 
     /**
-     * @description The region in which the server resides.
+     * @description The region ID.
      *
-     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+     * >  For information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
      *
      * @var string
@@ -141,7 +145,7 @@ class exposedChains extends Model
     public $regionId;
 
     /**
-     * @description The UUID of the server.
+     * @description The UUID of the server or the instance ID of the database.
      *
      * @example 4f9ce097-4a7d-48fe-baef-6960e5b6****
      *

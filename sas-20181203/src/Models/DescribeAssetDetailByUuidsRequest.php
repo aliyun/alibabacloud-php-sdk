@@ -21,8 +21,9 @@ class DescribeAssetDetailByUuidsRequest extends Model
     public $lang;
 
     /**
-     * @description 资源目录成员账号主账号ID。
-     * >调用[DescribeMonitorAccounts](~~DescribeMonitorAccounts~~)接口可以获取该参数。
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
      * @example 127608589417****
      *
      * @var int
@@ -30,7 +31,7 @@ class DescribeAssetDetailByUuidsRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
-     * @description The UUIDs of the ECS instances. Separate multiple UUIDs with commas (,).
+     * @description The UUIDs of the instances. Separate multiple UUIDs with commas (,).
      *
      * This parameter is required.
      * @example 0687b17f-2a36-4e5****,0687b17f-2a36-4e****

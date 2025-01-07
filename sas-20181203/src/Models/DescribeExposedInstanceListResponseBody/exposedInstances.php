@@ -18,22 +18,49 @@ class exposedInstances extends Model
     public $asapVulCount;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **0**: an ECS instance.
+     *   **1**: a SLB instance.
+     *   **2**: a NAT gateway.
+     *   **3**: an ApsaraDB RDS instance.
+     *   **4**: an ApsaraDB for MongoDB instance.
+     *   **5**: an ApsaraDB for Redis instance.
+     *   **6**: a container image.
+     *   **7**: a container.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $assetType;
 
     /**
+     * @description The JSON string that specifies the information about a database asset, which contains the following fields.
+     *
+     *   assetSubType: the asset subtype.
+     *   assetSubTypeName: the name of the asset subtype.
+     *   assetType: the type of the asset.
+     *   assetTypeName: the name of the asset type.
+     *   vendor: the service provider of the asset.
+     *
+     * @example {assetSubTypeName":"INSTANCE","assetType":3,"assetTypeName":"RDS","vendor":0}
+     *
      * @var string
      */
     public $cloudAssetInfo;
 
     /**
+     * @description The number of CSPM risks.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $cspmAlarmCount;
 
     /**
-     * @description The total number of servers that are exposed on the Internet.
+     * @description The number of weak password risks.
      *
      * @example 0
      *
@@ -71,10 +98,11 @@ class exposedInstances extends Model
     /**
      * @description The resource from which the asset is exposed. Valid values:
      *
-     *   **INTERNET_IP**: the public IP address of an ECS instance
-     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
-     *   **EIP**: an elastic IP address (EIP)
-     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     *   **INTERNET_IP**: the public IP address of an ECS instance.
+     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance.
+     *   **EIP**: an elastic IP address (EIP).
+     *   **DNAT**: the NAT gateway that connects to the Internet by using the Destination Network Address Translation (DNAT) feature.
+     *   **DB_CONNECTION**: the public endpoint of a database.
      *
      * @example INTERNET_IP
      *
@@ -83,12 +111,13 @@ class exposedInstances extends Model
     public $exposureType;
 
     /**
-     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the ExposureType parameter.
+     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
      *
      *   If the value of the ExposureType parameter is **INTERNET_IP**, this parameter is empty.
      *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the SLB instance.
      *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
      *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
+     *   If the value of the ExposureType parameter is **DB_CONNECTION**, the value of this parameter is the ID of the database.
      *
      * @example i-ew11313a****
      *
@@ -115,7 +144,7 @@ class exposedInstances extends Model
     public $groupName;
 
     /**
-     * @description The ID of the server.
+     * @description The instance ID of the asset.
      *
      * @example i-bp1g6wxdwps7s9dz****
      *
@@ -124,7 +153,7 @@ class exposedInstances extends Model
     public $instanceId;
 
     /**
-     * @description The name of the server.
+     * @description The name of the asset.
      *
      * @example abc_centos7.2_005
      *
@@ -169,7 +198,7 @@ class exposedInstances extends Model
     public $nntfVulCount;
 
     /**
-     * @description The ID of the region where the server resides.
+     * @description The ID of the region in which the asset resides.
      *
      * >  For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
      * @example cn-hangzhou
@@ -188,7 +217,7 @@ class exposedInstances extends Model
     public $totalVulCount;
 
     /**
-     * @description The UUID of the server.
+     * @description The UUID of the server or the instance ID of the cloud service.
      *
      * @example dd803d9e-a337-4add-9c5b-7d503e08****
      *

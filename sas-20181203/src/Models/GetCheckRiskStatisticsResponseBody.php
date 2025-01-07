@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsResponseBody\data;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsResponseBody\summary;
 use AlibabaCloud\Tea\Model;
 
 class GetCheckRiskStatisticsResponseBody extends Model
@@ -33,10 +34,16 @@ class GetCheckRiskStatisticsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var summary
+     */
+    public $summary;
     protected $_name = [
         'count'     => 'Count',
         'data'      => 'Data',
         'requestId' => 'RequestId',
+        'summary'   => 'Summary',
     ];
 
     public function validate()
@@ -60,6 +67,9 @@ class GetCheckRiskStatisticsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->summary) {
+            $res['Summary'] = null !== $this->summary ? $this->summary->toMap() : null;
         }
 
         return $res;
@@ -87,6 +97,9 @@ class GetCheckRiskStatisticsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Summary'])) {
+            $model->summary = summary::fromMap($map['Summary']);
         }
 
         return $model;

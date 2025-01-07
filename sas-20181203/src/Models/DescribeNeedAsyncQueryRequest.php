@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNeedAsyncQueryRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The type of the query. Valid values:
      *
+     *   **suspicious**: alerts
+     *
+     * This parameter is required.
      * @example suspicious
      *
      * @var string

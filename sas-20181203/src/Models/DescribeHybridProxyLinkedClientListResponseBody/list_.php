@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The name of the server group.
+     *
      * @example default
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $groupName;
 
     /**
+     * @description The instance ID of the server.
+     *
      * @example i-bp1a69mvjujbakxu****
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
      * @example sql-test-0****
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 8.210.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address.
+     *
      * @example 172.25.XX.XX
      *
      * @var string
@@ -44,6 +54,8 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The name of the operating system.
+     *
      * @example centos-xxx
      *
      * @var string
@@ -51,6 +63,8 @@ class list_ extends Model
     public $os;
 
     /**
+     * @description The name of the operating system for your asset.
+     *
      * @example centos
      *
      * @var string
@@ -58,6 +72,8 @@ class list_ extends Model
     public $osName;
 
     /**
+     * @description The ID of the region in which the server resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +81,8 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The name of the region in which the server resides.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -72,6 +90,8 @@ class list_ extends Model
     public $regionName;
 
     /**
+     * @description The status of the Security Center agent.
+     *
      * @example online
      *
      * @var string
@@ -79,6 +99,8 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The name of the tag added to the server.
+     *
      * @example latest
      *
      * @var string
@@ -86,6 +108,8 @@ class list_ extends Model
     public $tag;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
      *
      * @var string
@@ -93,6 +117,8 @@ class list_ extends Model
     public $uuid;
 
     /**
+     * @description The name of the service provider.
+     *
      * @example ALIYUN
      *
      * @var string

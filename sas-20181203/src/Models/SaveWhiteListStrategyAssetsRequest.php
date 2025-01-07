@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SaveWhiteListStrategyAssetsRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
      * @example zh
      *
      * @var string
@@ -16,8 +21,18 @@ class SaveWhiteListStrategyAssetsRequest extends Model
     public $lang;
 
     /**
-     * @description This parameter is required.
+     * @description The operation that you want to perform. This parameter is in the JSON format. The value is case-sensitive. The value contains the following fields:
      *
+     *   **status**: the operation. Valid values:
+     *
+     *   **0**: the delete operation.
+     *   **1**: the add operation.
+     *
+     *   **target**: the UUID of the server.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to obtain the value of **target** from the response parameter Uuid.
+     *
+     * This parameter is required.
      * @example [{"status":0,"target":"c98dcd24-fa57-4759-b5ec-f8a4ffeed****"}]
      *
      * @var string
@@ -25,8 +40,12 @@ class SaveWhiteListStrategyAssetsRequest extends Model
     public $operations;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the policy. Valid values:
      *
+     *   **1**: learning policy.
+     *   **2**: application policy.
+     *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -34,6 +53,8 @@ class SaveWhiteListStrategyAssetsRequest extends Model
     public $relationType;
 
     /**
+     * @description The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
+     *
      * @example 115.193.XX.XX
      *
      * @var string
@@ -41,8 +62,9 @@ class SaveWhiteListStrategyAssetsRequest extends Model
     public $sourceIp;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the policy.
      *
+     * This parameter is required.
      * @example 2730
      *
      * @var int

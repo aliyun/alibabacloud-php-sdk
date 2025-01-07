@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accountLabelList extends Model
 {
     /**
+     * @description The tag information.
+     *
      * @example SasStep
      *
      * @var string
@@ -16,6 +18,11 @@ class accountLabelList extends Model
     public $labelSeries;
 
     /**
+     * @description Indicates whether the tag is valid.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

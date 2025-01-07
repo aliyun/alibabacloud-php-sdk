@@ -18,7 +18,7 @@ class GetOssScanConfigRequest extends Model
     public $bucketName;
 
     /**
-     * @description The ID of the policy.
+     * @description The policy ID.
      *
      * @example 1
      *

@@ -22,6 +22,8 @@ class CreateSoarStrategyTaskRequest extends Model
      * @description The name of the policy. Set the value to Automated Batch Vulnerability Fixing Policy for Multiple Servers.
      *
      * This parameter is required.
+     * @example Automated Batch Vulnerability Fixing Policy for Multiple Servers
+     *
      * @var string
      */
     public $strategyName;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class FinishGuidTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the task type.
      *
+     * This parameter is required.
      * @example guide_sub_task_config_add_collection
      *
      * @var string

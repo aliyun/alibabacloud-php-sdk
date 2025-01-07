@@ -28,6 +28,18 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The service provider of the asset. Separate multiple service providers with commas (,). Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud
+     *   **1**: an asset outside Alibaba Cloud
+     *   **2**: an asset in a data center
+     *   **3**, **4**, **5**, and **7**: an asset from a third-party cloud service provider
+     *   **8**: a lightweight asset
+     *   **9**: a Serverless App Engine (SAE) instance
+     *   **10**: an instance in Platform for AI (PAI)
+     *
+     * @example 1,2,3
+     *
      * @var string
      */
     public $flags;

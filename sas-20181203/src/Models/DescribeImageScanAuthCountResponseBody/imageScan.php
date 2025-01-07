@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class imageScan extends Model
 {
     /**
+     * @description The quota for container image scan.
+     *
      * @example 15340
      *
      * @var int
@@ -16,6 +18,8 @@ class imageScan extends Model
     public $imageScanCapacity;
 
     /**
+     * @description The instance ID of Security Center.
+     *
      * @example sas-qdl123412****
      *
      * @var string
@@ -23,6 +27,8 @@ class imageScan extends Model
     public $instanceId;
 
     /**
+     * @description The consumed quota for container image scan.
+     *
      * @example 5489
      *
      * @var int

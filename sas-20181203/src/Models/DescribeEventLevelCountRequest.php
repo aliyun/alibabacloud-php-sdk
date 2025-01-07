@@ -68,6 +68,13 @@ class DescribeEventLevelCountRequest extends Model
     public $from;
 
     /**
+     * @description The type of the accounts that you want to query. Default value: **0**. Valid values:
+     *
+     *   **0**: the current account.
+     *   **1**: all accounts.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $multiAccountActionType;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetCurrentVersionPublishResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 1383B0DB-D5D6-4B0C-9E6B-75939C8E67FE
      *
      * @var string

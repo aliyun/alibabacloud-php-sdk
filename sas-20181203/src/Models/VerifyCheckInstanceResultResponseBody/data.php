@@ -26,9 +26,15 @@ class data extends Model
      * @var string
      */
     public $operateCode;
+
+    /**
+     * @var string
+     */
+    public $taskId;
     protected $_name = [
         'failInstances' => 'FailInstances',
         'operateCode'   => 'OperateCode',
+        'taskId'        => 'TaskId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class data extends Model
         }
         if (null !== $this->operateCode) {
             $res['OperateCode'] = $this->operateCode;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -63,6 +72,9 @@ class data extends Model
         }
         if (isset($map['OperateCode'])) {
             $model->operateCode = $map['OperateCode'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

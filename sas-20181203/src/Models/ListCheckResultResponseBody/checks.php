@@ -10,16 +10,43 @@ use AlibabaCloud\Tea\Model;
 class checks extends Model
 {
     /**
+     * @description The subtype of the cloud service.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $assetSubType;
 
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **0**: an ECS instance
+     *   **1**: a SLB instance
+     *   **2**: a NAT gateway
+     *   **3**: an ApsaraDB RDS instance
+     *   **4**: an ApsaraDB for MongoDB instance
+     *   **5**: an ApsaraDB for Redis instance
+     *   **6**: a container image
+     *   **7**: a container
+     *
+     * @example 0
+     *
      * @var int
      */
     public $assetType;
 
     /**
+     * @description The service provider of the asset. Valid values:
+     *
+     *   **0**: Alibaba Cloud
+     *   **3**: Huawei Cloud
+     *   **4**: Microsoft Azure
+     *   **5**: AWS
+     *   **7**: Tencent Cloud
+     *
+     * @example 3
+     *
      * @var int
      */
     public $assetVendor;
@@ -138,6 +165,13 @@ class checks extends Model
     public $lastCheckTime;
 
     /**
+     * @description Indicates whether fixing is supported. Valid values:
+     *
+     *   **SUPPORT_REPAIR**
+     *   **NOT_SUPPORT_REPAIR**
+     *
+     * @example NOT_SUPPORT_REPAIR
+     *
      * @var string
      */
     public $operationType;

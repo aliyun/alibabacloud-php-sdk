@@ -49,6 +49,7 @@ class data extends Model
     /**
      * @description The AccessKey ID.
      *
+     * >  If AkType is set to **primary**, the value of SecretId is AccessKey ID of the third-party master account. If AkType is set to **sub**, the value of SecretId is the AccessKey ID of the third-party sub-account. This parameter value does not change for a **Microsoft Azure account**. For an Azure account, this parameter value is the **app ID** that is used for authentication.
      * @example AE6SLd****
      *
      * @var string
@@ -82,12 +83,12 @@ class data extends Model
     public $status;
 
     /**
-     * @description The cloud service provider. Valid values:
+     * @description The type of the cloud asset. Valid values:
      *
-     *   **Tencent**
-     *   **HUAWEICLOUD**
-     *   **Azure**
-     *   **AWS**
+     *   **Tencent**: Tencent Cloud.
+     *   **HUAWEICLOUD**: Huawei Cloud.
+     *   **Azure**: Microsoft Azure.
+     *   **AWS**: Amazon Web Services (AWS).
      *
      * @example Tencent
      *

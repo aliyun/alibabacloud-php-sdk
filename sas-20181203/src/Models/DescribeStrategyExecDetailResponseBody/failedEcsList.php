@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failedEcsList extends Model
 {
     /**
+     * @description The IP address of the server on which the baseline check was performed.
+     *
      * @example 115.28.XX.XX
      *
      * @var string
@@ -16,6 +18,8 @@ class failedEcsList extends Model
     public $IP;
 
     /**
+     * @description The name of the instance.
+     *
      * @example worker-k8s-for-cs-cf5741fb95c3a45d0864f0e4544dc****
      *
      * @var string
@@ -23,6 +27,8 @@ class failedEcsList extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address.
+     *
      * @example 115.28.XX.XX
      *
      * @var string
@@ -30,6 +36,8 @@ class failedEcsList extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address.
+     *
      * @example 172.31.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class failedEcsList extends Model
     public $intranetIp;
 
     /**
+     * @description The failure cause for the check item.
+     *
      * @example Detect timeout
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveWhiteListStrategyAssetsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A4EB8B1C-1DEC-5E18-BCD0-XXXX
      *
      * @var string

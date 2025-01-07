@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSystemClientRuleTypesResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 79CFF74D-E967-5407-8A78-EE03B925****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListSystemClientRuleTypesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the rule types.
+     *
      * @var string[]
      */
     public $ruleTypes;

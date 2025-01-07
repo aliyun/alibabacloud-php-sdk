@@ -10,7 +10,22 @@ use AlibabaCloud\Tea\Model;
 class standards extends Model
 {
     /**
-     * @description The ID of the check item.
+     * @description The cloud service provider that uses the standard. Valid values:
+     *
+     *   **0**: Alibaba Cloud.
+     *   **3**: Tencent Cloud.
+     *   **4**: Huawei Cloud.
+     *   **5**: Microsoft Azure.
+     *   **7**: AWS.
+     *
+     * @example 3
+     *
+     * @var int
+     */
+    public $bindVendor;
+
+    /**
+     * @description The ID of the standard.
      *
      * @example 1
      *
@@ -19,7 +34,7 @@ class standards extends Model
     public $id;
 
     /**
-     * @description An array that consists of search conditions.
+     * @description The requirements.
      *
      * @var requirements[]
      */
@@ -35,7 +50,7 @@ class standards extends Model
     public $showName;
 
     /**
-     * @description The priority field indicates the level of prominence.
+     * @description The priority for display.
      *
      * @example 1
      *
@@ -44,7 +59,7 @@ class standards extends Model
     public $showPriorityLevel;
 
     /**
-     * @description The type of the check item.
+     * @description The type of the standard.
      *
      * @example IDENTITY_PERMISSION
      *
@@ -52,6 +67,7 @@ class standards extends Model
      */
     public $type;
     protected $_name = [
+        'bindVendor'        => 'BindVendor',
         'id'                => 'Id',
         'requirements'      => 'Requirements',
         'showName'          => 'ShowName',
@@ -66,6 +82,9 @@ class standards extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bindVendor) {
+            $res['BindVendor'] = $this->bindVendor;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -99,6 +118,9 @@ class standards extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BindVendor'])) {
+            $model->bindVendor = $map['BindVendor'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

@@ -19,7 +19,7 @@ class DescribeSecurityEventOperationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array consisting of the operations that you can perform to handle the alert event.
+     * @description The operations that are performed to handle the alert.
      *
      * @var securityEventOperationsResponse[]
      */

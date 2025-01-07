@@ -60,6 +60,11 @@ class list_ extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $note;
+
+    /**
      * @description The operation code.
      *
      *   Only **whitelist** may be returned, which means that the alert item is added to the whitelist.
@@ -87,6 +92,7 @@ class list_ extends Model
         'eventName'     => 'EventName',
         'eventType'     => 'EventType',
         'id'            => 'Id',
+        'note'          => 'Note',
         'operationCode' => 'OperationCode',
         'scenarios'     => 'Scenarios',
     ];
@@ -112,6 +118,9 @@ class list_ extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->note) {
+            $res['Note'] = $this->note;
         }
         if (null !== $this->operationCode) {
             $res['OperationCode'] = $this->operationCode;
@@ -145,6 +154,9 @@ class list_ extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['Note'])) {
+            $model->note = $map['Note'];
         }
         if (isset($map['OperationCode'])) {
             $model->operationCode = $map['OperationCode'];

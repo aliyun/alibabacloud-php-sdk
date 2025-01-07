@@ -28,6 +28,11 @@ class ListAgentlessRelateMaliciousRequest extends Model
     public $eventId;
 
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @description The number of entries to return on each page.
      *
      * This parameter is required.
@@ -36,10 +41,17 @@ class ListAgentlessRelateMaliciousRequest extends Model
      * @var string
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $scenario;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'eventId'     => 'EventId',
+        'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
+        'scenario'    => 'Scenario',
     ];
 
     public function validate()
@@ -55,8 +67,14 @@ class ListAgentlessRelateMaliciousRequest extends Model
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->scenario) {
+            $res['Scenario'] = $this->scenario;
         }
 
         return $res;
@@ -76,8 +94,14 @@ class ListAgentlessRelateMaliciousRequest extends Model
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Scenario'])) {
+            $model->scenario = $map['Scenario'];
         }
 
         return $model;

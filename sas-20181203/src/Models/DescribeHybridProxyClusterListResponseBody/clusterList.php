@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clusterList extends Model
 {
     /**
+     * @description The ID of the credential that is used for cluster authentication.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class clusterList extends Model
     public $authKey;
 
     /**
+     * @description The key of the credential that is used for cluster authentication.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class clusterList extends Model
     public $authKeySecret;
 
     /**
+     * @description The number of servers that are connected to the proxy cluster.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class clusterList extends Model
     public $clientCount;
 
     /**
+     * @description The name of the proxy cluster.
+     *
      * @example idc-sas-proxy
      *
      * @var string
@@ -37,6 +45,8 @@ class clusterList extends Model
     public $clusterName;
 
     /**
+     * @description The installation command for the node of the proxy cluster.
+     *
      * @example test
      *
      * @var string
@@ -44,13 +54,17 @@ class clusterList extends Model
     public $installCommand;
 
     /**
-     * @example 114.115.218.145
+     * @description The endpoint of the cluster. An IP address or a domain name is specified.
+     *
+     * @example 114.115.XXX.XXX
      *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The timestamp when the cluster last sent a heartbeat message. Unit: milliseconds.
+     *
      * @example 1608304654000
      *
      * @var int
@@ -58,6 +72,8 @@ class clusterList extends Model
     public $lastHeartTime;
 
     /**
+     * @description The number of proxy nodes.
+     *
      * @example 3
      *
      * @var int
@@ -65,6 +81,8 @@ class clusterList extends Model
     public $proxyCount;
 
     /**
+     * @description The description of the proxy cluster.
+     *
      * @example test
      *
      * @var string
@@ -72,6 +90,8 @@ class clusterList extends Model
     public $remark;
 
     /**
+     * @description The status of the cluster.
+     *
      * @example offline
      *
      * @var string

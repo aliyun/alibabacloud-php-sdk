@@ -41,6 +41,13 @@ class ListFileProtectRuleRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *
+     * @example linux
+     *
      * @var string
      */
     public $platform;

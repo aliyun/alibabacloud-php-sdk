@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchCreateMaliciousNoteResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class BatchCreateMaliciousNoteResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class BatchCreateMaliciousNoteResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
      * @example successful
      *
      * @var string
@@ -30,6 +36,8 @@ class BatchCreateMaliciousNoteResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
      *
      * @var string
@@ -37,6 +45,11 @@ class BatchCreateMaliciousNoteResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

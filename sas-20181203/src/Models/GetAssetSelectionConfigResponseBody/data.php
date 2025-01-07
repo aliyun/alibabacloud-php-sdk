@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The operating system of the asset. Valid values:
+     *
+     *   **windows**
+     *   **linux**
+     *
+     * @example linux
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The ID of the current asset selection. It can be used to query and modify the asset that is selected.
      *
      * @example 657c8411-4e89-446c-ab66-d45d1331****
@@ -30,6 +42,7 @@ class data extends Model
      */
     public $targetType;
     protected $_name = [
+        'platform'     => 'Platform',
         'selectionKey' => 'SelectionKey',
         'targetType'   => 'TargetType',
     ];
@@ -41,6 +54,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
+        }
         if (null !== $this->selectionKey) {
             $res['SelectionKey'] = $this->selectionKey;
         }
@@ -59,6 +75,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
+        }
         if (isset($map['SelectionKey'])) {
             $model->selectionKey = $map['SelectionKey'];
         }

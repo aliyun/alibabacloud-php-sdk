@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListCompressFileDetectResultResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example E10BAF1C-A6C5-51E2-866C-76D5922E****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListCompressFileDetectResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The detection results of files.
+     *
      * @var resultList[]
      */
     public $resultList;

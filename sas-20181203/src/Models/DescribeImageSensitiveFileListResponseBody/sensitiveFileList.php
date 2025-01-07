@@ -216,6 +216,11 @@ class sensitiveFileList extends Model
     public $sensitiveFileName;
 
     /**
+     * @var int
+     */
+    public $status;
+
+    /**
      * @description The number of unprocessed mirrors.
      *
      * @example 2
@@ -234,6 +239,7 @@ class sensitiveFileList extends Model
         'riskLevel'         => 'RiskLevel',
         'sensitiveFileKey'  => 'SensitiveFileKey',
         'sensitiveFileName' => 'SensitiveFileName',
+        'status'            => 'Status',
         'unprocessedNum'    => 'UnprocessedNum',
     ];
 
@@ -273,6 +279,9 @@ class sensitiveFileList extends Model
         }
         if (null !== $this->sensitiveFileName) {
             $res['SensitiveFileName'] = $this->sensitiveFileName;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->unprocessedNum) {
             $res['UnprocessedNum'] = $this->unprocessedNum;
@@ -318,6 +327,9 @@ class sensitiveFileList extends Model
         }
         if (isset($map['SensitiveFileName'])) {
             $model->sensitiveFileName = $map['SensitiveFileName'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['UnprocessedNum'])) {
             $model->unprocessedNum = $map['UnprocessedNum'];

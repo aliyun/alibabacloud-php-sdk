@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddCheckResultWhiteListResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The data returned. This parameter is deprecated.
+     *
+     * @example 1
      *
      * @var mixed[]
      */
@@ -25,6 +27,8 @@ class AddCheckResultWhiteListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The IDs of the whitelist rules that are generated.
+     *
      * @var int[]
      */
     public $ruleIds;

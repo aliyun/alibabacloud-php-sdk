@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClientProblemTypeResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 4
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeClientProblemTypeResponseBody extends Model
     public $count;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeClientProblemTypeResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -31,11 +37,15 @@ class DescribeClientProblemTypeResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The issue types.
+     *
      * @var problemTypes[]
      */
     public $problemTypes;
 
     /**
+     * @description The request ID.
+     *
      * @example D65AADFC-1D20-5A6A-8F6A-9FA53CXXXXX
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeClientProblemTypeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 21
      *
      * @var int

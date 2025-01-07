@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListCheckResultResponseBody extends Model
 {
     /**
-     * @description The information about the check items.
+     * @description The check items.
      *
      * @var checks[]
      */

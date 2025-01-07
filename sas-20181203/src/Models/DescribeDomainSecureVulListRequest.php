@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSecureVulListRequest extends Model
 {
     /**
+     * @description The identifier of the request source. Set the value to sas.
+     *
      * @example sas
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeDomainSecureVulListRequest extends Model
     public $from;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDomainSecureVulListRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address.
+     *
      * @example 111.196.*.*
      *
      * @var string
@@ -30,6 +39,10 @@ class DescribeDomainSecureVulListRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The vulnerability type. Valid values:
+     *
+     *   **app**: application vulnerability.
+     *
      * @example app
      *
      * @var string

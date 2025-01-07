@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddPublishBatchResponseBody extends Model
 {
     /**
+     * @description The ID of the release batch.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class AddPublishBatchResponseBody extends Model
     public $batchId;
 
     /**
+     * @description The request ID.
+     *
      * @example 7BC55C8F-226E-5AF5-9A2C-2EC43864****
      *
      * @var string

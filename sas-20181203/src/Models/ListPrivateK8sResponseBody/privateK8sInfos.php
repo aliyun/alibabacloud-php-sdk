@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class privateK8sInfos extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class privateK8sInfos extends Model
     public $aliUid;
 
     /**
+     * @description The IP address of the API server.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class privateK8sInfos extends Model
     public $apiServerIp;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example xxx
      *
      * @var string
@@ -30,6 +36,8 @@ class privateK8sInfos extends Model
     public $clusterName;
 
     /**
+     * @description The ID of the policy.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class privateK8sInfos extends Model
     public $id;
 
     /**
+     * @description The version of Kubernetes.
+     *
      * @example 1.18
      *
      * @var string
@@ -44,6 +54,8 @@ class privateK8sInfos extends Model
     public $k8sVersion;
 
     /**
+     * @description The server configuration of Kubernetes.
+     *
      * @example xxx
      *
      * @var string
@@ -51,6 +63,11 @@ class privateK8sInfos extends Model
     public $kubeConfig;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **1**: Internet.
+     *   **2**: VPC.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +75,8 @@ class privateK8sInfos extends Model
     public $netType;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +84,8 @@ class privateK8sInfos extends Model
     public $regionId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example vpc-2zet5l358k6z0gnz*****
      *
      * @var string

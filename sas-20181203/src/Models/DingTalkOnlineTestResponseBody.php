@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DingTalkOnlineTestResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 2E96F605-1BE3-5954-83A5-AE96C617****
      *
      * @var string

@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryRequest extends Model
 {
     /**
-     * @description Specifies whether to return the statistics of the check items, including the number of check items supported by the system and the number of check items available to you.
+     * @description Specifies whether to return the statistics of the check items, including the number of check items supported by the system and the number of check items available to you. Default value: **false**. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
      *
      * @var bool
      */
@@ -28,8 +33,9 @@ class GetCheckSummaryRequest extends Model
     public $lang;
 
     /**
-     * @description The account ID of the resource directory.
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
      *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the IDs of Alibaba Cloud accounts.
      * @example 000
      *
      * @var string

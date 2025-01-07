@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateK8sResponseBody extends Model
 {
     /**
+     * @description The information about the self-managed Kubernetes clusters.
+     *
      * @var privateK8sInfos[]
      */
     public $privateK8sInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example 52870893-48A7-5A9E-9E05-6253E5B6****
      *
      * @var string

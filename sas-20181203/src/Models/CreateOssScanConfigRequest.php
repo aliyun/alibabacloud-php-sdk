@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateOssScanConfigRequest extends Model
 {
     /**
-     * @description Whether to match all prefixes.
+     * @description Specifies whether to match the prefixes of all objects.
      *
      * @example true
      *
@@ -25,7 +25,7 @@ class CreateOssScanConfigRequest extends Model
     public $bucketNameList;
 
     /**
-     * @description The maximum number of files for decompression. The minimum value is 1, and the maximum value is 1000. If the decompression level exceeds the maximum, the decompression operation will be terminated, but the detection of decompressed files will not be affected.
+     * @description The maximum number of objects that can be extracted during decompression. Valid values: 1 to 1000. If the maximum number of objects that can be extracted is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
      *
      * @example 100
      *
@@ -34,7 +34,7 @@ class CreateOssScanConfigRequest extends Model
     public $decompressMaxFileCount;
 
     /**
-     * @description The maximum level of decompression when dealing with nested compressed files with multiple levels. The minimum value is 1, and the maximum value is 5. If the decompression level exceeds the maximum, the decompression operation will be terminated, but the detection of decompressed files will not be affected.
+     * @description The maximum number of decompression levels when multi-level packages are decompressed. Valid values: 1 to 5. If the maximum number of decompression levels is reached, the decompression operation immediately ends and the detection of extracted objects is not affected.
      *
      * @example 1
      *
@@ -43,6 +43,8 @@ class CreateOssScanConfigRequest extends Model
     public $decompressMaxLayer;
 
     /**
+     * @description The decryption methods.
+     *
      * @var string[]
      */
     public $decryptionList;
@@ -69,7 +71,7 @@ class CreateOssScanConfigRequest extends Model
     public $endTime;
 
     /**
-     * @description The prefixes of the object that you want to check.
+     * @description The prefixes of the objects.
      *
      * @var string[]
      */
@@ -83,12 +85,16 @@ class CreateOssScanConfigRequest extends Model
     public $keySuffixList;
 
     /**
+     * @description The timestamp when the object was last modified. The time must be later than the timestamp that you specify. Unit: milliseconds.
+     *
+     * @example 1724301769834
+     *
      * @var int
      */
     public $lastModifiedStartTime;
 
     /**
-     * @description The name of the policy.
+     * @description The policy name.
      *
      * @example runtime
      *

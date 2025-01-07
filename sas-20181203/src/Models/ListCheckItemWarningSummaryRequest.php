@@ -51,6 +51,11 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $checkWarningStatus;
 
     /**
+     * @var int[]
+     */
+    public $checkWarningStatusList;
+
+    /**
      * @description The name of the field that is used to query containers.
      *
      * @example clusterId
@@ -131,6 +136,11 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $source;
 
     /**
+     * @var int
+     */
+    public $startTime;
+
+    /**
      * @description The UUIDs of the servers.
      *
      * >  You can call the [DescribeCloudCenterInstances](https://help.aliyun.com/document_detail/141932.html) operation to query the UUIDs of the servers.
@@ -138,19 +148,21 @@ class ListCheckItemWarningSummaryRequest extends Model
      */
     public $uuidList;
     protected $_name = [
-        'checkItemFuzzy'      => 'CheckItemFuzzy',
-        'checkLevel'          => 'CheckLevel',
-        'checkType'           => 'CheckType',
-        'checkWarningStatus'  => 'CheckWarningStatus',
-        'containerFieldName'  => 'ContainerFieldName',
-        'containerFieldValue' => 'ContainerFieldValue',
-        'currentPage'         => 'CurrentPage',
-        'groupId'             => 'GroupId',
-        'lang'                => 'Lang',
-        'pageSize'            => 'PageSize',
-        'riskType'            => 'RiskType',
-        'source'              => 'Source',
-        'uuidList'            => 'UuidList',
+        'checkItemFuzzy'         => 'CheckItemFuzzy',
+        'checkLevel'             => 'CheckLevel',
+        'checkType'              => 'CheckType',
+        'checkWarningStatus'     => 'CheckWarningStatus',
+        'checkWarningStatusList' => 'CheckWarningStatusList',
+        'containerFieldName'     => 'ContainerFieldName',
+        'containerFieldValue'    => 'ContainerFieldValue',
+        'currentPage'            => 'CurrentPage',
+        'groupId'                => 'GroupId',
+        'lang'                   => 'Lang',
+        'pageSize'               => 'PageSize',
+        'riskType'               => 'RiskType',
+        'source'                 => 'Source',
+        'startTime'              => 'StartTime',
+        'uuidList'               => 'UuidList',
     ];
 
     public function validate()
@@ -171,6 +183,9 @@ class ListCheckItemWarningSummaryRequest extends Model
         }
         if (null !== $this->checkWarningStatus) {
             $res['CheckWarningStatus'] = $this->checkWarningStatus;
+        }
+        if (null !== $this->checkWarningStatusList) {
+            $res['CheckWarningStatusList'] = $this->checkWarningStatusList;
         }
         if (null !== $this->containerFieldName) {
             $res['ContainerFieldName'] = $this->containerFieldName;
@@ -195,6 +210,9 @@ class ListCheckItemWarningSummaryRequest extends Model
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
@@ -223,6 +241,11 @@ class ListCheckItemWarningSummaryRequest extends Model
         if (isset($map['CheckWarningStatus'])) {
             $model->checkWarningStatus = $map['CheckWarningStatus'];
         }
+        if (isset($map['CheckWarningStatusList'])) {
+            if (!empty($map['CheckWarningStatusList'])) {
+                $model->checkWarningStatusList = $map['CheckWarningStatusList'];
+            }
+        }
         if (isset($map['ContainerFieldName'])) {
             $model->containerFieldName = $map['ContainerFieldName'];
         }
@@ -246,6 +269,9 @@ class ListCheckItemWarningSummaryRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {

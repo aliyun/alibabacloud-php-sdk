@@ -21,11 +21,21 @@ class instances extends Model
     public $alarmStatus;
 
     /**
+     * @description The ID of the application.
+     *
+     * >  This parameter is available only when the **Vendor** parameter is set to 9.
+     * @example test
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * >  This parameter is available only when the **Vendor** parameter is set to 9.
+     * @example testAppName
+     *
      * @var string
      */
     public $appName;
@@ -49,6 +59,10 @@ class instances extends Model
     public $assetType;
 
     /**
+     * @description The name of the asset type.
+     *
+     * @example Elastic Compute Service
+     *
      * @var string
      */
     public $assetTypeName;
@@ -79,14 +93,13 @@ class instances extends Model
     public $authVersion;
 
     /**
-     * @description The name of the Security Center edition that is authorized to scan the asset. Valid values:
+     * @description The name of the Security Center edition that is authorized to protect the asset. Valid values:
      *
      *   Basic edition
      *   Anti-virus edition
      *   Advanced edition
      *   Enterprise edition
      *   Ultimate edition
-     *   Value-added Plan edition
      *
      * @example Ultimate Edition
      *
@@ -118,6 +131,11 @@ class instances extends Model
      * @var string
      */
     public $clientStatus;
+
+    /**
+     * @var string
+     */
+    public $clientSubStatus;
 
     /**
      * @description The ID of the cluster.
@@ -189,6 +207,22 @@ class instances extends Model
     public $flag;
 
     /**
+     * @description The service provider of the asset. Valid values:
+     *
+     *   **ALIYUN**
+     *   **OUT**
+     *   **IDC**
+     *   **Tencent**
+     *   **HUAWEICLOUD**
+     *   **Azure**
+     *   **AWS**
+     *   **ASK**
+     *   **TRIPARTITE**
+     *   **SAE**
+     *   **PAI**
+     *
+     * @example ASK
+     *
      * @var string
      */
     public $flagName;
@@ -491,6 +525,11 @@ class instances extends Model
     public $tagId;
 
     /**
+     * @var string
+     */
+    public $tagResources;
+
+    /**
      * @description The UUID of the asset.
      *
      * @example c9107c04-942f-40c1-981a-f1c1***
@@ -500,12 +539,15 @@ class instances extends Model
     public $uuid;
 
     /**
-     * @description The type of the asset by source. Valid values:
+     * @description The service provider of the asset. Valid values:
      *
-     *   **0**: an ECS instance.
-     *   **1**: a third-party cloud server.
-     *   **2**: a server in a data center.
-     *   **3**: a server deployed on Tencent Cloud. This value is returned only after the asset is protected by Security Center.
+     *   **0**: an asset provided by Alibaba Cloud
+     *   **1**: an asset outside Alibaba Cloud
+     *   **2**: an asset in a data center
+     *   **3**, **4**, **5**, and **7**: an asset from a third-party cloud service provider
+     *   **8**: a lightweight asset
+     *   **9**: a SAE instance
+     *   **10**: an instance in PAI
      *
      * @example 0
      *
@@ -514,12 +556,20 @@ class instances extends Model
     public $vendor;
 
     /**
-     * @description The name of the service provider (SP) for the asset.
+     * @description The name of the service provider for the asset.
      *
      * Valid values:
      *
-     *   **TENCENT**: Tencent Cloud
      *   **ALIYUN**: Alibaba Cloud
+     *   **OUT**: a third-party service provider
+     *   **IDC**: a data center
+     *   **TENCENT**: Tencent Cloud
+     *   **HUAWEICLOUD**: Huawei Cloud
+     *   **Microsoft**: Microsoft Azure
+     *   **AWS**: Amazon Web Services (AWS)
+     *   **TRIPARTITE**: a lightweight server
+     *   **SAE**: a SAE instance
+     *   **PAI**: an instance in PAI
      *
      * @example Tencent
      *
@@ -567,6 +617,7 @@ class instances extends Model
         'authVersionName'    => 'AuthVersionName',
         'bind'               => 'Bind',
         'clientStatus'       => 'ClientStatus',
+        'clientSubStatus'    => 'ClientSubStatus',
         'clusterId'          => 'ClusterId',
         'clusterName'        => 'ClusterName',
         'cores'              => 'Cores',
@@ -602,6 +653,7 @@ class instances extends Model
         'status'             => 'Status',
         'tag'                => 'Tag',
         'tagId'              => 'TagId',
+        'tagResources'       => 'TagResources',
         'uuid'               => 'Uuid',
         'vendor'             => 'Vendor',
         'vendorName'         => 'VendorName',
@@ -646,6 +698,9 @@ class instances extends Model
         }
         if (null !== $this->clientStatus) {
             $res['ClientStatus'] = $this->clientStatus;
+        }
+        if (null !== $this->clientSubStatus) {
+            $res['ClientSubStatus'] = $this->clientSubStatus;
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
@@ -752,6 +807,9 @@ class instances extends Model
         if (null !== $this->tagId) {
             $res['TagId'] = $this->tagId;
         }
+        if (null !== $this->tagResources) {
+            $res['TagResources'] = $this->tagResources;
+        }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -811,6 +869,9 @@ class instances extends Model
         }
         if (isset($map['ClientStatus'])) {
             $model->clientStatus = $map['ClientStatus'];
+        }
+        if (isset($map['ClientSubStatus'])) {
+            $model->clientSubStatus = $map['ClientSubStatus'];
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
@@ -916,6 +977,9 @@ class instances extends Model
         }
         if (isset($map['TagId'])) {
             $model->tagId = $map['TagId'];
+        }
+        if (isset($map['TagResources'])) {
+            $model->tagResources = $map['TagResources'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

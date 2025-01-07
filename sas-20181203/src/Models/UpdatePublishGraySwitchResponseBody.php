@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublishGraySwitchResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 231A8A81-CBB4-5AB3-A624-98A501******
      *
      * @var string

@@ -18,13 +18,18 @@ class RemoveCheckResultWhiteListRequest extends Model
     public $checkGroupId;
 
     /**
-     * @description The IDs of check items.
+     * @description The IDs of the check items.
      *
      * @var int[]
      */
     public $checkIds;
 
     /**
+     * @description The ID of the whitelist rule.
+     *
+     * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of whitelist rules.
+     * @example 22
+     *
      * @var int
      */
     public $ruleId;

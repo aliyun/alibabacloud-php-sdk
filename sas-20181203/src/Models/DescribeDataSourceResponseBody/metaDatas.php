@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class metaDatas extends Model
 {
     /**
+     * @description The ID of the data source.
+     *
      * @example 1753
      *
      * @var int
@@ -17,6 +19,8 @@ class metaDatas extends Model
     public $dataSourceId;
 
     /**
+     * @description The name of the data source.
+     *
      * @example sas_analysis_pre-sas-operation-log-sas-event-suspicious
      *
      * @var string
@@ -24,6 +28,8 @@ class metaDatas extends Model
     public $dataSourceName;
 
     /**
+     * @description The description of the data source.
+     *
      * @example dingtalk_suspicious
      *
      * @var string
@@ -31,6 +37,8 @@ class metaDatas extends Model
     public $description;
 
     /**
+     * @description The metadata files.
+     *
      * @var metaDataFields[]
      */
     public $metaDataFields;

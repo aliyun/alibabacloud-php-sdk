@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListCompressFileDetectResultRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The page number. Default value: 1.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,6 +19,8 @@ class ListCompressFileDetectResultRequest extends Model
     public $currentPage;
 
     /**
+     * @description The identifier of the file. Only MD5 hash values are supported.
+     *
      * @example 0a212417e65c26ff133cfff28f6c****
      *
      * @var string
@@ -25,8 +28,9 @@ class ListCompressFileDetectResultRequest extends Model
     public $hashKey;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Default value: 20.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -34,6 +38,8 @@ class ListCompressFileDetectResultRequest extends Model
     public $pageSize;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 27.9.XX.XX
      *
      * @var string

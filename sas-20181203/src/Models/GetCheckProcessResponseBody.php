@@ -27,11 +27,26 @@ class GetCheckProcessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status code of the Cloud Security Posture Management (CSPM) task. Valid values:
+     *
+     *   0: The task is being initialized. The system is calculating the total number of subtasks.
+     *   1: The task is being executed. You can query the total number of tasks and the number of completed tasks.
+     *   2: The task is successful.
+     *   3: The task times out.
+     *   4: The task is invalid. Check whether assets exist.
+     *   5: No task record is found. Check whether the TaskId parameter is valid.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $statusCode;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 5347c7b6-c85c-4070-846a-3029e08e****
+     *
      * @var string
      */
     public $taskId;

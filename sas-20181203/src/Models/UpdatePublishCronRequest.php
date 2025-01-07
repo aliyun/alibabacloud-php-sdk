@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublishCronRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cron expression that is used to specify the start time of the upgrade.
      *
+     * This parameter is required.
      * @example 0 5 10 * * ?
      *
      * @var string
@@ -18,6 +19,16 @@ class UpdatePublishCronRequest extends Model
     public $cron;
 
     /**
+     * @description The day of a week on which you want to perform the upgrade. Valid values:
+     *
+     *   **MON**
+     *   **TUE**
+     *   **WED**
+     *   **THU**
+     *   **FRI**
+     *   **SAT**
+     *   **SUN**
+     *
      * @example SUN
      *
      * @var string
@@ -25,6 +36,8 @@ class UpdatePublishCronRequest extends Model
     public $cronDay;
 
     /**
+     * @description The start timestamp. Unit: milliseconds.
+     *
      * @example 1657407600000
      *
      * @var int
@@ -32,6 +45,11 @@ class UpdatePublishCronRequest extends Model
     public $cronTime;
 
     /**
+     * @description The type of the upgrade cycle. Valid values:
+     *
+     *   **day**: every day
+     *   **week**: every week
+     *
      * @example day
      *
      * @var string
@@ -39,8 +57,9 @@ class UpdatePublishCronRequest extends Model
     public $cronType;
 
     /**
-     * @description This parameter is required.
+     * @description The duration of the upgrade. Unit: hours.
      *
+     * This parameter is required.
      * @example 24
      *
      * @var int

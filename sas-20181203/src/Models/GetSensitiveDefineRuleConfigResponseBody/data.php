@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var int
+     */
+    public $enableNewRule;
+
+    /**
      * @description The custom configuration ID.
      *
      * @example 44616
@@ -43,6 +48,7 @@ class data extends Model
      */
     public $selectedCount;
     protected $_name = [
+        'enableNewRule' => 'EnableNewRule',
         'id'            => 'Id',
         'ruleCount'     => 'RuleCount',
         'ruleTree'      => 'RuleTree',
@@ -56,6 +62,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableNewRule) {
+            $res['EnableNewRule'] = $this->enableNewRule;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -86,6 +95,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableNewRule'])) {
+            $model->enableNewRule = $map['EnableNewRule'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

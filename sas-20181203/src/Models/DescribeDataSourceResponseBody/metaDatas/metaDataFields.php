@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class metaDataFields extends Model
 {
     /**
+     * @description The key of the field.
+     *
      * @example type
      *
      * @var string
@@ -17,6 +19,8 @@ class metaDataFields extends Model
     public $filed;
 
     /**
+     * @description The name of the field.
+     *
      * @example dingtalk_vul_type
      *
      * @var string
@@ -24,11 +28,15 @@ class metaDataFields extends Model
     public $filedName;
 
     /**
+     * @description The operators.
+     *
      * @var operatorList[]
      */
     public $operatorList;
 
     /**
+     * @description The sample field.
+     *
      * @example all:dingtalk_all;cms:dingtalk_vul_cms;oval:dingtalk_vul_cve;sys:dingtalk_vul_sys;emg:dingtalk_vul_emg
      *
      * @var string
@@ -36,6 +44,8 @@ class metaDataFields extends Model
     public $sample;
 
     /**
+     * @description The value type of the field.
+     *
      * @example string
      *
      * @var string

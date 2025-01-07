@@ -45,6 +45,11 @@ class imageRepoResponses extends Model
     public $endpoints;
 
     /**
+     * @var int
+     */
+    public $hasRiskImageCount;
+
+    /**
      * @description The number of baseline risk items on the image repository.
      *
      * @example 0
@@ -166,21 +171,22 @@ class imageRepoResponses extends Model
      */
     public $vulStatus;
     protected $_name = [
-        'alarmCount'    => 'AlarmCount',
-        'alarmStatus'   => 'AlarmStatus',
-        'endpoints'     => 'Endpoints',
-        'hcCount'       => 'HcCount',
-        'hcStatus'      => 'HcStatus',
-        'imageCount'    => 'ImageCount',
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
-        'registryType'  => 'RegistryType',
-        'repoId'        => 'RepoId',
-        'repoName'      => 'RepoName',
-        'repoNamespace' => 'RepoNamespace',
-        'riskStatus'    => 'RiskStatus',
-        'vulCount'      => 'VulCount',
-        'vulStatus'     => 'VulStatus',
+        'alarmCount'        => 'AlarmCount',
+        'alarmStatus'       => 'AlarmStatus',
+        'endpoints'         => 'Endpoints',
+        'hasRiskImageCount' => 'HasRiskImageCount',
+        'hcCount'           => 'HcCount',
+        'hcStatus'          => 'HcStatus',
+        'imageCount'        => 'ImageCount',
+        'instanceId'        => 'InstanceId',
+        'regionId'          => 'RegionId',
+        'registryType'      => 'RegistryType',
+        'repoId'            => 'RepoId',
+        'repoName'          => 'RepoName',
+        'repoNamespace'     => 'RepoNamespace',
+        'riskStatus'        => 'RiskStatus',
+        'vulCount'          => 'VulCount',
+        'vulStatus'         => 'VulStatus',
     ];
 
     public function validate()
@@ -198,6 +204,9 @@ class imageRepoResponses extends Model
         }
         if (null !== $this->endpoints) {
             $res['Endpoints'] = $this->endpoints;
+        }
+        if (null !== $this->hasRiskImageCount) {
+            $res['HasRiskImageCount'] = $this->hasRiskImageCount;
         }
         if (null !== $this->hcCount) {
             $res['HcCount'] = $this->hcCount;
@@ -255,6 +264,9 @@ class imageRepoResponses extends Model
         }
         if (isset($map['Endpoints'])) {
             $model->endpoints = $map['Endpoints'];
+        }
+        if (isset($map['HasRiskImageCount'])) {
+            $model->hasRiskImageCount = $map['HasRiskImageCount'];
         }
         if (isset($map['HcCount'])) {
             $model->hcCount = $map['HcCount'];

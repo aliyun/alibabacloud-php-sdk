@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetAccountLabelRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The tags.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $labelList;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

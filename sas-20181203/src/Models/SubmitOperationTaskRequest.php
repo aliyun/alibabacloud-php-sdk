@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class SubmitOperationTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the check item.
      *
+     * This parameter is required.
      * @example 132
      *
      * @var int
@@ -20,6 +21,11 @@ class SubmitOperationTaskRequest extends Model
     public $checkId;
 
     /**
+     * @description The dimension of the task that you want to submit. Valid values:
+     *
+     *   Instance dimension: INSTANCE
+     *   Check item dimension: CHECK_ID
+     *
      * @example CHECK_ID
      *
      * @var string
@@ -27,23 +33,35 @@ class SubmitOperationTaskRequest extends Model
     public $dimensionType;
 
     /**
+     * @description The asset information required to submit the tasks for instances.
+     *
      * @var operationTaskInstances[]
      */
     public $operationTaskInstances;
 
     /**
+     * @description 提交操作关联的跨页选择关联Key。
+     * > 您可调用[CreateAssetSelectionConfig](~~CreateAssetSelectionConfig~~)接口BusinessType字段获取关联Key。
+     * @example CSPM_OPERATION_RELATION_KEY_173***
+     *
      * @var string
      */
     public $relationKey;
 
     /**
+     * @description The temporary parameters required for the repair task.
+     *
      * @var repairTempParam[]
      */
     public $repairTempParam;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the task that you want to submit. Valid values:
      *
+     *   Repair task: REPAIR
+     *   Rollback task: ROLLBACK
+     *
+     * This parameter is required.
      * @example REPAIR
      *
      * @var string

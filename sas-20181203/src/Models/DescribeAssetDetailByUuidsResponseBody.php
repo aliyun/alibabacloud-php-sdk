@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetDetailByUuidsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details of the ECS instances.
+     * @description An array that consists of the details of the instances.
      *
      * @var assetList[]
      */

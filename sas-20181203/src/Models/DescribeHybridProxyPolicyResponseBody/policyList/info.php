@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
+     * @description The value of the policy configurations.
+     *
      * @example 10
      *
      * @var string
@@ -16,6 +18,8 @@ class info extends Model
     public $config;
 
     /**
+     * @description The name of the file. After you configure a blocking policy, the blocked data is written to the file.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,12 @@ class info extends Model
     public $fileName;
 
     /**
+     * @description The type of the policy that you configured. Valid values:
+     *
+     *   **file**
+     *   **net**
+     *   **process**
+     *
      * @example file
      *
      * @var string

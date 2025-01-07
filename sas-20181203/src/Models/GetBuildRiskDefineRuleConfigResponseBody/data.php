@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The configuration ID for scanning image build command risks.
+     *
      * @example 273698***
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The total number of check items.
+     *
      * @example 100
      *
      * @var int
@@ -24,11 +28,15 @@ class data extends Model
     public $ruleCount;
 
     /**
+     * @description The details of all check items.
+     *
      * @var ruleTree[]
      */
     public $ruleTree;
 
     /**
+     * @description The number of selected check items.
+     *
      * @example 99
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class attackTypeList extends Model
 {
     /**
+     * @description The description of the attack type.
+     *
      * @example sas.attack.type.type12
      *
      * @var string
@@ -16,6 +18,12 @@ class attackTypeList extends Model
     public $label;
 
     /**
+     * @description The attack source. Valid values:
+     *
+     *   **cfw**: Cloud Firewall
+     *   **alinet**: network defense plug-in
+     *   **waf**: Web Application Firewall (WAF)
+     *
      * @example alinet
      *
      * @var string
@@ -23,6 +31,8 @@ class attackTypeList extends Model
     public $statusType;
 
     /**
+     * @description The value of the attack type.
+     *
      * @example upload
      *
      * @var string

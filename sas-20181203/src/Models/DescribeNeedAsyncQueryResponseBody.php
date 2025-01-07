@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNeedAsyncQueryResponseBody extends Model
 {
     /**
+     * @description Indicates whether the result is returned. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DescribeNeedAsyncQueryResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 5DFD6277-CC36-57F7-ACE6-F5952XXXXXXXX
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRdDefaultSyncListResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example BA674E4B-00CF-5DEA-8B92-360862FB5133
      *
      * @var string

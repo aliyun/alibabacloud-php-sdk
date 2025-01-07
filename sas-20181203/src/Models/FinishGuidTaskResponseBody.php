@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FinishGuidTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 08DCAABC-82E7-5EF5-A9E7-A82DC07C****
      *
      * @var string

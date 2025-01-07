@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBuildRiskByKeyResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeImageBuildRiskByKeyResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeImageBuildRiskByKeyResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 52870893-48A7-5A9E-9E05-6253E5B6****
      *
      * @var string
@@ -36,6 +44,11 @@ class DescribeImageBuildRiskByKeyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the exposed asset.
+     * @description The details of the exposures.
      *
      * @var exposedInstances[]
      */

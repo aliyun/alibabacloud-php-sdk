@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpgradeVersionByUuidsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The version to which you want to upgrade the client.
      *
+     * This parameter is required.
      * @example 0.0.9
      *
      * @var string
@@ -18,8 +19,9 @@ class UpgradeVersionByUuidsRequest extends Model
     public $upgradeVersion;
 
     /**
-     * @description This parameter is required.
+     * @description The UUIDs of the assets on which you want to run the detection task.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $uuidList;

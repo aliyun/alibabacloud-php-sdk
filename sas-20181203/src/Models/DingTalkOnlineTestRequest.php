@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DingTalkOnlineTestRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
+     * @description The ID of the DingTalk notification configuration.
+     * This parameter is required.
      * @example 2373
      *
      * @var int

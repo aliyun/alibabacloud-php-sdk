@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridProxyListResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The information about the proxy clusters.
+     *
      * @var proxyList[]
      */
     public $proxyList;
 
     /**
+     * @description The request ID.
+     *
      * @example 75801E5D-E2EB-5C1D-B65D-2F7D2B00EF93
      *
      * @var string

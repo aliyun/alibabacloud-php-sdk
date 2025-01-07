@@ -200,6 +200,7 @@ class suspEvents extends Model
      *   **16**: handling
      *   **32**: handled
      *   **64**: expired
+     *   **604**: marked as a false positive by the system
      *
      * @example 1
      *
@@ -392,7 +393,7 @@ class suspEvents extends Model
     public $maliciousRuleStatus;
 
     /**
-     * @description The labels of alarm event.
+     * @description The tags of the alert events.
      *
      * @var string[]
      */
@@ -483,6 +484,10 @@ class suspEvents extends Model
     public $securityEventIds;
 
     /**
+     * @description The ID of the Alibaba Cloud account within which an alert is generated.
+     *
+     * @example 196072141348****
+     *
      * @var int
      */
     public $sourceAliUid;

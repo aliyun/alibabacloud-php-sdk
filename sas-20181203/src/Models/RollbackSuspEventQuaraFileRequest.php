@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RollbackSuspEventQuaraFileRequest extends Model
 {
     /**
+     * @description The ID of the request source. Set the value to sas.
+     *
      * @example sas
      *
      * @var string
@@ -16,6 +18,8 @@ class RollbackSuspEventQuaraFileRequest extends Model
     public $from;
 
     /**
+     * @description The ID of the quarantined file.
+     * > If you do not configure this parameter, you cannot call the RollbackSuspEventQuaraFile operation to restore a quarantined file. You can call the [DescribeSuspEventQuaraFiles](~~DescribeSuspEventQuaraFiles~~) operation to query the IDs of quarantined files.
      * @example 3921797
      *
      * @var int
@@ -23,6 +27,10 @@ class RollbackSuspEventQuaraFileRequest extends Model
     public $quaraFileId;
 
     /**
+     * @description The source IP address of the request.
+     *
+     * @example 1.2.3.4
+     *
      * @var string
      */
     public $sourceIp;

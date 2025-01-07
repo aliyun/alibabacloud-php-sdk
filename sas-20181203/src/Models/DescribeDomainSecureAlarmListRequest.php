@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSecureAlarmListRequest extends Model
 {
     /**
+     * @description The identifier of the request source. Set the value to sas.
+     *
      * @example sas
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeDomainSecureAlarmListRequest extends Model
     public $from;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeDomainSecureAlarmListRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address.
+     *
      * @example 139.227.*.*
      *
      * @var string

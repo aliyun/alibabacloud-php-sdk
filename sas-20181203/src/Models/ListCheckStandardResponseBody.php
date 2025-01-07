@@ -19,7 +19,7 @@ class ListCheckStandardResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the check items.
+     * @description The standards.
      *
      * @var standards[]
      */

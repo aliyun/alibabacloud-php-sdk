@@ -57,7 +57,7 @@ class backupSnapshotList extends Model
      *
      *   **ECS_FILE**: Elastic Compute Service (ECS) files.
      *   **OSS**: Object Storage Service (OSS) buckets.
-     *   **NAS**: Apsara File Storage NAS (NAS) file systems.
+     *   **NAS**: File Storage NAS (NAS) file systems.
      *   **OTS_TABLE**: Tablestore instances.
      *
      * This parameter is required.

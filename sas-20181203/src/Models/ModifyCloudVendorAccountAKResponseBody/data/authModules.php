@@ -22,7 +22,7 @@ class authModules extends Model
      *
      *   **HOST**: host.
      *   **CSPM**: configuration assessment.
-     *   **SIEM**: threat analysis and response.
+     *   **SIEM**: CTDR.
      *   **TRIAL**: log audit.
      *
      * @example HOST

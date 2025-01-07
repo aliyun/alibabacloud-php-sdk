@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryAssetDetailByUUIDRequest extends Model
 {
     /**
+     * @description A key-value pair that consists of the user ID and the asset list.
+     *
      * @example {
      * "AliUid": "176618589410****",
      * "UuidList": [

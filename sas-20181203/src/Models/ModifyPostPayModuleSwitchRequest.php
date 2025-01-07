@@ -11,7 +11,7 @@ class ModifyPostPayModuleSwitchRequest extends Model
     /**
      * @description The ID of the pay-as-you-go instance. This parameter is required.
      *
-     * >  You can call the [DescribeVersionConfig](~DescribeVersionConfig~) operation to obtain the ID.
+     * >  You can call the [DescribeVersionConfig](https://help.aliyun.com/document_detail/421770.html) operation to obtain the ID.
      * @example postpay-sas-**
      *
      * @var string

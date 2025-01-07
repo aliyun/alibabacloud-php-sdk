@@ -148,6 +148,13 @@ class DescribeSuspEventsShrinkRequest extends Model
     public $levels;
 
     /**
+     * @description The type of the accounts that you want to query. Default value: **0**. Valid values:
+     *
+     *   **0**: the current account.
+     *   **1**: all accounts.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $multiAccountActionType;
@@ -220,7 +227,7 @@ class DescribeSuspEventsShrinkRequest extends Model
      *   **Vulnerability exploitation**
      *   **Malicious process (on-premises threat detection)**
      *   **Trusted exception**
-     *   **Operations to manage other resources**
+     *   **Others**
      *
      * @example Webshell
      *
@@ -284,6 +291,8 @@ class DescribeSuspEventsShrinkRequest extends Model
     public $source;
 
     /**
+     * @description The IDs of the Alibaba Cloud accounts within which alerts are generated.
+     *
      * @var string
      */
     public $sourceAliUidsShrink;

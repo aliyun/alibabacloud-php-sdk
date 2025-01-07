@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @description The instance ID of the asset.
+     *
+     * >  You can call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to query the instance IDs of assets.
+     * @example i-wz9fdluqx20mp2x7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the asset.
+     *
+     * >  You can call the [ListCheckInstanceResult](~~ListCheckInstanceResult~~) operation to query the region ID of the asset.
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $regionId;

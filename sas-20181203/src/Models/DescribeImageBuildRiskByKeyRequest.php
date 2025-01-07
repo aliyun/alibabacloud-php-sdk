@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBuildRiskByKeyRequest extends Model
 {
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeImageBuildRiskByKeyRequest extends Model
     public $currentPage;
 
     /**
+     * @description The UUID of the image.
+     *
      * @example a910053dd4710173ecc9e9d8931f****
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribeImageBuildRiskByKeyRequest extends Model
     public $imageUuid;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,9 @@ class DescribeImageBuildRiskByKeyRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -37,6 +49,8 @@ class DescribeImageBuildRiskByKeyRequest extends Model
     public $pageSize;
 
     /**
+     * @description The key of the risk rule.
+     * > You can call the [DescribeImageBuildRiskList](~~DescribeImageBuildRiskList~~) operation to obtain the value of **RiskKey**.
      * @example no_user
      *
      * @var string
@@ -44,6 +58,12 @@ class DescribeImageBuildRiskByKeyRequest extends Model
     public $riskKey;
 
     /**
+     * @description The status of the alert event. Valid values:
+     *
+     *   **0**: unhandled.
+     *   **1**: ignored.
+     *   **2**: false positive.
+     *
      * @example 1
      *
      * @var int

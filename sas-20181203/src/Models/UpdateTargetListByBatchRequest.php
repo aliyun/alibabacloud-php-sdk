@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateTargetListByBatchRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the release batch.
      *
+     * This parameter is required.
      * @example 52370
      *
      * @var int
@@ -19,8 +20,9 @@ class UpdateTargetListByBatchRequest extends Model
     public $batchId;
 
     /**
-     * @description This parameter is required.
+     * @description The operations on assets.
      *
+     * This parameter is required.
      * @var operationList[]
      */
     public $operationList;

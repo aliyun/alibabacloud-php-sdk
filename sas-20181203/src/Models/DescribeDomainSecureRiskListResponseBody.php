@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSecureRiskListResponseBody extends Model
 {
     /**
+     * @description The number of the websites for which no certificates are installed.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeDomainSecureRiskListResponseBody extends Model
     public $noSslCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example CE500770-42D3-442E-9DDD-156E0F9F****
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDomainSecureRiskListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of risks.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeDomainSecureRiskListResponseBody extends Model
     public $riskCount;
 
     /**
+     * @description The risks.
+     *
      * @var riskList[]
      */
     public $riskList;

@@ -77,7 +77,7 @@ class ListObjectScanEventRequest extends Model
     public $pageSize;
 
     /**
-     * @description When a file is a subfile within a compressed package, the ParentEventId represents the alert of the compressed package itself.
+     * @description The ID of the alert that is generated for the package to which the subfile belongs.
      *
      * @example 1
      *

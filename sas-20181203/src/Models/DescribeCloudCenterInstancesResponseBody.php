@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudCenterInstancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the asset.
+     * @description An array that consists of the details about the assets.
      *
      * @var instances[]
      */

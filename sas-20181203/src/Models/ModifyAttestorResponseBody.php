@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAttestorResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 9E8B1D8F-DE1C-5421-81AA-**********
      *
      * @var string

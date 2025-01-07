@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAssetInfoPublishRequest extends Model
 {
     /**
+     * @description An extended parameter. This parameter is temporarily unavailable.
+     *
      * @example test
      *
      * @var string
@@ -16,8 +18,9 @@ class ListAssetInfoPublishRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The UUIDs of the servers that you want to query.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $uuidList;

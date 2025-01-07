@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class problemTypes extends Model
 {
     /**
+     * @description The description of the issue type.
+     *
+     * @example other
+     *
      * @var string
      */
     public $problemDetail;
 
     /**
+     * @description The ID of the issue type.
+     *
      * @example 4
      *
      * @var string
@@ -21,6 +27,8 @@ class problemTypes extends Model
     public $problemId;
 
     /**
+     * @description The name of the issue type.
+     *
      * @example high_cpu
      *
      * @var string

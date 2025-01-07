@@ -14,8 +14,14 @@ class GetOssBucketScanStatisticRequest extends Model
      * @var string[]
      */
     public $bucketNameList;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'bucketNameList' => 'BucketNameList',
+        'source'         => 'Source',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class GetOssBucketScanStatisticRequest extends Model
         $res = [];
         if (null !== $this->bucketNameList) {
             $res['BucketNameList'] = $this->bucketNameList;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -44,6 +53,9 @@ class GetOssBucketScanStatisticRequest extends Model
             if (!empty($map['BucketNameList'])) {
                 $model->bucketNameList = $map['BucketNameList'];
             }
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

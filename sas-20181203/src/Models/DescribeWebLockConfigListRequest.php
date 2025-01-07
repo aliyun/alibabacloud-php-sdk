@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockConfigListRequest extends Model
 {
     /**
+     * @description The configuration ID of the protected directory.
+     *
+     * @example 1404656
+     *
      * @var int
      */
     public $id;

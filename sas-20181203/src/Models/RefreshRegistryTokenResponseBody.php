@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshRegistryTokenResponseBody extends Model
 {
     /**
+     * @description The returned token.
+     *
      * @example 77ba3bf5-af95-4b77-aa94-***********
      *
      * @var string
@@ -16,6 +18,8 @@ class RefreshRegistryTokenResponseBody extends Model
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 7BC55C8F-226E-5AF5-9A2C-2EC43864****
      *
      * @var string

@@ -46,6 +46,13 @@ class DescribeOnceTaskRequest extends Model
     public $rootTaskId;
 
     /**
+     * @description The source of the task. Valid values include the following values:
+     *
+     *   **schedule**: automatic scheduling of Cloud Security Scanner.
+     *   **console**: one-click detection in the Cloud Security Scanner console.
+     *
+     * @example console
+     *
      * @var string
      */
     public $source;

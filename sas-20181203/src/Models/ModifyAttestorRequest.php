@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAttestorRequest extends Model
 {
     /**
+     * @description The ID of the KMS key.
+     *
      * @example key-********
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyAttestorRequest extends Model
     public $keyId;
 
     /**
+     * @description The region ID of the Key Management Service (KMS) key.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyAttestorRequest extends Model
     public $keyRegionId;
 
     /**
+     * @description The version ID of the KMS key.
+     *
      * @example key-****
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyAttestorRequest extends Model
     public $keyVersionId;
 
     /**
+     * @description The name of the witness.
+     *
      * @example attestor-auto-ad5316
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyAttestorRequest extends Model
     public $name;
 
     /**
+     * @description The description.
+     *
      * @example remark
      *
      * @var string
@@ -49,6 +59,8 @@ class ModifyAttestorRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 1.2.XX.XX
      *
      * @var string

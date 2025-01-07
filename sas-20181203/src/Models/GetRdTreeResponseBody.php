@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetRdTreeResponseBody extends Model
 {
     /**
+     * @description The processing result.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 30CBF632-109F-596F-97F2-451C8B2A****
      *
      * @var string

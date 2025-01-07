@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries about the servers that are exposed on the Internet.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

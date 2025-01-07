@@ -43,7 +43,6 @@ class assetDetail extends Model
      *   **5**: Advanced edition
      *   **3**: Enterprise edition
      *   **7**: Ultimate edition
-     *   **10**: Value-added Plan edition
      *
      * @example 7
      *
@@ -211,7 +210,7 @@ class assetDetail extends Model
     public $kernel;
 
     /**
-     * @description The Media Access Control (MAC) addresses.
+     * @description The media access control (MAC) addresses of the server.
      *
      * @var string[]
      */

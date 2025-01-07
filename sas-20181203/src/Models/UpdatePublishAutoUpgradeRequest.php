@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublishAutoUpgradeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic upgrade. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int

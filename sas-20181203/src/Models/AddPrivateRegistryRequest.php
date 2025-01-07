@@ -79,7 +79,7 @@ class AddPrivateRegistryRequest extends Model
      * @description The IP address of the image repository.
      *
      * This parameter is required.
-     * @example 114.55.\*\*.**
+     * @example ``114.55.**.**``
      *
      * @var string
      */

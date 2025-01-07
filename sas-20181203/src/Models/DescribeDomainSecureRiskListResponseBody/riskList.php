@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class riskList extends Model
 {
     /**
+     * @description The number of alerts.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class riskList extends Model
     public $alarmCount;
 
     /**
+     * @description The domain name.
+     *
      * @example test.com
      *
      * @var string
@@ -23,6 +27,8 @@ class riskList extends Model
     public $domain;
 
     /**
+     * @description The issuer of the certificate.
+     *
      * @example globalsign
      *
      * @var string
@@ -30,6 +36,11 @@ class riskList extends Model
     public $sslBrand;
 
     /**
+     * @description Indicates whether the certificate is configured. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -37,11 +48,15 @@ class riskList extends Model
     public $sslStatus;
 
     /**
+     * @description The UUIDs of the backend servers of the website.
+     *
      * @var string[]
      */
     public $uuidList;
 
     /**
+     * @description The number of vulnerabilities.
+     *
      * @example 1
      *
      * @var int

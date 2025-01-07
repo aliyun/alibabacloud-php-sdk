@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class SetBuildRiskDefineRuleConfigRequest extends Model
 {
     /**
+     * @description The configuration item for scanning image build command risks. Valid values:
+     *
+     *   **classKey**: Set the value to a valid value of the ClassKey parameter in RuleTree.
+     *   **ruleList**: Set the value to a valid value of the RuleKey parameter in RuleList.
+     *
+     * >  You can call the [GetBuildRiskDefineRuleConfig](~~GetBuildRiskDefineRuleConfig~~) operation to query the valid values.
      * @example [
      * ]
      * @var string

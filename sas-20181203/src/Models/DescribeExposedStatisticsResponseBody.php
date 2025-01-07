@@ -27,17 +27,25 @@ class DescribeExposedStatisticsResponseBody extends Model
     public $exposedComponentCount;
 
     /**
+     * @description The number of ApsaraDB for MongoDB instances that are exposed on the Internet.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $exposedDdsCount;
 
     /**
+     * @description The number of Elastic Compute Service (ECS) instances that are exposed on the Internet.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $exposedEcsCount;
 
     /**
-     * @description The total number of servers that are exposed on the Internet.
+     * @description The total number of assets that are exposed on the Internet.
      *
      * @example 100
      *
@@ -55,6 +63,10 @@ class DescribeExposedStatisticsResponseBody extends Model
     public $exposedIpCount;
 
     /**
+     * @description The number of ApsaraDB for Redis instances that are exposed on the Internet.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $exposedKvstoreCount;
@@ -87,6 +99,10 @@ class DescribeExposedStatisticsResponseBody extends Model
     public $exposedPortCount;
 
     /**
+     * @description The number of ApsaraDB RDS instances that are exposed on the Internet.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $exposedRdsCount;

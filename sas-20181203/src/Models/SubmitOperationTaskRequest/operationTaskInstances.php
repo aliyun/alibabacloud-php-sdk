@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class operationTaskInstances extends Model
 {
     /**
+     * @description The instance ID of the server.
+     *
      * @example i-uf6533m4vuo3oa33****
      *
      * @var string
@@ -16,6 +18,8 @@ class operationTaskInstances extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the server.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class operationTaskInstances extends Model
     public $regionId;
 
     /**
+     * @description The ID of the task that you want to roll back
+     *
      * @example 7d0b10e35e80c9e5ebac5f1054****
      *
      * @var string
@@ -30,6 +36,14 @@ class operationTaskInstances extends Model
     public $taskId;
 
     /**
+     * @description The service provider of the asset. Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud.
+     *   **1**: an asset outside Alibaba Cloud.
+     *   **2**: an asset in a data center.
+     *   **3**, **4**, **5**, and **7**: an asset from a third-party cloud service provider.
+     *   **8**: a lightweight asset.
+     *
      * @example 7
      *
      * @var string

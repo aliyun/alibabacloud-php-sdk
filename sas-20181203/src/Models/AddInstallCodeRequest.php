@@ -41,17 +41,25 @@ class AddInstallCodeRequest extends Model
     public $onlyImage;
 
     /**
-     * @description The operating system of the instance. Default value: **linux**. Valid values:
+     * @description The operating system of the asset. Default value: **linux**. Valid values:
      *
      *   **linux**
      *   **windows**
-     *   **windows-2003**
      *
      * @example linux
      *
      * @var string
      */
     public $os;
+
+    /**
+     * @description The ID of the PrivateLink endpoint.
+     *
+     * @example 72845
+     *
+     * @var int
+     */
+    public $privateLinkId;
 
     /**
      * @description The name of the proxy cluster.
@@ -72,12 +80,13 @@ class AddInstallCodeRequest extends Model
      */
     public $vendorName;
     protected $_name = [
-        'expiredDate'  => 'ExpiredDate',
-        'groupId'      => 'GroupId',
-        'onlyImage'    => 'OnlyImage',
-        'os'           => 'Os',
-        'proxyCluster' => 'ProxyCluster',
-        'vendorName'   => 'VendorName',
+        'expiredDate'   => 'ExpiredDate',
+        'groupId'       => 'GroupId',
+        'onlyImage'     => 'OnlyImage',
+        'os'            => 'Os',
+        'privateLinkId' => 'PrivateLinkId',
+        'proxyCluster'  => 'ProxyCluster',
+        'vendorName'    => 'VendorName',
     ];
 
     public function validate()
@@ -98,6 +107,9 @@ class AddInstallCodeRequest extends Model
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
+        }
+        if (null !== $this->privateLinkId) {
+            $res['PrivateLinkId'] = $this->privateLinkId;
         }
         if (null !== $this->proxyCluster) {
             $res['ProxyCluster'] = $this->proxyCluster;
@@ -128,6 +140,9 @@ class AddInstallCodeRequest extends Model
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
+        }
+        if (isset($map['PrivateLinkId'])) {
+            $model->privateLinkId = $map['PrivateLinkId'];
         }
         if (isset($map['ProxyCluster'])) {
             $model->proxyCluster = $map['ProxyCluster'];

@@ -108,7 +108,7 @@ class checkItems extends Model
      *   **POLARDB**: PolarDB.
      *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL.
      *   **MSE**: Microservices Engine (MSE).
-     *   **NAS**: Apsara File Storage NAS (NAS).
+     *   **NAS**: File Storage NAS (NAS).
      *   **SDDP**: Sensitive Data Discovery and Protection (SDDP).
      *   **EIP**: Elastic IP Address (EIP).
      *

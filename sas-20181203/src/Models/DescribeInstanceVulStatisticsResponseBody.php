@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceVulStatisticsResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 1EE7B150-D67E-53FD-A52D-3E8E669A****
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeInstanceVulStatisticsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The statistics of the vulnerabilities.
+     *
      * @var vulStat
      */
     public $vulStat;

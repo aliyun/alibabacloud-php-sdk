@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class policyList extends Model
 {
     /**
+     * @description The information about the policy.
+     *
      * @var info[]
      */
     public $info;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   **limitFrequency**
+     *   **limitBandWidth**
+     *
      * @example limitBandWidth
      *
      * @var string

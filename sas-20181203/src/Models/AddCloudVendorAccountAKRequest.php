@@ -41,6 +41,18 @@ class AddCloudVendorAccountAKRequest extends Model
     public $domain;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @description The regions that are examined during AccessKey pair authentication. This parameter takes effect only when Vendor is set to AWS.
      *
      * @var string[]
@@ -129,6 +141,7 @@ class AddCloudVendorAccountAKRequest extends Model
         'akType'          => 'AkType',
         'authModules'     => 'AuthModules',
         'domain'          => 'Domain',
+        'lang'            => 'Lang',
         'regions'         => 'Regions',
         'secretId'        => 'SecretId',
         'secretKey'       => 'SecretKey',
@@ -152,6 +165,9 @@ class AddCloudVendorAccountAKRequest extends Model
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->regions) {
             $res['Regions'] = $this->regions;
@@ -193,6 +209,9 @@ class AddCloudVendorAccountAKRequest extends Model
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {

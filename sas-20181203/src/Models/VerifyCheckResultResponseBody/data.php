@@ -21,11 +21,21 @@ class data extends Model
     public $operateCode;
 
     /**
+     * @var string
+     */
+    public $taskId;
+
+    /**
+     * @description The throttling duration. Unit: seconds
+     *
+     * @example 1800
+     *
      * @var int
      */
     public $throttlingTimeSecond;
     protected $_name = [
         'operateCode'          => 'OperateCode',
+        'taskId'               => 'TaskId',
         'throttlingTimeSecond' => 'ThrottlingTimeSecond',
     ];
 
@@ -38,6 +48,9 @@ class data extends Model
         $res = [];
         if (null !== $this->operateCode) {
             $res['OperateCode'] = $this->operateCode;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
         if (null !== $this->throttlingTimeSecond) {
             $res['ThrottlingTimeSecond'] = $this->throttlingTimeSecond;
@@ -56,6 +69,9 @@ class data extends Model
         $model = new self();
         if (isset($map['OperateCode'])) {
             $model->operateCode = $map['OperateCode'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
         if (isset($map['ThrottlingTimeSecond'])) {
             $model->throttlingTimeSecond = $map['ThrottlingTimeSecond'];

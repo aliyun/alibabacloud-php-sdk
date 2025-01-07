@@ -4,10 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRelateMaliciousResponseBody;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRelateMaliciousResponseBody\list_\details;
 use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
+    /**
+     * @var details[]
+     */
+    public $details;
+
+    /**
+     * @var string
+     */
+    public $downloadUrl;
+
     /**
      * @description The file path.
      *
@@ -25,6 +36,16 @@ class list_ extends Model
      * @var int
      */
     public $firstScanTimestamp;
+
+    /**
+     * @var string
+     */
+    public $highLight;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @description The name of the asset.
@@ -63,6 +84,56 @@ class list_ extends Model
     public $latestScanTimestamp;
 
     /**
+     * @var string
+     */
+    public $level;
+
+    /**
+     * @var string
+     */
+    public $maliciousMd5;
+
+    /**
+     * @var string
+     */
+    public $maliciousName;
+
+    /**
+     * @var string
+     */
+    public $maliciousType;
+
+    /**
+     * @var string
+     */
+    public $operateResult;
+
+    /**
+     * @var string
+     */
+    public $operateTimestamp;
+
+    /**
+     * @var string
+     */
+    public $partition;
+
+    /**
+     * @var string
+     */
+    public $targetId;
+
+    /**
+     * @var string
+     */
+    public $targetName;
+
+    /**
+     * @var string
+     */
+    public $targetType;
+
+    /**
      * @description The UUID of the server.
      *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
@@ -71,12 +142,26 @@ class list_ extends Model
      */
     public $uuid;
     protected $_name = [
+        'details'             => 'Details',
+        'downloadUrl'         => 'DownloadUrl',
         'filePath'            => 'FilePath',
         'firstScanTimestamp'  => 'FirstScanTimestamp',
+        'highLight'           => 'HighLight',
+        'id'                  => 'Id',
         'instanceName'        => 'InstanceName',
         'internetIp'          => 'InternetIp',
         'intranetIp'          => 'IntranetIp',
         'latestScanTimestamp' => 'LatestScanTimestamp',
+        'level'               => 'Level',
+        'maliciousMd5'        => 'MaliciousMd5',
+        'maliciousName'       => 'MaliciousName',
+        'maliciousType'       => 'MaliciousType',
+        'operateResult'       => 'OperateResult',
+        'operateTimestamp'    => 'OperateTimestamp',
+        'partition'           => 'Partition',
+        'targetId'            => 'TargetId',
+        'targetName'          => 'TargetName',
+        'targetType'          => 'TargetType',
         'uuid'                => 'Uuid',
     ];
 
@@ -87,11 +172,29 @@ class list_ extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->details) {
+            $res['Details'] = [];
+            if (null !== $this->details && \is_array($this->details)) {
+                $n = 0;
+                foreach ($this->details as $item) {
+                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->downloadUrl) {
+            $res['DownloadUrl'] = $this->downloadUrl;
+        }
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
         if (null !== $this->firstScanTimestamp) {
             $res['FirstScanTimestamp'] = $this->firstScanTimestamp;
+        }
+        if (null !== $this->highLight) {
+            $res['HighLight'] = $this->highLight;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -104,6 +207,36 @@ class list_ extends Model
         }
         if (null !== $this->latestScanTimestamp) {
             $res['LatestScanTimestamp'] = $this->latestScanTimestamp;
+        }
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
+        if (null !== $this->maliciousMd5) {
+            $res['MaliciousMd5'] = $this->maliciousMd5;
+        }
+        if (null !== $this->maliciousName) {
+            $res['MaliciousName'] = $this->maliciousName;
+        }
+        if (null !== $this->maliciousType) {
+            $res['MaliciousType'] = $this->maliciousType;
+        }
+        if (null !== $this->operateResult) {
+            $res['OperateResult'] = $this->operateResult;
+        }
+        if (null !== $this->operateTimestamp) {
+            $res['OperateTimestamp'] = $this->operateTimestamp;
+        }
+        if (null !== $this->partition) {
+            $res['Partition'] = $this->partition;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
+        }
+        if (null !== $this->targetName) {
+            $res['TargetName'] = $this->targetName;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -120,11 +253,29 @@ class list_ extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Details'])) {
+            if (!empty($map['Details'])) {
+                $model->details = [];
+                $n              = 0;
+                foreach ($map['Details'] as $item) {
+                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['DownloadUrl'])) {
+            $model->downloadUrl = $map['DownloadUrl'];
+        }
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
         if (isset($map['FirstScanTimestamp'])) {
             $model->firstScanTimestamp = $map['FirstScanTimestamp'];
+        }
+        if (isset($map['HighLight'])) {
+            $model->highLight = $map['HighLight'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -137,6 +288,36 @@ class list_ extends Model
         }
         if (isset($map['LatestScanTimestamp'])) {
             $model->latestScanTimestamp = $map['LatestScanTimestamp'];
+        }
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
+        if (isset($map['MaliciousMd5'])) {
+            $model->maliciousMd5 = $map['MaliciousMd5'];
+        }
+        if (isset($map['MaliciousName'])) {
+            $model->maliciousName = $map['MaliciousName'];
+        }
+        if (isset($map['MaliciousType'])) {
+            $model->maliciousType = $map['MaliciousType'];
+        }
+        if (isset($map['OperateResult'])) {
+            $model->operateResult = $map['OperateResult'];
+        }
+        if (isset($map['OperateTimestamp'])) {
+            $model->operateTimestamp = $map['OperateTimestamp'];
+        }
+        if (isset($map['Partition'])) {
+            $model->partition = $map['Partition'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
+        }
+        if (isset($map['TargetName'])) {
+            $model->targetName = $map['TargetName'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

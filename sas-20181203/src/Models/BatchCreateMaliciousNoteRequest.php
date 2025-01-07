@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class BatchCreateMaliciousNoteRequest extends Model
 {
     /**
+     * @description The batches.
+     *
      * @var imageMaliciousFileList[]
      */
     public $imageMaliciousFileList;

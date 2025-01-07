@@ -11,16 +11,27 @@ class AddCheckResultWhiteListRequest extends Model
     /**
      * @description The IDs of the check items.
      *
+     * >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of the check items.
      * @var int[]
      */
     public $checkIds;
 
     /**
+     * @description The description. The value of this parameter can be up to 65,535 bytes in length.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The type of the rule. Default value: **WHITE**. Valid value:
+     *
+     *   **WHITE**: Add check items to the whitelist.
+     *
+     * @example WHITE
+     *
      * @var string
      */
     public $ruleType;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class operationList extends Model
 {
     /**
+     * @description The ID of the server group.
+     *
+     * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
      * @example 11883086
      *
      * @var string
@@ -16,6 +19,11 @@ class operationList extends Model
     public $groupId;
 
     /**
+     * @description The operation type. Valid values:
+     *
+     *   **add**: the add operation.
+     *   **del**: the remove operation.
+     *
      * @example add
      *
      * @var string
@@ -23,6 +31,9 @@ class operationList extends Model
     public $operation;
 
     /**
+     * @description The UUID of the server.
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example de393767-6fe1-4a8d-837d-927a2b******
      *
      * @var string
@@ -30,6 +41,8 @@ class operationList extends Model
     public $uuid;
 
     /**
+     * @description The ID of the VPC-connected instance.
+     *
      * @example vpc-bp1ow0rm9t92iza******
      *
      * @var string

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListPublishBatchResponseBody extends Model
 {
     /**
+     * @description The information about the release batches.
+     *
      * @var batchList[]
      */
     public $batchList;
 
     /**
+     * @description The page information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 7532B7EE-7CE7-5F4D-BF04-B12447DDCAE1
      *
      * @var string

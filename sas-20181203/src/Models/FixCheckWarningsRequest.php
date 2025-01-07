@@ -41,6 +41,11 @@ class FixCheckWarningsRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $retentionDays;
+
+    /**
      * @description The ID of the baseline risk item.
      *
      * >  To query specified baseline risk items and the check items of a specified server, you must provide the IDs of the baseline risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs.
@@ -49,6 +54,11 @@ class FixCheckWarningsRequest extends Model
      * @var int
      */
     public $riskId;
+
+    /**
+     * @var string
+     */
+    public $snapshotName;
 
     /**
      * @description The source IP address of the request.
@@ -68,11 +78,13 @@ class FixCheckWarningsRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'checkParams' => 'CheckParams',
-        'lang'        => 'Lang',
-        'riskId'      => 'RiskId',
-        'sourceIp'    => 'SourceIp',
-        'uuids'       => 'Uuids',
+        'checkParams'   => 'CheckParams',
+        'lang'          => 'Lang',
+        'retentionDays' => 'RetentionDays',
+        'riskId'        => 'RiskId',
+        'snapshotName'  => 'SnapshotName',
+        'sourceIp'      => 'SourceIp',
+        'uuids'         => 'Uuids',
     ];
 
     public function validate()
@@ -88,8 +100,14 @@ class FixCheckWarningsRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+        if (null !== $this->retentionDays) {
+            $res['RetentionDays'] = $this->retentionDays;
+        }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
+        }
+        if (null !== $this->snapshotName) {
+            $res['SnapshotName'] = $this->snapshotName;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -115,8 +133,14 @@ class FixCheckWarningsRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+        if (isset($map['RetentionDays'])) {
+            $model->retentionDays = $map['RetentionDays'];
+        }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
+        }
+        if (isset($map['SnapshotName'])) {
+            $model->snapshotName = $map['SnapshotName'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

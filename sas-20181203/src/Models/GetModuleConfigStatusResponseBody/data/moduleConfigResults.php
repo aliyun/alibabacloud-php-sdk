@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class moduleConfigResults extends Model
 {
     /**
+     * @description The name of the check item. Valid values:
+     *
+     *   **Ransom**: The anti-ransomware policy is enabled.
+     *   **WebLock**: The web tamper proofing feature is enabled.
+     *   **Rasp**: Applications are added to the application protection feature.
+     *   **Image**: The container images that can be scanned are specified.
+     *   **Virus**: The periodic virus scan policy is enabled.
+     *
      * @example Ransom
      *
      * @var string
@@ -16,6 +24,11 @@ class moduleConfigResults extends Model
     public $moduleName;
 
     /**
+     * @description Indicates whether the service module passed the status check. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

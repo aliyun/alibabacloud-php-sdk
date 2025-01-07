@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class batchList extends Model
 {
     /**
+     * @description The ID of the release batch.
+     *
      * @example 1371
      *
      * @var int
@@ -16,6 +18,8 @@ class batchList extends Model
     public $batchId;
 
     /**
+     * @description The interval between two release batches. Unit: hours.
+     *
      * @example 12
      *
      * @var int
@@ -23,11 +27,17 @@ class batchList extends Model
     public $batchInterval;
 
     /**
+     * @description The name of the release batch.
+     *
+     * @example test
+     *
      * @var string
      */
     public $batchName;
 
     /**
+     * @description The current batch number during a batch release.
+     *
      * @example 2147483647
      *
      * @var int
@@ -35,6 +45,8 @@ class batchList extends Model
     public $batchNo;
 
     /**
+     * @description The progress of the release batch. This parameter indicates the number of servers that are upgraded in the release batch.
+     *
      * @example 12
      *
      * @var int
@@ -42,6 +54,8 @@ class batchList extends Model
     public $batchProcess;
 
     /**
+     * @description The total number of batches.
+     *
      * @example 3
      *
      * @var int
@@ -49,6 +63,12 @@ class batchList extends Model
     public $batchTotal;
 
     /**
+     * @description The asset selection dimension. Valid values:
+     *
+     *   **0**: instance.
+     *   **1**: machine group.
+     *   **2**: Virtual Private Cloud (VPC) ID.
+     *
      * @example 0
      *
      * @var int
@@ -56,6 +76,14 @@ class batchList extends Model
     public $operationBase;
 
     /**
+     * @description The publish status of the Security Center agent. Valid values:
+     *
+     *   **0**: not started.
+     *   **1**: publishing.
+     *   **2**: published.
+     *   **3**: publish suspended.
+     *   **4**: forcibly upgrading.
+     *
      * @example 1
      *
      * @var int
@@ -63,6 +91,8 @@ class batchList extends Model
     public $status;
 
     /**
+     * @description The destination version of the Security Center agent.
+     *
      * @example 0.0.9
      *
      * @var string

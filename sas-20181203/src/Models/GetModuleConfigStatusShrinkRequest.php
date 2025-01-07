@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetModuleConfigStatusShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The service modules that you want to query.
      *
+     * This parameter is required.
      * @var string
      */
     public $moduleNamesShrink;

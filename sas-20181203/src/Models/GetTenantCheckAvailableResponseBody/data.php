@@ -2,24 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageScanAuthorizationResponseBody;
+namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetTenantCheckAvailableResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class authStatus extends Model
+class data extends Model
 {
     /**
-     * @description Indicates whether Security Center is authorized to scan images. Valid values:
-     * **true**: yes
-     * **false**: no
+     * @example 1725530005357
      *
-     * @example true
+     * @var int
+     */
+    public $nextScanTime;
+
+    /**
+     * @example 0
      *
-     * @var bool
+     * @var int
      */
     public $status;
     protected $_name = [
-        'status' => 'Status',
+        'nextScanTime' => 'NextScanTime',
+        'status'       => 'Status',
     ];
 
     public function validate()
@@ -29,6 +33,9 @@ class authStatus extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->nextScanTime) {
+            $res['NextScanTime'] = $this->nextScanTime;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -39,11 +46,14 @@ class authStatus extends Model
     /**
      * @param array $map
      *
-     * @return authStatus
+     * @return data
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NextScanTime'])) {
+            $model->nextScanTime = $map['NextScanTime'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

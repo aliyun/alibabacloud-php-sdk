@@ -51,6 +51,11 @@ class AddImageEventOperationRequest extends Model
     public $eventType;
 
     /**
+     * @var string
+     */
+    public $note;
+
+    /**
      * @description The operation code.
      *
      *   Set the value to **whitelist** to add the alert item to the whitelist.
@@ -72,13 +77,20 @@ class AddImageEventOperationRequest extends Model
      * @var string
      */
     public $scenarios;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'conditions'    => 'Conditions',
         'eventKey'      => 'EventKey',
         'eventName'     => 'EventName',
         'eventType'     => 'EventType',
+        'note'          => 'Note',
         'operationCode' => 'OperationCode',
         'scenarios'     => 'Scenarios',
+        'source'        => 'Source',
     ];
 
     public function validate()
@@ -100,11 +112,17 @@ class AddImageEventOperationRequest extends Model
         if (null !== $this->eventType) {
             $res['EventType'] = $this->eventType;
         }
+        if (null !== $this->note) {
+            $res['Note'] = $this->note;
+        }
         if (null !== $this->operationCode) {
             $res['OperationCode'] = $this->operationCode;
         }
         if (null !== $this->scenarios) {
             $res['Scenarios'] = $this->scenarios;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -130,11 +148,17 @@ class AddImageEventOperationRequest extends Model
         if (isset($map['EventType'])) {
             $model->eventType = $map['EventType'];
         }
+        if (isset($map['Note'])) {
+            $model->note = $map['Note'];
+        }
         if (isset($map['OperationCode'])) {
             $model->operationCode = $map['OperationCode'];
         }
         if (isset($map['Scenarios'])) {
             $model->scenarios = $map['Scenarios'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

@@ -22,15 +22,15 @@ class ModifyCreateVulWhitelistRequest extends Model
      *
      *   **type**: the type of the applicable scope. Valid values:
      *
-     *   **GroupId**: the ID of a server group
-     *   **Uuid**: the UUID of a server
+     *   **GroupId**: the ID of a server group.
+     *   **Uuid**: the UUID of a server.
      *
-     *   **uuids**: the UUIDs of servers
+     *   **uuids**: the UUIDs of servers. This field is of the string type.
      *
-     *   **groupIds**: the IDs of server groups
+     *   **groupIds**: the IDs of server groups. This field is of the long type.
      *
-     * >  If you leave this parameter empty, all servers are added to the whitelist. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set **type** to **Uuid**, you must specify the **uuids** parameter.
-     * @example {"type":"GroupId","uuids":[],"groupIds":[10782678]}
+     * >  If you leave this parameter empty, the applicable scope is all servers. If you set the **type** field to **GroupId**, you must also specify the **groupIds** field. If you set the **type** field to **Uuid**, you must also specify the **uuids** field.
+     * @example {"type":"Uuid","uuids":["b31a708f-5fea-426e-bebe-a7b0893****","1f749687-3b5d-4e11-8140-d964673****"],"groupIds":[]}
      *
      * @var string
      */

@@ -114,6 +114,11 @@ class strategies extends Model
     public $passRate;
 
     /**
+     * @var string
+     */
+    public $percent;
+
+    /**
      * @description The number of the assets on which the baseline check is complete.
      *
      * @example 20
@@ -151,6 +156,11 @@ class strategies extends Model
      * @var int
      */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $userModifyTime;
     protected $_name = [
         'configTargets'  => 'ConfigTargets',
         'customType'     => 'CustomType',
@@ -162,10 +172,12 @@ class strategies extends Model
         'id'             => 'Id',
         'name'           => 'Name',
         'passRate'       => 'PassRate',
+        'percent'        => 'Percent',
         'processRate'    => 'ProcessRate',
         'riskCount'      => 'RiskCount',
         'startTime'      => 'StartTime',
         'type'           => 'Type',
+        'userModifyTime' => 'UserModifyTime',
     ];
 
     public function validate()
@@ -211,6 +223,9 @@ class strategies extends Model
         if (null !== $this->passRate) {
             $res['PassRate'] = $this->passRate;
         }
+        if (null !== $this->percent) {
+            $res['Percent'] = $this->percent;
+        }
         if (null !== $this->processRate) {
             $res['ProcessRate'] = $this->processRate;
         }
@@ -222,6 +237,9 @@ class strategies extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->userModifyTime) {
+            $res['UserModifyTime'] = $this->userModifyTime;
         }
 
         return $res;
@@ -271,6 +289,9 @@ class strategies extends Model
         if (isset($map['PassRate'])) {
             $model->passRate = $map['PassRate'];
         }
+        if (isset($map['Percent'])) {
+            $model->percent = $map['Percent'];
+        }
         if (isset($map['ProcessRate'])) {
             $model->processRate = $map['ProcessRate'];
         }
@@ -282,6 +303,9 @@ class strategies extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UserModifyTime'])) {
+            $model->userModifyTime = $map['UserModifyTime'];
         }
 
         return $model;

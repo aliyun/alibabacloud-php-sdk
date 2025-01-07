@@ -21,6 +21,18 @@ class data extends Model
     public $businessType;
 
     /**
+     * @description The operating system of the asset. Valid values:
+     *
+     *   **windows**: the Windows operating system
+     *   **linux**: the Linux operating system
+     *
+     * @example all
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The ID of the current asset selection. It can be used to query and modify the asset that is selected.
      *
      * @example 53e93435-d694-4c03-9ce7-da12bee1****
@@ -43,6 +55,7 @@ class data extends Model
     public $targetType;
     protected $_name = [
         'businessType' => 'BusinessType',
+        'platform'     => 'Platform',
         'selectionKey' => 'SelectionKey',
         'targetType'   => 'TargetType',
     ];
@@ -56,6 +69,9 @@ class data extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->selectionKey) {
             $res['SelectionKey'] = $this->selectionKey;
@@ -77,6 +93,9 @@ class data extends Model
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['SelectionKey'])) {
             $model->selectionKey = $map['SelectionKey'];

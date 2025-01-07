@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class vulList extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
+     * @example CESA-2023:3555: python Security Update
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The number of the vulnerabilities that have the **high** priority.
+     *
      * @example 50
      *
      * @var int
@@ -21,6 +27,8 @@ class vulList extends Model
     public $asapCount;
 
     /**
+     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     *
      * @example 1639371446000
      *
      * @var int
@@ -28,6 +36,8 @@ class vulList extends Model
     public $gmtLast;
 
     /**
+     * @description The number of handled vulnerabilities.
+     *
      * @example 33
      *
      * @var int
@@ -35,6 +45,8 @@ class vulList extends Model
     public $handledCount;
 
     /**
+     * @description The number of the vulnerabilities that have the **medium** priority.
+     *
      * @example 30
      *
      * @var int
@@ -42,6 +54,8 @@ class vulList extends Model
     public $laterCount;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @example oval:com.redhat.rhsa:def:20170574
      *
      * @var string
@@ -49,6 +63,8 @@ class vulList extends Model
     public $name;
 
     /**
+     * @description The number of the vulnerabilities that have the **low** priority.
+     *
      * @example 20
      *
      * @var int
@@ -56,6 +72,15 @@ class vulList extends Model
     public $nntfCount;
 
     /**
+     * @description The tag that is added to the vulnerability. Valid values:
+     *
+     *   Restart required
+     *   Remote utilization
+     *   EXP exists
+     *   Available
+     *   Elevation of Privilege
+     *   Code Execution
+     *
      * @example Code Execution
      *
      * @var string
@@ -63,6 +88,14 @@ class vulList extends Model
     public $tags;
 
     /**
+     * @description The type of the vulnerability. Default value: cve. Valid values:
+     *
+     *   **cve**: Linux software vulnerability.
+     *   **sys**: Windows system vulnerability.
+     *   **cms**: Web-CMS vulnerability.
+     *   **app**: application vulnerability that is detected by network scanning.
+     *   **sca**: application vulnerability that is detected by using software component analysis.
+     *
      * @example app
      *
      * @var string

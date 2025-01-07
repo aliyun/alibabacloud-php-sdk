@@ -74,6 +74,11 @@ class data extends Model
     public $firstTime;
 
     /**
+     * @description Indicates whether an alert is generated for the file extracted from the package. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

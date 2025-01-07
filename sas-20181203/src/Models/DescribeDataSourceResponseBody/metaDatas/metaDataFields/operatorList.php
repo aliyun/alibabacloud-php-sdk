@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class operatorList extends Model
 {
     /**
+     * @description The description of the operator.
+     *
+     * @example dingtalk_vul
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the operator.
+     *
      * @example regex
      *
      * @var string

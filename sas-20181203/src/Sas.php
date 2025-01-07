@@ -328,8 +328,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsScaProcessNumResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsSecurityEventSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsSecurityEventSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetSummaryResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttachRecordsRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttachRecordsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttestorsRequest;
@@ -578,7 +576,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageRepoListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageScanAuthCountResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageScanAuthorizationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileByKeyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileByKeyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageSensitiveFileByKeyShrinkRequest;
@@ -784,8 +781,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniSupportRegionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBackupMachinesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserLayoutAuthorizationResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserSettingRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserSettingResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUuidsByVulNamesRequest;
@@ -942,8 +937,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckStructureResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientInstallationStatisticRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientInstallationStatisticResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientUserDefineRuleRequest;
@@ -1065,6 +1058,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSwitchRegionDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSwitchRegionDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetTenantCheckAvailableResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetUserLangResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVirusScanConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVirusScanConfigResponse;
@@ -1091,8 +1085,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\InstallHybridProxyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallHybridProxyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallPmAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallPmAgentResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\InstallRaspAttachRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\InstallRaspAttachResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\JoinWebLockProcessWhiteListRequest;
@@ -1217,6 +1209,10 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListObjectScanEventRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListObjectScanEventResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOpaClusterStrategyNewRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOpaClusterStrategyNewResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationProcessDetailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationProcessDetailResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationProcessRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationProcessResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssBucketRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssBucketResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOssBucketScanInfoRequest;
@@ -1534,6 +1530,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageBuildRiskStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageBuildRiskStatusResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageSensitiveFileStatusRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageSensitiveFileStatusResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SetImageSensitiveFileStatusShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetRegistryScanDayNumRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetRegistryScanDayNumResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SetSensitiveDefineRuleConfigRequest;
@@ -1556,6 +1553,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitCheckRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitOperationTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitOperationTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\SubmitTenantCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\TriggerCheckResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisResponse;
@@ -1563,8 +1561,6 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UnBindHybridProxyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnBindHybridProxyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientResponse;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallRaspAttachRequest;
-use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallRaspAttachResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnMarkMonitorAccountsRequest;
@@ -1836,7 +1832,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Adds check items to the whitelist for instances.
+     * @summary Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
      *  *
      * @param AddCheckInstanceResultWhiteListRequest $request AddCheckInstanceResultWhiteListRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -1884,7 +1880,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Adds check items to the whitelist for instances.
+     * @summary Adds instances on which risks are detected based on check items of the configuration assessment feature to a whitelist.
      *  *
      * @param AddCheckInstanceResultWhiteListRequest $request AddCheckInstanceResultWhiteListRequest
      *
@@ -1898,7 +1894,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Adds check items to the whitelist.
+     * @summary Adds the check items of the configuration assessment feature to the whitelist.
      *  *
      * @param AddCheckResultWhiteListRequest $request AddCheckResultWhiteListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -1937,7 +1933,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Adds check items to the whitelist.
+     * @summary Adds the check items of the configuration assessment feature to the whitelist.
      *  *
      * @param AddCheckResultWhiteListRequest $request AddCheckResultWhiteListRequest
      *
@@ -2065,6 +2061,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->domain)) {
             $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
         if (!Utils::isUnset($request->regions)) {
             $query['Regions'] = $request->regions;
@@ -2350,11 +2349,17 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->eventType)) {
             $query['EventType'] = $request->eventType;
         }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
         if (!Utils::isUnset($request->operationCode)) {
             $query['OperationCode'] = $request->operationCode;
         }
         if (!Utils::isUnset($request->scenarios)) {
             $query['Scenarios'] = $request->scenarios;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2473,6 +2478,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->os)) {
             $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->privateLinkId)) {
+            $query['PrivateLinkId'] = $request->privateLinkId;
         }
         if (!Utils::isUnset($request->proxyCluster)) {
             $query['ProxyCluster'] = $request->proxyCluster;
@@ -2596,7 +2604,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 新增发布批次
+     * @summary Upgrades the Security Center agent in batches.
      *  *
      * @param AddPublishBatchRequest $request AddPublishBatchRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -2638,7 +2646,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 新增发布批次
+     * @summary Upgrades the Security Center agent in batches.
      *  *
      * @param AddPublishBatchRequest $request AddPublishBatchRequest
      *
@@ -2968,7 +2976,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 批量创建恶意文件告警备注
+     * @summary Adds alert description in batches.
      *  *
      * @param BatchCreateMaliciousNoteRequest $request BatchCreateMaliciousNoteRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3001,7 +3009,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 批量创建恶意文件告警备注
+     * @summary Adds alert description in batches.
      *  *
      * @param BatchCreateMaliciousNoteRequest $request BatchCreateMaliciousNoteRequest
      *
@@ -3772,7 +3780,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 检查试用修复数量
+     * @summary Checks whether the remaining quota of the vulnerability fixing feature is sufficient for a free trial user of Security Center and queries the quota usage required for the current fix operation.
+     *  *
+     * @description You can call this operation to check whether the remaining quota of the vulnerability fixing feature is sufficient in free trial scenarios. This operation does not trigger vulnerability fixing.
      *  *
      * @param CheckTrialFixCountRequest $request CheckTrialFixCountRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3814,7 +3824,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 检查试用修复数量
+     * @summary Checks whether the remaining quota of the vulnerability fixing feature is sufficient for a free trial user of Security Center and queries the quota usage required for the current fix operation.
+     *  *
+     * @description You can call this operation to check whether the remaining quota of the vulnerability fixing feature is sufficient in free trial scenarios. This operation does not trigger vulnerability fixing.
      *  *
      * @param CheckTrialFixCountRequest $request CheckTrialFixCountRequest
      *
@@ -4124,6 +4136,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->businessType)) {
             $query['BusinessType'] = $request->businessType;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
         }
         if (!Utils::isUnset($request->targetType)) {
             $query['TargetType'] = $request->targetType;
@@ -5748,7 +5763,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 创建监视器帐户
+     * @summary Creates a list of members of the account monitored by Security Center type by using the multi-account management feature.
+     *  *
+     * @description You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
      *  *
      * @param CreateMonitorAccountRequest $request CreateMonitorAccountRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5781,7 +5798,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 创建监视器帐户
+     * @summary Creates a list of members of the account monitored by Security Center type by using the multi-account management feature.
+     *  *
+     * @description You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
      *  *
      * @param CreateMonitorAccountRequest $request CreateMonitorAccountRequest
      *
@@ -6194,7 +6213,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scan policy.
+     * @summary Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
      *  *
      * @param CreateOssScanConfigRequest $request CreateOssScanConfigRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -6263,7 +6282,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scan policy.
+     * @summary Creates a policy for detecting malicious Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
      *  *
      * @param CreateOssScanConfigRequest $request CreateOssScanConfigRequest
      *
@@ -6277,7 +6296,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 新增修改目录节点同步开关
+     * @summary Creates an automatic account management policy for members of the account monitored by Security Center type by using the multi-account management feature. After the policy is created, the members that are newly added to the specified resource directory are automatically added to the list of members of the account monitored by Security Center type.
+     *  *
+     * @description You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
      *  *
      * @param CreateRdDefaultSyncListRequest $request CreateRdDefaultSyncListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6310,7 +6331,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 新增修改目录节点同步开关
+     * @summary Creates an automatic account management policy for members of the account monitored by Security Center type by using the multi-account management feature. After the policy is created, the members that are newly added to the specified resource directory are automatically added to the list of members of the account monitored by Security Center type.
+     *  *
+     * @description You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
      *  *
      * @param CreateRdDefaultSyncListRequest $request CreateRdDefaultSyncListRequest
      *
@@ -8236,7 +8259,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 删除代理
+     * @summary Removes a proxy node from a specified proxy cluster.
      *  *
      * @param DeleteHybridProxyRequest $request DeleteHybridProxyRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8272,7 +8295,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 删除代理
+     * @summary Removes a proxy node from a specified proxy cluster.
      *  *
      * @param DeleteHybridProxyRequest $request DeleteHybridProxyRequest
      *
@@ -8286,7 +8309,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 删除代理集群
+     * @summary Deletes a proxy cluster based on the name of the proxy cluster.
      *  *
      * @param DeleteHybridProxyClusterRequest $request DeleteHybridProxyClusterRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -8319,7 +8342,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 删除代理集群
+     * @summary Deletes a proxy cluster based on the name of the proxy cluster.
      *  *
      * @param DeleteHybridProxyClusterRequest $request DeleteHybridProxyClusterRequest
      *
@@ -10412,6 +10435,8 @@ class Sas extends OpenApiClient
      *  *
      * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
      *  *
+     * @description This operation will be discontinued soon. You must call the [GetAssetDetailByUuid](~~GetAssetDetailByUuid~~) operation to query the details of the server.
+     *  *
      * Deprecated
      *
      * @param DescribeAssetDetailByUuidRequest $request DescribeAssetDetailByUuidRequest
@@ -10454,6 +10479,8 @@ class Sas extends OpenApiClient
      * @deprecated openAPI DescribeAssetDetailByUuid is deprecated, please use Sas::2018-12-03::GetAssetDetailByUuid instead
      *  *
      * @summary Queries the details of a server and the extended information about the server by using the UUID of the server.
+     *  *
+     * @description This operation will be discontinued soon. You must call the [GetAssetDetailByUuid](~~GetAssetDetailByUuid~~) operation to query the details of the server.
      *  *
      * Deprecated
      *
@@ -10662,56 +10689,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAssetsSecurityEventSummaryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Queries the results of automatically connecting applications on Elastic Compute Service (ECS) instances to the application protection feature after the Runtime Application Self-Protection (RASP) agent is installed on the ECS instances.
-     *  *
-     * @param DescribeAttachRecordsRequest $request DescribeAttachRecordsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeAttachRecordsResponse DescribeAttachRecordsResponse
-     */
-    public function describeAttachRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
-        }
-        if (!Utils::isUnset($request->ecsUUIDList)) {
-            $query['EcsUUIDList'] = $request->ecsUUIDList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeAttachRecords',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeAttachRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries the results of automatically connecting applications on Elastic Compute Service (ECS) instances to the application protection feature after the Runtime Application Self-Protection (RASP) agent is installed on the ECS instances.
-     *  *
-     * @param DescribeAttachRecordsRequest $request DescribeAttachRecordsRequest
-     *
-     * @return DescribeAttachRecordsResponse DescribeAttachRecordsResponse
-     */
-    public function describeAttachRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeAttachRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -11547,7 +11524,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询是否允许试用云安全中心
+     * @summary Checks the permissions on the trial use of Security Center.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -11572,7 +11549,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询是否允许试用云安全中心
+     * @summary Checks the permissions on the trial use of Security Center.
      *  *
      * @return DescribeCanTrySasResponse DescribeCanTrySasResponse
      */
@@ -11699,7 +11676,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询分类并附带每个分类的未处理异常数量
+     * @summary Queries the number of weak passwords that can cause high risks to your assets.
      *  *
      * @param DescribeCheckEcsWarningsRequest $request DescribeCheckEcsWarningsRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -11732,7 +11709,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询分类并附带每个分类的未处理异常数量
+     * @summary Queries the number of weak passwords that can cause high risks to your assets.
      *  *
      * @param DescribeCheckEcsWarningsRequest $request DescribeCheckEcsWarningsRequest
      *
@@ -11836,7 +11813,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取基线问题条数
+     * @summary Queries the number of alerts that are triggered by a check item.
      *  *
      * @param DescribeCheckWarningCountRequest $request DescribeCheckWarningCountRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -11878,7 +11855,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取基线问题条数
+     * @summary Queries the number of alerts that are triggered by a check item.
      *  *
      * @param DescribeCheckWarningCountRequest $request DescribeCheckWarningCountRequest
      *
@@ -12294,7 +12271,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询客户端问题列表
+     * @summary Queries a list of agent issue types.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -12319,7 +12296,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询客户端问题列表
+     * @summary Queries a list of agent issue types.
      *  *
      * @return DescribeClientProblemTypeResponse DescribeClientProblemTypeResponse
      */
@@ -14192,7 +14169,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询操作审计数据源
+     * @summary Queries data sources for DingTalk notifications. You can configure the types of alerts for which you want to use a DingTalk chatbot to send notifications based on the data sources.
      *  *
      * @param DescribeDataSourceRequest $request DescribeDataSourceRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -14231,7 +14208,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询操作审计数据源
+     * @summary Queries data sources for DingTalk notifications. You can configure the types of alerts for which you want to use a DingTalk chatbot to send notifications based on the data sources.
      *  *
      * @param DescribeDataSourceRequest $request DescribeDataSourceRequest
      *
@@ -14538,7 +14515,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告-安全告警
+     * @summary Queries the security alert data of a website security report.
      *  *
      * @param DescribeDomainSecureAlarmListRequest $request DescribeDomainSecureAlarmListRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -14577,7 +14554,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告-安全告警
+     * @summary Queries the security alert data of a website security report.
      *  *
      * @param DescribeDomainSecureAlarmListRequest $request DescribeDomainSecureAlarmListRequest
      *
@@ -14591,7 +14568,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告-存在风险的网站
+     * @summary Queries a list of risky websites in your website security report and the security information about the websites, including the number of vulnerabilities and the number of alerts.
      *  *
      * @param DescribeDomainSecureRiskListRequest $request DescribeDomainSecureRiskListRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -14630,7 +14607,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告-存在风险的网站
+     * @summary Queries a list of risky websites in your website security report and the security information about the websites, including the number of vulnerabilities and the number of alerts.
      *  *
      * @param DescribeDomainSecureRiskListRequest $request DescribeDomainSecureRiskListRequest
      *
@@ -14644,7 +14621,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告的安全分
+     * @summary Queries the security score in your website security report. The full score is 100.
      *  *
      * @param DescribeDomainSecureScoreRequest $request DescribeDomainSecureScoreRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -14680,7 +14657,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告的安全分
+     * @summary Queries the security score in your website security report. The full score is 100.
      *  *
      * @param DescribeDomainSecureScoreRequest $request DescribeDomainSecureScoreRequest
      *
@@ -14694,7 +14671,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告- 统计值
+     * @summary Queries the statistics in your website security report, including the number of websites and the number of security events.
      *  *
      * @param DescribeDomainSecureStatisticsRequest $request DescribeDomainSecureStatisticsRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -14730,7 +14707,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告- 统计值
+     * @summary Queries the statistics in your website security report, including the number of websites and the number of security events.
      *  *
      * @param DescribeDomainSecureStatisticsRequest $request DescribeDomainSecureStatisticsRequest
      *
@@ -14744,7 +14721,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告-漏洞
+     * @summary Queries a list of vulnerabilities in your website security report.
      *  *
      * @param DescribeDomainSecureVulListRequest $request DescribeDomainSecureVulListRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -14786,7 +14763,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询网络安全报告-漏洞
+     * @summary Queries a list of vulnerabilities in your website security report.
      *  *
      * @param DescribeDomainSecureVulListRequest $request DescribeDomainSecureVulListRequest
      *
@@ -15308,7 +15285,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a specified server that is exposed on the Internet.
+     * @summary Queries the details of a specified server that is exposed on the Internet.
      *  *
      * @param DescribeExposedInstanceDetailRequest $request DescribeExposedInstanceDetailRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -15319,6 +15296,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         if (!Utils::isUnset($request->resourceDirectoryAccountId)) {
             $query['ResourceDirectoryAccountId'] = $request->resourceDirectoryAccountId;
         }
@@ -15344,7 +15324,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details about a specified server that is exposed on the Internet.
+     * @summary Queries the details of a specified server that is exposed on the Internet.
      *  *
      * @param DescribeExposedInstanceDetailRequest $request DescribeExposedInstanceDetailRequest
      *
@@ -15358,7 +15338,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the servers that are exposed on the Internet.
+     * @summary Queries the information about the assets that are exposed on the Internet.
      *  *
      * @param DescribeExposedInstanceListRequest $request DescribeExposedInstanceListRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -15427,7 +15407,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about the servers that are exposed on the Internet.
+     * @summary Queries the information about the assets that are exposed on the Internet.
      *  *
      * @param DescribeExposedInstanceListRequest $request DescribeExposedInstanceListRequest
      *
@@ -16247,7 +16227,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询代理集群列表
+     * @summary Queries proxy clusters by page.
      *  *
      * @param DescribeHybridProxyClusterListRequest $request DescribeHybridProxyClusterListRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -16286,7 +16266,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询代理集群列表
+     * @summary Queries proxy clusters by page.
      *  *
      * @param DescribeHybridProxyClusterListRequest $request DescribeHybridProxyClusterListRequest
      *
@@ -16300,7 +16280,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询代理连接的客户端
+     * @summary Queries the servers that are connected to a proxy in a hybrid cloud by page.
      *  *
      * @param DescribeHybridProxyLinkedClientListRequest $request DescribeHybridProxyLinkedClientListRequest
      * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
@@ -16348,7 +16328,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询代理连接的客户端
+     * @summary Queries the servers that are connected to a proxy in a hybrid cloud by page.
      *  *
      * @param DescribeHybridProxyLinkedClientListRequest $request DescribeHybridProxyLinkedClientListRequest
      *
@@ -16362,7 +16342,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询代理
+     * @summary Queries the proxy nodes that are deployed in a proxy cluster by page.
      *  *
      * @param DescribeHybridProxyListRequest $request DescribeHybridProxyListRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -16401,7 +16381,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询代理
+     * @summary Queries the proxy nodes that are deployed in a proxy cluster by page.
      *  *
      * @param DescribeHybridProxyListRequest $request DescribeHybridProxyListRequest
      *
@@ -16415,7 +16395,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户代理策略设置
+     * @summary Queries the data collection configurations of a proxy cluster.
      *  *
      * @param DescribeHybridProxyPolicyRequest $request DescribeHybridProxyPolicyRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -16448,7 +16428,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户代理策略设置
+     * @summary Queries the data collection configurations of a proxy cluster.
      *  *
      * @param DescribeHybridProxyPolicyRequest $request DescribeHybridProxyPolicyRequest
      *
@@ -16946,7 +16926,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 通过风险项关键字查询镜像的构建风险。
+     * @summary Queries image build command risks by page.
      *  *
      * @param DescribeImageBuildRiskByKeyRequest $request DescribeImageBuildRiskByKeyRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -16994,7 +16974,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 通过风险项关键字查询镜像的构建风险。
+     * @summary Queries image build command risks by page.
      *  *
      * @param DescribeImageBuildRiskByKeyRequest $request DescribeImageBuildRiskByKeyRequest
      *
@@ -17198,6 +17178,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -18004,7 +17987,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The quota for container image scan.
+     * @summary Queries the details of the quota for container image scan.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -18029,7 +18012,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The quota for container image scan.
+     * @summary Queries the details of the quota for container image scan.
      *  *
      * @return DescribeImageScanAuthCountResponse DescribeImageScanAuthCountResponse
      */
@@ -18038,43 +18021,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImageScanAuthCountWithOptions($runtime);
-    }
-
-    /**
-     * @summary Queries whether Security Center is authorized to scan images.
-     *  *
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeImageScanAuthorizationResponse DescribeImageScanAuthorizationResponse
-     */
-    public function describeImageScanAuthorizationWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'DescribeImageScanAuthorization',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeImageScanAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries whether Security Center is authorized to scan images.
-     *  *
-     * @return DescribeImageScanAuthorizationResponse DescribeImageScanAuthorizationResponse
-     */
-    public function describeImageScanAuthorization()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeImageScanAuthorizationWithOptions($runtime);
     }
 
     /**
@@ -18749,7 +18695,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群漏洞统计
+     * @summary Queries the statistics on the vulnerabilities that are detected on a serverless instance.
      *  *
      * @param DescribeInstanceVulStatisticsRequest $request DescribeInstanceVulStatisticsRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -18785,7 +18731,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询集群漏洞统计
+     * @summary Queries the statistics on the vulnerabilities that are detected on a serverless instance.
      *  *
      * @param DescribeInstanceVulStatisticsRequest $request DescribeInstanceVulStatisticsRequest
      *
@@ -18799,7 +18745,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询最新病毒扫描
+     * @summary Queries the progress of the last virus scan task.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -18824,7 +18770,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询最新病毒扫描
+     * @summary Queries the progress of the last virus scan task.
      *  *
      * @return DescribeLatestScanTaskResponse DescribeLatestScanTaskResponse
      */
@@ -19182,7 +19128,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the server.
+     * @summary Queries the configurations of the asset fingerprint module.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -19207,7 +19153,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The ID of the server.
+     * @summary Queries the configurations of the asset fingerprint module.
      *  *
      * @return DescribeModuleConfigResponse DescribeModuleConfigResponse
      */
@@ -19256,7 +19202,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询是否需要慢查询优化
+     * @summary Queries whether slow queries need to be optimized.
      *  *
      * @param DescribeNeedAsyncQueryRequest $request DescribeNeedAsyncQueryRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -19289,7 +19235,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询是否需要慢查询优化
+     * @summary Queries whether slow queries need to be optimized.
      *  *
      * @param DescribeNeedAsyncQueryRequest $request DescribeNeedAsyncQueryRequest
      *
@@ -19489,7 +19435,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries troubleshooting tasks for the Security Center agent.
+     * @summary Queries agent tasks.
      *  *
      * @param DescribeOnceTaskRequest $request DescribeOnceTaskRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -19543,7 +19489,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries troubleshooting tasks for the Security Center agent.
+     * @summary Queries agent tasks.
      *  *
      * @param DescribeOnceTaskRequest $request DescribeOnceTaskRequest
      *
@@ -21556,7 +21502,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary DescribeScanTaskProgress
+     * @summary Queries the progress of a virus scan task.
      *  *
      * @param DescribeScanTaskProgressRequest $request DescribeScanTaskProgressRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -21589,7 +21535,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary DescribeScanTaskProgress
+     * @summary Queries the progress of a virus scan task.
      *  *
      * @param DescribeScanTaskProgressRequest $request DescribeScanTaskProgressRequest
      *
@@ -21700,7 +21646,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询资产的筛选条件
+     * @summary Queries the filter conditions that are used to search for assets.
      *  *
      * @param DescribeSearchConditionRequest $request DescribeSearchConditionRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -21739,7 +21685,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询资产的筛选条件
+     * @summary Queries the filter conditions that are used to search for assets.
      *  *
      * @param DescribeSearchConditionRequest $request DescribeSearchConditionRequest
      *
@@ -21986,7 +21932,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the operations that you can perform to handle an alert event.
+     * @summary Queries the operations that you can perform to handle an alert.
      *  *
      * @param DescribeSecurityEventOperationsRequest $request DescribeSecurityEventOperationsRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -22028,7 +21974,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries the operations that you can perform to handle an alert event.
+     * @summary Queries the operations that you can perform to handle an alert.
      *  *
      * @param DescribeSecurityEventOperationsRequest $request DescribeSecurityEventOperationsRequest
      *
@@ -22704,7 +22650,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个基线检查策略的检查结果
+     * @summary Queries the results of the last baseline check by using a specified baseline check policy.
      *  *
      * @param DescribeStrategyExecDetailRequest $request DescribeStrategyExecDetailRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -22746,7 +22692,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询单个基线检查策略的检查结果
+     * @summary Queries the results of the last baseline check by using a specified baseline check policy.
      *  *
      * @param DescribeStrategyExecDetailRequest $request DescribeStrategyExecDetailRequest
      *
@@ -24203,59 +24149,6 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Queries whether the brute-force attacks protection feature has been authorized. The brute-force attacks protection feature cannot be used without authorization.
-     *  *
-     * @param DescribeUserLayoutAuthorizationRequest $request DescribeUserLayoutAuthorizationRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeUserLayoutAuthorizationResponse DescribeUserLayoutAuthorizationResponse
-     */
-    public function describeUserLayoutAuthorizationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->sourceIp)) {
-            $query['SourceIp'] = $request->sourceIp;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeUserLayoutAuthorization',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeUserLayoutAuthorizationResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Queries whether the brute-force attacks protection feature has been authorized. The brute-force attacks protection feature cannot be used without authorization.
-     *  *
-     * @param DescribeUserLayoutAuthorizationRequest $request DescribeUserLayoutAuthorizationRequest
-     *
-     * @return DescribeUserLayoutAuthorizationResponse DescribeUserLayoutAuthorizationResponse
-     */
-    public function describeUserLayoutAuthorization($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeUserLayoutAuthorizationWithOptions($request, $runtime);
-    }
-
-    /**
      * @summary Queries the settings of a custom baseline check policy.
      *  *
      * @param DescribeUserSettingRequest $request DescribeUserSettingRequest
@@ -24479,7 +24372,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询钉钉群二维码地址
+     * @summary Queries the QR code address of a DingTalk group.
      *  *
      * @param DescribeVolDingdingMessageRequest $request DescribeVolDingdingMessageRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -24515,7 +24408,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询钉钉群二维码地址
+     * @summary Queries the QR code address of a DingTalk group.
      *  *
      * @param DescribeVolDingdingMessageRequest $request DescribeVolDingdingMessageRequest
      *
@@ -25621,7 +25514,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询排除文件类型
+     * @summary Queries the types of files that are excluded from web tamper proofing.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -25646,7 +25539,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询排除文件类型
+     * @summary Queries the types of files that are excluded from web tamper proofing.
      *  *
      * @return DescribeWebLockExclusiveFileTypeResponse DescribeWebLockExclusiveFileTypeResponse
      */
@@ -26540,7 +26433,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 钉钉通知测试
+     * @summary Tests whether DingTalk notification configurations are valid.
      *  *
      * @param DingTalkOnlineTestRequest $request DingTalkOnlineTestRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -26573,7 +26466,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 钉钉通知测试
+     * @summary Tests whether DingTalk notification configurations are valid.
      *  *
      * @param DingTalkOnlineTestRequest $request DingTalkOnlineTestRequest
      *
@@ -27462,7 +27355,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 完成任务自动领取奖励
+     * @summary Completes guidance tasks for beginners to earn rewards.
      *  *
      * @param FinishGuidTaskRequest $request FinishGuidTaskRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -27495,7 +27388,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 完成任务自动领取奖励
+     * @summary Completes guidance tasks for beginners to earn rewards.
      *  *
      * @param FinishGuidTaskRequest $request FinishGuidTaskRequest
      *
@@ -27526,8 +27419,14 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->retentionDays)) {
+            $query['RetentionDays'] = $request->retentionDays;
+        }
         if (!Utils::isUnset($request->riskId)) {
             $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->snapshotName)) {
+            $query['SnapshotName'] = $request->snapshotName;
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
@@ -27754,7 +27653,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取账户标签
+     * @summary Obtains account tags.
      *  *
      * @param GetAccountLabelRequest $request GetAccountLabelRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -27790,7 +27689,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取账户标签
+     * @summary Obtains account tags.
      *  *
      * @param GetAccountLabelRequest $request GetAccountLabelRequest
      *
@@ -28285,7 +28184,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询攻击类型
+     * @summary Queries a list of attack types on the Attack Analysis page.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -28310,7 +28209,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询攻击类型
+     * @summary Queries a list of attack types on the Attack Analysis page.
      *  *
      * @return GetAttackTypeListResponse GetAttackTypeListResponse
      */
@@ -28433,7 +28332,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询防勒索存储统计
+     * @summary Queries the anti-ransomware capacity that is used.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -28458,7 +28357,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询防勒索存储统计
+     * @summary Queries the anti-ransomware capacity that is used.
      *  *
      * @return GetBackupStorageCountResponse GetBackupStorageCountResponse
      */
@@ -28470,7 +28369,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户的构建指令风险规则配置
+     * @summary Queries configurations for scanning image build command risks.
      *  *
      * @param GetBuildRiskDefineRuleConfigRequest $request GetBuildRiskDefineRuleConfigRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -28503,7 +28402,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户的构建指令风险规则配置
+     * @summary Queries configurations for scanning image build command risks.
      *  *
      * @param GetBuildRiskDefineRuleConfigRequest $request GetBuildRiskDefineRuleConfigRequest
      *
@@ -28917,64 +28816,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCheckSummaryWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated openAPI GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead
-     *  *
-     * @summary Queries the installation rate of the client on cloud assets in the specified period of time.
-     *  *
-     * Deprecated
-     *
-     * @param GetClientInstallationStatisticRequest $request GetClientInstallationStatisticRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetClientInstallationStatisticResponse GetClientInstallationStatisticResponse
-     */
-    public function getClientInstallationStatisticWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->timeEnd)) {
-            $query['TimeEnd'] = $request->timeEnd;
-        }
-        if (!Utils::isUnset($request->timeStart)) {
-            $query['TimeStart'] = $request->timeStart;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetClientInstallationStatistic',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetClientInstallationStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated openAPI GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead
-     *  *
-     * @summary Queries the installation rate of the client on cloud assets in the specified period of time.
-     *  *
-     * Deprecated
-     *
-     * @param GetClientInstallationStatisticRequest $request GetClientInstallationStatisticRequest
-     *
-     * @return GetClientInstallationStatisticResponse GetClientInstallationStatisticResponse
-     */
-    public function getClientInstallationStatistic($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getClientInstallationStatisticWithOptions($request, $runtime);
     }
 
     /**
@@ -29512,7 +29353,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取版本发布信息
+     * @summary Queries the publish details of the Security Center agent.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -29537,7 +29378,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取版本发布信息
+     * @summary Queries the publish details of the Security Center agent.
      *  *
      * @return GetCurrentVersionPublishResponse GetCurrentVersionPublishResponse
      */
@@ -30057,6 +29898,8 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 获取蜜罐攻击统计数据
+     *  *
      * @param GetHoneypotAttackStatisticsRequest $request GetHoneypotAttackStatisticsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
@@ -30109,6 +29952,8 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 获取蜜罐攻击统计数据
+     *  *
      * @param GetHoneypotAttackStatisticsRequest $request GetHoneypotAttackStatisticsRequest
      *
      * @return GetHoneypotAttackStatisticsResponse GetHoneypotAttackStatisticsResponse
@@ -30933,7 +30778,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取配置合规信息接口
+     * @summary Checks whether the purchased Security Center features are enabled and whether related configurations take effect.
      *  *
      * @param GetModuleConfigStatusRequest $tmpReq  GetModuleConfigStatusRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -30971,7 +30816,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取配置合规信息接口
+     * @summary Checks whether the purchased Security Center features are enabled and whether related configurations take effect.
      *  *
      * @param GetModuleConfigStatusRequest $request GetModuleConfigStatusRequest
      *
@@ -31488,6 +31333,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->bucketNameList)) {
             $query['BucketNameList'] = $request->bucketNameList;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -31621,7 +31469,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 列举RD树
+     * @summary Queries the organizational structure of a resource directory by using the multi-account management feature.
+     *  *
+     * @description You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -31646,7 +31496,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 列举RD树
+     * @summary Queries the organizational structure of a resource directory by using the multi-account management feature.
+     *  *
+     * @description You can call this operation only by using the management account of a resource directory or a delegated administrator account of Security Center.
      *  *
      * @return GetRdTreeResponse GetRdTreeResponse
      */
@@ -31849,6 +31701,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -32121,6 +31976,43 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSwitchRegionDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取能否提交租户一键检测
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTenantCheckAvailableResponse GetTenantCheckAvailableResponse
+     */
+    public function getTenantCheckAvailableWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetTenantCheckAvailable',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTenantCheckAvailableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取能否提交租户一键检测
+     *  *
+     * @return GetTenantCheckAvailableResponse GetTenantCheckAvailableResponse
+     */
+    public function getTenantCheckAvailable()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTenantCheckAvailableWithOptions($runtime);
     }
 
     /**
@@ -32543,8 +32435,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI IgnoreHcCheckWarnings is deprecated, please use Sas::2018-12-03::IgnoreCheckItems instead
+     *  *
      * @summary Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
      *  *
+     * Deprecated
+     *
      * @param IgnoreHcCheckWarningsRequest $request IgnoreHcCheckWarningsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -32594,8 +32490,12 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated openAPI IgnoreHcCheckWarnings is deprecated, please use Sas::2018-12-03::IgnoreCheckItems instead
+     *  *
      * @summary Ignores multiple baseline risk items at a time or cancels the ignore action that is performed on multiple baseline risk items at a time.
      *  *
+     * Deprecated
+     *
      * @param IgnoreHcCheckWarningsRequest $request IgnoreHcCheckWarningsRequest
      *
      * @return IgnoreHcCheckWarningsResponse IgnoreHcCheckWarningsResponse
@@ -32658,8 +32558,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The UUID of the server on which you want to install the anti-ransomware agent. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-     * >  You must specify at least one of the UuidList and Uuid parameters.
+     * @summary Installs the anti-ransomware agent.
      *  *
      * @param InstallBackupClientRequest $request InstallBackupClientRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -32698,8 +32597,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The UUID of the server on which you want to install the anti-ransomware agent. You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
-     * >  You must specify at least one of the UuidList and Uuid parameters.
+     * @summary Installs the anti-ransomware agent.
      *  *
      * @param InstallBackupClientRequest $request InstallBackupClientRequest
      *
@@ -32882,56 +32780,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installPmAgentWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Installs the Runtime Application Self-Protection (RASP) agent on Elastic Compute Service (ECS) instances to enable automatic application protection.
-     *  *
-     * @param InstallRaspAttachRequest $request InstallRaspAttachRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
-     *
-     * @return InstallRaspAttachResponse InstallRaspAttachResponse
-     */
-    public function installRaspAttachWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
-        }
-        if (!Utils::isUnset($request->ecsUUIDList)) {
-            $query['EcsUUIDList'] = $request->ecsUUIDList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'InstallRaspAttach',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return InstallRaspAttachResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Installs the Runtime Application Self-Protection (RASP) agent on Elastic Compute Service (ECS) instances to enable automatic application protection.
-     *  *
-     * @param InstallRaspAttachRequest $request InstallRaspAttachRequest
-     *
-     * @return InstallRaspAttachResponse InstallRaspAttachResponse
-     */
-    public function installRaspAttach($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->installRaspAttachWithOptions($request, $runtime);
     }
 
     /**
@@ -33266,8 +33114,14 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->eventId)) {
             $query['EventId'] = $request->eventId;
         }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $query['Scenario'] = $request->scenario;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -33502,7 +33356,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary  获取资产列表
+     * @summary Queries the custom upgrade information about assets.
      *  *
      * @param ListAssetInfoPublishRequest $request ListAssetInfoPublishRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -33538,7 +33392,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary  获取资产列表
+     * @summary Queries the custom upgrade information about assets.
      *  *
      * @param ListAssetInfoPublishRequest $request ListAssetInfoPublishRequest
      *
@@ -34173,6 +34027,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->checkWarningStatus)) {
             $query['CheckWarningStatus'] = $request->checkWarningStatus;
         }
+        if (!Utils::isUnset($request->checkWarningStatusList)) {
+            $query['CheckWarningStatusList'] = $request->checkWarningStatusList;
+        }
         if (!Utils::isUnset($request->containerFieldName)) {
             $query['ContainerFieldName'] = $request->containerFieldName;
         }
@@ -34196,6 +34053,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->uuidList)) {
             $query['UuidList'] = $request->uuidList;
@@ -34496,7 +34356,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户端支持的所有用户自定义类型
+     * @summary Queries the supported types of custom defense rules.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -34521,7 +34381,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取客户端支持的所有用户自定义类型
+     * @summary Queries the supported types of custom defense rules.
      *  *
      * @return ListClientUserDefineRuleTypesResponse ListClientUserDefineRuleTypesResponse
      */
@@ -34860,7 +34720,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取压缩包检测结果。
+     * @summary Queries the detection results of the files extracted from a package.
+     *  *
+     * @description You can call this operation to query the detection results of files only if the files are pushed to the cloud for detection and in the form of packages. You can repeatedly query the detection results of files within 5 hours because the results are retained for 5 hours. For more information about how to push a file to the cloud for detection, see the CreateFileDetect operation. For more information about how to query file detection results, see the GetFileDetectResult operation.
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the required MD5 hash value before you call this operation.
+     * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
+     * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
+     * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
      *  *
      * @param ListCompressFileDetectResultRequest $request ListCompressFileDetectResultRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -34902,7 +34768,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取压缩包检测结果。
+     * @summary Queries the detection results of the files extracted from a package.
+     *  *
+     * @description You can call this operation to query the detection results of files only if the files are pushed to the cloud for detection and in the form of packages. You can repeatedly query the detection results of files within 5 hours because the results are retained for 5 hours. For more information about how to push a file to the cloud for detection, see the CreateFileDetect operation. For more information about how to query file detection results, see the GetFileDetectResult operation.
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only hexadecimal MD5 hash values of complete file content are supported. You must calculate the required MD5 hash value before you call this operation.
+     * To calculate the hexadecimal MD5 hash value for a file, you can perform the following steps:
+     * 1\\. Use the MD5 algorithm to encrypt data and generate a 128-bit hash value. You can use a tool such as MessageDigest for Java and the hashlib module for Python.
+     * 2\\. Convert the hash value to a hexadecimal string. You can use a tool such as Codec for Java and the hex() function for Python.
      *  *
      * @param ListCompressFileDetectResultRequest $request ListCompressFileDetectResultRequest
      *
@@ -36695,6 +36567,136 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @summary 查询操作任务列表
+     *  *
+     * @param ListOperationProcessRequest $request ListOperationProcessRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListOperationProcessResponse ListOperationProcessResponse
+     */
+    public function listOperationProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statusCodes)) {
+            $query['StatusCodes'] = $request->statusCodes;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
+        if (!Utils::isUnset($request->taskTypes)) {
+            $query['TaskTypes'] = $request->taskTypes;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOperationProcess',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOperationProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询操作任务列表
+     *  *
+     * @param ListOperationProcessRequest $request ListOperationProcessRequest
+     *
+     * @return ListOperationProcessResponse ListOperationProcessResponse
+     */
+    public function listOperationProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询操作任务子任务列表
+     *  *
+     * @param ListOperationProcessDetailRequest $request ListOperationProcessDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListOperationProcessDetailResponse ListOperationProcessDetailResponse
+     */
+    public function listOperationProcessDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->statusCodes)) {
+            $query['StatusCodes'] = $request->statusCodes;
+        }
+        if (!Utils::isUnset($request->taskIds)) {
+            $query['TaskIds'] = $request->taskIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListOperationProcessDetail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListOperationProcessDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询操作任务子任务列表
+     *  *
+     * @param ListOperationProcessDetailRequest $request ListOperationProcessDetailRequest
+     *
+     * @return ListOperationProcessDetailResponse ListOperationProcessDetailResponse
+     */
+    public function listOperationProcessDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listOperationProcessDetailWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Queries Object Storage Service (OSS) buckets.
      *  *
      * @param ListOssBucketRequest $request ListOssBucketRequest
@@ -36971,7 +36973,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取私有K8s列表
+     * @summary Queries the information about the self-managed Kubernetes clusters that are added to Security Center.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -36996,7 +36998,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 获取私有K8s列表
+     * @summary Queries the information about the self-managed Kubernetes clusters that are added to Security Center.
      *  *
      * @return ListPrivateK8sResponse ListPrivateK8sResponse
      */
@@ -37102,7 +37104,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询发布批次
+     * @summary Query the details of a release batch for upgrade.
      *  *
      * @param ListPublishBatchRequest $request ListPublishBatchRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -37144,7 +37146,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询发布批次
+     * @summary Query the details of a release batch for upgrade.
      *  *
      * @param ListPublishBatchRequest $request ListPublishBatchRequest
      *
@@ -37433,7 +37435,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询对用户生效的系统规则类型
+     * @summary Queries the types of system rules.
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -37458,7 +37460,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 查询对用户生效的系统规则类型
+     * @summary Queries the types of system rules.
      *  *
      * @return ListSystemClientRuleTypesResponse ListSystemClientRuleTypesResponse
      */
@@ -38439,7 +38441,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修改证明者
+     * @summary Modifies the information about a witness that is created by using the container signature feature.
      *  *
      * @param ModifyAttestorRequest $request ModifyAttestorRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -38490,7 +38492,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修改证明者
+     * @summary Modifies the information about a witness that is created by using the container signature feature.
      *  *
      * @param ModifyAttestorRequest $request ModifyAttestorRequest
      *
@@ -38671,7 +38673,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修改日志容量
+     * @summary Deletes all logs that occupy your log storage.
+     *  *
+     * @description Deleted logs cannot be restored. Before you call this operation to delete all logs and free up log storage, we recommend that you export and save your logs to your computer.
      *  *
      * @param ModifyClearLogstoreStorageRequest $request ModifyClearLogstoreStorageRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -38713,7 +38717,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修改日志容量
+     * @summary Deletes all logs that occupy your log storage.
+     *  *
+     * @description Deleted logs cannot be restored. Before you call this operation to delete all logs and free up log storage, we recommend that you export and save your logs to your computer.
      *  *
      * @param ModifyClearLogstoreStorageRequest $request ModifyClearLogstoreStorageRequest
      *
@@ -38937,7 +38943,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 多云资产配置修改ak信息
+     * @summary Modifies the configuration of the AccessKey pair for a third-party account.
      *  *
      * @param ModifyCloudVendorAccountAKRequest $request ModifyCloudVendorAccountAKRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -38956,6 +38962,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->domain)) {
             $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
         }
         if (!Utils::isUnset($request->regions)) {
             $query['Regions'] = $request->regions;
@@ -38994,7 +39003,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 多云资产配置修改ak信息
+     * @summary Modifies the configuration of the AccessKey pair for a third-party account.
      *  *
      * @param ModifyCloudVendorAccountAKRequest $request ModifyCloudVendorAccountAKRequest
      *
@@ -40563,13 +40572,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The new collection frequency of asset fingerprints. Valid values:
-     * *   **0**: disabled, which indicates that the asset fingerprints are not automatically or periodically collected.
-     * *   **1**: collects asset fingerprints once an hour.
-     * *   **3**: collects asset fingerprints once every 3 hours.
-     * *   **12**: collects asset fingerprints once every 12 hours.
-     * *   **24**: collects asset fingerprints once a day.
-     * *   **168**: collects asset fingerprints once every 7 days.
+     * @summary Modifies the collection frequency of asset fingerprints for an automatic periodic collection task.
      *  *
      * @param ModifyPropertyScheduleConfigRequest $request ModifyPropertyScheduleConfigRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -40605,13 +40608,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The new collection frequency of asset fingerprints. Valid values:
-     * *   **0**: disabled, which indicates that the asset fingerprints are not automatically or periodically collected.
-     * *   **1**: collects asset fingerprints once an hour.
-     * *   **3**: collects asset fingerprints once every 3 hours.
-     * *   **12**: collects asset fingerprints once every 12 hours.
-     * *   **24**: collects asset fingerprints once a day.
-     * *   **168**: collects asset fingerprints once every 7 days.
+     * @summary Modifies the collection frequency of asset fingerprints for an automatic periodic collection task.
      *  *
      * @param ModifyPropertyScheduleConfigRequest $request ModifyPropertyScheduleConfigRequest
      *
@@ -40834,7 +40831,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated
+     * @deprecated openAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead
      *  *
      * @summary Specifies the time when an automatic configuration check is performed on cloud services.
      *  *
@@ -40888,7 +40885,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI ModifySecurityCheckScheduleConfig is deprecated
+     * @deprecated openAPI ModifySecurityCheckScheduleConfig is deprecated, please use Sas::2018-12-03::ChangeCheckConfig instead
      *  *
      * @summary Specifies the time when an automatic configuration check is performed on cloud services.
      *  *
@@ -41150,7 +41147,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The source IP address of the request.
+     * @summary Modifies the servers to which a baseline check policy is applied.
      *  *
      * @param ModifyStrategyTargetRequest $request ModifyStrategyTargetRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -41192,7 +41189,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary The source IP address of the request.
+     * @summary Modifies the servers to which a baseline check policy is applied.
      *  *
      * @param ModifyStrategyTargetRequest $request ModifyStrategyTargetRequest
      *
@@ -43385,7 +43382,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 预检测，不会实际创建扫描任务，返回本次扫描涉及的镜像数量和消耗授权数量。
+     * @summary Queries the number of images to scan in an image scan task and the quota for container image scan to be consumed by the task.
+     *  *
+     * @description You can call the PublicPreCheckImageScanTask operation to estimate the quota for container image scan to be consumed by the task. This ensures that you know the quota to be consumed before you perform the task. If the remaining quota for container image scan is less than the quota to be consumed by the task, you must purchase a sufficient quota. This prevents the task from being stopped due to an insufficient quota.
+     * If you do not specify the optional parameters when you call this operation, the total number of protected images and the quota for container image scan to be consumed by scanning all the protected images are queried. If you specify the optional parameters, the number of images that meet the specified conditions and the quota for container image scan to be consumed by scanning the images are queried.
      *  *
      * @param PublicPreCheckImageScanTaskRequest $request PublicPreCheckImageScanTaskRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -43442,7 +43442,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 预检测，不会实际创建扫描任务，返回本次扫描涉及的镜像数量和消耗授权数量。
+     * @summary Queries the number of images to scan in an image scan task and the quota for container image scan to be consumed by the task.
+     *  *
+     * @description You can call the PublicPreCheckImageScanTask operation to estimate the quota for container image scan to be consumed by the task. This ensures that you know the quota to be consumed before you perform the task. If the remaining quota for container image scan is less than the quota to be consumed by the task, you must purchase a sufficient quota. This prevents the task from being stopped due to an insufficient quota.
+     * If you do not specify the optional parameters when you call this operation, the total number of protected images and the quota for container image scan to be consumed by scanning all the protected images are queried. If you specify the optional parameters, the number of images that meet the specified conditions and the quota for container image scan to be consumed by scanning the images are queried.
      *  *
      * @param PublicPreCheckImageScanTaskRequest $request PublicPreCheckImageScanTaskRequest
      *
@@ -43506,7 +43509,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 通过UUID获取资产详情，可跨账号
+     * @summary Queries the details of assets by using asset UUIDs. Cross-account query is supported.
      *  *
      * @param QueryAssetDetailByUUIDRequest $request QueryAssetDetailByUUIDRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -43539,7 +43542,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 通过UUID获取资产详情，可跨账号
+     * @summary Queries the details of assets by using asset UUIDs. Cross-account query is supported.
      *  *
      * @param QueryAssetDetailByUUIDRequest $request QueryAssetDetailByUUIDRequest
      *
@@ -44461,7 +44464,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 刷新仓库token
+     * @summary Updates an image token.
      *  *
      * @param RefreshRegistryTokenRequest $request RefreshRegistryTokenRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -44494,7 +44497,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 刷新仓库token
+     * @summary Updates an image token.
      *  *
      * @param RefreshRegistryTokenRequest $request RefreshRegistryTokenRequest
      *
@@ -44608,7 +44611,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Removes check items from the whitelist.
+     * @summary Removes the check items of the configuration assessment feature from the whitelist.
      *  *
      * @param RemoveCheckResultWhiteListRequest $request RemoveCheckResultWhiteListRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -44650,7 +44653,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Removes check items from the whitelist.
+     * @summary Removes the check items of the configuration assessment feature from the whitelist.
      *  *
      * @param RemoveCheckResultWhiteListRequest $request RemoveCheckResultWhiteListRequest
      *
@@ -44861,7 +44864,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 取消对文件隔离箱中文件的隔离
+     * @summary Restores a quarantined file.
      *  *
      * @param RollbackSuspEventQuaraFileRequest $request RollbackSuspEventQuaraFileRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -44900,7 +44903,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 取消对文件隔离箱中文件的隔离
+     * @summary Restores a quarantined file.
      *  *
      * @param RollbackSuspEventQuaraFileRequest $request RollbackSuspEventQuaraFileRequest
      *
@@ -44914,7 +44917,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary SasInstallCode
+     * @summary Queries the installation verification code that is used to run the installation command of the Security Center agent.
      *  *
      * @param SasInstallCodeRequest $request SasInstallCodeRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -44947,7 +44950,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary SasInstallCode
+     * @summary Queries the installation verification code that is used to run the installation command of the Security Center agent.
      *  *
      * @param SasInstallCodeRequest $request SasInstallCodeRequest
      *
@@ -45234,7 +45237,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 编辑应用白名单策略配置的服务器
+     * @summary Manages the servers to which an application whitelist policy is applied.
      *  *
      * @param SaveWhiteListStrategyAssetsRequest $request SaveWhiteListStrategyAssetsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -45279,7 +45282,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 编辑应用白名单策略配置的服务器
+     * @summary Manages the servers to which an application whitelist policy is applied.
      *  *
      * @param SaveWhiteListStrategyAssetsRequest $request SaveWhiteListStrategyAssetsRequest
      *
@@ -45340,7 +45343,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 设置用户的构建指令风险规则配置
+     * @summary Modifies configurations for scanning image build command risks.
      *  *
      * @param SetBuildRiskDefineRuleConfigRequest $request SetBuildRiskDefineRuleConfigRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -45373,7 +45376,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 设置用户的构建指令风险规则配置
+     * @summary Modifies configurations for scanning image build command risks.
      *  *
      * @param SetBuildRiskDefineRuleConfigRequest $request SetBuildRiskDefineRuleConfigRequest
      *
@@ -45440,7 +45443,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 设置镜像构建风险状态。
+     * @summary Specifies the status of an image build command risk.
      *  *
      * @param SetImageBuildRiskStatusRequest $request SetImageBuildRiskStatusRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -45479,7 +45482,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 设置镜像构建风险状态。
+     * @summary Specifies the status of an image build command risk.
      *  *
      * @param SetImageBuildRiskStatusRequest $request SetImageBuildRiskStatusRequest
      *
@@ -45495,17 +45498,28 @@ class Sas extends OpenApiClient
     /**
      * @summary Modifies the status of sensitive files in an image.
      *  *
-     * @param SetImageSensitiveFileStatusRequest $request SetImageSensitiveFileStatusRequest
+     * @param SetImageSensitiveFileStatusRequest $tmpReq  SetImageSensitiveFileStatusRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
      * @return SetImageSensitiveFileStatusResponse SetImageSensitiveFileStatusResponse
      */
-    public function setImageSensitiveFileStatusWithOptions($request, $runtime)
+    public function setImageSensitiveFileStatusWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new SetImageSensitiveFileStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->scanRange)) {
+            $request->scanRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scanRange, 'ScanRange', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->idList)) {
+            $query['IdList'] = $request->idList;
+        }
         if (!Utils::isUnset($request->imageUuids)) {
             $query['ImageUuids'] = $request->imageUuids;
+        }
+        if (!Utils::isUnset($request->scanRangeShrink)) {
+            $query['ScanRange'] = $request->scanRangeShrink;
         }
         if (!Utils::isUnset($request->sensitiveFileKey)) {
             $query['SensitiveFileKey'] = $request->sensitiveFileKey;
@@ -45607,6 +45621,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->config)) {
             $query['Config'] = $request->config;
         }
+        if (!Utils::isUnset($request->enableNewRule)) {
+            $query['EnableNewRule'] = $request->enableNewRule;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -45693,7 +45713,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated
+     * @deprecated openAPI StartBaselineSecurityCheck is deprecated, please use Sas::2018-12-03::SubmitCheck instead
      *  *
      * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
      *  *
@@ -45742,7 +45762,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @deprecated OpenAPI StartBaselineSecurityCheck is deprecated
+     * @deprecated openAPI StartBaselineSecurityCheck is deprecated, please use Sas::2018-12-03::SubmitCheck instead
      *  *
      * @summary Checks cloud service configurations. You can check all items or a single item and verify whether an item is checked.
      *  *
@@ -46081,7 +46101,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修复回滚任务下发
+     * @summary Submits a repair task of risk items detected in configuration assessment or rolls back a repair task that is executed.
      *  *
      * @param SubmitOperationTaskRequest $request SubmitOperationTaskRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -46129,7 +46149,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修复回滚任务下发
+     * @summary Submits a repair task of risk items detected in configuration assessment or rolls back a repair task that is executed.
      *  *
      * @param SubmitOperationTaskRequest $request SubmitOperationTaskRequest
      *
@@ -46140,6 +46160,43 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitOperationTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交租户一键检测任务
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitTenantCheckResponse SubmitTenantCheckResponse
+     */
+    public function submitTenantCheckWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'SubmitTenantCheck',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTenantCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交租户一键检测任务
+     *  *
+     * @return SubmitTenantCheckResponse SubmitTenantCheckResponse
+     */
+    public function submitTenantCheck()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitTenantCheckWithOptions($runtime);
     }
 
     /**
@@ -46386,56 +46443,6 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uninstallBackupClientWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Uninstalls the Runtime Application Self-Protection (RASP) agent that is installed on Elastic Compute Service (ECS) instances to enable automatic application protection.
-     *  *
-     * @param UninstallRaspAttachRequest $request UninstallRaspAttachRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return UninstallRaspAttachResponse UninstallRaspAttachResponse
-     */
-    public function uninstallRaspAttachWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
-        }
-        if (!Utils::isUnset($request->ecsUUIDList)) {
-            $query['EcsUUIDList'] = $request->ecsUUIDList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UninstallRaspAttach',
-            'version'     => '2018-12-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return UninstallRaspAttachResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Uninstalls the Runtime Application Self-Protection (RASP) agent that is installed on Elastic Compute Service (ECS) instances to enable automatic application protection.
-     *  *
-     * @param UninstallRaspAttachRequest $request UninstallRaspAttachRequest
-     *
-     * @return UninstallRaspAttachResponse UninstallRaspAttachResponse
-     */
-    public function uninstallRaspAttach($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->uninstallRaspAttachWithOptions($request, $runtime);
     }
 
     /**
@@ -47293,11 +47300,20 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->conditions)) {
+            $query['Conditions'] = $request->conditions;
+        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->note)) {
+            $query['Note'] = $request->note;
+        }
         if (!Utils::isUnset($request->scenarios)) {
             $query['Scenarios'] = $request->scenarios;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -47660,7 +47676,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of a bucket check policy.
+     * @summary Modifies a policy of detecting Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
      *  *
      * @param UpdateOssScanConfigRequest $request UpdateOssScanConfigRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -47732,7 +47748,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary Updates the configurations of a bucket check policy.
+     * @summary Modifies a policy of detecting Object Storage Service (OSS) objects by using the SDK for malicious file detection feature.
      *  *
      * @param UpdateOssScanConfigRequest $request UpdateOssScanConfigRequest
      *
@@ -47746,7 +47762,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修改自动升级开关
+     * @summary Enables or disables automatic upgrade.
      *  *
      * @param UpdatePublishAutoUpgradeRequest $request UpdatePublishAutoUpgradeRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -47779,7 +47795,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修改自动升级开关
+     * @summary Enables or disables automatic upgrade.
      *  *
      * @param UpdatePublishAutoUpgradeRequest $request UpdatePublishAutoUpgradeRequest
      *
@@ -47793,7 +47809,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 更新发布批次
+     * @summary Updates a release batch.
      *  *
      * @param UpdatePublishBatchRequest $request UpdatePublishBatchRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -47835,7 +47851,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 更新发布批次
+     * @summary Updates a release batch.
      *  *
      * @param UpdatePublishBatchRequest $request UpdatePublishBatchRequest
      *
@@ -47849,7 +47865,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary  修改升级时间
+     * @summary Modifies the configuration of the client upgrade time. If you want to call this operation, contact technical support.
      *  *
      * @param UpdatePublishCronRequest $request UpdatePublishCronRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -47894,7 +47910,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary  修改升级时间
+     * @summary Modifies the configuration of the client upgrade time. If you want to call this operation, contact technical support.
      *  *
      * @param UpdatePublishCronRequest $request UpdatePublishCronRequest
      *
@@ -47908,7 +47924,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary  修改灰度开关
+     * @summary Modifies the settings of the canary release feature for agent upgrade. If you want to use the feature, contact technical support.
      *  *
      * @param UpdatePublishGraySwitchRequest $request UpdatePublishGraySwitchRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -47941,7 +47957,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary  修改灰度开关
+     * @summary Modifies the settings of the canary release feature for agent upgrade. If you want to use the feature, contact technical support.
      *  *
      * @param UpdatePublishGraySwitchRequest $request UpdatePublishGraySwitchRequest
      *
@@ -48005,7 +48021,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修改目标批次
+     * @summary Updates machines in a release batch.
      *  *
      * @param UpdateTargetListByBatchRequest $request UpdateTargetListByBatchRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -48041,7 +48057,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 修改目标批次
+     * @summary Updates machines in a release batch.
      *  *
      * @param UpdateTargetListByBatchRequest $request UpdateTargetListByBatchRequest
      *
@@ -48215,7 +48231,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 升级客户端
+     * @summary Manually upgrades the client version on assets.
      *  *
      * @param UpgradeVersionByUuidsRequest $request UpgradeVersionByUuidsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -48251,7 +48267,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @summary 升级客户端
+     * @summary Manually upgrades the client version on assets.
      *  *
      * @param UpgradeVersionByUuidsRequest $request UpgradeVersionByUuidsRequest
      *

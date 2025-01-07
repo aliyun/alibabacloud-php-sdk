@@ -12,26 +12,28 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationsResponse extends Model
 {
     /**
+     * @description The objects on which the operations are performed. This parameter is required when you add the alert to the whitelist by configuring precise defense rules.
+     *
      * @var mappingMarkFields[]
      */
     public $mappingMarkFields;
 
     /**
-     * @description An array consisting of the configuration information that is used when the value of the OperationCode parameter is **advance_mark_mis_info**.
+     * @description The configurations that are used when the value of the OperationCode parameter is **advance_mark_mis_info**.
      *
      * @var markField[]
      */
     public $markField;
 
     /**
-     * @description An array consisting of the configuration items that can be used when the value of the OperationCode parameter is advance_mark_mis_info.
+     * @description The configuration items that can be used when the value of the OperationCode parameter is advance_mark_mis_info.
      *
      * @var markFieldsSource[]
      */
     public $markFieldsSource;
 
     /**
-     * @description The operation that you can perform to handle the alert. Valid values:
+     * @description The operation that is performed to handle the alert. Valid values:
      *
      *   **block_ip**: blocks the source IP address.
      *   **advance_mark_mis_info**: adds the alert to the whitelist.
@@ -40,9 +42,13 @@ class securityEventOperationsResponse extends Model
      *   **kill_process**: terminates the malicious process.
      *   **cleanup**: performs in-depth virus detection and removal.
      *   **kill_and_quara**: terminates the malicious process and quarantines the source file.
-     *   **disable_malicious_defense**: stops the container on which the alerting files or processes exist.
+     *   **disable_malicious_defense**: disables the malicious behavior defense feature.
      *   **client_problem_check**: performs troubleshooting.
      *   **quara**: quarantines the source file of the malicious process.
+     *   **defense_mark_mis_info**: enables the precise defense feature but disables the notification feature.
+     *   **rm_defense_mark_mis_info**: enables the notification feature.
+     *   **rm_mark_mis_info**: removes the alert from the whitelist.
+     *   **cancle_manual**: cancels marking the alert as manually handled.
      *
      * @example advance_mark_mis_info
      *
@@ -51,9 +57,9 @@ class securityEventOperationsResponse extends Model
     public $operationCode;
 
     /**
-     * @description The configuration of the operation that you can perform to handle the alert event.
+     * @description The configuration of the operation that is performed to handle the alert.
      *
-     * >  If the value of the OperationCode parameter is `kill_and_quara` or `block_ip`, the OperationParams parameter is required. If the value of the OperationCode parameter is a different value, the OperationParams parameter can be left empty.
+     * >  If the value of the **OperationCode** parameter is **kill_and_quara** or **block_ip**, the OperationParams parameter is required. If the value of the **OperationCode** parameter is a different value, the OperationParams parameter can be left empty.
      * @example {"expireTime":1641566807783}
      *
      * @var string
@@ -61,10 +67,10 @@ class securityEventOperationsResponse extends Model
     public $operationParams;
 
     /**
-     * @description Indicates whether you can handle the alert event in the current edition of Security Center. Valid values:
+     * @description Indicates whether you can handle the alert in the current edition of Security Center. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *

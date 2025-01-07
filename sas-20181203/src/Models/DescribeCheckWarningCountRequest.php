@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningCountRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
      * @example 103784262032****
      *
      * @var int
@@ -16,6 +18,9 @@ class DescribeCheckWarningCountRequest extends Model
     public $aliUid;
 
     /**
+     * @description The ID of the check item.
+     *
+     * >  You can call the [ListCheckItemWarningSummary](~~ListCheckItemWarningSummary~~) operation to query the IDs of check items.
      * @example 926
      *
      * @var int
@@ -23,6 +28,9 @@ class DescribeCheckWarningCountRequest extends Model
     public $checkId;
 
     /**
+     * @description The ID of the risk item.
+     *
+     * >  You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
      * @example 43
      *
      * @var int
@@ -30,6 +38,13 @@ class DescribeCheckWarningCountRequest extends Model
     public $riskId;
 
     /**
+     * @description The status of the check item. Valid values:
+     *
+     *   **1**: failed
+     *   **2**: verifying
+     *   **3**: passed
+     *   **6**: ignored
+     *
      * @example 3
      *
      * @var int

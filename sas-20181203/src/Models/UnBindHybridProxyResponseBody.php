@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnBindHybridProxyResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to query logs and troubleshoot issues.
+     *
      * @example 3956048F-9D73-5EDB-834B-4827BB483977
      *
      * @var string

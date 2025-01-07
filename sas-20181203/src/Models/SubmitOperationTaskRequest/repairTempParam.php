@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class repairTempParam extends Model
 {
     /**
+     * @description The name of the temporary repair parameter.
+     *
      * @example IPPort
      *
      * @var string
@@ -16,6 +18,8 @@ class repairTempParam extends Model
     public $name;
 
     /**
+     * @description The value of the temporary repair parameter.
+     *
      * @example 192.168.1XX.1XX
      *
      * @var string

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class QueryAssetDetailByUUIDResponseBody extends Model
 {
     /**
+     * @description The response code. Valid values:
+     *
+     *   **200**: The request was successful.
+     *   **Other codes**: The request failed. For a list of error codes, see [Service error codes](https://help.aliyun.com/document_detail/145071.html).
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +22,8 @@ class QueryAssetDetailByUUIDResponseBody extends Model
     public $code;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int
@@ -24,11 +31,15 @@ class QueryAssetDetailByUUIDResponseBody extends Model
     public $count;
 
     /**
+     * @description The data returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +47,8 @@ class QueryAssetDetailByUUIDResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -43,6 +56,8 @@ class QueryAssetDetailByUUIDResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 7532B7EE-7CE7-5F4D-BF04-B12447DDCAE1
      *
      * @var string
@@ -50,6 +65,11 @@ class QueryAssetDetailByUUIDResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +77,8 @@ class QueryAssetDetailByUUIDResponseBody extends Model
     public $success;
 
     /**
+     * @description The consumed time of the request. Unit: seconds.
+     *
      * @example 1
      *
      * @var int

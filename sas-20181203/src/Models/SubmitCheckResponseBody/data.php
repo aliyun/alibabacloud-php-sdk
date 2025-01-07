@@ -12,6 +12,7 @@ class data extends Model
      * @description The operation code of the configuration assessment task.
      *
      *   **Throttling**: frequency limit
+     *   **AuthorizationExhaust**: insufficient quota
      *
      * @example Throttling
      *
@@ -20,6 +21,10 @@ class data extends Model
     public $operateCode;
 
     /**
+     * @description The throttling duration. Unit: seconds.
+     *
+     * @example 1800
+     *
      * @var int
      */
     public $throttlingTimeSecond;

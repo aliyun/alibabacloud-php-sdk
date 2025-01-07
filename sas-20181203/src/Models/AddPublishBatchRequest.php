@@ -9,15 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddPublishBatchRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the release batch.
+     *
+     * This parameter is required.
+     * @example test
      *
      * @var string
      */
     public $batchName;
 
     /**
-     * @description This parameter is required.
+     * @description The interval between two release batches.
      *
+     * This parameter is required.
      * @example 60
      *
      * @var int
@@ -25,6 +29,12 @@ class AddPublishBatchRequest extends Model
     public $interval;
 
     /**
+     * @description The dimension based on which the asset is selected. Valid values:
+     *
+     *   **0**: selects the asset by instance.
+     *   **1**: selects the asset by machine group.
+     *   **2**: selects the asset by the ID of the instance that is deployed in the virtual private cloud (VPC).
+     *
      * @example 0
      *
      * @var int
@@ -32,8 +42,9 @@ class AddPublishBatchRequest extends Model
     public $operationBase;
 
     /**
-     * @description This parameter is required.
+     * @description The version to which you want to upgrade the agent.
      *
+     * This parameter is required.
      * @example 0.0.9
      *
      * @var string

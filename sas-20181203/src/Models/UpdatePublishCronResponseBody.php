@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublishCronResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1052B989-305B-50A5-B5F5-998450******
      *
      * @var string

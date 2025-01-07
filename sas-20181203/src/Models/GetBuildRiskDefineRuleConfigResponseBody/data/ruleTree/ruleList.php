@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleList extends Model
 {
     /**
+     * @description The check item.
+     *
      * @example add
      *
      * @var string
@@ -16,6 +18,8 @@ class ruleList extends Model
     public $ruleKey;
 
     /**
+     * @description The name of the check item.
+     *
      * @example used ADD
      *
      * @var string
@@ -23,6 +27,11 @@ class ruleList extends Model
     public $ruleName;
 
     /**
+     * @description Indicates whether the check item is selected. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

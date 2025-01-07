@@ -36,7 +36,7 @@ class imageVulWhitelist extends Model
     public $name;
 
     /**
-     * @description The reason the vulnerability is added to the whitelist.
+     * @description The reason why the vulnerability is added to the whitelist.
      *
      * @example already config in another way
      *

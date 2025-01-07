@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridProxyPolicyResponseBody extends Model
 {
     /**
+     * @description The number of entries on the current page.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeHybridProxyPolicyResponseBody extends Model
     public $count;
 
     /**
+     * @description The data collection configurations of the proxy cluster.
+     *
      * @var policyList[]
      */
     public $policyList;
 
     /**
+     * @description The request ID.
+     *
      * @example F7A1B40A-7EED-55A0-BCBC-2F83A486F0AB
      *
      * @var string

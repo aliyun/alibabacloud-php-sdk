@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAttackTypeListResponseBody extends Model
 {
     /**
+     * @description The attack types.
+     *
      * @var attackTypeList[]
      */
     public $attackTypeList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example CE500770-42D3-442E-9DDD-156E0F9F****
      *
      * @var string

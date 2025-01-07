@@ -25,6 +25,31 @@ class CreateAssetSelectionConfigRequest extends Model
     public $businessType;
 
     /**
+     * @description The operating system of the asset. Valid values:
+     *
+     *   **all**: all operating systems
+     *   **windows**: the Windows operating system
+     *   **linux**: the Linux operating system
+     *
+     * >  If you leave this parameter empty, the system automatically selects a value for the parameter based on the value of the **BusinessType** parameter.
+     *
+     *   If the BusinessType parameter is set to **VIRUS_SCAN_CYCLE_CONFIG**, the value of the Platform parameter is **all**.
+     *
+     *   If the BusinessType parameter is set to **VIRUS_SCAN_ONCE_TASK**, the value of the Platform parameter is **all**.
+     *
+     *   If the BusinessType parameter is set to **AGENTLESS_MALICIOUS_WHITE_LIST_[ID]**, the value of the Platform parameter is **all**.
+     *
+     *   If the BusinessType parameter is set to **AGENTLESS_VUL_WHITE_LIST_[ID]** the value of the Platform parameter is **all**.
+     *
+     *   If the BusinessType parameter is set to **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**, the value of the Platform parameter is **linux**.
+     *
+     * @example linux
+     *
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The dimension based on which you want to select the asset. Valid values:
      *
      *   **instance**: selects the asset by server.
@@ -39,6 +64,7 @@ class CreateAssetSelectionConfigRequest extends Model
     public $targetType;
     protected $_name = [
         'businessType' => 'BusinessType',
+        'platform'     => 'Platform',
         'targetType'   => 'TargetType',
     ];
 
@@ -51,6 +77,9 @@ class CreateAssetSelectionConfigRequest extends Model
         $res = [];
         if (null !== $this->businessType) {
             $res['BusinessType'] = $this->businessType;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
@@ -69,6 +98,9 @@ class CreateAssetSelectionConfigRequest extends Model
         $model = new self();
         if (isset($map['BusinessType'])) {
             $model->businessType = $map['BusinessType'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];

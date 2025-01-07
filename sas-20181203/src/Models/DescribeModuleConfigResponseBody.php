@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeModuleConfigResponseBody extends Model
 {
     /**
+     * @description The number of configurations for the module.
+     *
      * @example 2
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeModuleConfigResponseBody extends Model
     public $count;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribeModuleConfigResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description An array that consists of the configurations of the module.
+     *
      * @var moduleConfigList[]
      */
     public $moduleConfigList;
 
     /**
+     * @description The request ID.
+     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string
@@ -36,6 +44,11 @@ class DescribeModuleConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

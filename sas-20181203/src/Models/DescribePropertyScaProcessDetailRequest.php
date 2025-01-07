@@ -37,6 +37,8 @@ class DescribePropertyScaProcessDetailRequest extends Model
     public $pid;
 
     /**
+     * @description The information about the server that you want to query. The value can be the public IP address, private IP address, or name of the server. Fuzzy match is supported.
+     *
      * @example 10.167.XX.XX
      *
      * @var string

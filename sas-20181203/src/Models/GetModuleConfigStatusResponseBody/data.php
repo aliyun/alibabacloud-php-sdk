@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The check results of the service modules.
+     *
      * @var moduleConfigResults[]
      */
     public $moduleConfigResults;

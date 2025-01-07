@@ -153,6 +153,10 @@ class groupedFields extends Model
     public $noRiskInstanceCount;
 
     /**
+     * @description The number of assets that are not added to Security Center of the specified asset type.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $notBindMachineInstanceCount;

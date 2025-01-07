@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetModuleConfigStatusResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 843E4805-****-7EE12FA8DBFD
      *
      * @var string

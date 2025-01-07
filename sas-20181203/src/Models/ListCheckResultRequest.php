@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCheckResultRequest extends Model
 {
     /**
+     * @description The IDs of the check items.
+     *
      * @var int[]
      */
     public $checkIds;
@@ -72,7 +74,7 @@ class ListCheckResultRequest extends Model
      *   **POLARDB**: PolarDB
      *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
      *   **MSE**: Microservices Engine (MSE)
-     *   **NAS**: Apsara File Storage NAS (NAS)
+     *   **NAS**: File Storage NAS (NAS)
      *   **SDDP**: Sensitive Data Discovery and Protection (SDDP)
      *   **EIP**: Elastic IP Address (EIP)
      *
@@ -93,6 +95,11 @@ class ListCheckResultRequest extends Model
     public $lang;
 
     /**
+     * @description Specifies whether fixing is supported. Valid values:
+     *
+     *   **SUPPORT_REPAIR**
+     *   **NOT_SUPPORT_REPAIR**
+     *
      * @var string[]
      */
     public $operationTypes;
@@ -119,7 +126,7 @@ class ListCheckResultRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of requirement items.
+     * @description The IDs of the requirements.
      *
      * @var int[]
      */
@@ -147,7 +154,7 @@ class ListCheckResultRequest extends Model
     public $sortTypes;
 
     /**
-     * @description The IDs of standards.
+     * @description The standard IDs.
      *
      * @var int[]
      */
@@ -174,9 +181,12 @@ class ListCheckResultRequest extends Model
     public $types;
 
     /**
-     * @description The cloud service providers. Valid value:
+     * @description The cloud service providers. Valid values:
      *
      *   **ALIYUN**: Alibaba Cloud
+     *   **TENCENT**: Tencent Cloud
+     *   **AWS**: Amazon Web Services (AWS)
+     *   **MICROSOFT**: Microsoft Azure
      *
      * @var string[]
      */

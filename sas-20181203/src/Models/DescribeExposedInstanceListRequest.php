@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceListRequest extends Model
 {
     /**
+     * @description The type of the asset. Valid values:
+     *
+     *   **0**: an Elastic Compute Service (ECS) instance.
+     *   **3**: an ApsaraDB RDS instance.
+     *   **4**: an ApsaraDB for MongoDB instance.
+     *   **5**: an ApsaraDB for Redis instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $assetType;
 
     /**
+     * @description Specifies whether the asset has Cloud Security Posture Management (CSPM) risks. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $cspmStatus;
@@ -37,7 +53,7 @@ class DescribeExposedInstanceListRequest extends Model
     public $exposureComponent;
 
     /**
-     * @description The public IP address of the server.
+     * @description The public IP address of the server or the public endpoint of the database.
      *
      * @example 116.12.XX.XX
      *
@@ -65,12 +81,11 @@ class DescribeExposedInstanceListRequest extends Model
     public $groupId;
 
     /**
-     * @description The health status of the Elastic Compute Service (ECS) instance in the scaling group. ECS instances that are not in the Running state are considered unhealthy. Valid values:
+     * @description Specifies whether the asset has weak password risks. Valid values:
      *
-     *   Healthy
-     *   Unhealthy
+     *   **true**
+     *   **false**
      *
-     * >  Make sure that you have sufficient balance within your account. If you have overdue payments in your account, pay-as-you-go and preemptible instances are stopped or released. For information about how the status of ECS instances changes when you have overdue payments in your account, see [Overdue payments](https://help.aliyun.com/document_detail/170589.html).
      * @example Unhealthy
      *
      * @var bool
@@ -78,7 +93,7 @@ class DescribeExposedInstanceListRequest extends Model
     public $healthStatus;
 
     /**
-     * @description The ID of the server.
+     * @description The instance ID of the asset.
      *
      * @example i-bp1g6wxdwps7s9dz****
      *
@@ -87,7 +102,7 @@ class DescribeExposedInstanceListRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the server.
+     * @description The name of the asset.
      *
      * @example abc_centos7.2_005
      *
@@ -116,10 +131,10 @@ class DescribeExposedInstanceListRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
-     * @description Specifies whether the server has vulnerabilities. Valid values:
+     * @description Specifies whether the asset has vulnerabilities. Valid values:
      *
-     *   **true**: The server has vulnerabilities.
-     *   **false**: The server does not have vulnerabilities.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

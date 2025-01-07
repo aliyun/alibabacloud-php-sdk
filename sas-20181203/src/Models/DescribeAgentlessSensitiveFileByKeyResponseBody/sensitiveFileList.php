@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sensitiveFileList extends Model
 {
     /**
+     * @var string
+     */
+    public $filePath;
+
+    /**
      * @description The timestamp when the first scan was performed. Unit: milliseconds.
      *
      * @example 1663321552000
@@ -16,6 +21,11 @@ class sensitiveFileList extends Model
      * @var int
      */
     public $firstScanTime;
+
+    /**
+     * @var int
+     */
+    public $id;
 
     /**
      * @description The instance name of the asset.
@@ -52,6 +62,16 @@ class sensitiveFileList extends Model
      * @var int
      */
     public $lastScanTime;
+
+    /**
+     * @var string
+     */
+    public $md5;
+
+    /**
+     * @var string
+     */
+    public $prompt;
 
     /**
      * @description The risk level. Valid values:
@@ -106,11 +126,15 @@ class sensitiveFileList extends Model
      */
     public $uuid;
     protected $_name = [
+        'filePath'         => 'FilePath',
         'firstScanTime'    => 'FirstScanTime',
+        'id'               => 'Id',
         'instanceName'     => 'InstanceName',
         'internetIp'       => 'InternetIp',
         'intranetIp'       => 'IntranetIp',
         'lastScanTime'     => 'LastScanTime',
+        'md5'              => 'Md5',
+        'prompt'           => 'Prompt',
         'riskLevel'        => 'RiskLevel',
         'sensitiveFileKey' => 'SensitiveFileKey',
         'status'           => 'Status',
@@ -125,8 +149,14 @@ class sensitiveFileList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->filePath) {
+            $res['FilePath'] = $this->filePath;
+        }
         if (null !== $this->firstScanTime) {
             $res['FirstScanTime'] = $this->firstScanTime;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -139,6 +169,12 @@ class sensitiveFileList extends Model
         }
         if (null !== $this->lastScanTime) {
             $res['LastScanTime'] = $this->lastScanTime;
+        }
+        if (null !== $this->md5) {
+            $res['Md5'] = $this->md5;
+        }
+        if (null !== $this->prompt) {
+            $res['Prompt'] = $this->prompt;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -167,8 +203,14 @@ class sensitiveFileList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FilePath'])) {
+            $model->filePath = $map['FilePath'];
+        }
         if (isset($map['FirstScanTime'])) {
             $model->firstScanTime = $map['FirstScanTime'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
@@ -181,6 +223,12 @@ class sensitiveFileList extends Model
         }
         if (isset($map['LastScanTime'])) {
             $model->lastScanTime = $map['LastScanTime'];
+        }
+        if (isset($map['Md5'])) {
+            $model->md5 = $map['Md5'];
+        }
+        if (isset($map['Prompt'])) {
+            $model->prompt = $map['Prompt'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAssetInfoPublishResponseBody extends Model
 {
     /**
+     * @description The servers.
+     *
      * @var assetList[]
      */
     public $assetList;
 
     /**
+     * @description The request ID.
+     *
      * @example 3956048F-9D73-5EDB-834B-4827BB483977
      *
      * @var string

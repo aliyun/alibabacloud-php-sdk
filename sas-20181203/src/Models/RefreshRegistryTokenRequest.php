@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RefreshRegistryTokenRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the image repository.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int

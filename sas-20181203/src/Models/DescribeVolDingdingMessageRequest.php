@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVolDingdingMessageRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeVolDingdingMessageRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address.
+     *
      * @example 1.2.XX.XX
      *
      * @var string

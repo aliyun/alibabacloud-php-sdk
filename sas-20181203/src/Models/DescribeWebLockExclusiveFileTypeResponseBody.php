@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockExclusiveFileTypeResponseBody extends Model
 {
     /**
+     * @description An array that consists of the types of the files that are excluded from web tamper proofing.
+     *
      * @var string[]
      */
     public $exclusiveFileType;
 
     /**
+     * @description The request ID.
+     *
      * @example 9CCD7D51-5E81-5FF5-BD74-813DDD248430
      *
      * @var string
@@ -21,6 +25,8 @@ class DescribeWebLockExclusiveFileTypeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of types of the files that are excluded from web tamper proofing.
+     *
      * @example 30
      *
      * @var int

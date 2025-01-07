@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateImageEventOperationRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $conditions;
+
+    /**
      * @description The ID of the alert handling rule.
      *
      * @example 814163
@@ -16,6 +21,11 @@ class UpdateImageEventOperationRequest extends Model
      * @var int
      */
     public $id;
+
+    /**
+     * @var string
+     */
+    public $note;
 
     /**
      * @description The application scope of the rule. The value is in the JSON format. Valid values:
@@ -28,9 +38,17 @@ class UpdateImageEventOperationRequest extends Model
      * @var string
      */
     public $scenarios;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
-        'id'        => 'Id',
-        'scenarios' => 'Scenarios',
+        'conditions' => 'Conditions',
+        'id'         => 'Id',
+        'note'       => 'Note',
+        'scenarios'  => 'Scenarios',
+        'source'     => 'Source',
     ];
 
     public function validate()
@@ -40,11 +58,20 @@ class UpdateImageEventOperationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->conditions) {
+            $res['Conditions'] = $this->conditions;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+        if (null !== $this->note) {
+            $res['Note'] = $this->note;
+        }
         if (null !== $this->scenarios) {
             $res['Scenarios'] = $this->scenarios;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -58,11 +85,20 @@ class UpdateImageEventOperationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Conditions'])) {
+            $model->conditions = $map['Conditions'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+        if (isset($map['Note'])) {
+            $model->note = $map['Note'];
+        }
         if (isset($map['Scenarios'])) {
             $model->scenarios = $map['Scenarios'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

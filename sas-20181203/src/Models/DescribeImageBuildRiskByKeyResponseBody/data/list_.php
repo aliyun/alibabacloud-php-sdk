@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The suggestion on how to handle the risk.
+     *
      * @example do not use root user
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $advice;
 
     /**
+     * @description The description of the suggestion on how to handle the risk.
+     *
      * @example the root user has excessive permissions
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $description;
 
     /**
+     * @description The image build command.
+     *
      * @example user root
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $layerCmd;
 
     /**
+     * @description The digest of the image.
+     *
      * @example 6ec898e6274f942e0e4a053eff1c3119026a6704e56cff206b2cec71f636****
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $layerDigest;
 
     /**
+     * @description The prompt message on the risk.
+     *
      * @example the root user has excessive permissions
      *
      * @var string
@@ -44,6 +54,8 @@ class list_ extends Model
     public $promt;
 
     /**
+     * @description The type key of the risk rule.
+     *
      * @example other
      *
      * @var string
@@ -51,6 +63,8 @@ class list_ extends Model
     public $riskClass;
 
     /**
+     * @description The type name of the risk rule.
+     *
      * @example other
      *
      * @var string
@@ -58,6 +72,8 @@ class list_ extends Model
     public $riskClassName;
 
     /**
+     * @description The key of the risk rule.
+     *
      * @example no_user
      *
      * @var string
@@ -65,6 +81,8 @@ class list_ extends Model
     public $riskKey;
 
     /**
+     * @description The name of the risk rule.
+     *
      * @example no_user
      *
      * @var string
@@ -72,6 +90,12 @@ class list_ extends Model
     public $riskKeyName;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @example medium
      *
      * @var string

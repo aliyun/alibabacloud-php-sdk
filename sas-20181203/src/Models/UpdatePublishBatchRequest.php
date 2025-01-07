@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublishBatchRequest extends Model
 {
     /**
+     * @description The ID of the release batch.
+     *
      * @example 52370
      *
      * @var int
@@ -16,11 +18,17 @@ class UpdatePublishBatchRequest extends Model
     public $batchId;
 
     /**
+     * @description The name of the release batch.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $batchName;
 
     /**
+     * @description The interval between two release batches.
+     *
      * @example 60
      *
      * @var int
@@ -28,6 +36,12 @@ class UpdatePublishBatchRequest extends Model
     public $interval;
 
     /**
+     * @description The asset selection dimension. Valid values:
+     *
+     *   **0**: instance
+     *   **1**: machine group
+     *   **2**: VPC-based instance ID
+     *
      * @example 0
      *
      * @var int

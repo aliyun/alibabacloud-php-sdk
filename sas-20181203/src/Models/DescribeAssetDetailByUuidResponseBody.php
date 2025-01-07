@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetDetailByUuidResponseBody extends Model
 {
     /**
-     * @description The asset details.
+     * @description The details of the server.
      *
      * @var assetDetail
      */

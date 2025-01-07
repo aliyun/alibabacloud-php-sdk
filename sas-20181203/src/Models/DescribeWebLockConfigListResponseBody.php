@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockConfigListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the configurations of web tamper proofing.
+     * @description The configurations of web tamper proofing.
      *
      * @var configList[]
      */

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SubmitOperationTaskResponseBody extends Model
 {
     /**
+     * @description The handling result code. Valid values:
+     *
+     *   Insufficient authorization: AuthorizationExhaust
+     *   Unauthorized: ActionTrialUnauthorized
+     *
      * @example AuthorizationExhaust
      *
      * @var string
@@ -16,6 +21,8 @@ class SubmitOperationTaskResponseBody extends Model
     public $operateCode;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 0C8487EF-50C2-54BB-8634-10F8C35D****
      *
      * @var string
@@ -23,6 +30,8 @@ class SubmitOperationTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The main task ID that is returned when the task is submitted.
+     *
      * @example 89f5d7813bd59dd237580a8664b3xxxx
      *
      * @var string

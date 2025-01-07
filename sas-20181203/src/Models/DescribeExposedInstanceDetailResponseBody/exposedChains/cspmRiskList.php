@@ -9,46 +9,117 @@ use AlibabaCloud\Tea\Model;
 class cspmRiskList extends Model
 {
     /**
+     * @description The subtype of the cloud asset. Valid values:
+     *
+     *   **0**: Elastic Compute Service (ECS).
+     *
+     *   **100**: instance.
+     *
+     *   **3**: ApsaraDB RDS.
+     *
+     *   **0**: instance.
+     *
+     *   **4**: ApsaraDB for MongoDB (MongoDB).
+     *
+     *   **0**: instance.
+     *
+     *   **5**: ApsaraDB for Redis (Redis).
+     *
+     *   **0**: instance.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $assetSubType;
 
     /**
+     * @description The subtype name of the cloud asset. Valid values:
+     *
+     *   **INSTANCE**: MongoDB instance, Apsara DB for RDS instance, and ApsaraDB for Redis instance.
+     *   **ECS_INSTANCE**: ECS instance.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $assetSubTypeName;
 
     /**
+     * @description The instance type. Valid values:
+     *
+     *   0: an ECS instance.
+     *   3: an ApsaraDB RDS instance.
+     *   4: an ApsaraDB for MongoDB instance.
+     *   5: an ApsaraDB for Redis instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $assetType;
 
     /**
+     * @description The name of the cloud asset type. Valid values:
+     *
+     *   **ECS**
+     *   **RDS**
+     *   **KVSTORE**
+     *   **MONGODB**
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $assetTypeName;
 
     /**
+     * @description The name of the check item.
+     *
+     * @example Create Alert Rule
+     *
      * @var string
      */
     public $checkName;
 
     /**
+     * @description The instance ID.
+     *
+     * @example i-bp14ggqzi9k6ocfb****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **HIGH**
+     *   **MEDIUM**
+     *   **LOW**
+     *
+     * @example HIGH
+     *
      * @var string
      */
     public $riskLevel;
 
     /**
+     * @description The type of the cloud asset by source. Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $vendor;

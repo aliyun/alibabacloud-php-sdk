@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSecureScoreResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 11C96623-E106-59C9-866D-A6C82911****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDomainSecureScoreResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The security score of the website.
+     *
      * @example 100
      *
      * @var int

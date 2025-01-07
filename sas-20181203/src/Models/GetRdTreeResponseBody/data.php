@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The subfolder.
+     *
      * @var mixed[]
      */
     public $children;
 
     /**
+     * @description The ID of the folder in the resource directory.
+     *
      * @example fd-CGA73I****
      *
      * @var string
@@ -21,6 +25,8 @@ class data extends Model
     public $folderId;
 
     /**
+     * @description The name of the folder.
+     *
      * @example Root
      *
      * @var string

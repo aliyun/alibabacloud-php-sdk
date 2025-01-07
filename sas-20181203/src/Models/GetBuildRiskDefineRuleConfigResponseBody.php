@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetBuildRiskDefineRuleConfigResponseBody extends Model
 {
     /**
+     * @description The response code. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class GetBuildRiskDefineRuleConfigResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class GetBuildRiskDefineRuleConfigResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 69BFFCDE-37D6-5A49-A8BC-BB03AC83****
      *
      * @var string
@@ -36,6 +44,11 @@ class GetBuildRiskDefineRuleConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

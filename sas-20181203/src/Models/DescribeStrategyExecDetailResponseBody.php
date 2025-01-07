@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyExecDetailResponseBody extends Model
 {
     /**
+     * @description The time when the baseline check ends.
+     *
      * @example 2021-12-05 00:12:46
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The number of check items that failed to pass the baseline check. This type of check item is considered risk items.
+     *
      * @example 94
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $failCount;
 
     /**
+     * @description The servers on which risk items were detected.
+     *
      * @var failedEcsList[]
      */
     public $failedEcsList;
 
     /**
+     * @description The number of tasks that are **running **based on the baseline check policy.
+     *
      * @example 0
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $inProcessCount;
 
     /**
+     * @description The execution progress of the baseline check policy.
+     *
      * @example 100%
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $percent;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 01611D72-1E33-53F5-A9A5-C81B5561970F
      *
      * @var string
@@ -50,6 +62,11 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The type of the baseline check. Valid values:
+     *
+     *   **Schedule**: automatic check that periodically runs
+     *   **Manual**: intermediate check that is manually performed
+     *
      * @example Manual
      *
      * @var string
@@ -57,6 +74,8 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $source;
 
     /**
+     * @description The time when the baseline check starts.
+     *
      * @example 2021-12-05 00:12:16
      *
      * @var string
@@ -64,6 +83,8 @@ class DescribeStrategyExecDetailResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The number of check items that **passed** the baseline check.
+     *
      * @example 81
      *
      * @var int

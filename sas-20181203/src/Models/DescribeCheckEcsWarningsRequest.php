@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckEcsWarningsRequest extends Model
 {
     /**
+     * @description The source IP address of the request.
+     *
      * @example 1.2.3.4
      *
      * @var string

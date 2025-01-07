@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublishAutoUpgradeResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1EE7B150-D67E-53FD-A52D-3E8E669A****
      *
      * @var string

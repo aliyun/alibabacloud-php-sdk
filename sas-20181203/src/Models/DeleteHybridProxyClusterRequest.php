@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridProxyClusterRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the proxy cluster.
      *
+     * This parameter is required.
      * @example proxy
      *
      * @var string

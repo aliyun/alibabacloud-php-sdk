@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridProxyClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 414EC213-AD2D-56C3-B140-108773B24405
      *
      * @var string

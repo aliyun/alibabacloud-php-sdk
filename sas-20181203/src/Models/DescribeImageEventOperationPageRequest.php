@@ -75,6 +75,11 @@ class DescribeImageEventOperationPageRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'eventKey'    => 'EventKey',
@@ -83,6 +88,7 @@ class DescribeImageEventOperationPageRequest extends Model
         'id'          => 'Id',
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
+        'source'      => 'Source',
     ];
 
     public function validate()
@@ -112,6 +118,9 @@ class DescribeImageEventOperationPageRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -145,6 +154,9 @@ class DescribeImageEventOperationPageRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

@@ -4,19 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetTenantCheckAvailableResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class InstallRaspAttachResponseBody extends Model
+class GetTenantCheckAvailableResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 86CFF42E-E00A-57A3-8656-22291EFB****
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @example 69BFFCDE-37D6-5A49-A8BC-BB03AC83****
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'data'      => 'Data',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +32,9 @@ class InstallRaspAttachResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +45,14 @@ class InstallRaspAttachResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InstallRaspAttachResponseBody
+     * @return GetTenantCheckAvailableResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = data::fromMap($map['Data']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

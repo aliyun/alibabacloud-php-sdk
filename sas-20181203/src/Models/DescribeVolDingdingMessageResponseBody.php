@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVolDingdingMessageResponseBody extends Model
 {
     /**
+     * @description The QR code address of the DingTalk group.
+     *
      * @example https://www.wikihow.com/images_en/thumb/4/48/Get-the-URL-for-Pictures-Step-4-Version-4.jpg/v4-728px-Get-the-URL-for-Pictures-Step-4-Version-4.jpg.webp
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeVolDingdingMessageResponseBody extends Model
     public $dingdingUrl;
 
     /**
+     * @description The request ID.
+     *
      * @example 7A437E93-47EE-548F-ABCE-13F89AA85585
      *
      * @var string

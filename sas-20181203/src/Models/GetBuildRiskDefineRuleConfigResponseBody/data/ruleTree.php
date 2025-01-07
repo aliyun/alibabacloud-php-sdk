@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ruleTree extends Model
 {
     /**
+     * @description The check item type.
+     *
      * @example other
      *
      * @var string
@@ -17,6 +19,8 @@ class ruleTree extends Model
     public $classKey;
 
     /**
+     * @description The name of the check item type.
+     *
      * @example other
      *
      * @var string
@@ -24,6 +28,8 @@ class ruleTree extends Model
     public $className;
 
     /**
+     * @description The check items of the type.
+     *
      * @var ruleList[]
      */
     public $ruleList;

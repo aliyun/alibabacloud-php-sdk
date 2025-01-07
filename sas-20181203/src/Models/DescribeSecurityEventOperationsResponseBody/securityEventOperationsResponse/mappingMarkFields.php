@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class mappingMarkFields extends Model
 {
     /**
+     * @description The description of the field that is added to the whitelist.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the value of the field can be changed.
+     *
+     *   **CUSTOM**: The value of the field can be changed.
+     *   **SYSTEM**: The value of the field cannot be changed.
+     *
+     * @example CUSTOM
+     *
      * @var string
      */
     public $fillType;
 
     /**
+     * @description The maximum length of the field that is added to the whitelist.
+     *
+     * @example 2048
+     *
      * @var int
      */
     public $maxLength;
 
     /**
+     * @description The minimum length of the field that is added to the whitelist.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $minLength;
 
     /**
+     * @description The name of the field that is added to the whitelist.
+     *
+     * @example pid
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether the parameter is required. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $required;
 
     /**
+     * @description The display name of the field that can be used in the whitelist rule.
+     *
+     * @example pid
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @description The display name of the field that is added to the whitelist.
+     *
+     * @example 1791
+     *
      * @var string
      */
     public $showValue;
 
     /**
+     * @description The value of the field that is added to the whitelist.
+     *
+     * @example 1791
+     *
      * @var string
      */
     public $value;

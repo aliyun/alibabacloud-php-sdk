@@ -19,8 +19,14 @@ class GetSensitiveDefineRuleConfigRequest extends Model
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
-        'lang' => 'Lang',
+        'lang'   => 'Lang',
+        'source' => 'Source',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class GetSensitiveDefineRuleConfigRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -47,6 +56,9 @@ class GetSensitiveDefineRuleConfigRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

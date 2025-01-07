@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class assetList extends Model
 {
     /**
+     * @description The version of the Security Center agent.
+     *
      * @example 0.0.8
      *
      * @var string
@@ -16,6 +18,8 @@ class assetList extends Model
     public $curVersion;
 
     /**
+     * @description The time when the Security Center agent was last upgraded.
+     *
      * @example 1724522400000
      *
      * @var int
@@ -23,6 +27,14 @@ class assetList extends Model
     public $lastUpgradeTime;
 
     /**
+     * @description The publish status of the Security Center agent. Valid values:
+     *
+     *   **0**: not started.
+     *   **1**: publishing.
+     *   **2**: published.
+     *   **3**: publish suspended.
+     *   **4**: forcibly upgrading.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +42,11 @@ class assetList extends Model
     public $status;
 
     /**
+     * @description Indicates whether automatic upgrade is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +54,8 @@ class assetList extends Model
     public $upgradeEnable;
 
     /**
+     * @description The UUID of the asset.
+     *
      * @example 2a98f149-0256-414c-a29a-a69f8a75****
      *
      * @var string

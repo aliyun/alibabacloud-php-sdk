@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckTrialFixCountResponseBody extends Model
 {
     /**
+     * @description Indicates whether the vulnerability can be fixed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class CheckTrialFixCountResponseBody extends Model
     public $canFix;
 
     /**
+     * @description The quota usage required for the current fix operation.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +30,8 @@ class CheckTrialFixCountResponseBody extends Model
     public $expendCount;
 
     /**
+     * @description The quota that remains after the current fix operation is complete.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class CheckTrialFixCountResponseBody extends Model
     public $remainCount;
 
     /**
+     * @description The number of the vulnerabilities that are fixed.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +48,8 @@ class CheckTrialFixCountResponseBody extends Model
     public $repairedCount;
 
     /**
+     * @description The request ID.
+     *
      * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
      *
      * @var string
@@ -44,6 +57,11 @@ class CheckTrialFixCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether Security Center is in free trial. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

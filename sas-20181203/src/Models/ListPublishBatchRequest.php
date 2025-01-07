@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListPublishBatchRequest extends Model
 {
     /**
+     * @description The name of the release batch.
+     *
+     * @example test
+     *
      * @var string
      */
     public $batchName;
 
     /**
-     * @description This parameter is required.
+     * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -23,8 +28,9 @@ class ListPublishBatchRequest extends Model
     public $currentPage;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -32,8 +38,9 @@ class ListPublishBatchRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The destination version of the Security Center agent.
      *
+     * This parameter is required.
      * @example 0.0.9
      *
      * @var string

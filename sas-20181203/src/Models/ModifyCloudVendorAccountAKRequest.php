@@ -19,18 +19,25 @@ class ModifyCloudVendorAccountAKRequest extends Model
     public $authIds;
 
     /**
-     * @description The modules that are associated with the AccessKey pair.
+     * @description The modules that are associated with the AccessKey pair. Valid values:
      *
+     *   **HOST**: host.
+     *   **CSPM**: configuration assessment.
+     *   **SIEM**: Cloud Threat Detection and Response (CTDR).
+     *   **TRIAL**: log audit.
+     *
+     * >  You can call the [GetSupportedModules](~~GetSupportedModules~~) operation to query the supported modules.
      * @var string[]
      */
     public $authModules;
 
     /**
-     * @description The Active Directory (AD) domain. This parameter takes effect only when Vendor is set to Azure. Valid values:
+     * @description The Active Directory (AD) domain. Valid values:
      *
      *   **china**
      *   **global**
      *
+     * >  This parameter takes effect only when Vendor is set to Azure.
      * @example global
      *
      * @var string
@@ -38,9 +45,21 @@ class ModifyCloudVendorAccountAKRequest extends Model
     public $domain;
 
     /**
-     * @description The regions that are examined during AccessKey pair authentication. This parameter takes effect only when Vendor is set to AWS.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
-     * >  You can call the [ListCloudVendorRegions](~~ListCloudVendorRegions~~) operation to query regions.
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
+     * @example zh
+     *
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @description The regions that are examined during AccessKey pair authentication.
+     *
+     * >  This parameter takes effect only when Vendor is set to AWS. You can call the [ListCloudVendorRegions](~~ListCloudVendorRegions~~) operation to query regions.
      * @var string[]
      */
     public $regions;
@@ -48,6 +67,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
     /**
      * @description The AccessKey ID.
      *
+     * >  If AkType is set to **primary**, you must set SecretId to the AccessKey ID of the third-party master account. If AkType is set to **sub**, you must set SecretId to the AccessKey ID of the third-party sub-account. This parameter value does not change for a **Microsoft Azure account**. For an Azure account, set this parameter to the **app ID** that is used for authentication.
      * @example S3D6c4O***
      *
      * @var string
@@ -55,22 +75,9 @@ class ModifyCloudVendorAccountAKRequest extends Model
     public $secretId;
 
     /**
-     * @description The AccessKey secret. Valid values:
+     * @description The AccessKey secret.
      *
-     * 1\\. If AkType is set to primary, specify this parameter based on the following description:
-     *
-     *   **Tencent**: Specify the AccessKey secret of a primary account on Tencent Cloud.
-     *   **HUAWEICLOUD**: Specify the AccessKey secret of a primary account on Huawei Cloud.
-     *   **Azure**: Specify the AccessKey secret of a primary account on Microsoft Azure.
-     *   **AWS**: Specifythe AccessKey secret of a primary account on Amazon Web Services (AWS).
-     *
-     * 2\\. If AkType is set to sub, specify this parameter based on the following description:
-     *
-     *   **Tencent**: Specify the AccessKey secret of a sub-account on Tencent Cloud.
-     *   **HUAWEICLOUD**: Specify the AccessKey secret of a sub-account on Huawei Cloud.
-     *   **Azure**: Specify the AccessKey secret of a sub-account on Microsoft Azure.
-     *   **AWS**: Specify the AccessKey secret of a sub-account on AWS.
-     *
+     * >  If AkType is set to **primary**, you must set SecretKey to the AccessKey secret of the third-party master account. If AkType is set to **sub**, you must set SecretKey to the AccessKey secret of the third-party sub-account. This parameter value does not change for a **Microsoft Azure account**. For an Azure account, set this parameter to the **password** that is used for authentication.
      * @example AE6SLd****
      *
      * @var string
@@ -90,15 +97,17 @@ class ModifyCloudVendorAccountAKRequest extends Model
     public $status;
 
     /**
-     * @description The subscription IDs. This parameter takes effect only when Vendor is set to Azure.
+     * @description The IDs of subscriptions.
      *
+     * >  This parameter takes effect only when Vendor is set to Azure.
      * @var string[]
      */
     public $subscriptionIds;
 
     /**
-     * @description The tenant ID. This parameter takes effect only when Vendor is set to Azure.
+     * @description The tenant ID.
      *
+     * >  This parameter takes effect only when Vendor is set to Azure.
      * @example 95304a97-339b-4de5-9a7d-cdbffaf****
      *
      * @var string
@@ -108,6 +117,7 @@ class ModifyCloudVendorAccountAKRequest extends Model
         'authIds'         => 'AuthIds',
         'authModules'     => 'AuthModules',
         'domain'          => 'Domain',
+        'lang'            => 'Lang',
         'regions'         => 'Regions',
         'secretId'        => 'SecretId',
         'secretKey'       => 'SecretKey',
@@ -131,6 +141,9 @@ class ModifyCloudVendorAccountAKRequest extends Model
         }
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->regions) {
             $res['Regions'] = $this->regions;
@@ -172,6 +185,9 @@ class ModifyCloudVendorAccountAKRequest extends Model
         }
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {

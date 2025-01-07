@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class alarmList extends Model
 {
     /**
+     * @description The name of the alert event.
+     *
      * @example Trojan
      *
      * @var string
@@ -16,11 +18,17 @@ class alarmList extends Model
     public $alarmEventName;
 
     /**
+     * @description The original parent name of the alert event.
+     *
+     * @example login_common_location
+     *
      * @var string
      */
     public $alarmEventNameOriginal;
 
     /**
+     * @description The type of the alert event.
+     *
      * @example Malicious Software
      *
      * @var string
@@ -28,6 +36,8 @@ class alarmList extends Model
     public $alarmEventType;
 
     /**
+     * @description The unique ID of the alert event.
+     *
      * @example 8df914418f4211fbf756efe7a6f4****
      *
      * @var string
@@ -35,6 +45,8 @@ class alarmList extends Model
     public $alarmUniqueInfo;
 
     /**
+     * @description Indicates whether automatic defense is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -42,6 +54,11 @@ class alarmList extends Model
     public $autoBreaking;
 
     /**
+     * @description Indicates whether the alert event can be handled online, such as quarantining the source file of the malicious process, adding the alert event to the whitelist, and ignoring the alert event. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -49,6 +66,11 @@ class alarmList extends Model
     public $canBeDealOnLine;
 
     /**
+     * @description Indicates whether you can cancel marking the alert event as a false positive. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -56,6 +78,8 @@ class alarmList extends Model
     public $canCancelFault;
 
     /**
+     * @description Indicates whether the safeguard mode for major activities is supported.
+     *
      * @example true
      *
      * @var bool
@@ -63,6 +87,8 @@ class alarmList extends Model
     public $containHwMode;
 
     /**
+     * @description The data source of the alert event.
+     *
      * @example aegis_****
      *
      * @var string
@@ -70,6 +96,11 @@ class alarmList extends Model
     public $dataSource;
 
     /**
+     * @description Indicates whether the alert event is handled. Valid values:
+     *
+     *   **N**: unhandled
+     *   **Y**: handled
+     *
      * @example y
      *
      * @var bool
@@ -77,6 +108,8 @@ class alarmList extends Model
     public $dealed;
 
     /**
+     * @description The description of the alert event.
+     *
      * @example The detection model finds that there is a Trojan horse program on your server. The Trojan horse program is a program specially used to invade the user\\"s host. Generally, it will download and release another malicious program after being implanted into the system through disguise.
      *
      * @var string
@@ -84,6 +117,8 @@ class alarmList extends Model
     public $description;
 
     /**
+     * @description The timestamp generated when the alert event was last detected. Unit: milliseconds.
+     *
      * @example 1543740301000
      *
      * @var int
@@ -91,6 +126,8 @@ class alarmList extends Model
     public $endTime;
 
     /**
+     * @description The time of the last modification.
+     *
      * @example 1656901794000
      *
      * @var int
@@ -98,6 +135,11 @@ class alarmList extends Model
     public $gmtModified;
 
     /**
+     * @description Indicates whether the alert event has tracing information. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -105,6 +147,8 @@ class alarmList extends Model
     public $hasTraceInfo;
 
     /**
+     * @description The instance ID of the affected asset.
+     *
      * @example i-e****
      *
      * @var string
@@ -112,6 +156,8 @@ class alarmList extends Model
     public $instanceId;
 
     /**
+     * @description The instance name of the affected asset.
+     *
      * @example TestInstance
      *
      * @var string
@@ -119,6 +165,8 @@ class alarmList extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 95.214.*.*
      *
      * @var string
@@ -126,6 +174,8 @@ class alarmList extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the affected instance.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -133,6 +183,12 @@ class alarmList extends Model
     public $intranetIp;
 
     /**
+     * @description The risk level of the alert event. Valid values:
+     *
+     *   **serious**
+     *   **suspicious**
+     *   **remind**
+     *
      * @example serious
      *
      * @var string
@@ -140,6 +196,8 @@ class alarmList extends Model
     public $level;
 
     /**
+     * @description The handling result code of the alert event.
+     *
      * @example kill_and_quara.Success
      *
      * @var string
@@ -147,6 +205,8 @@ class alarmList extends Model
     public $operateErrorCode;
 
     /**
+     * @description The timestamp generated when the alert event was handled. Unit: milliseconds.
+     *
      * @example 1631699497000
      *
      * @var int
@@ -154,6 +214,12 @@ class alarmList extends Model
     public $operateTime;
 
     /**
+     * @description The edition of Security Center in which the alert event can be detected. Valid values:
+     *
+     *   **0**: Basic edition.
+     *   **1**: Advanced edition.
+     *   **2**: Enterprise edition.
+     *
      * @example 1
      *
      * @var string
@@ -161,6 +227,8 @@ class alarmList extends Model
     public $saleVersion;
 
     /**
+     * @description The ID of the associated alert event.
+     *
      * @example 270789
      *
      * @var string
@@ -168,6 +236,8 @@ class alarmList extends Model
     public $securityEventIds;
 
     /**
+     * @description The solution to the alert event.
+     *
      * @example A malicious program implanted by hacker after intrusion will occupy your bandwidth and attack other servers, and may affect you own service. The malicious process may also have self-deleting behavior or disguise as a system service to evade detection.
      *
      * @var string
@@ -175,6 +245,8 @@ class alarmList extends Model
     public $solution;
 
     /**
+     * @description The stage at which the attack or intrusion is detected.
+     *
      * @example [\\"authority_maintenance\\"]
      *
      * @var string
@@ -182,6 +254,8 @@ class alarmList extends Model
     public $stages;
 
     /**
+     * @description The timestamp generated when the alert event was first detected. Unit: milliseconds.
+     *
      * @example 1543740301000
      *
      * @var int
@@ -189,6 +263,8 @@ class alarmList extends Model
     public $startTime;
 
     /**
+     * @description The total number of security alerts in your website assets.
+     *
      * @example 1
      *
      * @var int
@@ -196,6 +272,8 @@ class alarmList extends Model
     public $suspiciousEventCount;
 
     /**
+     * @description The unique ID of the associated instance.
+     *
      * @example 47900178-885d-4fa4-9d77-****
      *
      * @var string

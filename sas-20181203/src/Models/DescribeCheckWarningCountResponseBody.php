@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningCountResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
      * @example 4
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeCheckWarningCountResponseBody extends Model
     public $count;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 9693CBA1-1EC4-5B5A-8D96-34010D9DXXXX
      *
      * @var string

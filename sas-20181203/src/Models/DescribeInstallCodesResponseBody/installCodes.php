@@ -69,6 +69,15 @@ class installCodes extends Model
     public $os;
 
     /**
+     * @description The ID of the PrivateLink endpoint.
+     *
+     * @example 123
+     *
+     * @var int
+     */
+    public $privateLinkEndpointId;
+
+    /**
      * @description The name of the proxy cluster.
      *
      * @example proxy_test
@@ -86,14 +95,15 @@ class installCodes extends Model
      */
     public $vendorName;
     protected $_name = [
-        'captchaCode'  => 'CaptchaCode',
-        'expiredDate'  => 'ExpiredDate',
-        'groupId'      => 'GroupId',
-        'groupName'    => 'GroupName',
-        'onlyImage'    => 'OnlyImage',
-        'os'           => 'Os',
-        'proxyCluster' => 'ProxyCluster',
-        'vendorName'   => 'VendorName',
+        'captchaCode'           => 'CaptchaCode',
+        'expiredDate'           => 'ExpiredDate',
+        'groupId'               => 'GroupId',
+        'groupName'             => 'GroupName',
+        'onlyImage'             => 'OnlyImage',
+        'os'                    => 'Os',
+        'privateLinkEndpointId' => 'PrivateLinkEndpointId',
+        'proxyCluster'          => 'ProxyCluster',
+        'vendorName'            => 'VendorName',
     ];
 
     public function validate()
@@ -120,6 +130,9 @@ class installCodes extends Model
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
+        }
+        if (null !== $this->privateLinkEndpointId) {
+            $res['PrivateLinkEndpointId'] = $this->privateLinkEndpointId;
         }
         if (null !== $this->proxyCluster) {
             $res['ProxyCluster'] = $this->proxyCluster;
@@ -156,6 +169,9 @@ class installCodes extends Model
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
+        }
+        if (isset($map['PrivateLinkEndpointId'])) {
+            $model->privateLinkEndpointId = $map['PrivateLinkEndpointId'];
         }
         if (isset($map['ProxyCluster'])) {
             $model->proxyCluster = $map['ProxyCluster'];

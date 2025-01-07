@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridProxyListRequest extends Model
 {
     /**
+     * @description The name of the proxy cluster.
+     *
      * @example idc-sas-proxy
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeHybridProxyListRequest extends Model
     public $clusterName;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeHybridProxyListRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries per page. Default value: 20.
+     *
      * @example 20
      *
      * @var int

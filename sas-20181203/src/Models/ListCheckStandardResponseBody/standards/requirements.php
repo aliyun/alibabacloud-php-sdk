@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requirements extends Model
 {
     /**
-     * @description The ID of the search condition.
+     * @description The ID of the requirement.
      *
      * @example 11
      *
@@ -18,7 +18,7 @@ class requirements extends Model
     public $id;
 
     /**
-     * @description The number of check items queried by using the search condition.
+     * @description The number of check items in the requirement.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class requirements extends Model
     public $showName;
 
     /**
-     * @description The priority field indicates the level of prominence.
+     * @description The priority for display.
      *
      * @example 1
      *

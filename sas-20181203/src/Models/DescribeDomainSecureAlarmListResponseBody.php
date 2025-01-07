@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSecureAlarmListResponseBody extends Model
 {
     /**
+     * @description The security alerts in your website assets.
+     *
      * @var alarmList[]
      */
     public $alarmList;
 
     /**
+     * @description The request ID.
+     *
      * @example D03DD0FD-6041-5107-AC00-383E28F1****
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDomainSecureAlarmListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 42
      *
      * @var int

@@ -44,7 +44,11 @@ class ListCheckStandardRequest extends Model
     /**
      * @description The cloud service providers. Valid values:
      *
-     *   **ALIYUN**: Alibaba Cloud
+     *   **ALIYUN**: Alibaba Cloud.
+     *   **TENCENT**: Tencent Cloud.
+     *   **HUAWEICLOUD**: Huawei Cloud.
+     *   **MICROSOFT**: Microsoft Azure.
+     *   **AWS**: Amazon Web Services (AWS).
      *
      * @var string[]
      */
