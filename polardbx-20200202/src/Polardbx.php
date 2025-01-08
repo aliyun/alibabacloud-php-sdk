@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListReques
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDistributeTableListResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeEventsResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeGdnInstancesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeOpenBackupSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeParametersRequest;
@@ -138,6 +140,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\RestartDBInstanceResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SwitchDBInstanceHARequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\SwitchDBInstanceHAResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\SwitchGdnMemberRoleRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\SwitchGdnMemberRoleResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\UntagResourcesRequest;
@@ -2239,6 +2243,68 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * @summary 获取GDN实例列表
+     *  *
+     * @param DescribeGdnInstancesRequest $request DescribeGdnInstancesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeGdnInstancesResponse DescribeGdnInstancesResponse
+     */
+    public function describeGdnInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filterType)) {
+            $query['FilterType'] = $request->filterType;
+        }
+        if (!Utils::isUnset($request->filterValue)) {
+            $query['FilterValue'] = $request->filterValue;
+        }
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGdnInstances',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGdnInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取GDN实例列表
+     *  *
+     * @param DescribeGdnInstancesRequest $request DescribeGdnInstancesRequest
+     *
+     * @return DescribeGdnInstancesResponse DescribeGdnInstancesResponse
+     */
+    public function describeGdnInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGdnInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 开放商业备份集
      *  *
      * @param DescribeOpenBackupSetRequest $request DescribeOpenBackupSetRequest
@@ -3822,6 +3888,59 @@ class Polardbx extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->switchDBInstanceHAWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary GDN主备切换
+     *  *
+     * @param SwitchGdnMemberRoleRequest $request SwitchGdnMemberRoleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SwitchGdnMemberRoleResponse SwitchGdnMemberRoleResponse
+     */
+    public function switchGdnMemberRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceName)) {
+            $query['DBInstanceName'] = $request->DBInstanceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->switchMode)) {
+            $query['SwitchMode'] = $request->switchMode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchGdnMemberRole',
+            'version'     => '2020-02-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchGdnMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary GDN主备切换
+     *  *
+     * @param SwitchGdnMemberRoleRequest $request SwitchGdnMemberRoleRequest
+     *
+     * @return SwitchGdnMemberRoleResponse SwitchGdnMemberRoleResponse
+     */
+    public function switchGdnMemberRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchGdnMemberRoleWithOptions($request, $runtime);
     }
 
     /**
