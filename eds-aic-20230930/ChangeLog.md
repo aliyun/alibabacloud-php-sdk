@@ -1,3 +1,7 @@
+2025-01-08 Version: 3.2.3
+- Update API CreateAndroidInstanceGroup: update param PolicyGroupId.
+
+
 2025-01-07 Version: 3.2.2
 - Generated php 2023-09-30 for eds-aic.
 

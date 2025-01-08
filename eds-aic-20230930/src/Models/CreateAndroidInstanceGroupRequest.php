@@ -110,8 +110,6 @@ class CreateAndroidInstanceGroupRequest extends Model
     public $periodUnit;
 
     /**
-     * @description This parameter is required.
-     *
      * @example pg-b7bxrrwxkijjh****
      *
      * @var string
