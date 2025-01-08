@@ -47,6 +47,11 @@ class ModifyDefaultIPSConfigRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $maxSdl;
+
+    /**
      * @description Specifies whether to enable virtual patching. Valid values:
      *
      *   **1**: yes
@@ -87,6 +92,7 @@ class ModifyDefaultIPSConfigRequest extends Model
         'basicRules' => 'BasicRules',
         'ctiRules'   => 'CtiRules',
         'lang'       => 'Lang',
+        'maxSdl'     => 'MaxSdl',
         'patchRules' => 'PatchRules',
         'ruleClass'  => 'RuleClass',
         'runMode'    => 'RunMode',
@@ -107,6 +113,9 @@ class ModifyDefaultIPSConfigRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->maxSdl) {
+            $res['MaxSdl'] = $this->maxSdl;
         }
         if (null !== $this->patchRules) {
             $res['PatchRules'] = $this->patchRules;
@@ -137,6 +146,9 @@ class ModifyDefaultIPSConfigRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['MaxSdl'])) {
+            $model->maxSdl = $map['MaxSdl'];
         }
         if (isset($map['PatchRules'])) {
             $model->patchRules = $map['PatchRules'];

@@ -33,6 +33,16 @@ class DescribeDefaultIPSConfigResponseBody extends Model
     public $ctiRules;
 
     /**
+     * @var string
+     */
+    public $freeTrailStatus;
+
+    /**
+     * @var int
+     */
+    public $maxSdl;
+
+    /**
      * @description Indicates whether virtual patching is enabled. Valid values:
      *
      *   **1**: yes
@@ -78,12 +88,14 @@ class DescribeDefaultIPSConfigResponseBody extends Model
      */
     public $runMode;
     protected $_name = [
-        'basicRules' => 'BasicRules',
-        'ctiRules'   => 'CtiRules',
-        'patchRules' => 'PatchRules',
-        'requestId'  => 'RequestId',
-        'ruleClass'  => 'RuleClass',
-        'runMode'    => 'RunMode',
+        'basicRules'      => 'BasicRules',
+        'ctiRules'        => 'CtiRules',
+        'freeTrailStatus' => 'FreeTrailStatus',
+        'maxSdl'          => 'MaxSdl',
+        'patchRules'      => 'PatchRules',
+        'requestId'       => 'RequestId',
+        'ruleClass'       => 'RuleClass',
+        'runMode'         => 'RunMode',
     ];
 
     public function validate()
@@ -98,6 +110,12 @@ class DescribeDefaultIPSConfigResponseBody extends Model
         }
         if (null !== $this->ctiRules) {
             $res['CtiRules'] = $this->ctiRules;
+        }
+        if (null !== $this->freeTrailStatus) {
+            $res['FreeTrailStatus'] = $this->freeTrailStatus;
+        }
+        if (null !== $this->maxSdl) {
+            $res['MaxSdl'] = $this->maxSdl;
         }
         if (null !== $this->patchRules) {
             $res['PatchRules'] = $this->patchRules;
@@ -128,6 +146,12 @@ class DescribeDefaultIPSConfigResponseBody extends Model
         }
         if (isset($map['CtiRules'])) {
             $model->ctiRules = $map['CtiRules'];
+        }
+        if (isset($map['FreeTrailStatus'])) {
+            $model->freeTrailStatus = $map['FreeTrailStatus'];
+        }
+        if (isset($map['MaxSdl'])) {
+            $model->maxSdl = $map['MaxSdl'];
         }
         if (isset($map['PatchRules'])) {
             $model->patchRules = $map['PatchRules'];

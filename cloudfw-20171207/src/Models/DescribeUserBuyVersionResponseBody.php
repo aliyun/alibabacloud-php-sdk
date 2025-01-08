@@ -53,6 +53,11 @@ class DescribeUserBuyVersionResponseBody extends Model
     public $instanceStatus;
 
     /**
+     * @var int
+     */
+    public $internetBandwidth;
+
+    /**
      * @description The number of public IP addresses that can be protected.
      *
      * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
@@ -96,6 +101,11 @@ class DescribeUserBuyVersionResponseBody extends Model
      * @var int
      */
     public $maxOverflow;
+
+    /**
+     * @var int
+     */
+    public $natBandwidth;
 
     /**
      * @description The request ID.
@@ -143,6 +153,11 @@ class DescribeUserBuyVersionResponseBody extends Model
     public $version;
 
     /**
+     * @var int
+     */
+    public $vpcBandwidth;
+
+    /**
      * @description The number of virtual private clouds (VPCs) that can be protected.
      *
      * >  This parameter takes effect only for Cloud Firewall that uses the subscription billing method.
@@ -152,19 +167,22 @@ class DescribeUserBuyVersionResponseBody extends Model
      */
     public $vpcNumber;
     protected $_name = [
-        'aliUid'         => 'AliUid',
-        'expire'         => 'Expire',
-        'instanceId'     => 'InstanceId',
-        'instanceStatus' => 'InstanceStatus',
-        'ipNumber'       => 'IpNumber',
-        'logStatus'      => 'LogStatus',
-        'logStorage'     => 'LogStorage',
-        'maxOverflow'    => 'MaxOverflow',
-        'requestId'      => 'RequestId',
-        'startTime'      => 'StartTime',
-        'userStatus'     => 'UserStatus',
-        'version'        => 'Version',
-        'vpcNumber'      => 'VpcNumber',
+        'aliUid'            => 'AliUid',
+        'expire'            => 'Expire',
+        'instanceId'        => 'InstanceId',
+        'instanceStatus'    => 'InstanceStatus',
+        'internetBandwidth' => 'InternetBandwidth',
+        'ipNumber'          => 'IpNumber',
+        'logStatus'         => 'LogStatus',
+        'logStorage'        => 'LogStorage',
+        'maxOverflow'       => 'MaxOverflow',
+        'natBandwidth'      => 'NatBandwidth',
+        'requestId'         => 'RequestId',
+        'startTime'         => 'StartTime',
+        'userStatus'        => 'UserStatus',
+        'version'           => 'Version',
+        'vpcBandwidth'      => 'VpcBandwidth',
+        'vpcNumber'         => 'VpcNumber',
     ];
 
     public function validate()
@@ -186,6 +204,9 @@ class DescribeUserBuyVersionResponseBody extends Model
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
+        if (null !== $this->internetBandwidth) {
+            $res['InternetBandwidth'] = $this->internetBandwidth;
+        }
         if (null !== $this->ipNumber) {
             $res['IpNumber'] = $this->ipNumber;
         }
@@ -198,6 +219,9 @@ class DescribeUserBuyVersionResponseBody extends Model
         if (null !== $this->maxOverflow) {
             $res['MaxOverflow'] = $this->maxOverflow;
         }
+        if (null !== $this->natBandwidth) {
+            $res['NatBandwidth'] = $this->natBandwidth;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -209,6 +233,9 @@ class DescribeUserBuyVersionResponseBody extends Model
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
+        }
+        if (null !== $this->vpcBandwidth) {
+            $res['VpcBandwidth'] = $this->vpcBandwidth;
         }
         if (null !== $this->vpcNumber) {
             $res['VpcNumber'] = $this->vpcNumber;
@@ -237,6 +264,9 @@ class DescribeUserBuyVersionResponseBody extends Model
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
+        if (isset($map['InternetBandwidth'])) {
+            $model->internetBandwidth = $map['InternetBandwidth'];
+        }
         if (isset($map['IpNumber'])) {
             $model->ipNumber = $map['IpNumber'];
         }
@@ -249,6 +279,9 @@ class DescribeUserBuyVersionResponseBody extends Model
         if (isset($map['MaxOverflow'])) {
             $model->maxOverflow = $map['MaxOverflow'];
         }
+        if (isset($map['NatBandwidth'])) {
+            $model->natBandwidth = $map['NatBandwidth'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
@@ -260,6 +293,9 @@ class DescribeUserBuyVersionResponseBody extends Model
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
+        }
+        if (isset($map['VpcBandwidth'])) {
+            $model->vpcBandwidth = $map['VpcBandwidth'];
         }
         if (isset($map['VpcNumber'])) {
             $model->vpcNumber = $map['VpcNumber'];

@@ -5790,6 +5790,9 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->maxSdl)) {
+            $query['MaxSdl'] = $request->maxSdl;
+        }
         if (!Utils::isUnset($request->patchRules)) {
             $query['PatchRules'] = $request->patchRules;
         }
