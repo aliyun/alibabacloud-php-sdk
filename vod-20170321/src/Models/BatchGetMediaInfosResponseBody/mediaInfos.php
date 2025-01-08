@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vod\V20170321\Models\BatchGetMediaInfosResponseBody;
 
 use AlibabaCloud\SDK\Vod\V20170321\Models\BatchGetMediaInfosResponseBody\mediaInfos\mediaInfo;
 use AlibabaCloud\SDK\Vod\V20170321\Models\BatchGetMediaInfosResponseBody\mediaInfos\mezzanineInfo;
+use AlibabaCloud\SDK\Vod\V20170321\Models\BatchGetMediaInfosResponseBody\mediaInfos\playInfoList;
 use AlibabaCloud\Tea\Model;
 
 class mediaInfos extends Model
@@ -26,10 +27,16 @@ class mediaInfos extends Model
      * @var mezzanineInfo
      */
     public $mezzanineInfo;
+
+    /**
+     * @var playInfoList[]
+     */
+    public $playInfoList;
     protected $_name = [
         'mediaId'       => 'MediaId',
         'mediaInfo'     => 'MediaInfo',
         'mezzanineInfo' => 'MezzanineInfo',
+        'playInfoList'  => 'PlayInfoList',
     ];
 
     public function validate()
@@ -47,6 +54,15 @@ class mediaInfos extends Model
         }
         if (null !== $this->mezzanineInfo) {
             $res['MezzanineInfo'] = null !== $this->mezzanineInfo ? $this->mezzanineInfo->toMap() : null;
+        }
+        if (null !== $this->playInfoList) {
+            $res['PlayInfoList'] = [];
+            if (null !== $this->playInfoList && \is_array($this->playInfoList)) {
+                $n = 0;
+                foreach ($this->playInfoList as $item) {
+                    $res['PlayInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -68,6 +84,15 @@ class mediaInfos extends Model
         }
         if (isset($map['MezzanineInfo'])) {
             $model->mezzanineInfo = mezzanineInfo::fromMap($map['MezzanineInfo']);
+        }
+        if (isset($map['PlayInfoList'])) {
+            if (!empty($map['PlayInfoList'])) {
+                $model->playInfoList = [];
+                $n                   = 0;
+                foreach ($map['PlayInfoList'] as $item) {
+                    $model->playInfoList[$n++] = null !== $item ? playInfoList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
