@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The queried alert groups.
+     *
      * @var string[]
      */
     public $groups;
 
     /**
+     * @description The queried rules.
+     *
      * @var rules[]
      */
     public $rules;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 26
      *
      * @var int

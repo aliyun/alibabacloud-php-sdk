@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class metadata extends Model
 {
     /**
+     * @description The annotations.
+     *
      * @var string[]
      */
     public $annotations;
 
     /**
+     * @description The tags.
+     *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The resource name.
+     *
      * @example arms-prometheus-ack-arms-prometheus-c577b6cc8-mvdwd
      *
      * @var string
@@ -26,6 +32,8 @@ class metadata extends Model
     public $name;
 
     /**
+     * @description The namespace.
+     *
      * @example arms-prom
      *
      * @var string

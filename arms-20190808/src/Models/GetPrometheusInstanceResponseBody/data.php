@@ -169,6 +169,8 @@ class data extends Model
     public $paymentType;
 
     /**
+     * @description The time when the billing method was modified.
+     *
      * @var string
      */
     public $paymentTypeUpdateTime;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The ID of the alert rule.
+     *
      * @example 9502571
      *
      * @var int
@@ -16,6 +18,8 @@ class rules extends Model
     public $alertId;
 
     /**
+     * @description The name of the alert rule.
+     *
      * @example mysql-CS-MySQLInnoDBLogWaits_lu
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentMetricTargetsResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ListEnvironmentMetricTargetsResponseBody extends Model
     public $code;
 
     /**
+     * @description The struct returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -29,7 +35,7 @@ class ListEnvironmentMetricTargetsResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 16AF921B-8187-489F-9913-43C808B4****
      *
@@ -38,6 +44,11 @@ class ListEnvironmentMetricTargetsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool

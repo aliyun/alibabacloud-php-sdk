@@ -39,11 +39,11 @@ class alertRule extends Model
     public $alertGroup;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The alert rule ID.
      *
      * @example 5510445
      *
-     * @var float
+     * @var int
      */
     public $alertId;
 

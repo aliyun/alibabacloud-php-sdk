@@ -6421,6 +6421,10 @@ class ARMS extends OpenApiClient
     public function doInsightsActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         $body = [];
         if (!Utils::isUnset($request->data)) {
             $body['Data'] = $request->data;
@@ -6429,7 +6433,8 @@ class ARMS extends OpenApiClient
             $body['Module'] = $request->module;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DoInsightsAction',
@@ -10041,7 +10046,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境的告警组列表
+     * @summary Queries the alert groups of an environment instance.
      *  *
      * @param ListEnvironmentAlertRulesRequest $request ListEnvironmentAlertRulesRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -10083,7 +10088,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境的告警组列表
+     * @summary Queries the alert groups of an environment instance.
      *  *
      * @param ListEnvironmentAlertRulesRequest $request ListEnvironmentAlertRulesRequest
      *
@@ -10206,7 +10211,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境中的kube资源列表
+     * @summary Queries the Kubernetes resources of an environment.
      *  *
      * @param ListEnvironmentKubeResourcesRequest $tmpReq  ListEnvironmentKubeResourcesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -10256,7 +10261,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境中的kube资源列表
+     * @summary Queries the Kubernetes resources of an environment.
      *  *
      * @param ListEnvironmentKubeResourcesRequest $request ListEnvironmentKubeResourcesRequest
      *
@@ -10270,7 +10275,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境指标target列表
+     * @summary Queries the targets of an environment.
      *  *
      * @param ListEnvironmentMetricTargetsRequest $request ListEnvironmentMetricTargetsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -10309,7 +10314,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @summary 环境指标target列表
+     * @summary Queries the targets of an environment.
      *  *
      * @param ListEnvironmentMetricTargetsRequest $request ListEnvironmentMetricTargetsRequest
      *

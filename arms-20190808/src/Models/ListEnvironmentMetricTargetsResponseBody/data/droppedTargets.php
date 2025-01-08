@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class droppedTargets extends Model
 {
     /**
+     * @description The tags used for service discovery.
+     *
      * @var string[]
      */
     public $discoveredLabels;
 
     /**
+     * @description The URL of the target.
+     *
      * @example http://xxx
      *
      * @var string
@@ -21,6 +25,8 @@ class droppedTargets extends Model
     public $globalUrl;
 
     /**
+     * @description The health status.
+     *
      * @example up
      *
      * @var string
@@ -28,11 +34,15 @@ class droppedTargets extends Model
     public $health;
 
     /**
+     * @description The tags.
+     *
      * @var string[]
      */
     public $labels;
 
     /**
+     * @description The last error message.
+     *
      * @example Get \\"http://172.16.0.86:9104/metrics\\": dial tcp 172.16.0.86:9104: connect: connection refused
      *
      * @var string
@@ -40,6 +50,8 @@ class droppedTargets extends Model
     public $lastError;
 
     /**
+     * @description The last collection time.
+     *
      * @example 2023-10-12T07:15:47.306691514Z
      *
      * @var string
@@ -47,6 +59,8 @@ class droppedTargets extends Model
     public $lastScrape;
 
     /**
+     * @description The duration of the last collection.
+     *
      * @example 0.00127593
      *
      * @var float
@@ -54,6 +68,8 @@ class droppedTargets extends Model
     public $lastScrapeDuration;
 
     /**
+     * @description The amount of metrics in the last collection.
+     *
      * @example 122
      *
      * @var int
@@ -61,6 +77,8 @@ class droppedTargets extends Model
     public $lastScrapeSeries;
 
     /**
+     * @description The name of the collection.
+     *
      * @example arms-prom/mysql-exporter-mysql-1694429267986-sm/0"
      *
      * @var string
@@ -68,6 +86,8 @@ class droppedTargets extends Model
     public $scrapePool;
 
     /**
+     * @description The URL of the collection.
+     *
      * @example http://xxxx
      *
      * @var string

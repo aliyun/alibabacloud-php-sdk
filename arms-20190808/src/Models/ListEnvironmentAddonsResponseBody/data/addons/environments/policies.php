@@ -29,16 +29,26 @@ class policies extends Model
     public $defaultInstall;
 
     /**
+     * @description Indicates whether a service account is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableServiceAccount;
 
     /**
+     * @description The metric check rule.
+     *
      * @var metricCheckRule
      */
     public $metricCheckRule;
 
     /**
+     * @description Indicates whether a restart is required after the installation.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $needRestartAfterIntegration;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class metricCheckRule extends Model
 {
     /**
+     * @description The PromQL statements.
+     *
      * @var string[]
      */
     public $promQL;

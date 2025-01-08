@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentKubeResourcesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -18,8 +19,9 @@ class ListEnvironmentKubeResourcesRequest extends Model
     public $environmentId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource type. Valid values: Pod, Deployment, and Service.
      *
+     * This parameter is required.
      * @example Pod
      *
      * @var string
@@ -27,11 +29,15 @@ class ListEnvironmentKubeResourcesRequest extends Model
     public $kind;
 
     /**
+     * @description The tags.
+     *
      * @var string[]
      */
     public $labelSelectors;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -39,6 +45,8 @@ class ListEnvironmentKubeResourcesRequest extends Model
     public $namespace;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentAlertRulesResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ListEnvironmentAlertRulesResponseBody extends Model
     public $code;
 
     /**
+     * @description The struct returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example message
      *
      * @var string
@@ -29,7 +35,7 @@ class ListEnvironmentAlertRulesResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 4C518054-852F-4023-ABC1-4AF95FF7****
      *
@@ -38,6 +44,11 @@ class ListEnvironmentAlertRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -93,7 +93,7 @@ class QueryMetricByPageRequest extends Model
     public $order;
 
     /**
-     * @description The dimension from which metrics are sorted. You can set this parameter to a supported dimension.
+     * @description The dimension for arranging metrics in sequence. For more information, see the supplementary metrics.
      *
      * @example pid
      *

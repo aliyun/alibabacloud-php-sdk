@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The version number of the API.
+     *
      * @example v1
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $apiVersion;
 
     /**
+     * @description The resource type.
+     *
      * @example Pod
      *
      * @var string
@@ -24,11 +28,15 @@ class data extends Model
     public $kind;
 
     /**
+     * @description The metadata.
+     *
      * @var metadata
      */
     public $metadata;
 
     /**
+     * @description The resource specifications.
+     *
      * @example {
      * }
      * @var mixed
@@ -36,6 +44,8 @@ class data extends Model
     public $spec;
 
     /**
+     * @description The status of the resource.
+     *
      * @example run
      *
      * @var mixed

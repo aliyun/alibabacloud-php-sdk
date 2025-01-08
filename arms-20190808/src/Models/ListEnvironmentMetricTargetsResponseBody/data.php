@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The active targets.
+     *
      * @var activeTargets[]
      */
     public $activeTargets;
 
     /**
+     * @description The deleted targets.
+     *
      * @var droppedTargets[]
      */
     public $droppedTargets;

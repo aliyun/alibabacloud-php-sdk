@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentAlertRulesRequest extends Model
 {
     /**
+     * @description The name of the add-on. You must specify AddonName or Scene.
+     *
      * @example mysql
      *
      * @var string
@@ -16,8 +18,9 @@ class ListEnvironmentAlertRulesRequest extends Model
     public $addonName;
 
     /**
-     * @description This parameter is required.
+     * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -25,6 +28,8 @@ class ListEnvironmentAlertRulesRequest extends Model
     public $environmentId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -32,6 +37,8 @@ class ListEnvironmentAlertRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description The scenario of the add-on. You must specify AddonName or Scene.
+     *
      * @example database
      *
      * @var string

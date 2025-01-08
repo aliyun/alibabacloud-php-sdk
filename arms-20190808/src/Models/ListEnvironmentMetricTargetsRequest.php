@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListEnvironmentMetricTargetsRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The environment ID.
      *
+     * This parameter is required.
      * @example env-xxx
      *
      * @var string
@@ -18,6 +19,8 @@ class ListEnvironmentMetricTargetsRequest extends Model
     public $environmentId;
 
     /**
+     * @description The job name.
+     *
      * @example blackbox
      *
      * @var string
@@ -25,6 +28,8 @@ class ListEnvironmentMetricTargetsRequest extends Model
     public $jobName;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

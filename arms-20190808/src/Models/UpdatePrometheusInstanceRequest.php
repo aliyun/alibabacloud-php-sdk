@@ -63,6 +63,8 @@ class UpdatePrometheusInstanceRequest extends Model
     public $enableAuthToken;
 
     /**
+     * @description The billing mode. Valid values: POSTPAY: charges fees based on the amount of reported metric data. POSTPAY_GB: charges fees based on the amount of written metric data.
+     *
      * @var string
      */
     public $paymentType;

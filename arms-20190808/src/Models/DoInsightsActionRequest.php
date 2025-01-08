@@ -38,9 +38,15 @@ class DoInsightsActionRequest extends Model
      * @var string
      */
     public $module;
+
+    /**
+     * @var string
+     */
+    public $regionId;
     protected $_name = [
-        'data'   => 'Data',
-        'module' => 'Module',
+        'data'     => 'Data',
+        'module'   => 'Module',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class DoInsightsActionRequest extends Model
         }
         if (null !== $this->module) {
             $res['Module'] = $this->module;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -73,6 +82,9 @@ class DoInsightsActionRequest extends Model
         }
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
