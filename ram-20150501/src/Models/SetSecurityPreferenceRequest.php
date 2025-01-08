@@ -75,7 +75,7 @@ class SetSecurityPreferenceRequest extends Model
      *   If you specify a subnet mask, RAM users can use only the IP addresses in the subnet mask to log on to the Alibaba Cloud Management Console.
      *   If you do not specify a subnet mask, RAM users can use all IP addresses to log on to the Alibaba Cloud Management Console.
      *
-     * You can specify up to 25 subnet masks. The total length of the subnet masks can be a maximum of 512 characters.
+     * You can specify up to 40 subnet masks. The total length of the subnet masks can be a maximum of 512 characters.
      * @example 10.0.0.0/8
      *
      * @var string

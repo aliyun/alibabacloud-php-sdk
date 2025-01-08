@@ -1131,6 +1131,9 @@ class Ram extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cascadingDelete)) {
+            $query['CascadingDelete'] = $request->cascadingDelete;
+        }
         if (!Utils::isUnset($request->policyName)) {
             $query['PolicyName'] = $request->policyName;
         }
@@ -2824,6 +2827,8 @@ class Ram extends OpenApiClient
     }
 
     /**
+     * @summary Configures the security preferences.
+     *  *
      * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
@@ -2873,6 +2878,8 @@ class Ram extends OpenApiClient
     }
 
     /**
+     * @summary Configures the security preferences.
+     *  *
      * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
      *
      * @return SetSecurityPreferenceResponse SetSecurityPreferenceResponse
@@ -2885,6 +2892,8 @@ class Ram extends OpenApiClient
     }
 
     /**
+     * @summary Detaches a multi-factor authentication (MFA) device from a RAM user.
+     *  *
      * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
@@ -2916,6 +2925,8 @@ class Ram extends OpenApiClient
     }
 
     /**
+     * @summary Detaches a multi-factor authentication (MFA) device from a RAM user.
+     *  *
      * @param UnbindMFADeviceRequest $request UnbindMFADeviceRequest
      *
      * @return UnbindMFADeviceResponse UnbindMFADeviceResponse

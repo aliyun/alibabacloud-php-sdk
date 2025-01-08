@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $cascadingDelete;
+
+    /**
      * @description The name of the policy.
      *
      * @example OSS-Administrator
@@ -17,7 +22,8 @@ class DeletePolicyRequest extends Model
      */
     public $policyName;
     protected $_name = [
-        'policyName' => 'PolicyName',
+        'cascadingDelete' => 'CascadingDelete',
+        'policyName'      => 'PolicyName',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class DeletePolicyRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cascadingDelete) {
+            $res['CascadingDelete'] = $this->cascadingDelete;
+        }
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
@@ -42,6 +51,9 @@ class DeletePolicyRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CascadingDelete'])) {
+            $model->cascadingDelete = $map['CascadingDelete'];
+        }
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }

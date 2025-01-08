@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UnbindMFADeviceRequest extends Model
 {
     /**
-     * @description The name of the RAM user.
-     *
-     * @example zhangq****
-     *
      * @var string
      */
     public $userName;
