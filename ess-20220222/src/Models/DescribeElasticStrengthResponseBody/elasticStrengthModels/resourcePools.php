@@ -28,6 +28,8 @@ class resourcePools extends Model
     public $instanceType;
 
     /**
+     * @description The inventory health.
+     *
      * @var inventoryHealth
      */
     public $inventoryHealth;
@@ -42,12 +44,23 @@ class resourcePools extends Model
     public $msg;
 
     /**
+     * @description Indicates whether the resource pool is available. Valid values:
+     *
+     *   Available
+     *   Unavailable (If a constraint is not provided, the instance type is not deployed, or the instance type is out of stock, the resource pool becomes unavailable.)
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
      * @description The scaling strength of the resource pool.
+     *
+     **
+     *
+     **Warning** This parameter is deprecated.
      *
      * @example 0.6
      *

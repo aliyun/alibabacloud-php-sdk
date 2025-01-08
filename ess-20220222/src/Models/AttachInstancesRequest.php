@@ -32,6 +32,11 @@ class AttachInstancesRequest extends Model
     public $entrusted;
 
     /**
+     * @var bool
+     */
+    public $ignoreInvalidInstance;
+
+    /**
      * @description The IDs of the ECS instances, elastic container instances, non-Alibaba Cloud instances, or instances in Economical Mode.
      *
      * @var string[]
@@ -97,17 +102,18 @@ class AttachInstancesRequest extends Model
      */
     public $scalingGroupId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'entrusted'            => 'Entrusted',
-        'instanceIds'          => 'InstanceIds',
-        'lifecycleHook'        => 'LifecycleHook',
-        'loadBalancerWeights'  => 'LoadBalancerWeights',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'scalingGroupId'       => 'ScalingGroupId',
+        'clientToken'           => 'ClientToken',
+        'entrusted'             => 'Entrusted',
+        'ignoreInvalidInstance' => 'IgnoreInvalidInstance',
+        'instanceIds'           => 'InstanceIds',
+        'lifecycleHook'         => 'LifecycleHook',
+        'loadBalancerWeights'   => 'LoadBalancerWeights',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
+        'regionId'              => 'RegionId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'scalingGroupId'        => 'ScalingGroupId',
     ];
 
     public function validate()
@@ -122,6 +128,9 @@ class AttachInstancesRequest extends Model
         }
         if (null !== $this->entrusted) {
             $res['Entrusted'] = $this->entrusted;
+        }
+        if (null !== $this->ignoreInvalidInstance) {
+            $res['IgnoreInvalidInstance'] = $this->ignoreInvalidInstance;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -167,6 +176,9 @@ class AttachInstancesRequest extends Model
         }
         if (isset($map['Entrusted'])) {
             $model->entrusted = $map['Entrusted'];
+        }
+        if (isset($map['IgnoreInvalidInstance'])) {
+            $model->ignoreInvalidInstance = $map['IgnoreInvalidInstance'];
         }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {

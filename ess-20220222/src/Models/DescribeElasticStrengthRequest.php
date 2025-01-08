@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticStrengthRequest extends Model
 {
     /**
+     * @description The disk categories of the data disks. The disk categories that do not match the specified criteria are returned after you call this operation.
+     *
+     * >  If you do not specify the scaling group ID, you must specify this parameter.
      * @var string[]
      */
     public $dataDiskCategories;
 
     /**
+     * @description The name of the image family. You can specify the ImageFamily request parameter to obtain the most recent available images in the current image family for instance creation. If you specify ImageId, you cannot specify ImageFamily.
+     *
+     * >  If you do not specify the scaling group ID, you must specify at least one of ImageId, ImageName, and ImageFamily.
      * @example CentOS7
      *
      * @var string
@@ -21,6 +27,9 @@ class DescribeElasticStrengthRequest extends Model
     public $imageFamily;
 
     /**
+     * @description The ID of the image file that provides the image resource for Auto Scaling to create instances.
+     *
+     * >  If you do not specify the scaling group ID, you must specify at least one of ImageId, ImageName, and ImageFamily.
      * @example centos6u5_64_20G_aliaegis****.vhd
      *
      * @var string
@@ -28,6 +37,9 @@ class DescribeElasticStrengthRequest extends Model
     public $imageId;
 
     /**
+     * @description The name of the image. Each image name must be unique in a region. If you specify ImageId, ImageName is ignored.
+     *
+     * >  If you do not specify the scaling group ID, you must specify at least one of ImageId, ImageName, and ImageFamily.
      * @example ubuntu_18_04_x64_20G_alibase_20231225.vhd
      *
      * @var string
@@ -42,6 +54,9 @@ class DescribeElasticStrengthRequest extends Model
     public $instanceTypes;
 
     /**
+     * @description The number of IPv6 addresses. If the instance type that you specified does meet the requirement for the number of IPv6 addresses, the scaling strength is weak.
+     *
+     * >  If you do not specify the scaling group ID, you must specify this parameter.
      * @example 1
      *
      * @var int
@@ -49,10 +64,14 @@ class DescribeElasticStrengthRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description The preemption policy that you want to apply to pay-as-you-go instances. The preemption policy specified by this parameter overwrites the preemption policy specified in the scaling configuration. Valid values:
+     * @description **
+     *
+     **Warning** This parameter is deprecated. We recommend that you use SpotStrategy.
+     *
+     * The preemption policy that you want to apply to pay-as-you-go instances. The preemption policy specified by this parameter overwrites the preemption policy specified in the scaling configuration. Valid values:
      *
      *   NoSpot: The instances are created as regular pay-as-you-go instances.
-     *   SpotWithPriceLimit: The instances are created as preemptible instances that have a user-defined maximum hourly price.
+     *   SpotWithPriceLimit: The instances are created as preemptible instances with a user-defined maximum hourly price.
      *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * Default value: NoSpot.
@@ -89,6 +108,13 @@ class DescribeElasticStrengthRequest extends Model
     public $scalingGroupIds;
 
     /**
+     * @description The instance bidding policy. Valid values:
+     *
+     *   NoSpot: The instances are created as pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instances are created as preemptible instances with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instances are created as preemptible instances for which the market price at the time of purchase is used as the bid price.
+     *
+     * Default value: NoSpot.
      * @example NoSpot
      *
      * @var string
@@ -103,11 +129,15 @@ class DescribeElasticStrengthRequest extends Model
      *   cloud_ssd: standard SSD.
      *   cloud_essd: Enterprise SSD (ESSD).
      *
+     * >  If you do not specify the scaling group ID, you must specify this parameter.
      * @var string[]
      */
     public $systemDiskCategories;
 
     /**
+     * @description The vSwitch IDs.
+     *
+     * >  If you do not specify the scaling group ID, you must specify this parameter.
      * @var string[]
      */
     public $vSwitchIds;

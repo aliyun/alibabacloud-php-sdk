@@ -117,6 +117,10 @@ class ModifyScheduledTaskRequest extends Model
     public $recurrenceValue;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

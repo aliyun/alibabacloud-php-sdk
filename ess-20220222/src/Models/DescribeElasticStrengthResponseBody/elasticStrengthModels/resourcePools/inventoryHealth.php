@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class inventoryHealth extends Model
 {
     /**
+     * @description The adequacy score.
+     *
+     * Valid values: 0 to 3.
+     * @example 3
+     *
      * @var int
      */
     public $adequacyScore;
 
     /**
+     * @description The score of the inventory health.
+     *
+     *   A score between 5 and 6 indicates a sufficient inventory.
+     *   A score between 1 and 4 indicates that there is no guarantee of a sufficient inventory. Select a reservation as necessary.
+     *   A score between -3 and 0 indicates that the inventory is sufficient, and an alert is triggered. Select another instance type.
+     *
+     * Calculation formula: `HealthScore` = `AdequacyScore` + `SupplyScore` - `HotScore`.
+     * @example 3
+     *
      * @var int
      */
     public $healthScore;
 
     /**
+     * @description The popularity score.
+     *
+     * Valid values: 0 to 3.
+     * @example 0
+     *
      * @var int
      */
     public $hotScore;
 
     /**
+     * @description The score of the replenishment capability.
+     *
+     * Valid values: 0 to 3.
+     * @example 2
+     *
      * @var int
      */
     public $supplyScore;

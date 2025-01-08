@@ -663,6 +663,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->entrusted)) {
             $query['Entrusted'] = $request->entrusted;
         }
+        if (!Utils::isUnset($request->ignoreInvalidInstance)) {
+            $query['IgnoreInvalidInstance'] = $request->ignoreInvalidInstance;
+        }
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
         }

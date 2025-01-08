@@ -10,6 +10,14 @@ use AlibabaCloud\Tea\Model;
 class elasticStrengthModels extends Model
 {
     /**
+     * @description The scaling strength level of the scaling group. Valid values:
+     *
+     *   Strong
+     *   Medium
+     *   Weak
+     *
+     * @example Strong
+     *
      * @var string
      */
     public $elasticStrength;
@@ -31,7 +39,11 @@ class elasticStrengthModels extends Model
     public $scalingGroupId;
 
     /**
-     * @description The scaling strength of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+     * @description The scaling strength score of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength score of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+     *
+     **
+     *
+     **Warning** This parameter is deprecated.
      *
      * @example 1.5
      *

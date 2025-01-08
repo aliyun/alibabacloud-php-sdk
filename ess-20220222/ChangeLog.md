@@ -1,3 +1,7 @@
+2025-01-08 Version: 1.8.8
+- Update API AttachInstances: add param IgnoreInvalidInstance.
+
+
 2024-12-18 Version: 1.8.7
 - Update API DescribeElasticStrength: update response param.
 

@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticStrengthResponseBody extends Model
 {
     /**
-     * @description The scaling strengths of scaling configurations that are queried at the same time.
+     * @description The scaling strength models.
      *
      * @var elasticStrengthModels[]
      */
@@ -34,7 +34,11 @@ class DescribeElasticStrengthResponseBody extends Model
     public $resourcePools;
 
     /**
-     * @description The scaling strength of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+     * @description The scaling strength score of the scaling group. Each combination of instance type + zone is scored from 0 to 1 based on its availability, with 0 being the weakest scaling strength and 1 being the strongest. The scaling strength score of the scaling group is measured by the combined scores of all the combinations of instance type + zone.
+     *
+     **
+     *
+     **Warning** This parameter is deprecated.
      *
      * @example 1.5
      *
