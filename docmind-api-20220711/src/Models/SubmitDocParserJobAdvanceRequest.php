@@ -34,11 +34,17 @@ class SubmitDocParserJobAdvanceRequest extends Model
      * @var bool
      */
     public $formulaEnhancement;
+
+    /**
+     * @var bool
+     */
+    public $llmEnhancement;
     protected $_name = [
         'fileName'           => 'FileName',
         'fileNameExtension'  => 'FileNameExtension',
         'fileUrlObject'      => 'FileUrl',
         'formulaEnhancement' => 'FormulaEnhancement',
+        'llmEnhancement'     => 'LlmEnhancement',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class SubmitDocParserJobAdvanceRequest extends Model
         }
         if (null !== $this->formulaEnhancement) {
             $res['FormulaEnhancement'] = $this->formulaEnhancement;
+        }
+        if (null !== $this->llmEnhancement) {
+            $res['LlmEnhancement'] = $this->llmEnhancement;
         }
 
         return $res;
@@ -83,6 +92,9 @@ class SubmitDocParserJobAdvanceRequest extends Model
         }
         if (isset($map['FormulaEnhancement'])) {
             $model->formulaEnhancement = $map['FormulaEnhancement'];
+        }
+        if (isset($map['LlmEnhancement'])) {
+            $model->llmEnhancement = $map['LlmEnhancement'];
         }
 
         return $model;

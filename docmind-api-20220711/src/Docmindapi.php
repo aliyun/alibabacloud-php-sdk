@@ -73,7 +73,6 @@ use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
@@ -84,9 +83,6 @@ class Docmindapi extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'docmind-api';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
             'ap-northeast-1'              => 'docmind-api.aliyuncs.com',
@@ -219,11 +215,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AyncTradeDocumentPackageExtractSmartAppResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AyncTradeDocumentPackageExtractSmartAppResponse::fromMap($this->execute($params, $req, $runtime));
+        return AyncTradeDocumentPackageExtractSmartAppResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -275,11 +268,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDocParserResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocParserResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocParserResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -334,11 +324,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDocStructureResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocStructureResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocStructureResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -384,11 +371,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDocumentCompareResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentCompareResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentCompareResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -434,11 +418,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDocumentConvertResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentConvertResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentConvertResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -484,11 +465,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDocumentExtractResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDocumentExtractResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDocumentExtractResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -534,11 +512,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPageNumResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPageNumResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPageNumResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -584,11 +559,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetTableUnderstandingResultResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetTableUnderstandingResultResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetTableUnderstandingResultResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -634,11 +606,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return QueryDocParserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return QueryDocParserStatusResponse::fromMap($this->execute($params, $req, $runtime));
+        return QueryDocParserStatusResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -701,11 +670,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitConvertImageToExcelJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitConvertImageToExcelJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitConvertImageToExcelJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -765,11 +731,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitConvertImageToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitConvertImageToMarkdownJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitConvertImageToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -829,11 +792,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitConvertImageToPdfJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitConvertImageToPdfJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitConvertImageToPdfJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -893,11 +853,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitConvertImageToWordJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitConvertImageToWordJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitConvertImageToWordJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -952,11 +909,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitConvertPdfToExcelJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitConvertPdfToExcelJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitConvertPdfToExcelJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1084,11 +1038,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitConvertPdfToImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitConvertPdfToImageJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitConvertPdfToImageJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1216,11 +1167,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitConvertPdfToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitConvertPdfToMarkdownJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitConvertPdfToMarkdownJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1351,11 +1299,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitConvertPdfToWordJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitConvertPdfToWordJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitConvertPdfToWordJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1495,11 +1440,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitDigitalDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitDigitalDocStructureJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitDigitalDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1619,6 +1561,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->formulaEnhancement)) {
             $query['FormulaEnhancement'] = $request->formulaEnhancement;
         }
+        if (!Utils::isUnset($request->llmEnhancement)) {
+            $query['LlmEnhancement'] = $request->llmEnhancement;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1633,11 +1578,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitDocParserJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitDocParserJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitDocParserJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1777,11 +1719,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitDocStructureJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1912,11 +1851,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitDocumentExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitDocumentExtractJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitDocumentExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2047,11 +1983,8 @@ class Docmindapi extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SubmitTableUnderstandingJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SubmitTableUnderstandingJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return SubmitTableUnderstandingJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
