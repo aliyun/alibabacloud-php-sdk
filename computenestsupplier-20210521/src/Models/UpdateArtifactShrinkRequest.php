@@ -28,7 +28,6 @@ class UpdateArtifactShrinkRequest extends Model
     /**
      * @description The properties of the deployment package.
      *
-     * This parameter is required.
      * @var string
      */
     public $artifactPropertyShrink;
@@ -52,6 +51,16 @@ class UpdateArtifactShrinkRequest extends Model
     public $description;
 
     /**
+     * @description Permission fields are applicable to container image artifact and Helm Chart artifact. They can only change from Automatic to Public. Options:
+     *
+     * Automatic
+     * @example Public
+     *
+     * @var string
+     */
+    public $permissionType;
+
+    /**
      * @description The IDs of the regions that support the deployment package.
      *
      * @var string[]
@@ -61,7 +70,6 @@ class UpdateArtifactShrinkRequest extends Model
     /**
      * @description The version name of the deployment package.
      *
-     * This parameter is required.
      * @example v1
      *
      * @var string
@@ -73,6 +81,7 @@ class UpdateArtifactShrinkRequest extends Model
         'artifactPropertyShrink'      => 'ArtifactProperty',
         'clientToken'                 => 'ClientToken',
         'description'                 => 'Description',
+        'permissionType'              => 'PermissionType',
         'supportRegionIds'            => 'SupportRegionIds',
         'versionName'                 => 'VersionName',
     ];
@@ -98,6 +107,9 @@ class UpdateArtifactShrinkRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->permissionType) {
+            $res['PermissionType'] = $this->permissionType;
         }
         if (null !== $this->supportRegionIds) {
             $res['SupportRegionIds'] = $this->supportRegionIds;
@@ -131,6 +143,9 @@ class UpdateArtifactShrinkRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['PermissionType'])) {
+            $model->permissionType = $map['PermissionType'];
         }
         if (isset($map['SupportRegionIds'])) {
             if (!empty($map['SupportRegionIds'])) {

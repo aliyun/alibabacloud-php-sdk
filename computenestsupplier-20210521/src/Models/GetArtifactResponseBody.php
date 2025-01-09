@@ -100,6 +100,15 @@ class GetArtifactResponseBody extends Model
     public $name;
 
     /**
+     * @description Permission fields are applicable to container image artifact and Helm Chart artifact They can only change from Automatic to Public. Options:
+     * - Automatic
+     * @example Public
+     *
+     * @var string
+     */
+    public $permissionType;
+
+    /**
      * @description The distribution progress of the deployment package.
      *
      * @example 100
@@ -179,6 +188,7 @@ class GetArtifactResponseBody extends Model
         'gmtModified'           => 'GmtModified',
         'maxVersion'            => 'MaxVersion',
         'name'                  => 'Name',
+        'permissionType'        => 'PermissionType',
         'progress'              => 'Progress',
         'requestId'             => 'RequestId',
         'resourceGroupId'       => 'ResourceGroupId',
@@ -225,6 +235,9 @@ class GetArtifactResponseBody extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->permissionType) {
+            $res['PermissionType'] = $this->permissionType;
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
@@ -297,6 +310,9 @@ class GetArtifactResponseBody extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PermissionType'])) {
+            $model->permissionType = $map['PermissionType'];
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];

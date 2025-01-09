@@ -2848,6 +2848,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->permissionType)) {
+            $query['PermissionType'] = $request->permissionType;
+        }
         if (!Utils::isUnset($request->supportRegionIds)) {
             $query['SupportRegionIds'] = $request->supportRegionIds;
         }
