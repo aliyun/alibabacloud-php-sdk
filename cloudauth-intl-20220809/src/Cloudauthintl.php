@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FraudResultCallBackRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FraudResultCallBackResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaPeriodVerifyIntlRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaPeriodVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\Id2MetaVerifyIntlResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
@@ -667,6 +669,77 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->fraudResultCallBackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 身份二要素有效期核验
+     *  *
+     * @param Id2MetaPeriodVerifyIntlRequest $request Id2MetaPeriodVerifyIntlRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return Id2MetaPeriodVerifyIntlResponse Id2MetaPeriodVerifyIntlResponse
+     */
+    public function id2MetaPeriodVerifyIntlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->docName)) {
+            $body['DocName'] = $request->docName;
+        }
+        if (!Utils::isUnset($request->docNo)) {
+            $body['DocNo'] = $request->docNo;
+        }
+        if (!Utils::isUnset($request->docType)) {
+            $body['DocType'] = $request->docType;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $body['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $body['MerchantUserId'] = $request->merchantUserId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $body['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $body['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->validityEndDate)) {
+            $body['ValidityEndDate'] = $request->validityEndDate;
+        }
+        if (!Utils::isUnset($request->validityStartDate)) {
+            $body['ValidityStartDate'] = $request->validityStartDate;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Id2MetaPeriodVerifyIntl',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Id2MetaPeriodVerifyIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 身份二要素有效期核验
+     *  *
+     * @param Id2MetaPeriodVerifyIntlRequest $request Id2MetaPeriodVerifyIntlRequest
+     *
+     * @return Id2MetaPeriodVerifyIntlResponse Id2MetaPeriodVerifyIntlResponse
+     */
+    public function id2MetaPeriodVerifyIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->id2MetaPeriodVerifyIntlWithOptions($request, $runtime);
     }
 
     /**
