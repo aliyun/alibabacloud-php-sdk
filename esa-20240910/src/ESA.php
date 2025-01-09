@@ -285,6 +285,7 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesShrinkRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRecordsResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineCanaryAreasResponse;
@@ -7578,20 +7579,28 @@ class ESA extends OpenApiClient
     /**
      * @summary Lists all custom error pages that you created. You can define the page number and the number of entries per page to display the response.
      *  *
-     * @param ListPagesRequest $request ListPagesRequest
+     * @param ListPagesRequest $tmpReq  ListPagesRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
      * @return ListPagesResponse ListPagesResponse
      */
-    public function listPagesWithOptions($request, $runtime)
+    public function listPagesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListPagesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->queryArgs)) {
+            $request->queryArgsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->queryArgs, 'QueryArgs', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryArgsShrink)) {
+            $query['QueryArgs'] = $request->queryArgsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

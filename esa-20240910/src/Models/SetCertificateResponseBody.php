@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetCertificateResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $id;
+
+    /**
      * @description The request ID.
      *
      * @example A666D44F-19D6-490E-97CF-1A64AB962C57
@@ -17,6 +22,7 @@ class SetCertificateResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'id'        => 'Id',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +33,9 @@ class SetCertificateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,6 +51,9 @@ class SetCertificateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

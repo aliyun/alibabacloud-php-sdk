@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\SDK\ESA\V20240910\Models\ListPagesRequest\queryArgs;
 use AlibabaCloud\Tea\Model;
 
-class ListPagesRequest extends Model
+class ListPagesShrinkRequest extends Model
 {
     /**
      * @description The page number. Valid values: **1 to 100000**. Default value: 1.
@@ -28,13 +27,13 @@ class ListPagesRequest extends Model
     public $pageSize;
 
     /**
-     * @var queryArgs
+     * @var string
      */
-    public $queryArgs;
+    public $queryArgsShrink;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queryArgs'  => 'QueryArgs',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'queryArgsShrink' => 'QueryArgs',
     ];
 
     public function validate()
@@ -50,8 +49,8 @@ class ListPagesRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->queryArgs) {
-            $res['QueryArgs'] = null !== $this->queryArgs ? $this->queryArgs->toMap() : null;
+        if (null !== $this->queryArgsShrink) {
+            $res['QueryArgs'] = $this->queryArgsShrink;
         }
 
         return $res;
@@ -60,7 +59,7 @@ class ListPagesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListPagesRequest
+     * @return ListPagesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -72,7 +71,7 @@ class ListPagesRequest extends Model
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['QueryArgs'])) {
-            $model->queryArgs = queryArgs::fromMap($map['QueryArgs']);
+            $model->queryArgsShrink = $map['QueryArgs'];
         }
 
         return $model;
