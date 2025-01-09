@@ -3,6 +3,11 @@
 - Update API SetCertificate: update response param.
 
 
+2025-01-09 Version: 2.10.2
+- Update API ListPages: add param QueryArgs.
+- Update API SetCertificate: update response param.
+
+
 2025-01-09 Version: 2.10.1
 - Generated php 2024-09-10 for ESA.
 
