@@ -1,3 +1,6 @@
+2025-01-09 Version: 3.1.3
+- Generated php 2022-08-09 for Cloudauth-intl.
+
 2024-12-06 Version: 3.1.2
 - Update API DocOcr: add param CardSide.
 
