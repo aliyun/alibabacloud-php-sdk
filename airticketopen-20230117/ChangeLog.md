@@ -1,3 +1,7 @@
+2025-01-09 Version: 2.0.4
+- Update API Search: update param search_control_options.
+
+
 2024-12-16 Version: 2.0.3
 - Generated php 2023-01-17 for airticketOpen.
 

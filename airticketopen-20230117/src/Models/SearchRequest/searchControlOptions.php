@@ -21,9 +21,17 @@ class searchControlOptions extends Model
      * @var string[]
      */
     public $airlinePreferList;
+
+    /**
+     * @example A1
+     *
+     * @var string
+     */
+    public $serviceQuality;
     protected $_name = [
         'airlineExcludedList' => 'airline_excluded_list',
         'airlinePreferList'   => 'airline_prefer_list',
+        'serviceQuality'      => 'service_quality',
     ];
 
     public function validate()
@@ -38,6 +46,9 @@ class searchControlOptions extends Model
         }
         if (null !== $this->airlinePreferList) {
             $res['airline_prefer_list'] = $this->airlinePreferList;
+        }
+        if (null !== $this->serviceQuality) {
+            $res['service_quality'] = $this->serviceQuality;
         }
 
         return $res;
@@ -60,6 +71,9 @@ class searchControlOptions extends Model
             if (!empty($map['airline_prefer_list'])) {
                 $model->airlinePreferList = $map['airline_prefer_list'];
             }
+        }
+        if (isset($map['service_quality'])) {
+            $model->serviceQuality = $map['service_quality'];
         }
 
         return $model;
