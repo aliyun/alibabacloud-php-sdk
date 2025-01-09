@@ -16,6 +16,11 @@ class dataSources extends Model
     public $dataSourceId;
 
     /**
+     * @var string
+     */
+    public $dataSourceVersion;
+
+    /**
      * @example /root/data
      *
      * @var string
@@ -34,10 +39,11 @@ class dataSources extends Model
      */
     public $uri;
     protected $_name = [
-        'dataSourceId' => 'DataSourceId',
-        'mountPath'    => 'MountPath',
-        'options'      => 'Options',
-        'uri'          => 'Uri',
+        'dataSourceId'      => 'DataSourceId',
+        'dataSourceVersion' => 'DataSourceVersion',
+        'mountPath'         => 'MountPath',
+        'options'           => 'Options',
+        'uri'               => 'Uri',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class dataSources extends Model
         $res = [];
         if (null !== $this->dataSourceId) {
             $res['DataSourceId'] = $this->dataSourceId;
+        }
+        if (null !== $this->dataSourceVersion) {
+            $res['DataSourceVersion'] = $this->dataSourceVersion;
         }
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
@@ -73,6 +82,9 @@ class dataSources extends Model
         $model = new self();
         if (isset($map['DataSourceId'])) {
             $model->dataSourceId = $map['DataSourceId'];
+        }
+        if (isset($map['DataSourceVersion'])) {
+            $model->dataSourceVersion = $map['DataSourceVersion'];
         }
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];

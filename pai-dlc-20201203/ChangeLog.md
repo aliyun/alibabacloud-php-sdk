@@ -1,3 +1,9 @@
+2025-01-09 Version: 1.4.19
+- Update API CreateJob: update param body.
+- Update API GetJob: update response param.
+- Update API ListJobs: add param PaymentType.
+
+
 2024-12-17 Version: 1.4.18
 - Generated php 2020-12-03 for pai-dlc.
 

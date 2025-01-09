@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\codeSource;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\dataSources;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\pods;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\userVpc;
 use AlibabaCloud\Tea\Model;
 
 class GetJobResponseBody extends Model
@@ -254,6 +255,11 @@ class GetJobResponseBody extends Model
     public $userId;
 
     /**
+     * @var userVpc
+     */
+    public $userVpc;
+
+    /**
      * @example 268
      *
      * @var string
@@ -305,6 +311,7 @@ class GetJobResponseBody extends Model
         'thirdpartyLibs'   => 'ThirdpartyLibs',
         'userCommand'      => 'UserCommand',
         'userId'           => 'UserId',
+        'userVpc'          => 'UserVpc',
         'workspaceId'      => 'WorkspaceId',
         'workspaceName'    => 'WorkspaceName',
     ];
@@ -453,6 +460,9 @@ class GetJobResponseBody extends Model
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->userVpc) {
+            $res['UserVpc'] = null !== $this->userVpc ? $this->userVpc->toMap() : null;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -611,6 +621,9 @@ class GetJobResponseBody extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['UserVpc'])) {
+            $model->userVpc = userVpc::fromMap($map['UserVpc']);
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

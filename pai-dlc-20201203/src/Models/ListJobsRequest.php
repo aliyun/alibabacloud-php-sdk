@@ -89,6 +89,11 @@ class ListJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $paymentType;
+
+    /**
      * @example flow-*******
      *
      * @var string
@@ -169,6 +174,7 @@ class ListJobsRequest extends Model
         'oversoldInfo'      => 'OversoldInfo',
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
+        'paymentType'       => 'PaymentType',
         'pipelineId'        => 'PipelineId',
         'resourceId'        => 'ResourceId',
         'resourceQuotaName' => 'ResourceQuotaName',
@@ -224,6 +230,9 @@ class ListJobsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->paymentType) {
+            $res['PaymentType'] = $this->paymentType;
         }
         if (null !== $this->pipelineId) {
             $res['PipelineId'] = $this->pipelineId;
@@ -305,6 +314,9 @@ class ListJobsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PaymentType'])) {
+            $model->paymentType = $map['PaymentType'];
         }
         if (isset($map['PipelineId'])) {
             $model->pipelineId = $map['PipelineId'];
