@@ -18,6 +18,11 @@ class items extends Model
     public $adjustAmount;
 
     /**
+     * @var string
+     */
+    public $afterDiscountAmount;
+
+    /**
      * @description The ID of the account to which the bill belongs.
      *
      * @example 122
@@ -435,6 +440,7 @@ class items extends Model
     public $zone;
     protected $_name = [
         'adjustAmount'              => 'AdjustAmount',
+        'afterDiscountAmount'       => 'AfterDiscountAmount',
         'billAccountID'             => 'BillAccountID',
         'billAccountName'           => 'BillAccountName',
         'billingDate'               => 'BillingDate',
@@ -491,6 +497,9 @@ class items extends Model
         $res = [];
         if (null !== $this->adjustAmount) {
             $res['AdjustAmount'] = $this->adjustAmount;
+        }
+        if (null !== $this->afterDiscountAmount) {
+            $res['AfterDiscountAmount'] = $this->afterDiscountAmount;
         }
         if (null !== $this->billAccountID) {
             $res['BillAccountID'] = $this->billAccountID;
@@ -641,6 +650,9 @@ class items extends Model
         $model = new self();
         if (isset($map['AdjustAmount'])) {
             $model->adjustAmount = $map['AdjustAmount'];
+        }
+        if (isset($map['AfterDiscountAmount'])) {
+            $model->afterDiscountAmount = $map['AfterDiscountAmount'];
         }
         if (isset($map['BillAccountID'])) {
             $model->billAccountID = $map['BillAccountID'];

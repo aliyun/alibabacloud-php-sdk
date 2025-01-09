@@ -191,6 +191,9 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetResellerUserQuotaRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetResellerUserQuotaResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetResellerUserStatusRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetResellerUserStatusResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetSavingPlanUserDeductRuleRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetSavingPlanUserDeductRuleResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SetSavingPlanUserDeductRuleShrinkRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SubscribeBillToOSSRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\SubscribeBillToOSSResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\TagResourcesRequest;
@@ -6150,6 +6153,72 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setResellerUserStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 设置节省计划用户级抵扣规则
+     *  *
+     * @param SetSavingPlanUserDeductRuleRequest $tmpReq  SetSavingPlanUserDeductRuleRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetSavingPlanUserDeductRuleResponse SetSavingPlanUserDeductRuleResponse
+     */
+    public function setSavingPlanUserDeductRuleWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetSavingPlanUserDeductRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ecIdAccountIds)) {
+            $request->ecIdAccountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ecIdAccountIds, 'EcIdAccountIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userDeductRules)) {
+            $request->userDeductRulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userDeductRules, 'UserDeductRules', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->ecIdAccountIdsShrink)) {
+            $query['EcIdAccountIds'] = $request->ecIdAccountIdsShrink;
+        }
+        if (!Utils::isUnset($request->nbid)) {
+            $query['Nbid'] = $request->nbid;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->spnInstanceCode)) {
+            $body['SpnInstanceCode'] = $request->spnInstanceCode;
+        }
+        if (!Utils::isUnset($request->userDeductRulesShrink)) {
+            $body['UserDeductRules'] = $request->userDeductRulesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetSavingPlanUserDeductRule',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetSavingPlanUserDeductRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 设置节省计划用户级抵扣规则
+     *  *
+     * @param SetSavingPlanUserDeductRuleRequest $request SetSavingPlanUserDeductRuleRequest
+     *
+     * @return SetSavingPlanUserDeductRuleResponse SetSavingPlanUserDeductRuleResponse
+     */
+    public function setSavingPlanUserDeductRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setSavingPlanUserDeductRuleWithOptions($request, $runtime);
     }
 
     /**
