@@ -1,3 +1,8 @@
+2025-01-09 Version: 3.2.4
+- Update API CreatePolicyGroup: update param NetRedirectPolicy.
+- Update API ListPolicyGroups: update response param.
+
+
 2025-01-08 Version: 3.2.3
 - Update API CreateAndroidInstanceGroup: update param PolicyGroupId.
 
