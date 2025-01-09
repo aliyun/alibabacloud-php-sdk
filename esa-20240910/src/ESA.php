@@ -31,8 +31,6 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\BatchPutKvWithHighCapacityResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BlockObjectShrinkRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ChangeResourceGroupRequest;
-use AlibabaCloud\SDK\ESA\V20240910\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteNameRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteNameResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CheckSiteProjectNameRequest;
@@ -1263,62 +1261,6 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->blockObjectWithOptions($request, $runtime);
-    }
-
-    /**
-     * @summary Moves a website from one resource group to another.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
-     */
-    public function changeResourceGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->siteId)) {
-            $query['SiteId'] = $request->siteId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2024-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary Moves a website from one resource group to another.
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
-     */
-    public function changeResourceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->changeResourceGroupWithOptions($request, $runtime);
     }
 
     /**
