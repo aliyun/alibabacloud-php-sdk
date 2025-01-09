@@ -116,6 +116,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderUdPullConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetIdentityProviderUdPullConfigurationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceLicenseRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceLicenseResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetNetworkAccessEndpointRequest;
@@ -253,7 +255,6 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\UpdateUserResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\GatewayPop\Client;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -263,9 +264,6 @@ class Eiam extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_productId    = 'Eiam';
-        $gatewayClient       = new Client();
-        $this->_spi          = $gatewayClient;
         $this->_endpointRule = '';
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eiam', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -329,11 +327,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUserToOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -385,11 +380,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AddUsersToGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return AddUsersToGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -441,11 +433,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AuthorizeApplicationToGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthorizeApplicationToGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthorizeApplicationToGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -497,11 +486,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthorizeApplicationToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -553,11 +539,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return AuthorizeApplicationToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return AuthorizeApplicationToUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return AuthorizeApplicationToUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -623,11 +606,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -678,11 +658,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -734,11 +711,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -787,11 +761,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -846,11 +817,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -941,11 +909,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -991,11 +956,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1056,11 +1018,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1118,11 +1077,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1210,11 +1166,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return CreateUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return CreateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1265,11 +1218,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1323,11 +1273,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1376,11 +1323,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1432,11 +1376,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1485,11 +1426,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1538,11 +1476,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1590,11 +1525,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1645,11 +1577,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1698,11 +1627,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1751,11 +1677,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteOrganizationalUnitChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteOrganizationalUnitChildrenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteOrganizationalUnitChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1804,11 +1727,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DeleteUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DeleteUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1859,11 +1779,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1914,11 +1831,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationApiInvokeResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1970,11 +1884,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2023,11 +1934,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationProvisioningResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2076,11 +1984,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableApplicationSsoResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2132,11 +2037,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2185,11 +2087,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableIdentityProviderUdPullResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2235,11 +2134,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableInitDomainAutoRedirectResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2288,11 +2184,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return DisableUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return DisableUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2341,11 +2234,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2394,11 +2284,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationApiInvokeResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationApiInvokeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2450,11 +2337,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2503,11 +2387,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationProvisioningResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2556,11 +2437,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableApplicationSsoResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableApplicationSsoResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2612,11 +2490,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2665,11 +2540,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableIdentityProviderUdPullResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableIdentityProviderUdPullResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2715,11 +2587,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableInitDomainAutoRedirectResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2768,11 +2637,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return EnableUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return EnableUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2821,11 +2687,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2874,11 +2737,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationGrantScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2927,11 +2787,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationProvisioningConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -2980,11 +2837,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationProvisioningScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3033,11 +2887,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetApplicationSsoConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3086,11 +2937,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3139,11 +2987,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetDomainDnsChallengeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetDomainDnsChallengeResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetDomainDnsChallengeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3189,11 +3034,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetForgetPasswordConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3242,11 +3084,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3295,11 +3134,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3348,11 +3184,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3398,11 +3231,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3417,6 +3247,53 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询实例当前生效的 License 信息
+     *  *
+     * @param GetInstanceLicenseRequest $request GetInstanceLicenseRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetInstanceLicenseResponse GetInstanceLicenseResponse
+     */
+    public function getInstanceLicenseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceLicense',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceLicenseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询实例当前生效的 License 信息
+     *  *
+     * @param GetInstanceLicenseRequest $request GetInstanceLicenseRequest
+     *
+     * @return GetInstanceLicenseResponse GetInstanceLicenseResponse
+     */
+    public function getInstanceLicense($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getInstanceLicenseWithOptions($request, $runtime);
     }
 
     /**
@@ -3451,11 +3328,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetNetworkAccessEndpointResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetNetworkAccessEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3504,11 +3378,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3554,11 +3425,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPasswordComplexityConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3604,11 +3472,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPasswordExpirationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3654,11 +3519,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPasswordHistoryConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3704,11 +3566,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetPasswordInitializationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3754,11 +3613,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetRootOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetRootOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetRootOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3807,11 +3663,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3860,11 +3713,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return GetUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return GetUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3913,11 +3763,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationClientSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationClientSecretsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationClientSecretsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -3981,11 +3828,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4045,11 +3889,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationsForOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsForOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsForOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4112,11 +3953,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListApplicationsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListApplicationsForUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListApplicationsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4165,11 +4003,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDomainProxyTokensResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDomainProxyTokensResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDomainProxyTokensResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4215,11 +4050,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListDomainsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4268,11 +4100,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListEiamInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEiamInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEiamInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4310,11 +4139,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListEiamRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListEiamRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListEiamRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4376,11 +4202,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4438,11 +4261,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListGroupsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGroupsForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGroupsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4497,11 +4317,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListGroupsForUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListGroupsForUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4553,11 +4370,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListIdentityProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListIdentityProvidersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListIdentityProvidersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4612,11 +4426,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4654,11 +4465,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkAccessEndpointAvailableRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4702,11 +4510,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkAccessEndpointAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4770,11 +4575,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkAccessEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkAccessEndpointsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkAccessEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4823,11 +4625,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListNetworkAccessPathsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListNetworkAccessPathsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListNetworkAccessPathsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4876,11 +4675,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListOrganizationalUnitParentsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrganizationalUnitParentsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrganizationalUnitParentsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -4944,11 +4740,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5006,11 +4799,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListOrganizationalUnitsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListOrganizationalUnitsForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListOrganizationalUnitsForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5048,11 +4838,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5129,11 +4916,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListSynchronizationJobsResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5218,11 +5002,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5280,11 +5061,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUsersForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersForApplicationResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersForApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5342,11 +5120,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ListUsersForGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return ListUsersForGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5398,11 +5173,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ObtainApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ObtainApplicationClientSecretResponse::fromMap($this->execute($params, $req, $runtime));
+        return ObtainApplicationClientSecretResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5454,11 +5226,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return ObtainDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return ObtainDomainProxyTokenResponse::fromMap($this->execute($params, $req, $runtime));
+        return ObtainDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5510,11 +5279,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5566,11 +5332,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RemoveUsersFromGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return RemoveUsersFromGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5622,11 +5385,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeApplicationFromGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeApplicationFromGroupsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeApplicationFromGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5678,11 +5438,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeApplicationFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5734,11 +5491,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RevokeApplicationFromUsersResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RevokeApplicationFromUsersResponse::fromMap($this->execute($params, $req, $runtime));
+        return RevokeApplicationFromUsersResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5802,11 +5556,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return RunSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return RunSynchronizationJobResponse::fromMap($this->execute($params, $req, $runtime));
+        return RunSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5858,11 +5609,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetApplicationGrantScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetApplicationGrantScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5923,11 +5671,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetApplicationProvisioningConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetApplicationProvisioningConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -5982,11 +5727,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetApplicationProvisioningScopeResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetApplicationProvisioningScopeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6052,11 +5794,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetApplicationSsoConfigResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetApplicationSsoConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6107,11 +5846,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetDefaultDomainResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6163,11 +5899,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetForgetPasswordConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetForgetPasswordConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6234,11 +5967,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetIdentityProviderUdPullConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6290,11 +6020,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetPasswordComplexityConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetPasswordComplexityConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6364,11 +6091,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetPasswordExpirationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetPasswordExpirationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6420,11 +6144,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetPasswordHistoryConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetPasswordHistoryConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6482,11 +6203,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetPasswordInitializationConfigurationResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetPasswordInitializationConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6538,11 +6256,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6591,11 +6306,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UnlockUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UnlockUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return UnlockUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6647,11 +6359,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateApplicationAuthorizationTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApplicationAuthorizationTypeResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApplicationAuthorizationTypeResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6703,11 +6412,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateApplicationDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateApplicationDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateApplicationDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6762,11 +6468,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGroupResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGroupResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6818,11 +6521,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateGroupDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateGroupDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateGroupDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6895,11 +6595,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateIdentityProviderResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateIdentityProviderResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -6948,11 +6645,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateInstanceDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7004,11 +6698,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateNetworkAccessEndpointNameResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateNetworkAccessEndpointNameResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateNetworkAccessEndpointNameResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7060,11 +6751,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateOrganizationalUnitResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7116,11 +6804,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateOrganizationalUnitDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7172,11 +6857,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateOrganizationalUnitParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateOrganizationalUnitParentIdResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateOrganizationalUnitParentIdResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7249,11 +6931,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7305,11 +6984,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserDescriptionResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -7367,11 +7043,8 @@ class Eiam extends OpenApiClient
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
-            return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
 
-        return UpdateUserPasswordResponse::fromMap($this->execute($params, $req, $runtime));
+        return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
