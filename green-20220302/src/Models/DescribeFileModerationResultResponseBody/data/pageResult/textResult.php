@@ -18,6 +18,11 @@ class textResult extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $descriptions;
+
+    /**
      * @description The details of the labels.
      *
      * @example porn
@@ -80,14 +85,15 @@ class textResult extends Model
      */
     public $textSegment;
     protected $_name = [
-        'description' => 'Description',
-        'labels'      => 'Labels',
-        'riskLevel'   => 'RiskLevel',
-        'riskTips'    => 'RiskTips',
-        'riskWords'   => 'RiskWords',
-        'service'     => 'Service',
-        'text'        => 'Text',
-        'textSegment' => 'TextSegment',
+        'description'  => 'Description',
+        'descriptions' => 'Descriptions',
+        'labels'       => 'Labels',
+        'riskLevel'    => 'RiskLevel',
+        'riskTips'     => 'RiskTips',
+        'riskWords'    => 'RiskWords',
+        'service'      => 'Service',
+        'text'         => 'Text',
+        'textSegment'  => 'TextSegment',
     ];
 
     public function validate()
@@ -99,6 +105,9 @@ class textResult extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->descriptions) {
+            $res['Descriptions'] = $this->descriptions;
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
@@ -135,6 +144,9 @@ class textResult extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Descriptions'])) {
+            $model->descriptions = $map['Descriptions'];
         }
         if (isset($map['Labels'])) {
             $model->labels = $map['Labels'];

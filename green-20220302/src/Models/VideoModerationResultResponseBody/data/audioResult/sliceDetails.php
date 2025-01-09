@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sliceDetails extends Model
 {
     /**
+     * @var string
+     */
+    public $descriptions;
+
+    /**
      * @description The end time of the text after voice-to-text conversion. Unit: seconds.
      *
      * @example 30
@@ -116,6 +121,7 @@ class sliceDetails extends Model
      */
     public $url;
     protected $_name = [
+        'descriptions'   => 'Descriptions',
         'endTime'        => 'EndTime',
         'endTimestamp'   => 'EndTimestamp',
         'extend'         => 'Extend',
@@ -137,6 +143,9 @@ class sliceDetails extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->descriptions) {
+            $res['Descriptions'] = $this->descriptions;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -185,6 +194,9 @@ class sliceDetails extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Descriptions'])) {
+            $model->descriptions = $map['Descriptions'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class textLabels extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The details of the labels.
      *
      * @example contraband
@@ -26,8 +31,9 @@ class textLabels extends Model
      */
     public $labelSum;
     protected $_name = [
-        'label'    => 'Label',
-        'labelSum' => 'LabelSum',
+        'description' => 'Description',
+        'label'       => 'Label',
+        'labelSum'    => 'LabelSum',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class textLabels extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
@@ -55,6 +64,9 @@ class textLabels extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }

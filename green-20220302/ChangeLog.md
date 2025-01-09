@@ -1,3 +1,9 @@
+2025-01-09 Version: 2.19.3
+- Update API DescribeFileModerationResult: update response param.
+- Update API VideoModerationResult: update response param.
+- Update API VoiceModerationResult: update response param.
+
+
 2025-01-06 Version: 2.19.2
 - Update API TextModeration: update response param.
 - Update API TextModerationPlus: update response param.

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class audioSummarys extends Model
 {
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The voice label.
      *
      * @example profanity
@@ -26,8 +31,9 @@ class audioSummarys extends Model
      */
     public $labelSum;
     protected $_name = [
-        'label'    => 'Label',
-        'labelSum' => 'LabelSum',
+        'description' => 'Description',
+        'label'       => 'Label',
+        'labelSum'    => 'LabelSum',
     ];
 
     public function validate()
@@ -37,6 +43,9 @@ class audioSummarys extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
         if (null !== $this->label) {
             $res['Label'] = $this->label;
         }
@@ -55,6 +64,9 @@ class audioSummarys extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
         if (isset($map['Label'])) {
             $model->label = $map['Label'];
         }
