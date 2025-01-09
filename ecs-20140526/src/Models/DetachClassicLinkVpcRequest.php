@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DetachClassicLinkVpcRequest extends Model
 {
     /**
-     * @description The ID of the classic network-type instance.
+     * @description The ID of the instance that resides in the classic network.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4p****
@@ -19,6 +19,8 @@ class DetachClassicLinkVpcRequest extends Model
     public $instanceId;
 
     /**
+     * @description RAM用户的虚拟账号ID。
+     *
      * @example 155780923770
      *
      * @var int
@@ -26,7 +28,7 @@ class DetachClassicLinkVpcRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the classic network-type instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -36,6 +38,8 @@ class DetachClassicLinkVpcRequest extends Model
     public $regionId;
 
     /**
+     * @description 资源主账号的账号名称。
+     *
      * @example ECSforCloud
      *
      * @var string
@@ -43,6 +47,8 @@ class DetachClassicLinkVpcRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description 资源主账号的ID，亦即UID。
+     *
      * @example 155780923770
      *
      * @var int
@@ -50,7 +56,7 @@ class DetachClassicLinkVpcRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the VPC to which the instance is linked.
+     * @description The ID of the VPC to which the instance is connected.
      *
      * This parameter is required.
      * @example vpc-bp67acfmxazb4p****

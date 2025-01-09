@@ -82,7 +82,7 @@ class ReplaceSystemDiskRequest extends Model
     public $imageId;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance whose operating system you want to replace.
      *
      * This parameter is required.
      * @example i-bp67acfmxazb4ph****

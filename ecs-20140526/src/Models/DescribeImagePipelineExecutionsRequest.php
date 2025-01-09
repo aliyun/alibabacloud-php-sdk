@@ -100,7 +100,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $status;
 
     /**
-     * @description > This parameter is not publicly available.
+     * @description The tags of the image creation task.
      *
      * @var tag[]
      */

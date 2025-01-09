@@ -14269,8 +14269,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the auto-renewal attribute of subscription Elastic Compute Service (ECS) instances, including whether auto-renewal is enabled for the instances and the auto-renewal durations of the instances.
      *  *
-     * @description *   Before you configure auto-renewal or manual renewal for subscription instances, you can query the auto-renewal status of the instances.
-     * *   This operation is applicable to only subscription instances. An error is returned if you call this operation on pay-as-you-go instances.
+     * @description *   Only subscription instances are supported. If you call this operation for a pay-as-you-go instance, an error is returned.
+     * *   Before you configure auto-renewal or manual renewal for subscription instances, you can query the auto-renewal status of the instances.
      *  *
      * @param DescribeInstanceAutoRenewAttributeRequest $request DescribeInstanceAutoRenewAttributeRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -14329,8 +14329,8 @@ class Ecs extends OpenApiClient
     /**
      * @summary Queries the auto-renewal attribute of subscription Elastic Compute Service (ECS) instances, including whether auto-renewal is enabled for the instances and the auto-renewal durations of the instances.
      *  *
-     * @description *   Before you configure auto-renewal or manual renewal for subscription instances, you can query the auto-renewal status of the instances.
-     * *   This operation is applicable to only subscription instances. An error is returned if you call this operation on pay-as-you-go instances.
+     * @description *   Only subscription instances are supported. If you call this operation for a pay-as-you-go instance, an error is returned.
+     * *   Before you configure auto-renewal or manual renewal for subscription instances, you can query the auto-renewal status of the instances.
      *  *
      * @param DescribeInstanceAutoRenewAttributeRequest $request DescribeInstanceAutoRenewAttributeRequest
      *
@@ -20256,7 +20256,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to unlink a classic network-type instance from a virtual private cloud (VPC) by removing the ClassicLink connection between them. After the instance is unlinked from the VPC, it can no longer communicate with instances in the VPC.
+     * @summary Unlinks an Elastic Compute Service (ECS) instance that resides in the classic network from a virtual private cloud (VPC) by closing the ClassicLink connection between the instance and the VPC. After the instance is unlinked from the VPC, the instance can no longer communicate with instances in the VPC.
      *  *
      * @param DetachClassicLinkVpcRequest $request DetachClassicLinkVpcRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -20304,7 +20304,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to unlink a classic network-type instance from a virtual private cloud (VPC) by removing the ClassicLink connection between them. After the instance is unlinked from the VPC, it can no longer communicate with instances in the VPC.
+     * @summary Unlinks an Elastic Compute Service (ECS) instance that resides in the classic network from a virtual private cloud (VPC) by closing the ClassicLink connection between the instance and the VPC. After the instance is unlinked from the VPC, the instance can no longer communicate with instances in the VPC.
      *  *
      * @param DetachClassicLinkVpcRequest $request DetachClassicLinkVpcRequest
      *
@@ -24285,7 +24285,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 修改hpc集群属性
+     * @summary Modifies the description of a high performance computing (HPC) cluster.
      *  *
      * @param ModifyHpcClusterAttributeRequest $request ModifyHpcClusterAttributeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -24345,7 +24345,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary 修改hpc集群属性
+     * @summary Modifies the description of a high performance computing (HPC) cluster.
      *  *
      * @param ModifyHpcClusterAttributeRequest $request ModifyHpcClusterAttributeRequest
      *
@@ -29539,17 +29539,17 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Replaces the operating system of an Elastic Compute Service (ECS) instance. After you perform an operating system replacement operation, the original disk is released and a new system disk is created. This causes the ID of the system disk to change.
+     * @summary Replaces the operating system of an Elastic Compute Service (ECS) instance. After the operating system of the ECS instance is replaced, the original system disk of the instance is released and a new system disk is generated for the instance. This causes the ID of the system disk to change.
      *  *
-     * @description ## [](#)Usage notes
-     * Take note of the following items:
-     * *   The category of the system disk cannot be changed.
+     * @description Before you call this operation, read [Replace the operating system (system disk) of an instance](https://help.aliyun.com/document_detail/25436.html).
+     * When you call this operation for an ECS instance, take note of the following items:
      * *   The billing method of the system disk cannot be changed.
+     * *   The category of the system disk cannot be changed.
+     * *   Make sure that no unpaid orders are associated with the instance.
      * *   The instance must be in the `Stopped` state.
      *     **
-     *     **Note** The operation is applicable only to instances of the Virtual Private Cloud (VPC) type. If the instance is a pay-as-you-go instance and economical mode is enabled by default for the instance, you must disable economical mode and enable standard mode when you stop the instance. This prevents the instance from being unable to restart due to insufficient ECS resources after the system disk is replaced. For more information, see [StopInstance](https://help.aliyun.com/document_detail/25501.html).
-     * *   The ECS instance cannot be locked for security reasons. If the value of `OperationLocks` in the DescribeInstances response contains `"LockReason": "security"` for an instance, the instance is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
-     * *   No unpaid orders are associated with the instance.
+     *     **Note** The operation is applicable only to instances of the Virtual Private Cloud (VPC) type. If the instance is a pay-as-you-go instance and default economical mode is enabled, enable standard mode when you stop the instance. This prevents the instance from being unable to restart due to insufficient ECS resources after the system disk is replaced. For more information, see [StopInstance](https://help.aliyun.com/document_detail/25501.html).
+     * *   The instance cannot be locked for security reasons. If the value of `OperationLocks` in the DescribeInstances response contains `"LockReason": "security"` for an instance, the instance is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
      * *   You can configure `SystemDisk.Size` to specify the capacity of the new system disk.
      * After you call the ReplaceSystemDisk operation, you can use one of the following methods to check whether the system disk is replaced:
      * *   Call the [DescribeDisks](https://help.aliyun.com/document_detail/25514.html) operation to query the status of the new system disk. If the new system disk is in the In Use state, the system disk is replaced.
@@ -29643,17 +29643,17 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @summary Replaces the operating system of an Elastic Compute Service (ECS) instance. After you perform an operating system replacement operation, the original disk is released and a new system disk is created. This causes the ID of the system disk to change.
+     * @summary Replaces the operating system of an Elastic Compute Service (ECS) instance. After the operating system of the ECS instance is replaced, the original system disk of the instance is released and a new system disk is generated for the instance. This causes the ID of the system disk to change.
      *  *
-     * @description ## [](#)Usage notes
-     * Take note of the following items:
-     * *   The category of the system disk cannot be changed.
+     * @description Before you call this operation, read [Replace the operating system (system disk) of an instance](https://help.aliyun.com/document_detail/25436.html).
+     * When you call this operation for an ECS instance, take note of the following items:
      * *   The billing method of the system disk cannot be changed.
+     * *   The category of the system disk cannot be changed.
+     * *   Make sure that no unpaid orders are associated with the instance.
      * *   The instance must be in the `Stopped` state.
      *     **
-     *     **Note** The operation is applicable only to instances of the Virtual Private Cloud (VPC) type. If the instance is a pay-as-you-go instance and economical mode is enabled by default for the instance, you must disable economical mode and enable standard mode when you stop the instance. This prevents the instance from being unable to restart due to insufficient ECS resources after the system disk is replaced. For more information, see [StopInstance](https://help.aliyun.com/document_detail/25501.html).
-     * *   The ECS instance cannot be locked for security reasons. If the value of `OperationLocks` in the DescribeInstances response contains `"LockReason": "security"` for an instance, the instance is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
-     * *   No unpaid orders are associated with the instance.
+     *     **Note** The operation is applicable only to instances of the Virtual Private Cloud (VPC) type. If the instance is a pay-as-you-go instance and default economical mode is enabled, enable standard mode when you stop the instance. This prevents the instance from being unable to restart due to insufficient ECS resources after the system disk is replaced. For more information, see [StopInstance](https://help.aliyun.com/document_detail/25501.html).
+     * *   The instance cannot be locked for security reasons. If the value of `OperationLocks` in the DescribeInstances response contains `"LockReason": "security"` for an instance, the instance is locked for security reasons. For more information, see [API behavior when an instance is locked for security reasons](https://help.aliyun.com/document_detail/25695.html).
      * *   You can configure `SystemDisk.Size` to specify the capacity of the new system disk.
      * After you call the ReplaceSystemDisk operation, you can use one of the following methods to check whether the system disk is replaced:
      * *   Call the [DescribeDisks](https://help.aliyun.com/document_detail/25514.html) operation to query the status of the new system disk. If the new system disk is in the In Use state, the system disk is replaced.

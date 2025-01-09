@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description > This parameter is not publicly available.
+     * @description The tag key of the image creation task.
      *
      * @example null
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @description > This parameter is not publicly available.
+     * @description The tag value of the image creation task.
      *
      * @example null
      *

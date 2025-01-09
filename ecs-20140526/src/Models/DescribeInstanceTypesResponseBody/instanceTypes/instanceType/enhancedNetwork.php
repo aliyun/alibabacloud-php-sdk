@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class enhancedNetwork extends Model
 {
     /**
+     * @var bool
+     */
+    public $rssSupport;
+
+    /**
      * @description >  This parameter is not publicly available.
      *
      * @example true
@@ -26,6 +31,7 @@ class enhancedNetwork extends Model
      */
     public $vfQueueNumberPerEni;
     protected $_name = [
+        'rssSupport'          => 'RssSupport',
         'sriovSupport'        => 'SriovSupport',
         'vfQueueNumberPerEni' => 'VfQueueNumberPerEni',
     ];
@@ -37,6 +43,9 @@ class enhancedNetwork extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->rssSupport) {
+            $res['RssSupport'] = $this->rssSupport;
+        }
         if (null !== $this->sriovSupport) {
             $res['SriovSupport'] = $this->sriovSupport;
         }
@@ -55,6 +64,9 @@ class enhancedNetwork extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RssSupport'])) {
+            $model->rssSupport = $map['RssSupport'];
+        }
         if (isset($map['SriovSupport'])) {
             $model->sriovSupport = $map['SriovSupport'];
         }

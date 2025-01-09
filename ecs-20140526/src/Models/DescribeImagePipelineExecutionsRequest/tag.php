@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description > This parameter is not publicly available.
+     * @description The key of tag N of the image creation task. Valid values of N: 1 to 20.
      *
      * @example null
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description > This parameter is not publicly available.
+     * @description The value of tag N of the image creation task. Valid values of N: 1 to 20.
      *
      * @example null
      *

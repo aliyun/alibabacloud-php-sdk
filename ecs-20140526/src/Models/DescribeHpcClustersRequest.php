@@ -39,8 +39,9 @@ class DescribeHpcClustersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries per page.
+     * @description The page number.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -48,8 +49,9 @@ class DescribeHpcClustersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The request ID.
+     * @description The number of entries per page.
      *
+     * Default value: 10.
      * @example 10
      *
      * @var int
