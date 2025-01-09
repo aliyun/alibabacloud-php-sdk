@@ -5,6 +5,13 @@
 - Update API UpdateArtifact: update param VersionName.
 
 
+2025-01-09 Version: 5.1.1
+- Update API GetArtifact: update response param.
+- Update API UpdateArtifact: add param PermissionType.
+- Update API UpdateArtifact: update param ArtifactProperty.
+- Update API UpdateArtifact: update param VersionName.
+
+
 2025-01-02 Version: 5.1.0
 - Support API GenerateServicePolicy.
 - Support API GetServiceProvisions.
