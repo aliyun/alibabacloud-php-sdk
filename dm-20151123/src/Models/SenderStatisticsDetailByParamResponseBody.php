@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SenderStatisticsDetailByParamResponseBody extends Model
 {
     /**
+     * @description The start position of the next page. The return value of the NextStart parameter indicates the start position of the next page. If you want to obtain more records, specify the return value in the next request.
+     *
      * @example 90f0243616#203#a***@example.net-1658817689#a***@example.net.247141122178
      *
      * @var string
@@ -17,6 +19,8 @@ class SenderStatisticsDetailByParamResponseBody extends Model
     public $nextStart;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B5AB8EBB-EE64-4BB2-B085-B92CC5DEDC41
      *
      * @var string
@@ -24,6 +28,8 @@ class SenderStatisticsDetailByParamResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;

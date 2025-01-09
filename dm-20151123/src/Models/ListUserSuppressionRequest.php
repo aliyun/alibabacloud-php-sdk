@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserSuppressionRequest extends Model
 {
     /**
+     * @description Email address or domain name
+     *
      * @example test@example.net
      *
      * @var string
@@ -16,6 +18,8 @@ class ListUserSuppressionRequest extends Model
     public $address;
 
     /**
+     * @description End time of the last bounce hit, timestamp, accurate to the second. The span between start and end times cannot exceed 7 days.
+     *
      * @example 1715669077
      *
      * @var int
@@ -23,6 +27,8 @@ class ListUserSuppressionRequest extends Model
     public $endBounceTime;
 
     /**
+     * @description End creation time, timestamp, accurate to the second. The span between start and end times cannot exceed 7 days.
+     *
      * @example 1715669077
      *
      * @var int
@@ -35,6 +41,8 @@ class ListUserSuppressionRequest extends Model
     public $ownerId;
 
     /**
+     * @description Current page number
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +50,8 @@ class ListUserSuppressionRequest extends Model
     public $pageNo;
 
     /**
+     * @description Page size
+     *
      * @example 10
      *
      * @var int
@@ -59,6 +69,8 @@ class ListUserSuppressionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Start time of the last bounce hit, timestamp, accurate to the second.
+     *
      * @example 1715668852
      *
      * @var int
@@ -66,6 +78,8 @@ class ListUserSuppressionRequest extends Model
     public $startBounceTime;
 
     /**
+     * @description Start creation time, timestamp, accurate to the second.
+     *
      * @example 1715668852
      *
      * @var int

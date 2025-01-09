@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Whether EventBridge is enabled
+     *
      * @example true
      *
      * @var bool

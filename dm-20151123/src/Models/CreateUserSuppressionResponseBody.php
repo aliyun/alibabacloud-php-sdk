@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateUserSuppressionResponseBody extends Model
 {
     /**
+     * @description Request ID
+     *
+     * @example 1A846D66-5EC7-551B-9687-5BF1963DCFC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Invalid address number
+     *
+     * @example 59511
+     *
      * @var string
      */
     public $suppressionId;

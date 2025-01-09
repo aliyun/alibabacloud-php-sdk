@@ -39,6 +39,11 @@ class SingleSendMailRequest extends Model
     public $fromAlias;
 
     /**
+     * @var string
+     */
+    public $headers;
+
+    /**
      * @example body
      *
      * @var string
@@ -127,6 +132,7 @@ class SingleSendMailRequest extends Model
         'addressType'            => 'AddressType',
         'clickTrace'             => 'ClickTrace',
         'fromAlias'              => 'FromAlias',
+        'headers'                => 'Headers',
         'htmlBody'               => 'HtmlBody',
         'ownerId'                => 'OwnerId',
         'replyAddress'           => 'ReplyAddress',
@@ -160,6 +166,9 @@ class SingleSendMailRequest extends Model
         }
         if (null !== $this->fromAlias) {
             $res['FromAlias'] = $this->fromAlias;
+        }
+        if (null !== $this->headers) {
+            $res['Headers'] = $this->headers;
         }
         if (null !== $this->htmlBody) {
             $res['HtmlBody'] = $this->htmlBody;
@@ -223,6 +232,9 @@ class SingleSendMailRequest extends Model
         }
         if (isset($map['FromAlias'])) {
             $model->fromAlias = $map['FromAlias'];
+        }
+        if (isset($map['Headers'])) {
+            $model->headers = $map['Headers'];
         }
         if (isset($map['HtmlBody'])) {
             $model->htmlBody = $map['HtmlBody'];

@@ -268,6 +268,9 @@ class Dm extends OpenApiClient
         if (!Utils::isUnset($request->clickTrace)) {
             $query['ClickTrace'] = $request->clickTrace;
         }
+        if (!Utils::isUnset($request->headers)) {
+            $query['Headers'] = $request->headers;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
@@ -684,7 +687,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 创建用户无效地址
+     * @summary Create User\\"s Invalid Address
      *  *
      * @param CreateUserSuppressionRequest $request CreateUserSuppressionRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -726,7 +729,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 创建用户无效地址
+     * @summary Create User\\"s Invalid Address
      *  *
      * @param CreateUserSuppressionRequest $request CreateUserSuppressionRequest
      *
@@ -1138,6 +1141,8 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * @summary Retrieve account information.
+     *  *
      * @param DescAccountSummaryRequest $request DescAccountSummaryRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
@@ -1175,6 +1180,8 @@ class Dm extends OpenApiClient
     }
 
     /**
+     * @summary Retrieve account information.
+     *  *
      * @param DescAccountSummaryRequest $request DescAccountSummaryRequest
      *
      * @return DescAccountSummaryResponse DescAccountSummaryResponse
@@ -1571,7 +1578,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 获取账号详情
+     * @summary Get Account Details
      *  *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -1596,7 +1603,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 获取账号详情
+     * @summary Get Account Details
      *  *
      * @return GetUserResponse GetUserResponse
      */
@@ -1608,7 +1615,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 列出用户无效地址
+     * @summary List User Invalid Addresses.
      *  *
      * @param ListUserSuppressionRequest $request ListUserSuppressionRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1668,7 +1675,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 列出用户无效地址
+     * @summary List User Invalid Addresses.
      *  *
      * @param ListUserSuppressionRequest $request ListUserSuppressionRequest
      *
@@ -2721,6 +2728,9 @@ class Dm extends OpenApiClient
         if (!Utils::isUnset($request->fromAlias)) {
             $query['FromAlias'] = $request->fromAlias;
         }
+        if (!Utils::isUnset($request->headers)) {
+            $query['Headers'] = $request->headers;
+        }
         if (!Utils::isUnset($request->htmlBody)) {
             $query['HtmlBody'] = $request->htmlBody;
         }
@@ -2849,7 +2859,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 更新帐号信息
+     * @summary Update account information
      *  *
      * @param UpdateUserRequest $tmpReq  UpdateUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -2887,7 +2897,7 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @summary 更新帐号信息
+     * @summary Update account information
      *  *
      * @param UpdateUserRequest $request UpdateUserRequest
      *

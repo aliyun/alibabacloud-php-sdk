@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescDomainRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the domain name.
      *
+     * This parameter is required.
      * @example 13464
      *
      * @var int
@@ -23,6 +24,10 @@ class DescDomainRequest extends Model
     public $ownerId;
 
     /**
+     * @description Determine whether to perform real-time DNS resolution
+     *
+     * @example true
+     *
      * @var bool
      */
     public $requireRealTimeDnsRecords;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescDomainResponseBody extends Model
 {
     /**
+     * @description Track verification
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class DescDomainResponseBody extends Model
     public $cnameAuthStatus;
 
     /**
+     * @description CName verification flag, success: 0, failure: 1.
+     *
      * @example 0
      *
      * @var string
@@ -23,6 +27,8 @@ class DescDomainResponseBody extends Model
     public $cnameConfirmStatus;
 
     /**
+     * @description CNAME records
+     *
      * @example dmtrace
      *
      * @var string
@@ -30,6 +36,8 @@ class DescDomainResponseBody extends Model
     public $cnameRecord;
 
     /**
+     * @description Creation time
+     *
      * @example 2019-09-29T12:49Z
      *
      * @var string
@@ -37,6 +45,8 @@ class DescDomainResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Default domain name
+     *
      * @example 0
      *
      * @var string
@@ -44,41 +54,71 @@ class DescDomainResponseBody extends Model
     public $defaultDomain;
 
     /**
+     * @description DKIM validation flag, success: 0, failure: 1.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $dkimAuthStatus;
 
     /**
+     * @description DKIM public key
+     *
+     * @example v=DKIM1; k=rsa; p=MIGfMA0GCSqGSI...
+     *
      * @var string
      */
     public $dkimPublicKey;
 
     /**
+     * @description DKIM HostRecord
+     *
+     * @example aliyun-cn-hangzhou._domainkey.hangzhou26
+     *
      * @var string
      */
     public $dkimRR;
 
     /**
+     * @description DMARC validation flag, success: 0, failure: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dmarcAuthStatus;
 
     /**
+     * @description DMARC host record
+     *
+     * @example _dmarc.xxx
+     *
      * @var string
      */
     public $dmarcHostRecord;
 
     /**
+     * @description DMARC record
+     *
+     * @example v=DMARC1;p=none;rua=mailto:dmarc_report@service.aliyun.com
+     *
      * @var string
      */
     public $dmarcRecord;
 
     /**
+     * @description dmarc record value resolved through public DNS
+     *
+     * @example v=DMARC1;p=none;rua=mailto:dmarc_report@service.aliyun.com
+     *
      * @var string
      */
     public $dnsDmarc;
 
     /**
+     * @description MX record value resolved through public DNS
+     *
      * @example abc-com.xxxx.com
      *
      * @var string
@@ -86,6 +126,8 @@ class DescDomainResponseBody extends Model
     public $dnsMx;
 
     /**
+     * @description SPF record value resolved through public DNS
+     *
      * @example v=xxxx
      *
      * @var string
@@ -93,6 +135,8 @@ class DescDomainResponseBody extends Model
     public $dnsSpf;
 
     /**
+     * @description TXT record value resolved through public DNS.
+     *
      * @example 121309ohdsa
      *
      * @var string
@@ -100,6 +144,8 @@ class DescDomainResponseBody extends Model
     public $dnsTxt;
 
     /**
+     * @description The ID of the domain name.
+     *
      * @example 158910
      *
      * @var string
@@ -107,13 +153,18 @@ class DescDomainResponseBody extends Model
     public $domainId;
 
     /**
-     * @example abc.com
+     * @description domain
+     *
+     * @example example.net
      *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The status of the domain name. Indicates whether the domain name is verified and available. Valid values:
+     *
+     * 4: indicates that the domain name is available but not configured with a CNAME record.
      * @example 1
      *
      * @var string
@@ -121,6 +172,8 @@ class DescDomainResponseBody extends Model
     public $domainStatus;
 
     /**
+     * @description TXT records provided by the Direct Mail console.
+     *
      * @example 0c40d5f125af4e42892a
      *
      * @var string
@@ -128,11 +181,17 @@ class DescDomainResponseBody extends Model
     public $domainType;
 
     /**
+     * @description host record
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $hostRecord;
 
     /**
+     * @description Filing status. 1 indicates that it has been filed, and 0 indicates that it has not been filed.
+     *
      * @example 1
      *
      * @var string
@@ -140,6 +199,8 @@ class DescDomainResponseBody extends Model
     public $icpStatus;
 
     /**
+     * @description MX validation flag, success: 0, failure: 1.
+     *
      * @example 1
      *
      * @var string
@@ -147,6 +208,8 @@ class DescDomainResponseBody extends Model
     public $mxAuthStatus;
 
     /**
+     * @description MX record
+     *
      * @example mx01.dm.aliyun.com
      *
      * @var string
@@ -154,6 +217,8 @@ class DescDomainResponseBody extends Model
     public $mxRecord;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 51B74264-46B4-43C8-A9A0-6B8E8BC04F34
      *
      * @var string
@@ -161,6 +226,8 @@ class DescDomainResponseBody extends Model
     public $requestId;
 
     /**
+     * @description SPF validation flag, success: 0, failure: 1.
+     *
      * @example 1
      *
      * @var string
@@ -168,6 +235,8 @@ class DescDomainResponseBody extends Model
     public $spfAuthStatus;
 
     /**
+     * @description Spf record
+     *
      * @example include:spf1.dm.aliyun.com
      *
      * @var string
@@ -175,18 +244,26 @@ class DescDomainResponseBody extends Model
     public $spfRecord;
 
     /**
+     * @description SpfRecord
+     *
+     * @example v=spf1 include:spf1.dm.aliyun.com -all
+     *
      * @var string
      */
     public $spfRecordV2;
 
     /**
-     * @example abc.com
+     * @description The primary domain name.
+     *
+     * @example example.net
      *
      * @var string
      */
     public $tlDomainName;
 
     /**
+     * @description The CNAME verification record provided by the Direct Mail console.
+     *
      * @example tracedm.aliyuncs.com
      *
      * @var string

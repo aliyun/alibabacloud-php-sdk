@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescAccountSummaryResponseBody extends Model
 {
     /**
+     * @description Daily quota
+     *
      * @example 2000
      *
      * @var int
@@ -16,11 +18,17 @@ class DescAccountSummaryResponseBody extends Model
     public $dailyQuota;
 
     /**
+     * @description remaining amount of daily free quota
+     *
+     * @example 100
+     *
      * @var int
      */
     public $dailyRemainFreeQuota;
 
     /**
+     * @description Dayu status (deprecated, retained for compatibility reasons.)
+     *
      * @example 0
      *
      * @var int
@@ -28,6 +36,8 @@ class DescAccountSummaryResponseBody extends Model
     public $dayuStatus;
 
     /**
+     * @description Number of domains
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +45,8 @@ class DescAccountSummaryResponseBody extends Model
     public $domains;
 
     /**
+     * @description Effective time
+     *
      * @example 0
      *
      * @var int
@@ -42,6 +54,8 @@ class DescAccountSummaryResponseBody extends Model
     public $enableTimes;
 
     /**
+     * @description Number of sending addresses
+     *
      * @example 0
      *
      * @var int
@@ -49,6 +63,8 @@ class DescAccountSummaryResponseBody extends Model
     public $mailAddresses;
 
     /**
+     * @description Maximum level
+     *
      * @example 10
      *
      * @var int
@@ -56,6 +72,8 @@ class DescAccountSummaryResponseBody extends Model
     public $maxQuotaLevel;
 
     /**
+     * @description Monthly quota
+     *
      * @example 60000
      *
      * @var int
@@ -63,6 +81,8 @@ class DescAccountSummaryResponseBody extends Model
     public $monthQuota;
 
     /**
+     * @description Credit level
+     *
      * @example 2
      *
      * @var int
@@ -70,6 +90,8 @@ class DescAccountSummaryResponseBody extends Model
     public $quotaLevel;
 
     /**
+     * @description Number of recipients
+     *
      * @example 0
      *
      * @var int
@@ -77,11 +99,17 @@ class DescAccountSummaryResponseBody extends Model
     public $receivers;
 
     /**
+     * @description Remaining amount of total free quota
+     *
+     * @example 1910
+     *
      * @var int
      */
     public $remainFreeQuota;
 
     /**
+     * @description Request ID
+     *
      * @example 82B295BB-7E69-491F-9896-ECEAFF09E1A4
      *
      * @var string
@@ -89,6 +117,8 @@ class DescAccountSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Deprecated, retained for compatibility reasons.
+     *
      * @example 0
      *
      * @var int
@@ -96,6 +126,8 @@ class DescAccountSummaryResponseBody extends Model
     public $smsRecord;
 
     /**
+     * @description Deprecated, retained for compatibility reasons.
+     *
      * @example 0
      *
      * @var int
@@ -103,6 +135,8 @@ class DescAccountSummaryResponseBody extends Model
     public $smsSign;
 
     /**
+     * @description Deprecated, retained for compatibility reasons.
+     *
      * @example 0
      *
      * @var int
@@ -110,6 +144,8 @@ class DescAccountSummaryResponseBody extends Model
     public $smsTemplates;
 
     /**
+     * @description Number of tags
+     *
      * @example 0
      *
      * @var int
@@ -117,6 +153,8 @@ class DescAccountSummaryResponseBody extends Model
     public $tags;
 
     /**
+     * @description Number of templates
+     *
      * @example 1
      *
      * @var int
@@ -124,6 +162,8 @@ class DescAccountSummaryResponseBody extends Model
     public $templates;
 
     /**
+     * @description User status:
+     * 8 Logically deleted
      * @example 0
      *
      * @var int

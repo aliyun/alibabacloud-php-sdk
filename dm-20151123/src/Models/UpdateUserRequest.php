@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @description User Information
+     *
      * @var user
      */
     public $user;

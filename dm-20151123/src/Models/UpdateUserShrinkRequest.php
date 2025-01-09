@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserShrinkRequest extends Model
 {
     /**
+     * @description User Information
+     *
      * @var string
      */
     public $userShrink;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mailDetail extends Model
 {
     /**
+     * @description The sender address.
+     *
      * @example s***@example.net
      *
      * @var string
@@ -16,11 +18,18 @@ class mailDetail extends Model
     public $accountName;
 
     /**
+     * @description Detailed classification of error causes:
+     *
+     * etc.
+     * @example SendOk
+     *
      * @var string
      */
     public $errorClassification;
 
     /**
+     * @description The most recent update time.
+     *
      * @example 2021-04-28T17:11Z
      *
      * @var string
@@ -28,6 +37,8 @@ class mailDetail extends Model
     public $lastUpdateTime;
 
     /**
+     * @description The details of the email.
+     *
      * @example 250 Send Mail OK
      *
      * @var string
@@ -35,6 +46,8 @@ class mailDetail extends Model
     public $message;
 
     /**
+     * @description The delivery status. Valid values: 0: successful, 2 invalid email address, 3: spam, and 4: failed.
+     *
      * @example 0
      *
      * @var int
@@ -42,11 +55,17 @@ class mailDetail extends Model
     public $status;
 
     /**
+     * @description the subject of email.
+     *
+     * @example test subject
+     *
      * @var string
      */
     public $subject;
 
     /**
+     * @description The recipient address.
+     *
      * @example b***@example.net
      *
      * @var string
@@ -54,6 +73,8 @@ class mailDetail extends Model
     public $toAddress;
 
     /**
+     * @description The most recent update time (timestamp format)
+     *
      * @example 1619601108
      *
      * @var string

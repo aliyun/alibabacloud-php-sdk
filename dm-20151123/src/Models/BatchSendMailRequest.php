@@ -34,6 +34,11 @@ class BatchSendMailRequest extends Model
     public $clickTrace;
 
     /**
+     * @var string
+     */
+    public $headers;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -96,6 +101,7 @@ class BatchSendMailRequest extends Model
         'accountName'            => 'AccountName',
         'addressType'            => 'AddressType',
         'clickTrace'             => 'ClickTrace',
+        'headers'                => 'Headers',
         'ownerId'                => 'OwnerId',
         'receiversName'          => 'ReceiversName',
         'replyAddress'           => 'ReplyAddress',
@@ -123,6 +129,9 @@ class BatchSendMailRequest extends Model
         }
         if (null !== $this->clickTrace) {
             $res['ClickTrace'] = $this->clickTrace;
+        }
+        if (null !== $this->headers) {
+            $res['Headers'] = $this->headers;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -174,6 +183,9 @@ class BatchSendMailRequest extends Model
         }
         if (isset($map['ClickTrace'])) {
             $model->clickTrace = $map['ClickTrace'];
+        }
+        if (isset($map['Headers'])) {
+            $model->headers = $map['Headers'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

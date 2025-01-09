@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListUserSuppressionResponseBody extends Model
 {
     /**
+     * @description Returned results.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description Page number
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListUserSuppressionResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description Page size
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListUserSuppressionResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Request ID
+     *
      * @example 1A846D66-5EC7-551B-9687-5BF1963DCFC1
      *
      * @var string
@@ -36,6 +44,8 @@ class ListUserSuppressionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Total count
+     *
      * @example 2
      *
      * @var int

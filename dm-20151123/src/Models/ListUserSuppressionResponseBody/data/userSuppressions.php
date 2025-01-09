@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userSuppressions extends Model
 {
     /**
+     * @description Email address or domain name
+     *
      * @example test@example.net
      *
      * @var string
@@ -16,6 +18,8 @@ class userSuppressions extends Model
     public $address;
 
     /**
+     * @description Creation time, timestamp, accurate to the second.
+     *
      * @example 1715667435
      *
      * @var int
@@ -23,6 +27,8 @@ class userSuppressions extends Model
     public $createTime;
 
     /**
+     * @description Last bounce hit time, timestamp, accurate to the second.
+     *
      * @example 1715667451
      *
      * @var int
@@ -30,6 +36,8 @@ class userSuppressions extends Model
     public $lastBounceTime;
 
     /**
+     * @description Invalid address ID
+     *
      * @example 59511
      *
      * @var int
@@ -37,8 +45,10 @@ class userSuppressions extends Model
     public $suppressionId;
 
     /**
-     * @example - system
+     * @description Source of entry, invalid address type
      * - user
+     * @example user
+     *
      * @var string
      */
     public $type;

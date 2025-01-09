@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SenderStatisticsDetailByParamRequest extends Model
 {
     /**
+     * @description Sending address. Not filled in represents all addresses.
+     *
      * @example s***@example.net
      *
      * @var string
@@ -16,6 +18,8 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $accountName;
 
     /**
+     * @description The end time. The difference between the start time and the end time cannot exceed 30 days. Format: yyyy-MM-dd.
+     *
      * @example 2021-04-29 00:00
      *
      * @var string
@@ -23,6 +27,8 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $endTime;
 
     /**
+     * @description The number of entries to return in the request. Valid values: 1 to 100.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +36,8 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $length;
 
     /**
+     * @description The start position of the next page. The offset for the request. If you want to obtain more records, specify the return value of the NextStart parameter for this parameter.
+     *
      * @example 90f0243616#203#a***@example.net-1658817837#a***@example.net.247475288187
      *
      * @var string
@@ -52,6 +60,8 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The start time. The start time can be up to 30 days earlier than the current time. Format: yyyy-MM-dd.
+     *
      * @example 2021-04-28 00:00
      *
      * @var string
@@ -59,6 +69,8 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $startTime;
 
     /**
+     * @description The delivery status. If you leave this parameter empty, all states are included. Valid values: 0: successful, 2 invalid email address, 3: spam, and 4: failed.
+     *
      * @example 0
      *
      * @var int
@@ -66,6 +78,8 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $status;
 
     /**
+     * @description The email tag. If you leave this parameter empty, all email tags are included.
+     *
      * @example EmailQuestionnaireHelioscam
      *
      * @var string
@@ -73,6 +87,8 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $tagName;
 
     /**
+     * @description The recipient address. If you leave this parameter empty, all recipient addresses are included.
+     *
      * @example b***@example.net
      *
      * @var string

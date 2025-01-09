@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateUserSuppressionRequest extends Model
 {
     /**
+     * @description Email address or domain name
+     *
+     * @example test@example.net
+     *
      * @var string
      */
     public $address;

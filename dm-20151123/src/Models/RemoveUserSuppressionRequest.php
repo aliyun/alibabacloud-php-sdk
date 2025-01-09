@@ -24,6 +24,8 @@ class RemoveUserSuppressionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 59511
+     *
      * @var string
      */
     public $suppressionIds;
