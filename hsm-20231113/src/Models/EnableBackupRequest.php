@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class EnableBackupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the backup.
      *
+     * This parameter is required.
      * @example backup-1736207****
      *
      * @var string
@@ -18,8 +19,9 @@ class EnableBackupRequest extends Model
     public $backupId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the HSM.
      *
+     * This parameter is required.
      * @example hsm-cn-mp90fxef****
      *
      * @var string

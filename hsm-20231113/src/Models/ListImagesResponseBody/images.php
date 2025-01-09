@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The ID of the backup.
+     *
      * @example backup-fdb897sdf****
      *
      * @var string
@@ -16,6 +18,8 @@ class images extends Model
     public $backupId;
 
     /**
+     * @description The time when the image was copied. Unit: milliseconds. The value is a UNIX timestamp.
+     *
      * @example 1641275680000
      *
      * @var string
@@ -23,6 +27,8 @@ class images extends Model
     public $copyTime;
 
     /**
+     * @description The time when the image was generated. Unit: milliseconds. The value is a UNIX timestamp.
+     *
      * @example 1782849566738
      *
      * @var int
@@ -30,6 +36,8 @@ class images extends Model
     public $exportTime;
 
     /**
+     * @description The ID of the image.
+     *
      * @example image-d79x4k11pmg19****
      *
      * @var string
@@ -37,6 +45,8 @@ class images extends Model
     public $imageId;
 
     /**
+     * @description The ID of the hardware security module (HSM).
+     *
      * @example hsm-cn-6ja1xknf****
      *
      * @var string
@@ -44,6 +54,11 @@ class images extends Model
     public $instanceId;
 
     /**
+     * @description The image generation mode. Valid values:
+     *
+     *   PERIODIC: The image is automatically generated.
+     *   MANUAL: The image is manually generated.
+     *
      * @example MANUAL
      *
      * @var string
@@ -51,6 +66,8 @@ class images extends Model
     public $mode;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +75,8 @@ class images extends Model
     public $regionId;
 
     /**
+     * @description The description of the backup.
+     *
      * @example hsm-test
      *
      * @var string
@@ -65,6 +84,8 @@ class images extends Model
     public $remark;
 
     /**
+     * @description The ID of the source backup.
+     *
      * @example backup-hodfhaol****
      *
      * @var string
@@ -72,6 +93,8 @@ class images extends Model
     public $sourceBackupUid;
 
     /**
+     * @description The ID of the source image.
+     *
      * @example image-ooopjygsn****
      *
      * @var string
@@ -79,6 +102,8 @@ class images extends Model
     public $sourceImageUid;
 
     /**
+     * @description The ID of the source HSM.
+     *
      * @example hsm-cn-wz9i2dmefudfxtmb****
      *
      * @var string
@@ -86,6 +111,8 @@ class images extends Model
     public $sourceInstanceId;
 
     /**
+     * @description The ID of the region in which the source image resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -93,6 +120,13 @@ class images extends Model
     public $sourceRegionId;
 
     /**
+     * @description The status of the image. Valid values:
+     *
+     *   NEW: The image is disabled.
+     *   DELETED: The image is deleted.
+     *   CREATING: The image is being created.
+     *   NORMAL: The image is created.
+     *
      * @example CREATING
      *
      * @var string
@@ -100,6 +134,8 @@ class images extends Model
     public $status;
 
     /**
+     * @description The digest of the HSM.
+     *
      * @example 3kGeHnmQzXwSsfF0Jk9eJYhe2gP6An0/HlYIiZh1****
      *
      * @var string

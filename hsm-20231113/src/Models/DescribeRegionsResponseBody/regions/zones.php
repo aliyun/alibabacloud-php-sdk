@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
+     * @description Indicates whether clusters are supported. Valid values:
+     *
+     *   yes
+     *   no
+     *
      * @example yes
      *
      * @var string
@@ -16,11 +21,15 @@ class zones extends Model
     public $cluster;
 
     /**
+     * @description The name of the zone.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The zone ID.
+     *
      * @example cn-hangzhou-a
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConfigClusterCertificateRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster certificate.
      *
+     * This parameter is required.
      * @example -----BEGIN CERTIFICATE-----
      * BAgMAnpqMQswCQYDVQQHDAJoejEWMBQGA1UECgwNQWxpYmFiYSBDbG91ZDEUMBIG
      * A1UECwwLU2VjQ2xvdWRIc20wHhcNMjQwNzAzM****-----END CERTIFICATE-----
@@ -19,8 +20,9 @@ class ConfigClusterCertificateRequest extends Model
     public $clusterCertificate;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example cluster-BqxX63Bsg****
      *
      * @var string
@@ -28,8 +30,9 @@ class ConfigClusterCertificateRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The self-signed certificate.
      *
+     * This parameter is required.
      * @example -----BEGIN CERTIFICATE-----
      * BAYTAmNuMQswCQYDVQQIDAJ6ajELMAkGA1UEBwwCaHoxFjAUBgNVBAoMDUFsaWJh
      * YmEgQ2xvdWQxFDA****

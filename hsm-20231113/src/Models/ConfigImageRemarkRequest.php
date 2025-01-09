@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConfigImageRemarkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the image.
      *
+     * This parameter is required.
      * @example image-d79x4k11pmg19****
      *
      * @var string
@@ -18,8 +19,9 @@ class ConfigImageRemarkRequest extends Model
     public $imageId;
 
     /**
-     * @description This parameter is required.
+     * @description The description of the image.
      *
+     * This parameter is required.
      * @example hsm-****
      *
      * @var string

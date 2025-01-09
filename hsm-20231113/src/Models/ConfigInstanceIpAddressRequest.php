@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigInstanceIpAddressRequest extends Model
 {
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * This parameter is required.
      * @example hsm-cn-mp90fxef****
@@ -19,7 +19,7 @@ class ConfigInstanceIpAddressRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IP address of the HSM in the VPC.
+     * @description The endpoint of the VPC to which the HMS belongs.
      *
      * This parameter is required.
      * @example 192.168.XX.XX
@@ -29,7 +29,7 @@ class ConfigInstanceIpAddressRequest extends Model
     public $ip;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * This parameter is required.
      * @example cn-hangzhou
@@ -39,7 +39,7 @@ class ConfigInstanceIpAddressRequest extends Model
     public $regionId;
 
     /**
-     * @description The vSwitch ID of the subnet to which the HSM belongs.
+     * @description The ID of the vSwitch to which the HMS belongs.
      *
      * This parameter is required.
      * @example vsw-u7gb0qahu****
@@ -49,7 +49,7 @@ class ConfigInstanceIpAddressRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC to which the HSM belongs.
+     * @description The ID of the VPC to which the HMS belongs.
      *
      * This parameter is required.
      * @example vpc-lmkmivmo6****

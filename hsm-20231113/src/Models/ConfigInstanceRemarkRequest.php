@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigInstanceRemarkRequest extends Model
 {
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * This parameter is required.
      * @example hsm-cn-vj30bil8****
@@ -19,7 +19,7 @@ class ConfigInstanceRemarkRequest extends Model
     public $instanceId;
 
     /**
-     * @description The description.
+     * @description The description of the HSM.
      *
      * This parameter is required.
      * @example hsmOnline

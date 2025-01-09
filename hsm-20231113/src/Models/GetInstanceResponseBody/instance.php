@@ -18,7 +18,7 @@ class instance extends Model
     public $clusterId;
 
     /**
-     * @description The cluster name.
+     * @description The name of the cluster.
      *
      * @example cluster_online
      *
@@ -36,7 +36,7 @@ class instance extends Model
     public $createTime;
 
     /**
-     * @description The device type.
+     * @description The type of the device.
      *
      * @example jnta.SJJ1528-G
      *
@@ -45,7 +45,7 @@ class instance extends Model
     public $deviceType;
 
     /**
-     * @description The time when the instance expired.
+     * @description The time when the HSM expired.
      *
      * @example 1699496389720
      *
@@ -54,7 +54,7 @@ class instance extends Model
     public $expireTime;
 
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * @example hsm-cn-g4t3jwsc****
      *
@@ -84,7 +84,7 @@ class instance extends Model
     public $isTrial;
 
     /**
-     * @description Indicates whether the HSM is the master HSM.
+     * @description Indicates whether the HSM is a master HSM. Valid values:
      *
      *   true
      *   false
@@ -96,7 +96,7 @@ class instance extends Model
     public $master;
 
     /**
-     * @description The order ID.
+     * @description The ID of the order.
      *
      * @example 23576634952****
      *
@@ -105,7 +105,7 @@ class instance extends Model
     public $orderId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -114,7 +114,7 @@ class instance extends Model
     public $regionId;
 
     /**
-     * @description The HSM description.
+     * @description The description of the HSM.
      *
      * @example hsmOnline
      *
@@ -123,16 +123,16 @@ class instance extends Model
     public $remark;
 
     /**
-     * @description The HSM status.
+     * @description The status of the HSM. Valid values:
      *
-     *   PENDING
-     *   ACTIVE
-     *   EXPIRED
-     *   INVALID
-     *   FAILURE
-     *   RESET
-     *   PAUSED
-     *   MODIFYING
+     *   PENDING: The HSM is disabled.
+     *   ACTIVE: The HSM is enabled.
+     *   EXPIRED: The HSM expired.
+     *   INVALID: The HSM is invalid.
+     *   FAILURE: The HSM failed to be created.
+     *   RESET: The HSM is being reset.
+     *   PAUSED: The HSM is paused.
+     *   MODIFYING: The HSM is being modified.
      *
      * @example EXPIRED
      *
@@ -141,12 +141,14 @@ class instance extends Model
     public $status;
 
     /**
+     * @description 密码机硬件隔离类型，枚举值"vsm"虚拟密码机，"hostedHsm"托管硬件密码机
+     *
      * @var string
      */
     public $tenantIsolationType;
 
     /**
-     * @description The ID of the vSwitch configured for the HSM.
+     * @description The ID of the vSwitch that is configured for the HSM.
      *
      * @example vsw-bp1mvfs31ltt0wyhf****
      *
@@ -155,7 +157,7 @@ class instance extends Model
     public $vSwitchId;
 
     /**
-     * @description The vendor information.
+     * @description The information about the vendor.
      *
      * @example jnta
      *
@@ -173,7 +175,7 @@ class instance extends Model
     public $vpcId;
 
     /**
-     * @description The IP address whitelist of the HSM.
+     * @description The IP addresses in the whitelist.
      *
      * @example 18.68.XX.XX
      *
@@ -182,7 +184,7 @@ class instance extends Model
     public $whitelist;
 
     /**
-     * @description The zone ID.
+     * @description The ID of the zone.
      *
      * @example cn-hangzhou-b
      *

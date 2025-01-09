@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QuickInitInstanceRequest extends Model
 {
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * This parameter is required.
      * @example hsm-cn-mp90fxef****

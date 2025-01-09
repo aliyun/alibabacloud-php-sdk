@@ -31,7 +31,7 @@ class cluster extends Model
     public $clusterCsr;
 
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * @example cluster-p94y1dud9ts****
      *
@@ -40,7 +40,12 @@ class cluster extends Model
     public $clusterId;
 
     /**
-     * @description The cluster name.
+     * @var int
+     */
+    public $clusterMode;
+
+    /**
+     * @description The name of the cluster.
      *
      * @example cluster_polar_****
      *
@@ -69,7 +74,7 @@ class cluster extends Model
     public $createTime;
 
     /**
-     * @description The device type.
+     * @description The type of the device.
      *
      * @example jnta
      *
@@ -103,13 +108,13 @@ class cluster extends Model
     public $size;
 
     /**
-     * @description The cluster status.
+     * @description The status of the cluster. Valid values:
      *
      *   NEW: The cluster is not initialized.
      *   INITIALIZED: The cluster is initialized.
      *   DELETED: The cluster is deleted.
      *   SYNCHRONIZING: The cluster is being synchronized.
-     *   TO_DELETE: The cluster is to be deleted.
+     *   TO_DELETE: The cluster is pending deletion.
      *
      * @example NEW
      *
@@ -136,7 +141,7 @@ class cluster extends Model
     public $whitelist;
 
     /**
-     * @description The information about the zone in which the cluster is deployed.
+     * @description The information about the zones in which the cluster is deployed.
      *
      * @var zones[]
      */
@@ -145,6 +150,7 @@ class cluster extends Model
         'clusterCertificate'      => 'ClusterCertificate',
         'clusterCsr'              => 'ClusterCsr',
         'clusterId'               => 'ClusterId',
+        'clusterMode'             => 'ClusterMode',
         'clusterName'             => 'ClusterName',
         'clusterOwnerCertificate' => 'ClusterOwnerCertificate',
         'createTime'              => 'CreateTime',
@@ -173,6 +179,9 @@ class cluster extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->clusterMode) {
+            $res['ClusterMode'] = $this->clusterMode;
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
@@ -239,6 +248,9 @@ class cluster extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['ClusterMode'])) {
+            $model->clusterMode = $map['ClusterMode'];
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];

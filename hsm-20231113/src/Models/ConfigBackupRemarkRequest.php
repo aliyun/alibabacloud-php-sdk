@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConfigBackupRemarkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the backup.
      *
+     * This parameter is required.
      * @example backup-fdb897sdfg****
      *
      * @var string
@@ -18,6 +19,8 @@ class ConfigBackupRemarkRequest extends Model
     public $backupId;
 
     /**
+     * @description The name of the backup.
+     *
      * @example backup-test
      *
      * @var string
@@ -25,6 +28,8 @@ class ConfigBackupRemarkRequest extends Model
     public $name;
 
     /**
+     * @description The description of the backup.
+     *
      * @var string
      */
     public $remark;

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConfigClusterSubnetRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the cluster. You can call the ListCluster operation to obtain cluster IDs.
      *
+     * This parameter is required.
      * @example cluster-BqxX63Bsg****
      *
      * @var string
@@ -18,8 +19,9 @@ class ConfigClusterSubnetRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -27,15 +29,17 @@ class ConfigClusterSubnetRequest extends Model
     public $regionId;
 
     /**
-     * @description This parameter is required.
+     * @description A list of vSwitches that are associated with the cluster. Note: You must include all vSwitches that you want to associate with the cluster.
      *
+     * This parameter is required.
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the virtual private cloud (VPC).
      *
+     * This parameter is required.
      * @example vpc-7xvkh90cw39p0****
      *
      * @var string

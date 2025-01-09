@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
-     * @description The HSM details.
+     * @description The information about the HSM.
      *
      * @var instance
      */

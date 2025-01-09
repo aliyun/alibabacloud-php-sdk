@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CopyImageRequest extends Model
 {
     /**
+     * @description The ID of the image.
+     *
      * @example image-hafiudfahdd****
      *
      * @var string
@@ -16,6 +18,8 @@ class CopyImageRequest extends Model
     public $imageUid;
 
     /**
+     * @description The ID of the destination region.
+     *
      * @example cn-beijing
      *
      * @var string

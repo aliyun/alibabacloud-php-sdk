@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchClusterMasterRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * This parameter is required.
      * @example cluster-w3G9vOJI2****

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the task.
      *
+     * This parameter is required.
      * @example job-202401250936hze747fd7e0007005
      *
      * @var string

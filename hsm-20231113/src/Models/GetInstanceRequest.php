@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceRequest extends Model
 {
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * @example hsm-cn-vj30bil****
      *

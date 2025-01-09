@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListClustersResponseBody extends Model
 {
     /**
-     * @description Details of the clusters.
+     * @description The clusters.
      *
      * @var clusters[]
      */
@@ -44,7 +44,7 @@ class ListClustersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of clusters.
      *
      * @example 114
      *

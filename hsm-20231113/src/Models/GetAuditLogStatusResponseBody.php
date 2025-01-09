@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAuditLogStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether the audit log feature is enabled. Valid values:
+     *
+     *   enable
+     *   disable
+     *
      * @example enable
      *
      * @var string
@@ -16,6 +21,8 @@ class GetAuditLogStatusResponseBody extends Model
     public $auditLogStatus;
 
     /**
+     * @description The bucket that stores audit logs.
+     *
      * @example bucket-test
      *
      * @var string
@@ -23,6 +30,11 @@ class GetAuditLogStatusResponseBody extends Model
     public $auditOssBucket;
 
     /**
+     * @description Indicates whether Cloud Hardware Security Module is authorized to deliver logs. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -30,11 +42,15 @@ class GetAuditLogStatusResponseBody extends Model
     public $grantedServiceAccess;
 
     /**
+     * @description A list of buckets that can be used to store audit logs.
+     *
      * @var string[]
      */
     public $ossBuckets;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +58,8 @@ class GetAuditLogStatusResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example 4C467B38-3910-447D-87BC-AC049166F216
      *
      * @var string
@@ -49,6 +67,11 @@ class GetAuditLogStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

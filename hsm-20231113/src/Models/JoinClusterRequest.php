@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class JoinClusterRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * This parameter is required.
      * @example cluster-NZB9Oj5Yfd8Y****

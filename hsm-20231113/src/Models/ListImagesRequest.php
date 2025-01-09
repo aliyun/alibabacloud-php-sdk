@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListImagesRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the backup.
      *
+     * This parameter is required.
      * @example backup-fdb897sdf****
      *
      * @var string
@@ -18,8 +19,9 @@ class ListImagesRequest extends Model
     public $backupId;
 
     /**
-     * @description This parameter is required.
+     * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -27,6 +29,11 @@ class ListImagesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The image generation mode. Valid values:
+     *
+     *   PERIODIC: The image is automatically generated.
+     *   MANUAL: The image is manually generated.
+     *
      * @example MANUAL
      *
      * @var string
@@ -34,8 +41,9 @@ class ListImagesRequest extends Model
     public $mode;
 
     /**
-     * @description This parameter is required.
+     * @description The number of images per page. Valid values: 1 to 1000.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -43,8 +51,9 @@ class ListImagesRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

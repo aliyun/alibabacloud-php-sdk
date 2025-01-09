@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAuditLogStatusRequest extends Model
 {
     /**
+     * @description Specifies whether to obtain the list of OSS buckets that can be used to store audit logs. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,8 +21,9 @@ class GetAuditLogStatusRequest extends Model
     public $getOssBucket;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

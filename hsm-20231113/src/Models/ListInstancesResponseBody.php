@@ -26,7 +26,7 @@ class ListInstancesResponseBody extends Model
     public $instances;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 1000.
+     * @description The number of entries per page.
      *
      * @example 20
      *

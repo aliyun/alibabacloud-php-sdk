@@ -11,6 +11,7 @@ class ListInstancesRequest extends Model
     /**
      * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,8 +19,9 @@ class ListInstancesRequest extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries per page.
+     * @description The number of entries per page. Valid values: 1 to 1000.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -27,8 +29,9 @@ class ListInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +39,8 @@ class ListInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description 密码机硬件隔离类型，枚举值"vsm"虚拟密码机，"hostedHsm"托管硬件密码机
+     *
      * @var string
      */
     public $tenantIsolationType;

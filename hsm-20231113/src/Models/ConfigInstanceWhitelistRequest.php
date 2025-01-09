@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ConfigInstanceWhitelistRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the HSM.
      *
+     * This parameter is required.
      * @example hsm-cn-vj30bil8****
      *
      * @var string
@@ -18,8 +19,9 @@ class ConfigInstanceWhitelistRequest extends Model
     public $instanceId;
 
     /**
-     * @description This parameter is required.
+     * @description A list of IP addresses that you want to configure in the whitelist. Separate multiple IP addresses with spaces or commas (,).
      *
+     * This parameter is required.
      * @example 18.68.XX.XX,18.68.XX.XX
      *
      * @var string

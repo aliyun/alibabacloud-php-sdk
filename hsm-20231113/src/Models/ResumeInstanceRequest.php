@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ResumeInstanceRequest extends Model
 {
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * This parameter is required.
      * @example hsm-cn-vj30bil8****

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * @example hsm-cn-g6z3v0uf****
      *
@@ -18,7 +18,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description Indicates whether the HSM is the master HSM.
+     * @description Indicates whether the HSM is a master HSM. Valid values:
      *
      *   true
      *   false
@@ -30,7 +30,7 @@ class instances extends Model
     public $master;
 
     /**
-     * @description The sequence number of the HSM in the cluster.
+     * @description The ID of the HSM in the cluster.
      *
      * @example 1
      *

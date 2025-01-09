@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigClusterNameRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * This parameter is required.
      * @example cluster-BqxX63Bsgfaisdf****
@@ -19,7 +19,7 @@ class ConfigClusterNameRequest extends Model
     public $clusterId;
 
     /**
-     * @description The cluster name.
+     * @description The name of the cluster.
      *
      * This parameter is required.
      * @example cluster_on****

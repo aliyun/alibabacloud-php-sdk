@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * @example hsm-cn-vj30bil8****
      *
@@ -18,7 +18,16 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description The HSM status. PENDING ACTIVE EXPIRED INVALID FAILURE RESET PAUSED MODIFYING
+     * @description The HSM status. Valid values:
+     *
+     *   PENDING: The HSM is disabled.
+     *   ACTIVE: The HSM is enabled.
+     *   EXPIRED: The HSM expired.
+     *   INVALID: The HSM is invalid.
+     *   FAILURE: The HSM failed to be created.
+     *   RESET: The HSM is being reset.
+     *   PAUSED: The HSM is paused.
+     *   MODIFYING: The HSM is being modified.
      *
      * @example ACTIVE
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backups extends Model
 {
     /**
+     * @description The number of images that are automatically backed up.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class backups extends Model
     public $autoImageCount;
 
     /**
+     * @description The backup time on the hour that is in the 24-hour clock.
+     *
      * @example 13
      *
      * @var string
@@ -23,6 +27,8 @@ class backups extends Model
     public $backupHourInDay;
 
     /**
+     * @description The ID of the backup.
+     *
      * @example backup-1648438****
      *
      * @var string
@@ -30,6 +36,8 @@ class backups extends Model
     public $backupId;
 
     /**
+     * @description The automatic backup cycle. Unit: days.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +45,8 @@ class backups extends Model
     public $backupPeriod;
 
     /**
+     * @description The time when the backup is created. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1637229596000
      *
      * @var int
@@ -44,6 +54,8 @@ class backups extends Model
     public $createTime;
 
     /**
+     * @description The expiration time of the backup. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1682417553781
      *
      * @var int
@@ -51,6 +63,8 @@ class backups extends Model
     public $expireTime;
 
     /**
+     * @description The ID of the HSM that is associated with the backup.
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
@@ -58,6 +72,8 @@ class backups extends Model
     public $instanceId;
 
     /**
+     * @description The number of images.
+     *
      * @example 3
      *
      * @var string
@@ -65,6 +81,8 @@ class backups extends Model
     public $maxImageCount;
 
     /**
+     * @description The name of the backup.
+     *
      * @example backup-te****
      *
      * @var string
@@ -72,6 +90,8 @@ class backups extends Model
     public $name;
 
     /**
+     * @description The time when the image is created next time. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1682417553781
      *
      * @var int
@@ -79,6 +99,8 @@ class backups extends Model
     public $nextImageCreateTime;
 
     /**
+     * @description The ID of the HSM to which the backup belongs. This parameter is available only for HSM backups outside the Chinese mainland and the value of this parameter is consistent with the value of InstanceId.
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
@@ -86,6 +108,8 @@ class backups extends Model
     public $ownerInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example ap-southeast-1
      *
      * @var string
@@ -93,6 +117,8 @@ class backups extends Model
     public $regionId;
 
     /**
+     * @description The time when the backup is released. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1641275680000
      *
      * @var int
@@ -100,6 +126,8 @@ class backups extends Model
     public $releaseTime;
 
     /**
+     * @description The description of the backup.
+     *
      * @example normal backup
      *
      * @var string
@@ -107,6 +135,8 @@ class backups extends Model
     public $remark;
 
     /**
+     * @description The ID of the backup. This parameter is available only for HSM backups in the Chinese mainland.
+     *
      * @example backup-fdb897sdfg534-****
      *
      * @var string
@@ -114,6 +144,12 @@ class backups extends Model
     public $spInstanceId;
 
     /**
+     * @description The status of the backup. Valid values:
+     *
+     *   NEW: The backup is disabled.
+     *   EXPIRED: The backup expired.
+     *   ENABLED: The backup is enabled.
+     *
      * @example ENABLED
      *
      * @var string
@@ -121,6 +157,11 @@ class backups extends Model
     public $status;
 
     /**
+     * @description The type of the backup. Valid values:
+     *
+     *   DEFAULT
+     *   NORMAL
+     *
      * @example NORMAL
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CopyImageResponseBody extends Model
 {
     /**
+     * @description Indicates whether the task is complete.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class CopyImageResponseBody extends Model
     public $completed;
 
     /**
+     * @description The time when the task is created. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1724379766191
      *
      * @var string
@@ -23,6 +27,8 @@ class CopyImageResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The error message returned if the task fails.
+     *
      * @example OperationTimeout
      *
      * @var string
@@ -30,6 +36,8 @@ class CopyImageResponseBody extends Model
     public $error;
 
     /**
+     * @description The ID of the task.
+     *
      * @example job-202401250936hze747fd7e0007005
      *
      * @var string
@@ -37,6 +45,8 @@ class CopyImageResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The progress of the task. Unit: percent (%).
+     *
      * @example 100
      *
      * @var int
@@ -44,6 +54,8 @@ class CopyImageResponseBody extends Model
     public $progress;
 
     /**
+     * @description The request ID.
+     *
      * @example 4C467B38-3910-447D-87BC-AC049166F216
      *
      * @var string
@@ -51,6 +63,8 @@ class CopyImageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The response returned after the task succeeds.
+     *
      * @example success
      *
      * @var string
@@ -58,6 +72,8 @@ class CopyImageResponseBody extends Model
     public $response;
 
     /**
+     * @description The task status.
+     *
      * @example running
      *
      * @var string
@@ -65,6 +81,11 @@ class CopyImageResponseBody extends Model
     public $status;
 
     /**
+     * @description The operation type. Valid values:
+     *
+     *   create
+     *   cancel
+     *
      * @example create
      *
      * @var string

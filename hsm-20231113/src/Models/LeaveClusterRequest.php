@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class LeaveClusterRequest extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * This parameter is required.
      * @example cluster-729dm40FG****
@@ -19,7 +19,7 @@ class LeaveClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the HSM that you want to remove from the cluster.
+     * @description The ID of the HSM.
      *
      * This parameter is required.
      * @example hsm-cn-mp90fxef****

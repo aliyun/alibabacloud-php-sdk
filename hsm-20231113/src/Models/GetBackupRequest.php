@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBackupRequest extends Model
 {
     /**
+     * @description The ID of the backup.
+     *
      * @example backup-fdb897sdf****
      *
      * @var string

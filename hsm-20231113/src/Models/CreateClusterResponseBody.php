@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterResponseBody extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * @example cluster-729dm40FG****
      *

@@ -39,7 +39,7 @@ class job extends Model
     public $error;
 
     /**
-     * @description The task ID.
+     * @description The ID of the task.
      *
      * @example job-000bu7m5vjmyz9s7qz85
      *
@@ -48,7 +48,7 @@ class job extends Model
     public $jobId;
 
     /**
-     * @description The task progress. Unit: percent (%).
+     * @description The progress of the task. Unit: percent (%).
      *
      * @example 90
      *
@@ -57,7 +57,7 @@ class job extends Model
     public $progress;
 
     /**
-     * @description The response parameters.
+     * @description The response returned after the task succeeds.
      *
      * @example success
      *
@@ -66,7 +66,7 @@ class job extends Model
     public $response;
 
     /**
-     * @description The task status. Valid values:
+     * @description The status of the task. Valid values:
      *
      *   success
      *   running
@@ -80,10 +80,10 @@ class job extends Model
     public $status;
 
     /**
-     * @description The type of the action.
+     * @description The operation type. Valid values:
      *
-     *   create: creates a task.
-     *   cancel: cancels a task.
+     *   create
+     *   cancel
      *
      * @example create
      *

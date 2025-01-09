@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class job extends Model
 {
     /**
+     * @description Indicates whether the task is complete. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class job extends Model
     public $completed;
 
     /**
+     * @description The error message returned if the task fails.
+     *
      * @example OperationTimeout
      *
      * @var string
@@ -23,6 +30,8 @@ class job extends Model
     public $error;
 
     /**
+     * @description The ID of the task.
+     *
      * @example job-202401250936hze747fd7e0007005
      *
      * @var string
@@ -30,6 +39,8 @@ class job extends Model
     public $jobId;
 
     /**
+     * @description The progress of the task. Unit: percent (%).
+     *
      * @example 95
      *
      * @var int
@@ -37,6 +48,8 @@ class job extends Model
     public $progress;
 
     /**
+     * @description The response returned after the task succeeds.
+     *
      * @example success
      *
      * @var string
@@ -44,6 +57,13 @@ class job extends Model
     public $response;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   success
+     *   running
+     *   fail
+     *   cancel
+     *
      * @example fail
      *
      * @var string
@@ -51,6 +71,11 @@ class job extends Model
     public $status;
 
     /**
+     * @description The operation type. Valid values:
+     *
+     *   create
+     *   cancel
+     *
      * @example create
      *
      * @var string

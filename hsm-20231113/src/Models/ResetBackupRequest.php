@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetBackupRequest extends Model
 {
     /**
+     * @description The ID of the backup.
+     *
      * @example backup-fdb897sdfg5****
      *
      * @var string

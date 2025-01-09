@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ExportImageRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the image.
      *
+     * This parameter is required.
      * @example image-8vbdd5uc6v10ecn5****
      *
      * @var string
@@ -18,8 +19,9 @@ class ExportImageRequest extends Model
     public $imageId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the HSM.
      *
+     * This parameter is required.
      * @example hsm-cn-vj30bil8****
      *
      * @var string

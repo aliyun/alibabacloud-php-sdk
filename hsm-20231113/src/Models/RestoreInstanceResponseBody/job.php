@@ -18,7 +18,7 @@ class job extends Model
     public $completed;
 
     /**
-     * @description The time when the task was created. Unit: milliseconds. The value is a UNIX timestamp.
+     * @description The time when the task is created. The value is accurate to the millisecond. The value is a UNIX timestamp.
      *
      * @example 1711764127000
      *
@@ -36,7 +36,7 @@ class job extends Model
     public $error;
 
     /**
-     * @description The task ID.
+     * @description The ID of the task.
      *
      * @example job-540356379023708160
      *
@@ -45,7 +45,7 @@ class job extends Model
     public $jobId;
 
     /**
-     * @description The task progress. Unit: percent (%).
+     * @description The progress of the task. Unit: percent (%).
      *
      * @example 50
      *
@@ -54,7 +54,7 @@ class job extends Model
     public $progress;
 
     /**
-     * @description The response returned if the task succeeds.
+     * @description The response returned after the task succeeds.
      *
      * @example success
      *
@@ -63,7 +63,7 @@ class job extends Model
     public $response;
 
     /**
-     * @description The task status. Valid values:
+     * @description The task status.
      *
      * @example success
      *
@@ -72,7 +72,10 @@ class job extends Model
     public $status;
 
     /**
-     * @description The type of the action. Valid values: create: creates a task. cancel: cancels a task.
+     * @description The operation type. Valid values:
+     *
+     *   create
+     *   cancel
      *
      * @example create
      *

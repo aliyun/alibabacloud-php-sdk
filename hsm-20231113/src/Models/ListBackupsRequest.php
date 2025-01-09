@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBackupsRequest extends Model
 {
     /**
+     * @description The ID of the backup.
+     *
      * @example backup-1648438****
      *
      * @var string
@@ -16,8 +18,9 @@ class ListBackupsRequest extends Model
     public $backupId;
 
     /**
-     * @description This parameter is required.
+     * @description The page number.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -25,6 +28,8 @@ class ListBackupsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the hardware security module (HSM).
+     *
      * @example hsm-cn-vj30bil8****
      *
      * @var string
@@ -32,6 +37,8 @@ class ListBackupsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The name of the backup.
+     *
      * @example hsm-te****
      *
      * @var string
@@ -39,8 +46,9 @@ class ListBackupsRequest extends Model
     public $name;
 
     /**
-     * @description This parameter is required.
+     * @description The number of entries per page. Valid values: 1 to 1000.
      *
+     * This parameter is required.
      * @example 20
      *
      * @var int
@@ -48,8 +56,9 @@ class ListBackupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the region.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

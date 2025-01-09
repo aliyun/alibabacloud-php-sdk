@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ResetInstanceResponseBody extends Model
 {
     /**
-     * @description The task details.
+     * @description The details of the task.
      *
      * @var job
      */

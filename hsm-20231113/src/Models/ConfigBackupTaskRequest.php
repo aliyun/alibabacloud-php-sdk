@@ -9,8 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ConfigBackupTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The backup time in the 24-hour format. Valid values: 1 to 24.
      *
+     * Enumeration values:
+     *
+     *   0
+     *   1
+     *   2
+     *   3
+     *   4
+     *   5
+     *   6
+     *   7
+     *   8
+     *   9
+     *   10
+     *   11
+     *   12
+     *   13
+     *   14
+     *   15
+     *   16
+     *   17
+     *   18
+     *   19
+     *   20
+     *   21
+     *   22
+     *   23
+     *
+     * This parameter is required.
      * @example 12
      *
      * @var int
@@ -18,8 +46,9 @@ class ConfigBackupTaskRequest extends Model
     public $backupHourInDay;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the backup.
      *
+     * This parameter is required.
      * @example backup-173620705****
      *
      * @var string
@@ -27,8 +56,9 @@ class ConfigBackupTaskRequest extends Model
     public $backupId;
 
     /**
-     * @description This parameter is required.
+     * @description The automatic backup cycle. Unit: days. Valid values: 1, 3, 7, and 30.
      *
+     * This parameter is required.
      * @example 3
      *
      * @var int
@@ -36,11 +66,15 @@ class ConfigBackupTaskRequest extends Model
     public $backupPeriod;
 
     /**
+     * @description The IDs of images for which the manual backup mode is updated to the automatic backup mode.
+     *
      * @var string[]
      */
     public $manual2PeriodicList;
 
     /**
+     * @description The IDs of images for which the automatic backup mode is updated to the manual backup mode.
+     *
      * @var string[]
      */
     public $periodic2ManualList;

@@ -29,7 +29,7 @@ class ListClustersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * This parameter is required.
      * @example cn-hangzhou

@@ -19,7 +19,7 @@ class RestoreInstanceRequest extends Model
     public $imageId;
 
     /**
-     * @description The HSM ID.
+     * @description The ID of the HSM.
      *
      * This parameter is required.
      * @example hsm-cn-mp90fxef****

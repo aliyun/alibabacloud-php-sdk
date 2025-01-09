@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
-     * @description The cluster ID.
+     * @description The ID of the cluster.
      *
      * @example cluster-w3G9vOJI2****
      *
@@ -18,13 +18,13 @@ class clusters extends Model
     public $clusterId;
 
     /**
-     * @description The cluster status.
+     * @description The status of the cluster. Valid values:
      *
-     *   NEW: not initialized
-     *   INITIALIZED: initialized
-     *   DELETED: deleted
-     *   SYNCHRONIZING: being synchronized
-     *   TO_DELETE: pending deletion
+     *   NEW: The cluster is not initialized.
+     *   INITIALIZED: The cluster is initialized.
+     *   DELETED: The cluster is deleted.
+     *   SYNCHRONIZING: The cluster is being synchronized.
+     *   TO_DELETE: The cluster is pending deletion.
      *
      * @example INITIALIZED
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
+     * @description The number of images that are automatically backed up.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class backup extends Model
     public $autoImageCount;
 
     /**
+     * @description The backup time in the 24-hour format.
+     *
      * @example 10
      *
      * @var string
@@ -23,6 +27,8 @@ class backup extends Model
     public $backupHourInDay;
 
     /**
+     * @description The ID of the backup.
+     *
      * @example backup-fdb897sdf****
      *
      * @var string
@@ -30,6 +36,8 @@ class backup extends Model
     public $backupId;
 
     /**
+     * @description The automatic backup cycle. Unit: days.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +45,8 @@ class backup extends Model
     public $backupPeriod;
 
     /**
+     * @description The time when the backup is created. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1682417553781
      *
      * @var int
@@ -44,6 +54,8 @@ class backup extends Model
     public $createTime;
 
     /**
+     * @description The expiration time of the backup. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1682417553781
      *
      * @var int
@@ -51,6 +63,8 @@ class backup extends Model
     public $expireTime;
 
     /**
+     * @description The ID of the hardware security module (HSM) that is associated with the backup.
+     *
      * @example hsm-cn-5yd35431****
      *
      * @var string
@@ -58,6 +72,8 @@ class backup extends Model
     public $instanceId;
 
     /**
+     * @description The maximum number of images.
+     *
      * @example 3
      *
      * @var string
@@ -65,6 +81,8 @@ class backup extends Model
     public $maxImageCount;
 
     /**
+     * @description The name of the backup.
+     *
      * @example backup-te****
      *
      * @var string
@@ -72,6 +90,8 @@ class backup extends Model
     public $name;
 
     /**
+     * @description The next time when the image is created. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1682417553781
      *
      * @var int
@@ -79,6 +99,8 @@ class backup extends Model
     public $nextImageCreateTime;
 
     /**
+     * @description The ID of the HSM to which the backup belongs. This parameter is available only for HSM backups outside the Chinese mainland and the value of this parameter is consistent with the value of InstanceId.
+     *
      * @example hsm-cn-huoahd****
      *
      * @var string
@@ -86,6 +108,8 @@ class backup extends Model
     public $ownerInstanceId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -93,6 +117,8 @@ class backup extends Model
     public $regionId;
 
     /**
+     * @description The time when the backup is released. The value is accurate to the millisecond. The value is a UNIX timestamp.
+     *
      * @example 1641275680000
      *
      * @var int
@@ -100,6 +126,8 @@ class backup extends Model
     public $releaseTime;
 
     /**
+     * @description The description of the backup.
+     *
      * @example test
      *
      * @var string
@@ -107,6 +135,8 @@ class backup extends Model
     public $remark;
 
     /**
+     * @description The ID of the backup. This parameter is available only for HSM backups in the Chinese mainland.
+     *
      * @example backup-fdb897sdfg53****
      *
      * @var string
@@ -114,6 +144,12 @@ class backup extends Model
     public $spInstanceId;
 
     /**
+     * @description The status of the backup. Valid values:
+     *
+     *   NEW
+     *   EXPIRED
+     *   ENABLED
+     *
      * @example NEW
      *
      * @var string
@@ -121,6 +157,11 @@ class backup extends Model
     public $status;
 
     /**
+     * @description The type of the backup. Valid values:
+     *
+     *   DEFAULT
+     *   NORMAL
+     *
      * @example DEFAULT
      *
      * @var string

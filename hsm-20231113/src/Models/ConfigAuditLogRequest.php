@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConfigAuditLogRequest extends Model
 {
     /**
-     * @description The status of the audit log feature.
+     * @description Specifies whether to enable the audit log feature. Valid values:
      *
      *   enable
      *   disable
