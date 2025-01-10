@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteBackupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionRequest;
@@ -106,6 +110,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeActiveSQLRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeActiveSQLRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupJobRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupJobResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCollectionRequest;
@@ -250,6 +256,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\HandleActiveSQLRecordResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListBackupJobsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListDatabasesRequest;
@@ -1037,6 +1045,53 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @summary 创建备份
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateBackupResponse CreateBackupResponse
+     */
+    public function createBackupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateBackup',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建备份
+     *  *
+     * @param CreateBackupRequest $request CreateBackupRequest
+     *
+     * @return CreateBackupResponse CreateBackupResponse
+     */
+    public function createBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createBackupWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary Creates a vector collection.
      *  *
      * @param CreateCollectionRequest $request CreateCollectionRequest
@@ -1444,7 +1499,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Create Knowledge Base
+     * @summary Creates a document collection.
      *  *
      * @param CreateDocumentCollectionRequest $request CreateDocumentCollectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1522,7 +1577,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @summary Create Knowledge Base
+     * @summary Creates a document collection.
      *  *
      * @param CreateDocumentCollectionRequest $request CreateDocumentCollectionRequest
      *
@@ -2493,6 +2548,56 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 删除备份
+     *  *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteBackupResponse DeleteBackupResponse
+     */
+    public function deleteBackupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteBackup',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteBackupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 删除备份
+     *  *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
+     *
+     * @return DeleteBackupResponse DeleteBackupResponse
+     */
+    public function deleteBackup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteBackupWithOptions($request, $runtime);
     }
 
     /**
@@ -3741,6 +3846,56 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAvailableResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取备份任务详情
+     *  *
+     * @param DescribeBackupJobRequest $request DescribeBackupJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeBackupJobResponse DescribeBackupJobResponse
+     */
+    public function describeBackupJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupJobId)) {
+            $query['BackupJobId'] = $request->backupJobId;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeBackupJob',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeBackupJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取备份任务详情
+     *  *
+     * @param DescribeBackupJobRequest $request DescribeBackupJobRequest
+     *
+     * @return DescribeBackupJobResponse DescribeBackupJobResponse
+     */
+    public function describeBackupJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeBackupJobWithOptions($request, $runtime);
     }
 
     /**
@@ -8256,6 +8411,56 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->initVectorDatabaseWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 获取备份任务列表
+     *  *
+     * @param ListBackupJobsRequest $request ListBackupJobsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListBackupJobsResponse ListBackupJobsResponse
+     */
+    public function listBackupJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->backupMode)) {
+            $query['BackupMode'] = $request->backupMode;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListBackupJobs',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListBackupJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取备份任务列表
+     *  *
+     * @param ListBackupJobsRequest $request ListBackupJobsRequest
+     *
+     * @return ListBackupJobsResponse ListBackupJobsResponse
+     */
+    public function listBackupJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listBackupJobsWithOptions($request, $runtime);
     }
 
     /**

@@ -54,7 +54,7 @@ class CreateCollectionRequest extends Model
     public $externalStorage;
 
     /**
-     * @description Fields used for full-text search, separated by commas (,). These fields must be keys defined in Metadata.
+     * @description The fields used for full-text search. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
      *
      * @example title,content
      *
@@ -122,17 +122,21 @@ class CreateCollectionRequest extends Model
     public $metadata;
 
     /**
+     * @description The scalar index fields. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
+     *
+     * @example title
+     *
      * @var string
      */
     public $metadataIndices;
 
     /**
-     * @description Method used when building the vector index.
+     * @description The method that is used to create vector indexes. Valid values:
      *
-     * Value description:
-     * - **l2**: Euclidean distance.
-     * - **ip**: Inner product (dot product) distance.
-     * - **cosine** (default): Cosine similarity.
+     *   l2: Euclidean distance.
+     *   ip: inner product distance.
+     *   cosine: cosine similarity.
+     *
      * @example cosine
      *
      * @var string

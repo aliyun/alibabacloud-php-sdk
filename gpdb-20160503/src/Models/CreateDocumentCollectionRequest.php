@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDocumentCollectionRequest extends Model
 {
     /**
-     * @description Name of the document library to be created.
+     * @description The name of the document collection that you want to create.
      *
      * This parameter is required.
      * @example document
@@ -19,7 +19,7 @@ class CreateDocumentCollectionRequest extends Model
     public $collection;
 
     /**
-     * @description Instance ID.
+     * @description The instance ID.
      *
      * This parameter is required.
      * @example gp-xxxxxxxxx
@@ -29,9 +29,38 @@ class CreateDocumentCollectionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description Vectorization algorithm.
+     * @description The vectorization algorithm.
      *
-     * > - clip-rn50x64: CLIP RN50x64 model, 1024 dimensions, image vectorization algorithm
+     * >  Supported algorithms:
+     *
+     *   text-embedding-v1: the algorithm that produces 1536-dimensional vectors.
+     *
+     *   text-embedding-v2: the algorithm that produces 1536-dimensional vectors.
+     *
+     *   text2vec: the algorithm that produces 1024-dimensional vectors.
+     *
+     *   m3e-base: the algorithm that produces 768-dimensional vectors.
+     *
+     *   m3e-small: the algorithm that produces 512-dimensional vectors.
+     *
+     *   clip-vit-b-32: the image vectorization algorithm that uses the Contrastive Language-Image Pre-Training (CLIP) ViT-B/32 model and produces 512-dimensional vectors.
+     *
+     *   clip-vit-b-16: the image vectorization algorithm that uses the CLIP ViT-B/16 model and produces 512-dimensional vectors.
+     *
+     *   clip-vit-l-14: the image vectorization algorithm that uses the CLIP ViT-L/14 model and produces 768-dimensional vectors.
+     *
+     *   clip-vit-l-14-336px: the image vectorization algorithm that uses the CLIP ViT-L/14@336px model and produces 768-dimensional vectors.
+     *
+     *   clip-rn50: the image vectorization algorithm that uses the CLIP RN50 model and produces 1024-dimensional vectors.
+     *
+     *   clip-rn101: the image vectorization algorithm that uses the CLIP RN101 model and produces 512-dimensional vectors.
+     *
+     *   clip-rn50x4: the image vectorization algorithm that uses the CLIP RN50x4 model and produces 640-dimensional vectors.
+     *
+     *   clip-rn50x16: the image vectorization algorithm that uses the CLIP RN50x16 model and produces 768-dimensional vectors.
+     *
+     *   clip-rn50x64: the image vectorization algorithm that uses the CLIP RN50x64 model and produces 1024-dimensional vectors.
+     *
      * @example text-embedding-v1
      *
      * @var string
@@ -39,9 +68,14 @@ class CreateDocumentCollectionRequest extends Model
     public $embeddingModel;
 
     /**
-     * @description Whether to use mmap to build HNSW index, default is 0. If the data does not need to be deleted and there are requirements for the speed of uploading data, it is recommended to set this to 1.
+     * @description Specifies whether to use the memory mapping technology to create HNSW indexes. Valid values: 0 and 1. Default value: 0. We recommend that you set the value to 1 in scenarios that require upload speed but not data deletion.
      *
-     * > - When set to 1, the index will be built using mmap. This mode does not support deletion or update operations.
+     * >
+     *
+     *   0: uses segmented paging storage to create indexes. This method uses the shared buffer of PostgreSQL for caching and supports the delete and update operations.
+     *
+     *   1: uses the memory mapping technology to create indexes. This method does not support the delete or update operation.
+     *
      * @example 0
      *
      * @var int
@@ -49,7 +83,7 @@ class CreateDocumentCollectionRequest extends Model
     public $externalStorage;
 
     /**
-     * @description Fields used for full-text search, separated by commas (,). These fields must be keys defined in Metadata.
+     * @description The fields used for full-text search. Separate multiple fields with commas (,). These fields must be keys defined in Metadata.
      *
      * @example title,page
      *
@@ -58,8 +92,18 @@ class CreateDocumentCollectionRequest extends Model
     public $fullTextRetrievalFields;
 
     /**
-     * @description The maximum number of neighbors in the HNSW algorithm, ranging from 1 to 1000. The interface will automatically set this value based on the vector dimension, and it generally does not need to be manually configured.
-     * > It is recommended to set according to the vector dimension: >- For dimensions less than or equal to 384: 16 >- For dimensions greater than 384 but less than or equal to 768: 32 >- For dimensions greater than 768 but less than or equal to 1024: 64 >- For dimensions greater than 1024: 128
+     * @description The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
+     *
+     * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
+     *
+     *   If you set Dimension to a value less than or equal to 384, set the value of HnswM to 16.
+     *
+     *   If you set Dimension to a value greater than 384 and less than or equal to 768, set the value of HnswM to 32.
+     *
+     *   If you set Dimension to a value greater than 768 and less than or equal to 1024, set the value of HnswM to 64.
+     *
+     *   If you set Dimension to a value greater than 1024, set the value of HnswM to 128.
+     *
      * @example 64
      *
      * @var int
@@ -67,7 +111,7 @@ class CreateDocumentCollectionRequest extends Model
     public $hnswM;
 
     /**
-     * @description Name of the management account with rds_superuser permissions.
+     * @description The name of the manager account that has the rds_superuser permission.
      *
      * This parameter is required.
      * @example testaccount
@@ -77,7 +121,7 @@ class CreateDocumentCollectionRequest extends Model
     public $managerAccount;
 
     /**
-     * @description Management account password.
+     * @description The password of the management account.
      *
      * This parameter is required.
      * @example testpassword
@@ -87,7 +131,7 @@ class CreateDocumentCollectionRequest extends Model
     public $managerAccountPassword;
 
     /**
-     * @description Metadata of vector data, in the form of a MAP JSON string. The key represents the field name, and the value represents the data type.
+     * @description The metadata of the vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
      *
      * >Warning: The fields id, vector, doc_name, content, loader_metadata, source, and to_tsvector are reserved and should not be used.
      * @example {"title":"text","page":"int"}
@@ -97,17 +141,21 @@ class CreateDocumentCollectionRequest extends Model
     public $metadata;
 
     /**
+     * @example title
+     *
      * @var string
      */
     public $metadataIndices;
 
     /**
-     * @description Method used when building the vector index.
+     * @description The method that is used to create vector indexes.
      *
-     * Value description:
-     * - **l2**: Euclidean distance.
-     * - **ip**: Inner product (dot product) distance.
-     * - **cosine** (default): Cosine similarity.
+     * Valid values:
+     *
+     *   **l2**: Euclidean distance.
+     *   **ip**: inner product distance.
+     *   **cosine** (default): cosine similarity.
+     *
      * @example cosine
      *
      * @var string
@@ -115,9 +163,9 @@ class CreateDocumentCollectionRequest extends Model
     public $metrics;
 
     /**
-     * @description Namespace, default is public.
+     * @description The name of the namespace. Default value: public.
      *
-     * > You can create a namespace using the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API and view the list using the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API.
+     * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
      * @example mynamespace
      *
      * @var string
@@ -130,7 +178,7 @@ class CreateDocumentCollectionRequest extends Model
     public $ownerId;
 
     /**
-     * @description Tokenizer used for full-text search, default is zh_cn.
+     * @description The analyzer that is used for full-text search. Default value: zh_cn.
      *
      * @example zh_cn
      *
@@ -139,8 +187,11 @@ class CreateDocumentCollectionRequest extends Model
     public $parser;
 
     /**
-     * @description Whether to enable PQ (Product Quantization) algorithm for index acceleration. It is recommended to enable this when the data volume exceeds 500,000. Value description:
-     * - 1: Enabled (default).
+     * @description Specifies whether to enable the product quantization (PQ) feature for index acceleration. We recommend that you enable this feature for more than 500,000 rows of data. Valid values:
+     *
+     *   0: no.
+     *   1 (default): yes.
+     *
      * @example 1
      *
      * @var int
@@ -148,7 +199,7 @@ class CreateDocumentCollectionRequest extends Model
     public $pqEnable;
 
     /**
-     * @description ID of the region where the instance is located.
+     * @description The region ID of the instance.
      *
      * This parameter is required.
      * @example cn-hangzhou

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCollectionResponseBody extends Model
 {
     /**
-     * @description Return message.
+     * @description The returned message.
      *
      * @example create successfully
      *

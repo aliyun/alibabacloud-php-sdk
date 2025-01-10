@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDocumentCollectionResponseBody extends Model
 {
     /**
-     * @description Return message.
+     * @description The returned message.
      *
      * @example Successful
      *
@@ -18,7 +18,7 @@ class CreateDocumentCollectionResponseBody extends Model
     public $message;
 
     /**
-     * @description Request ID.
+     * @description The request ID.
      *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
@@ -27,9 +27,9 @@ class CreateDocumentCollectionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description API execution status, with the following values:
-     * - **success**: Execution succeeded.
-     * - **fail**: Execution failed.
+     * @description The status of the operation. Valid values:
+     * - **success**
+     * - **fail**
      * @example successs
      *
      * @var string
