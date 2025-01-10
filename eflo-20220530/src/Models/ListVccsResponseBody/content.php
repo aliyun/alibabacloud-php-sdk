@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description Lingjun Connection Information List
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 0
      *
      * @var int

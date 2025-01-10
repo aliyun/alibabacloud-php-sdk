@@ -9,18 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpdRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @example test
+     * @description The region ID.
      *
-     * @var string
-     */
-    public $name;
-
-    /**
+     * This parameter is required.
      * @example cn-wulanchabu
      *
      * @var string
@@ -28,16 +19,27 @@ class UpdateVpdRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the VPD instance.
+     *
+     * This parameter is required.
      * @example vpd-omqutbff
      *
      * @var string
      */
     public $vpdId;
+
+    /**
+     * @description The name of the VPD instance.
+     *
+     * @example vpd-lingjun
+     *
+     * @var string
+     */
+    public $vpdName;
     protected $_name = [
-        'description' => 'Description',
-        'name'        => 'Name',
-        'regionId'    => 'RegionId',
-        'vpdId'       => 'VpdId',
+        'regionId' => 'RegionId',
+        'vpdId'    => 'VpdId',
+        'vpdName'  => 'VpdName',
     ];
 
     public function validate()
@@ -47,17 +49,14 @@ class UpdateVpdRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
+        }
+        if (null !== $this->vpdName) {
+            $res['VpdName'] = $this->vpdName;
         }
 
         return $res;
@@ -71,17 +70,14 @@ class UpdateVpdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
+        }
+        if (isset($map['VpdName'])) {
+            $model->vpdName = $map['VpdName'];
         }
 
         return $model;

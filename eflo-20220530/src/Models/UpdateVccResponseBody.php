@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVccResponseBody extends Model
 {
     /**
+     * @description The response status code.
+     *
      * @example 0
      *
      * @var int
@@ -17,16 +19,24 @@ class UpdateVccResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F906C4D3-7444-58E2-9819-E3D8563571A3
      *
      * @var string

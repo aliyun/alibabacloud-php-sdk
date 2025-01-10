@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description Lingjun subnet ID list
+     *
      * @var string[]
      */
     public $subnetIds;
 
     /**
+     * @description Lingjun CIDR block instance ID
+     *
      * @example vpd-eoiy88ju
      *
      * @var string

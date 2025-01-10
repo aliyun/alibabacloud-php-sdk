@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description Lingjun subnet information list
+     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @example 0
+     * @description The total number of entries returned.
+     *
+     * @example 10
      *
      * @var int
      */

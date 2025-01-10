@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSubnetResponseBody extends Model
 {
     /**
+     * @description The response status code.
+     *
      * @example 0
      *
      * @var int
@@ -17,16 +19,24 @@ class CreateSubnetResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID, which is used to locate and troubleshoot issues.
+     *
      * @example A88DFED5-24B7-5A3E-87DE-380BF06F3C90
      *
      * @var string

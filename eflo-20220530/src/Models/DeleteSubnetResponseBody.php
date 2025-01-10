@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSubnetResponseBody extends Model
 {
     /**
+     * @description The response status code.
+     *
      * @example 0
      *
      * @var int
@@ -16,18 +18,26 @@ class DeleteSubnetResponseBody extends Model
     public $code;
 
     /**
-     * @example {}
+     * @description Response content (if the resource has dependent resources, the existing dependent resources will be returned)
      *
+     * @example {
+     * }
      * @var mixed
      */
     public $content;
 
     /**
+     * @description The error message. (If the instance is in the Exception state, the exception cause is prompted.)
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID, which is used to locate and troubleshoot issues.
+     *
      * @example A56F7D3C-8850-5AF4-A342-2D71C9A9D1CC
      *
      * @var string

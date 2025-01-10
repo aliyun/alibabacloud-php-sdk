@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example E30DA7CB-03D0-51EB-8F18-856B99987E18
      *
      * @var string
@@ -16,6 +18,8 @@ class content extends Model
     public $requestId;
 
     /**
+     * @description Linked Role of Lingjun Connection Instance (AliyunServiceRoleForEfloVcc)
+     *
      * @example CloudConnectionOperationRole
      *
      * @var string

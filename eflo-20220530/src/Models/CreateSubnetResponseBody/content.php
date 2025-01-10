@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description Lingjun subnet instance ID
+     *
      * @example subnet-yuvn29bn
      *
      * @var string

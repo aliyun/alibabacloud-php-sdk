@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eflo\V20220530\Models;
 
+use AlibabaCloud\SDK\Eflo\V20220530\Models\ListSubnetsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListSubnetsRequest extends Model
 {
     /**
+     * @description Specifies whether to query by page. Optional values:
+     *
+     *   **true**: Enable pagination query
+     *   **false**: Pagination query is disabled
+     *
      * @example false
      *
      * @var bool
@@ -16,13 +22,8 @@ class ListSubnetsRequest extends Model
     public $enablePage;
 
     /**
-     * @example test-subnet-template
+     * @description The number of the page to return. The value must be greater than 0. Default value: 1.
      *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @example 1
      *
      * @var int
@@ -30,13 +31,18 @@ class ListSubnetsRequest extends Model
     public $pageNumber;
 
     /**
-     * @example 10
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the disk.
+     *
+     * This parameter is required.
      * @example cn-wulanchabu
      *
      * @var string
@@ -44,6 +50,23 @@ class ListSubnetsRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID.
+     *
+     * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.htm?spm=a2c4g.11186623.0.0.29e15d7akXhpuu).
+     * @example rg-aeky5f3qx6ceapq
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The status of the CLB instance. Valid values:
+     *
+     *   **Available**: Normal
+     *   **Not Available**: Unavailable
+     *   **Executing**: Executing
+     *   **Deleting**: The node is being deleted.
+     *
      * @example Available
      *
      * @var string
@@ -51,6 +74,8 @@ class ListSubnetsRequest extends Model
     public $status;
 
     /**
+     * @description Lingjun subnet instance ID
+     *
      * @example subnet-anhtskts
      *
      * @var string
@@ -58,13 +83,38 @@ class ListSubnetsRequest extends Model
     public $subnetId;
 
     /**
-     * @example None
+     * @description Lingjun subnet instance name
+     *
+     * @example subnet-1
+     *
+     * @var string
+     */
+    public $subnetName;
+
+    /**
+     * @description The tag information.
+     *
+     * You can specify up to 20 tags.
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description Lingjun Subnet Usage Type; optional; optional. Valid values:
+     *
+     *   **If you do not set this field for a common type**
+     *   **OOB** :OOB type
+     *   **LB**: LB type
+     *
+     * @example Null
      *
      * @var string
      */
     public $type;
 
     /**
+     * @description The ID of the Lingjun CIDR block.
+     *
      * @example vpd-fuliephf
      *
      * @var string
@@ -72,22 +122,26 @@ class ListSubnetsRequest extends Model
     public $vpdId;
 
     /**
+     * @description The zone ID of the disk.
+     *
      * @example cn-wulanchabu-a
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'enablePage' => 'EnablePage',
-        'name'       => 'Name',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
-        'status'     => 'Status',
-        'subnetId'   => 'SubnetId',
-        'type'       => 'Type',
-        'vpdId'      => 'VpdId',
-        'zoneId'     => 'ZoneId',
+        'enablePage'      => 'EnablePage',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status'          => 'Status',
+        'subnetId'        => 'SubnetId',
+        'subnetName'      => 'SubnetName',
+        'tag'             => 'Tag',
+        'type'            => 'Type',
+        'vpdId'           => 'VpdId',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -100,9 +154,6 @@ class ListSubnetsRequest extends Model
         if (null !== $this->enablePage) {
             $res['EnablePage'] = $this->enablePage;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -112,11 +163,26 @@ class ListSubnetsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->subnetId) {
             $res['SubnetId'] = $this->subnetId;
+        }
+        if (null !== $this->subnetName) {
+            $res['SubnetName'] = $this->subnetName;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -142,9 +208,6 @@ class ListSubnetsRequest extends Model
         if (isset($map['EnablePage'])) {
             $model->enablePage = $map['EnablePage'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -154,11 +217,26 @@ class ListSubnetsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['SubnetId'])) {
             $model->subnetId = $map['SubnetId'];
+        }
+        if (isset($map['SubnetName'])) {
+            $model->subnetName = $map['SubnetName'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

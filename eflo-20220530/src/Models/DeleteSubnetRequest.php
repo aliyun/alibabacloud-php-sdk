@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteSubnetRequest extends Model
 {
     /**
+     * @description The region ID of the disk.
+     *
+     * This parameter is required.
      * @example cn-wulanchabu
      *
      * @var string
@@ -16,6 +19,9 @@ class DeleteSubnetRequest extends Model
     public $regionId;
 
     /**
+     * @description Lingjun subnet ID
+     *
+     * This parameter is required.
      * @example subnet-f3zfzmnc
      *
      * @var string
@@ -23,6 +29,9 @@ class DeleteSubnetRequest extends Model
     public $subnetId;
 
     /**
+     * @description Lingjun CIDR block ID
+     *
+     * This parameter is required.
      * @example vpd-iv2zm1qf
      *
      * @var string
@@ -30,6 +39,9 @@ class DeleteSubnetRequest extends Model
     public $vpdId;
 
     /**
+     * @description Zone
+     *
+     * This parameter is required.
      * @example cn-wulanchabu-b
      *
      * @var string

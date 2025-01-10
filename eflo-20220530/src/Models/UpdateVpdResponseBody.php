@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpdResponseBody extends Model
 {
     /**
+     * @description The response status code.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class UpdateVpdResponseBody extends Model
     public $code;
 
     /**
+     * @description The response data.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The additional information that is returned.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class UpdateVpdResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example AC8C713A-A9F4-5984-A5E1-76496DF35153
      *
      * @var string

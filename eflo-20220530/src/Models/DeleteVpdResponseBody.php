@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpdResponseBody extends Model
 {
     /**
+     * @description The response status code.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteVpdResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters. (If a dependent resource exists, the existing dependent resource is returned.)
+     *
      * @example {
      * }
      * @var mixed
@@ -23,6 +27,8 @@ class DeleteVpdResponseBody extends Model
     public $content;
 
     /**
+     * @description The response message.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteVpdResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example BDBCC783-84CA-5733-8EEA-645C88B9009C
      *
      * @var string

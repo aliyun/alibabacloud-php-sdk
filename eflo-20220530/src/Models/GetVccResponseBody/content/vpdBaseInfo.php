@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vpdBaseInfo extends Model
 {
     /**
+     * @description Network address segment
+     *
      * @example 172.18.0.0/24
      *
      * @var string
@@ -16,28 +18,36 @@ class vpdBaseInfo extends Model
     public $cidr;
 
     /**
-     * @example 1648010767000
+     * @description The time when the data address was created.
+     *
+     * @example 1678379917000
      *
      * @var string
      */
-    public $gmtCreate;
+    public $createTime;
 
     /**
-     * @var string
-     */
-    public $name;
-
-    /**
+     * @description Lingjun CIDR block instance ID
+     *
      * @example vpd-ppdunxzc
      *
      * @var string
      */
     public $vpdId;
+
+    /**
+     * @description Lingjun CIDR block instance name
+     *
+     * @example yzp-rg-test3
+     *
+     * @var string
+     */
+    public $vpdName;
     protected $_name = [
-        'cidr'      => 'Cidr',
-        'gmtCreate' => 'GmtCreate',
-        'name'      => 'Name',
-        'vpdId'     => 'VpdId',
+        'cidr'       => 'Cidr',
+        'createTime' => 'CreateTime',
+        'vpdId'      => 'VpdId',
+        'vpdName'    => 'VpdName',
     ];
 
     public function validate()
@@ -50,14 +60,14 @@ class vpdBaseInfo extends Model
         if (null !== $this->cidr) {
             $res['Cidr'] = $this->cidr;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
+        }
+        if (null !== $this->vpdName) {
+            $res['VpdName'] = $this->vpdName;
         }
 
         return $res;
@@ -74,14 +84,14 @@ class vpdBaseInfo extends Model
         if (isset($map['Cidr'])) {
             $model->cidr = $map['Cidr'];
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
+        }
+        if (isset($map['VpdName'])) {
+            $model->vpdName = $map['VpdName'];
         }
 
         return $model;

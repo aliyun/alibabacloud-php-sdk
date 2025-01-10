@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVccRequest extends Model
 {
     /**
+     * @description The peak bandwidth of the Lingjun connection instance. Unit: Mbit/s. Valid values: 1000 to 400000
+     *
      * @example 1000
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateVccRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The ID of the order placed on the instance.
+     *
      * @example 20006627643
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateVccRequest extends Model
     public $orderId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-wulanchabu
      *
      * @var string
@@ -30,6 +36,9 @@ class UpdateVccRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Lingjun connection instance.
+     *
+     * This parameter is required.
      * @example vcc-cn-zvp2w222001
      *
      * @var string
@@ -37,6 +46,8 @@ class UpdateVccRequest extends Model
     public $vccId;
 
     /**
+     * @description The name of the Lingjun connection instance.
+     *
      * @example vcc-heyuan-backup
      *
      * @var string

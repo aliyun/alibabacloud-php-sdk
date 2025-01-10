@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class cisRouterInfo extends Model
 {
     /**
+     * @description Leased Line Information List
+     *
      * @var ccInfos[]
      */
     public $ccInfos;
 
     /**
+     * @description The ID of the on-cloud router instance.
+     *
      * @example ccr-1ms84am0
      *
      * @var string

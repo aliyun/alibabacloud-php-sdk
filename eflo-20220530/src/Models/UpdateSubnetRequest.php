@@ -9,18 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateSubnetRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @example test-subnet-template
+     * @description The region ID.
      *
-     * @var string
-     */
-    public $name;
-
-    /**
+     * This parameter is required.
      * @example cn-wulanchabu
      *
      * @var string
@@ -28,6 +19,9 @@ class UpdateSubnetRequest extends Model
     public $regionId;
 
     /**
+     * @description The subnet instance ID.
+     *
+     * This parameter is required.
      * @example subnet-f3zfzmnc
      *
      * @var string
@@ -35,6 +29,18 @@ class UpdateSubnetRequest extends Model
     public $subnetId;
 
     /**
+     * @description The new name for the subnet instance.
+     *
+     * @example subnet-1
+     *
+     * @var string
+     */
+    public $subnetName;
+
+    /**
+     * @description The ID of the VPD to which the subnet belongs.
+     *
+     * This parameter is required.
      * @example vpd-aof7dat1
      *
      * @var string
@@ -42,18 +48,20 @@ class UpdateSubnetRequest extends Model
     public $vpdId;
 
     /**
+     * @description The zone ID.
+     *
+     * This parameter is required.
      * @example cn-wulanchabu-a
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'description' => 'Description',
-        'name'        => 'Name',
-        'regionId'    => 'RegionId',
-        'subnetId'    => 'SubnetId',
-        'vpdId'       => 'VpdId',
-        'zoneId'      => 'ZoneId',
+        'regionId'   => 'RegionId',
+        'subnetId'   => 'SubnetId',
+        'subnetName' => 'SubnetName',
+        'vpdId'      => 'VpdId',
+        'zoneId'     => 'ZoneId',
     ];
 
     public function validate()
@@ -63,17 +71,14 @@ class UpdateSubnetRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->subnetId) {
             $res['SubnetId'] = $this->subnetId;
+        }
+        if (null !== $this->subnetName) {
+            $res['SubnetName'] = $this->subnetName;
         }
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
@@ -93,17 +98,14 @@ class UpdateSubnetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
         if (isset($map['SubnetId'])) {
             $model->subnetId = $map['SubnetId'];
+        }
+        if (isset($map['SubnetName'])) {
+            $model->subnetName = $map['SubnetName'];
         }
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpdResponseBody extends Model
 {
     /**
+     * @description The response status code.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class CreateVpdResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The returned message.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateVpdResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example DBAD15D6-3F47-5B36-8A92-57C2919D13D0
      *
      * @var string

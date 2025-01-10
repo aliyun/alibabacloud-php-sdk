@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The ID of the VPD instance.
+     *
      * @example vpd-lg4dppgi
      *
      * @var string

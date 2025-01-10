@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class aliyunRouterInfo extends Model
 {
     /**
+     * @description IPv4 address of Alibaba Cloud-side interconnection
+     *
      * @example 169.254.248.30
      *
      * @var string
@@ -16,6 +18,8 @@ class aliyunRouterInfo extends Model
     public $localGatewayIp;
 
     /**
+     * @description Masking
+     *
      * @example 255.255.255.248
      *
      * @var string
@@ -23,6 +27,8 @@ class aliyunRouterInfo extends Model
     public $mask;
 
     /**
+     * @description Express Connect circuit ID
+     *
      * @example pc-0jlof4bphlsnxbdztkvad
      *
      * @var string
@@ -30,6 +36,8 @@ class aliyunRouterInfo extends Model
     public $pcId;
 
     /**
+     * @description Lingjun Side Interconnection IPv4 Address
+     *
      * @example 169.254.248.28
      *
      * @var string
@@ -37,6 +45,8 @@ class aliyunRouterInfo extends Model
     public $peerGatewayIp;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-2ze4i85p6vb9nwcan5xt0
      *
      * @var string
@@ -44,6 +54,8 @@ class aliyunRouterInfo extends Model
     public $vbrId;
 
     /**
+     * @description VLAN ID of the VBR
+     *
      * @example 1042
      *
      * @var string

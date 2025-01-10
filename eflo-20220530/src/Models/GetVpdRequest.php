@@ -9,13 +9,27 @@ use AlibabaCloud\Tea\Model;
 class GetVpdRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * This parameter is required.
+     * @example cn-wulanchabu
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The ID of the VPD instance.
+     *
+     * This parameter is required.
      * @example vpd-ze3na0wf
      *
      * @var string
      */
     public $vpdId;
     protected $_name = [
-        'vpdId' => 'VpdId',
+        'regionId' => 'RegionId',
+        'vpdId'    => 'VpdId',
     ];
 
     public function validate()
@@ -25,6 +39,9 @@ class GetVpdRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->vpdId) {
             $res['VpdId'] = $this->vpdId;
         }
@@ -40,6 +57,9 @@ class GetVpdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['VpdId'])) {
             $model->vpdId = $map['VpdId'];
         }

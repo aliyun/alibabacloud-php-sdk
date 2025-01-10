@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSubnetResponseBody extends Model
 {
     /**
+     * @description The response status code.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class UpdateSubnetResponseBody extends Model
     public $code;
 
     /**
+     * @description The response content.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The message that is returned.
+     *
      * @example success
      *
      * @var string
@@ -29,6 +35,8 @@ class UpdateSubnetResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 3D9D6E7B-365B-5200-BFA6-9B79E269058C
      *
      * @var string

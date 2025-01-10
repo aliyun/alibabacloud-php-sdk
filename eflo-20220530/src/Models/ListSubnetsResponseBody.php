@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListSubnetsResponseBody extends Model
 {
     /**
+     * @description The response status code.
+     *
      * @example 0
      *
      * @var int
@@ -17,11 +19,15 @@ class ListSubnetsResponseBody extends Model
     public $code;
 
     /**
+     * @description The response parameters.
+     *
      * @var content
      */
     public $content;
 
     /**
+     * @description The returned message.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -29,6 +35,8 @@ class ListSubnetsResponseBody extends Model
     public $message;
 
     /**
+     * @description Request ID of the current request
+     *
      * @example 7F9082CC-3D94-560F-A575-8E8EF6CE2CB8
      *
      * @var string

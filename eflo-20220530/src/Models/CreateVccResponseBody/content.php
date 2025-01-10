@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The ID of the Lingjun connection instance.
+     *
      * @example vcc-cn-zvp2w222001
      *
      * @var string

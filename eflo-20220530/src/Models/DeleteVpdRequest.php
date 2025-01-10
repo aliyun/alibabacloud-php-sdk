@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpdRequest extends Model
 {
     /**
+     * @description The ID of the region in which the instance resides.
+     *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +19,9 @@ class DeleteVpdRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the Lingjun CIDR block.
+     *
+     * This parameter is required.
      * @example vpd-zr0farea
      *
      * @var string

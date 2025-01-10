@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ccInfos extends Model
 {
     /**
+     * @description Leased Line ID
+     *
      * @example cc-73aeex5o
      *
      * @var string
@@ -16,6 +18,8 @@ class ccInfos extends Model
     public $ccId;
 
     /**
+     * @description Lingjun Side Interconnection IPv4 Address
+     *
      * @example 169.254.248.26
      *
      * @var string
@@ -23,6 +27,8 @@ class ccInfos extends Model
     public $localGatewayIp;
 
     /**
+     * @description Lingjun Side Interconnection IPv4 Address
+     *
      * @example 169.254.248.30
      *
      * @var string
@@ -30,6 +36,8 @@ class ccInfos extends Model
     public $remoteGatewayIp;
 
     /**
+     * @description The state of the rule.
+     *
      * @example Established
      *
      * @var string
@@ -37,6 +45,8 @@ class ccInfos extends Model
     public $status;
 
     /**
+     * @description Subnet mask
+     *
      * @example 255.255.255.248
      *
      * @var string
@@ -44,7 +54,7 @@ class ccInfos extends Model
     public $subnetMask;
 
     /**
-     * @description vlanid
+     * @description Vlan ID of the leased line
      *
      * @example Ethernet1042
      *
