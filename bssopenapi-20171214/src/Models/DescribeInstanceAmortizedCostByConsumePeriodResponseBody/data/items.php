@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @var float
-     */
-    public $afterDiscountAmount;
-
-    /**
      * @example 202210
      *
      * @var string
@@ -80,11 +75,6 @@ class items extends Model
      * @var string
      */
     public $costUnitCode;
-
-    /**
-     * @var float
-     */
-    public $currentAmortizationAfterDiscountAmount;
 
     /**
      * @example 0
@@ -213,11 +203,6 @@ class items extends Model
     public $pretaxGrossAmount;
 
     /**
-     * @var float
-     */
-    public $previouslyAmortizedAfterDiscountAmount;
-
-    /**
      * @example 0
      *
      * @var float
@@ -301,11 +286,6 @@ class items extends Model
      * @var string
      */
     public $region;
-
-    /**
-     * @var float
-     */
-    public $remainingAmortizationAfterDiscountAmount;
 
     /**
      * @example 0
@@ -422,7 +402,6 @@ class items extends Model
      */
     public $zone;
     protected $_name = [
-        'afterDiscountAmount'                        => 'AfterDiscountAmount',
         'amortizationPeriod'                         => 'AmortizationPeriod',
         'amortizationStatus'                         => 'AmortizationStatus',
         'billAccountID'                              => 'BillAccountID',
@@ -433,7 +412,6 @@ class items extends Model
         'consumePeriod'                              => 'ConsumePeriod',
         'costUnit'                                   => 'CostUnit',
         'costUnitCode'                               => 'CostUnitCode',
-        'currentAmortizationAfterDiscountAmount'     => 'CurrentAmortizationAfterDiscountAmount',
         'currentAmortizationDeductedByCashCoupons'   => 'CurrentAmortizationDeductedByCashCoupons',
         'currentAmortizationDeductedByCoupons'       => 'CurrentAmortizationDeductedByCoupons',
         'currentAmortizationDeductedByPrepaidCard'   => 'CurrentAmortizationDeductedByPrepaidCard',
@@ -452,7 +430,6 @@ class items extends Model
         'invoiceDiscount'                            => 'InvoiceDiscount',
         'pretaxAmount'                               => 'PretaxAmount',
         'pretaxGrossAmount'                          => 'PretaxGrossAmount',
-        'previouslyAmortizedAfterDiscountAmount'     => 'PreviouslyAmortizedAfterDiscountAmount',
         'previouslyAmortizedDeductedByCashCoupons'   => 'PreviouslyAmortizedDeductedByCashCoupons',
         'previouslyAmortizedDeductedByCoupons'       => 'PreviouslyAmortizedDeductedByCoupons',
         'previouslyAmortizedDeductedByPrepaidCard'   => 'PreviouslyAmortizedDeductedByPrepaidCard',
@@ -466,7 +443,6 @@ class items extends Model
         'productDetailCode'                          => 'ProductDetailCode',
         'productName'                                => 'ProductName',
         'region'                                     => 'Region',
-        'remainingAmortizationAfterDiscountAmount'   => 'RemainingAmortizationAfterDiscountAmount',
         'remainingAmortizationDeductedByCashCoupons' => 'RemainingAmortizationDeductedByCashCoupons',
         'remainingAmortizationDeductedByCoupons'     => 'RemainingAmortizationDeductedByCoupons',
         'remainingAmortizationDeductedByPrepaidCard' => 'RemainingAmortizationDeductedByPrepaidCard',
@@ -493,9 +469,6 @@ class items extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->afterDiscountAmount) {
-            $res['AfterDiscountAmount'] = $this->afterDiscountAmount;
-        }
         if (null !== $this->amortizationPeriod) {
             $res['AmortizationPeriod'] = $this->amortizationPeriod;
         }
@@ -525,9 +498,6 @@ class items extends Model
         }
         if (null !== $this->costUnitCode) {
             $res['CostUnitCode'] = $this->costUnitCode;
-        }
-        if (null !== $this->currentAmortizationAfterDiscountAmount) {
-            $res['CurrentAmortizationAfterDiscountAmount'] = $this->currentAmortizationAfterDiscountAmount;
         }
         if (null !== $this->currentAmortizationDeductedByCashCoupons) {
             $res['CurrentAmortizationDeductedByCashCoupons'] = $this->currentAmortizationDeductedByCashCoupons;
@@ -583,9 +553,6 @@ class items extends Model
         if (null !== $this->pretaxGrossAmount) {
             $res['PretaxGrossAmount'] = $this->pretaxGrossAmount;
         }
-        if (null !== $this->previouslyAmortizedAfterDiscountAmount) {
-            $res['PreviouslyAmortizedAfterDiscountAmount'] = $this->previouslyAmortizedAfterDiscountAmount;
-        }
         if (null !== $this->previouslyAmortizedDeductedByCashCoupons) {
             $res['PreviouslyAmortizedDeductedByCashCoupons'] = $this->previouslyAmortizedDeductedByCashCoupons;
         }
@@ -624,9 +591,6 @@ class items extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
-        }
-        if (null !== $this->remainingAmortizationAfterDiscountAmount) {
-            $res['RemainingAmortizationAfterDiscountAmount'] = $this->remainingAmortizationAfterDiscountAmount;
         }
         if (null !== $this->remainingAmortizationDeductedByCashCoupons) {
             $res['RemainingAmortizationDeductedByCashCoupons'] = $this->remainingAmortizationDeductedByCashCoupons;
@@ -691,9 +655,6 @@ class items extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AfterDiscountAmount'])) {
-            $model->afterDiscountAmount = $map['AfterDiscountAmount'];
-        }
         if (isset($map['AmortizationPeriod'])) {
             $model->amortizationPeriod = $map['AmortizationPeriod'];
         }
@@ -723,9 +684,6 @@ class items extends Model
         }
         if (isset($map['CostUnitCode'])) {
             $model->costUnitCode = $map['CostUnitCode'];
-        }
-        if (isset($map['CurrentAmortizationAfterDiscountAmount'])) {
-            $model->currentAmortizationAfterDiscountAmount = $map['CurrentAmortizationAfterDiscountAmount'];
         }
         if (isset($map['CurrentAmortizationDeductedByCashCoupons'])) {
             $model->currentAmortizationDeductedByCashCoupons = $map['CurrentAmortizationDeductedByCashCoupons'];
@@ -781,9 +739,6 @@ class items extends Model
         if (isset($map['PretaxGrossAmount'])) {
             $model->pretaxGrossAmount = $map['PretaxGrossAmount'];
         }
-        if (isset($map['PreviouslyAmortizedAfterDiscountAmount'])) {
-            $model->previouslyAmortizedAfterDiscountAmount = $map['PreviouslyAmortizedAfterDiscountAmount'];
-        }
         if (isset($map['PreviouslyAmortizedDeductedByCashCoupons'])) {
             $model->previouslyAmortizedDeductedByCashCoupons = $map['PreviouslyAmortizedDeductedByCashCoupons'];
         }
@@ -822,9 +777,6 @@ class items extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
-        }
-        if (isset($map['RemainingAmortizationAfterDiscountAmount'])) {
-            $model->remainingAmortizationAfterDiscountAmount = $map['RemainingAmortizationAfterDiscountAmount'];
         }
         if (isset($map['RemainingAmortizationDeductedByCashCoupons'])) {
             $model->remainingAmortizationDeductedByCashCoupons = $map['RemainingAmortizationDeductedByCashCoupons'];

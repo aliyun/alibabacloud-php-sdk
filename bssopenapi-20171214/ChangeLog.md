@@ -1,10 +1,6 @@
-2025-01-09 Version: 3.1.0
+2025-01-10 Version: 3.1.0
 - Support API SetSavingPlanUserDeductRule.
-- Update API DescribeInstanceAmortizedCostByAmortizationPeriod: update response param.
-- Update API DescribeInstanceAmortizedCostByConsumePeriod: update response param.
 - Update API DescribeInstanceBill: update response param.
-- Update API DescribeProductAmortizedCostByAmortizationPeriod: update response param.
-- Update API DescribeProductAmortizedCostByConsumePeriod: update response param.
 - Update API DescribeSplitItemBill: update response param.
 
 
