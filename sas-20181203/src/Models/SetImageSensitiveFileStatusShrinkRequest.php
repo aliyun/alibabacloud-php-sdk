@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetImageSensitiveFileStatusShrinkRequest extends Model
 {
     /**
+     * @description The IDs of the sensitive files.
+     *
      * @var int[]
      */
     public $idList;
@@ -23,6 +25,8 @@ class SetImageSensitiveFileStatusShrinkRequest extends Model
     public $imageUuids;
 
     /**
+     * @description The types of the assets that are scanned.
+     *
      * @var string
      */
     public $scanRangeShrink;

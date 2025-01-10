@@ -10597,6 +10597,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
         if (!Utils::isUnset($request->uuidList)) {
             $query['UuidList'] = $request->uuidList;
         }
@@ -20185,6 +20188,12 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
+        if (!Utils::isUnset($request->cmdline)) {
+            $query['Cmdline'] = $request->cmdline;
+        }
         if (!Utils::isUnset($request->currentPage)) {
             $query['CurrentPage'] = $request->currentPage;
         }

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAssetsScaProcessNumRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @description The UUIDs of the servers.
      *
      * This parameter is required.
@@ -16,6 +21,7 @@ class DescribeAssetsScaProcessNumRequest extends Model
      */
     public $uuidList;
     protected $_name = [
+        'bizType'  => 'BizType',
         'uuidList' => 'UuidList',
     ];
 
@@ -26,6 +32,9 @@ class DescribeAssetsScaProcessNumRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->uuidList) {
             $res['UuidList'] = $this->uuidList;
         }
@@ -41,6 +50,9 @@ class DescribeAssetsScaProcessNumRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
                 $model->uuidList = $map['UuidList'];

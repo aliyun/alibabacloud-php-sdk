@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScaProcessDetailRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
+     * @var string
+     */
+    public $cmdline;
+
+    /**
      * @description The page number. Default value: **1**.
      *
      * @example 1
@@ -55,6 +65,8 @@ class DescribePropertyScaProcessDetailRequest extends Model
      */
     public $uuid;
     protected $_name = [
+        'bizType'     => 'BizType',
+        'cmdline'     => 'Cmdline',
         'currentPage' => 'CurrentPage',
         'pageSize'    => 'PageSize',
         'pid'         => 'Pid',
@@ -69,6 +81,12 @@ class DescribePropertyScaProcessDetailRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->cmdline) {
+            $res['Cmdline'] = $this->cmdline;
+        }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
@@ -96,6 +114,12 @@ class DescribePropertyScaProcessDetailRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+        if (isset($map['Cmdline'])) {
+            $model->cmdline = $map['Cmdline'];
+        }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }

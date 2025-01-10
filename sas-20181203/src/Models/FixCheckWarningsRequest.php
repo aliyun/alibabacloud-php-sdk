@@ -41,14 +41,18 @@ class FixCheckWarningsRequest extends Model
     public $lang;
 
     /**
+     * @description The retention period of the snapshot that is created when you fix the baseline risk. Valid values: 1 to 365. Unit: days.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $retentionDays;
 
     /**
-     * @description The ID of the baseline risk item.
+     * @description The ID of the risk item.
      *
-     * >  To query specified baseline risk items and the check items of a specified server, you must provide the IDs of the baseline risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs.
+     * >  To query the information about the risk items and check items of a server, you must specify the IDs of the risk items. You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
      * @example 10354
      *
      * @var int
@@ -56,6 +60,10 @@ class FixCheckWarningsRequest extends Model
     public $riskId;
 
     /**
+     * @description The name of the snapshot that is created when you fix the baseline risk.
+     *
+     * @example sas_fix_2024-12-04
+     *
      * @var string
      */
     public $snapshotName;
