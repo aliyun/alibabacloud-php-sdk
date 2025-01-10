@@ -2981,7 +2981,7 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户认证方式详情
+     * @summary Queries the information about an account.
      *  *
      * @param GetLinkInfoRequest $request GetLinkInfoRequest
      * @param string[]           $headers map
@@ -3022,7 +3022,7 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @summary 获取用户认证方式详情
+     * @summary Queries the information about an account.
      *  *
      * @param GetLinkInfoRequest $request GetLinkInfoRequest
      *

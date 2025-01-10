@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models\VideoPreviewPlayMeta;
 
 use AlibabaCloud\Tea\Model;
 
-class liveTranscodingTaskList extends Model
+class offlineVideoTranscodingList extends Model
 {
     /**
      * @example true
      *
-     * @var bool
+     * @var string
      */
     public $keepOriginalResolution;
 
@@ -57,7 +57,7 @@ class liveTranscodingTaskList extends Model
     /**
      * @param array $map
      *
-     * @return liveTranscodingTaskList
+     * @return offlineVideoTranscodingList
      */
     public static function fromMap($map = [])
     {

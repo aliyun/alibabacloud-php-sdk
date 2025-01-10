@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class GetLinkInfoRequest extends Model
 {
     /**
+     * @description The additional information about the unique identifier of the account. For example, if type is set to mobile, set the value of extra to a country code.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $extra;
 
     /**
-     * @description This parameter is required.
+     * @description The unique identifier of the account, such as a mobile number.
      *
+     * This parameter is required.
      * @example 130***
      *
      * @var string
@@ -23,8 +28,17 @@ class GetLinkInfoRequest extends Model
     public $identity;
 
     /**
-     * @description This parameter is required.
+     * @description The account type. Valid values:
      *
+     *   mobile: a mobile number.
+     *   email: an email address.
+     *   ding: a DingTalk account.
+     *   ram: an Alibaba Cloud Resource Access Management (RAM) user.
+     *   wechat: a WeCom account.
+     *   ldap: a Lightweight Directory Access Protocol (LDAP) account.
+     *   custom: a custom account.
+     *
+     * This parameter is required.
      * @example mobile
      *
      * @var string

@@ -6,15 +6,8 @@ namespace AlibabaCloud\SDK\Pds\V20220301\Models\VideoPreviewPlayMeta;
 
 use AlibabaCloud\Tea\Model;
 
-class liveTranscodingTaskList extends Model
+class quickVideoList extends Model
 {
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $keepOriginalResolution;
-
     /**
      * @example finished
      *
@@ -29,9 +22,8 @@ class liveTranscodingTaskList extends Model
      */
     public $templateId;
     protected $_name = [
-        'keepOriginalResolution' => 'keep_original_resolution',
-        'status'                 => 'status',
-        'templateId'             => 'template_id',
+        'status'     => 'status',
+        'templateId' => 'template_id',
     ];
 
     public function validate()
@@ -41,9 +33,6 @@ class liveTranscodingTaskList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keepOriginalResolution) {
-            $res['keep_original_resolution'] = $this->keepOriginalResolution;
-        }
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -57,14 +46,11 @@ class liveTranscodingTaskList extends Model
     /**
      * @param array $map
      *
-     * @return liveTranscodingTaskList
+     * @return quickVideoList
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['keep_original_resolution'])) {
-            $model->keepOriginalResolution = $map['keep_original_resolution'];
-        }
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
