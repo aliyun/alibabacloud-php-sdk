@@ -1,3 +1,6 @@
+2025-01-10 Version: 1.2.4
+- Generated php 2015-11-23 for Dm.
+
 2025-01-09 Version: 1.2.3
 - Update API BatchSendMail: add param Headers.
 - Update API SingleSendMail: add param Headers.
