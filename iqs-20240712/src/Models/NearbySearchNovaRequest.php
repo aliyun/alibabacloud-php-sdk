@@ -54,6 +54,11 @@ class NearbySearchNovaRequest extends Model
     public $size;
 
     /**
+     * @var string
+     */
+    public $sortRule;
+
+    /**
      * @example GAS_STATION|RESTAURANT|HOTEL|ATTRACTION
      *
      * @var string
@@ -67,6 +72,7 @@ class NearbySearchNovaRequest extends Model
         'page'      => 'page',
         'radius'    => 'radius',
         'size'      => 'size',
+        'sortRule'  => 'sortRule',
         'types'     => 'types',
     ];
 
@@ -97,6 +103,9 @@ class NearbySearchNovaRequest extends Model
         }
         if (null !== $this->size) {
             $res['size'] = $this->size;
+        }
+        if (null !== $this->sortRule) {
+            $res['sortRule'] = $this->sortRule;
         }
         if (null !== $this->types) {
             $res['types'] = $this->types;
@@ -133,6 +142,9 @@ class NearbySearchNovaRequest extends Model
         }
         if (isset($map['size'])) {
             $model->size = $map['size'];
+        }
+        if (isset($map['sortRule'])) {
+            $model->sortRule = $map['sortRule'];
         }
         if (isset($map['types'])) {
             $model->types = $map['types'];

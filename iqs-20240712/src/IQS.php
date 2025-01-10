@@ -442,6 +442,9 @@ class IQS extends OpenApiClient
         if (!Utils::isUnset($request->size)) {
             $query['size'] = $request->size;
         }
+        if (!Utils::isUnset($request->sortRule)) {
+            $query['sortRule'] = $request->sortRule;
+        }
         if (!Utils::isUnset($request->types)) {
             $query['types'] = $request->types;
         }
