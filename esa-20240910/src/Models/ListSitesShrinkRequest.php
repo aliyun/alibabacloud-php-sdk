@@ -43,6 +43,11 @@ class ListSitesShrinkRequest extends Model
     public $onlyEnterprise;
 
     /**
+     * @description null
+     *
+     *   null
+     *   null
+     *
      * @example visitTime
      *
      * @var string
@@ -59,7 +64,7 @@ class ListSitesShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Default value: **500**.
+     * @description The number of entries per page. Default value: 500.
      *
      * @example 20
      *
@@ -104,7 +109,7 @@ class ListSitesShrinkRequest extends Model
      *
      *   **prefix**: match by prefix.
      *   **suffix**: match by suffix.
-     *   **exact**: exact match.
+     *   **null**
      *   **fuzzy**: fuzzy match.
      *
      * @example fuzzy

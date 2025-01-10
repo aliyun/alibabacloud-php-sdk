@@ -44,7 +44,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The website information. Valid values of he number of website IDs: **1** to **50**.
+     * @description The website ID.
      *
      * @var string[]
      */

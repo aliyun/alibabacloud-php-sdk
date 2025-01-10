@@ -10135,9 +10135,9 @@ class ESA extends OpenApiClient
     /**
      * @summary Converts the DNS setup option of a website.
      *  *
-     * @description When you change the DNS setup of a website from NS to CNAME, take note of the following items:
-     * *   Make sure that the website has only proxied A/AAAA and CNAME records.
-     * *   Make sure that ESA proxy is not disabled for the website and custom nameservers are not configured.
+     * @description When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
+     * *   The website only has proxied A/AAAA and CNAME records.
+     * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
      *  *
      * @param UpdateSiteAccessTypeRequest $request UpdateSiteAccessTypeRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -10175,9 +10175,9 @@ class ESA extends OpenApiClient
     /**
      * @summary Converts the DNS setup option of a website.
      *  *
-     * @description When you change the DNS setup of a website from NS to CNAME, take note of the following items:
-     * *   Make sure that the website has only proxied A/AAAA and CNAME records.
-     * *   Make sure that ESA proxy is not disabled for the website and custom nameservers are not configured.
+     * @description When you change the DNS setup of a website from NS to CNAME, note the following prerequisites:
+     * *   The website only has proxied A/AAAA and CNAME records.
+     * *   The DNS passthrough mode and custom nameserver features are not enabled for the website.
      *  *
      * @param UpdateSiteAccessTypeRequest $request UpdateSiteAccessTypeRequest
      *

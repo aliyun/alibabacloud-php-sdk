@@ -27,6 +27,11 @@ class instanceInfo extends Model
     public $botInstanceLevel;
 
     /**
+     * @var string
+     */
+    public $botRequest;
+
+    /**
      * @description The service locations for the websites that can be associated with the plan. Multiple values are separated by commas (,). Valid values:
      *
      *   domestic: the Chinese mainland.
@@ -182,6 +187,7 @@ class instanceInfo extends Model
     protected $_name = [
         'billingMode'                     => 'BillingMode',
         'botInstanceLevel'                => 'BotInstanceLevel',
+        'botRequest'                      => 'BotRequest',
         'coverages'                       => 'Coverages',
         'createTime'                      => 'CreateTime',
         'crossborderTraffic'              => 'CrossborderTraffic',
@@ -217,6 +223,9 @@ class instanceInfo extends Model
         }
         if (null !== $this->botInstanceLevel) {
             $res['BotInstanceLevel'] = $this->botInstanceLevel;
+        }
+        if (null !== $this->botRequest) {
+            $res['BotRequest'] = $this->botRequest;
         }
         if (null !== $this->coverages) {
             $res['Coverages'] = $this->coverages;
@@ -304,6 +313,9 @@ class instanceInfo extends Model
         }
         if (isset($map['BotInstanceLevel'])) {
             $model->botInstanceLevel = $map['BotInstanceLevel'];
+        }
+        if (isset($map['BotRequest'])) {
+            $model->botRequest = $map['BotRequest'];
         }
         if (isset($map['Coverages'])) {
             $model->coverages = $map['Coverages'];

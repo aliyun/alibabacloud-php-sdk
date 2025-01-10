@@ -156,6 +156,8 @@ class sites extends Model
     public $verifyCode;
 
     /**
+     * @description null
+     *
      * @example 2023-12-24T02:01:11Z
      *
      * @var string
