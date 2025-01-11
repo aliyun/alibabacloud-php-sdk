@@ -63,6 +63,11 @@ class events extends Model
     public $clientVersion;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The desktop group ID.
      *
      * @example dg-kadkdfaf****
@@ -224,6 +229,7 @@ class events extends Model
         'clientIp'         => 'ClientIp',
         'clientOS'         => 'ClientOS',
         'clientVersion'    => 'ClientVersion',
+        'description'      => 'Description',
         'desktopGroupId'   => 'DesktopGroupId',
         'desktopGroupName' => 'DesktopGroupName',
         'desktopId'        => 'DesktopId',
@@ -266,6 +272,9 @@ class events extends Model
         }
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->desktopGroupId) {
             $res['DesktopGroupId'] = $this->desktopGroupId;
@@ -344,6 +353,9 @@ class events extends Model
         }
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DesktopGroupId'])) {
             $model->desktopGroupId = $map['DesktopGroupId'];
