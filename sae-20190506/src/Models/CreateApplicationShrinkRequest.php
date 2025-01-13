@@ -460,6 +460,11 @@ class CreateApplicationShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $saeVersion;
 
     /**
@@ -614,6 +619,7 @@ class CreateApplicationShrinkRequest extends Model
         'pythonModules'                 => 'PythonModules',
         'readiness'                     => 'Readiness',
         'replicas'                      => 'Replicas',
+        'resourceType'                  => 'ResourceType',
         'saeVersion'                    => 'SaeVersion',
         'secretMountDesc'               => 'SecretMountDesc',
         'securityGroupId'               => 'SecurityGroupId',
@@ -803,6 +809,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->saeVersion) {
             $res['SaeVersion'] = $this->saeVersion;
@@ -1022,6 +1031,9 @@ class CreateApplicationShrinkRequest extends Model
         }
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['SaeVersion'])) {
             $model->saeVersion = $map['SaeVersion'];

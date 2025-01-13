@@ -628,6 +628,11 @@ class data extends Model
     public $replicas;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var secretMountDesc[]
      */
     public $secretMountDesc;
@@ -839,6 +844,7 @@ class data extends Model
         'readiness'                     => 'Readiness',
         'regionId'                      => 'RegionId',
         'replicas'                      => 'Replicas',
+        'resourceType'                  => 'ResourceType',
         'secretMountDesc'               => 'SecretMountDesc',
         'securityGroupId'               => 'SecurityGroupId',
         'serviceTags'                   => 'ServiceTags',
@@ -1065,6 +1071,9 @@ class data extends Model
         }
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->secretMountDesc) {
             $res['SecretMountDesc'] = [];
@@ -1341,6 +1350,9 @@ class data extends Model
         }
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['SecretMountDesc'])) {
             if (!empty($map['SecretMountDesc'])) {

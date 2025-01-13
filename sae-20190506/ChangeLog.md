@@ -1,3 +1,13 @@
+2025-01-13 Version: 1.24.4
+- Update API CreateApplication: add param ResourceType.
+- Update API CreateIngress: add param AddressType.
+- Update API CreateIngress: add param LoadBalancerEdition.
+- Update API CreateIngress: add param ZoneMappings.
+- Update API CreateIngress: update param SlbId.
+- Update API DescribeApplicationConfig: update response param.
+- Update API DescribeIngress: update response param.
+
+
 2025-01-02 Version: 1.24.3
 - Update API DescribeApplicationConfig: update response param.
 - Update API GetWebshellToken: add param ContainerName.

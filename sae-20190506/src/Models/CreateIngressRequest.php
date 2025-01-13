@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateIngressRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $addressType;
+
+    /**
      * @description The ID of the certificate that is associated with the **CLB** instance.
      *
      *   If you set **LoadBalanceType** to **clb**, you can use CertId to configure a certificate for the HTTPS listener.
@@ -119,6 +124,11 @@ class CreateIngressRequest extends Model
     public $loadBalanceType;
 
     /**
+     * @var string
+     */
+    public $loadBalancerEdition;
+
+    /**
      * @description The ID of the namespace where the application is located. Currently, cross-namespace applications are not supported.
      *
      * This parameter is required.
@@ -166,13 +176,19 @@ class CreateIngressRequest extends Model
     /**
      * @description The Server Load Balancer (SLB) instance that is used by the routing rule.
      *
-     * This parameter is required.
+     * >  The SLB instance can be a Classic Load Balancer (CLB) instance or an Application Load Balancer (ALB) instance.
      * @example lb-uf6hucc7inlqrtcq5****
      *
      * @var string
      */
     public $slbId;
+
+    /**
+     * @var string
+     */
+    public $zoneMappings;
     protected $_name = [
+        'addressType'                      => 'AddressType',
         'certId'                           => 'CertId',
         'certIds'                          => 'CertIds',
         'defaultRule'                      => 'DefaultRule',
@@ -186,11 +202,13 @@ class CreateIngressRequest extends Model
         'listenerPort'                     => 'ListenerPort',
         'listenerProtocol'                 => 'ListenerProtocol',
         'loadBalanceType'                  => 'LoadBalanceType',
+        'loadBalancerEdition'              => 'LoadBalancerEdition',
         'namespaceId'                      => 'NamespaceId',
         'requestTimeout'                   => 'RequestTimeout',
         'rules'                            => 'Rules',
         'securityPolicyId'                 => 'SecurityPolicyId',
         'slbId'                            => 'SlbId',
+        'zoneMappings'                     => 'ZoneMappings',
     ];
 
     public function validate()
@@ -200,6 +218,9 @@ class CreateIngressRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addressType) {
+            $res['AddressType'] = $this->addressType;
+        }
         if (null !== $this->certId) {
             $res['CertId'] = $this->certId;
         }
@@ -239,6 +260,9 @@ class CreateIngressRequest extends Model
         if (null !== $this->loadBalanceType) {
             $res['LoadBalanceType'] = $this->loadBalanceType;
         }
+        if (null !== $this->loadBalancerEdition) {
+            $res['LoadBalancerEdition'] = $this->loadBalancerEdition;
+        }
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
@@ -254,6 +278,9 @@ class CreateIngressRequest extends Model
         if (null !== $this->slbId) {
             $res['SlbId'] = $this->slbId;
         }
+        if (null !== $this->zoneMappings) {
+            $res['ZoneMappings'] = $this->zoneMappings;
+        }
 
         return $res;
     }
@@ -266,6 +293,9 @@ class CreateIngressRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddressType'])) {
+            $model->addressType = $map['AddressType'];
+        }
         if (isset($map['CertId'])) {
             $model->certId = $map['CertId'];
         }
@@ -305,6 +335,9 @@ class CreateIngressRequest extends Model
         if (isset($map['LoadBalanceType'])) {
             $model->loadBalanceType = $map['LoadBalanceType'];
         }
+        if (isset($map['LoadBalancerEdition'])) {
+            $model->loadBalancerEdition = $map['LoadBalancerEdition'];
+        }
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
@@ -319,6 +352,9 @@ class CreateIngressRequest extends Model
         }
         if (isset($map['SlbId'])) {
             $model->slbId = $map['SlbId'];
+        }
+        if (isset($map['ZoneMappings'])) {
+            $model->zoneMappings = $map['ZoneMappings'];
         }
 
         return $model;

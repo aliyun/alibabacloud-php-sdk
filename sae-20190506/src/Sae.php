@@ -772,6 +772,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->replicas)) {
             $query['Replicas'] = $request->replicas;
         }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         if (!Utils::isUnset($request->saeVersion)) {
             $query['SaeVersion'] = $request->saeVersion;
         }
@@ -1107,6 +1110,9 @@ class Sae extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->addressType)) {
+            $query['AddressType'] = $request->addressType;
+        }
         if (!Utils::isUnset($request->certId)) {
             $query['CertId'] = $request->certId;
         }
@@ -1146,6 +1152,9 @@ class Sae extends OpenApiClient
         if (!Utils::isUnset($request->loadBalanceType)) {
             $query['LoadBalanceType'] = $request->loadBalanceType;
         }
+        if (!Utils::isUnset($request->loadBalancerEdition)) {
+            $query['LoadBalancerEdition'] = $request->loadBalancerEdition;
+        }
         if (!Utils::isUnset($request->namespaceId)) {
             $query['NamespaceId'] = $request->namespaceId;
         }
@@ -1157,6 +1166,9 @@ class Sae extends OpenApiClient
         }
         if (!Utils::isUnset($request->slbId)) {
             $query['SlbId'] = $request->slbId;
+        }
+        if (!Utils::isUnset($request->zoneMappings)) {
+            $query['ZoneMappings'] = $request->zoneMappings;
         }
         $body = [];
         if (!Utils::isUnset($request->rules)) {

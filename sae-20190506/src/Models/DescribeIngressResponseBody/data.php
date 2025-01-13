@@ -27,6 +27,11 @@ class data extends Model
     public $certIds;
 
     /**
+     * @var bool
+     */
+    public $createdBySae;
+
+    /**
      * @description The forwarding rules.
      *
      * @var defaultRule
@@ -178,6 +183,7 @@ class data extends Model
     protected $_name = [
         'certId'                           => 'CertId',
         'certIds'                          => 'CertIds',
+        'createdBySae'                     => 'CreatedBySae',
         'defaultRule'                      => 'DefaultRule',
         'description'                      => 'Description',
         'enableXForwardedFor'              => 'EnableXForwardedFor',
@@ -211,6 +217,9 @@ class data extends Model
         }
         if (null !== $this->certIds) {
             $res['CertIds'] = $this->certIds;
+        }
+        if (null !== $this->createdBySae) {
+            $res['CreatedBySae'] = $this->createdBySae;
         }
         if (null !== $this->defaultRule) {
             $res['DefaultRule'] = null !== $this->defaultRule ? $this->defaultRule->toMap() : null;
@@ -292,6 +301,9 @@ class data extends Model
         }
         if (isset($map['CertIds'])) {
             $model->certIds = $map['CertIds'];
+        }
+        if (isset($map['CreatedBySae'])) {
+            $model->createdBySae = $map['CreatedBySae'];
         }
         if (isset($map['DefaultRule'])) {
             $model->defaultRule = defaultRule::fromMap($map['DefaultRule']);
