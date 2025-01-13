@@ -10,46 +10,76 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The domain ID.
+     *
+     * @example 235
+     *
      * @var int
      */
     public $domainId;
 
     /**
+     * @description The domain IDs.
+     *
      * @var int[]
      */
     public $domainIdList;
 
     /**
+     * @description The domain name.
+     *
+     * @example 123.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The domain names.
+     *
      * @var string[]
      */
     public $domainNameList;
 
     /**
+     * @description The gateway ID.
+     *
+     * @example 399
+     *
      * @var string
      */
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
+     * @example gw-7ea3da97b96543e19f6c597c****
+     *
      * @var string
      */
     public $gatewayUniqueId;
 
     /**
+     * @description The route ID.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the route.
+     *
+     * @example ceshi
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The information about route matching.
+     *
      * @var routePredicates
      */
     public $routePredicates;

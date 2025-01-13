@@ -72,6 +72,11 @@ class result extends Model
     public $fallbackObject;
 
     /**
+     * @var string
+     */
+    public $limitApp;
+
+    /**
      * @description The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
      *
      * @example 500
@@ -153,6 +158,7 @@ class result extends Model
         'controlBehavior'   => 'ControlBehavior',
         'enable'            => 'Enable',
         'fallbackObject'    => 'FallbackObject',
+        'limitApp'          => 'LimitApp',
         'maxQueueingTimeMs' => 'MaxQueueingTimeMs',
         'metricType'        => 'MetricType',
         'namespace'         => 'Namespace',
@@ -185,6 +191,9 @@ class result extends Model
         }
         if (null !== $this->fallbackObject) {
             $res['FallbackObject'] = $this->fallbackObject;
+        }
+        if (null !== $this->limitApp) {
+            $res['LimitApp'] = $this->limitApp;
         }
         if (null !== $this->maxQueueingTimeMs) {
             $res['MaxQueueingTimeMs'] = $this->maxQueueingTimeMs;
@@ -239,6 +248,9 @@ class result extends Model
         }
         if (isset($map['FallbackObject'])) {
             $model->fallbackObject = $map['FallbackObject'];
+        }
+        if (isset($map['LimitApp'])) {
+            $model->limitApp = $map['LimitApp'];
         }
         if (isset($map['MaxQueueingTimeMs'])) {
             $model->maxQueueingTimeMs = $map['MaxQueueingTimeMs'];

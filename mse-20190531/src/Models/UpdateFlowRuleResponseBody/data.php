@@ -72,6 +72,11 @@ class data extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $limitApp;
+
+    /**
      * @description The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
      *
      * @example 500
@@ -112,6 +117,7 @@ class data extends Model
         'controlBehavior'   => 'ControlBehavior',
         'enable'            => 'Enable',
         'id'                => 'Id',
+        'limitApp'          => 'LimitApp',
         'maxQueueingTimeMs' => 'MaxQueueingTimeMs',
         'namespace'         => 'Namespace',
         'resource'          => 'Resource',
@@ -139,6 +145,9 @@ class data extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->limitApp) {
+            $res['LimitApp'] = $this->limitApp;
         }
         if (null !== $this->maxQueueingTimeMs) {
             $res['MaxQueueingTimeMs'] = $this->maxQueueingTimeMs;
@@ -178,6 +187,9 @@ class data extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['LimitApp'])) {
+            $model->limitApp = $map['LimitApp'];
         }
         if (isset($map['MaxQueueingTimeMs'])) {
             $model->maxQueueingTimeMs = $map['MaxQueueingTimeMs'];

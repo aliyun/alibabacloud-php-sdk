@@ -72,6 +72,11 @@ class CreateFlowRuleRequest extends Model
     public $enable;
 
     /**
+     * @var string
+     */
+    public $limitApp;
+
+    /**
      * @description The timeout period. Unit: milliseconds. This value is required if the ControlBehavior parameter is set to 2.
      *
      * @example 10
@@ -129,6 +134,7 @@ class CreateFlowRuleRequest extends Model
         'appName'           => 'AppName',
         'controlBehavior'   => 'ControlBehavior',
         'enable'            => 'Enable',
+        'limitApp'          => 'LimitApp',
         'maxQueueingTimeMs' => 'MaxQueueingTimeMs',
         'namespace'         => 'Namespace',
         'regionId'          => 'RegionId',
@@ -158,6 +164,9 @@ class CreateFlowRuleRequest extends Model
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->limitApp) {
+            $res['LimitApp'] = $this->limitApp;
         }
         if (null !== $this->maxQueueingTimeMs) {
             $res['MaxQueueingTimeMs'] = $this->maxQueueingTimeMs;
@@ -203,6 +212,9 @@ class CreateFlowRuleRequest extends Model
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+        if (isset($map['LimitApp'])) {
+            $model->limitApp = $map['LimitApp'];
         }
         if (isset($map['MaxQueueingTimeMs'])) {
             $model->maxQueueingTimeMs = $map['MaxQueueingTimeMs'];

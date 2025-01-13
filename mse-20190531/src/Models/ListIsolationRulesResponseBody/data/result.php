@@ -37,6 +37,11 @@ class result extends Model
     public $fallbackObject;
 
     /**
+     * @var string
+     */
+    public $limitApp;
+
+    /**
      * @example default
      *
      * @var string
@@ -75,6 +80,7 @@ class result extends Model
         'appName'        => 'AppName',
         'enable'         => 'Enable',
         'fallbackObject' => 'FallbackObject',
+        'limitApp'       => 'LimitApp',
         'namespace'      => 'Namespace',
         'regionId'       => 'RegionId',
         'resource'       => 'Resource',
@@ -100,6 +106,9 @@ class result extends Model
         }
         if (null !== $this->fallbackObject) {
             $res['FallbackObject'] = $this->fallbackObject;
+        }
+        if (null !== $this->limitApp) {
+            $res['LimitApp'] = $this->limitApp;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -139,6 +148,9 @@ class result extends Model
         }
         if (isset($map['FallbackObject'])) {
             $model->fallbackObject = $map['FallbackObject'];
+        }
+        if (isset($map['LimitApp'])) {
+            $model->limitApp = $map['LimitApp'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

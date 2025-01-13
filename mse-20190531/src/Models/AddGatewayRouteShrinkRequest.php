@@ -72,6 +72,8 @@ class AddGatewayRouteShrinkRequest extends Model
      *
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $enableWaf;

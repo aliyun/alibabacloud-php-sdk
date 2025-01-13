@@ -2524,6 +2524,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
         }
+        if (!Utils::isUnset($request->limitApp)) {
+            $query['LimitApp'] = $request->limitApp;
+        }
         if (!Utils::isUnset($request->maxQueueingTimeMs)) {
             $query['MaxQueueingTimeMs'] = $request->maxQueueingTimeMs;
         }
@@ -2852,6 +2855,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->limitApp)) {
+            $query['LimitApp'] = $request->limitApp;
         }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
@@ -9421,7 +9427,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关开启鉴权的路由
+     * @summary Queries a list of routes for which authentication is enabled.
      *  *
      * @param ListGatewayRouteOnAuthRequest $request ListGatewayRouteOnAuthRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9460,7 +9466,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @summary 获取网关开启鉴权的路由
+     * @summary Queries a list of routes for which authentication is enabled.
      *  *
      * @param ListGatewayRouteOnAuthRequest $request ListGatewayRouteOnAuthRequest
      *
@@ -13033,6 +13039,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
         }
+        if (!Utils::isUnset($request->limitApp)) {
+            $query['LimitApp'] = $request->limitApp;
+        }
         if (!Utils::isUnset($request->maxQueueingTimeMs)) {
             $query['MaxQueueingTimeMs'] = $request->maxQueueingTimeMs;
         }
@@ -14744,6 +14753,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->enable)) {
             $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->limitApp)) {
+            $query['LimitApp'] = $request->limitApp;
         }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;

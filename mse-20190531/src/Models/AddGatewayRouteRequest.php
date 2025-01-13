@@ -77,6 +77,8 @@ class AddGatewayRouteRequest extends Model
      *
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $enableWaf;

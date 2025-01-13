@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class routePredicates extends Model
 {
     /**
+     * @description The information about route matching.
+     *
      * @var pathPredicates
      */
     public $pathPredicates;

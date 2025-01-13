@@ -41,6 +41,11 @@ class CreateIsolationRuleRequest extends Model
     public $enable;
 
     /**
+     * @var string
+     */
+    public $limitApp;
+
+    /**
      * @description This parameter is required.
      *
      * @example default
@@ -78,6 +83,7 @@ class CreateIsolationRuleRequest extends Model
         'appId'          => 'AppId',
         'appName'        => 'AppName',
         'enable'         => 'Enable',
+        'limitApp'       => 'LimitApp',
         'namespace'      => 'Namespace',
         'regionId'       => 'RegionId',
         'resource'       => 'Resource',
@@ -102,6 +108,9 @@ class CreateIsolationRuleRequest extends Model
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->limitApp) {
+            $res['LimitApp'] = $this->limitApp;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -138,6 +147,9 @@ class CreateIsolationRuleRequest extends Model
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+        if (isset($map['LimitApp'])) {
+            $model->limitApp = $map['LimitApp'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

@@ -37,6 +37,11 @@ class data extends Model
     public $id;
 
     /**
+     * @var string
+     */
+    public $limitApp;
+
+    /**
      * @example default
      *
      * @var string
@@ -68,6 +73,7 @@ class data extends Model
         'appName'   => 'AppName',
         'enable'    => 'Enable',
         'id'        => 'Id',
+        'limitApp'  => 'LimitApp',
         'namespace' => 'Namespace',
         'regionId'  => 'RegionId',
         'resource'  => 'Resource',
@@ -92,6 +98,9 @@ class data extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->limitApp) {
+            $res['LimitApp'] = $this->limitApp;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -128,6 +137,9 @@ class data extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['LimitApp'])) {
+            $model->limitApp = $map['LimitApp'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
