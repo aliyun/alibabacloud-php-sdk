@@ -19,6 +19,8 @@ class UpdateFileRequest extends Model
     public $advancedSettings;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $applyScheduleImmediately;
@@ -118,7 +120,7 @@ class UpdateFileRequest extends Model
     public $dependentNodeIdList;
 
     /**
-     * @description The type of the cross-cycle scheduling dependency of the node that corresponds to the file. Valid values:
+     * @description The type of the cross-cycle scheduling dependency of the node. Valid values:
      *
      *   SELF: The instance generated for the node in the current cycle depends on the instance generated for the node in the previous cycle.
      *   CHILD: The instance generated for the node in the current cycle depends on the instances generated for the descendant nodes at the nearest level of the node in the previous cycle.
@@ -289,7 +291,7 @@ class UpdateFileRequest extends Model
      *   NORMAL: The node is an auto triggered node.
      *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered. They correspond to the nodes in the Manually Triggered Workflows pane.
      *   PAUSE: The node is a paused node.
-     *   SKIP: The inner node is a dry-run node. Dry-run nodes are started as scheduled but the scheduling system sets the status of the nodes to succeeded when the scheduling system starts to run the nodes.
+     *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled, but the system sets the status of the nodes to successful when it starts to run them.
      *
      * @example NORMAL
      *
@@ -334,6 +336,8 @@ class UpdateFileRequest extends Model
     public $stop;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $timeout;

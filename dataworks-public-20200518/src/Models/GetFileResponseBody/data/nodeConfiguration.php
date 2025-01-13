@@ -94,6 +94,8 @@ class nodeConfiguration extends Model
     public $endEffectDate;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $ignoreParentSkipRunningProperty;
@@ -210,6 +212,8 @@ class nodeConfiguration extends Model
     public $stop;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $timeout;

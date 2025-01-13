@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponseBody;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponseBody\data\alarmList;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetDISyncTaskResponseBody\data\solutionDetail;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var alarmList[]
+     */
+    public $alarmList;
+
     /**
      * @description *   If the TaskType parameter is set to DI_REALTIME, the details of the real-time synchronization task are returned.
      *   If the TaskType parameter is set to DI_SOLUTION, the value null is returned.
@@ -47,6 +53,7 @@ class data extends Model
      */
     public $status;
     protected $_name = [
+        'alarmList'      => 'AlarmList',
         'code'           => 'Code',
         'message'        => 'Message',
         'solutionDetail' => 'SolutionDetail',
@@ -60,6 +67,15 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alarmList) {
+            $res['AlarmList'] = [];
+            if (null !== $this->alarmList && \is_array($this->alarmList)) {
+                $n = 0;
+                foreach ($this->alarmList as $item) {
+                    $res['AlarmList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -84,6 +100,15 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlarmList'])) {
+            if (!empty($map['AlarmList'])) {
+                $model->alarmList = [];
+                $n                = 0;
+                foreach ($map['AlarmList'] as $item) {
+                    $model->alarmList[$n++] = null !== $item ? alarmList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

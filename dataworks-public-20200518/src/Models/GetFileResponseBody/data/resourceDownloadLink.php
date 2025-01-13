@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceDownloadLink extends Model
 {
     /**
+     * @example http://xx
+     *
      * @var string
      */
     public $downloadLink;

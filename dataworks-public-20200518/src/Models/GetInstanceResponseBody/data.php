@@ -188,6 +188,8 @@ class data extends Model
     public $nodeName;
 
     /**
+     * @description The owner of the instance.
+     *
      * @example 111
      *
      * @var string
@@ -204,6 +206,8 @@ class data extends Model
     public $paramValues;
 
     /**
+     * @description The sequence number of the cycle. This parameter indicates the sequence number of the cycle of the instance on the current day.
+     *
      * @example 1
      *
      * @var int

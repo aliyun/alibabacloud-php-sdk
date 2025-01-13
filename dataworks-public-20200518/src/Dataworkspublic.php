@@ -17181,7 +17181,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新基线
+     * @summary Updates a baseline.
      *  *
      * @param UpdateBaselineRequest $tmpReq  UpdateBaselineRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -17258,7 +17258,7 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * @summary 更新基线
+     * @summary Updates a baseline.
      *  *
      * @param UpdateBaselineRequest $request UpdateBaselineRequest
      *

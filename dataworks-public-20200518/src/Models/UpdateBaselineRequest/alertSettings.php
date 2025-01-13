@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class alertSettings extends Model
 {
     /**
-     * @description The interval at which an event alert notification is sent. Unit: seconds. Minimum value: 900.
+     * @description The interval at which an event alert notification is sent. Unit: minutes. Minimum value: 5. Maximum value: 1,440.
      *
      * @example 1800
      *

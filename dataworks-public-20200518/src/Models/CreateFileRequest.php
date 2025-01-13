@@ -177,7 +177,7 @@ class CreateFileRequest extends Model
     public $fileName;
 
     /**
-     * @description The type of the code in the file.
+     * @description The type of the code for the file. The code for files varies based on the file type. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
      *
      * This parameter is required.
      * @example 10
@@ -344,6 +344,10 @@ class CreateFileRequest extends Model
     public $stop;
 
     /**
+     * @description The timeout period.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $timeout;
