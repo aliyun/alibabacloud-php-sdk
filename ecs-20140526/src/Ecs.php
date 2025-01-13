@@ -5120,6 +5120,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->addAccount)) {
             $query['AddAccount'] = $request->addAccount;
         }
+        if (!Utils::isUnset($request->advancedOptions)) {
+            $query['AdvancedOptions'] = $request->advancedOptions;
+        }
         if (!Utils::isUnset($request->baseImage)) {
             $query['BaseImage'] = $request->baseImage;
         }
@@ -5144,6 +5147,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->imageName)) {
             $query['ImageName'] = $request->imageName;
         }
+        if (!Utils::isUnset($request->importImageOptions)) {
+            $query['ImportImageOptions'] = $request->importImageOptions;
+        }
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
         }
@@ -5152,6 +5158,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nvmeSupport)) {
+            $query['NvmeSupport'] = $request->nvmeSupport;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;

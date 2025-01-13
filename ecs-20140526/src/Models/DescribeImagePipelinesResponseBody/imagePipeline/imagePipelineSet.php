@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline;
 
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\addAccounts;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\advancedOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\importImageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\tags;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\DescribeImagePipelinesResponseBody\imagePipeline\imagePipelineSet\toRegionIds;
 use AlibabaCloud\Tea\Model;
@@ -17,6 +19,11 @@ class imagePipelineSet extends Model
      * @var addAccounts
      */
     public $addAccounts;
+
+    /**
+     * @var advancedOptions
+     */
+    public $advancedOptions;
 
     /**
      * @description The source image.
@@ -106,6 +113,11 @@ class imagePipelineSet extends Model
     public $imagePipelineId;
 
     /**
+     * @var importImageOptions
+     */
+    public $importImageOptions;
+
+    /**
      * @description The instance type.
      *
      * @example ecs.g6.large
@@ -131,6 +143,11 @@ class imagePipelineSet extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $nvmeSupport;
 
     /**
      * @description The repair mode of the image template.
@@ -196,6 +213,7 @@ class imagePipelineSet extends Model
     public $vSwitchId;
     protected $_name = [
         'addAccounts'             => 'AddAccounts',
+        'advancedOptions'         => 'AdvancedOptions',
         'baseImage'               => 'BaseImage',
         'baseImageType'           => 'BaseImageType',
         'buildContent'            => 'BuildContent',
@@ -205,9 +223,11 @@ class imagePipelineSet extends Model
         'imageFamily'             => 'ImageFamily',
         'imageName'               => 'ImageName',
         'imagePipelineId'         => 'ImagePipelineId',
+        'importImageOptions'      => 'ImportImageOptions',
         'instanceType'            => 'InstanceType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'name'                    => 'Name',
+        'nvmeSupport'             => 'NvmeSupport',
         'repairMode'              => 'RepairMode',
         'resourceGroupId'         => 'ResourceGroupId',
         'systemDiskSize'          => 'SystemDiskSize',
@@ -226,6 +246,9 @@ class imagePipelineSet extends Model
         $res = [];
         if (null !== $this->addAccounts) {
             $res['AddAccounts'] = null !== $this->addAccounts ? $this->addAccounts->toMap() : null;
+        }
+        if (null !== $this->advancedOptions) {
+            $res['AdvancedOptions'] = null !== $this->advancedOptions ? $this->advancedOptions->toMap() : null;
         }
         if (null !== $this->baseImage) {
             $res['BaseImage'] = $this->baseImage;
@@ -254,6 +277,9 @@ class imagePipelineSet extends Model
         if (null !== $this->imagePipelineId) {
             $res['ImagePipelineId'] = $this->imagePipelineId;
         }
+        if (null !== $this->importImageOptions) {
+            $res['ImportImageOptions'] = null !== $this->importImageOptions ? $this->importImageOptions->toMap() : null;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -262,6 +288,9 @@ class imagePipelineSet extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nvmeSupport) {
+            $res['NvmeSupport'] = $this->nvmeSupport;
         }
         if (null !== $this->repairMode) {
             $res['RepairMode'] = $this->repairMode;
@@ -299,6 +328,9 @@ class imagePipelineSet extends Model
         if (isset($map['AddAccounts'])) {
             $model->addAccounts = addAccounts::fromMap($map['AddAccounts']);
         }
+        if (isset($map['AdvancedOptions'])) {
+            $model->advancedOptions = advancedOptions::fromMap($map['AdvancedOptions']);
+        }
         if (isset($map['BaseImage'])) {
             $model->baseImage = $map['BaseImage'];
         }
@@ -326,6 +358,9 @@ class imagePipelineSet extends Model
         if (isset($map['ImagePipelineId'])) {
             $model->imagePipelineId = $map['ImagePipelineId'];
         }
+        if (isset($map['ImportImageOptions'])) {
+            $model->importImageOptions = importImageOptions::fromMap($map['ImportImageOptions']);
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
@@ -334,6 +369,9 @@ class imagePipelineSet extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NvmeSupport'])) {
+            $model->nvmeSupport = $map['NvmeSupport'];
         }
         if (isset($map['RepairMode'])) {
             $model->repairMode = $map['RepairMode'];

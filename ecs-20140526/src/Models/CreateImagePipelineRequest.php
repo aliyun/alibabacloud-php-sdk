@@ -4,6 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecs\V20140526\Models;
 
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\advancedOptions;
+use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\importImageOptions;
 use AlibabaCloud\SDK\Ecs\V20140526\Models\CreateImagePipelineRequest\tag;
 use AlibabaCloud\Tea\Model;
 
@@ -19,12 +21,16 @@ class CreateImagePipelineRequest extends Model
     public $addAccount;
 
     /**
+     * @var advancedOptions
+     */
+    public $advancedOptions;
+
+    /**
      * @description The source image.
      *
      *   If you set `BaseImageType` to IMAGE, set the BaseImage parameter to the ID of a custom image.
      *   If you set `BaseImageType` to IMAGE_FAMILY, set the BaseImage parameter to the name of an image family.
      *
-     * This parameter is required.
      * @example m-bp67acfmxazb4p****
      *
      * @var string
@@ -104,6 +110,11 @@ class CreateImagePipelineRequest extends Model
     public $imageName;
 
     /**
+     * @var importImageOptions
+     */
+    public $importImageOptions;
+
+    /**
      * @description The instance type. You can call the [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query instance types.
      *
      * If you do not configure this parameter, an instance type that provides the fewest vCPUs and memory resources is automatically selected. This configuration is subject to resource availability of instance types. For example, the ecs.g6.large instance type is automatically selected. If available ecs.g6.large resources are insufficient, the ecs.g6.xlarge instance type is selected.
@@ -132,6 +143,11 @@ class CreateImagePipelineRequest extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $nvmeSupport;
 
     /**
      * @var string
@@ -249,6 +265,7 @@ class CreateImagePipelineRequest extends Model
     public $vSwitchId;
     protected $_name = [
         'addAccount'              => 'AddAccount',
+        'advancedOptions'         => 'AdvancedOptions',
         'baseImage'               => 'BaseImage',
         'baseImageType'           => 'BaseImageType',
         'buildContent'            => 'BuildContent',
@@ -257,9 +274,11 @@ class CreateImagePipelineRequest extends Model
         'description'             => 'Description',
         'imageFamily'             => 'ImageFamily',
         'imageName'               => 'ImageName',
+        'importImageOptions'      => 'ImportImageOptions',
         'instanceType'            => 'InstanceType',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
         'name'                    => 'Name',
+        'nvmeSupport'             => 'NvmeSupport',
         'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
         'regionId'                => 'RegionId',
@@ -283,6 +302,9 @@ class CreateImagePipelineRequest extends Model
         $res = [];
         if (null !== $this->addAccount) {
             $res['AddAccount'] = $this->addAccount;
+        }
+        if (null !== $this->advancedOptions) {
+            $res['AdvancedOptions'] = null !== $this->advancedOptions ? $this->advancedOptions->toMap() : null;
         }
         if (null !== $this->baseImage) {
             $res['BaseImage'] = $this->baseImage;
@@ -308,6 +330,9 @@ class CreateImagePipelineRequest extends Model
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
+        if (null !== $this->importImageOptions) {
+            $res['ImportImageOptions'] = null !== $this->importImageOptions ? $this->importImageOptions->toMap() : null;
+        }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
@@ -316,6 +341,9 @@ class CreateImagePipelineRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->nvmeSupport) {
+            $res['NvmeSupport'] = $this->nvmeSupport;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -376,6 +404,9 @@ class CreateImagePipelineRequest extends Model
                 $model->addAccount = $map['AddAccount'];
             }
         }
+        if (isset($map['AdvancedOptions'])) {
+            $model->advancedOptions = advancedOptions::fromMap($map['AdvancedOptions']);
+        }
         if (isset($map['BaseImage'])) {
             $model->baseImage = $map['BaseImage'];
         }
@@ -400,6 +431,9 @@ class CreateImagePipelineRequest extends Model
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
+        if (isset($map['ImportImageOptions'])) {
+            $model->importImageOptions = importImageOptions::fromMap($map['ImportImageOptions']);
+        }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
@@ -408,6 +442,9 @@ class CreateImagePipelineRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['NvmeSupport'])) {
+            $model->nvmeSupport = $map['NvmeSupport'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
