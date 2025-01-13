@@ -46,6 +46,11 @@ class Group extends Model
     /**
      * @var string
      */
+    public $trafficMode;
+
+    /**
+     * @var string
+     */
     public $updateTime;
     protected $_name = [
         'accessToken'      => 'AccessToken',
@@ -55,6 +60,7 @@ class Group extends Model
         'intranetEndpoint' => 'IntranetEndpoint',
         'name'             => 'Name',
         'queueService'     => 'QueueService',
+        'trafficMode'      => 'TrafficMode',
         'updateTime'       => 'UpdateTime',
     ];
 
@@ -85,6 +91,9 @@ class Group extends Model
         }
         if (null !== $this->queueService) {
             $res['QueueService'] = $this->queueService;
+        }
+        if (null !== $this->trafficMode) {
+            $res['TrafficMode'] = $this->trafficMode;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -121,6 +130,9 @@ class Group extends Model
         }
         if (isset($map['QueueService'])) {
             $model->queueService = $map['QueueService'];
+        }
+        if (isset($map['TrafficMode'])) {
+            $model->trafficMode = $map['TrafficMode'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

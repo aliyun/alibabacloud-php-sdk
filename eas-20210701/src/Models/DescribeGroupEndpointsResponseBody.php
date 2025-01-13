@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupEndpointsResponseBody extends Model
 {
     /**
+     * @description The service token.
+     *
      * @example Nzc5N2FhNTM4OTQ0YzBmYTIy****ZTUxN2NkYjg4MTJmMWQxZmY1****
      *
      * @var string
@@ -17,16 +19,22 @@ class DescribeGroupEndpointsResponseBody extends Model
     public $accessToken;
 
     /**
+     * @description The endpoints of service groups.
+     *
      * @var endpoints
      */
     public $endpoints;
 
     /**
+     * @description The response message.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 890772EF-3AD6-129A-8E15-8F349C944783
      *
      * @var string

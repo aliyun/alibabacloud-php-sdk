@@ -18,6 +18,8 @@ class DescribeServiceSignedUrlResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service URL.
+     *
      * @example https://foo-115**.console.cn-hangzhou.eas.pai-ml.com?expire=1735202661&signature=ey*******
      *
      * @var string

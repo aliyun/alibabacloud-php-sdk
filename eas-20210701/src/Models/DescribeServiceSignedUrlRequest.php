@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceSignedUrlRequest extends Model
 {
     /**
+     * @description The period of time for which the URL expires.
+     *
      * @example 43200
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeServiceSignedUrlRequest extends Model
     public $expire;
 
     /**
+     * @description Specifies whether to use the VPC connection.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,13 @@ class DescribeServiceSignedUrlRequest extends Model
     public $internal;
 
     /**
+     * @description The page type.
+     *
+     * Valid values:
+     *
+     *   webview
+     *   monitor
+     *
      * @example webview
      *
      * @var string

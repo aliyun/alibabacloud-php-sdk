@@ -212,6 +212,11 @@ class Service extends Model
     /**
      * @var string
      */
+    public $trafficState;
+
+    /**
+     * @var string
+     */
     public $updateTime;
 
     /**
@@ -264,6 +269,7 @@ class Service extends Model
         'source'                    => 'Source',
         'status'                    => 'Status',
         'totalInstance'             => 'TotalInstance',
+        'trafficState'              => 'TrafficState',
         'updateTime'                => 'UpdateTime',
         'weight'                    => 'Weight',
         'workspaceId'               => 'WorkspaceId',
@@ -401,6 +407,9 @@ class Service extends Model
         }
         if (null !== $this->totalInstance) {
             $res['TotalInstance'] = $this->totalInstance;
+        }
+        if (null !== $this->trafficState) {
+            $res['TrafficState'] = $this->trafficState;
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
@@ -548,6 +557,9 @@ class Service extends Model
         }
         if (isset($map['TotalInstance'])) {
             $model->totalInstance = $map['TotalInstance'];
+        }
+        if (isset($map['TrafficState'])) {
+            $model->trafficState = $map['TrafficState'];
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];

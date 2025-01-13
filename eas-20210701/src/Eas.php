@@ -2273,7 +2273,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取群组端点列表
+     * @summary Obtains a list of endpoints of service groups.
      *  *
      * @param string         $ClusterId
      * @param string         $GroupName
@@ -2303,7 +2303,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取群组端点列表
+     * @summary Obtains a list of endpoints of service groups.
      *  *
      * @param string $ClusterId
      * @param string $GroupName
@@ -2641,7 +2641,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务端点列表
+     * @summary Obtains a list of service endpoints.
      *  *
      * @param string         $ClusterId
      * @param string         $ServiceName
@@ -2671,7 +2671,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务端点列表
+     * @summary Obtains a list of service endpoints.
      *  *
      * @param string $ClusterId
      * @param string $ServiceName
@@ -2928,7 +2928,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务监控签名地址
+     * @summary Obtains the logon-free URL of the service.
      *  *
      * @param string                          $ClusterId
      * @param string                          $ServiceName
@@ -2971,7 +2971,7 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * @summary 获取服务监控签名地址
+     * @summary Obtains the logon-free URL of the service.
      *  *
      * @param string                          $ClusterId
      * @param string                          $ServiceName
