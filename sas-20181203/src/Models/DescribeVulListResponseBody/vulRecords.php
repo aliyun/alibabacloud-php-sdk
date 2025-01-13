@@ -233,6 +233,11 @@ class vulRecords extends Model
     public $primaryId;
 
     /**
+     * @var int
+     */
+    public $progress;
+
+    /**
      * @description Indicates whether the application protection feature is supported. Valid values:
      *
      *   **0**: no.
@@ -396,6 +401,7 @@ class vulRecords extends Model
         'osName'            => 'OsName',
         'osVersion'         => 'OsVersion',
         'primaryId'         => 'PrimaryId',
+        'progress'          => 'Progress',
         'raspDefend'        => 'RaspDefend',
         'raspStatus'        => 'RaspStatus',
         'realRisk'          => 'RealRisk',
@@ -485,6 +491,9 @@ class vulRecords extends Model
         }
         if (null !== $this->primaryId) {
             $res['PrimaryId'] = $this->primaryId;
+        }
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
         }
         if (null !== $this->raspDefend) {
             $res['RaspDefend'] = $this->raspDefend;
@@ -602,6 +611,9 @@ class vulRecords extends Model
         }
         if (isset($map['PrimaryId'])) {
             $model->primaryId = $map['PrimaryId'];
+        }
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
         }
         if (isset($map['RaspDefend'])) {
             $model->raspDefend = $map['RaspDefend'];
