@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output;
+namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output;
 
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoMindMappingGenerateResult\usage;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoMindMappingGenerateResult\videoMindMappings;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoMindMappingGenerateResult\usage;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoMindMappingGenerateResult\videoMindMappings;
 use AlibabaCloud\Tea\Model;
 
 class videoMindMappingGenerateResult extends Model
@@ -16,18 +16,6 @@ class videoMindMappingGenerateResult extends Model
      * @var bool
      */
     public $generateFinished;
-
-    /**
-     * @example true
-     *
-     * @var string
-     */
-    public $modelId;
-
-    /**
-     * @var bool
-     */
-    public $modelReduce;
 
     /**
      * @var string
@@ -45,8 +33,6 @@ class videoMindMappingGenerateResult extends Model
     public $videoMindMappings;
     protected $_name = [
         'generateFinished'  => 'generateFinished',
-        'modelId'           => 'modelId',
-        'modelReduce'       => 'modelReduce',
         'text'              => 'text',
         'usage'             => 'usage',
         'videoMindMappings' => 'videoMindMappings',
@@ -61,12 +47,6 @@ class videoMindMappingGenerateResult extends Model
         $res = [];
         if (null !== $this->generateFinished) {
             $res['generateFinished'] = $this->generateFinished;
-        }
-        if (null !== $this->modelId) {
-            $res['modelId'] = $this->modelId;
-        }
-        if (null !== $this->modelReduce) {
-            $res['modelReduce'] = $this->modelReduce;
         }
         if (null !== $this->text) {
             $res['text'] = $this->text;
@@ -97,12 +77,6 @@ class videoMindMappingGenerateResult extends Model
         $model = new self();
         if (isset($map['generateFinished'])) {
             $model->generateFinished = $map['generateFinished'];
-        }
-        if (isset($map['modelId'])) {
-            $model->modelId = $map['modelId'];
-        }
-        if (isset($map['modelReduce'])) {
-            $model->modelReduce = $map['modelReduce'];
         }
         if (isset($map['text'])) {
             $model->text = $map['text'];

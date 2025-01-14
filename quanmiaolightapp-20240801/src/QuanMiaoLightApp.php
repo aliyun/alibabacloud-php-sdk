@@ -11,6 +11,9 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsResp
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateOutputFormatShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisConfigResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest;
@@ -37,6 +40,11 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunTagMiningAnalysisShrin
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskShrinkRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisConfigRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\UpdateVideoAnalysisConfigResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -195,6 +203,102 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->generateOutputFormatWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 视频理解-获取配置
+     *  *
+     * @param string         $workspaceId
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetVideoAnalysisConfigResponse GetVideoAnalysisConfigResponse
+     */
+    public function getVideoAnalysisConfigWithOptions($workspaceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoAnalysisConfig',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/videoAnalysis/getVideoAnalysisConfig',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 视频理解-获取配置
+     *  *
+     * @param string $workspaceId
+     *
+     * @return GetVideoAnalysisConfigResponse GetVideoAnalysisConfigResponse
+     */
+    public function getVideoAnalysisConfig($workspaceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVideoAnalysisConfigWithOptions($workspaceId, $headers, $runtime);
+    }
+
+    /**
+     * @summary 轻应用-获取视频理解异步任务结果
+     *  *
+     * @param string                      $workspaceId
+     * @param GetVideoAnalysisTaskRequest $request     GetVideoAnalysisTaskRequest
+     * @param string[]                    $headers     map
+     * @param RuntimeOptions              $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return GetVideoAnalysisTaskResponse GetVideoAnalysisTaskResponse
+     */
+    public function getVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $query['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVideoAnalysisTask',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/videoAnalysis/getVideoAnalysisTask',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 轻应用-获取视频理解异步任务结果
+     *  *
+     * @param string                      $workspaceId
+     * @param GetVideoAnalysisTaskRequest $request     GetVideoAnalysisTaskRequest
+     *
+     * @return GetVideoAnalysisTaskResponse GetVideoAnalysisTaskResponse
+     */
+    public function getVideoAnalysisTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
@@ -849,12 +953,24 @@ class QuanMiaoLightApp extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new RunVideoAnalysisShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->frameSampleMethod)) {
+            $request->frameSampleMethodShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->frameSampleMethod, 'frameSampleMethod', 'json');
+        }
         if (!Utils::isUnset($tmpReq->generateOptions)) {
             $request->generateOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->generateOptions, 'generateOptions', 'json');
         }
+        if (!Utils::isUnset($tmpReq->videoRoles)) {
+            $request->videoRolesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
+        }
         $body = [];
+        if (!Utils::isUnset($request->frameSampleMethodShrink)) {
+            $body['frameSampleMethod'] = $request->frameSampleMethodShrink;
+        }
         if (!Utils::isUnset($request->generateOptionsShrink)) {
             $body['generateOptions'] = $request->generateOptionsShrink;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['language'] = $request->language;
         }
         if (!Utils::isUnset($request->modelCustomPromptTemplate)) {
             $body['modelCustomPromptTemplate'] = $request->modelCustomPromptTemplate;
@@ -882,6 +998,9 @@ class QuanMiaoLightApp extends OpenApiClient
         }
         if (!Utils::isUnset($request->videoModelId)) {
             $body['videoModelId'] = $request->videoModelId;
+        }
+        if (!Utils::isUnset($request->videoRolesShrink)) {
+            $body['videoRoles'] = $request->videoRolesShrink;
         }
         if (!Utils::isUnset($request->videoUrl)) {
             $body['videoUrl'] = $request->videoUrl;
@@ -919,5 +1038,153 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->runVideoAnalysisWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 轻应用-提交视频理解任务
+     *  *
+     * @param string                         $workspaceId
+     * @param SubmitVideoAnalysisTaskRequest $tmpReq      SubmitVideoAnalysisTaskRequest
+     * @param string[]                       $headers     map
+     * @param RuntimeOptions                 $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return SubmitVideoAnalysisTaskResponse SubmitVideoAnalysisTaskResponse
+     */
+    public function submitVideoAnalysisTaskWithOptions($workspaceId, $tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitVideoAnalysisTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->frameSampleMethod)) {
+            $request->frameSampleMethodShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->frameSampleMethod, 'frameSampleMethod', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->generateOptions)) {
+            $request->generateOptionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->generateOptions, 'generateOptions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->videoRoles)) {
+            $request->videoRolesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoRoles, 'videoRoles', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->frameSampleMethodShrink)) {
+            $body['frameSampleMethod'] = $request->frameSampleMethodShrink;
+        }
+        if (!Utils::isUnset($request->generateOptionsShrink)) {
+            $body['generateOptions'] = $request->generateOptionsShrink;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $body['language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->modelCustomPromptTemplate)) {
+            $body['modelCustomPromptTemplate'] = $request->modelCustomPromptTemplate;
+        }
+        if (!Utils::isUnset($request->modelCustomPromptTemplateId)) {
+            $body['modelCustomPromptTemplateId'] = $request->modelCustomPromptTemplateId;
+        }
+        if (!Utils::isUnset($request->modelId)) {
+            $body['modelId'] = $request->modelId;
+        }
+        if (!Utils::isUnset($request->snapshotInterval)) {
+            $body['snapshotInterval'] = $request->snapshotInterval;
+        }
+        if (!Utils::isUnset($request->videoExtraInfo)) {
+            $body['videoExtraInfo'] = $request->videoExtraInfo;
+        }
+        if (!Utils::isUnset($request->videoModelCustomPromptTemplate)) {
+            $body['videoModelCustomPromptTemplate'] = $request->videoModelCustomPromptTemplate;
+        }
+        if (!Utils::isUnset($request->videoModelId)) {
+            $body['videoModelId'] = $request->videoModelId;
+        }
+        if (!Utils::isUnset($request->videoRolesShrink)) {
+            $body['videoRoles'] = $request->videoRolesShrink;
+        }
+        if (!Utils::isUnset($request->videoUrl)) {
+            $body['videoUrl'] = $request->videoUrl;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitVideoAnalysisTask',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/videoAnalysis/submitVideoAnalysisTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitVideoAnalysisTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 轻应用-提交视频理解任务
+     *  *
+     * @param string                         $workspaceId
+     * @param SubmitVideoAnalysisTaskRequest $request     SubmitVideoAnalysisTaskRequest
+     *
+     * @return SubmitVideoAnalysisTaskResponse SubmitVideoAnalysisTaskResponse
+     */
+    public function submitVideoAnalysisTask($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->submitVideoAnalysisTaskWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 视频理解-更新配置
+     *  *
+     * @param string                           $workspaceId
+     * @param UpdateVideoAnalysisConfigRequest $request     UpdateVideoAnalysisConfigRequest
+     * @param string[]                         $headers     map
+     * @param RuntimeOptions                   $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return UpdateVideoAnalysisConfigResponse UpdateVideoAnalysisConfigResponse
+     */
+    public function updateVideoAnalysisConfigWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->asyncConcurrency)) {
+            $body['asyncConcurrency'] = $request->asyncConcurrency;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateVideoAnalysisConfig',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/videoAnalysis/updateVideoAnalysisConfig',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateVideoAnalysisConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 视频理解-更新配置
+     *  *
+     * @param string                           $workspaceId
+     * @param UpdateVideoAnalysisConfigRequest $request     UpdateVideoAnalysisConfigRequest
+     *
+     * @return UpdateVideoAnalysisConfigResponse UpdateVideoAnalysisConfigResponse
+     */
+    public function updateVideoAnalysisConfig($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateVideoAnalysisConfigWithOptions($workspaceId, $request, $headers, $runtime);
     }
 }

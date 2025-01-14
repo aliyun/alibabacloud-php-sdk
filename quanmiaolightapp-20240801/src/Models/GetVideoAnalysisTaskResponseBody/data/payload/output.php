@@ -2,14 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload;
+namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload;
 
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoAnalysisResult;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoCaptionResult;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoGenerateResult;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoMindMappingGenerateResult;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoShotSnapshotResult;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoTitleGenerateResult;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoAnalysisResult;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoCaptionResult;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoGenerateResult;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoMindMappingGenerateResult;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoTitleGenerateResult;
 use AlibabaCloud\Tea\Model;
 
 class output extends Model
@@ -35,11 +34,6 @@ class output extends Model
     public $videoMindMappingGenerateResult;
 
     /**
-     * @var videoShotSnapshotResult
-     */
-    public $videoShotSnapshotResult;
-
-    /**
      * @var videoTitleGenerateResult
      */
     public $videoTitleGenerateResult;
@@ -48,7 +42,6 @@ class output extends Model
         'videoCaptionResult'             => 'videoCaptionResult',
         'videoGenerateResult'            => 'videoGenerateResult',
         'videoMindMappingGenerateResult' => 'videoMindMappingGenerateResult',
-        'videoShotSnapshotResult'        => 'videoShotSnapshotResult',
         'videoTitleGenerateResult'       => 'videoTitleGenerateResult',
     ];
 
@@ -70,9 +63,6 @@ class output extends Model
         }
         if (null !== $this->videoMindMappingGenerateResult) {
             $res['videoMindMappingGenerateResult'] = null !== $this->videoMindMappingGenerateResult ? $this->videoMindMappingGenerateResult->toMap() : null;
-        }
-        if (null !== $this->videoShotSnapshotResult) {
-            $res['videoShotSnapshotResult'] = null !== $this->videoShotSnapshotResult ? $this->videoShotSnapshotResult->toMap() : null;
         }
         if (null !== $this->videoTitleGenerateResult) {
             $res['videoTitleGenerateResult'] = null !== $this->videoTitleGenerateResult ? $this->videoTitleGenerateResult->toMap() : null;
@@ -100,9 +90,6 @@ class output extends Model
         }
         if (isset($map['videoMindMappingGenerateResult'])) {
             $model->videoMindMappingGenerateResult = videoMindMappingGenerateResult::fromMap($map['videoMindMappingGenerateResult']);
-        }
-        if (isset($map['videoShotSnapshotResult'])) {
-            $model->videoShotSnapshotResult = videoShotSnapshotResult::fromMap($map['videoShotSnapshotResult']);
         }
         if (isset($map['videoTitleGenerateResult'])) {
             $model->videoTitleGenerateResult = videoTitleGenerateResult::fromMap($map['videoTitleGenerateResult']);

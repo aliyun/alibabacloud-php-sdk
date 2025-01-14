@@ -4,22 +4,24 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\frameSampleMethod;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest\videoRoles;
 use AlibabaCloud\Tea\Model;
 
-class RunVideoAnalysisShrinkRequest extends Model
+class SubmitVideoAnalysisTaskRequest extends Model
 {
     /**
-     * @var string
+     * @var frameSampleMethod
      */
-    public $frameSampleMethodShrink;
+    public $frameSampleMethod;
 
     /**
-     * @var string
+     * @var string[]
      */
-    public $generateOptionsShrink;
+    public $generateOptions;
 
     /**
-     * @example english
+     * @example chinese
      *
      * @var string
      */
@@ -45,23 +47,11 @@ class RunVideoAnalysisShrinkRequest extends Model
     public $modelId;
 
     /**
-     * @example a3d1c2ac-f086-4a21-9069-f5631542f5ax
+     * @example 2
      *
-     * @var string
-     */
-    public $originalSessionId;
-
-    /**
      * @var float
      */
     public $snapshotInterval;
-
-    /**
-     * @example a3d1c2ac-f086-4a21-9069-f5631542f5a2
-     *
-     * @var string
-     */
-    public $taskId;
 
     /**
      * @var string
@@ -74,37 +64,37 @@ class RunVideoAnalysisShrinkRequest extends Model
     public $videoModelCustomPromptTemplate;
 
     /**
-     * @example qwen-vl-max
+     * @example qwen-vl-max-latest
      *
      * @var string
      */
     public $videoModelId;
 
     /**
-     * @var string
+     * @var videoRoles[]
      */
-    public $videoRolesShrink;
+    public $videoRoles;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://xxxx.mp4
      *
      * @var string
      */
     public $videoUrl;
     protected $_name = [
-        'frameSampleMethodShrink'        => 'frameSampleMethod',
-        'generateOptionsShrink'          => 'generateOptions',
+        'frameSampleMethod'              => 'frameSampleMethod',
+        'generateOptions'                => 'generateOptions',
         'language'                       => 'language',
         'modelCustomPromptTemplate'      => 'modelCustomPromptTemplate',
         'modelCustomPromptTemplateId'    => 'modelCustomPromptTemplateId',
         'modelId'                        => 'modelId',
-        'originalSessionId'              => 'originalSessionId',
         'snapshotInterval'               => 'snapshotInterval',
-        'taskId'                         => 'taskId',
         'videoExtraInfo'                 => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
         'videoModelId'                   => 'videoModelId',
-        'videoRolesShrink'               => 'videoRoles',
+        'videoRoles'                     => 'videoRoles',
         'videoUrl'                       => 'videoUrl',
     ];
 
@@ -115,11 +105,11 @@ class RunVideoAnalysisShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->frameSampleMethodShrink) {
-            $res['frameSampleMethod'] = $this->frameSampleMethodShrink;
+        if (null !== $this->frameSampleMethod) {
+            $res['frameSampleMethod'] = null !== $this->frameSampleMethod ? $this->frameSampleMethod->toMap() : null;
         }
-        if (null !== $this->generateOptionsShrink) {
-            $res['generateOptions'] = $this->generateOptionsShrink;
+        if (null !== $this->generateOptions) {
+            $res['generateOptions'] = $this->generateOptions;
         }
         if (null !== $this->language) {
             $res['language'] = $this->language;
@@ -133,14 +123,8 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
-        if (null !== $this->originalSessionId) {
-            $res['originalSessionId'] = $this->originalSessionId;
-        }
         if (null !== $this->snapshotInterval) {
             $res['snapshotInterval'] = $this->snapshotInterval;
-        }
-        if (null !== $this->taskId) {
-            $res['taskId'] = $this->taskId;
         }
         if (null !== $this->videoExtraInfo) {
             $res['videoExtraInfo'] = $this->videoExtraInfo;
@@ -151,8 +135,14 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (null !== $this->videoModelId) {
             $res['videoModelId'] = $this->videoModelId;
         }
-        if (null !== $this->videoRolesShrink) {
-            $res['videoRoles'] = $this->videoRolesShrink;
+        if (null !== $this->videoRoles) {
+            $res['videoRoles'] = [];
+            if (null !== $this->videoRoles && \is_array($this->videoRoles)) {
+                $n = 0;
+                foreach ($this->videoRoles as $item) {
+                    $res['videoRoles'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->videoUrl) {
             $res['videoUrl'] = $this->videoUrl;
@@ -164,16 +154,18 @@ class RunVideoAnalysisShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return RunVideoAnalysisShrinkRequest
+     * @return SubmitVideoAnalysisTaskRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['frameSampleMethod'])) {
-            $model->frameSampleMethodShrink = $map['frameSampleMethod'];
+            $model->frameSampleMethod = frameSampleMethod::fromMap($map['frameSampleMethod']);
         }
         if (isset($map['generateOptions'])) {
-            $model->generateOptionsShrink = $map['generateOptions'];
+            if (!empty($map['generateOptions'])) {
+                $model->generateOptions = $map['generateOptions'];
+            }
         }
         if (isset($map['language'])) {
             $model->language = $map['language'];
@@ -187,14 +179,8 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
-        if (isset($map['originalSessionId'])) {
-            $model->originalSessionId = $map['originalSessionId'];
-        }
         if (isset($map['snapshotInterval'])) {
             $model->snapshotInterval = $map['snapshotInterval'];
-        }
-        if (isset($map['taskId'])) {
-            $model->taskId = $map['taskId'];
         }
         if (isset($map['videoExtraInfo'])) {
             $model->videoExtraInfo = $map['videoExtraInfo'];
@@ -206,7 +192,13 @@ class RunVideoAnalysisShrinkRequest extends Model
             $model->videoModelId = $map['videoModelId'];
         }
         if (isset($map['videoRoles'])) {
-            $model->videoRolesShrink = $map['videoRoles'];
+            if (!empty($map['videoRoles'])) {
+                $model->videoRoles = [];
+                $n                 = 0;
+                foreach ($map['videoRoles'] as $item) {
+                    $model->videoRoles[$n++] = null !== $item ? videoRoles::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['videoUrl'])) {
             $model->videoUrl = $map['videoUrl'];

@@ -17,6 +17,18 @@ class videoTitleGenerateResult extends Model
     public $generateFinished;
 
     /**
+     * @example qwen-max
+     *
+     * @var string
+     */
+    public $modelId;
+
+    /**
+     * @var bool
+     */
+    public $modelReduce;
+
+    /**
      * @var string
      */
     public $text;
@@ -27,6 +39,8 @@ class videoTitleGenerateResult extends Model
     public $usage;
     protected $_name = [
         'generateFinished' => 'generateFinished',
+        'modelId'          => 'modelId',
+        'modelReduce'      => 'modelReduce',
         'text'             => 'text',
         'usage'            => 'usage',
     ];
@@ -40,6 +54,12 @@ class videoTitleGenerateResult extends Model
         $res = [];
         if (null !== $this->generateFinished) {
             $res['generateFinished'] = $this->generateFinished;
+        }
+        if (null !== $this->modelId) {
+            $res['modelId'] = $this->modelId;
+        }
+        if (null !== $this->modelReduce) {
+            $res['modelReduce'] = $this->modelReduce;
         }
         if (null !== $this->text) {
             $res['text'] = $this->text;
@@ -61,6 +81,12 @@ class videoTitleGenerateResult extends Model
         $model = new self();
         if (isset($map['generateFinished'])) {
             $model->generateFinished = $map['generateFinished'];
+        }
+        if (isset($map['modelId'])) {
+            $model->modelId = $map['modelId'];
+        }
+        if (isset($map['modelReduce'])) {
+            $model->modelReduce = $map['modelReduce'];
         }
         if (isset($map['text'])) {
             $model->text = $map['text'];

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RunVideoAnalysisShrinkRequest extends Model
+class SubmitVideoAnalysisTaskShrinkRequest extends Model
 {
     /**
      * @var string
@@ -19,7 +19,7 @@ class RunVideoAnalysisShrinkRequest extends Model
     public $generateOptionsShrink;
 
     /**
-     * @example english
+     * @example chinese
      *
      * @var string
      */
@@ -45,23 +45,11 @@ class RunVideoAnalysisShrinkRequest extends Model
     public $modelId;
 
     /**
-     * @example a3d1c2ac-f086-4a21-9069-f5631542f5ax
+     * @example 2
      *
-     * @var string
-     */
-    public $originalSessionId;
-
-    /**
      * @var float
      */
     public $snapshotInterval;
-
-    /**
-     * @example a3d1c2ac-f086-4a21-9069-f5631542f5a2
-     *
-     * @var string
-     */
-    public $taskId;
 
     /**
      * @var string
@@ -74,7 +62,7 @@ class RunVideoAnalysisShrinkRequest extends Model
     public $videoModelCustomPromptTemplate;
 
     /**
-     * @example qwen-vl-max
+     * @example qwen-vl-max-latest
      *
      * @var string
      */
@@ -86,6 +74,8 @@ class RunVideoAnalysisShrinkRequest extends Model
     public $videoRolesShrink;
 
     /**
+     * @description This parameter is required.
+     *
      * @example http://xxxx.mp4
      *
      * @var string
@@ -98,9 +88,7 @@ class RunVideoAnalysisShrinkRequest extends Model
         'modelCustomPromptTemplate'      => 'modelCustomPromptTemplate',
         'modelCustomPromptTemplateId'    => 'modelCustomPromptTemplateId',
         'modelId'                        => 'modelId',
-        'originalSessionId'              => 'originalSessionId',
         'snapshotInterval'               => 'snapshotInterval',
-        'taskId'                         => 'taskId',
         'videoExtraInfo'                 => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
         'videoModelId'                   => 'videoModelId',
@@ -133,14 +121,8 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
-        if (null !== $this->originalSessionId) {
-            $res['originalSessionId'] = $this->originalSessionId;
-        }
         if (null !== $this->snapshotInterval) {
             $res['snapshotInterval'] = $this->snapshotInterval;
-        }
-        if (null !== $this->taskId) {
-            $res['taskId'] = $this->taskId;
         }
         if (null !== $this->videoExtraInfo) {
             $res['videoExtraInfo'] = $this->videoExtraInfo;
@@ -164,7 +146,7 @@ class RunVideoAnalysisShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return RunVideoAnalysisShrinkRequest
+     * @return SubmitVideoAnalysisTaskShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -187,14 +169,8 @@ class RunVideoAnalysisShrinkRequest extends Model
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
-        if (isset($map['originalSessionId'])) {
-            $model->originalSessionId = $map['originalSessionId'];
-        }
         if (isset($map['snapshotInterval'])) {
             $model->snapshotInterval = $map['snapshotInterval'];
-        }
-        if (isset($map['taskId'])) {
-            $model->taskId = $map['taskId'];
         }
         if (isset($map['videoExtraInfo'])) {
             $model->videoExtraInfo = $map['videoExtraInfo'];

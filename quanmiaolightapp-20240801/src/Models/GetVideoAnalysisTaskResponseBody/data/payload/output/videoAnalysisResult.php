@@ -2,10 +2,10 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output;
+namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output;
 
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoAnalysisResult\usage;
-use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoAnalysisResult\videoShotAnalysisResults;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoAnalysisResult\usage;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetVideoAnalysisTaskResponseBody\data\payload\output\videoAnalysisResult\videoShotAnalysisResults;
 use AlibabaCloud\Tea\Model;
 
 class videoAnalysisResult extends Model
@@ -18,13 +18,8 @@ class videoAnalysisResult extends Model
     public $generateFinished;
 
     /**
-     * @example qwen-vl-max
+     * @example xxx
      *
-     * @var string
-     */
-    public $modelId;
-
-    /**
      * @var string
      */
     public $text;
@@ -40,7 +35,6 @@ class videoAnalysisResult extends Model
     public $videoShotAnalysisResults;
     protected $_name = [
         'generateFinished'         => 'generateFinished',
-        'modelId'                  => 'modelId',
         'text'                     => 'text',
         'usage'                    => 'usage',
         'videoShotAnalysisResults' => 'videoShotAnalysisResults',
@@ -55,9 +49,6 @@ class videoAnalysisResult extends Model
         $res = [];
         if (null !== $this->generateFinished) {
             $res['generateFinished'] = $this->generateFinished;
-        }
-        if (null !== $this->modelId) {
-            $res['modelId'] = $this->modelId;
         }
         if (null !== $this->text) {
             $res['text'] = $this->text;
@@ -88,9 +79,6 @@ class videoAnalysisResult extends Model
         $model = new self();
         if (isset($map['generateFinished'])) {
             $model->generateFinished = $map['generateFinished'];
-        }
-        if (isset($map['modelId'])) {
-            $model->modelId = $map['modelId'];
         }
         if (isset($map['text'])) {
             $model->text = $map['text'];

@@ -4,14 +4,28 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\frameSampleMethod;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisRequest\videoRoles;
 use AlibabaCloud\Tea\Model;
 
 class RunVideoAnalysisRequest extends Model
 {
     /**
+     * @var frameSampleMethod
+     */
+    public $frameSampleMethod;
+
+    /**
      * @var string[]
      */
     public $generateOptions;
+
+    /**
+     * @example english
+     *
+     * @var string
+     */
+    public $language;
 
     /**
      * @var string
@@ -69,13 +83,20 @@ class RunVideoAnalysisRequest extends Model
     public $videoModelId;
 
     /**
+     * @var videoRoles[]
+     */
+    public $videoRoles;
+
+    /**
      * @example http://xxxx.mp4
      *
      * @var string
      */
     public $videoUrl;
     protected $_name = [
+        'frameSampleMethod'              => 'frameSampleMethod',
         'generateOptions'                => 'generateOptions',
+        'language'                       => 'language',
         'modelCustomPromptTemplate'      => 'modelCustomPromptTemplate',
         'modelCustomPromptTemplateId'    => 'modelCustomPromptTemplateId',
         'modelId'                        => 'modelId',
@@ -85,6 +106,7 @@ class RunVideoAnalysisRequest extends Model
         'videoExtraInfo'                 => 'videoExtraInfo',
         'videoModelCustomPromptTemplate' => 'videoModelCustomPromptTemplate',
         'videoModelId'                   => 'videoModelId',
+        'videoRoles'                     => 'videoRoles',
         'videoUrl'                       => 'videoUrl',
     ];
 
@@ -95,8 +117,14 @@ class RunVideoAnalysisRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->frameSampleMethod) {
+            $res['frameSampleMethod'] = null !== $this->frameSampleMethod ? $this->frameSampleMethod->toMap() : null;
+        }
         if (null !== $this->generateOptions) {
             $res['generateOptions'] = $this->generateOptions;
+        }
+        if (null !== $this->language) {
+            $res['language'] = $this->language;
         }
         if (null !== $this->modelCustomPromptTemplate) {
             $res['modelCustomPromptTemplate'] = $this->modelCustomPromptTemplate;
@@ -125,6 +153,15 @@ class RunVideoAnalysisRequest extends Model
         if (null !== $this->videoModelId) {
             $res['videoModelId'] = $this->videoModelId;
         }
+        if (null !== $this->videoRoles) {
+            $res['videoRoles'] = [];
+            if (null !== $this->videoRoles && \is_array($this->videoRoles)) {
+                $n = 0;
+                foreach ($this->videoRoles as $item) {
+                    $res['videoRoles'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->videoUrl) {
             $res['videoUrl'] = $this->videoUrl;
         }
@@ -140,10 +177,16 @@ class RunVideoAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['frameSampleMethod'])) {
+            $model->frameSampleMethod = frameSampleMethod::fromMap($map['frameSampleMethod']);
+        }
         if (isset($map['generateOptions'])) {
             if (!empty($map['generateOptions'])) {
                 $model->generateOptions = $map['generateOptions'];
             }
+        }
+        if (isset($map['language'])) {
+            $model->language = $map['language'];
         }
         if (isset($map['modelCustomPromptTemplate'])) {
             $model->modelCustomPromptTemplate = $map['modelCustomPromptTemplate'];
@@ -171,6 +214,15 @@ class RunVideoAnalysisRequest extends Model
         }
         if (isset($map['videoModelId'])) {
             $model->videoModelId = $map['videoModelId'];
+        }
+        if (isset($map['videoRoles'])) {
+            if (!empty($map['videoRoles'])) {
+                $model->videoRoles = [];
+                $n                 = 0;
+                foreach ($map['videoRoles'] as $item) {
+                    $model->videoRoles[$n++] = null !== $item ? videoRoles::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['videoUrl'])) {
             $model->videoUrl = $map['videoUrl'];
