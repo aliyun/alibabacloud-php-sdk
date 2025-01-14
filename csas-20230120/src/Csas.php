@@ -9,6 +9,11 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AttachPolicy2ApprovalProcessRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\AttachPolicy2ApprovalProcessResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateApprovalProcessShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteRequest;
@@ -36,6 +41,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmExtractTaskShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmInfoMappingRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateWmInfoMappingResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteApprovalProcessesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteApprovalProcessesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
@@ -57,9 +64,18 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DetachPolicy2ApprovalProcessRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DetachPolicy2ApprovalProcessResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ExportUserDevicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ExportUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetActiveIdpConfigResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalProcessResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalSchemaRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetApprovalSchemaResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetBootAndAntiUninstallPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetClientUserRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetClientUserResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteRequest;
@@ -84,6 +100,16 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolic
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalProcessesForApprovalSchemasRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalProcessesForApprovalSchemasResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalProcessesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalProcessesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalSchemasForApprovalProcessesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalSchemasForApprovalProcessesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalSchemasRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalSchemasResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListApprovalsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListClientUsersResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
@@ -127,6 +153,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationRe
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUninstallApplicationsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUninstallApplicationsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserApplicationsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserApplicationsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserDevicesRequest;
@@ -145,6 +173,14 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\LookupWmInfoMappingResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\RevokeUserSessionResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalProcessShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateApprovalStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateBootAndAntiUninstallPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateBootAndAntiUninstallPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateBootAndAntiUninstallPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserPasswordRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserPasswordResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateClientUserRequest;
@@ -166,6 +202,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUninstallApplicationsStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUninstallApplicationsStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesSharingStatusRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesSharingStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesStatusRequest;
@@ -267,6 +305,122 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachApplication2ConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 挂载业务策略至指定审批流程
+     *  *
+     * @param AttachPolicy2ApprovalProcessRequest $request AttachPolicy2ApprovalProcessRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AttachPolicy2ApprovalProcessResponse AttachPolicy2ApprovalProcessResponse
+     */
+    public function attachPolicy2ApprovalProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $body['PolicyType'] = $request->policyType;
+        }
+        if (!Utils::isUnset($request->processId)) {
+            $body['ProcessId'] = $request->processId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachPolicy2ApprovalProcess',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachPolicy2ApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 挂载业务策略至指定审批流程
+     *  *
+     * @param AttachPolicy2ApprovalProcessRequest $request AttachPolicy2ApprovalProcessRequest
+     *
+     * @return AttachPolicy2ApprovalProcessResponse AttachPolicy2ApprovalProcessResponse
+     */
+    public function attachPolicy2ApprovalProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachPolicy2ApprovalProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 创建审批流程
+     *  *
+     * @param CreateApprovalProcessRequest $tmpReq  CreateApprovalProcessRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateApprovalProcessResponse CreateApprovalProcessResponse
+     */
+    public function createApprovalProcessWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateApprovalProcessShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->matchSchemas)) {
+            $request->matchSchemasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchSchemas, 'MatchSchemas', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->matchSchemasShrink)) {
+            $body['MatchSchemas'] = $request->matchSchemasShrink;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $body['ProcessName'] = $request->processName;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->processNodes)) {
+            $bodyFlat['ProcessNodes'] = $request->processNodes;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApprovalProcess',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 创建审批流程
+     *  *
+     * @param CreateApprovalProcessRequest $request CreateApprovalProcessRequest
+     *
+     * @return CreateApprovalProcessResponse CreateApprovalProcessResponse
+     */
+    public function createApprovalProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApprovalProcessWithOptions($request, $runtime);
     }
 
     /**
@@ -1100,6 +1254,55 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @summary 批量删除审批流程
+     *  *
+     * @param DeleteApprovalProcessesRequest $request DeleteApprovalProcessesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteApprovalProcessesResponse DeleteApprovalProcessesResponse
+     */
+    public function deleteApprovalProcessesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->processIds)) {
+            $bodyFlat['ProcessIds'] = $request->processIds;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApprovalProcesses',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量删除审批流程
+     *  *
+     * @param DeleteApprovalProcessesRequest $request DeleteApprovalProcessesRequest
+     *
+     * @return DeleteApprovalProcessesResponse DeleteApprovalProcessesResponse
+     */
+    public function deleteApprovalProcesses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApprovalProcessesWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 删除自定义身份源指定用户
      *  *
      * @param DeleteClientUserRequest $request DeleteClientUserRequest
@@ -1585,6 +1788,59 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @summary 解绑业务策略与审批流程
+     *  *
+     * @param DetachPolicy2ApprovalProcessRequest $request DetachPolicy2ApprovalProcessRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DetachPolicy2ApprovalProcessResponse DetachPolicy2ApprovalProcessResponse
+     */
+    public function detachPolicy2ApprovalProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->policyType)) {
+            $body['PolicyType'] = $request->policyType;
+        }
+        if (!Utils::isUnset($request->processId)) {
+            $body['ProcessId'] = $request->processId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachPolicy2ApprovalProcess',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachPolicy2ApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 解绑业务策略与审批流程
+     *  *
+     * @param DetachPolicy2ApprovalProcessRequest $request DetachPolicy2ApprovalProcessRequest
+     *
+     * @return DetachPolicy2ApprovalProcessResponse DetachPolicy2ApprovalProcessResponse
+     */
+    public function detachPolicy2ApprovalProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachPolicy2ApprovalProcessWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 批量查询用户设备列表
      *  *
      * @param ExportUserDevicesRequest $request ExportUserDevicesRequest
@@ -1710,6 +1966,175 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getActiveIdpConfigWithOptions($runtime);
+    }
+
+    /**
+     * @summary 查询审批
+     *  *
+     * @param GetApprovalRequest $request GetApprovalRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetApprovalResponse GetApprovalResponse
+     */
+    public function getApprovalWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApproval',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApprovalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询审批
+     *  *
+     * @param GetApprovalRequest $request GetApprovalRequest
+     *
+     * @return GetApprovalResponse GetApprovalResponse
+     */
+    public function getApproval($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApprovalWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询审批流程
+     *  *
+     * @param GetApprovalProcessRequest $request GetApprovalProcessRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetApprovalProcessResponse GetApprovalProcessResponse
+     */
+    public function getApprovalProcessWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApprovalProcess',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询审批流程
+     *  *
+     * @param GetApprovalProcessRequest $request GetApprovalProcessRequest
+     *
+     * @return GetApprovalProcessResponse GetApprovalProcessResponse
+     */
+    public function getApprovalProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApprovalProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询审批动态模板
+     *  *
+     * @param GetApprovalSchemaRequest $request GetApprovalSchemaRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetApprovalSchemaResponse GetApprovalSchemaResponse
+     */
+    public function getApprovalSchemaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApprovalSchema',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApprovalSchemaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询审批动态模板
+     *  *
+     * @param GetApprovalSchemaRequest $request GetApprovalSchemaRequest
+     *
+     * @return GetApprovalSchemaResponse GetApprovalSchemaResponse
+     */
+    public function getApprovalSchema($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApprovalSchemaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询自启动与防卸载策略配置
+     *  *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetBootAndAntiUninstallPolicyResponse GetBootAndAntiUninstallPolicyResponse
+     */
+    public function getBootAndAntiUninstallPolicyWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetBootAndAntiUninstallPolicy',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetBootAndAntiUninstallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询自启动与防卸载策略配置
+     *  *
+     * @return GetBootAndAntiUninstallPolicyResponse GetBootAndAntiUninstallPolicyResponse
+     */
+    public function getBootAndAntiUninstallPolicy()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getBootAndAntiUninstallPolicyWithOptions($runtime);
     }
 
     /**
@@ -2238,6 +2663,226 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsForPrivateAccessTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 列表查询审批流程
+     *  *
+     * @param ListApprovalProcessesRequest $request ListApprovalProcessesRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListApprovalProcessesResponse ListApprovalProcessesResponse
+     */
+    public function listApprovalProcessesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApprovalProcesses',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列表查询审批流程
+     *  *
+     * @param ListApprovalProcessesRequest $request ListApprovalProcessesRequest
+     *
+     * @return ListApprovalProcessesResponse ListApprovalProcessesResponse
+     */
+    public function listApprovalProcesses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApprovalProcessesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询审批渲染模板关联的流程
+     *  *
+     * @param ListApprovalProcessesForApprovalSchemasRequest $request ListApprovalProcessesForApprovalSchemasRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListApprovalProcessesForApprovalSchemasResponse ListApprovalProcessesForApprovalSchemasResponse
+     */
+    public function listApprovalProcessesForApprovalSchemasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApprovalProcessesForApprovalSchemas',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApprovalProcessesForApprovalSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询审批渲染模板关联的流程
+     *  *
+     * @param ListApprovalProcessesForApprovalSchemasRequest $request ListApprovalProcessesForApprovalSchemasRequest
+     *
+     * @return ListApprovalProcessesForApprovalSchemasResponse ListApprovalProcessesForApprovalSchemasResponse
+     */
+    public function listApprovalProcessesForApprovalSchemas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApprovalProcessesForApprovalSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 列表查询审批动态模板
+     *  *
+     * @param ListApprovalSchemasRequest $request ListApprovalSchemasRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListApprovalSchemasResponse ListApprovalSchemasResponse
+     */
+    public function listApprovalSchemasWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApprovalSchemas',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApprovalSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列表查询审批动态模板
+     *  *
+     * @param ListApprovalSchemasRequest $request ListApprovalSchemasRequest
+     *
+     * @return ListApprovalSchemasResponse ListApprovalSchemasResponse
+     */
+    public function listApprovalSchemas($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApprovalSchemasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询审批流程关联的渲染模板
+     *  *
+     * @param ListApprovalSchemasForApprovalProcessesRequest $request ListApprovalSchemasForApprovalProcessesRequest
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListApprovalSchemasForApprovalProcessesResponse ListApprovalSchemasForApprovalProcessesResponse
+     */
+    public function listApprovalSchemasForApprovalProcessesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApprovalSchemasForApprovalProcesses',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApprovalSchemasForApprovalProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询审批流程关联的渲染模板
+     *  *
+     * @param ListApprovalSchemasForApprovalProcessesRequest $request ListApprovalSchemasForApprovalProcessesRequest
+     *
+     * @return ListApprovalSchemasForApprovalProcessesResponse ListApprovalSchemasForApprovalProcessesResponse
+     */
+    public function listApprovalSchemasForApprovalProcesses($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApprovalSchemasForApprovalProcessesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量查询审批
+     *  *
+     * @param ListApprovalsRequest $request ListApprovalsRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListApprovalsResponse ListApprovalsResponse
+     */
+    public function listApprovalsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApprovals',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApprovalsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量查询审批
+     *  *
+     * @param ListApprovalsRequest $request ListApprovalsRequest
+     *
+     * @return ListApprovalsResponse ListApprovalsResponse
+     */
+    public function listApprovals($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApprovalsWithOptions($request, $runtime);
     }
 
     /**
@@ -3226,6 +3871,50 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @summary 列表查询卸载申请列表
+     *  *
+     * @param ListUninstallApplicationsRequest $request ListUninstallApplicationsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListUninstallApplicationsResponse ListUninstallApplicationsResponse
+     */
+    public function listUninstallApplicationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUninstallApplications',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUninstallApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 列表查询卸载申请列表
+     *  *
+     * @param ListUninstallApplicationsRequest $request ListUninstallApplicationsRequest
+     *
+     * @return ListUninstallApplicationsResponse ListUninstallApplicationsResponse
+     */
+    public function listUninstallApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUninstallApplicationsWithOptions($request, $runtime);
+    }
+
+    /**
      * @summary 列表查询用户应用权限
      *  *
      * @param ListUserApplicationsRequest $request ListUserApplicationsRequest
@@ -3625,6 +4314,191 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeUserSessionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新审批流程
+     *  *
+     * @param UpdateApprovalProcessRequest $tmpReq  UpdateApprovalProcessRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateApprovalProcessResponse UpdateApprovalProcessResponse
+     */
+    public function updateApprovalProcessWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateApprovalProcessShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->matchSchemas)) {
+            $request->matchSchemasShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchSchemas, 'MatchSchemas', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->matchSchemasShrink)) {
+            $body['MatchSchemas'] = $request->matchSchemasShrink;
+        }
+        if (!Utils::isUnset($request->processId)) {
+            $body['ProcessId'] = $request->processId;
+        }
+        if (!Utils::isUnset($request->processName)) {
+            $body['ProcessName'] = $request->processName;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->processNodes)) {
+            $bodyFlat['ProcessNodes'] = $request->processNodes;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApprovalProcess',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApprovalProcessResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新审批流程
+     *  *
+     * @param UpdateApprovalProcessRequest $request UpdateApprovalProcessRequest
+     *
+     * @return UpdateApprovalProcessResponse UpdateApprovalProcessResponse
+     */
+    public function updateApprovalProcess($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApprovalProcessWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 修改审批状态
+     *  *
+     * @param UpdateApprovalStatusRequest $request UpdateApprovalStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateApprovalStatusResponse UpdateApprovalStatusResponse
+     */
+    public function updateApprovalStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->approvalId)) {
+            $query['ApprovalId'] = $request->approvalId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApprovalStatus',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApprovalStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 修改审批状态
+     *  *
+     * @param UpdateApprovalStatusRequest $request UpdateApprovalStatusRequest
+     *
+     * @return UpdateApprovalStatusResponse UpdateApprovalStatusResponse
+     */
+    public function updateApprovalStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApprovalStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 更新自启动与防卸载策略配置
+     *  *
+     * @param UpdateBootAndAntiUninstallPolicyRequest $tmpReq  UpdateBootAndAntiUninstallPolicyRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateBootAndAntiUninstallPolicyResponse UpdateBootAndAntiUninstallPolicyResponse
+     */
+    public function updateBootAndAntiUninstallPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateBootAndAntiUninstallPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->blockContent)) {
+            $request->blockContentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->blockContent, 'BlockContent', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->allowReport)) {
+            $body['AllowReport'] = $request->allowReport;
+        }
+        if (!Utils::isUnset($request->blockContentShrink)) {
+            $body['BlockContent'] = $request->blockContentShrink;
+        }
+        if (!Utils::isUnset($request->isAntiUninstall)) {
+            $body['IsAntiUninstall'] = $request->isAntiUninstall;
+        }
+        if (!Utils::isUnset($request->isBoot)) {
+            $body['IsBoot'] = $request->isBoot;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+        if (!Utils::isUnset($request->whitelistUsers)) {
+            $bodyFlat['WhitelistUsers'] = $request->whitelistUsers;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateBootAndAntiUninstallPolicy',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateBootAndAntiUninstallPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 更新自启动与防卸载策略配置
+     *  *
+     * @param UpdateBootAndAntiUninstallPolicyRequest $request UpdateBootAndAntiUninstallPolicyRequest
+     *
+     * @return UpdateBootAndAntiUninstallPolicyResponse UpdateBootAndAntiUninstallPolicyResponse
+     */
+    public function updateBootAndAntiUninstallPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateBootAndAntiUninstallPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -4283,6 +5157,58 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 批量修改卸载申请状态
+     *  *
+     * @param UpdateUninstallApplicationsStatusRequest $request UpdateUninstallApplicationsStatusRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateUninstallApplicationsStatusResponse UpdateUninstallApplicationsStatusResponse
+     */
+    public function updateUninstallApplicationsStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUninstallApplicationsStatus',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUninstallApplicationsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 批量修改卸载申请状态
+     *  *
+     * @param UpdateUninstallApplicationsStatusRequest $request UpdateUninstallApplicationsStatusRequest
+     *
+     * @return UpdateUninstallApplicationsStatusResponse UpdateUninstallApplicationsStatusResponse
+     */
+    public function updateUninstallApplicationsStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUninstallApplicationsStatusWithOptions($request, $runtime);
     }
 
     /**

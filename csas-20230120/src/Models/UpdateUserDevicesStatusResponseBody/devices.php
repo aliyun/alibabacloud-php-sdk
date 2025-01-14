@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesStatusResponseBody;
 
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesStatusResponseBody\devices\netInterfaceInfo;
 use AlibabaCloud\Tea\Model;
 
 class devices extends Model
@@ -140,6 +141,11 @@ class devices extends Model
     public $nacStatus;
 
     /**
+     * @var netInterfaceInfo[]
+     */
+    public $netInterfaceInfo;
+
+    /**
      * @example Enabled
      *
      * @var string
@@ -179,31 +185,32 @@ class devices extends Model
      */
     public $username;
     protected $_name = [
-        'appStatus'     => 'AppStatus',
-        'appVersion'    => 'AppVersion',
-        'CPU'           => 'CPU',
-        'createTime'    => 'CreateTime',
-        'department'    => 'Department',
-        'deviceBelong'  => 'DeviceBelong',
-        'deviceModel'   => 'DeviceModel',
-        'deviceStatus'  => 'DeviceStatus',
-        'deviceTag'     => 'DeviceTag',
-        'deviceType'    => 'DeviceType',
-        'deviceVersion' => 'DeviceVersion',
-        'disk'          => 'Disk',
-        'dlpStatus'     => 'DlpStatus',
-        'hostname'      => 'Hostname',
-        'iaStatus'      => 'IaStatus',
-        'innerIP'       => 'InnerIP',
-        'mac'           => 'Mac',
-        'memory'        => 'Memory',
-        'nacStatus'     => 'NacStatus',
-        'paStatus'      => 'PaStatus',
-        'saseUserId'    => 'SaseUserId',
-        'sharingStatus' => 'SharingStatus',
-        'srcIP'         => 'SrcIP',
-        'updateTime'    => 'UpdateTime',
-        'username'      => 'Username',
+        'appStatus'        => 'AppStatus',
+        'appVersion'       => 'AppVersion',
+        'CPU'              => 'CPU',
+        'createTime'       => 'CreateTime',
+        'department'       => 'Department',
+        'deviceBelong'     => 'DeviceBelong',
+        'deviceModel'      => 'DeviceModel',
+        'deviceStatus'     => 'DeviceStatus',
+        'deviceTag'        => 'DeviceTag',
+        'deviceType'       => 'DeviceType',
+        'deviceVersion'    => 'DeviceVersion',
+        'disk'             => 'Disk',
+        'dlpStatus'        => 'DlpStatus',
+        'hostname'         => 'Hostname',
+        'iaStatus'         => 'IaStatus',
+        'innerIP'          => 'InnerIP',
+        'mac'              => 'Mac',
+        'memory'           => 'Memory',
+        'nacStatus'        => 'NacStatus',
+        'netInterfaceInfo' => 'NetInterfaceInfo',
+        'paStatus'         => 'PaStatus',
+        'saseUserId'       => 'SaseUserId',
+        'sharingStatus'    => 'SharingStatus',
+        'srcIP'            => 'SrcIP',
+        'updateTime'       => 'UpdateTime',
+        'username'         => 'Username',
     ];
 
     public function validate()
@@ -269,6 +276,15 @@ class devices extends Model
         }
         if (null !== $this->nacStatus) {
             $res['NacStatus'] = $this->nacStatus;
+        }
+        if (null !== $this->netInterfaceInfo) {
+            $res['NetInterfaceInfo'] = [];
+            if (null !== $this->netInterfaceInfo && \is_array($this->netInterfaceInfo)) {
+                $n = 0;
+                foreach ($this->netInterfaceInfo as $item) {
+                    $res['NetInterfaceInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->paStatus) {
             $res['PaStatus'] = $this->paStatus;
@@ -356,6 +372,15 @@ class devices extends Model
         }
         if (isset($map['NacStatus'])) {
             $model->nacStatus = $map['NacStatus'];
+        }
+        if (isset($map['NetInterfaceInfo'])) {
+            if (!empty($map['NetInterfaceInfo'])) {
+                $model->netInterfaceInfo = [];
+                $n                       = 0;
+                foreach ($map['NetInterfaceInfo'] as $item) {
+                    $model->netInterfaceInfo[$n++] = null !== $item ? netInterfaceInfo::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['PaStatus'])) {
             $model->paStatus = $map['PaStatus'];
