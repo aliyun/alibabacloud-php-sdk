@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Mnsopen\V20220119;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\AuthorizeEndpointAclRequest;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\AuthorizeEndpointAclResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\AuthorizeEndpointAclShrinkRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateQueueResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\CreateTopicRequest;
@@ -14,6 +17,12 @@ use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DeleteQueueRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DeleteQueueResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DeleteTopicRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DeleteTopicResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DisableEndpointRequest;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\DisableEndpointResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\EnableEndpointRequest;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\EnableEndpointResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetEndpointAttributeRequest;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetEndpointAttributeResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetQueueAttributesRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetQueueAttributesResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\GetSubscriptionAttributesRequest;
@@ -26,6 +35,9 @@ use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListSubscriptionByTopicRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListSubscriptionByTopicResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListTopicRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\ListTopicResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\RevokeEndpointAclRequest;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\RevokeEndpointAclResponse;
+use AlibabaCloud\SDK\Mnsopen\V20220119\Models\RevokeEndpointAclShrinkRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesRequest;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetQueueAttributesResponse;
 use AlibabaCloud\SDK\Mnsopen\V20220119\Models\SetSubscriptionAttributesRequest;
@@ -73,6 +85,64 @@ class Mnsopen extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @summary AuthorizeEndpointAcl
+     *  *
+     * @param AuthorizeEndpointAclRequest $tmpReq  AuthorizeEndpointAclRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AuthorizeEndpointAclResponse AuthorizeEndpointAclResponse
+     */
+    public function authorizeEndpointAclWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AuthorizeEndpointAclShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cidrList)) {
+            $request->cidrListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cidrList, 'CidrList', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aclStrategy)) {
+            $query['AclStrategy'] = $request->aclStrategy;
+        }
+        if (!Utils::isUnset($request->cidrListShrink)) {
+            $query['CidrList'] = $request->cidrListShrink;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AuthorizeEndpointAcl',
+            'version'     => '2022-01-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AuthorizeEndpointAclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary AuthorizeEndpointAcl
+     *  *
+     * @param AuthorizeEndpointAclRequest $request AuthorizeEndpointAclRequest
+     *
+     * @return AuthorizeEndpointAclResponse AuthorizeEndpointAclResponse
+     */
+    public function authorizeEndpointAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->authorizeEndpointAclWithOptions($request, $runtime);
     }
 
     /**
@@ -293,6 +363,147 @@ class Mnsopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteTopicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary DisableEndpoint
+     *  *
+     * @param DisableEndpointRequest $request DisableEndpointRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DisableEndpointResponse DisableEndpointResponse
+     */
+    public function disableEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableEndpoint',
+            'version'     => '2022-01-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary DisableEndpoint
+     *  *
+     * @param DisableEndpointRequest $request DisableEndpointRequest
+     *
+     * @return DisableEndpointResponse DisableEndpointResponse
+     */
+    public function disableEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary EnableEndpoint
+     *  *
+     * @param EnableEndpointRequest $request EnableEndpointRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableEndpointResponse EnableEndpointResponse
+     */
+    public function enableEndpointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableEndpoint',
+            'version'     => '2022-01-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary EnableEndpoint
+     *  *
+     * @param EnableEndpointRequest $request EnableEndpointRequest
+     *
+     * @return EnableEndpointResponse EnableEndpointResponse
+     */
+    public function enableEndpoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableEndpointWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary GetEndpointAttribute
+     *  *
+     * @param GetEndpointAttributeRequest $request GetEndpointAttributeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetEndpointAttributeResponse GetEndpointAttributeResponse
+     */
+    public function getEndpointAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetEndpointAttribute',
+            'version'     => '2022-01-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary GetEndpointAttribute
+     *  *
+     * @param GetEndpointAttributeRequest $request GetEndpointAttributeRequest
+     *
+     * @return GetEndpointAttributeResponse GetEndpointAttributeResponse
+     */
+    public function getEndpointAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEndpointAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -611,6 +822,64 @@ class Mnsopen extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTopicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary RevokeEndpointAcl
+     *  *
+     * @param RevokeEndpointAclRequest $tmpReq  RevokeEndpointAclRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RevokeEndpointAclResponse RevokeEndpointAclResponse
+     */
+    public function revokeEndpointAclWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RevokeEndpointAclShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cidrList)) {
+            $request->cidrListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cidrList, 'CidrList', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aclStrategy)) {
+            $query['AclStrategy'] = $request->aclStrategy;
+        }
+        if (!Utils::isUnset($request->cidrListShrink)) {
+            $query['CidrList'] = $request->cidrListShrink;
+        }
+        if (!Utils::isUnset($request->endpointType)) {
+            $query['EndpointType'] = $request->endpointType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RevokeEndpointAcl',
+            'version'     => '2022-01-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RevokeEndpointAclResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary RevokeEndpointAcl
+     *  *
+     * @param RevokeEndpointAclRequest $request RevokeEndpointAclRequest
+     *
+     * @return RevokeEndpointAclResponse RevokeEndpointAclResponse
+     */
+    public function revokeEndpointAcl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->revokeEndpointAclWithOptions($request, $runtime);
     }
 
     /**
