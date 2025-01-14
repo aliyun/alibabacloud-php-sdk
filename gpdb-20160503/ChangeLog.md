@@ -1,3 +1,15 @@
+2025-01-14 Version: 2.4.0
+- Support API CreateBackup.
+- Support API DeleteBackup.
+- Support API DescribeBackupJob.
+- Support API ListBackupJobs.
+- Update API CreateCollection: add param HnswEfConstruction.
+- Update API CreateDocumentCollection: add param HnswEfConstruction.
+- Update API CreateVectorIndex: add param HnswEfConstruction.
+- Update API CreateVectorIndex: update param AccessKeyId.
+- Update API ModifyMasterSpec: update param AccessKeyId.
+
+
 2025-01-10 Version: 2.3.0
 - Support API CreateBackup.
 - Support API DeleteBackup.

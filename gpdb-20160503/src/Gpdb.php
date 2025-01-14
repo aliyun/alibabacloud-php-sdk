@@ -1118,6 +1118,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->fullTextRetrievalFields)) {
             $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
         }
+        if (!Utils::isUnset($request->hnswEfConstruction)) {
+            $query['HnswEfConstruction'] = $request->hnswEfConstruction;
+        }
         if (!Utils::isUnset($request->hnswM)) {
             $query['HnswM'] = $request->hnswM;
         }
@@ -1524,6 +1527,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->fullTextRetrievalFields)) {
             $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
+        }
+        if (!Utils::isUnset($request->hnswEfConstruction)) {
+            $query['HnswEfConstruction'] = $request->hnswEfConstruction;
         }
         if (!Utils::isUnset($request->hnswM)) {
             $query['HnswM'] = $request->hnswM;
@@ -2443,6 +2449,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->externalStorage)) {
             $query['ExternalStorage'] = $request->externalStorage;
+        }
+        if (!Utils::isUnset($request->hnswEfConstruction)) {
+            $query['HnswEfConstruction'] = $request->hnswEfConstruction;
         }
         if (!Utils::isUnset($request->hnswM)) {
             $query['HnswM'] = $request->hnswM;

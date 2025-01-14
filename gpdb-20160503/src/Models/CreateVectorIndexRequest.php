@@ -47,6 +47,11 @@ class CreateVectorIndexRequest extends Model
     public $externalStorage;
 
     /**
+     * @var int
+     */
+    public $hnswEfConstruction;
+
+    /**
      * @description The maximum number of neighbors in the HNSW algorithm, ranging from 1 to 1000. The API will automatically set this value based on the vector dimension, and it generally does not need to be manually set.
      *
      * > - Greater than 1024: 128
@@ -123,6 +128,7 @@ class CreateVectorIndexRequest extends Model
         'DBInstanceId'           => 'DBInstanceId',
         'dimension'              => 'Dimension',
         'externalStorage'        => 'ExternalStorage',
+        'hnswEfConstruction'     => 'HnswEfConstruction',
         'hnswM'                  => 'HnswM',
         'managerAccount'         => 'ManagerAccount',
         'managerAccountPassword' => 'ManagerAccountPassword',
@@ -151,6 +157,9 @@ class CreateVectorIndexRequest extends Model
         }
         if (null !== $this->externalStorage) {
             $res['ExternalStorage'] = $this->externalStorage;
+        }
+        if (null !== $this->hnswEfConstruction) {
+            $res['HnswEfConstruction'] = $this->hnswEfConstruction;
         }
         if (null !== $this->hnswM) {
             $res['HnswM'] = $this->hnswM;
@@ -199,6 +208,9 @@ class CreateVectorIndexRequest extends Model
         }
         if (isset($map['ExternalStorage'])) {
             $model->externalStorage = $map['ExternalStorage'];
+        }
+        if (isset($map['HnswEfConstruction'])) {
+            $model->hnswEfConstruction = $map['HnswEfConstruction'];
         }
         if (isset($map['HnswM'])) {
             $model->hnswM = $map['HnswM'];

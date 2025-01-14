@@ -63,6 +63,11 @@ class CreateCollectionRequest extends Model
     public $fullTextRetrievalFields;
 
     /**
+     * @var string
+     */
+    public $hnswEfConstruction;
+
+    /**
      * @description The maximum number of neighbors for the Hierarchical Navigable Small World (HNSW) algorithm. Valid values: 1 to 1000. In most cases, this parameter is automatically configured based on the value of the Dimension parameter. You do not need to configure this parameter.
      *
      * >  We recommend that you configure this parameter based on the value of the Dimension parameter.
@@ -203,6 +208,7 @@ class CreateCollectionRequest extends Model
         'dimension'               => 'Dimension',
         'externalStorage'         => 'ExternalStorage',
         'fullTextRetrievalFields' => 'FullTextRetrievalFields',
+        'hnswEfConstruction'      => 'HnswEfConstruction',
         'hnswM'                   => 'HnswM',
         'managerAccount'          => 'ManagerAccount',
         'managerAccountPassword'  => 'ManagerAccountPassword',
@@ -238,6 +244,9 @@ class CreateCollectionRequest extends Model
         }
         if (null !== $this->fullTextRetrievalFields) {
             $res['FullTextRetrievalFields'] = $this->fullTextRetrievalFields;
+        }
+        if (null !== $this->hnswEfConstruction) {
+            $res['HnswEfConstruction'] = $this->hnswEfConstruction;
         }
         if (null !== $this->hnswM) {
             $res['HnswM'] = $this->hnswM;
@@ -301,6 +310,9 @@ class CreateCollectionRequest extends Model
         }
         if (isset($map['FullTextRetrievalFields'])) {
             $model->fullTextRetrievalFields = $map['FullTextRetrievalFields'];
+        }
+        if (isset($map['HnswEfConstruction'])) {
+            $model->hnswEfConstruction = $map['HnswEfConstruction'];
         }
         if (isset($map['HnswM'])) {
             $model->hnswM = $map['HnswM'];
