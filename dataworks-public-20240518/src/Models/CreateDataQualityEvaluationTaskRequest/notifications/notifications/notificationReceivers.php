@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class notificationReceivers extends Model
 {
     /**
-     * @description 扩展信息，格式为 json，例如钉钉机器人支持 at 所有人
+     * @description The additional parameters that are required when alerts are sent. The parameters are JSON-formatted strings. The following keys are supported:
+     *
+     *   atAll: specifies that all members in a group are mentioned when alerts are sent by using DingTalk. This parameter is valid only if you set ReceiverType to DingdingUrl.
      *
      * @example {  "atAll": true }
      *
@@ -18,7 +20,15 @@ class notificationReceivers extends Model
     public $extension;
 
     /**
-     * @description 告警接收人类型
+     * @description The type of the alert recipient.
+     *
+     * Valid values:
+     *
+     *   WebhookUrl
+     *   FeishuUrl
+     *   DingdingUrl
+     *   WeixinUrl
+     *   AliUid
      *
      * @example DingdingUrl
      *
@@ -27,7 +37,7 @@ class notificationReceivers extends Model
     public $receiverType;
 
     /**
-     * @description 告警接收人
+     * @description The alert recipient.
      *
      * @var string[]
      */

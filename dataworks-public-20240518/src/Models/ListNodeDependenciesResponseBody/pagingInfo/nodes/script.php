@@ -14,7 +14,7 @@ class script extends Model
      *
      * @example 853573334108680XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 

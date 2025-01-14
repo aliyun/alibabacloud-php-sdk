@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TriggerSchedulerTaskInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $envType;
+
+    /**
      * @description The task ID.
      *
      * This parameter is required.
@@ -28,6 +33,7 @@ class TriggerSchedulerTaskInstanceRequest extends Model
      */
     public $triggerTime;
     protected $_name = [
+        'envType'     => 'EnvType',
         'taskId'      => 'TaskId',
         'triggerTime' => 'TriggerTime',
     ];
@@ -39,6 +45,9 @@ class TriggerSchedulerTaskInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
+        }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -57,6 +66,9 @@ class TriggerSchedulerTaskInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

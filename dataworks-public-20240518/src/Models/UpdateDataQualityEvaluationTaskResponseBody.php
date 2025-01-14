@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataQualityEvaluationTaskResponseBody extends Model
 {
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 8abcb91f-d266-4073-b907-2ed670378ed1
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateDataQualityEvaluationTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

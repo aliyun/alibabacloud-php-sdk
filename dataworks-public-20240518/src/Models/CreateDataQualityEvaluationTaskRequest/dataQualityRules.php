@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class dataQualityRules extends Model
 {
     /**
+     * @description The check settings for sample data.
+     *
      * @var checkingConfig
      */
     public $checkingConfig;
 
     /**
+     * @description The description of the monitoring rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Specifies whether to enable the monitoring rule.
+     *
      * @example true
      *
      * @var bool
@@ -29,11 +35,15 @@ class dataQualityRules extends Model
     public $enabled;
 
     /**
+     * @description The operations that you can perform after the rule-based check.
+     *
      * @var errorHandlers[]
      */
     public $errorHandlers;
 
     /**
+     * @description The rule ID.
+     *
      * @example 2176
      *
      * @var int
@@ -41,16 +51,25 @@ class dataQualityRules extends Model
     public $id;
 
     /**
+     * @description The name of the monitoring rule.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The parameters required for sampling.
+     *
      * @var samplingConfig
      */
     public $samplingConfig;
 
     /**
+     * @description The strength of the monitoring rule. Valid values:
+     *
+     *   Normal
+     *   High
+     *
      * @example High
      *
      * @var string
@@ -58,6 +77,8 @@ class dataQualityRules extends Model
     public $severity;
 
     /**
+     * @description The ID of the template used by the monitoring rule.
+     *
      * @example SYSTEM:field:null_value:fixed:0
      *
      * @var string

@@ -18,7 +18,11 @@ class hooks extends Model
     public $condition;
 
     /**
-     * @description Hook类型
+     * @description The hook type. Only one hook type is supported.
+     *
+     * Valid values:
+     *
+     *   BlockTaskInstance: Blocks the running of scheduling tasks. A monitor is triggered by scheduling tasks. After a monitor finishes running, the monitor determines whether to block the running of scheduling tasks based on the hook condition.
      *
      * @example BlockTaskInstance
      *

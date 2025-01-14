@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class realtimeStartSettings extends Model
 {
     /**
+     * @deprecated
+     *
      * @var failoverSettings
      */
     public $failoverSettings;

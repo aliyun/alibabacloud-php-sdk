@@ -9,13 +9,24 @@ use AlibabaCloud\Tea\Model;
 class StopDIJobRequest extends Model
 {
     /**
+     * @description This parameter is deprecated and is replaced by the Id parameter.
+     *
+     * @example 11668
+     *
+     * @deprecated
+     *
+     * @var int
+     */
+    public $DIJobId;
+
+    /**
      * @description The ID of the synchronization task.
      *
      * @example 11668
      *
      * @var int
      */
-    public $DIJobId;
+    public $id;
 
     /**
      * @description The instance ID.
@@ -27,6 +38,7 @@ class StopDIJobRequest extends Model
     public $instanceId;
     protected $_name = [
         'DIJobId'    => 'DIJobId',
+        'id'         => 'Id',
         'instanceId' => 'InstanceId',
     ];
 
@@ -39,6 +51,9 @@ class StopDIJobRequest extends Model
         $res = [];
         if (null !== $this->DIJobId) {
             $res['DIJobId'] = $this->DIJobId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -57,6 +72,9 @@ class StopDIJobRequest extends Model
         $model = new self();
         if (isset($map['DIJobId'])) {
             $model->DIJobId = $map['DIJobId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class cycleAndTime extends Model
 {
     /**
-     * @description The ID of the scheduling cycle of the instance. Valid values: 1 to 288.
+     * @description The ID of the scheduling cycle of the instance. Valid values: [1,288].
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class cycleAndTime extends Model
     public $cycleId;
 
     /**
-     * @description The timeout period of instance running. The time is in the hh:mm format. Valid values of hh: 0 to 47. Valid values of mm: 0 to 59.
+     * @description The latest completion time of the instance within the scheduling cycle. The time is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
      *
      * @example 12:00
      *

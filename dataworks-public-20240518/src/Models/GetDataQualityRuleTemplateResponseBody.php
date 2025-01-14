@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataQualityRuleTemplateResponseBody extends Model
 {
     /**
+     * @description The information about the template.
+     *
      * @var dataQualityRuleTemplate
      */
     public $dataQualityRuleTemplate;

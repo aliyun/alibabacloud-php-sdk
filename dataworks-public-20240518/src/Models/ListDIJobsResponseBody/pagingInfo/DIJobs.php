@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DIJobs extends Model
 {
     /**
-     * @description The ID of the synchronization task.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
      * @example 32599
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -25,6 +27,15 @@ class DIJobs extends Model
      * @var string
      */
     public $destinationDataSourceType;
+
+    /**
+     * @description The ID of the synchronization task.
+     *
+     * @example 32599
+     *
+     * @var int
+     */
+    public $id;
 
     /**
      * @description The name of the synchronization task.
@@ -86,6 +97,7 @@ class DIJobs extends Model
     protected $_name = [
         'DIJobId'                   => 'DIJobId',
         'destinationDataSourceType' => 'DestinationDataSourceType',
+        'id'                        => 'Id',
         'jobName'                   => 'JobName',
         'jobStatus'                 => 'JobStatus',
         'migrationType'             => 'MigrationType',
@@ -105,6 +117,9 @@ class DIJobs extends Model
         }
         if (null !== $this->destinationDataSourceType) {
             $res['DestinationDataSourceType'] = $this->destinationDataSourceType;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
@@ -138,6 +153,9 @@ class DIJobs extends Model
         }
         if (isset($map['DestinationDataSourceType'])) {
             $model->destinationDataSourceType = $map['DestinationDataSourceType'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];

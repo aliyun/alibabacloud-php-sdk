@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsShrinkRequest extends Model
 {
     /**
+     * @example rg-aek2kqofrgXXXXX
+     *
+     * @var string
+     */
+    public $aliyunResourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $aliyunResourceTagsShrink;
+
+    /**
      * @description The name of a resource group, which is used for fuzzy match.
      *
      * @example Resource
@@ -18,7 +30,21 @@ class ListResourceGroupsShrinkRequest extends Model
     public $name;
 
     /**
-     * @description The billing method of resource groups. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description *
      *
      * @example PrePaid
      *
@@ -36,23 +62,31 @@ class ListResourceGroupsShrinkRequest extends Model
     public $projectId;
 
     /**
-     * @description The types of resource groups to query. If you do not configure this parameter, only serverless resource groups are returned by default.
-     *
      * @var string
      */
     public $resourceGroupTypesShrink;
 
     /**
-     * @description The statuses of resource groups.
+     * @example CreateTime Asc
      *
+     * @var string
+     */
+    public $sortBy;
+
+    /**
      * @var string
      */
     public $statusesShrink;
     protected $_name = [
+        'aliyunResourceGroupId'    => 'AliyunResourceGroupId',
+        'aliyunResourceTagsShrink' => 'AliyunResourceTags',
         'name'                     => 'Name',
+        'pageNumber'               => 'PageNumber',
+        'pageSize'                 => 'PageSize',
         'paymentType'              => 'PaymentType',
         'projectId'                => 'ProjectId',
         'resourceGroupTypesShrink' => 'ResourceGroupTypes',
+        'sortBy'                   => 'SortBy',
         'statusesShrink'           => 'Statuses',
     ];
 
@@ -63,8 +97,20 @@ class ListResourceGroupsShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunResourceGroupId) {
+            $res['AliyunResourceGroupId'] = $this->aliyunResourceGroupId;
+        }
+        if (null !== $this->aliyunResourceTagsShrink) {
+            $res['AliyunResourceTags'] = $this->aliyunResourceTagsShrink;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
@@ -74,6 +120,9 @@ class ListResourceGroupsShrinkRequest extends Model
         }
         if (null !== $this->resourceGroupTypesShrink) {
             $res['ResourceGroupTypes'] = $this->resourceGroupTypesShrink;
+        }
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
         if (null !== $this->statusesShrink) {
             $res['Statuses'] = $this->statusesShrink;
@@ -90,8 +139,20 @@ class ListResourceGroupsShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunResourceGroupId'])) {
+            $model->aliyunResourceGroupId = $map['AliyunResourceGroupId'];
+        }
+        if (isset($map['AliyunResourceTags'])) {
+            $model->aliyunResourceTagsShrink = $map['AliyunResourceTags'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
@@ -101,6 +162,9 @@ class ListResourceGroupsShrinkRequest extends Model
         }
         if (isset($map['ResourceGroupTypes'])) {
             $model->resourceGroupTypesShrink = $map['ResourceGroupTypes'];
+        }
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
         if (isset($map['Statuses'])) {
             $model->statusesShrink = $map['Statuses'];

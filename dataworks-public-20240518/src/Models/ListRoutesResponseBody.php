@@ -4,11 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesResponseBody\routeList;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListRoutesResponseBody\pagingInfo;
 use AlibabaCloud\Tea\Model;
 
 class ListRoutesResponseBody extends Model
 {
+    /**
+     * @var pagingInfo
+     */
+    public $pagingInfo;
+
     /**
      * @example 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
      *
@@ -17,22 +22,17 @@ class ListRoutesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The routes.
+     * @description Indicates whether the request was successful.
      *
-     * @var routeList[]
-     */
-    public $routeList;
-
-    /**
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'routeList' => 'RouteList',
-        'success'   => 'Success',
+        'pagingInfo' => 'PagingInfo',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
     ];
 
     public function validate()
@@ -42,17 +42,11 @@ class ListRoutesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pagingInfo) {
+            $res['PagingInfo'] = null !== $this->pagingInfo ? $this->pagingInfo->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->routeList) {
-            $res['RouteList'] = [];
-            if (null !== $this->routeList && \is_array($this->routeList)) {
-                $n = 0;
-                foreach ($this->routeList as $item) {
-                    $res['RouteList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -69,17 +63,11 @@ class ListRoutesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PagingInfo'])) {
+            $model->pagingInfo = pagingInfo::fromMap($map['PagingInfo']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RouteList'])) {
-            if (!empty($map['RouteList'])) {
-                $model->routeList = [];
-                $n                = 0;
-                foreach ($map['RouteList'] as $item) {
-                    $model->routeList[$n++] = null !== $item ? routeList::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

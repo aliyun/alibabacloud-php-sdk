@@ -62,6 +62,8 @@ class ListDataQualityResultsRequest extends Model
     public $dataQualityRuleId;
 
     /**
+     * @description The page number. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -69,6 +71,8 @@ class ListDataQualityResultsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -76,6 +80,8 @@ class ListDataQualityResultsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The DataWorks workspace ID.
+     *
      * @example 100
      *
      * @var int

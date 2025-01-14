@@ -68,6 +68,11 @@ class task extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $envType;
+
+    /**
      * @description The instance ID.
      *
      * @example 1234
@@ -152,6 +157,8 @@ class task extends Model
      *   Dev: development environment
      *
      * @example Prod
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -276,6 +283,7 @@ class task extends Model
         'dataSource'      => 'DataSource',
         'dependencies'    => 'Dependencies',
         'description'     => 'Description',
+        'envType'         => 'EnvType',
         'id'              => 'Id',
         'inputs'          => 'Inputs',
         'instanceMode'    => 'InstanceMode',
@@ -331,6 +339,9 @@ class task extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -442,6 +453,9 @@ class task extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

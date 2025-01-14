@@ -41,7 +41,7 @@ class ListResourcesRequest extends Model
      * This parameter is required.
      * @example 10002
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 

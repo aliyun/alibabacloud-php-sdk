@@ -22,7 +22,7 @@ class resource extends Model
      *
      * @example 860438872620113XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -56,7 +56,7 @@ class resource extends Model
      *
      * @example 10000
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 

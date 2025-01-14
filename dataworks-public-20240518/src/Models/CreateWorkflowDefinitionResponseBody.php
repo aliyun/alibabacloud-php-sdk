@@ -13,7 +13,7 @@ class CreateWorkflowDefinitionResponseBody extends Model
      *
      * @example 463497880880954XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 

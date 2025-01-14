@@ -45,13 +45,6 @@ class dataQualityRuleTemplate extends Model
     public $samplingConfig;
 
     /**
-     * @example 195820716552192
-     *
-     * @var int
-     */
-    public $tenantId;
-
-    /**
      * @example Project
      *
      * @var string
@@ -64,7 +57,6 @@ class dataQualityRuleTemplate extends Model
         'name'           => 'Name',
         'projectId'      => 'ProjectId',
         'samplingConfig' => 'SamplingConfig',
-        'tenantId'       => 'TenantId',
         'visibleScope'   => 'VisibleScope',
     ];
 
@@ -92,9 +84,6 @@ class dataQualityRuleTemplate extends Model
         }
         if (null !== $this->samplingConfig) {
             $res['SamplingConfig'] = null !== $this->samplingConfig ? $this->samplingConfig->toMap() : null;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
         }
         if (null !== $this->visibleScope) {
             $res['VisibleScope'] = $this->visibleScope;
@@ -128,9 +117,6 @@ class dataQualityRuleTemplate extends Model
         }
         if (isset($map['SamplingConfig'])) {
             $model->samplingConfig = samplingConfig::fromMap($map['SamplingConfig']);
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
         }
         if (isset($map['VisibleScope'])) {
             $model->visibleScope = $map['VisibleScope'];

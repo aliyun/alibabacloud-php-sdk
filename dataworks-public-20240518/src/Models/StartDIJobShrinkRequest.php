@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StartDIJobShrinkRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
      * @example 10000
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -25,12 +27,22 @@ class StartDIJobShrinkRequest extends Model
     public $forceToRerun;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example 10000
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $realtimeStartSettingsShrink;
     protected $_name = [
         'DIJobId'                     => 'DIJobId',
         'forceToRerun'                => 'ForceToRerun',
+        'id'                          => 'Id',
         'realtimeStartSettingsShrink' => 'RealtimeStartSettings',
     ];
 
@@ -46,6 +58,9 @@ class StartDIJobShrinkRequest extends Model
         }
         if (null !== $this->forceToRerun) {
             $res['ForceToRerun'] = $this->forceToRerun;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->realtimeStartSettingsShrink) {
             $res['RealtimeStartSettings'] = $this->realtimeStartSettingsShrink;
@@ -67,6 +82,9 @@ class StartDIJobShrinkRequest extends Model
         }
         if (isset($map['ForceToRerun'])) {
             $model->forceToRerun = $map['ForceToRerun'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['RealtimeStartSettings'])) {
             $model->realtimeStartSettingsShrink = $map['RealtimeStartSettings'];

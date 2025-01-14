@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceErrorCount extends Model
 {
     /**
-     * @description The number of instances on which an error occurs. Valid values: 1 to 10,000.
+     * @description The maximum number of instances on which an error occurs. Valid values: [1,10000].
      *
      * @example 5
      *

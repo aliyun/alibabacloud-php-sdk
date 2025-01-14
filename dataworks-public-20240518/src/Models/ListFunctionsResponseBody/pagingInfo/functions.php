@@ -131,7 +131,7 @@ class functions extends Model
      *
      * @example 580667964888595XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -172,7 +172,7 @@ class functions extends Model
      *
      * @example 307XXX
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 
@@ -202,12 +202,12 @@ class functions extends Model
      *
      * Valid values:
      *
-     *   MATH: mathematical operation function
-     *   AGGREGATE: aggregate function
-     *   STRING: string processing function
-     *   DATE: date function
-     *   ANALYTIC: window function
-     *   OTHER: others
+     *   Math: mathematical operation function
+     *   Aggregate: aggregate function
+     *   String: string processing function
+     *   Date: date function
+     *   Analytic: window function
+     *   Other: other functions
      *
      * @example MATH
      *

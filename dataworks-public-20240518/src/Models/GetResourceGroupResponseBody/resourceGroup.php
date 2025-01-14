@@ -4,11 +4,24 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupResponseBody;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupResponseBody\resourceGroup\aliyunResourceTags;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetResourceGroupResponseBody\resourceGroup\spec;
 use AlibabaCloud\Tea\Model;
 
 class resourceGroup extends Model
 {
+    /**
+     * @example rg-aek2kqofrgXXXXX
+     *
+     * @var string
+     */
+    public $aliyunResourceGroupId;
+
+    /**
+     * @var aliyunResourceTags[]
+     */
+    public $aliyunResourceTags;
+
     /**
      * @example 1727055811000
      *
@@ -113,18 +126,20 @@ class resourceGroup extends Model
      */
     public $status;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'createUser'        => 'CreateUser',
-        'defaultVpcId'      => 'DefaultVpcId',
-        'defaultVswitchId'  => 'DefaultVswitchId',
-        'id'                => 'Id',
-        'name'              => 'Name',
-        'orderInstanceId'   => 'OrderInstanceId',
-        'paymentType'       => 'PaymentType',
-        'remark'            => 'Remark',
-        'resourceGroupType' => 'ResourceGroupType',
-        'spec'              => 'Spec',
-        'status'            => 'Status',
+        'aliyunResourceGroupId' => 'AliyunResourceGroupId',
+        'aliyunResourceTags'    => 'AliyunResourceTags',
+        'createTime'            => 'CreateTime',
+        'createUser'            => 'CreateUser',
+        'defaultVpcId'          => 'DefaultVpcId',
+        'defaultVswitchId'      => 'DefaultVswitchId',
+        'id'                    => 'Id',
+        'name'                  => 'Name',
+        'orderInstanceId'       => 'OrderInstanceId',
+        'paymentType'           => 'PaymentType',
+        'remark'                => 'Remark',
+        'resourceGroupType'     => 'ResourceGroupType',
+        'spec'                  => 'Spec',
+        'status'                => 'Status',
     ];
 
     public function validate()
@@ -134,6 +149,18 @@ class resourceGroup extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunResourceGroupId) {
+            $res['AliyunResourceGroupId'] = $this->aliyunResourceGroupId;
+        }
+        if (null !== $this->aliyunResourceTags) {
+            $res['AliyunResourceTags'] = [];
+            if (null !== $this->aliyunResourceTags && \is_array($this->aliyunResourceTags)) {
+                $n = 0;
+                foreach ($this->aliyunResourceTags as $item) {
+                    $res['AliyunResourceTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -182,6 +209,18 @@ class resourceGroup extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunResourceGroupId'])) {
+            $model->aliyunResourceGroupId = $map['AliyunResourceGroupId'];
+        }
+        if (isset($map['AliyunResourceTags'])) {
+            if (!empty($map['AliyunResourceTags'])) {
+                $model->aliyunResourceTags = [];
+                $n                         = 0;
+                foreach ($map['AliyunResourceTags'] as $item) {
+                    $model->aliyunResourceTags[$n++] = null !== $item ? aliyunResourceTags::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }

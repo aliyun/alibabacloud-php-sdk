@@ -14,7 +14,7 @@ class dataSource extends Model
      *   Dev: development environment
      *   Prod: production environment
      *
-     * The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/zh/dataworks/developer-reference/data-source-connection-information-connectionproperties/?spm=a2c4g.11186623.0.0.3fbb6fe7fo5AMK).
+     * The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/document_detail/2852465.html).
      * @example {
      * }
      * @var mixed

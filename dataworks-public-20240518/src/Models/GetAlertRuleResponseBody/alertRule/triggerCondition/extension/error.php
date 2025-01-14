@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class error extends Model
 {
     /**
-     * @description Indicates whether an alert is triggered if a batch synchronization task is automatically rerun upon a failure.
-     *
-     * @example false
-     *
      * @var bool
      */
-    public $autoRerunAlert;
+    public $autoRerunAlertEnabled;
 
     /**
      * @description The IDs of the real-time computing tasks. This parameter is required when you monitor real-time computing tasks.
@@ -24,8 +20,8 @@ class error extends Model
      */
     public $streamTaskIds;
     protected $_name = [
-        'autoRerunAlert' => 'AutoRerunAlert',
-        'streamTaskIds'  => 'StreamTaskIds',
+        'autoRerunAlertEnabled' => 'AutoRerunAlertEnabled',
+        'streamTaskIds'         => 'StreamTaskIds',
     ];
 
     public function validate()
@@ -35,8 +31,8 @@ class error extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->autoRerunAlert) {
-            $res['AutoRerunAlert'] = $this->autoRerunAlert;
+        if (null !== $this->autoRerunAlertEnabled) {
+            $res['AutoRerunAlertEnabled'] = $this->autoRerunAlertEnabled;
         }
         if (null !== $this->streamTaskIds) {
             $res['StreamTaskIds'] = $this->streamTaskIds;
@@ -53,8 +49,8 @@ class error extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoRerunAlert'])) {
-            $model->autoRerunAlert = $map['AutoRerunAlert'];
+        if (isset($map['AutoRerunAlertEnabled'])) {
+            $model->autoRerunAlertEnabled = $map['AutoRerunAlertEnabled'];
         }
         if (isset($map['StreamTaskIds'])) {
             if (!empty($map['StreamTaskIds'])) {

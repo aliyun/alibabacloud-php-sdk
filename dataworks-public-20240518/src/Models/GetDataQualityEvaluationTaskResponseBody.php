@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataQualityEvaluationTaskResponseBody extends Model
 {
     /**
+     * @description The details of the monitor.
+     *
      * @var dataQualityEvaluationTask
      */
     public $dataQualityEvaluationTask;

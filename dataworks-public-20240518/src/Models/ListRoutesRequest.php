@@ -16,8 +16,32 @@ class ListRoutesRequest extends Model
      * @var int
      */
     public $networkId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example CreateTime Asc
+     *
+     * @var string
+     */
+    public $sortBy;
     protected $_name = [
-        'networkId' => 'NetworkId',
+        'networkId'  => 'NetworkId',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'sortBy'     => 'SortBy',
     ];
 
     public function validate()
@@ -29,6 +53,15 @@ class ListRoutesRequest extends Model
         $res = [];
         if (null !== $this->networkId) {
             $res['NetworkId'] = $this->networkId;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
 
         return $res;
@@ -44,6 +77,15 @@ class ListRoutesRequest extends Model
         $model = new self();
         if (isset($map['NetworkId'])) {
             $model->networkId = $map['NetworkId'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
 
         return $model;

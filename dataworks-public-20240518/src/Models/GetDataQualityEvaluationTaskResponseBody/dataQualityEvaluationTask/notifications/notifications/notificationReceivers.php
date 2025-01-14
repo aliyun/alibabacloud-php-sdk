@@ -18,7 +18,17 @@ class notificationReceivers extends Model
     public $extension;
 
     /**
-     * @description 告警接收人类型
+     * @description The additional parameters that are required when alerts are sent. The parameters are JSON-formatted strings. The following keys are supported:
+     *
+     *   atAll: specifies that all members in a group are mentioned when alerts are sent by using DingTalk. This parameter is valid only if you set ReceiverType to DingdingUrl.
+     *
+     * Valid values:
+     *
+     *   WebhookUrl
+     *   FeishuUrl
+     *   DingdingUrl
+     *   WeixinUrl
+     *   AliUid
      *
      * @example DingdingUrl
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataQualityRuleRequest extends Model
 {
     /**
+     * @description This parameter is required.
+     *
      * @example 19715
      *
      * @var int

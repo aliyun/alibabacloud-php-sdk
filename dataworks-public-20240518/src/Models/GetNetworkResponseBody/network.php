@@ -44,6 +44,14 @@ class network extends Model
     public $securityGroupId;
 
     /**
+     * @description The status of the network resource. Valid values:
+     *
+     *   Pending: The network resource is waiting to be created.
+     *   Creating: The network resource is being created.
+     *   Running: The network resource is running as expected.
+     *   Deleting: The network resource is being deleted.
+     *   Deleted: The network resource is deleted.
+     *
      * @example Running
      *
      * @var string

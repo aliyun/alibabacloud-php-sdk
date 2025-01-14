@@ -14,7 +14,7 @@ class RenameNodeRequest extends Model
      * This parameter is required.
      * @example 652567824470354XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -32,7 +32,7 @@ class RenameNodeRequest extends Model
      * This parameter is required.
      * @example 12345
      *
-     * @var string
+     * @var int
      */
     public $projectId;
     protected $_name = [

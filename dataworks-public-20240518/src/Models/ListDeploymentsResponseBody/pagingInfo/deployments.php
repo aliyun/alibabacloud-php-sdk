@@ -57,7 +57,7 @@ class deployments extends Model
      *
      * @example 44683
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 
@@ -73,12 +73,12 @@ class deployments extends Model
      *
      * Valid values:
      *
-     *   INIT
-     *   RUNNING
-     *   FAIL
-     *   SUCCESS
-     *   TERMINATION
-     *   CANCEL
+     *   Init
+     *   Running
+     *   Success
+     *   Fail
+     *   Termination
+     *   Cancel
      *
      * @example RUNNING
      *

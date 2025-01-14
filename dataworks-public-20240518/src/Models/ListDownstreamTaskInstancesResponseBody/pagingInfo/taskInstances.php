@@ -64,6 +64,11 @@ class taskInstances extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $envType;
+
+    /**
      * @description The time when the instance finished running.
      *
      * @example 1710239005403
@@ -109,6 +114,8 @@ class taskInstances extends Model
     public $owner;
 
     /**
+     * @description The sequence number of the cycle. This parameter indicates the cycle of the task instance on the current day.
+     *
      * @example 1
      *
      * @var int
@@ -133,6 +140,8 @@ class taskInstances extends Model
      *   Dev: development environment
      *
      * @example Prod
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -215,6 +224,13 @@ class taskInstances extends Model
     public $status;
 
     /**
+     * @description The dependency type.
+     *
+     * @var string
+     */
+    public $stepType;
+
+    /**
      * @description The ID of the task for which the instance is generated.
      *
      * @example 1234
@@ -251,6 +267,7 @@ class taskInstances extends Model
     /**
      * @description The timeout period of task running. Unit: seconds.
      *
+     * Note: The value of this parameter is rounded up by hour.
      * @example 1
      *
      * @var int
@@ -344,6 +361,7 @@ class taskInstances extends Model
         'createUser'           => 'CreateUser',
         'dataSource'           => 'DataSource',
         'description'          => 'Description',
+        'envType'              => 'EnvType',
         'finishedTime'         => 'FinishedTime',
         'id'                   => 'Id',
         'modifyTime'           => 'ModifyTime',
@@ -359,6 +377,7 @@ class taskInstances extends Model
         'runtimeResource'      => 'RuntimeResource',
         'startedTime'          => 'StartedTime',
         'status'               => 'Status',
+        'stepType'             => 'StepType',
         'taskId'               => 'TaskId',
         'taskName'             => 'TaskName',
         'taskType'             => 'TaskType',
@@ -397,6 +416,9 @@ class taskInstances extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
         if (null !== $this->finishedTime) {
             $res['FinishedTime'] = $this->finishedTime;
@@ -442,6 +464,9 @@ class taskInstances extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->stepType) {
+            $res['StepType'] = $this->stepType;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -509,6 +534,9 @@ class taskInstances extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
+        }
         if (isset($map['FinishedTime'])) {
             $model->finishedTime = $map['FinishedTime'];
         }
@@ -553,6 +581,9 @@ class taskInstances extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StepType'])) {
+            $model->stepType = $map['StepType'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

@@ -13,7 +13,7 @@ class CreateNetworkResponseBody extends Model
      *
      * @var int
      */
-    public $networkId;
+    public $id;
 
     /**
      * @example 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -29,7 +29,7 @@ class CreateNetworkResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'networkId' => 'NetworkId',
+        'id'        => 'Id',
         'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
@@ -41,8 +41,8 @@ class CreateNetworkResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->networkId) {
-            $res['NetworkId'] = $this->networkId;
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -62,8 +62,8 @@ class CreateNetworkResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NetworkId'])) {
-            $model->networkId = $map['NetworkId'];
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

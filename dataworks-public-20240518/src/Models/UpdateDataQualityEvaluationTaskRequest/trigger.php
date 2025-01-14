@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class trigger extends Model
 {
     /**
-     * @description 具体指明哪些调度节点的实例执行成功后可以触发
+     * @description The IDs of scheduling tasks. This parameter is valid only if you set Type to ByScheduledTaskInstance.
      *
      * @var int[]
      */
     public $taskIds;
 
     /**
-     * @description 何种事件可以触发质量校验任务执行
+     * @description The trigger type of the monitor.
+     *
+     * Valid values:
+     *
+     *   ByScheduledTaskInstance: The monitor is triggered by the associated scheduling tasks.
+     *   ByManual: The monitor is manually triggered.
      *
      * @example ByScheduledTaskInstance
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDIAlarmRulesRequest extends Model
 {
     /**
-     * @description The ID of the alert rule.
+     * @description The ID of the alert rule. If you leave this parameter empty, all alert rules of the task are queried.
      *
      * @example 34988
      *
@@ -18,7 +18,7 @@ class ListDIAlarmRulesRequest extends Model
     public $DIAlarmRuleId;
 
     /**
-     * @description The ID of the synchronization task for which alert rules are configured.
+     * @description The ID of the task for which alert rules are configured.
      *
      * @example 1000001
      *

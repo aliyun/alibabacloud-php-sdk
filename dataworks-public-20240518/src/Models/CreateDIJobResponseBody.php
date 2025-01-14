@@ -9,13 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateDIJobResponseBody extends Model
 {
     /**
+     * @description This parameter is deprecated and is replaced by the Id parameter.
+     *
+     * @example 11792
+     *
+     * @deprecated
+     *
+     * @var int
+     */
+    public $DIJobId;
+
+    /**
      * @description The ID of the synchronization task.
      *
      * @example 11792
      *
      * @var int
      */
-    public $DIJobId;
+    public $id;
 
     /**
      * @description The request ID. You can use the ID to query logs and troubleshoot issues.
@@ -27,6 +38,7 @@ class CreateDIJobResponseBody extends Model
     public $requestId;
     protected $_name = [
         'DIJobId'   => 'DIJobId',
+        'id'        => 'Id',
         'requestId' => 'RequestId',
     ];
 
@@ -39,6 +51,9 @@ class CreateDIJobResponseBody extends Model
         $res = [];
         if (null !== $this->DIJobId) {
             $res['DIJobId'] = $this->DIJobId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,6 +72,9 @@ class CreateDIJobResponseBody extends Model
         $model = new self();
         if (isset($map['DIJobId'])) {
             $model->DIJobId = $map['DIJobId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

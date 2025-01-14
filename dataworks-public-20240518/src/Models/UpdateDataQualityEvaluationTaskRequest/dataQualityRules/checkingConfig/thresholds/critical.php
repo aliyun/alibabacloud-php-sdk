@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class critical extends Model
 {
     /**
+     * @description The comparison operator. Valid values:
+     *
+     * Valid values:
+     *
+     *   <=
+     *   <
+     *   ! =
+     *   \\=
+     *   \\>
+     *   \\>=
+     *
      * @example >
      *
      * @var string
@@ -16,6 +27,8 @@ class critical extends Model
     public $operator;
 
     /**
+     * @description The threshold value.
+     *
      * @example 0.01
      *
      * @var string

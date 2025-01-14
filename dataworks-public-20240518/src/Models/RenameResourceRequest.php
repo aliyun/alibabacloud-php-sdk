@@ -14,7 +14,7 @@ class RenameResourceRequest extends Model
      * This parameter is required.
      * @example 543217824470354XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -32,7 +32,7 @@ class RenameResourceRequest extends Model
      * This parameter is required.
      * @example 10000
      *
-     * @var string
+     * @var int
      */
     public $projectId;
     protected $_name = [

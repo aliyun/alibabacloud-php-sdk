@@ -34,10 +34,11 @@ class CreateDIJobShrinkRequest extends Model
     public $destinationDataSourceType;
 
     /**
-     * @description The name of the synchronization task.
+     * @description This parameter is deprecated and is replaced by the Name parameter.
      *
-     * This parameter is required.
      * @example mysql_to_holo_sync_8772
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -65,6 +66,15 @@ class CreateDIJobShrinkRequest extends Model
      * @var string
      */
     public $migrationType;
+
+    /**
+     * @description The name of the synchronization task.
+     *
+     * @example mysql_to_holo_sync_8772
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID.
@@ -123,6 +133,7 @@ class CreateDIJobShrinkRequest extends Model
         'jobName'                             => 'JobName',
         'jobSettingsShrink'                   => 'JobSettings',
         'migrationType'                       => 'MigrationType',
+        'name'                                => 'Name',
         'projectId'                           => 'ProjectId',
         'resourceSettingsShrink'              => 'ResourceSettings',
         'sourceDataSourceSettingsShrink'      => 'SourceDataSourceSettings',
@@ -155,6 +166,9 @@ class CreateDIJobShrinkRequest extends Model
         }
         if (null !== $this->migrationType) {
             $res['MigrationType'] = $this->migrationType;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -203,6 +217,9 @@ class CreateDIJobShrinkRequest extends Model
         }
         if (isset($map['MigrationType'])) {
             $model->migrationType = $map['MigrationType'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];

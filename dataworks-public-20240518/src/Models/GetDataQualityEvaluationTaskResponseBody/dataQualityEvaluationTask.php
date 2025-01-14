@@ -20,7 +20,7 @@ class dataQualityEvaluationTask extends Model
     public $description;
 
     /**
-     * @description 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+     * @description The hook.
      *
      * @var hooks[]
      */
@@ -44,7 +44,7 @@ class dataQualityEvaluationTask extends Model
     public $name;
 
     /**
-     * @description 数据质量校验任务通知订阅配置
+     * @description The configurations of alert notifications.
      *
      * @var notifications
      */
@@ -69,14 +69,14 @@ class dataQualityEvaluationTask extends Model
     public $runtimeConf;
 
     /**
-     * @description 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+     * @description The monitored object of the monitor.
      *
      * @var target
      */
     public $target;
 
     /**
-     * @description 数据质量校验任务的触发配置
+     * @description The trigger configuration of the monitor.
      *
      * @var trigger
      */

@@ -64,9 +64,6 @@ class tasks extends Model
     public $id;
 
     /**
-     * @description 实例生成模式。
-     *
-     * Immediately（立即生成）
      * @example T+1
      *
      * @var string
@@ -180,6 +177,11 @@ class tasks extends Model
     public $runtimeResource;
 
     /**
+     * @var string
+     */
+    public $scriptParameters;
+
+    /**
      * @description The tenant ID.
      *
      * @example 1
@@ -222,29 +224,30 @@ class tasks extends Model
      */
     public $workflowId;
     protected $_name = [
-        'baselineId'      => 'BaselineId',
-        'createTime'      => 'CreateTime',
-        'createUser'      => 'CreateUser',
-        'dataSource'      => 'DataSource',
-        'description'     => 'Description',
-        'id'              => 'Id',
-        'instanceMode'    => 'InstanceMode',
-        'modifyTime'      => 'ModifyTime',
-        'modifyUser'      => 'ModifyUser',
-        'name'            => 'Name',
-        'owner'           => 'Owner',
-        'priority'        => 'Priority',
-        'projectEnv'      => 'ProjectEnv',
-        'projectId'       => 'ProjectId',
-        'rerunInterval'   => 'RerunInterval',
-        'rerunMode'       => 'RerunMode',
-        'rerunTimes'      => 'RerunTimes',
-        'runtimeResource' => 'RuntimeResource',
-        'tenantId'        => 'TenantId',
-        'timeout'         => 'Timeout',
-        'trigger'         => 'Trigger',
-        'type'            => 'Type',
-        'workflowId'      => 'WorkflowId',
+        'baselineId'       => 'BaselineId',
+        'createTime'       => 'CreateTime',
+        'createUser'       => 'CreateUser',
+        'dataSource'       => 'DataSource',
+        'description'      => 'Description',
+        'id'               => 'Id',
+        'instanceMode'     => 'InstanceMode',
+        'modifyTime'       => 'ModifyTime',
+        'modifyUser'       => 'ModifyUser',
+        'name'             => 'Name',
+        'owner'            => 'Owner',
+        'priority'         => 'Priority',
+        'projectEnv'       => 'ProjectEnv',
+        'projectId'        => 'ProjectId',
+        'rerunInterval'    => 'RerunInterval',
+        'rerunMode'        => 'RerunMode',
+        'rerunTimes'       => 'RerunTimes',
+        'runtimeResource'  => 'RuntimeResource',
+        'scriptParameters' => 'ScriptParameters',
+        'tenantId'         => 'TenantId',
+        'timeout'          => 'Timeout',
+        'trigger'          => 'Trigger',
+        'type'             => 'Type',
+        'workflowId'       => 'WorkflowId',
     ];
 
     public function validate()
@@ -307,6 +310,9 @@ class tasks extends Model
         }
         if (null !== $this->runtimeResource) {
             $res['RuntimeResource'] = null !== $this->runtimeResource ? $this->runtimeResource->toMap() : null;
+        }
+        if (null !== $this->scriptParameters) {
+            $res['ScriptParameters'] = $this->scriptParameters;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -388,6 +394,9 @@ class tasks extends Model
         }
         if (isset($map['RuntimeResource'])) {
             $model->runtimeResource = runtimeResource::fromMap($map['RuntimeResource']);
+        }
+        if (isset($map['ScriptParameters'])) {
+            $model->scriptParameters = $map['ScriptParameters'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

@@ -15,9 +15,16 @@ class notificationSettings extends Model
      *
      * @example 5
      *
+     * @deprecated
+     *
      * @var int
      */
     public $inhibitionInterval;
+
+    /**
+     * @var int
+     */
+    public $muteInterval;
 
     /**
      * @description The alert notification methods.
@@ -34,6 +41,7 @@ class notificationSettings extends Model
     public $notificationReceivers;
     protected $_name = [
         'inhibitionInterval'    => 'InhibitionInterval',
+        'muteInterval'          => 'MuteInterval',
         'notificationChannels'  => 'NotificationChannels',
         'notificationReceivers' => 'NotificationReceivers',
     ];
@@ -47,6 +55,9 @@ class notificationSettings extends Model
         $res = [];
         if (null !== $this->inhibitionInterval) {
             $res['InhibitionInterval'] = $this->inhibitionInterval;
+        }
+        if (null !== $this->muteInterval) {
+            $res['MuteInterval'] = $this->muteInterval;
         }
         if (null !== $this->notificationChannels) {
             $res['NotificationChannels'] = [];
@@ -80,6 +91,9 @@ class notificationSettings extends Model
         $model = new self();
         if (isset($map['InhibitionInterval'])) {
             $model->inhibitionInterval = $map['InhibitionInterval'];
+        }
+        if (isset($map['MuteInterval'])) {
+            $model->muteInterval = $map['MuteInterval'];
         }
         if (isset($map['NotificationChannels'])) {
             if (!empty($map['NotificationChannels'])) {

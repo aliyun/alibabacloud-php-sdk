@@ -14,7 +14,7 @@ class CreateNodeRequest extends Model
      * >  If you configure this parameter, the path field defined in FlowSpec becomes invalid.
      * @example a7ef0634-20ec-4a7c-a214-54020f91XXXX
      *
-     * @var string
+     * @var int
      */
     public $containerId;
 
@@ -24,7 +24,7 @@ class CreateNodeRequest extends Model
      * This parameter is required.
      * @example 123456
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataQualityEvaluationTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the new monitor.
+     *
      * @example 10001
      *
      * @var int

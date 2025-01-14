@@ -69,6 +69,11 @@ class UpdateProjectRequest extends Model
     public $paiTaskEnabled;
 
     /**
+     * @description Specifies whether to disable or enable the workspace. Valid values:
+     *
+     *   Available: enables the workspace.
+     *   Forbidden: disables the workspace.
+     *
      * @example Forbidden
      *
      * @var string

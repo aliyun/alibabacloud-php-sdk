@@ -57,7 +57,7 @@ class pipeline extends Model
      *
      * @example 56160
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 
@@ -73,12 +73,12 @@ class pipeline extends Model
      *
      * Valid values:
      *
-     *   INIT
-     *   RUNNING
-     *   SUCCESS
-     *   FAIL
-     *   TERMINATION
-     *   CANCEL
+     *   Init
+     *   Running
+     *   Success
+     *   Fail
+     *   Termination
+     *   Cancel
      *
      * @example RUNNING
      *

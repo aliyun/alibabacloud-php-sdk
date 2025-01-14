@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetNetworkResponseBody extends Model
 {
     /**
+     * @description The information about the network resource.
+     *
      * @var network
      */
     public $network;
@@ -22,6 +24,8 @@ class GetNetworkResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

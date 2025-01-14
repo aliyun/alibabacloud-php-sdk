@@ -13,7 +13,7 @@ class ListNodesRequest extends Model
      *
      * @example 860438872620113XXXX
      *
-     * @var string
+     * @var int
      */
     public $containerId;
 
@@ -41,11 +41,13 @@ class ListNodesRequest extends Model
      * This parameter is required.
      * @example 12345
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $recurrence;

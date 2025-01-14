@@ -85,6 +85,11 @@ class ListDataSourcesShrinkRequest extends Model
     public $sortBy;
 
     /**
+     * @description The tag of the data source. This parameter specifies a filter condition.
+     *
+     *   You can specify multiple tags, which are in the logical AND relation. For example, you can query the data sources that contain the following tags: `["tag1", "tag2", "tag3"]`.
+     *   If you do not configure this parameter, tag-based filtering is not performed.
+     *
      * @example ["tag1", "tag2", "tag3"]
      *
      * @var string

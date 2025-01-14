@@ -55,6 +55,11 @@ class tasks extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $envType;
+
+    /**
      * @description The task ID.
      *
      * @example 1234
@@ -64,6 +69,9 @@ class tasks extends Model
     public $id;
 
     /**
+     * @description The instance generation mode. Valid values:
+     *
+     * Immediately
      * @example T+1
      *
      * @var string
@@ -123,6 +131,8 @@ class tasks extends Model
      *
      * @example Prod
      *
+     * @deprecated
+     *
      * @var string
      */
     public $projectEnv;
@@ -177,6 +187,9 @@ class tasks extends Model
     public $runtimeResource;
 
     /**
+     * @description The scheduling dependency type. Valid values:
+     *
+     * CrossCycle: cross-cycle scheduling dependency
      * @example Normal
      *
      * @var string
@@ -231,6 +244,7 @@ class tasks extends Model
         'createUser'      => 'CreateUser',
         'dataSource'      => 'DataSource',
         'description'     => 'Description',
+        'envType'         => 'EnvType',
         'id'              => 'Id',
         'instanceMode'    => 'InstanceMode',
         'modifyTime'      => 'ModifyTime',
@@ -273,6 +287,9 @@ class tasks extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -357,6 +374,9 @@ class tasks extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

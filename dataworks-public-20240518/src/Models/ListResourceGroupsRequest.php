@@ -4,10 +4,23 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListResourceGroupsRequest\aliyunResourceTags;
 use AlibabaCloud\Tea\Model;
 
 class ListResourceGroupsRequest extends Model
 {
+    /**
+     * @example rg-aek2kqofrgXXXXX
+     *
+     * @var string
+     */
+    public $aliyunResourceGroupId;
+
+    /**
+     * @var aliyunResourceTags[]
+     */
+    public $aliyunResourceTags;
+
     /**
      * @description The name of a resource group, which is used for fuzzy match.
      *
@@ -18,7 +31,21 @@ class ListResourceGroupsRequest extends Model
     public $name;
 
     /**
-     * @description The billing method of resource groups. Valid values: PrePaid and PostPaid. The value PrePaid indicates the subscription billing method, and the value PostPaid indicates the pay-as-you-go billing method.
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description *
      *
      * @example PrePaid
      *
@@ -36,24 +63,32 @@ class ListResourceGroupsRequest extends Model
     public $projectId;
 
     /**
-     * @description The types of resource groups to query. If you do not configure this parameter, only serverless resource groups are returned by default.
-     *
      * @var string[]
      */
     public $resourceGroupTypes;
 
     /**
-     * @description The statuses of resource groups.
+     * @example CreateTime Asc
      *
+     * @var string
+     */
+    public $sortBy;
+
+    /**
      * @var string[]
      */
     public $statuses;
     protected $_name = [
-        'name'               => 'Name',
-        'paymentType'        => 'PaymentType',
-        'projectId'          => 'ProjectId',
-        'resourceGroupTypes' => 'ResourceGroupTypes',
-        'statuses'           => 'Statuses',
+        'aliyunResourceGroupId' => 'AliyunResourceGroupId',
+        'aliyunResourceTags'    => 'AliyunResourceTags',
+        'name'                  => 'Name',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'paymentType'           => 'PaymentType',
+        'projectId'             => 'ProjectId',
+        'resourceGroupTypes'    => 'ResourceGroupTypes',
+        'sortBy'                => 'SortBy',
+        'statuses'              => 'Statuses',
     ];
 
     public function validate()
@@ -63,8 +98,26 @@ class ListResourceGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunResourceGroupId) {
+            $res['AliyunResourceGroupId'] = $this->aliyunResourceGroupId;
+        }
+        if (null !== $this->aliyunResourceTags) {
+            $res['AliyunResourceTags'] = [];
+            if (null !== $this->aliyunResourceTags && \is_array($this->aliyunResourceTags)) {
+                $n = 0;
+                foreach ($this->aliyunResourceTags as $item) {
+                    $res['AliyunResourceTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->paymentType) {
             $res['PaymentType'] = $this->paymentType;
@@ -74,6 +127,9 @@ class ListResourceGroupsRequest extends Model
         }
         if (null !== $this->resourceGroupTypes) {
             $res['ResourceGroupTypes'] = $this->resourceGroupTypes;
+        }
+        if (null !== $this->sortBy) {
+            $res['SortBy'] = $this->sortBy;
         }
         if (null !== $this->statuses) {
             $res['Statuses'] = $this->statuses;
@@ -90,8 +146,26 @@ class ListResourceGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunResourceGroupId'])) {
+            $model->aliyunResourceGroupId = $map['AliyunResourceGroupId'];
+        }
+        if (isset($map['AliyunResourceTags'])) {
+            if (!empty($map['AliyunResourceTags'])) {
+                $model->aliyunResourceTags = [];
+                $n                         = 0;
+                foreach ($map['AliyunResourceTags'] as $item) {
+                    $model->aliyunResourceTags[$n++] = null !== $item ? aliyunResourceTags::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['PaymentType'])) {
             $model->paymentType = $map['PaymentType'];
@@ -103,6 +177,9 @@ class ListResourceGroupsRequest extends Model
             if (!empty($map['ResourceGroupTypes'])) {
                 $model->resourceGroupTypes = $map['ResourceGroupTypes'];
             }
+        }
+        if (isset($map['SortBy'])) {
+            $model->sortBy = $map['SortBy'];
         }
         if (isset($map['Statuses'])) {
             if (!empty($map['Statuses'])) {

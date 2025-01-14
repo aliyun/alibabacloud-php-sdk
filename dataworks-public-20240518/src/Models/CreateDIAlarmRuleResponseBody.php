@@ -9,13 +9,24 @@ use AlibabaCloud\Tea\Model;
 class CreateDIAlarmRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the alert rule.
+     * @description This parameter is deprecated and is replaced by the Id parameter.
      *
      * @example 1
+     *
+     * @deprecated
      *
      * @var string
      */
     public $DIAlarmRuleId;
+
+    /**
+     * @description The ID of the alert rule.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $id;
 
     /**
      * @description The request ID. You can use the ID to query logs and troubleshoot issues.
@@ -27,6 +38,7 @@ class CreateDIAlarmRuleResponseBody extends Model
     public $requestId;
     protected $_name = [
         'DIAlarmRuleId' => 'DIAlarmRuleId',
+        'id'            => 'Id',
         'requestId'     => 'RequestId',
     ];
 
@@ -39,6 +51,9 @@ class CreateDIAlarmRuleResponseBody extends Model
         $res = [];
         if (null !== $this->DIAlarmRuleId) {
             $res['DIAlarmRuleId'] = $this->DIAlarmRuleId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -57,6 +72,9 @@ class CreateDIAlarmRuleResponseBody extends Model
         $model = new self();
         if (isset($map['DIAlarmRuleId'])) {
             $model->DIAlarmRuleId = $map['DIAlarmRuleId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

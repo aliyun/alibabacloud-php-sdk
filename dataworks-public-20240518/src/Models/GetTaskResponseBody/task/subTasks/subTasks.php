@@ -53,6 +53,11 @@ class subTasks extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $envType;
+
+    /**
      * @description The task ID.
      *
      * @example 1234
@@ -113,6 +118,8 @@ class subTasks extends Model
      *   Dev: development environment
      *
      * @example Prod
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -215,6 +222,7 @@ class subTasks extends Model
         'createUser'      => 'CreateUser',
         'dataSource'      => 'DataSource',
         'description'     => 'Description',
+        'envType'         => 'EnvType',
         'id'              => 'Id',
         'modifyTime'      => 'ModifyTime',
         'modifyUser'      => 'ModifyUser',
@@ -255,6 +263,9 @@ class subTasks extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->envType) {
+            $res['EnvType'] = $this->envType;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -333,6 +344,9 @@ class subTasks extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnvType'])) {
+            $model->envType = $map['EnvType'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];

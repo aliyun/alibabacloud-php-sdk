@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class dataSources extends Model
 {
     /**
+     * @description The data sources. Each element is the information of a single data source with a unique data source ID.
+     *
      * @var dataSource[]
      */
     public $dataSource;

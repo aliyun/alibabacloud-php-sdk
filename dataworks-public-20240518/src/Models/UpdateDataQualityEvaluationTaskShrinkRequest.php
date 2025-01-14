@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataQualityEvaluationTaskShrinkRequest extends Model
 {
     /**
+     * @description The list of monitoring rules that are associated with the monitor.
+     *
      * @var string
      */
     public $dataQualityRulesShrink;
 
     /**
+     * @description The data source ID. You can call the [ListDataSources](https://help.aliyun.com/document_detail/211431.html) operation to query the ID.
+     *
      * @example 358750
      *
      * @var int
@@ -21,22 +25,23 @@ class UpdateDataQualityEvaluationTaskShrinkRequest extends Model
     public $dataSourceId;
 
     /**
-     * @description 质量监控任务描述
+     * @description The description of the monitor.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 数据质量校验任务实例生命周期中的回调设置，目前只支持一个阻塞调度任务的Hook
+     * @description The hook.
      *
      * @var string
      */
     public $hooksShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the monitor.
      *
+     * This parameter is required.
      * @example 7227061794
      *
      * @var int
@@ -44,21 +49,21 @@ class UpdateDataQualityEvaluationTaskShrinkRequest extends Model
     public $id;
 
     /**
-     * @description 质量监控任务名称
+     * @description The name of the monitor.
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 数据质量校验任务通知订阅配置
+     * @description The configurations of alert notifications.
      *
      * @var string
      */
     public $notificationsShrink;
 
     /**
-     * @description 项目空间Id
+     * @description The ID of the DataWorks workspace.
      *
      * This parameter is required.
      * @example 10000
@@ -68,7 +73,14 @@ class UpdateDataQualityEvaluationTaskShrinkRequest extends Model
     public $projectId;
 
     /**
-     * @description 使用数据源时的一些设置，目前只支持指定EMR的yarn队列、采集EMR表时把SQL引擎指定为SPARK-SQL
+     * @description The extended configurations in JSON-formatted strings. You can use this parameter only for monitors that are used to monitor the quality of E-MapReduce (EMR) data.
+     *
+     *   queue: The Yarn queue used when a monitor checks the quality of EMR data. By default, the queue configured for the current workspace is used.
+     *
+     *   sqlEngine: The SQL engine used when a monitor checks the quality of EMR data.
+     *
+     *   HIVE_SQL
+     *   SPARK_SQL
      *
      * @example { "queue": "default", "sqlEngine": "SPARK_SQL" }
      *
@@ -77,14 +89,14 @@ class UpdateDataQualityEvaluationTaskShrinkRequest extends Model
     public $runtimeConf;
 
     /**
-     * @description 参看 DataQualityTarget示例	数据质量校验任务的监控对象，参考 DataQualityTarget
+     * @description The monitored object of the data quality monitoring task.
      *
      * @var string
      */
     public $targetShrink;
 
     /**
-     * @description 数据质量校验任务的触发配置
+     * @description The trigger configuration of the monitor.
      *
      * @var string
      */

@@ -46,7 +46,7 @@ class CreateAlertRuleShrinkRequest extends Model
     public $owner;
 
     /**
-     * @description The conditions for triggering the alert.
+     * @description The alert triggering condition.
      *
      * This parameter is required.
      * @var string

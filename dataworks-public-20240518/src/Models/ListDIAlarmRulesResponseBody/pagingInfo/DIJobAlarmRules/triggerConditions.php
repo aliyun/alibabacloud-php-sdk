@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class triggerConditions extends Model
 {
     /**
-     * @description The types of DDL operations for which the alert rule takes effect.
+     * @description The types of DDL operations for which the alert rule takes effect. This parameter is returned only if the MetricType parameter is set to DdlReport.
+     *
+     * @deprecated
      *
      * @var string[]
      */
     public $ddlReportTags;
+
+    /**
+     * @var string[]
+     */
+    public $ddlTypes;
 
     /**
      * @description The time interval for alert calculation. Unit: minutes.
@@ -50,6 +57,7 @@ class triggerConditions extends Model
     public $threshold;
     protected $_name = [
         'ddlReportTags' => 'DdlReportTags',
+        'ddlTypes'      => 'DdlTypes',
         'duration'      => 'Duration',
         'severity'      => 'Severity',
         'threshold'     => 'Threshold',
@@ -64,6 +72,9 @@ class triggerConditions extends Model
         $res = [];
         if (null !== $this->ddlReportTags) {
             $res['DdlReportTags'] = $this->ddlReportTags;
+        }
+        if (null !== $this->ddlTypes) {
+            $res['DdlTypes'] = $this->ddlTypes;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -89,6 +100,11 @@ class triggerConditions extends Model
         if (isset($map['DdlReportTags'])) {
             if (!empty($map['DdlReportTags'])) {
                 $model->ddlReportTags = $map['DdlReportTags'];
+            }
+        }
+        if (isset($map['DdlTypes'])) {
+            if (!empty($map['DdlTypes'])) {
+                $model->ddlTypes = $map['DdlTypes'];
             }
         }
         if (isset($map['Duration'])) {

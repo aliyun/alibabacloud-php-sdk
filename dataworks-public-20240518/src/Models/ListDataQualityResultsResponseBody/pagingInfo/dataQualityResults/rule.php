@@ -93,13 +93,6 @@ class rule extends Model
      * @var string
      */
     public $templateCode;
-
-    /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $tenantId;
     protected $_name = [
         'checkingConfig' => 'CheckingConfig',
         'description'    => 'Description',
@@ -112,7 +105,6 @@ class rule extends Model
         'severity'       => 'Severity',
         'target'         => 'Target',
         'templateCode'   => 'TemplateCode',
-        'tenantId'       => 'TenantId',
     ];
 
     public function validate()
@@ -160,9 +152,6 @@ class rule extends Model
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -214,9 +203,6 @@ class rule extends Model
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

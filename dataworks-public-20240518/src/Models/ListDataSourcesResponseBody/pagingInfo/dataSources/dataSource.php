@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
-     * @description The connection properties of the data source.
+     * @description The connection configurations of the data source, including the connection address, access identity, and environment information. The envType parameter specifies the environment in which the data source is used. Valid values of the envType parameter:
      *
+     *   Dev: development environment
+     *   Prod: production environment
+     *
+     * The parameters that you need to configure for the data source vary based on the mode in which the data source is added. For more information, see [Data source connection information (ConnectionProperties)](https://help.aliyun.com/document_detail/2852465.html).
      * @example {
      * }
      * @var mixed
@@ -81,7 +85,7 @@ class dataSource extends Model
     public $modifyUser;
 
     /**
-     * @description The unique business key of the data source. For example, the unique business key of a Hologres data source is in the ${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database} format.
+     * @description The unique business key of the data source. For example, the unique business key of a Hologres data source is in the `${tenantOwnerId}:${regionId}:${type}:${instanceId}:${database}` format.
      *
      * @example 1648711121000:cn-beijing:odps:yongxunQA_beijing_standard
      *

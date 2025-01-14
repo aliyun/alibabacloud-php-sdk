@@ -34,7 +34,7 @@ class ExecDeploymentStageRequest extends Model
      * This parameter is required.
      * @example 10000
      *
-     * @var string
+     * @var int
      */
     public $projectId;
     protected $_name = [

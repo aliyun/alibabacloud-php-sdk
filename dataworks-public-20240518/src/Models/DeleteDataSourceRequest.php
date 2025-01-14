@@ -11,6 +11,7 @@ class DeleteDataSourceRequest extends Model
     /**
      * @description The data source ID.
      *
+     * This parameter is required.
      * @example 1234
      *
      * @var int

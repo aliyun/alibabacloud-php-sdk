@@ -27,7 +27,7 @@ class target extends Model
      *
      *   Task: node
      *   Baseline: baseline
-     *   Project: workspace
+     *   project: workspace
      *   BizProcess: workflow
      *
      * @example Task

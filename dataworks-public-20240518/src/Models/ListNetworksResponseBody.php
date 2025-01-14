@@ -4,15 +4,15 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksResponseBody\networkList;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListNetworksResponseBody\pagingInfo;
 use AlibabaCloud\Tea\Model;
 
 class ListNetworksResponseBody extends Model
 {
     /**
-     * @var networkList[]
+     * @var pagingInfo
      */
-    public $networkList;
+    public $pagingInfo;
 
     /**
      * @example 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -28,9 +28,9 @@ class ListNetworksResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'networkList' => 'NetworkList',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
+        'pagingInfo' => 'PagingInfo',
+        'requestId'  => 'RequestId',
+        'success'    => 'Success',
     ];
 
     public function validate()
@@ -40,14 +40,8 @@ class ListNetworksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->networkList) {
-            $res['NetworkList'] = [];
-            if (null !== $this->networkList && \is_array($this->networkList)) {
-                $n = 0;
-                foreach ($this->networkList as $item) {
-                    $res['NetworkList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->pagingInfo) {
+            $res['PagingInfo'] = null !== $this->pagingInfo ? $this->pagingInfo->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -67,14 +61,8 @@ class ListNetworksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NetworkList'])) {
-            if (!empty($map['NetworkList'])) {
-                $model->networkList = [];
-                $n                  = 0;
-                foreach ($map['NetworkList'] as $item) {
-                    $model->networkList[$n++] = null !== $item ? networkList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['PagingInfo'])) {
+            $model->pagingInfo = pagingInfo::fromMap($map['PagingInfo']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

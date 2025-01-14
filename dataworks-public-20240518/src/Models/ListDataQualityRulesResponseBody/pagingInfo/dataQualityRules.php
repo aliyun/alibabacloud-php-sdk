@@ -103,15 +103,6 @@ class dataQualityRules extends Model
      * @var string
      */
     public $templateCode;
-
-    /**
-     * @description The ID of the DataWorks tenant.
-     *
-     * @example 100001
-     *
-     * @var int
-     */
-    public $tenantId;
     protected $_name = [
         'checkingConfig' => 'CheckingConfig',
         'description'    => 'Description',
@@ -124,7 +115,6 @@ class dataQualityRules extends Model
         'severity'       => 'Severity',
         'target'         => 'Target',
         'templateCode'   => 'TemplateCode',
-        'tenantId'       => 'TenantId',
     ];
 
     public function validate()
@@ -172,9 +162,6 @@ class dataQualityRules extends Model
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
         }
 
         return $res;
@@ -226,9 +213,6 @@ class dataQualityRules extends Model
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
         }
 
         return $model;

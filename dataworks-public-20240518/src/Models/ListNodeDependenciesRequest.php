@@ -14,7 +14,7 @@ class ListNodeDependenciesRequest extends Model
      * This parameter is required.
      * @example 860438872620113XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -42,7 +42,7 @@ class ListNodeDependenciesRequest extends Model
      * This parameter is required.
      * @example 10001
      *
-     * @var string
+     * @var int
      */
     public $projectId;
     protected $_name = [

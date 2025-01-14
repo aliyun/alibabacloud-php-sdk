@@ -14,7 +14,7 @@ class UpdateFunctionRequest extends Model
      * This parameter is required.
      * @example 463497880880954XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -24,7 +24,7 @@ class UpdateFunctionRequest extends Model
      * This parameter is required.
      * @example 10000
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 

@@ -11,6 +11,7 @@ class DeleteDataQualityRuleRequest extends Model
     /**
      * @description The rule ID.
      *
+     * This parameter is required.
      * @example 19715
      *
      * @var int

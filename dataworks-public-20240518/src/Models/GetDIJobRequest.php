@@ -9,17 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetDIJobRequest extends Model
 {
     /**
-     * @description The ID of the synchronization task.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
      * @example 11588
+     *
+     * @deprecated
      *
      * @var int
      */
     public $DIJobId;
 
     /**
-     * @description DataWorks工作空间ID。您可以通过ListProjects接口获取工作空间ID。
+     * @description The ID of the synchronization task.
      *
+     * @example 11588
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @example 10000
      *
      * @var int
@@ -36,6 +45,7 @@ class GetDIJobRequest extends Model
     public $withDetails;
     protected $_name = [
         'DIJobId'     => 'DIJobId',
+        'id'          => 'Id',
         'projectId'   => 'ProjectId',
         'withDetails' => 'WithDetails',
     ];
@@ -49,6 +59,9 @@ class GetDIJobRequest extends Model
         $res = [];
         if (null !== $this->DIJobId) {
             $res['DIJobId'] = $this->DIJobId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
@@ -70,6 +83,9 @@ class GetDIJobRequest extends Model
         $model = new self();
         if (isset($map['DIJobId'])) {
             $model->DIJobId = $map['DIJobId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];

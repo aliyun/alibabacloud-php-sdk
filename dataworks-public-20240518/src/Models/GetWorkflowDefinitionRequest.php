@@ -14,7 +14,7 @@ class GetWorkflowDefinitionRequest extends Model
      * This parameter is required.
      * @example 860438872620113XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -24,7 +24,7 @@ class GetWorkflowDefinitionRequest extends Model
      * You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
      * @example 10000
      *
-     * @var string
+     * @var int
      */
     public $projectId;
     protected $_name = [

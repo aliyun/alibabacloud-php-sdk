@@ -4,16 +4,27 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateResourceGroupRequest\aliyunResourceTags;
 use AlibabaCloud\Tea\Model;
 
 class CreateResourceGroupRequest extends Model
 {
     /**
-     * @example true
+     * @example rg-aek2kqofrgXXXXX
      *
+     * @var string
+     */
+    public $aliyunResourceGroupId;
+
+    /**
+     * @var aliyunResourceTags[]
+     */
+    public $aliyunResourceTags;
+
+    /**
      * @var bool
      */
-    public $autoRenew;
+    public $autoRenewEnabled;
 
     /**
      * @description This parameter is required.
@@ -90,16 +101,18 @@ class CreateResourceGroupRequest extends Model
      */
     public $vswitchId;
     protected $_name = [
-        'autoRenew'           => 'AutoRenew',
-        'clientToken'         => 'ClientToken',
-        'name'                => 'Name',
-        'paymentDuration'     => 'PaymentDuration',
-        'paymentDurationUnit' => 'PaymentDurationUnit',
-        'paymentType'         => 'PaymentType',
-        'remark'              => 'Remark',
-        'spec'                => 'Spec',
-        'vpcId'               => 'VpcId',
-        'vswitchId'           => 'VswitchId',
+        'aliyunResourceGroupId' => 'AliyunResourceGroupId',
+        'aliyunResourceTags'    => 'AliyunResourceTags',
+        'autoRenewEnabled'      => 'AutoRenewEnabled',
+        'clientToken'           => 'ClientToken',
+        'name'                  => 'Name',
+        'paymentDuration'       => 'PaymentDuration',
+        'paymentDurationUnit'   => 'PaymentDurationUnit',
+        'paymentType'           => 'PaymentType',
+        'remark'                => 'Remark',
+        'spec'                  => 'Spec',
+        'vpcId'                 => 'VpcId',
+        'vswitchId'             => 'VswitchId',
     ];
 
     public function validate()
@@ -109,8 +122,20 @@ class CreateResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->autoRenew) {
-            $res['AutoRenew'] = $this->autoRenew;
+        if (null !== $this->aliyunResourceGroupId) {
+            $res['AliyunResourceGroupId'] = $this->aliyunResourceGroupId;
+        }
+        if (null !== $this->aliyunResourceTags) {
+            $res['AliyunResourceTags'] = [];
+            if (null !== $this->aliyunResourceTags && \is_array($this->aliyunResourceTags)) {
+                $n = 0;
+                foreach ($this->aliyunResourceTags as $item) {
+                    $res['AliyunResourceTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->autoRenewEnabled) {
+            $res['AutoRenewEnabled'] = $this->autoRenewEnabled;
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
@@ -151,8 +176,20 @@ class CreateResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoRenew'])) {
-            $model->autoRenew = $map['AutoRenew'];
+        if (isset($map['AliyunResourceGroupId'])) {
+            $model->aliyunResourceGroupId = $map['AliyunResourceGroupId'];
+        }
+        if (isset($map['AliyunResourceTags'])) {
+            if (!empty($map['AliyunResourceTags'])) {
+                $model->aliyunResourceTags = [];
+                $n                         = 0;
+                foreach ($map['AliyunResourceTags'] as $item) {
+                    $model->aliyunResourceTags[$n++] = null !== $item ? aliyunResourceTags::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['AutoRenewEnabled'])) {
+            $model->autoRenewEnabled = $map['AutoRenewEnabled'];
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];

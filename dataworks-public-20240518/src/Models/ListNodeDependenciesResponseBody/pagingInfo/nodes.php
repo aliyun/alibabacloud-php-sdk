@@ -44,7 +44,7 @@ class nodes extends Model
      *
      * @example 723932906364267XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -92,7 +92,7 @@ class nodes extends Model
      *
      * @example 65133
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 
@@ -144,7 +144,7 @@ class nodes extends Model
      *
      * @example 580667964888595XXXX
      *
-     * @var string
+     * @var int
      */
     public $taskId;
 

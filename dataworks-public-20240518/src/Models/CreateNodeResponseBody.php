@@ -13,7 +13,7 @@ class CreateNodeResponseBody extends Model
      *
      * @example 860438872620113XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 

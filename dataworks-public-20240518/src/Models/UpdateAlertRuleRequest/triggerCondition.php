@@ -28,7 +28,7 @@ class triggerCondition extends Model
      * @description The alert type. Valid values:
      *
      *   Finished: An instance is successfully run.
-     *   UnFinished:An instance does not finish running before a specified point in time.
+     *   UnFinished: An instance does not finish running before a specified point in time.
      *   Error: An error occurs on an instance.
      *   CycleUnfinished: An instance does not finish running as expected within a specific cycle.
      *   Timeout: An instance times out.

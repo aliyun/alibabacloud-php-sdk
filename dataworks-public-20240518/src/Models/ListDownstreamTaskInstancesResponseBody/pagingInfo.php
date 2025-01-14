@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstancesResponseBody;
 
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstancesResponseBody\pagingInfo\downstreamTaskInstances;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDownstreamTaskInstancesResponseBody\pagingInfo\taskInstances;
 use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
 {
+    /**
+     * @var downstreamTaskInstances[]
+     */
+    public $downstreamTaskInstances;
+
     /**
      * @description The page number.
      *
@@ -43,10 +49,11 @@ class pagingInfo extends Model
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'taskInstances' => 'TaskInstances',
-        'totalCount'    => 'TotalCount',
+        'downstreamTaskInstances' => 'DownstreamTaskInstances',
+        'pageNumber'              => 'PageNumber',
+        'pageSize'                => 'PageSize',
+        'taskInstances'           => 'TaskInstances',
+        'totalCount'              => 'TotalCount',
     ];
 
     public function validate()
@@ -56,6 +63,15 @@ class pagingInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->downstreamTaskInstances) {
+            $res['DownstreamTaskInstances'] = [];
+            if (null !== $this->downstreamTaskInstances && \is_array($this->downstreamTaskInstances)) {
+                $n = 0;
+                foreach ($this->downstreamTaskInstances as $item) {
+                    $res['DownstreamTaskInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -86,6 +102,15 @@ class pagingInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DownstreamTaskInstances'])) {
+            if (!empty($map['DownstreamTaskInstances'])) {
+                $model->downstreamTaskInstances = [];
+                $n                              = 0;
+                foreach ($map['DownstreamTaskInstances'] as $item) {
+                    $model->downstreamTaskInstances[$n++] = null !== $item ? downstreamTaskInstances::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }

@@ -16,7 +16,13 @@ class trigger extends Model
     public $taskIds;
 
     /**
-     * @description 何种事件可以触发质量校验任务执行
+     * @description The trigger type of the monitor.
+     *
+     * Valid values:
+     *
+     *   ByManual (default): The monitor is manually triggered.
+     *   ByScheduledTaskInstance: The monitor is triggered by associated scheduling tasks.
+     *   ByQualityNode: The monitor is triggered by created data quality monitoring nodes.
      *
      * @example ByScheduledTaskInstance
      *

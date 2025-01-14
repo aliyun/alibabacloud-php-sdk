@@ -13,7 +13,7 @@ class CreateResourceResponseBody extends Model
      *
      * @example 631478864897630XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 

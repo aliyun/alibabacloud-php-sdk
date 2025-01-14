@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIJobShrinkRequest extends Model
 {
     /**
-     * @description The ID of the synchronization task.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
-     * This parameter is required.
      * @example 11588
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -26,6 +27,15 @@ class UpdateDIJobShrinkRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example 11588
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description The settings for the dimension of the synchronization task. The settings include processing policies for DDL messages, policies for data type mappings between source fields and destination fields, and runtime parameters of the synchronization task.
      *
      * @var string
@@ -33,8 +43,6 @@ class UpdateDIJobShrinkRequest extends Model
     public $jobSettingsShrink;
 
     /**
-     * @description DataWorks工作空间ID。您可以通过[ListProjects](https://help.aliyun.com/document_detail/178393.html)接口获取工作空间ID。
-     *
      * @example 10000
      *
      * @var int
@@ -64,6 +72,7 @@ class UpdateDIJobShrinkRequest extends Model
     protected $_name = [
         'DIJobId'                   => 'DIJobId',
         'description'               => 'Description',
+        'id'                        => 'Id',
         'jobSettingsShrink'         => 'JobSettings',
         'projectId'                 => 'ProjectId',
         'resourceSettingsShrink'    => 'ResourceSettings',
@@ -83,6 +92,9 @@ class UpdateDIJobShrinkRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->jobSettingsShrink) {
             $res['JobSettings'] = $this->jobSettingsShrink;
@@ -116,6 +128,9 @@ class UpdateDIJobShrinkRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['JobSettings'])) {
             $model->jobSettingsShrink = $map['JobSettings'];

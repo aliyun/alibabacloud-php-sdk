@@ -11,12 +11,16 @@ class failoverSettings extends Model
     /**
      * @example 10
      *
+     * @deprecated
+     *
      * @var int
      */
     public $interval;
 
     /**
      * @example 30
+     *
+     * @deprecated
      *
      * @var int
      */

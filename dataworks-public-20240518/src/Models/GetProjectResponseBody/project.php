@@ -91,7 +91,7 @@ class project extends Model
     public $owner;
 
     /**
-     * @description Indicates whether scheduling of Platform for AI (PAI) tasks is enabled. Valid values:
+     * @description Indicates whether scheduling of PAI tasks is enabled. Valid values:
      *
      *   true: Scheduling of PAI tasks is enabled. In this case, you can create a PAI node in a DataWorks workspace and configure scheduling properties for the node to implement periodic scheduling of PAI tasks.
      *   false: Scheduling of PAI tasks is disabled.
@@ -114,7 +114,6 @@ class project extends Model
      *   Frozen
      *   Updating
      *   UpdateFailed
-     *
      *
      * @example Available
      *

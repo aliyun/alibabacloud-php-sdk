@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class timeout extends Model
 {
     /**
-     * @description The timeout period. Unit: minutes. Valid values: 1 to 21,600.
+     * @description The timeout period. Unit: minutes. Valid values: [1, 21600].
      *
      * @example 10
      *

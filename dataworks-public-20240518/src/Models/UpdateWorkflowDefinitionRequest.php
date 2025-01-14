@@ -14,7 +14,7 @@ class UpdateWorkflowDefinitionRequest extends Model
      * This parameter is required.
      * @example 652567824470354XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -24,7 +24,7 @@ class UpdateWorkflowDefinitionRequest extends Model
      * This parameter is required.
      * @example 10001
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 

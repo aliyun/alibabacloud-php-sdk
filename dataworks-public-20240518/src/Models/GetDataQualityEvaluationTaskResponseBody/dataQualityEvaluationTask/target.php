@@ -9,7 +9,17 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
-     * @description 表所属的数据库类型
+     * @description The type of the database to which the table belongs.
+     *
+     * Valid values:
+     *
+     *   maxcompute
+     *   hologres
+     *   cdh
+     *   analyticdb_for_mysql
+     *   starrocks
+     *   emr
+     *   analyticdb_for_postgresql
      *
      * @example maxcompute
      *

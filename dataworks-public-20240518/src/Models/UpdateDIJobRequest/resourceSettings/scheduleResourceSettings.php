@@ -13,7 +13,7 @@ class scheduleResourceSettings extends Model
      *
      * @example 2.0
      *
-     * @var int
+     * @var float
      */
     public $requestedCu;
 

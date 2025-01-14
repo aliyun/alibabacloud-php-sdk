@@ -16,49 +16,49 @@ use AlibabaCloud\Tea\Model;
 class extension extends Model
 {
     /**
-     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to CycleUnfinished.
+     * @description The configuration for an alert of the CycleUnfinished type.
      *
      * @var cycleUnfinished
      */
     public $cycleUnfinished;
 
     /**
-     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to Error.
+     * @description The configuration for an alert of the Error type.
      *
      * @var error
      */
     public $error;
 
     /**
-     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceErrorCount.
+     * @description The configuration for an alert of the InstanceErrorCount type.
      *
      * @var instanceErrorCount
      */
     public $instanceErrorCount;
 
     /**
-     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceErrorPercentage.
+     * @description The configuration for an alert of the InstanceErrorPercentage type.
      *
      * @var instanceErrorPercentage
      */
     public $instanceErrorPercentage;
 
     /**
-     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to InstanceTransferFluctuate.
+     * @description The configuration for an alert of the InstanceTransferFluctuate type.
      *
      * @var instanceTransferFluctuate
      */
     public $instanceTransferFluctuate;
 
     /**
-     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to Timeout.
+     * @description The configuration for an alert of the Timeout type.
      *
      * @var timeout
      */
     public $timeout;
 
     /**
-     * @description The alert configuration. This parameter takes effect only if the Type parameter is set to UnFinished.
+     * @description The configuration for an alert of the UnFinished type.
      *
      * @var unFinished
      */

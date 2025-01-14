@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
-     * @description The whitelists of the monitoring tasks.
+     * @description The nodes that are not to be monitored.
      *
      * @var int[]
      */
@@ -23,7 +23,7 @@ class target extends Model
     public $ids;
 
     /**
-     * @description The type of the monitored object. Valid values:
+     * @description The type of the monitored objects. Valid values:
      *
      *   Task: node
      *   Baseline: baseline

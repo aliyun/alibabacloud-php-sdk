@@ -22,7 +22,7 @@ class workflowDefinition extends Model
      *
      * @example 463497880880954XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -56,7 +56,7 @@ class workflowDefinition extends Model
      *
      * @example 307XXX
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 

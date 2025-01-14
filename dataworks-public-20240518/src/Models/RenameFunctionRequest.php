@@ -14,7 +14,7 @@ class RenameFunctionRequest extends Model
      * This parameter is required.
      * @example 543217824470354XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 
@@ -32,7 +32,7 @@ class RenameFunctionRequest extends Model
      * This parameter is required.
      * @example 10002
      *
-     * @var string
+     * @var int
      */
     public $projectId;
     protected $_name = [

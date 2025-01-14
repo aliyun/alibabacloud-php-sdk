@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class unFinished extends Model
 {
     /**
-     * @description The timeout period of the instance that is still running at a specified point in time. The time is in the hh:mm format. Valid values of hh: 0 to 47. Valid values of mm: 0 to 59.
+     * @description The latest completion time of the instance. The period is in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
      *
      * @example 30:00
      *

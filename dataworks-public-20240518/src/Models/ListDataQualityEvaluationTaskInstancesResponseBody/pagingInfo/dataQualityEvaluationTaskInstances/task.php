@@ -87,15 +87,6 @@ class task extends Model
     public $target;
 
     /**
-     * @description The tenant ID.
-     *
-     * @example 10
-     *
-     * @var int
-     */
-    public $tenantId;
-
-    /**
      * @description The trigger configuration of the task.
      *
      * @var trigger
@@ -111,7 +102,6 @@ class task extends Model
         'regionId'      => 'RegionId',
         'runtimeConf'   => 'RuntimeConf',
         'target'        => 'Target',
-        'tenantId'      => 'TenantId',
         'trigger'       => 'Trigger',
     ];
 
@@ -154,9 +144,6 @@ class task extends Model
         }
         if (null !== $this->target) {
             $res['Target'] = null !== $this->target ? $this->target->toMap() : null;
-        }
-        if (null !== $this->tenantId) {
-            $res['TenantId'] = $this->tenantId;
         }
         if (null !== $this->trigger) {
             $res['Trigger'] = null !== $this->trigger ? $this->trigger->toMap() : null;
@@ -205,9 +192,6 @@ class task extends Model
         }
         if (isset($map['Target'])) {
             $model->target = target::fromMap($map['Target']);
-        }
-        if (isset($map['TenantId'])) {
-            $model->tenantId = $map['TenantId'];
         }
         if (isset($map['Trigger'])) {
             $model->trigger = trigger::fromMap($map['Trigger']);

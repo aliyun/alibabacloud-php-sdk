@@ -24,6 +24,8 @@ class GetRouteResponseBody extends Model
     public $route;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

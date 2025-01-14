@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateRouteRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The destination CIDR block of the route that you want to update.
      *
+     * This parameter is required.
      * @example 192.168.0.0/16
      *
      * @var string

@@ -31,7 +31,7 @@ class trigger extends Model
      *
      * @example 543680677872062XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 

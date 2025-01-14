@@ -23,7 +23,7 @@ class variables extends Model
      *
      * @example 623731286945488XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 

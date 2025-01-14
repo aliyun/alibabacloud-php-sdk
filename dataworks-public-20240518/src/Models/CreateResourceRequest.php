@@ -14,7 +14,7 @@ class CreateResourceRequest extends Model
      * This parameter is required.
      * @example 123456
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 

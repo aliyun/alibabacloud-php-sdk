@@ -50,12 +50,12 @@ class stages extends Model
      *
      * Valid values:
      *
-     *   INIT
-     *   RUNNING
-     *   SUCCESS
-     *   FAIL
-     *   TERMINATION
-     *   CANCEL
+     *   Init
+     *   Running
+     *   Success
+     *   Fail
+     *   Termination
+     *   Cancel
      *
      * @example INIT
      *
@@ -77,11 +77,11 @@ class stages extends Model
      *
      * Valid values:
      *
-     *   DELETE
-     *   BUILD
-     *   CHECK
-     *   DEPLOY
-     *   OFFLINE
+     *   Deploy
+     *   Check
+     *   Offline
+     *   Build
+     *   Delete
      *
      * @example BUILD
      *

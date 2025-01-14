@@ -11,6 +11,7 @@ class DeleteDataQualityRuleTemplateRequest extends Model
     /**
      * @description The code for the template.
      *
+     * This parameter is required.
      * @example USER_DEFINED:123
      *
      * @var string

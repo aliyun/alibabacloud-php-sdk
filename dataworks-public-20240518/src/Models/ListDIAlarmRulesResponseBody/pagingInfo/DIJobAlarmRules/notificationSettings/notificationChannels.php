@@ -9,12 +9,7 @@ use AlibabaCloud\Tea\Model;
 class notificationChannels extends Model
 {
     /**
-     * @description The alert notification method. Valid values:
-     *
-     *   Mail
-     *   Phone
-     *   Sms
-     *   Ding
+     * @description The alert notification methods.
      *
      * @var string[]
      */

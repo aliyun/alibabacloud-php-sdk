@@ -18,7 +18,7 @@ class AssociateProjectToResourceGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values: true and false.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

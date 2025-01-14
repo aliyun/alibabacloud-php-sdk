@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesResponseBody;
 
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesResponseBody\pagingInfo\taskInstances;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTaskInstancesResponseBody\pagingInfo\upstreamTaskInstances;
 use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
@@ -42,11 +43,17 @@ class pagingInfo extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var upstreamTaskInstances[]
+     */
+    public $upstreamTaskInstances;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'taskInstances' => 'TaskInstances',
-        'totalCount'    => 'TotalCount',
+        'pageNumber'            => 'PageNumber',
+        'pageSize'              => 'PageSize',
+        'taskInstances'         => 'TaskInstances',
+        'totalCount'            => 'TotalCount',
+        'upstreamTaskInstances' => 'UpstreamTaskInstances',
     ];
 
     public function validate()
@@ -73,6 +80,15 @@ class pagingInfo extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->upstreamTaskInstances) {
+            $res['UpstreamTaskInstances'] = [];
+            if (null !== $this->upstreamTaskInstances && \is_array($this->upstreamTaskInstances)) {
+                $n = 0;
+                foreach ($this->upstreamTaskInstances as $item) {
+                    $res['UpstreamTaskInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -103,6 +119,15 @@ class pagingInfo extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['UpstreamTaskInstances'])) {
+            if (!empty($map['UpstreamTaskInstances'])) {
+                $model->upstreamTaskInstances = [];
+                $n                            = 0;
+                foreach ($map['UpstreamTaskInstances'] as $item) {
+                    $model->upstreamTaskInstances[$n++] = null !== $item ? upstreamTaskInstances::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

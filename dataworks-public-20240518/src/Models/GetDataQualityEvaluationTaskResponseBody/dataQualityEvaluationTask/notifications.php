@@ -18,7 +18,7 @@ class notifications extends Model
     public $condition;
 
     /**
-     * @description 具体的消息通知设置
+     * @description The configurations of the alert notification.
      *
      * @var \AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\GetDataQualityEvaluationTaskResponseBody\dataQualityEvaluationTask\notifications\notifications[]
      */

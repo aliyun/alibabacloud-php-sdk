@@ -127,6 +127,8 @@ class taskInstance extends Model
     public $owner;
 
     /**
+     * @description The sequence number of the cycle. This parameter indicates the cycle of the task instance on the current day.
+     *
      * @example 1
      *
      * @var int
@@ -277,6 +279,7 @@ class taskInstance extends Model
     /**
      * @description The timeout period of task running. Unit: seconds.
      *
+     * Note: The value of this parameter is rounded up by hour.
      * @example 1
      *
      * @var int

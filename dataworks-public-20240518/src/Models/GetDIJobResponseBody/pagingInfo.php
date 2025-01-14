@@ -15,9 +15,11 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
-     * @description The ID of the synchronization task.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
      * @example 32601
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -49,6 +51,15 @@ class pagingInfo extends Model
     public $destinationDataSourceType;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example 32601
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description The name of the synchronization task.
      *
      * @example imp_ods_dms_det_dealer_info_df
@@ -65,8 +76,6 @@ class pagingInfo extends Model
     public $jobSettings;
 
     /**
-     * @description 任务状态。
-     * - Stop：停止
      * @example Running
      *
      * @var string
@@ -139,6 +148,7 @@ class pagingInfo extends Model
         'description'                   => 'Description',
         'destinationDataSourceSettings' => 'DestinationDataSourceSettings',
         'destinationDataSourceType'     => 'DestinationDataSourceType',
+        'id'                            => 'Id',
         'jobName'                       => 'JobName',
         'jobSettings'                   => 'JobSettings',
         'jobStatus'                     => 'JobStatus',
@@ -175,6 +185,9 @@ class pagingInfo extends Model
         }
         if (null !== $this->destinationDataSourceType) {
             $res['DestinationDataSourceType'] = $this->destinationDataSourceType;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->jobName) {
             $res['JobName'] = $this->jobName;
@@ -253,6 +266,9 @@ class pagingInfo extends Model
         }
         if (isset($map['DestinationDataSourceType'])) {
             $model->destinationDataSourceType = $map['DestinationDataSourceType'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['JobName'])) {
             $model->jobName = $map['JobName'];

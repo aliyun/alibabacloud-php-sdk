@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
-     * @description 表所属的数据库类型
+     * @description The type of the database to which the table belongs.
      *
      * @example maxcompute
      *
@@ -18,7 +18,7 @@ class target extends Model
     public $databaseType;
 
     /**
-     * @description 分区表的分区设置
+     * @description The partition configuration of the partitioned table.
      *
      * @example pt=$[yyyymmdd-1]
      *
@@ -27,7 +27,7 @@ class target extends Model
     public $partitionSpec;
 
     /**
-     * @description 表在数据地图中的唯一ID
+     * @description The ID of the table in Data Map.
      *
      * @example odps.api_test.ods_openapi_log_d
      *

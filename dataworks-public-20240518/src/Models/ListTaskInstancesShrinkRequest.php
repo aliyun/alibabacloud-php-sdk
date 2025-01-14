@@ -147,6 +147,14 @@ class ListTaskInstancesShrinkRequest extends Model
     public $taskType;
 
     /**
+     * @description The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler.
+     *
+     * Valid values:
+     *
+     *   Pause
+     *   Skip
+     *   Normal
+     *
      * @example Normal
      *
      * @var string
@@ -154,6 +162,13 @@ class ListTaskInstancesShrinkRequest extends Model
     public $triggerRecurrence;
 
     /**
+     * @description The trigger type.
+     *
+     * Valid values:
+     *
+     *   Scheduler: scheduling cycle-based trigger
+     *   Manual: manual trigger
+     *
      * @example Normal
      *
      * @var string

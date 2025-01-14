@@ -41,7 +41,7 @@ class ListFunctionsRequest extends Model
      * This parameter is required.
      * @example 12345
      *
-     * @var string
+     * @var int
      */
     public $projectId;
 

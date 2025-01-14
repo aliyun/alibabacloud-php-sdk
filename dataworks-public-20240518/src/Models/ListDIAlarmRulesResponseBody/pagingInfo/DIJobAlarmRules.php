@@ -11,9 +11,11 @@ use AlibabaCloud\Tea\Model;
 class DIJobAlarmRules extends Model
 {
     /**
-     * @description The ID of the alert rule.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
      * @example 72402
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -47,6 +49,15 @@ class DIJobAlarmRules extends Model
     public $enabled;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * @example 72402
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description The metric type in the alert rule. Valid values:
      *
      *   Heartbeat
@@ -71,7 +82,7 @@ class DIJobAlarmRules extends Model
     public $name;
 
     /**
-     * @description The alert notification settings.
+     * @description The alert notification method and recipient settings.
      *
      * @var notificationSettings
      */
@@ -88,6 +99,7 @@ class DIJobAlarmRules extends Model
         'DIJobId'              => 'DIJobId',
         'description'          => 'Description',
         'enabled'              => 'Enabled',
+        'id'                   => 'Id',
         'metricType'           => 'MetricType',
         'name'                 => 'Name',
         'notificationSettings' => 'NotificationSettings',
@@ -112,6 +124,9 @@ class DIJobAlarmRules extends Model
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
@@ -154,6 +169,9 @@ class DIJobAlarmRules extends Model
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];

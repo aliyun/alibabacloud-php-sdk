@@ -9,9 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectResponseBody extends Model
 {
     /**
+     * @example 123456
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description The workspace ID.
      *
      * @example 123456
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -26,6 +35,7 @@ class CreateProjectResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'id'        => 'Id',
         'projectId' => 'ProjectId',
         'requestId' => 'RequestId',
     ];
@@ -37,6 +47,9 @@ class CreateProjectResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -55,6 +68,9 @@ class CreateProjectResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

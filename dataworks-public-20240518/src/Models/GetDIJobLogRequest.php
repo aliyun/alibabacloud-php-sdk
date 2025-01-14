@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetDIJobLogRequest extends Model
 {
     /**
-     * @description The ID of the synchronization task.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
-     * This parameter is required.
      * @example 10000
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -28,6 +29,15 @@ class GetDIJobLogRequest extends Model
     public $failoverId;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example 10000
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @description The instance ID.
      *
      * @example 6153616438
@@ -38,6 +48,7 @@ class GetDIJobLogRequest extends Model
     protected $_name = [
         'DIJobId'    => 'DIJobId',
         'failoverId' => 'FailoverId',
+        'id'         => 'Id',
         'instanceId' => 'InstanceId',
     ];
 
@@ -53,6 +64,9 @@ class GetDIJobLogRequest extends Model
         }
         if (null !== $this->failoverId) {
             $res['FailoverId'] = $this->failoverId;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -74,6 +88,9 @@ class GetDIJobLogRequest extends Model
         }
         if (isset($map['FailoverId'])) {
             $model->failoverId = $map['FailoverId'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

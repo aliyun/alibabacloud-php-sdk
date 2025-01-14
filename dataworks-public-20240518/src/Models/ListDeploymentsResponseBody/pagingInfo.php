@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
-     * @description The processes.
+     * @description The deployment processes.
      *
      * @var deployments[]
      */

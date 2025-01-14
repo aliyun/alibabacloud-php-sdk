@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateDIAlarmRuleShrinkRequest extends Model
 {
     /**
-     * @description The ID of the alert rule.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
-     * This parameter is required.
      * @example 34982
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -42,6 +43,13 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @example 34982
+     *
+     * @var int
+     */
+    public $id;
 
     /**
      * @description The metric type in the alert rule. Valid values:
@@ -85,6 +93,7 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
         'DIJobId'                    => 'DIJobId',
         'description'                => 'Description',
         'enabled'                    => 'Enabled',
+        'id'                         => 'Id',
         'metricType'                 => 'MetricType',
         'name'                       => 'Name',
         'notificationSettingsShrink' => 'NotificationSettings',
@@ -109,6 +118,9 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
         }
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
@@ -145,6 +157,9 @@ class UpdateDIAlarmRuleShrinkRequest extends Model
         }
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];

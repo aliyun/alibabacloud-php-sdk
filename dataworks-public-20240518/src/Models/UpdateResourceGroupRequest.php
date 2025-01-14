@@ -11,6 +11,15 @@ class UpdateResourceGroupRequest extends Model
     /**
      * @description The ID of the resource group.
      *
+     * @example rg-aek2kqofrgXXXXX
+     *
+     * @var string
+     */
+    public $aliyunResourceGroupId;
+
+    /**
+     * @description The ID of the resource group.
+     *
      * This parameter is required.
      * @example Serverless_res_group_524257424564736_6831777003XXXXX
      *
@@ -36,9 +45,10 @@ class UpdateResourceGroupRequest extends Model
      */
     public $remark;
     protected $_name = [
-        'id'     => 'Id',
-        'name'   => 'Name',
-        'remark' => 'Remark',
+        'aliyunResourceGroupId' => 'AliyunResourceGroupId',
+        'id'                    => 'Id',
+        'name'                  => 'Name',
+        'remark'                => 'Remark',
     ];
 
     public function validate()
@@ -48,6 +58,9 @@ class UpdateResourceGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliyunResourceGroupId) {
+            $res['AliyunResourceGroupId'] = $this->aliyunResourceGroupId;
+        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -69,6 +82,9 @@ class UpdateResourceGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliyunResourceGroupId'])) {
+            $model->aliyunResourceGroupId = $map['AliyunResourceGroupId'];
+        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

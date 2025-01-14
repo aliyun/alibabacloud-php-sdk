@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pagingInfo extends Model
 {
     /**
+     * @description The data source groups. Each element in the array indicates a data source group. Each data source group contains data sources in the development environment (if any) and the production environment.
+     *
      * @var dataSources[]
      */
     public $dataSources;

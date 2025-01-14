@@ -13,7 +13,7 @@ class CreateFunctionResponseBody extends Model
      *
      * @example 580667964888595XXXX
      *
-     * @var string
+     * @var int
      */
     public $id;
 

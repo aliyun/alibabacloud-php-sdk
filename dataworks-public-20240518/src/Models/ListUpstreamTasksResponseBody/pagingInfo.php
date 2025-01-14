@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksResponseBody;
 
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksResponseBody\pagingInfo\tasks;
+use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListUpstreamTasksResponseBody\pagingInfo\upstreamTasks;
 use AlibabaCloud\Tea\Model;
 
 class pagingInfo extends Model
@@ -42,11 +43,17 @@ class pagingInfo extends Model
      * @var int
      */
     public $totalCount;
+
+    /**
+     * @var upstreamTasks[]
+     */
+    public $upstreamTasks;
     protected $_name = [
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'tasks'      => 'Tasks',
-        'totalCount' => 'TotalCount',
+        'pageNumber'    => 'PageNumber',
+        'pageSize'      => 'PageSize',
+        'tasks'         => 'Tasks',
+        'totalCount'    => 'TotalCount',
+        'upstreamTasks' => 'UpstreamTasks',
     ];
 
     public function validate()
@@ -73,6 +80,15 @@ class pagingInfo extends Model
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
+        }
+        if (null !== $this->upstreamTasks) {
+            $res['UpstreamTasks'] = [];
+            if (null !== $this->upstreamTasks && \is_array($this->upstreamTasks)) {
+                $n = 0;
+                foreach ($this->upstreamTasks as $item) {
+                    $res['UpstreamTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -103,6 +119,15 @@ class pagingInfo extends Model
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
+        }
+        if (isset($map['UpstreamTasks'])) {
+            if (!empty($map['UpstreamTasks'])) {
+                $model->upstreamTasks = [];
+                $n                    = 0;
+                foreach ($map['UpstreamTasks'] as $item) {
+                    $model->upstreamTasks[$n++] = null !== $item ? upstreamTasks::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

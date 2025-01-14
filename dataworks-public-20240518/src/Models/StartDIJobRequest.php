@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class StartDIJobRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @description This parameter is deprecated. Use the Id parameter instead.
      *
      * @example 10000
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -26,12 +28,22 @@ class StartDIJobRequest extends Model
     public $forceToRerun;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example 10000
+     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var realtimeStartSettings
      */
     public $realtimeStartSettings;
     protected $_name = [
         'DIJobId'               => 'DIJobId',
         'forceToRerun'          => 'ForceToRerun',
+        'id'                    => 'Id',
         'realtimeStartSettings' => 'RealtimeStartSettings',
     ];
 
@@ -47,6 +59,9 @@ class StartDIJobRequest extends Model
         }
         if (null !== $this->forceToRerun) {
             $res['ForceToRerun'] = $this->forceToRerun;
+        }
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
         }
         if (null !== $this->realtimeStartSettings) {
             $res['RealtimeStartSettings'] = null !== $this->realtimeStartSettings ? $this->realtimeStartSettings->toMap() : null;
@@ -68,6 +83,9 @@ class StartDIJobRequest extends Model
         }
         if (isset($map['ForceToRerun'])) {
             $model->forceToRerun = $map['ForceToRerun'];
+        }
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
         }
         if (isset($map['RealtimeStartSettings'])) {
             $model->realtimeStartSettings = realtimeStartSettings::fromMap($map['RealtimeStartSettings']);

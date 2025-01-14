@@ -19,7 +19,7 @@ class GetProjectMemberRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the account used by the member in the workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console?spm=openapi-amp.newDocPublishment.0.0.39e9281f3mhq4J), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the ID of the account used by the member in the workspace.
+     * @description The ID of the account used by the member. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/product/ms_menu), choose More > Management Center in the left-side navigation pane, select the desired workspace on the Management Center page, and then click Go to Management Center. In the left-side navigation pane of the SettingCenter page, click Tenant Members and Roles. On the Tenant Members and Roles page, view the IDs of the accounts used by the members in the workspace.
      *
      * This parameter is required.
      * @example 123422344899
