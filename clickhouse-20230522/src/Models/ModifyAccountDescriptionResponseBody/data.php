@@ -16,6 +16,8 @@ class data extends Model
     public $account;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-xxxxx
      *
      * @var string

@@ -32,6 +32,8 @@ class ModifyDBInstanceClassRequest extends Model
     public $scaleMax;
 
     /**
+     * @description The minimum capacity for auto scaling.
+     *
      * @example 2
      *
      * @var int

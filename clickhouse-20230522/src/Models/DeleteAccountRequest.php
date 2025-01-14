@@ -27,6 +27,8 @@ class DeleteAccountRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example clickhouse
      *
      * @var string

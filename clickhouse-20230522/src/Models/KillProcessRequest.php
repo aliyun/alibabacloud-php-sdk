@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class KillProcessRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-xxxxxxx
      *
      * @var string
@@ -18,6 +19,8 @@ class KillProcessRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The query ID.
+     *
      * @example 1
      *
      * @var string
@@ -25,6 +28,8 @@ class KillProcessRequest extends Model
     public $initialQueryId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

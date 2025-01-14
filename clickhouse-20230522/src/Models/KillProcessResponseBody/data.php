@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of queries that are terminated.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $count;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc-xxxxxxx
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $DBInstanceID;
 
     /**
+     * @description The cluster name.
+     *
      * @example cc-xxxxxxx
      *
      * @var string

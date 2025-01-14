@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the account.
      *
+     * This parameter is required.
      * @example testuser
      *
      * @var string
@@ -18,8 +19,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $account;
 
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-xxxxxxx
      *
      * @var string
@@ -27,8 +29,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The description of the account.
      *
+     * This parameter is required.
      * @example test
      *
      * @var string
@@ -36,8 +39,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

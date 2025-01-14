@@ -25,6 +25,8 @@ class DescribeSlowLogTrendRequest extends Model
     public $endTime;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example clickhouse
      *
      * @var string

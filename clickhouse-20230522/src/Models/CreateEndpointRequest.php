@@ -25,6 +25,8 @@ class CreateEndpointRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The network type.
+     *
      * @example Public
      *
      * @var string

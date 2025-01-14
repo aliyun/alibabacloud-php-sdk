@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountAuthorityShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the database account.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string
@@ -27,15 +28,17 @@ class ModifyAccountAuthorityShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The information about permissions.
      *
+     * This parameter is required.
      * @var string
      */
     public $dmlAuthSettingShrink;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

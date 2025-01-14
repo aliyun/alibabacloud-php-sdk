@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringRequest extends Model
 {
     /**
+     * @description The endpoint of the cluster.
+     *
      * @example cc-2ze34****-clickhouse..clickhouseserver.pre.rds.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $connectionString;
 
     /**
+     * @description The prefix of the endpoint that is used to connect to the database.
+     *
      * @example cc-****-clickhouse
      *
      * @var string
@@ -23,8 +27,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description This parameter is required.
+     * @description The cluster ID.
      *
+     * This parameter is required.
      * @example cc-xxxxx
      *
      * @var string
@@ -32,6 +37,13 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var string
+     */
+    public $disablePorts;
+
+    /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +53,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         'connectionString'       => 'ConnectionString',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'DBInstanceId'           => 'DBInstanceId',
+        'disablePorts'           => 'DisablePorts',
         'regionId'               => 'RegionId',
     ];
 
@@ -59,6 +72,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->disablePorts) {
+            $res['DisablePorts'] = $this->disablePorts;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -83,6 +99,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['DisablePorts'])) {
+            $model->disablePorts = $map['DisablePorts'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

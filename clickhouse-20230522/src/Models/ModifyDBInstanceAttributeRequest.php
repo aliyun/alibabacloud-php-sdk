@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceAttributeRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The configuration that you want to modify.
      *
+     *   MaintainTime: the O\\&M time
+     *   DBInstanceDescription: the cluster name
+     *
+     * This parameter is required.
      * @example DBInstanceDescription
      *
      * @var string
@@ -36,6 +40,8 @@ class ModifyDBInstanceAttributeRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example clickhouse
      *
      * @var string

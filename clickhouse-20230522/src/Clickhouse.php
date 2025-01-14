@@ -1215,7 +1215,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary 终止正在进行的任务
+     * @summary Terminates an ongoing query.
      *  *
      * @param KillProcessRequest $request KillProcessRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1254,7 +1254,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary 终止正在进行的任务
+     * @summary Terminates an ongoing query.
      *  *
      * @param KillProcessRequest $request KillProcessRequest
      *
@@ -1488,7 +1488,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary 修改链接地址
+     * @summary Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
      *  *
      * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -1507,6 +1507,9 @@ class Clickhouse extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->disablePorts)) {
+            $query['DisablePorts'] = $request->disablePorts;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1530,7 +1533,7 @@ class Clickhouse extends OpenApiClient
     }
 
     /**
-     * @summary 修改链接地址
+     * @summary Modifies the endpoint of an ApsaraDB for ClickHouse cluster.
      *  *
      * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *

@@ -19,8 +19,12 @@ class CreateAccountRequest extends Model
     public $account;
 
     /**
-     * @description This parameter is required.
+     * @description The type of the database account. Valid values:
      *
+     *   **NormalAccount**: standard account
+     *   **SuperAccount**: privileged account
+     *
+     * This parameter is required.
      * @example NormalAccount
      *
      * @var string
@@ -42,6 +46,8 @@ class CreateAccountRequest extends Model
     public $description;
 
     /**
+     * @description The information about permissions.
+     *
      * @var dmlAuthSetting
      */
     public $dmlAuthSetting;
@@ -56,6 +62,8 @@ class CreateAccountRequest extends Model
     public $password;
 
     /**
+     * @description The code of the cloud service.
+     *
      * @example clickhouse
      *
      * @var string

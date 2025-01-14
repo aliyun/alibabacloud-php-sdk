@@ -58,6 +58,11 @@ class data extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $disabledPorts;
+
+    /**
      * @example clickhouse
      *
      * @var string
@@ -214,6 +219,7 @@ class data extends Model
         'DBInstanceId'             => 'DBInstanceId',
         'deletionProtection'       => 'DeletionProtection',
         'description'              => 'Description',
+        'disabledPorts'            => 'DisabledPorts',
         'engine'                   => 'Engine',
         'engineMinorVersion'       => 'EngineMinorVersion',
         'engineVersion'            => 'EngineVersion',
@@ -265,6 +271,9 @@ class data extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->disabledPorts) {
+            $res['DisabledPorts'] = $this->disabledPorts;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -376,6 +385,9 @@ class data extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DisabledPorts'])) {
+            $model->disabledPorts = $map['DisabledPorts'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

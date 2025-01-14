@@ -25,8 +25,13 @@ class CreateDBRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database. The name must meet the following requirements:
      *
+     *   The name can contain lowercase letters, digits, underscores (_), and hyphens (-).
+     *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
+     *   The name can be up to 64 characters in length.
+     *
+     * This parameter is required.
      * @example testdb001
      *
      * @var string
@@ -34,8 +39,9 @@ class CreateDBRequest extends Model
     public $DBName;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

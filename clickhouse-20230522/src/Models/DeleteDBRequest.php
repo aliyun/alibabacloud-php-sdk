@@ -18,8 +18,9 @@ class DeleteDBRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the database.
      *
+     * This parameter is required.
      * @example testdb001
      *
      * @var string
@@ -27,8 +28,9 @@ class DeleteDBRequest extends Model
     public $DBName;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

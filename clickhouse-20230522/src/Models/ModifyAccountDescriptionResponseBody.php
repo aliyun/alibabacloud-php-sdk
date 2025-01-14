@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionResponseBody extends Model
 {
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example xxx-xxx-xxx
      *
      * @var string

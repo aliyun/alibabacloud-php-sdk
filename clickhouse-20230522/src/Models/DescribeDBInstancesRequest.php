@@ -30,6 +30,8 @@ class DescribeDBInstancesRequest extends Model
     public $description;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +39,8 @@ class DescribeDBInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 30
      *
      * @var int

@@ -22,6 +22,8 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description The engine type.
+     *
      * @example clickhouse
      *
      * @var string

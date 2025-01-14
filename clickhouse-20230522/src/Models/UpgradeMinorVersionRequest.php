@@ -32,6 +32,12 @@ class UpgradeMinorVersionRequest extends Model
     public $switchTime;
 
     /**
+     * @description Specifies whether to update the minor engine version of the cluster immediately. Valid values:
+     *
+     *   **Immediate**: The system immediately performs the update.
+     *   **MaintainTime**: The system performs the update during the specified maintenance window.
+     *   **SpecifyTime**: The system performs the update at a specified time.
+     *
      * @example Immediate
      *
      * @var string

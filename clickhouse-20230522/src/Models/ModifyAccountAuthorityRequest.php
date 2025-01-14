@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountAuthorityRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The name of the database account.
      *
+     * This parameter is required.
      * @example test1
      *
      * @var string
@@ -28,15 +29,17 @@ class ModifyAccountAuthorityRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description The information about permissions.
      *
+     * This parameter is required.
      * @var dmlAuthSetting
      */
     public $dmlAuthSetting;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string

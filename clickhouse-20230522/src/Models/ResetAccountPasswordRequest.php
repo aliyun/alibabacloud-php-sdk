@@ -36,6 +36,8 @@ class ResetAccountPasswordRequest extends Model
     public $password;
 
     /**
+     * @description The name of the service.
+     *
      * @example clickhouse
      *
      * @var string

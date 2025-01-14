@@ -9,16 +9,25 @@ use AlibabaCloud\Tea\Model;
 class dmlAuthSetting extends Model
 {
     /**
+     * @description The databases on which you want to grant permissions. Separate multiple databases with commas (,).
+     *
      * @var string[]
      */
     public $allowDatabases;
 
     /**
+     * @description The dictionaries on which you want to grant permissions. Separate multiple dictionaries with commas (,).
+     *
      * @var string[]
      */
     public $allowDictionaries;
 
     /**
+     * @description Specifies whether to grant the DDL permissions to the database account. Valid values:
+     *
+     *   **true**: The account has the permissions to execute DDL statements.
+     *   **false**: The account does not have the permissions to execute DDL statements.
+     *
      * @example true
      *
      * @var bool
@@ -26,6 +35,12 @@ class dmlAuthSetting extends Model
     public $ddlAuthority;
 
     /**
+     * @description Specifies whether to grant the DML permissions to the database account. Valid values:
+     *
+     *   **0**: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
+     *   **1**: The account only has the permissions to read data from the database.
+     *   **2**: The account only has the permissions to read data from the database and modify the settings of the database.
+     *
      * @example 0
      *
      * @var int
