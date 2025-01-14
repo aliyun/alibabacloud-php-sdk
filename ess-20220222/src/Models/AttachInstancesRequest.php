@@ -32,6 +32,8 @@ class AttachInstancesRequest extends Model
     public $entrusted;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $ignoreInvalidInstance;

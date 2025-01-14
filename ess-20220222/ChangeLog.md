@@ -1,3 +1,7 @@
+2025-01-14 Version: 1.8.9
+- Update API DescribeScalingActivities: update response param.
+
+
 2025-01-08 Version: 1.8.8
 - Update API AttachInstances: add param IgnoreInvalidInstance.
 

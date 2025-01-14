@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivitiesResponseBody;
 
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivitiesResponseBody\scalingActivities\errorMessages;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingActivitiesResponseBody\scalingActivities\lifecycleHookContext;
 use AlibabaCloud\Tea\Model;
 
@@ -121,6 +122,11 @@ class scalingActivities extends Model
      * @var string
      */
     public $errorMessage;
+
+    /**
+     * @var errorMessages[]
+     */
+    public $errorMessages;
 
     /**
      * @description The ID of the instance refresh task.
@@ -288,6 +294,7 @@ class scalingActivities extends Model
         'endTime'               => 'EndTime',
         'errorCode'             => 'ErrorCode',
         'errorMessage'          => 'ErrorMessage',
+        'errorMessages'         => 'ErrorMessages',
         'instanceRefreshTaskId' => 'InstanceRefreshTaskId',
         'lifecycleHookContext'  => 'LifecycleHookContext',
         'progress'              => 'Progress',
@@ -351,6 +358,15 @@ class scalingActivities extends Model
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->errorMessages) {
+            $res['ErrorMessages'] = [];
+            if (null !== $this->errorMessages && \is_array($this->errorMessages)) {
+                $n = 0;
+                foreach ($this->errorMessages as $item) {
+                    $res['ErrorMessages'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceRefreshTaskId) {
             $res['InstanceRefreshTaskId'] = $this->instanceRefreshTaskId;
@@ -454,6 +470,15 @@ class scalingActivities extends Model
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['ErrorMessages'])) {
+            if (!empty($map['ErrorMessages'])) {
+                $model->errorMessages = [];
+                $n                    = 0;
+                foreach ($map['ErrorMessages'] as $item) {
+                    $model->errorMessages[$n++] = null !== $item ? errorMessages::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['InstanceRefreshTaskId'])) {
             $model->instanceRefreshTaskId = $map['InstanceRefreshTaskId'];
