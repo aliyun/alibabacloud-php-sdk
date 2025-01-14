@@ -111,6 +111,11 @@ class images extends Model
     public $OSType;
 
     /**
+     * @var string
+     */
+    public $platform;
+
+    /**
      * @description The image size. Unit: GiB.
      *
      * @example 40
@@ -156,6 +161,7 @@ class images extends Model
         'OSName'             => 'OSName',
         'OSNameEn'           => 'OSNameEn',
         'OSType'             => 'OSType',
+        'platform'           => 'Platform',
         'size'               => 'Size',
         'status'             => 'Status',
         'usage'              => 'Usage',
@@ -200,6 +206,9 @@ class images extends Model
         }
         if (null !== $this->OSType) {
             $res['OSType'] = $this->OSType;
+        }
+        if (null !== $this->platform) {
+            $res['Platform'] = $this->platform;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -254,6 +263,9 @@ class images extends Model
         }
         if (isset($map['OSType'])) {
             $model->OSType = $map['OSType'];
+        }
+        if (isset($map['Platform'])) {
+            $model->platform = $map['Platform'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

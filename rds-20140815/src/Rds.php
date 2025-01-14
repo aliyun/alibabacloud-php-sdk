@@ -1171,7 +1171,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 绑定弹性网卡到RDS Custom实例
+     * @summary Associates an elastic IP address (EIP) with an RDS Custom for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
+     * ### [](#)Precautions
+     * If the RDS Custom instance uses a public IP address, the public IP address is automatically released after you associate an EIP with the instance.
      *  *
      * @param AssociateEipAddressWithRCInstanceRequest $request AssociateEipAddressWithRCInstanceRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -1210,7 +1217,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 绑定弹性网卡到RDS Custom实例
+     * @summary Associates an elastic IP address (EIP) with an RDS Custom for SQL Server instance.
+     *  *
+     * @description ### [](#)Supported database engine
+     * SQL Server
+     * ### [](#)References
+     * [Introduction to ApsaraDB RDS Custom](https://help.aliyun.com/document_detail/2864363.html)
+     * ### [](#)Precautions
+     * If the RDS Custom instance uses a public IP address, the public IP address is automatically released after you associate an EIP with the instance.
      *  *
      * @param AssociateEipAddressWithRCInstanceRequest $request AssociateEipAddressWithRCInstanceRequest
      *
@@ -21299,7 +21313,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改数据库复制
+     * @summary Enables or disables the native replication feature of ApsaraDB RDS for MySQL.
+     *  *
+     * @description If you want to enable the native replication feature for an ApsaraDB RDS for MySQL instance, the following requirements must be met:
+     * *   The RDS instance runs MySQL 5.7.
+     * *   The RDS instance runs RDS Basic Edition.
+     * *   The RDS instance uses the pay-as-you-go or subscription billing method.
+     * *   The RDS instance runs a minor engine version of 20240930 or later.
+     * For more information, see [Enable the native replication feature](https://help.aliyun.com/document_detail/2856530.html).
      *  *
      * @param ModifyDBInstanceReplicationSwitchRequest $request ModifyDBInstanceReplicationSwitchRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -21344,7 +21365,14 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @summary 修改数据库复制
+     * @summary Enables or disables the native replication feature of ApsaraDB RDS for MySQL.
+     *  *
+     * @description If you want to enable the native replication feature for an ApsaraDB RDS for MySQL instance, the following requirements must be met:
+     * *   The RDS instance runs MySQL 5.7.
+     * *   The RDS instance runs RDS Basic Edition.
+     * *   The RDS instance uses the pay-as-you-go or subscription billing method.
+     * *   The RDS instance runs a minor engine version of 20240930 or later.
+     * For more information, see [Enable the native replication feature](https://help.aliyun.com/document_detail/2856530.html).
      *  *
      * @param ModifyDBInstanceReplicationSwitchRequest $request ModifyDBInstanceReplicationSwitchRequest
      *

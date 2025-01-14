@@ -31,6 +31,11 @@ class DescribeRCImageListRequest extends Model
     public $imageName;
 
     /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
      * @description The page number.
      *
      * @example 1
@@ -70,6 +75,7 @@ class DescribeRCImageListRequest extends Model
         'architecture' => 'Architecture',
         'imageId'      => 'ImageId',
         'imageName'    => 'ImageName',
+        'instanceType' => 'InstanceType',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'regionId'     => 'RegionId',
@@ -91,6 +97,9 @@ class DescribeRCImageListRequest extends Model
         }
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
+        }
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -124,6 +133,9 @@ class DescribeRCImageListRequest extends Model
         }
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
+        }
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AssociateEipAddressWithRCInstanceRequest extends Model
 {
     /**
+     * @description The EIP ID.
+     *
+     * >  If no EIP is available, create an EIP. For more information, see [Create an EIP](https://help.aliyun.com/document_detail/292841.html).
      * @example eip-bp166out2x4bpcf******
      *
      * @var string
@@ -16,6 +19,8 @@ class AssociateEipAddressWithRCInstanceRequest extends Model
     public $allocationId;
 
     /**
+     * @description The instance ID.
+     *
      * @example rc-i322y2t562oh7o******
      *
      * @var string
@@ -23,6 +28,8 @@ class AssociateEipAddressWithRCInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID. You can call the DescribeRegions operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

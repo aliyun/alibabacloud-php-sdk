@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBod
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\operationLocks;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\publicIpAddress;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\securityGroupIds;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\systemDisk;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\tags;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCInstanceAttributeResponseBody\vpcAttributes;
 use AlibabaCloud\Tea\Model;
@@ -366,6 +367,11 @@ class DescribeRCInstanceAttributeResponseBody extends Model
     public $stoppedMode;
 
     /**
+     * @var systemDisk
+     */
+    public $systemDisk;
+
+    /**
      * @var tags
      */
     public $tags;
@@ -435,6 +441,7 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         'spotStrategy'            => 'SpotStrategy',
         'status'                  => 'Status',
         'stoppedMode'             => 'StoppedMode',
+        'systemDisk'              => 'SystemDisk',
         'tags'                    => 'Tags',
         'vlanId'                  => 'VlanId',
         'vpcAttributes'           => 'VpcAttributes',
@@ -564,6 +571,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (null !== $this->stoppedMode) {
             $res['StoppedMode'] = $this->stoppedMode;
+        }
+        if (null !== $this->systemDisk) {
+            $res['SystemDisk'] = null !== $this->systemDisk ? $this->systemDisk->toMap() : null;
         }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
@@ -705,6 +715,9 @@ class DescribeRCInstanceAttributeResponseBody extends Model
         }
         if (isset($map['StoppedMode'])) {
             $model->stoppedMode = $map['StoppedMode'];
+        }
+        if (isset($map['SystemDisk'])) {
+            $model->systemDisk = systemDisk::fromMap($map['SystemDisk']);
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);

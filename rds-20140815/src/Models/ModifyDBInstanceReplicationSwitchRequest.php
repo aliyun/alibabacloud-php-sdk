@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceReplicationSwitchRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
      *
+     * This parameter is required.
      * @example rm-bp*****
      *
      * @var string
@@ -18,8 +19,12 @@ class ModifyDBInstanceReplicationSwitchRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description This parameter is required.
+     * @description Specifies whether to enable the native replication feature. Valid values:
      *
+     *   **ON**
+     *   **OFF**
+     *
+     * This parameter is required.
      * @example ON
      *
      * @var string
@@ -27,8 +32,9 @@ class ModifyDBInstanceReplicationSwitchRequest extends Model
     public $externalReplication;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +42,8 @@ class ModifyDBInstanceReplicationSwitchRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource group ID. You can leave this parameter empty.
+     *
      * @example rg-acfmy****
      *
      * @var string

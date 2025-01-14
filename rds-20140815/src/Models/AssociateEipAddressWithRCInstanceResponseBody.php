@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateEipAddressWithRCInstanceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EFFC7565-B3CF-5CFA-9E1F-164DD1E1F498
      *
      * @var string

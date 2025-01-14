@@ -27,6 +27,11 @@ class DescribeResourceUsageResponseBody extends Model
     public $backupDataSize;
 
     /**
+     * @var string
+     */
+    public $backupEcsSnapshotSize;
+
+    /**
      * @description The storage that is occupied by log backup files, excluding archived backup files, on the instance. Unit: bytes.
      *
      * @example 45145563
@@ -143,21 +148,22 @@ class DescribeResourceUsageResponseBody extends Model
      */
     public $SQLSize;
     protected $_name = [
-        'archiveBackupSize' => 'ArchiveBackupSize',
-        'backupDataSize'    => 'BackupDataSize',
-        'backupLogSize'     => 'BackupLogSize',
-        'backupOssDataSize' => 'BackupOssDataSize',
-        'backupOssLogSize'  => 'BackupOssLogSize',
-        'backupSize'        => 'BackupSize',
-        'coldBackupSize'    => 'ColdBackupSize',
-        'DBInstanceId'      => 'DBInstanceId',
-        'dataSize'          => 'DataSize',
-        'diskUsed'          => 'DiskUsed',
-        'engine'            => 'Engine',
-        'logSize'           => 'LogSize',
-        'paidBackupSize'    => 'PaidBackupSize',
-        'requestId'         => 'RequestId',
-        'SQLSize'           => 'SQLSize',
+        'archiveBackupSize'     => 'ArchiveBackupSize',
+        'backupDataSize'        => 'BackupDataSize',
+        'backupEcsSnapshotSize' => 'BackupEcsSnapshotSize',
+        'backupLogSize'         => 'BackupLogSize',
+        'backupOssDataSize'     => 'BackupOssDataSize',
+        'backupOssLogSize'      => 'BackupOssLogSize',
+        'backupSize'            => 'BackupSize',
+        'coldBackupSize'        => 'ColdBackupSize',
+        'DBInstanceId'          => 'DBInstanceId',
+        'dataSize'              => 'DataSize',
+        'diskUsed'              => 'DiskUsed',
+        'engine'                => 'Engine',
+        'logSize'               => 'LogSize',
+        'paidBackupSize'        => 'PaidBackupSize',
+        'requestId'             => 'RequestId',
+        'SQLSize'               => 'SQLSize',
     ];
 
     public function validate()
@@ -172,6 +178,9 @@ class DescribeResourceUsageResponseBody extends Model
         }
         if (null !== $this->backupDataSize) {
             $res['BackupDataSize'] = $this->backupDataSize;
+        }
+        if (null !== $this->backupEcsSnapshotSize) {
+            $res['BackupEcsSnapshotSize'] = $this->backupEcsSnapshotSize;
         }
         if (null !== $this->backupLogSize) {
             $res['BackupLogSize'] = $this->backupLogSize;
@@ -229,6 +238,9 @@ class DescribeResourceUsageResponseBody extends Model
         }
         if (isset($map['BackupDataSize'])) {
             $model->backupDataSize = $map['BackupDataSize'];
+        }
+        if (isset($map['BackupEcsSnapshotSize'])) {
+            $model->backupEcsSnapshotSize = $map['BackupEcsSnapshotSize'];
         }
         if (isset($map['BackupLogSize'])) {
             $model->backupLogSize = $map['BackupLogSize'];

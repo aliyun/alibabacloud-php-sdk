@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceReplicationSwitchResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
      *
      * @example 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
      *

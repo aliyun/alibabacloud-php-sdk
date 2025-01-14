@@ -152,7 +152,7 @@ class snapshots extends Model
     public $sourceDiskType;
 
     /**
-     * @description The type of the original disk.
+     * @description The type of the source disk.
      *
      * >  This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
      * @example disk
