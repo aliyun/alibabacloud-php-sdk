@@ -18,7 +18,7 @@ class items extends Model
     public $adjustAmount;
 
     /**
-     * @var string
+     * @var float
      */
     public $afterDiscountAmount;
 
