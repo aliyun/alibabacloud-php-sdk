@@ -913,6 +913,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->minReplicaCount)) {
             $body['min_replica_count'] = $request->minReplicaCount;
         }
+        if (!Utils::isUnset($request->priorities)) {
+            $body['priorities'] = $request->priorities;
+        }
         if (!Utils::isUnset($request->recycleNodeDeletionEnabled)) {
             $body['recycle_node_deletion_enabled'] = $request->recycleNodeDeletionEnabled;
         }
@@ -5648,7 +5651,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the auto O\\&M schedules of a cluster.
+     * @summary Queries the automated maintenance schedules of a cluster.
      *  *
      * @param ListOperationPlansRequest $request ListOperationPlansRequest
      * @param string[]                  $headers map
@@ -5686,7 +5689,7 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the auto O\\&M schedules of a cluster.
+     * @summary Queries the automated maintenance schedules of a cluster.
      *  *
      * @param ListOperationPlansRequest $request ListOperationPlansRequest
      *
@@ -7697,7 +7700,7 @@ class CS extends OpenApiClient
     /**
      * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
      *  *
-     * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls) (SLS).
+     * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing) (SLS).
      *  *
      * @param string                             $clusterid
      * @param UpdateClusterAuditLogConfigRequest $request   UpdateClusterAuditLogConfigRequest
@@ -7738,7 +7741,7 @@ class CS extends OpenApiClient
     /**
      * @summary You can call the UpdateClusterAuditLogConfig operation to enable or disable the audit log feature in a Container Service for Kubernetes (ACK) cluster and update the audit log configuration. This operation also allows you to record requests to the Kubernetes API and the responses, which can be used to trace cluster operation history and troubleshoot cluster issues.
      *  *
-     * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.aliyun.com/price/product#/sls/detail/sls) (SLS).
+     * @description Before you call this operation, ensure that you understand the billing methods and pricing of [Simple Log Service](https://www.alibabacloud.com/product/log-service/pricing) (SLS).
      *  *
      * @param string                             $clusterid
      * @param UpdateClusterAuditLogConfigRequest $request   UpdateClusterAuditLogConfigRequest

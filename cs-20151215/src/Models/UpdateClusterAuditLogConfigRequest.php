@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterAuditLogConfigRequest extends Model
 {
     /**
-     * @description Enable or disable the audit log feature.
+     * @description Enable or disable audit logging.
      *
-     *   false: enables the audit log feature or updates the audit log configuration.
-     *   true: disables the audit log feature.
+     *   false: enables audit logging or updates the audit logging configurations.
+     *   true: disables audit logging.
      *
      * @example false
      *
@@ -21,11 +21,11 @@ class UpdateClusterAuditLogConfigRequest extends Model
     public $disable;
 
     /**
-     * @description The [SLS project](https://help.aliyun.com/zh/sls/product-overview/project?spm=a2c4g.11186623.0.i3) to which the [Logstore](https://help.aliyun.com/zh/sls/product-overview/logstore?spm=a2c4g.11186623.0.0.48287ce0jAUWWM) belongs.
+     * @description The [Simple Log Service project](https://help.aliyun.com/document_detail/48873.html) to which the [Logstore](https://help.aliyun.com/document_detail/48873.html) that stores the cluster audit logs belongs.
      *
      *   Default value: k8s-log-{clusterid}.
      *   After the cluster audit log feature is enabled, a Logstore is created in the specified SLS project to store the cluster audit logs.
-     *   If you want to change the project after the cluster audit log feature is enabled, you can use this parameter to specify another SLS project. You can perform this operation only in ACK managed clusters.
+     *   If you want to change the project after audit logging is enabled for the cluster, you can use this parameter to specify another project. You can perform this operation only in ACK managed clusters.
      *
      * @example k8s-log-c82e6987e2961451182edacd74faf****
      *

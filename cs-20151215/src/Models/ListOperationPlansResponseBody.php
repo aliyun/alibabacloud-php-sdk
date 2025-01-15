@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListOperationPlansResponseBody extends Model
 {
     /**
-     * @description The operation plans.
+     * @description The list of auto O\\&M execution plans.
      *
      * @var plans[]
      */

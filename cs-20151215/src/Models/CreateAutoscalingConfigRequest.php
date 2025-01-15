@@ -71,6 +71,11 @@ class CreateAutoscalingConfigRequest extends Model
     public $minReplicaCount;
 
     /**
+     * @var string[][]
+     */
+    public $priorities;
+
+    /**
      * @description Specifies whether to delete the corresponding Kubernetes node objects after nodes are removed in swift mode. For more information about the swift mode, see [Scaling mode](https://help.aliyun.com/document_detail/119099.html). Default value: false Valid values:
      *
      *   `true`: deletes the corresponding Kubernetes node objects after nodes are removed in swift mode. We recommend that you do not set the value to true because data inconsistency may occur in Kubernetes objects.
@@ -171,6 +176,7 @@ class CreateAutoscalingConfigRequest extends Model
         'gpuUtilizationThreshold'    => 'gpu_utilization_threshold',
         'maxGracefulTerminationSec'  => 'max_graceful_termination_sec',
         'minReplicaCount'            => 'min_replica_count',
+        'priorities'                 => 'priorities',
         'recycleNodeDeletionEnabled' => 'recycle_node_deletion_enabled',
         'scaleDownEnabled'           => 'scale_down_enabled',
         'scaleUpFromZero'            => 'scale_up_from_zero',
@@ -206,6 +212,9 @@ class CreateAutoscalingConfigRequest extends Model
         }
         if (null !== $this->minReplicaCount) {
             $res['min_replica_count'] = $this->minReplicaCount;
+        }
+        if (null !== $this->priorities) {
+            $res['priorities'] = $this->priorities;
         }
         if (null !== $this->recycleNodeDeletionEnabled) {
             $res['recycle_node_deletion_enabled'] = $this->recycleNodeDeletionEnabled;
@@ -263,6 +272,9 @@ class CreateAutoscalingConfigRequest extends Model
         }
         if (isset($map['min_replica_count'])) {
             $model->minReplicaCount = $map['min_replica_count'];
+        }
+        if (isset($map['priorities'])) {
+            $model->priorities = $map['priorities'];
         }
         if (isset($map['recycle_node_deletion_enabled'])) {
             $model->recycleNodeDeletionEnabled = $map['recycle_node_deletion_enabled'];

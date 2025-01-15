@@ -18,7 +18,7 @@ class InstallClusterAddonsResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 48BD70F6-A7E6-543D-9F23-08DEB764C92E
      *
@@ -27,7 +27,7 @@ class InstallClusterAddonsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the job.
+     * @description The ID of the task.
      *
      * @example T-5a54309c80282e39ea00002f
      *

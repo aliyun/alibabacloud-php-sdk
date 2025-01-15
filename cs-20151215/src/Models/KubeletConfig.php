@@ -35,6 +35,20 @@ class KubeletConfig extends Model
     public $containerLogMaxSize;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $containerLogMaxWorkers;
+
+    /**
+     * @example 10s
+     *
+     * @var string
+     */
+    public $containerLogMonitorInterval;
+
+    /**
      * @example true
      *
      * @var bool
@@ -197,6 +211,8 @@ class KubeletConfig extends Model
         'clusterDNS'                  => 'clusterDNS',
         'containerLogMaxFiles'        => 'containerLogMaxFiles',
         'containerLogMaxSize'         => 'containerLogMaxSize',
+        'containerLogMaxWorkers'      => 'containerLogMaxWorkers',
+        'containerLogMonitorInterval' => 'containerLogMonitorInterval',
         'cpuCFSQuota'                 => 'cpuCFSQuota',
         'cpuCFSQuotaPeriod'           => 'cpuCFSQuotaPeriod',
         'cpuManagerPolicy'            => 'cpuManagerPolicy',
@@ -242,6 +258,12 @@ class KubeletConfig extends Model
         }
         if (null !== $this->containerLogMaxSize) {
             $res['containerLogMaxSize'] = $this->containerLogMaxSize;
+        }
+        if (null !== $this->containerLogMaxWorkers) {
+            $res['containerLogMaxWorkers'] = $this->containerLogMaxWorkers;
+        }
+        if (null !== $this->containerLogMonitorInterval) {
+            $res['containerLogMonitorInterval'] = $this->containerLogMonitorInterval;
         }
         if (null !== $this->cpuCFSQuota) {
             $res['cpuCFSQuota'] = $this->cpuCFSQuota;
@@ -351,6 +373,12 @@ class KubeletConfig extends Model
         }
         if (isset($map['containerLogMaxSize'])) {
             $model->containerLogMaxSize = $map['containerLogMaxSize'];
+        }
+        if (isset($map['containerLogMaxWorkers'])) {
+            $model->containerLogMaxWorkers = $map['containerLogMaxWorkers'];
+        }
+        if (isset($map['containerLogMonitorInterval'])) {
+            $model->containerLogMonitorInterval = $map['containerLogMonitorInterval'];
         }
         if (isset($map['cpuCFSQuota'])) {
             $model->cpuCFSQuota = $map['cpuCFSQuota'];

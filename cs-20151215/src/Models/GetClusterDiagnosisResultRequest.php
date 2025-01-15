@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetClusterDiagnosisResultRequest extends Model
 {
     /**
-     * @description 查询语言。
+     * @description The query language.
      *
      * @example zh_CN
      *
