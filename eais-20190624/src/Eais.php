@@ -200,7 +200,7 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @summary 将EI绑定到ECS或ECI实例上。
+     * @summary 将EI绑定到ECS或ECI实例上
      *  *
      * @param AttachEaisEiRequest $request AttachEaisEiRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -242,7 +242,7 @@ class Eais extends OpenApiClient
     }
 
     /**
-     * @summary 将EI绑定到ECS或ECI实例上。
+     * @summary 将EI绑定到ECS或ECI实例上
      *  *
      * @param AttachEaisEiRequest $request AttachEaisEiRequest
      *
@@ -341,6 +341,9 @@ class Eais extends OpenApiClient
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -413,6 +416,9 @@ class Eais extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
@@ -487,6 +493,9 @@ class Eais extends OpenApiClient
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -560,6 +569,9 @@ class Eais extends OpenApiClient
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -624,6 +636,9 @@ class Eais extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;

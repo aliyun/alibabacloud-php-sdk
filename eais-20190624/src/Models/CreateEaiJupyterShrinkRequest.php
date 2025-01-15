@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
+use AlibabaCloud\SDK\Eais\V20190624\Models\CreateEaiJupyterShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateEaiJupyterShrinkRequest extends Model
@@ -58,6 +59,11 @@ class CreateEaiJupyterShrinkRequest extends Model
     public $securityGroupId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description This parameter is required.
      *
      * @example vsw-uf6h3rbwbm90urjwa****
@@ -73,6 +79,7 @@ class CreateEaiJupyterShrinkRequest extends Model
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
         'securityGroupId'      => 'SecurityGroupId',
+        'tag'                  => 'Tag',
         'vSwitchId'            => 'VSwitchId',
     ];
 
@@ -103,6 +110,15 @@ class CreateEaiJupyterShrinkRequest extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -139,6 +155,15 @@ class CreateEaiJupyterShrinkRequest extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
