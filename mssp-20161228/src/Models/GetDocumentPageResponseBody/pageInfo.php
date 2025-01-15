@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The number of data items displayed per page.
+     * @description Number of items per page in the returned data.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The total number of data items found.
+     * @description Total number of queried items.
      *
      * @example 3149
      *

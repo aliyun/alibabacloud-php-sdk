@@ -19,6 +19,10 @@ class GetDocumentDownloadUrlRequest extends Model
     public $id;
 
     /**
+     * @description Report type.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $reportType;

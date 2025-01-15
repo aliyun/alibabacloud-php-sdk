@@ -221,6 +221,9 @@ class Mssp extends OpenApiClient
         if (!Utils::isUnset($request->isAttachment)) {
             $body['IsAttachment'] = $request->isAttachment;
         }
+        if (!Utils::isUnset($request->isMilestone)) {
+            $body['IsMilestone'] = $request->isMilestone;
+        }
         if (!Utils::isUnset($request->isWorkOrderNotify)) {
             $body['IsWorkOrderNotify'] = $request->isWorkOrderNotify;
         }

@@ -49,6 +49,11 @@ class CreateServiceWorkOrderRequest extends Model
     public $isAttachment;
 
     /**
+     * @var string
+     */
+    public $isMilestone;
+
+    /**
      * @description Whether a reminder is needed.
      *
      * This parameter is required.
@@ -177,6 +182,7 @@ class CreateServiceWorkOrderRequest extends Model
         'customerId'        => 'CustomerId',
         'durationDay'       => 'DurationDay',
         'isAttachment'      => 'IsAttachment',
+        'isMilestone'       => 'IsMilestone',
         'isWorkOrderNotify' => 'IsWorkOrderNotify',
         'notifyDay'         => 'NotifyDay',
         'notifyId'          => 'NotifyId',
@@ -210,6 +216,9 @@ class CreateServiceWorkOrderRequest extends Model
         }
         if (null !== $this->isAttachment) {
             $res['IsAttachment'] = $this->isAttachment;
+        }
+        if (null !== $this->isMilestone) {
+            $res['IsMilestone'] = $this->isMilestone;
         }
         if (null !== $this->isWorkOrderNotify) {
             $res['IsWorkOrderNotify'] = $this->isWorkOrderNotify;
@@ -273,6 +282,9 @@ class CreateServiceWorkOrderRequest extends Model
         }
         if (isset($map['IsAttachment'])) {
             $model->isAttachment = $map['IsAttachment'];
+        }
+        if (isset($map['IsMilestone'])) {
+            $model->isMilestone = $map['IsMilestone'];
         }
         if (isset($map['IsWorkOrderNotify'])) {
             $model->isWorkOrderNotify = $map['IsWorkOrderNotify'];

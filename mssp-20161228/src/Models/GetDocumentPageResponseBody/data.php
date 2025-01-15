@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @description Delivered by.
      *
-     * @example 张三
+     * @example luna
      *
      * @var string
      */
@@ -20,7 +20,7 @@ class data extends Model
     /**
      * @description Report name.
      *
-     * @example 季度报告
+     * @example month report
      *
      * @var string
      */
@@ -36,7 +36,7 @@ class data extends Model
     public $documentType;
 
     /**
-     * @description Document primary key ID.
+     * @description Primary key ID of the document.
      *
      * @example 346409
      *
@@ -45,6 +45,10 @@ class data extends Model
     public $id;
 
     /**
+     * @description Report status.
+     *
+     * @example uploaded
+     *
      * @var string
      */
     public $reportStatus;

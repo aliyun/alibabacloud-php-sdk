@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class GetDocumentPageResponseBody extends Model
 {
     /**
-     * @description Interface response code.
+     * @description API response code.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class GetDocumentPageResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description Prompt message for the response result.
+     * @description Prompt message for the result.
      *
      * @example successful
      *

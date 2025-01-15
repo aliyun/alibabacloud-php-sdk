@@ -21,7 +21,7 @@ class GetDocumentPageRequest extends Model
     /**
      * @description Delivered by.
      *
-     * @example 张三
+     * @example luna
      *
      * @var string
      */
@@ -30,7 +30,7 @@ class GetDocumentPageRequest extends Model
     /**
      * @description Document name.
      *
-     * @example 季度报告
+     * @example month report
      *
      * @var string
      */
