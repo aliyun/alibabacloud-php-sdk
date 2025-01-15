@@ -44,6 +44,16 @@ class snapshots extends Model
     public $remainTime;
 
     /**
+     * @var string
+     */
+    public $restorePointId;
+
+    /**
+     * @var string
+     */
+    public $restorePointName;
+
+    /**
      * @example s-2zeipxmnhej803x7****
      *
      * @var string
@@ -85,17 +95,19 @@ class snapshots extends Model
      */
     public $status;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'description'    => 'Description',
-        'desktopId'      => 'DesktopId',
-        'progress'       => 'Progress',
-        'remainTime'     => 'RemainTime',
-        'snapshotId'     => 'SnapshotId',
-        'snapshotName'   => 'SnapshotName',
-        'snapshotType'   => 'SnapshotType',
-        'sourceDiskSize' => 'SourceDiskSize',
-        'sourceDiskType' => 'SourceDiskType',
-        'status'         => 'Status',
+        'creationTime'     => 'CreationTime',
+        'description'      => 'Description',
+        'desktopId'        => 'DesktopId',
+        'progress'         => 'Progress',
+        'remainTime'       => 'RemainTime',
+        'restorePointId'   => 'RestorePointId',
+        'restorePointName' => 'RestorePointName',
+        'snapshotId'       => 'SnapshotId',
+        'snapshotName'     => 'SnapshotName',
+        'snapshotType'     => 'SnapshotType',
+        'sourceDiskSize'   => 'SourceDiskSize',
+        'sourceDiskType'   => 'SourceDiskType',
+        'status'           => 'Status',
     ];
 
     public function validate()
@@ -119,6 +131,12 @@ class snapshots extends Model
         }
         if (null !== $this->remainTime) {
             $res['RemainTime'] = $this->remainTime;
+        }
+        if (null !== $this->restorePointId) {
+            $res['RestorePointId'] = $this->restorePointId;
+        }
+        if (null !== $this->restorePointName) {
+            $res['RestorePointName'] = $this->restorePointName;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
@@ -164,6 +182,12 @@ class snapshots extends Model
         }
         if (isset($map['RemainTime'])) {
             $model->remainTime = $map['RemainTime'];
+        }
+        if (isset($map['RestorePointId'])) {
+            $model->restorePointId = $map['RestorePointId'];
+        }
+        if (isset($map['RestorePointName'])) {
+            $model->restorePointName = $map['RestorePointName'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];

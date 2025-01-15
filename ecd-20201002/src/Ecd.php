@@ -1406,6 +1406,9 @@ class Ecd extends OpenApiClient
         if (!Utils::isUnset($request->snapshotId)) {
             $query['SnapshotId'] = $request->snapshotId;
         }
+        if (!Utils::isUnset($request->stopDesktop)) {
+            $query['StopDesktop'] = $request->stopDesktop;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
