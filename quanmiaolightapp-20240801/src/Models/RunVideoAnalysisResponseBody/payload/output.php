@@ -15,6 +15,13 @@ use AlibabaCloud\Tea\Model;
 class output extends Model
 {
     /**
+     * @example http://
+     *
+     * @var string
+     */
+    public $resultJsonFileUrl;
+
+    /**
      * @var videoAnalysisResult
      */
     public $videoAnalysisResult;
@@ -44,6 +51,7 @@ class output extends Model
      */
     public $videoTitleGenerateResult;
     protected $_name = [
+        'resultJsonFileUrl'              => 'resultJsonFileUrl',
         'videoAnalysisResult'            => 'videoAnalysisResult',
         'videoCaptionResult'             => 'videoCaptionResult',
         'videoGenerateResult'            => 'videoGenerateResult',
@@ -59,6 +67,9 @@ class output extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resultJsonFileUrl) {
+            $res['resultJsonFileUrl'] = $this->resultJsonFileUrl;
+        }
         if (null !== $this->videoAnalysisResult) {
             $res['videoAnalysisResult'] = null !== $this->videoAnalysisResult ? $this->videoAnalysisResult->toMap() : null;
         }
@@ -89,6 +100,9 @@ class output extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['resultJsonFileUrl'])) {
+            $model->resultJsonFileUrl = $map['resultJsonFileUrl'];
+        }
         if (isset($map['videoAnalysisResult'])) {
             $model->videoAnalysisResult = videoAnalysisResult::fromMap($map['videoAnalysisResult']);
         }

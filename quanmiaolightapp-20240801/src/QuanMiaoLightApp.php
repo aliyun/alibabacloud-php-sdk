@@ -27,10 +27,14 @@ use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationEx
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationExtractShrinkRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationWritingRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunMarketingInformationWritingResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptChatRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptChatResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptContinueRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptContinueResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptPlanningRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptPlanningResponse;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptRefineRequest;
+use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunScriptRefineResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingRequest;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingResponse;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunStyleWritingShrinkRequest;
@@ -667,6 +671,61 @@ class QuanMiaoLightApp extends OpenApiClient
     }
 
     /**
+     * @summary 长剧本创作
+     *  *
+     * @param string               $workspaceId
+     * @param RunScriptChatRequest $request     RunScriptChatRequest
+     * @param string[]             $headers     map
+     * @param RuntimeOptions       $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunScriptChatResponse RunScriptChatResponse
+     */
+    public function runScriptChatWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->prompt)) {
+            $body['prompt'] = $request->prompt;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunScriptChat',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runScriptChat',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunScriptChatResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 长剧本创作
+     *  *
+     * @param string               $workspaceId
+     * @param RunScriptChatRequest $request     RunScriptChatRequest
+     *
+     * @return RunScriptChatResponse RunScriptChatResponse
+     */
+    public function runScriptChat($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runScriptChatWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
      * @summary 剧本续写
      *  *
      * @param string                   $workspaceId
@@ -792,6 +851,58 @@ class QuanMiaoLightApp extends OpenApiClient
         $headers = [];
 
         return $this->runScriptPlanningWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 剧本对话内容的整理
+     *  *
+     * @param string                 $workspaceId
+     * @param RunScriptRefineRequest $request     RunScriptRefineRequest
+     * @param string[]               $headers     map
+     * @param RuntimeOptions         $runtime     runtime options for this request RuntimeOptions
+     *
+     * @return RunScriptRefineResponse RunScriptRefineResponse
+     */
+    public function runScriptRefineWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->taskId)) {
+            $body['taskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunScriptRefine',
+            'version'     => '2024-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/' . OpenApiUtilClient::getEncodeParam($workspaceId) . '/quanmiao/lightapp/runScriptRefine',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunScriptRefineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 剧本对话内容的整理
+     *  *
+     * @param string                 $workspaceId
+     * @param RunScriptRefineRequest $request     RunScriptRefineRequest
+     *
+     * @return RunScriptRefineResponse RunScriptRefineResponse
+     */
+    public function runScriptRefine($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->runScriptRefineWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
