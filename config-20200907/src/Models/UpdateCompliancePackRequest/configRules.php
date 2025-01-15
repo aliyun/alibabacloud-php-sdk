@@ -12,7 +12,7 @@ class configRules extends Model
     /**
      * @description The rule ID. If you configure this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
      *
-     * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
+     * You need to only specify one of the `ManagedRuleIdentifier` and `ConfigRuleId` properties. If you specify both the properties, the value of the `ConfigRuleId` property takes precedence. You can call the [ListConfigRules](https://help.aliyun.com/document_detail/169607.html) operation to obtain the rule ID.
      * @example cr-e918626622af000f****
      *
      * @var string
@@ -22,19 +22,23 @@ class configRules extends Model
     /**
      * @description The rule name.
      *
+     * @example The rule name.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
-     * @description The input parameters of the rule.
+     * @description The details of the input parameter of the rule.
      *
      * @var configRuleParameters[]
      */
     public $configRuleParameters;
 
     /**
-     * @description The description of the event rule.
+     * @description The rule description.
+     *
+     * @example The rule description.
      *
      * @var string
      */
@@ -53,9 +57,9 @@ class configRules extends Model
     /**
      * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high
-     *   2: medium
-     *   3: low
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
      *
      * @example 1
      *

@@ -21,6 +21,8 @@ class managedRule extends Model
     /**
      * @description The description of the managed rule.
      *
+     * @example The description of the managed rule.
+     *
      * @var string
      */
     public $description;
@@ -43,6 +45,8 @@ class managedRule extends Model
 
     /**
      * @description The name of the managed rule.
+     *
+     * @example ram-user-mfa-check
      *
      * @var string
      */

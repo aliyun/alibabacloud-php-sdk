@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
-     * @description The rule ID. If you configure this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
+     * @description The rule ID. If you specify this parameter, Cloud Config adds the rule that has the specified ID to the compliance package.
      *
-     * You need to only configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+     * You only need to configure the `ManagedRuleIdentifier` or `ConfigRuleId` parameter. If you configure both parameters, the value of the `ConfigRuleId` parameter takes precedence. For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
      * @example cr-e918626622af000f****
      *
      * @var string
@@ -29,14 +29,14 @@ class configRules extends Model
     public $configRuleName;
 
     /**
-     * @description The input parameters of the rule.
+     * @description The details of the input parameter of the rule.
      *
      * @var configRuleParameters[]
      */
     public $configRuleParameters;
 
     /**
-     * @description The description of the rule.
+     * @description The rule description.
      *
      * @example The description of the test rule.
      *
@@ -57,9 +57,9 @@ class configRules extends Model
     /**
      * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high
-     *   2: medium
-     *   3: low
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
      *
      * @example 1
      *

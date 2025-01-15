@@ -67,11 +67,19 @@ class UpdateAggregateCompliancePackShrinkRequest extends Model
     public $description;
 
     /**
+     * @description The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-bnczc6r7rml****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -86,6 +94,8 @@ class UpdateAggregateCompliancePackShrinkRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description ExcludeTagsScope
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
@@ -109,6 +119,10 @@ class UpdateAggregateCompliancePackShrinkRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+     *
+     * @example lb-5cmbowstbkss9ta03****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -116,9 +130,9 @@ class UpdateAggregateCompliancePackShrinkRequest extends Model
     /**
      * @description The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
      *
-     *   1: high
-     *   2: medium
-     *   3: low
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
      *
      * @example 1
      *
@@ -146,6 +160,8 @@ class UpdateAggregateCompliancePackShrinkRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description TagsScope
+     *
      * @var tagsScope[]
      */
     public $tagsScope;

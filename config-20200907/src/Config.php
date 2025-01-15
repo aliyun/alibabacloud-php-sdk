@@ -107,6 +107,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleComplianceByP
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleComplianceByPackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRulesReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRulesReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleSummaryByRiskLevelRequest;
@@ -144,6 +145,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleComplianceByPackReques
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleComplianceByPackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRulesReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRulesReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleSummaryByRiskLevelResponse;
@@ -216,6 +218,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsResp
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationStatisticsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesShrinkRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListDiscoveredResourcesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListDiscoveredResourcesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListIntegratedServiceResponse;
@@ -340,10 +343,7 @@ class Config extends OpenApiClient
     /**
      * @summary Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
      *  *
-     * @description ### [](#)Prerequisites
-     * The rule is in the `INACTIVE` state.
-     * ### [](#)Description
-     * This topic provides an example on how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
+     * @description Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
      *  *
      * @param ActiveAggregateConfigRulesRequest $request ActiveAggregateConfigRulesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -384,10 +384,7 @@ class Config extends OpenApiClient
     /**
      * @summary Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
      *  *
-     * @description ### [](#)Prerequisites
-     * The rule is in the `INACTIVE` state.
-     * ### [](#)Description
-     * This topic provides an example on how to enable the `cr-5772ba41209e007b****` rule in the `ca-a4e5626622af0079****` account group.
+     * @description Enables one or more rules in an account group. After a rule is enabled, the rule continues to automatically evaluate resources based on the trigger mechanism.
      *  *
      * @param ActiveAggregateConfigRulesRequest $request ActiveAggregateConfigRulesRequest
      *
@@ -1490,6 +1487,13 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
+        }
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
@@ -1560,7 +1564,8 @@ class Config extends OpenApiClient
         }
         $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateConfigRule',
@@ -3285,24 +3290,32 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary 获取账号组规则详情
+     * @summary Queries the details of a rule in an account group.
      *  *
      * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
      *  *
-     * @param GetAggregateConfigRuleRequest $request GetAggregateConfigRuleRequest
+     * @param GetAggregateConfigRuleRequest $tmpReq  GetAggregateConfigRuleRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
      * @return GetAggregateConfigRuleResponse GetAggregateConfigRuleResponse
      */
-    public function getAggregateConfigRuleWithOptions($request, $runtime)
+    public function getAggregateConfigRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetAggregateConfigRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->aggregatorId)) {
             $query['AggregatorId'] = $request->aggregatorId;
         }
         if (!Utils::isUnset($request->configRuleId)) {
             $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3323,7 +3336,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary 获取账号组规则详情
+     * @summary Queries the details of a rule in an account group.
      *  *
      * @description This example shows how to query the details of the `cr-7f7d626622af0041****` rule in the `ca-7f00626622af0041****` account group.
      *  *
@@ -4294,17 +4307,25 @@ class Config extends OpenApiClient
      *  *
      * @description This topic provides an example on how to query the details of the `cr-7f7d626622af0041****` rule.
      *  *
-     * @param GetConfigRuleRequest $request GetConfigRuleRequest
+     * @param GetConfigRuleRequest $tmpReq  GetConfigRuleRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
      * @return GetConfigRuleResponse GetConfigRuleResponse
      */
-    public function getConfigRuleWithOptions($request, $runtime)
+    public function getConfigRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GetConfigRuleShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->configRuleId)) {
             $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5221,7 +5242,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Ignores the compliance evaluation results of one or more non-compliant resources that are evaluated based on a rule in an account group.
+     * @summary Ignores the evaluation results of some resources in an account group based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
      *  *
      * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
      * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
@@ -5274,7 +5295,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Ignores the compliance evaluation results of one or more non-compliant resources that are evaluated based on a rule in an account group.
+     * @summary Ignores the evaluation results of some resources in an account group based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
      *  *
      * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
      * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` incompliant resource that is evaluated by using the `cr-7e72626622af0051***` rule in the `120886317861****` member account of the `ca-5b6c626622af008f****` account group. The ID of the region where the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
@@ -5291,7 +5312,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Ignores one or more resources that are evaluated as non-compliant by using a rule.
+     * @summary Ignores the evaluation results of some resources based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
      *  *
      * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
      * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
@@ -5341,7 +5362,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @summary Ignores one or more resources that are evaluated as non-compliant by using a rule.
+     * @summary Ignores the evaluation results of some resources based on a specific rule. You can also specify a time period for ignoring the evaluation results. After the period elapses, the evaluation results of the resources based on the rule are automatically displayed.
      *  *
      * @description After you ignore a resource that is evaluated as incompliant by using a rule, the resource is still evaluated by using the rule, but the compliance result is Ignored.
      * This example shows how to ignore the `lb-hp3a3b4ztyfm2plgm****` resource that is evaluated as incompliant by using the `cr-7e72626622af0051****` rule in the `100931896542****` account. The ID of the region in which the resource resides is `cn-beijing`, and the type of the resource is `ACS::SLB::LoadBalancer`.
@@ -6398,14 +6419,19 @@ class Config extends OpenApiClient
      *  *
      * @description This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
      *  *
-     * @param ListConfigRulesRequest $request ListConfigRulesRequest
+     * @param ListConfigRulesRequest $tmpReq  ListConfigRulesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
      * @return ListConfigRulesResponse ListConfigRulesResponse
      */
-    public function listConfigRulesWithOptions($request, $runtime)
+    public function listConfigRulesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListConfigRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->compliancePackId)) {
             $query['CompliancePackId'] = $request->compliancePackId;
@@ -6433,6 +6459,9 @@ class Config extends OpenApiClient
         }
         if (!Utils::isUnset($request->riskLevel)) {
             $query['RiskLevel'] = $request->riskLevel;
+        }
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6588,8 +6617,8 @@ class Config extends OpenApiClient
      * @summary Queries a list of managed rules supported by Cloud Config.
      *  *
      * @description ### [](#)Background information
-     * For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
-     * ### [](#)Usage notes
+     * For more information about how to define, execute, and integrate a managed rule, see [Definition and execution of rules](https://help.aliyun.com/document_detail/128273.html).
+     * ### [](#)Description
      * This topic provides an example on how to query all managed rules whose keyword is `CDN`. The response shows that 21 managed rules exist.
      *  *
      * @param ListManagedRulesRequest $request ListManagedRulesRequest
@@ -6638,8 +6667,8 @@ class Config extends OpenApiClient
      * @summary Queries a list of managed rules supported by Cloud Config.
      *  *
      * @description ### [](#)Background information
-     * For more information about how to define, execute, and integrate an evaluation rule, see [Definition and execution of evaluation rules](https://help.aliyun.com/document_detail/470802.html).
-     * ### [](#)Usage notes
+     * For more information about how to define, execute, and integrate a managed rule, see [Definition and execution of rules](https://help.aliyun.com/document_detail/128273.html).
+     * ### [](#)Description
      * This topic provides an example on how to query all managed rules whose keyword is `CDN`. The response shows that 21 managed rules exist.
      *  *
      * @param ListManagedRulesRequest $request ListManagedRulesRequest
@@ -6963,7 +6992,8 @@ class Config extends OpenApiClient
     /**
      * @summary Queries a list of resources that associate with a specific resource.
      *  *
-     * @description This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance within the current Alibaba Cloud account.
+     * @description For information about the Alibaba Cloud services and resource types supported by Cloud Config, see [Alibaba Cloud services and resource types supported by Cloud Config](https://help.aliyun.com/document_detail/127411.html).
+     * This topic provides an example on how to query the information about the disks that are attached to an Elastic Compute Service (ECS) instance named `i-j6cajg9yrfoh4sas****` that is created by the current Alibaba Cloud account in the China (Shanghai) region.
      *  *
      * @param ListResourceRelationsRequest $request ListResourceRelationsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -7019,7 +7049,8 @@ class Config extends OpenApiClient
     /**
      * @summary Queries a list of resources that associate with a specific resource.
      *  *
-     * @description This topic provides an example on how to query the disks that are associated with an Elastic Compute Service (ECS) instance within the current Alibaba Cloud account.
+     * @description For information about the Alibaba Cloud services and resource types supported by Cloud Config, see [Alibaba Cloud services and resource types supported by Cloud Config](https://help.aliyun.com/document_detail/127411.html).
+     * This topic provides an example on how to query the information about the disks that are attached to an Elastic Compute Service (ECS) instance named `i-j6cajg9yrfoh4sas****` that is created by the current Alibaba Cloud account in the China (Shanghai) region.
      *  *
      * @param ListResourceRelationsRequest $request ListResourceRelationsRequest
      *
@@ -8505,6 +8536,13 @@ class Config extends OpenApiClient
         if (!Utils::isUnset($tmpReq->resourceTypesScope)) {
             $request->resourceTypesScopeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceTypesScope, 'ResourceTypesScope', 'simple');
         }
+        if (!Utils::isUnset($tmpReq->tag)) {
+            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'Tag', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->tagShrink)) {
+            $query['Tag'] = $request->tagShrink;
+        }
         $body = [];
         if (!Utils::isUnset($request->clientToken)) {
             $body['ClientToken'] = $request->clientToken;
@@ -8572,7 +8610,8 @@ class Config extends OpenApiClient
         }
         $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
         $req  = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateConfigRule',

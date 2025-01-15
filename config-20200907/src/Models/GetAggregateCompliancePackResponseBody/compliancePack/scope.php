@@ -11,11 +11,19 @@ use AlibabaCloud\Tea\Model;
 class scope extends Model
 {
     /**
+     * @description The IDs of regions that are excluded. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description The IDs of the resource groups whose resources you do not want to evaluate by using the compliance package. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-aekzc7r7rhx****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -30,6 +38,8 @@ class scope extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description The scope of the tag that is excluded.
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
@@ -53,6 +63,10 @@ class scope extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description The IDs of the resources to which the rule applies. Separate multiple resource IDs with commas (,).
+     *
+     * @example eip-8vbf3x310fn56ijfd****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -76,6 +90,8 @@ class scope extends Model
     public $tagValueScope;
 
     /**
+     * @description The tag scope.
+     *
      * @var tagsScope[]
      */
     public $tagsScope;

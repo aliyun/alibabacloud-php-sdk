@@ -10,6 +10,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\excludeTagsScope;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\managedRule;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\source;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\tags;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateConfigRuleResponseBody\configRule\tagsScope;
 use AlibabaCloud\Tea\Model;
 
@@ -25,6 +26,10 @@ class configRule extends Model
     public $accountId;
 
     /**
+     * @description The IDs of the members to which the rule applies. Separate multiple member IDs with commas (,).
+     *
+     * @example 120886317861****
+     *
      * @var string
      */
     public $accountIdsScope;
@@ -63,6 +68,8 @@ class configRule extends Model
 
     /**
      * @description The name of the monitoring rule.
+     *
+     * @example The name of the rule.
      *
      * @var string
      */
@@ -113,6 +120,8 @@ class configRule extends Model
     /**
      * @description The description of the managed rule.
      *
+     * @example The description of the managed rule.
+     *
      * @var string
      */
     public $description;
@@ -141,11 +150,19 @@ class configRule extends Model
     public $excludeFolderIdsScope;
 
     /**
+     * @description The IDs of the regions excluded from the compliance evaluations performed by the rule. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description The IDs of the resource groups excluded from the compliance evaluations performed by the rule. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-aekzdibsjjc****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -160,11 +177,17 @@ class configRule extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description The scope of the tag that is excluded.
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
 
     /**
+     * @description The extended content, which is temporarily only used to configure the trigger time with a 24-hour cycle trigger.
+     *
+     * @example {"fixedHour":"12"}
+     *
      * @var string
      */
     public $extendContent;
@@ -241,6 +264,10 @@ class configRule extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description The IDs of the resources to which the rule applies. Separate multiple resource IDs with commas (,).
+     *
+     * @example eip-8vbf3x310fn56ijfd****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -305,6 +332,13 @@ class configRule extends Model
     public $tagValueScope;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The tag scope.
+     *
      * @var tagsScope[]
      */
     public $tagsScope;
@@ -342,6 +376,7 @@ class configRule extends Model
         'tagKeyLogicScope'             => 'TagKeyLogicScope',
         'tagKeyScope'                  => 'TagKeyScope',
         'tagValueScope'                => 'TagValueScope',
+        'tags'                         => 'Tags',
         'tagsScope'                    => 'TagsScope',
     ];
 
@@ -456,6 +491,15 @@ class configRule extends Model
         }
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->tagsScope) {
             $res['TagsScope'] = [];
@@ -582,6 +626,15 @@ class configRule extends Model
         }
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TagsScope'])) {
             if (!empty($map['TagsScope'])) {

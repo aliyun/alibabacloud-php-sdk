@@ -18,10 +18,7 @@ class operateRuleItemList extends Model
     public $configRuleId;
 
     /**
-     * @description The error code returned.
-     *
-     *   If the rule is enabled, no error code is returned.
-     *   If the rule fails to be enabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+     * @description The error code.
      *
      * @example ConfigRuleNotExists
      *
@@ -32,8 +29,8 @@ class operateRuleItemList extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The request was successful.
-     *   false: The request failed.
+     *   true
+     *   false
      *
      * @example false
      *

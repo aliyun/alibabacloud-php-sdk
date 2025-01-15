@@ -11,6 +11,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRul
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\managedRule;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\scope;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\source;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\tags;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetConfigRuleResponseBody\configRule\tagsScope;
 use AlibabaCloud\Tea\Model;
 
@@ -295,6 +296,11 @@ class configRule extends Model
     public $tagValueScope;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description TagsScope
      *
      * @var tagsScope[]
@@ -331,6 +337,7 @@ class configRule extends Model
         'tagKeyLogicScope'             => 'TagKeyLogicScope',
         'tagKeyScope'                  => 'TagKeyScope',
         'tagValueScope'                => 'TagValueScope',
+        'tags'                         => 'Tags',
         'tagsScope'                    => 'TagsScope',
     ];
 
@@ -436,6 +443,15 @@ class configRule extends Model
         }
         if (null !== $this->tagValueScope) {
             $res['TagValueScope'] = $this->tagValueScope;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->tagsScope) {
             $res['TagsScope'] = [];
@@ -553,6 +569,15 @@ class configRule extends Model
         }
         if (isset($map['TagValueScope'])) {
             $model->tagValueScope = $map['TagValueScope'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TagsScope'])) {
             if (!empty($map['TagsScope'])) {

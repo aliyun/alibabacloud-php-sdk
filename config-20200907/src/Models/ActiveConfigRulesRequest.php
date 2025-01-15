@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ActiveConfigRulesRequest extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
+     * @example cp-fe416457e0d90022****
+     *
      * @var string
      */
     public $compliancePackId;

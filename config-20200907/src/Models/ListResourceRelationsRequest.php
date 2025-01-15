@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListResourceRelationsRequest extends Model
 {
     /**
-     * @description The maximum number of entries to return for a single request. Valid values: 1 to 1000.
+     * @description The maximum number of entries to return in a request. Valid values: 1 to 1000.
      *
      * @example 10
      *

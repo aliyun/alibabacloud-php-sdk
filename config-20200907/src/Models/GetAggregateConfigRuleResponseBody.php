@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateConfigRuleResponseBody extends Model
 {
     /**
-     * @description The details of the rule.
+     * @description The rules.
      *
      * @var configRule
      */

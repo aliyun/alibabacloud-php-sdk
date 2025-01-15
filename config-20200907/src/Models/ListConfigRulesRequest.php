@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
+use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListConfigRulesRequest extends Model
 {
     /**
+     * @description The compliance package ID.
+     *
+     * >  You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
+     * @example cp-fe416457e0d90022****
+     *
      * @var string
      */
     public $compliancePackId;
@@ -101,6 +107,11 @@ class ListConfigRulesRequest extends Model
      * @var int
      */
     public $riskLevel;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'compliancePackId' => 'CompliancePackId',
         'complianceType'   => 'ComplianceType',
@@ -111,6 +122,7 @@ class ListConfigRulesRequest extends Model
         'pageSize'         => 'PageSize',
         'resourceTypes'    => 'ResourceTypes',
         'riskLevel'        => 'RiskLevel',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
@@ -146,6 +158,15 @@ class ListConfigRulesRequest extends Model
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -185,6 +206,15 @@ class ListConfigRulesRequest extends Model
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

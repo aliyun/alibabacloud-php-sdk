@@ -19,6 +19,10 @@ class ListAggregateConfigRulesRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The compliance package ID.
+     *
+     * @example cp-fe416457e0d90022****
+     *
      * @var string
      */
     public $compliancePackId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tagsScope extends Model
 {
     /**
+     * @description The key of the tag.
+     *
+     * @example key-1
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example value-1
+     *
      * @var string
      */
     public $tagValue;

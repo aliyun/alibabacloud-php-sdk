@@ -200,6 +200,11 @@ class CreateConfigRuleShrinkRequest extends Model
     public $sourceOwner;
 
     /**
+     * @var string
+     */
+    public $tagShrink;
+
+    /**
      * @description The logical relationship among the tag keys if you specify multiple tag keys for `TagKeyScope`. For example, if you set `TagKeyScope` to `ECS,OSS` and set TagKeyLogicScope to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
      *
      *   AND
@@ -256,6 +261,7 @@ class CreateConfigRuleShrinkRequest extends Model
         'riskLevel'                    => 'RiskLevel',
         'sourceIdentifier'             => 'SourceIdentifier',
         'sourceOwner'                  => 'SourceOwner',
+        'tagShrink'                    => 'Tag',
         'tagKeyLogicScope'             => 'TagKeyLogicScope',
         'tagKeyScope'                  => 'TagKeyScope',
         'tagValueScope'                => 'TagValueScope',
@@ -328,6 +334,9 @@ class CreateConfigRuleShrinkRequest extends Model
         }
         if (null !== $this->sourceOwner) {
             $res['SourceOwner'] = $this->sourceOwner;
+        }
+        if (null !== $this->tagShrink) {
+            $res['Tag'] = $this->tagShrink;
         }
         if (null !== $this->tagKeyLogicScope) {
             $res['TagKeyLogicScope'] = $this->tagKeyLogicScope;
@@ -418,6 +427,9 @@ class CreateConfigRuleShrinkRequest extends Model
         }
         if (isset($map['SourceOwner'])) {
             $model->sourceOwner = $map['SourceOwner'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tagShrink = $map['Tag'];
         }
         if (isset($map['TagKeyLogicScope'])) {
             $model->tagKeyLogicScope = $map['TagKeyLogicScope'];

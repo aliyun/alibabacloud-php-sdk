@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeactiveConfigRulesRequest extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
+     * For more information about how to obtain the ID of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+     * @example cp-fe416457e0d90022****
+     *
      * @var string
      */
     public $compliancePackId;

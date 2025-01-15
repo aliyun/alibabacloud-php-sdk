@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ActiveAggregateConfigRulesRequest extends Model
 {
     /**
-     * @description The ID of the account group.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * This parameter is required.
      * @example ca-a4e5626622af0079****
@@ -19,14 +22,20 @@ class ActiveAggregateConfigRulesRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The rule ID.
+     *
+     * @example cp-fe416457e0d90022****
+     *
      * @var string
      */
     public $compliancePackId;
 
     /**
-     * @description The rule ID. Separate multiple rule IDs with commas (,).
+     * @description The error code returned.
      *
-     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+     *   If the rule is enabled, no error code is returned.
+     *   If the rule fails to be enabled, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
+     *
      * @example cr-5772ba41209e007b****
      *
      * @var string

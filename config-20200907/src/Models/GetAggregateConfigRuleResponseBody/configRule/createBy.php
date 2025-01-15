@@ -38,6 +38,8 @@ class createBy extends Model
     /**
      * @description The name of the compliance package.
      *
+     * @example The name of the compliance package.
+     *
      * @var string
      */
     public $compliancePackName;

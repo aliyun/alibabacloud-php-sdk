@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UpdateIntegratedServiceStatusRequest extends Model
 {
     /**
+     * @description The type of the event that is integrated across accounts. Valid values:
+     *
+     *   NonCompliantNotification: non-compliance event
+     *
+     * @example NonCompliantNotification
+     *
      * @var string
      */
     public $aggregatorDeliveryDataType;

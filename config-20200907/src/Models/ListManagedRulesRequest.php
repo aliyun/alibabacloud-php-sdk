@@ -18,9 +18,9 @@ class ListManagedRulesRequest extends Model
     public $keyword;
 
     /**
-     * @description The page number.
+     * @description The page number of the page to return.
      *
-     * Page start from page 1. Default value: 1.
+     * Pages start from page 1. Default value: 1
      * @example 1
      *
      * @var int

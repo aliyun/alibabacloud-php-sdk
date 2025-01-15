@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateAggregateCompliancePackResponseBody extends Model
 {
     /**
-     * @description The ID of the compliance package.
+     * @description The compliance package ID.
      *
      * @example ca-f632626622af0079****
      *
@@ -18,7 +18,7 @@ class UpdateAggregateCompliancePackResponseBody extends Model
     public $compliancePackId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
      *

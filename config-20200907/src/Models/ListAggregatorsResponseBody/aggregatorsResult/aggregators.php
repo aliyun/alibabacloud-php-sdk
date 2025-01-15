@@ -88,7 +88,7 @@ class aggregators extends Model
     public $description;
 
     /**
-     * @description The information about the member accounts in the account group.
+     * @description The ID of the folder.
      *
      * @example r-BU****
      *

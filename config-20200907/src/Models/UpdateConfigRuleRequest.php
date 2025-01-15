@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleRequest\excludeTagsScope;
+use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleRequest\tag;
 use AlibabaCloud\SDK\Config\V20200907\Models\UpdateConfigRuleRequest\tagsScope;
 use AlibabaCloud\Tea\Model;
 
@@ -33,6 +34,8 @@ class UpdateConfigRuleRequest extends Model
      * @description The name of the rule.
      *
      * For more information about how to query the name of a rule, see [ListAggregateConfigRules](https://help.aliyun.com/document_detail/264148.html).
+     * @example The name of the rule.
+     *
      * @var string
      */
     public $configRuleName;
@@ -53,16 +56,26 @@ class UpdateConfigRuleRequest extends Model
     /**
      * @description The description of the rule. You can enter up to 500 characters.
      *
+     * @example The description of the rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The IDs of the regions excluded from the compliance evaluations performed by the rule. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description The IDs of the resource groups excluded from the compliance evaluations performed by the rule. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-bnczc6r7rml****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -78,11 +91,17 @@ class UpdateConfigRuleRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description The scope of the tag that is excluded.
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
 
     /**
+     * @description Optional. The extended content of the resource. This parameter can be used together with the MaximumExecutionFrequency parameter when the MaximumExecutionFrequency parameter is set to TwentyFour_Hours to specify the trigger time.
+     *
+     * @example {"fixedHour":"12"}
+     *
      * @var string
      */
     public $extendContent;
@@ -97,15 +116,15 @@ class UpdateConfigRuleRequest extends Model
     public $inputParameters;
 
     /**
-     * @description The intervals at which the rule is triggered. Valid values:
+     * @description The interval at which the rule is triggered. Valid values:
      *
-     *   One_Hour: 1 hour.
-     *   Three_Hours: 3 hours.
-     *   Six_Hours: 6 hours.
-     *   Twelve_Hours: 12 hours.
-     *   TwentyFour_Hours (default): 24 hours.
+     *   One_Hour
+     *   Three_Hours
+     *   Six_Hours
+     *   Twelve_Hours
+     *   TwentyFour_Hours (default)
      *
-     * >  This parameter is required if you set the `ConfigRuleTriggerTypes` parameter to `ScheduledNotification`.
+     * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
      * @example One_Hour
      *
      * @var string
@@ -133,6 +152,10 @@ class UpdateConfigRuleRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description The IDs of the resources to which the rule applies. Separate multiple resource IDs with commas (,).
+     *
+     * @example lb-5cmbowstbkss9ta03****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -147,17 +170,22 @@ class UpdateConfigRuleRequest extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 3
      *
      * @var int
      */
     public $riskLevel;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @description The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
@@ -192,6 +220,8 @@ class UpdateConfigRuleRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description The tag scope.
+     *
      * @var tagsScope[]
      */
     public $tagsScope;
@@ -213,6 +243,7 @@ class UpdateConfigRuleRequest extends Model
         'resourceIdsScope'             => 'ResourceIdsScope',
         'resourceTypesScope'           => 'ResourceTypesScope',
         'riskLevel'                    => 'RiskLevel',
+        'tag'                          => 'Tag',
         'tagKeyLogicScope'             => 'TagKeyLogicScope',
         'tagKeyScope'                  => 'TagKeyScope',
         'tagValueScope'                => 'TagValueScope',
@@ -282,6 +313,15 @@ class UpdateConfigRuleRequest extends Model
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->tagKeyLogicScope) {
             $res['TagKeyLogicScope'] = $this->tagKeyLogicScope;
@@ -371,6 +411,15 @@ class UpdateConfigRuleRequest extends Model
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TagKeyLogicScope'])) {
             $model->tagKeyLogicScope = $map['TagKeyLogicScope'];

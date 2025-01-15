@@ -13,7 +13,7 @@ class GetIntegratedServiceStatusRequest extends Model
      *
      *   eventbridge: EventBridge
      *   cms: CloudMonitor
-     *   bpstudio: Cloud Architect Design Tools
+     *   bpstudio: Cloud Architect Design Tools (CADT)
      *
      * This parameter is required.
      * @example cadt

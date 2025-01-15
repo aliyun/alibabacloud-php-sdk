@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class aggregatorsResult extends Model
 {
     /**
-     * @description The information about the account groups.
+     * @description The list of the account groups.
      *
      * @var aggregators[]
      */

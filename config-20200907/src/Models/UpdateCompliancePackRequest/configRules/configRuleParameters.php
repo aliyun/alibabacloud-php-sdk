@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class configRuleParameters extends Model
 {
     /**
-     * @description The name of the input parameter.
+     * @description The name of the managed rule parameter.
      *
-     * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the name of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
+     * You must specify both `ParameterName` and `ParameterValue` or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the name of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
      * @example bandwidth
      *
      * @var string
@@ -19,7 +19,7 @@ class configRuleParameters extends Model
     public $parameterName;
 
     /**
-     * @description The value of the input parameter.
+     * @description The value of the managed rule parameter.
      *
      * You must configure the `ParameterName` and `ParameterValue` parameters or neither of them. If the managed rule has an input parameter but no default value exists, you must configure this parameter. For more information about how to obtain the value of an input parameter for a managed rule, see [ListCompliancePackTemplates](https://help.aliyun.com/document_detail/261176.html).
      * @example 20

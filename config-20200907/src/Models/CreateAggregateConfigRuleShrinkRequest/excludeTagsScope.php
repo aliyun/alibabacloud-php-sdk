@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class excludeTagsScope extends Model
 {
     /**
+     * @description The tag key of the resource that you want to exclude.
+     *
+     * @example key-2
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value of the resource that you want to exclude.
+     *
+     * @example value-2
+     *
      * @var string
      */
     public $tagValue;

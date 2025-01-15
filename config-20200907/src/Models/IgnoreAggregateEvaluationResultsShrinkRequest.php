@@ -41,6 +41,8 @@ class IgnoreAggregateEvaluationResultsShrinkRequest extends Model
     /**
      * @description The reason why you ignore the resource.
      *
+     * @example The reason why you ignore the resource.
+     *
      * @var string
      */
     public $reason;

@@ -19,6 +19,11 @@ class DeactiveAggregateConfigRulesRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The ID of the compliance package.
+     *
+     * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](https://help.aliyun.com/document_detail/262059.html).
+     * @example cp-fe416457e0d90022****
+     *
      * @var string
      */
     public $compliancePackId;

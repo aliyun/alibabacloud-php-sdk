@@ -34,6 +34,8 @@ class UpdateCompliancePackRequest extends Model
      * @description The name of the compliance package.
      *
      * For more information about how to obtain the name of a compliance package, see [ListCompliancePacks](https://help.aliyun.com/document_detail/263332.html).
+     * @example The name of the compliance package.
+     *
      * @var string
      */
     public $compliancePackName;
@@ -49,16 +51,26 @@ class UpdateCompliancePackRequest extends Model
     /**
      * @description The description of the compliance package.
      *
+     * @example The description of the compliance package.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-bnczc6r7rml****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -73,6 +85,8 @@ class UpdateCompliancePackRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description ExcludeTagsScope
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
@@ -96,6 +110,10 @@ class UpdateCompliancePackRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+     *
+     * @example lb-5cmbowstbkss9ta03****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -103,9 +121,9 @@ class UpdateCompliancePackRequest extends Model
     /**
      * @description The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
      *
-     *   1: high
-     *   2: medium
-     *   3: low
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
      *
      * @example 1
      *
@@ -133,6 +151,8 @@ class UpdateCompliancePackRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description TagsScope
+     *
      * @var tagsScope[]
      */
     public $tagsScope;

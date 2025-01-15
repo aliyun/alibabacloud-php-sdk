@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class CreateAggregateConfigRuleRequest extends Model
 {
     /**
+     * @description The IDs of the member accounts to which the rule applies, which means that the resources within the member accounts are evaluated based on the rule. Separate multiple member account IDs with commas (,).
+     *
+     * @example 115748125982****
+     *
      * @var string
      */
     public $accountIdsScope;
@@ -38,6 +42,8 @@ class CreateAggregateConfigRuleRequest extends Model
      * @description The rule name.
      *
      * This parameter is required.
+     * @example oss-default-encryption-kms
+     *
      * @var string
      */
     public $configRuleName;
@@ -57,6 +63,8 @@ class CreateAggregateConfigRuleRequest extends Model
 
     /**
      * @description The description of the rule.
+     *
+     * @example description of rule
      *
      * @var string
      */
@@ -88,11 +96,19 @@ class CreateAggregateConfigRuleRequest extends Model
     public $excludeFolderIdsScope;
 
     /**
+     * @description The IDs of the regions to which the rule not applies. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description ExcludeResourceGroupIdsScope. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-bnczc6r7rml****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -108,11 +124,17 @@ class CreateAggregateConfigRuleRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description The scope of the tag that is excluded.
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
 
     /**
+     * @description The extended content, which is temporarily only used to configure the trigger time with a 24-hour cycle trigger.
+     *
+     * @example {"fixedHour":"12"}
+     *
      * @var string
      */
     public $extendContent;
@@ -144,13 +166,13 @@ class CreateAggregateConfigRuleRequest extends Model
     /**
      * @description The interval at which the rule is triggered. Valid values:
      *
-     *   One_Hour: 1 hour.
-     *   Three_Hours: 3 hours.
-     *   Six_Hours: 6 hours.
-     *   Twelve_Hours: 12 hours.
-     *   TwentyFour_Hours (default): 24 hours.
+     *   One_Hour
+     *   Three_Hours
+     *   Six_Hours
+     *   Twelve_Hours
+     *   TwentyFour_Hours (default)
      *
-     * > This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
+     * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
      * @example One_Hour
      *
      * @var string
@@ -178,6 +200,10 @@ class CreateAggregateConfigRuleRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description The IDs of the resources included from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+     *
+     * @example lb-5cmbowstbkss9ta03****
+     *
      * @var string
      */
     public $resourceIdsScope;
@@ -193,11 +219,11 @@ class CreateAggregateConfigRuleRequest extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * This parameter is required.
      * @example 1
@@ -222,8 +248,8 @@ class CreateAggregateConfigRuleRequest extends Model
     /**
      * @description The type of the rule. Valid values:
      *
-     *   ALIYUN: managed rule
-     *   CUSTOM_FC: custom rule
+     *   ALIYUN: a managed rule.
+     *   CUSTOM_FC: a custom rule.
      *
      * This parameter is required.
      * @example ALIYUN
@@ -265,6 +291,8 @@ class CreateAggregateConfigRuleRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description The tag scope.
+     *
      * @var tagsScope[]
      */
     public $tagsScope;

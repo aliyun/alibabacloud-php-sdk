@@ -40,6 +40,8 @@ class compliancePack extends Model
     /**
      * @description The name of the compliance package.
      *
+     * @example The name of the compliance package.
+     *
      * @var string
      */
     public $compliancePackName;
@@ -71,6 +73,8 @@ class compliancePack extends Model
 
     /**
      * @description The description of the compliance package.
+     *
+     * @example The description of the compliance package.
      *
      * @var string
      */
@@ -111,6 +115,8 @@ class compliancePack extends Model
     /**
      * @description The information about the current compliance package template. The rules in the template do not contain custom function rules. You can quickly create the same compliance package for other accounts or account groups based on the template information.
      *
+     * @example {
+     * }
      * @var string
      */
     public $templateContent;

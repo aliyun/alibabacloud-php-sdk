@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleRequest\excludeTagsScope;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleRequest\tag;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateConfigRuleRequest\tagsScope;
 use AlibabaCloud\Tea\Model;
 
@@ -200,6 +201,11 @@ class CreateConfigRuleRequest extends Model
     public $sourceOwner;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The logical relationship among the tag keys if you specify multiple tag keys for `TagKeyScope`. For example, if you set `TagKeyScope` to `ECS,OSS` and set TagKeyLogicScope to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
      *
      *   AND
@@ -256,6 +262,7 @@ class CreateConfigRuleRequest extends Model
         'riskLevel'                    => 'RiskLevel',
         'sourceIdentifier'             => 'SourceIdentifier',
         'sourceOwner'                  => 'SourceOwner',
+        'tag'                          => 'Tag',
         'tagKeyLogicScope'             => 'TagKeyLogicScope',
         'tagKeyScope'                  => 'TagKeyScope',
         'tagValueScope'                => 'TagValueScope',
@@ -328,6 +335,15 @@ class CreateConfigRuleRequest extends Model
         }
         if (null !== $this->sourceOwner) {
             $res['SourceOwner'] = $this->sourceOwner;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->tagKeyLogicScope) {
             $res['TagKeyLogicScope'] = $this->tagKeyLogicScope;
@@ -420,6 +436,15 @@ class CreateConfigRuleRequest extends Model
         }
         if (isset($map['SourceOwner'])) {
             $model->sourceOwner = $map['SourceOwner'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TagKeyLogicScope'])) {
             $model->tagKeyLogicScope = $map['TagKeyLogicScope'];

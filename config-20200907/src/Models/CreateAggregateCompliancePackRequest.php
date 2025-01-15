@@ -80,11 +80,19 @@ class CreateAggregateCompliancePackRequest extends Model
     public $description;
 
     /**
+     * @description The IDs of the regions excluded from the compliance evaluations performed by the compliance package. Separate multiple region IDs with commas (,).
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $excludeRegionIdsScope;
 
     /**
+     * @description The IDs of the resource groups excluded from the compliance evaluations performed by the rule. Separate multiple resource group IDs with commas (,).
+     *
+     * @example rg-bnczc6r7rml****
+     *
      * @var string
      */
     public $excludeResourceGroupIdsScope;
@@ -99,6 +107,8 @@ class CreateAggregateCompliancePackRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
+     * @description The tags that are excluded.
+     *
      * @var excludeTagsScope[]
      */
     public $excludeTagsScope;
@@ -122,12 +132,16 @@ class CreateAggregateCompliancePackRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
+     * @description The IDs of the resources to which the rule applies. Separate multiple resource IDs with commas (,).
+     *
+     * @example lb-5cmbowstbkss9ta03****
+     *
      * @var string
      */
     public $resourceIdsScope;
 
     /**
-     * @description The risk level of the compliance package. Valid values:
+     * @description The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
      *
      *   1: high
      *   2 (default): medium
@@ -159,6 +173,8 @@ class CreateAggregateCompliancePackRequest extends Model
     public $tagValueScope;
 
     /**
+     * @description The tag scope.
+     *
      * @var tagsScope[]
      */
     public $tagsScope;
