@@ -39,6 +39,26 @@ class DescribeOpEntitiesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the operation. Valid values:
+     *
+     *   **3**: Add an IP address to the instance.
+     *   **4**: Remove an IP address from the instance.
+     *   **5**: Downgrade the instance.
+     *   **6**: Deactivate blackhole filtering.
+     *   **7**: Reset the number of times that you can deactivate blackhole filtering.
+     *   **8**: Restore the mitigation capability.
+     *   **9**: Add an asset group.
+     *   **10**: Remove an asset group.
+     *   **11**: Enable the metering method of daily 95th percentile for the burstable clean bandwidth feature.
+     *   **12**: Enable the metering method of monthly 95th percentile for the burstable clean bandwidth feature.
+     *   **13**: Periodically switch between the metering methods of daily 95th percentile and monthly 95th percentile for the burstable clean bandwidth feature.
+     *   **14**: Disable the metering method of daily 95th percentile for the burstable clean bandwidth feature.
+     *   **15**: Disable the metering method of monthly 95th percentile for the burstable clean bandwidth feature.
+     *   **16**: Disable burstable clean bandwidth due to overdue payments.
+     *   **17**: Disable burstable clean bandwidth due to instance expiration.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $opAction;

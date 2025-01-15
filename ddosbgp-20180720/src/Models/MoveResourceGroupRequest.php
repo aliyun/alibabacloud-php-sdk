@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the resource group to which you want to move the resource.
      *
+     * This parameter is required.
      * @example rg-acfm3peow3k****
      *
      * @var string
@@ -18,8 +19,9 @@ class MoveResourceGroupRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource ID.
      *
+     * This parameter is required.
      * @example ddos_originpre_public_cn-7213kxxxxx
      *
      * @var string
@@ -27,8 +29,9 @@ class MoveResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description This parameter is required.
+     * @description The region ID of the resource.
      *
+     * This parameter is required.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,8 +39,9 @@ class MoveResourceGroupRequest extends Model
     public $resourceRegionId;
 
     /**
-     * @description This parameter is required.
+     * @description The resource type. Set the value to **instance**.
      *
+     * This parameter is required.
      * @example instance
      *
      * @var string

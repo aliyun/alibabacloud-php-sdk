@@ -20,9 +20,9 @@ class DescribeRdStatusResponseBody extends Model
     /**
      * @description The type of the Alibaba Cloud account. Valid values:
      *
-     *   **MasterAccount**: management account
-     *   **DelegatedAdminAccount**: delegated administrator account
-     *   **MasterAccount**: member
+     *   **MasterAccount**: management account.
+     *   **DelegatedAdminAccount**: delegated administrator account.
+     *   **MemberAccount**: member.
      *
      * @example MemberAccount
      *

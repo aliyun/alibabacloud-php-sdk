@@ -17,7 +17,7 @@ class DescribeInstanceListResponseBody extends Model
     public $instanceList;
 
     /**
-     * @description The ID of the request.
+     * @description The details about the Anti-DDoS Origin instance.
      *
      * @example 381D5D33-BB8F-395F-8EE4-AE3BB4B523C4
      *
@@ -26,7 +26,7 @@ class DescribeInstanceListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of Anti-DDoS Origin instances.
+     * @description The details about the Anti-DDoS Origin instances.
      *
      * @example 1
      *

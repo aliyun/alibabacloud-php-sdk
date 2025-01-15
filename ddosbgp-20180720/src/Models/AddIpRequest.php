@@ -19,13 +19,10 @@ class AddIpRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IP addresses that you want to add to the Anti-DDoS Origin instance. This parameter is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that includes the following field:
+     * @description The IP addresses that you want to add to the Anti-DDoS Origin instance. This parameter is a string consisting of JSON arrays. Each element in a JSON array is a JSON struct that includes the following fields:
      *
      *   **ip**: required. The IP address that you want to add. Data type: string.
-     *
-     **
-     *
-     **Note** The IP address must be the IP address of an asset that belongs to the current Alibaba Cloud account.
+     *   **member_uid**: optional. The member to which the asset belongs. Data type: string. This field is required only if the asset of a member is queried. Example: [{"ip":"121.41.XX.XX","member_uid":"120100811162\\*\\*\\*\\*"}].
      *
      * This parameter is required.
      * @example [{"ip":"1.XX.XX.1"},{"ip":"2.XX.XX.2"}]

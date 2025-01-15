@@ -495,7 +495,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a scheduling rule of an on-demand instance.
+     * @summary Modifies a scheduling rule of an anti-DDoS diversion instance.
      *  *
      * @param ConfigSchedruleOnDemandRequest $request ConfigSchedruleOnDemandRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -561,7 +561,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a scheduling rule of an on-demand instance.
+     * @summary Modifies a scheduling rule of an anti-DDoS diversion instance.
      *  *
      * @param ConfigSchedruleOnDemandRequest $request ConfigSchedruleOnDemandRequest
      *
@@ -625,7 +625,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scheduling rule for an on-demand instance.
+     * @summary Creates a scheduling rule for an anti-DDoS diversion instance.
      *  *
      * @param CreateSchedruleOnDemandRequest $request CreateSchedruleOnDemandRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -691,7 +691,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Creates a scheduling rule for an on-demand instance.
+     * @summary Creates a scheduling rule for an anti-DDoS diversion instance.
      *  *
      * @param CreateSchedruleOnDemandRequest $request CreateSchedruleOnDemandRequest
      *
@@ -1299,9 +1299,7 @@ class Ddosbgp extends OpenApiClient
     /**
      * @summary Queries the details of all Anti-DDoS Origin instances.
      *  *
-     * @description You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.
-     * ## Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description Queries the details of all Anti-DDoS Origin instances.
      *  *
      * @param DescribeInstanceListRequest $request DescribeInstanceListRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1372,9 +1370,7 @@ class Ddosbgp extends OpenApiClient
     /**
      * @summary Queries the details of all Anti-DDoS Origin instances.
      *  *
-     * @description You can call the DescribeInstanceList operation to query the details of all Anti-DDoS Origin instances within your Alibaba Cloud account by page. The details include the ID, validity period, and status of each instance.
-     * ## Limits
-     * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * @description Queries the details of all Anti-DDoS Origin instances.
      *  *
      * @param DescribeInstanceListRequest $request DescribeInstanceListRequest
      *
@@ -2416,6 +2412,8 @@ class Ddosbgp extends OpenApiClient
     /**
      * @summary Modifies a mitigation policy.
      *  *
+     * @description Modifies a mitigation policy.
+     *  *
      * @param ModifyPolicyRequest $tmpReq  ModifyPolicyRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
@@ -2462,6 +2460,8 @@ class Ddosbgp extends OpenApiClient
 
     /**
      * @summary Modifies a mitigation policy.
+     *  *
+     * @description Modifies a mitigation policy.
      *  *
      * @param ModifyPolicyRequest $request ModifyPolicyRequest
      *
@@ -2601,7 +2601,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary 移动资源组
+     * @summary Changes the resource group to which a cloud resource belongs.
      *  *
      * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2643,7 +2643,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary 移动资源组
+     * @summary Changes the resource group to which a cloud resource belongs.
      *  *
      * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
      *
@@ -2657,7 +2657,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scheduling rule of an on-demand instance.
+     * @summary Queries the scheduling rule of an anti-DDoS diversion instance.
      *  *
      * @param QuerySchedruleOnDemandRequest $request QuerySchedruleOnDemandRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2693,7 +2693,7 @@ class Ddosbgp extends OpenApiClient
     }
 
     /**
-     * @summary Queries the scheduling rule of an on-demand instance.
+     * @summary Queries the scheduling rule of an anti-DDoS diversion instance.
      *  *
      * @param QuerySchedruleOnDemandRequest $request QuerySchedruleOnDemandRequest
      *

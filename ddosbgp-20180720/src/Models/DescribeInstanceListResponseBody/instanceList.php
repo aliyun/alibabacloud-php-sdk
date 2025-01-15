@@ -10,17 +10,18 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
-     * @description The condition that triggers automatic association of the instance with an object.
+     * @description The event that triggers automatic association. Valid values:
+     *
+     *   **any**: The instance is automatically associated with an object based on traffic scrubbing events or blackhole filtering events.
+     *   **clean**: The instance is automatically associated with an object based on traffic scrubbing events.
+     *   **blackhole**: The instance is automatically associated with an object based on blackhole filtering events.
      *
      * @var autoProtectCondition
      */
     public $autoProtectCondition;
 
     /**
-     * @description Indicates whether auto-renewal is enabled for the instance. Valid values:
-     *
-     *   **true**
-     *   **false**
+     * @description The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
      *
      * @example false
      *
@@ -29,9 +30,11 @@ class instanceList extends Model
     public $autoRenewal;
 
     /**
-     * @description The number of protected public IP addresses for which blackhole filtering is triggered.
+     * @description The type of the instance.
      *
-     * >  You can call the [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) operation to deactivate blackhole filtering for a protected IP address.
+     *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
+     *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
+     *
      * @example 0
      *
      * @var string
@@ -39,16 +42,65 @@ class instanceList extends Model
     public $blackholdingCount;
 
     /**
-     * @description The type of the instance.
-     *
-     *   **ddos_ddosorigin_public_cn**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the China site (aliyun.com).
-     *   **ddos_ddosorigin_public_intl**: Anti-DDoS Origin 2.0 (Pay-as-you-go) on the International site (alibabacloud.com).
+     * @description The condition that triggers automatic association of the instance with an object.
      *
      * @example ddos_ddosorigin_public_cn
      *
      * @var string
      */
     public $commodityType;
+
+    /**
+     * @description Indicates whether overdue payments exist. Valid values:
+     *
+     *   **0**: Overdue payments do not exist.
+     *   **1**: Overdue payments exist.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $coverageType;
+
+    /**
+     * @description The events that trigger automatic association.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $debtStatus;
+
+    /**
+     * @description The time when the instance was purchased. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1640275200000
+     *
+     * @var int
+     */
+    public $expireTime;
+
+    /**
+     * @description The mitigation plan of the instance. Valid values:
+     *
+     *   **0**: the Professional mitigation plan
+     *   **1**: the Enterprise mitigation plan
+     *
+     * @example 1592886047000
+     *
+     * @var int
+     */
+    public $gmtCreate;
+
+    /**
+     * @description The number of protected public IP addresses for which blackhole filtering is triggered.
+     *
+     * >  You can call the [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) operation to deactivate blackhole filtering for a protected IP address.
+     * @example ddosbgp-cn-oew1pjrk****
+     *
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @description The application scope of the instance.
@@ -60,65 +112,27 @@ class instanceList extends Model
      *
      * @example 1
      *
-     * @var int
-     */
-    public $coverageType;
-
-    /**
-     * @var int
-     */
-    public $debtStatus;
-
-    /**
-     * @description The time when the instance expires. The value is a UNIX timestamp. Unit: milliseconds.
-     *
-     * @example 1640275200000
-     *
-     * @var int
-     */
-    public $expireTime;
-
-    /**
-     * @description The time when the instance was purchased. The value is a UNIX timestamp. Unit: milliseconds.
-     *
-     * @example 1592886047000
-     *
-     * @var int
-     */
-    public $gmtCreate;
-
-    /**
-     * @description The ID of the instance.
-     *
-     * @example ddosbgp-cn-oew1pjrk****
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description The mitigation plan of the instance. Valid values:
-     *
-     *   **0**: the Professional mitigation plan
-     *   **1**: the Enterprise mitigation plan
-     *
-     * @example 1
-     *
      * @var string
      */
     public $instanceType;
 
     /**
-     * @description The protocol type of the IP address asset that is protected by the instance. Valid values:
-     *
-     *   **Ipv4**
-     *   **Ipv6**
+     * @description The description of the instance.
      *
      * @example IPv4
      *
      * @var string
      */
     public $ipType;
+
+    /**
+     * @description The ID of the instance.
+     *
+     * @example gamebox
+     *
+     * @var string
+     */
+    public $product;
 
     /**
      * @description The type of the cloud service that is associated with the Anti-DDoS Origin instance By default, this parameter is not returned. If the Anti-DDoS Origin instance is created by using a different cloud service, the code of the cloud service is returned.
@@ -128,15 +142,6 @@ class instanceList extends Model
      *   **gamebox**: The Anti-DDoS Origin instance is created by using Game Security Box.
      *   **eip**: The Anti-DDoS Origin instance is created by using an elastic IP address (EIP) for which Anti-DDoS (Enhanced Edition) is enabled.
      *
-     * @example gamebox
-     *
-     * @var string
-     */
-    public $product;
-
-    /**
-     * @description The description of the instance.
-     *
      * @example test
      *
      * @var string
@@ -144,16 +149,19 @@ class instanceList extends Model
     public $remark;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aek3ccjxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The status of the instance. Valid values:
+     * @description Indicates whether auto-renewal is enabled for the instance. Valid values:
      *
-     *   **1**: normal
-     *   **2**: expired
-     *   **3**: released
+     *   **true**
+     *   **false**
      *
      * @example 1
      *

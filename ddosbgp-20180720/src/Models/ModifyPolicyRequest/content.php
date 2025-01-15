@@ -50,6 +50,8 @@ class content extends Model
     /**
      * @description Specifies whether to enable port-specific mitigation.
      *
+     * @example true
+     *
      * @var bool
      */
     public $enableL4Defense;

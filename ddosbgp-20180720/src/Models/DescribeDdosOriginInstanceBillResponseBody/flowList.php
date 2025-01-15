@@ -48,6 +48,11 @@ class flowList extends Model
     public $time;
 
     /**
+     * @var int
+     */
+    public $totalBillFlow;
+
+    /**
      * @description The traffic of EIPs with Anti-DDoS (Enhanced) enabled. Unit: bytes.
      *
      * @example 6302081067
@@ -56,10 +61,11 @@ class flowList extends Model
      */
     public $totalFlow;
     protected $_name = [
-        'memberFlow' => 'MemberFlow',
-        'regionFlow' => 'RegionFlow',
-        'time'       => 'Time',
-        'totalFlow'  => 'TotalFlow',
+        'memberFlow'    => 'MemberFlow',
+        'regionFlow'    => 'RegionFlow',
+        'time'          => 'Time',
+        'totalBillFlow' => 'TotalBillFlow',
+        'totalFlow'     => 'TotalFlow',
     ];
 
     public function validate()
@@ -77,6 +83,9 @@ class flowList extends Model
         }
         if (null !== $this->time) {
             $res['Time'] = $this->time;
+        }
+        if (null !== $this->totalBillFlow) {
+            $res['TotalBillFlow'] = $this->totalBillFlow;
         }
         if (null !== $this->totalFlow) {
             $res['TotalFlow'] = $this->totalFlow;
@@ -101,6 +110,9 @@ class flowList extends Model
         }
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
+        }
+        if (isset($map['TotalBillFlow'])) {
+            $model->totalBillFlow = $map['TotalBillFlow'];
         }
         if (isset($map['TotalFlow'])) {
             $model->totalFlow = $map['TotalFlow'];

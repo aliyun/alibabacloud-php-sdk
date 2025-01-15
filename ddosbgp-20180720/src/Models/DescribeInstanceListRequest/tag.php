@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag that is added to the Anti-DDoS Origin instance.
+     * @description The mitigation plan of the Anti-DDoS Origin instance.
      *
      * @example test-key
      *
@@ -18,7 +18,10 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of the tag that is added to the Anti-DDoS Origin instance.
+     * @description The mitigation plan of the Anti-DDoS Origin instance. Valid values:
+     *
+     *   0: the Professional mitigation plan.
+     *   1: the Enterprise mitigation plan.
      *
      * @example test-value
      *

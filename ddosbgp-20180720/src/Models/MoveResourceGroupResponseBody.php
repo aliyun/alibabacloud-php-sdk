@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 16A78396-936F-5481-91D7-591BF7981246
      *
      * @var string

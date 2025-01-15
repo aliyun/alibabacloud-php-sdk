@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceListRequest extends Model
 {
     /**
-     * @description The IDs of the Anti-DDoS Origin instances to query. Specify the value is in the `["<Instance ID 1>","<Instance ID 2>",……]` format.
+     * @description The number of the page to return.
      *
      * @example ["ddosbgp-cn-oew1pjrk****"]
      *
@@ -19,11 +19,9 @@ class DescribeInstanceListRequest extends Model
     public $instanceIdList;
 
     /**
-     * @description The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
+     * @description The field that is used to sort the Anti-DDoS Origin instances. Set the value to **expireTime**, which indicates that the instances are sorted based on the expiration time.
      *
-     *   **0**: the Professional mitigation plan
-     *   **1**: the Enterprise mitigation plan
-     *
+     * You can set the **Orderdire** parameter to specify the sorting method.
      * @example 0
      *
      * @var string
@@ -31,14 +29,17 @@ class DescribeInstanceListRequest extends Model
     public $instanceType;
 
     /**
-     * @description The mitigation plan of the Anti-DDoS Origin instance.
+     * @description The total number of Anti-DDoS Origin instances.
      *
      * @var string[]
      */
     public $instanceTypeList;
 
     /**
-     * @description The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
+     * @description The sorting method. Valid values:
+     *
+     *   **desc**: the descending order. This is the default value.
+     *   **asc**: the ascending order.
      *
      * @example 47.89.XX.XX
      *
@@ -47,10 +48,7 @@ class DescribeInstanceListRequest extends Model
     public $ip;
 
     /**
-     * @description The protocol type of the IP address asset that is protected by the Anti-DDoS Origin instance to query. Valid values:
-     *
-     *   **Ipv4**: IPv4
-     *   **Ipv6**: IPv6
+     * @description The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
      *
      * @example IPv4
      *
@@ -59,9 +57,9 @@ class DescribeInstanceListRequest extends Model
     public $ipVersion;
 
     /**
-     * @description The field that is used to sort the Anti-DDoS Origin instances. Set the value to **expireTime**, which indicates that the instances are sorted based on the expiration time.
+     * @description The ID of the region where the Anti-DDoS Origin instance to query resides.
      *
-     * You can set the **Orderdire** parameter to specify the sorting method.
+     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example expireTime
      *
      * @var string
@@ -69,10 +67,7 @@ class DescribeInstanceListRequest extends Model
     public $orderby;
 
     /**
-     * @description The sorting method. Valid values:
-     *
-     *   **desc**: the descending order. This is the default value.
-     *   **asc**: the ascending order.
+     * @description The tags that are added to the Anti-DDoS Origin instance.
      *
      * @example desc
      *
@@ -81,7 +76,10 @@ class DescribeInstanceListRequest extends Model
     public $orderdire;
 
     /**
-     * @description The number of the page to return.
+     * @description The protocol type of the IP address asset that is protected by the Anti-DDoS Origin instance to query. Valid values:
+     *
+     *   **Ipv4**: IPv4
+     *   **Ipv6**: IPv6
      *
      * This parameter is required.
      * @example 1
@@ -91,7 +89,10 @@ class DescribeInstanceListRequest extends Model
     public $pageNo;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
+     *
+     *   **0**: the Professional mitigation plan
+     *   **1**: the Enterprise mitigation plan
      *
      * This parameter is required.
      * @example 10
@@ -101,9 +102,8 @@ class DescribeInstanceListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the Anti-DDoS Origin instance to query resides.
+     * @description The tag that is added to the Anti-DDoS Origin instance.
      *
-     * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -111,7 +111,7 @@ class DescribeInstanceListRequest extends Model
     public $regionId;
 
     /**
-     * @description The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
+     * @description The number of entries to return on each page.
      *
      * @example test
      *
@@ -120,9 +120,8 @@ class DescribeInstanceListRequest extends Model
     public $remark;
 
     /**
-     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
+     * @description The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
      *
-     * If you do not specify this parameter, the instance belongs to the default resource group.
      * @example rg-acfm2pz25js****
      *
      * @var string
@@ -130,7 +129,7 @@ class DescribeInstanceListRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags that are added to the Anti-DDoS Origin instance.
+     * @description The key of the tag that is added to the Anti-DDoS Origin instance.
      *
      * @var tag[]
      */

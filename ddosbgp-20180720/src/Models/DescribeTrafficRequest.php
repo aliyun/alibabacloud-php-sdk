@@ -21,8 +21,14 @@ class DescribeTrafficRequest extends Model
     /**
      * @description The type of the traffic statistics to query. Valid values:
      *
-     *   **max**: the peak traffic within the specified interval
-     *   **avg**: the average traffic within the specified interval
+     *   **max**: the peak traffic within the specified interval.
+     *   **avg**: the average traffic within the specified interval.
+     *
+     * Enumerated values:
+     *
+     *   all
+     *   avg
+     *   max
      *
      * @example max
      *
