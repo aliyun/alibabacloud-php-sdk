@@ -123,11 +123,19 @@ class DescribeDefenseTemplatesRequest extends Model
     public $templateId;
 
     /**
+     * @description The IDs of the protection templates that you want to query. Separate multiple template IDs with commas (,).
+     *
+     * @example 189731,189539,189538,189531,189540,189542,189541
+     *
      * @var string
      */
     public $templateIds;
 
     /**
+     * @description The name of the protection template.
+     *
+     * @example testTemplateName
+     *
      * @var string
      */
     public $templateName;

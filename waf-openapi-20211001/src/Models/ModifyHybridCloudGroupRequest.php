@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyHybridCloudGroupRequest extends Model
 {
     /**
-     * @description This parameter is required.
+     * @description The ID of the cluster.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -18,8 +19,9 @@ class ModifyHybridCloudGroupRequest extends Model
     public $clusterId;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the node group.
      *
+     * This parameter is required.
      * @example 1
      *
      * @var int
@@ -27,15 +29,19 @@ class ModifyHybridCloudGroupRequest extends Model
     public $groupId;
 
     /**
-     * @description This parameter is required.
+     * @description The name of the node group.
+     *
+     * This parameter is required.
+     * @example demo
      *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description This parameter is required.
+     * @description The ID of the Web Application Firewall (WAF) instance.
      *
+     * This parameter is required.
      * @example waf-cn-tl32ast****
      *
      * @var string
@@ -43,6 +49,11 @@ class ModifyHybridCloudGroupRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region in which the WAF instance is deployed. Valid value:
+     *
+     *   **cn-hangzhou**: Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,11 +61,17 @@ class ModifyHybridCloudGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The remarks.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string

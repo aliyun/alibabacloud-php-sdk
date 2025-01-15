@@ -71,6 +71,10 @@ class DescribeDefenseResourceTemplatesRequest extends Model
     public $ruleId;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example demoRuleName
+     *
      * @var string
      */
     public $ruleName;
@@ -88,6 +92,10 @@ class DescribeDefenseResourceTemplatesRequest extends Model
     public $ruleType;
 
     /**
+     * @description The name of the protection rule template.
+     *
+     * @example test221
+     *
      * @var string
      */
     public $templateName;

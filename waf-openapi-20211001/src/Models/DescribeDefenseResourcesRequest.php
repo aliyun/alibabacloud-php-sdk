@@ -60,7 +60,7 @@ class DescribeDefenseResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the Alibaba Cloud resource group.
      *
      * @example rg-acfm***q
      *
@@ -69,6 +69,8 @@ class DescribeDefenseResourcesRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The tag of the resource. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

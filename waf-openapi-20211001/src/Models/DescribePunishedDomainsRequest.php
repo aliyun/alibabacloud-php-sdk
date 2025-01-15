@@ -26,6 +26,11 @@ class DescribePunishedDomainsRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $punishType;
+
+    /**
      * @description The region in which the WAF instance is deployed. Valid values:
      *
      *   **cn-hangzhou**: Chinese mainland.
@@ -48,6 +53,7 @@ class DescribePunishedDomainsRequest extends Model
     protected $_name = [
         'domains'                        => 'Domains',
         'instanceId'                     => 'InstanceId',
+        'punishType'                     => 'PunishType',
         'regionId'                       => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
@@ -64,6 +70,9 @@ class DescribePunishedDomainsRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->punishType) {
+            $res['PunishType'] = $this->punishType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -90,6 +99,9 @@ class DescribePunishedDomainsRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['PunishType'])) {
+            $model->punishType = $map['PunishType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

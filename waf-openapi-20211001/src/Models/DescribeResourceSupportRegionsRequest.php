@@ -21,7 +21,7 @@ class DescribeResourceSupportRegionsRequest extends Model
     /**
      * @description The region in which the WAF instance is deployed. Valid values:
      *
-     *   **cn-hangzhou**: Chinese mainland.
+     *   **cn-hangzhou**: the Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
      *
      * @example cn-hangzhou
@@ -40,6 +40,14 @@ class DescribeResourceSupportRegionsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The cloud service. Valid values:
+     *
+     *   **clb4**: Layer 4 CLB.
+     *   **clb7**: Layer 7 CLB.
+     *   **ecs**: ECS.
+     *
+     * @example clb7
+     *
      * @var string
      */
     public $resourceProduct;

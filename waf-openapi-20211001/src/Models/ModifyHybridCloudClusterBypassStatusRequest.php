@@ -33,11 +33,22 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the WAF instance. Valid values:
+     *
+     *   **cn-hangzhou**: Chinese mainland
+     *   **ap-southeast-1**: outside the Chinese mainland.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
+     * @example rg-acfm***q
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;

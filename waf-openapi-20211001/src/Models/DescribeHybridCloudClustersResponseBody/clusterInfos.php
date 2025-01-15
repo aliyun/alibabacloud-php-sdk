@@ -36,6 +36,8 @@ class clusterInfos extends Model
     /**
      * @description The name of the cluster.
      *
+     * @example test
+     *
      * @var string
      */
     public $clusterName;
@@ -111,6 +113,8 @@ class clusterInfos extends Model
 
     /**
      * @description The remarks about the cluster.
+     *
+     * @example demo
      *
      * @var string
      */

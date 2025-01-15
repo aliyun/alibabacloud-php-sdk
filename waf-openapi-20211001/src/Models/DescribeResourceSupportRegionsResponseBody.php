@@ -11,14 +11,14 @@ class DescribeResourceSupportRegionsResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example 58FDF266-3D56-5DE8-91E0-96A26B****DD
+     * @example 58FD****-3D56-5DE8-91E0-96A26BABFFDD
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The region IDs.
+     * @description An array of region IDs of the CLB and ECS instances that are added to WAF in cloud native mode.
      *
      * @var string[]
      */

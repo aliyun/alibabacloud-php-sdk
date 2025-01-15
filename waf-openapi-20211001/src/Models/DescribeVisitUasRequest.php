@@ -28,10 +28,10 @@ class DescribeVisitUasRequest extends Model
     public $instanceId;
 
     /**
-     * @description The region where the WAF instance resides. Valid values:
+     * @description The region ID of the WAF instance. Valid values:
      *
-     *   **cn-hangzhou:** the Chinese mainland.
-     *   **ap-southeast-1:** outside the Chinese mainland.
+     *   **cn-hangzhou**: Chinese mainland
+     *   **ap-southeast-1**: outside the Chinese mainland.
      *
      * @example cn-hangzhou
      *
@@ -49,6 +49,10 @@ class DescribeVisitUasRequest extends Model
     public $resource;
 
     /**
+     * @description The ID of the Alibaba Cloud resource group.
+     *
+     * @example rg-acfm***q
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;

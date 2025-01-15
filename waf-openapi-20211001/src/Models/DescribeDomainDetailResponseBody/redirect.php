@@ -19,6 +19,8 @@ class redirect extends Model
     public $backends;
 
     /**
+     * @description An array of HTTPS listener ports.
+     *
      * @var backupBackends[]
      */
     public $backupBackends;

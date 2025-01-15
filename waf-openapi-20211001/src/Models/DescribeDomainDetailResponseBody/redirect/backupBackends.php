@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class backupBackends extends Model
 {
     /**
+     * @description The back-to-origin IP address or domain name.
+     *
+     * @example [
+     * ]
      * @var string
      */
     public $backend;

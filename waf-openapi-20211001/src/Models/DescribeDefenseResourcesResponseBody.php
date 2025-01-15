@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDefenseResourcesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 618F2626-DB27-5187-8C6C-4E61A491DF29
      *
@@ -19,7 +19,7 @@ class DescribeDefenseResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array of protected objects.
+     * @description The protected objects.
      *
      * @var resources[]
      */

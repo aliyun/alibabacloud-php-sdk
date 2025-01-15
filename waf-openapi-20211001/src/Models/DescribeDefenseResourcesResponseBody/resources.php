@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description 跟踪cookie开关状态。
+     * @description The status of the tracking cookie.
      *
-     * - **0**：表示关闭。
+     *   **0**: disabled
+     *   **1**: enabled. This is the default value.
      *
-     * - **1**：表示开启。
      * @example 1
      *
      * @var int
@@ -21,11 +21,11 @@ class resources extends Model
     public $acwCookieStatus;
 
     /**
-     * @description 跟踪cookie的secure属性状态。
+     * @description The status of the secure attribute of the tracking cookie.
      *
-     * - **0**：表示关闭。
+     *   **0**: disabled. This is the default value.
+     *   **1**: enabled.
      *
-     * - **1**：表示开启。
      * @example 0
      *
      * @var int
@@ -33,11 +33,11 @@ class resources extends Model
     public $acwSecureStatus;
 
     /**
-     * @description 滑块cookie的secure属性状态。
+     * @description The status of the secure attribute of the slider CAPTCHA cookie.
      *
-     * - **0**：表示关闭。
+     *   **0**: disabled. This is the default value.
+     *   **1**: enabled.
      *
-     * - **1**：表示开启。
      * @example 0
      *
      * @var int
@@ -45,7 +45,7 @@ class resources extends Model
     public $acwV3SecureStatus;
 
     /**
-     * @description An array of custom XFF headers that are used to identify the originating IP addresses of clients. If the value of the XffStatus parameter is 1 and the CustomHeaders field is left empty, the first IP address in the XFF header is the originating IP address of the client.
+     * @description The custom header fields that are used to identify the originating IP addresses of clients. If the value of XffStatus is 1 and CustomHeaders is left empty, the first IP addresses in the XFF header fields are used as the originating IP addresses of clients.
      *
      * @var string[]
      */
@@ -86,7 +86,7 @@ class resources extends Model
     public $gmtModified;
 
     /**
-     * @description 多账号统一管理场景中防护对象资产归属账号。
+     * @description The Alibaba Cloud account to which the protected object belongs. You can specify this parameter to query protected objects that belong to a specific Alibaba Cloud account. Exact match is supported.
      *
      * @example 135*********46
      *

@@ -22,6 +22,8 @@ class ModifyHybridCloudServerRequest extends Model
      * @description The name of the node.
      *
      * This parameter is required.
+     * @example demo
+     *
      * @var string
      */
     public $customName;

@@ -31,6 +31,8 @@ class CreateHybridCloudGroupRequest extends Model
      * @description The name of the node group.
      *
      * This parameter is required.
+     * @example demoGroupName
+     *
      * @var string
      */
     public $groupName;
@@ -80,7 +82,7 @@ class CreateHybridCloudGroupRequest extends Model
     public $locationCode;
 
     /**
-     * @description The region in which the WAF instance is deployed. Valid values:
+     * @description The region ID of the WAF instance. Valid values:
      *
      *   **cn-hangzhou**: Chinese mainland.
      *   **ap-southeast-1**: outside the Chinese mainland.
@@ -93,6 +95,8 @@ class CreateHybridCloudGroupRequest extends Model
 
     /**
      * @description The remarks.
+     *
+     * @example demoRamark
      *
      * @var string
      */

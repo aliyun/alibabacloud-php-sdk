@@ -5819,6 +5819,9 @@ class Wafopenapi extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->punishType)) {
+            $query['PunishType'] = $request->punishType;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -6085,7 +6088,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the region IDs of Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that can be added to Web Application Firewall (WAF) in transparent proxy mode.
+     * @summary Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
      *  *
      * @param DescribeResourceSupportRegionsRequest $request DescribeResourceSupportRegionsRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -6127,7 +6130,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Queries the region IDs of Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that can be added to Web Application Firewall (WAF) in transparent proxy mode.
+     * @summary Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
      *  *
      * @param DescribeResourceSupportRegionsRequest $request DescribeResourceSupportRegionsRequest
      *
@@ -9478,7 +9481,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables manual bypass for a hybrid cloud cluster of the SDK-based traffic mirroring mode.
+     * @summary Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
      *  *
      * @param ModifyHybridCloudClusterBypassStatusRequest $request ModifyHybridCloudClusterBypassStatusRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -9523,7 +9526,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary Enables or disables manual bypass for a hybrid cloud cluster of the SDK-based traffic mirroring mode.
+     * @summary Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
      *  *
      * @param ModifyHybridCloudClusterBypassStatusRequest $request ModifyHybridCloudClusterBypassStatusRequest
      *
@@ -9602,7 +9605,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改组信息
+     * @summary Modifies a node group in a hybrid cloud cluster.
      *  *
      * @param ModifyHybridCloudGroupRequest $request ModifyHybridCloudGroupRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -9653,7 +9656,7 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * @summary 修改组信息
+     * @summary Modifies a node group in a hybrid cloud cluster.
      *  *
      * @param ModifyHybridCloudGroupRequest $request ModifyHybridCloudGroupRequest
      *
