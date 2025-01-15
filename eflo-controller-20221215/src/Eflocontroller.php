@@ -65,6 +65,9 @@ use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\ShrinkClusterShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopInvocationShrinkRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopNodesRequest;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopNodesResponse;
+use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\StopNodesShrinkRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Eflocontroller\V20221215\Models\UntagResourcesRequest;
@@ -1001,7 +1004,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户可用的机型列表
+     * @summary Query the list of machine types available to the user
      *  *
      * @param ListMachineTypesRequest $request ListMachineTypesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1034,7 +1037,7 @@ class Eflocontroller extends OpenApiClient
     }
 
     /**
-     * @summary 查询用户可用的机型列表
+     * @summary Query the list of machine types available to the user
      *  *
      * @param ListMachineTypesRequest $request ListMachineTypesRequest
      *
@@ -1574,6 +1577,61 @@ class Eflocontroller extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopInvocationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 关机节点
+     *  *
+     * @param StopNodesRequest $tmpReq  StopNodesRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return StopNodesResponse StopNodesResponse
+     */
+    public function stopNodesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StopNodesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->nodes)) {
+            $request->nodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'Nodes', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
+            $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
+        }
+        if (!Utils::isUnset($request->nodesShrink)) {
+            $body['Nodes'] = $request->nodesShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopNodes',
+            'version'     => '2022-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopNodesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 关机节点
+     *  *
+     * @param StopNodesRequest $request StopNodesRequest
+     *
+     * @return StopNodesResponse StopNodesResponse
+     */
+    public function stopNodes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopNodesWithOptions($request, $runtime);
     }
 
     /**

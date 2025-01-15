@@ -28,6 +28,8 @@ class RunCommandShrinkRequest extends Model
     public $commandContent;
 
     /**
+     * @description Command ID
+     *
      * @example c-e996287206324975b5fbe1d***
      *
      * @var string
@@ -74,6 +76,8 @@ class RunCommandShrinkRequest extends Model
     public $frequency;
 
     /**
+     * @description Bootstrap for script execution. The length must not exceed 1 KB.
+     *
      * @example python3 -u {{ACS::ScriptFileName|Ext(".py")}}
      *
      * @var string
@@ -117,6 +121,8 @@ class RunCommandShrinkRequest extends Model
     public $repeatMode;
 
     /**
+     * @description The mode when stopping a task (manually or due to execution timeout). Possible values:
+     * Process: Stops the current script process. ProcessTree: Stops the current process tree (a collection of the script process and all its child processes).
      * @example ProcessTree
      *
      * @var string

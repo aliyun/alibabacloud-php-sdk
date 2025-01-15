@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMachineTypesRequest extends Model
 {
     /**
+     * @description Machine name
+     *
      * @example efg1.nvga1
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListMachineTypesResponseBody extends Model
 {
     /**
+     * @description Details of the machine types
+     *
      * @var machineTypes[]
      */
     public $machineTypes;
 
     /**
+     * @description NextToken for the next page, include this value when requesting the next page
+     *
      * @example a3f2224a5ec7224116c4f5246120abe4
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class machineTypes extends Model
 {
     /**
+     * @description Number of bonds
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class machineTypes extends Model
     public $bondNum;
 
     /**
+     * @description CPU information
+     *
      * @example 2x Intel Icelake 8369B 32C CPU
      *
      * @var string
@@ -23,6 +27,8 @@ class machineTypes extends Model
     public $cpuInfo;
 
     /**
+     * @description Disk information
+     *
      * @example 2x 480GB SATA SSD
      *
      * @var string
@@ -30,6 +36,8 @@ class machineTypes extends Model
     public $diskInfo;
 
     /**
+     * @description GPU information
+     *
      * @example 8x NVIDIA SXM4 80GB A100 GPU
      *
      * @var string
@@ -37,6 +45,8 @@ class machineTypes extends Model
     public $gpuInfo;
 
     /**
+     * @description Memory information
+     *
      * @example 32x 64GB DDR4 3200 Memory
      *
      * @var string
@@ -44,6 +54,8 @@ class machineTypes extends Model
     public $memoryInfo;
 
     /**
+     * @description Machine name
+     *
      * @example efg1.nvga1
      *
      * @var string
@@ -51,6 +63,8 @@ class machineTypes extends Model
     public $name;
 
     /**
+     * @description Network information
+     *
      * @example 2x 100Gbps DP NIC
      *
      * @var string
@@ -58,6 +72,8 @@ class machineTypes extends Model
     public $networkInfo;
 
     /**
+     * @description Number of nodes
+     *
      * @example 10
      *
      * @var string
@@ -65,11 +81,17 @@ class machineTypes extends Model
     public $nodeCount;
 
     /**
+     * @description Number of CPU cores
+     *
+     * @example 48
+     *
      * @var int
      */
     public $totalCpuCore;
 
     /**
+     * @description Type of machine
+     *
      * @example Public
      *
      * @var string
