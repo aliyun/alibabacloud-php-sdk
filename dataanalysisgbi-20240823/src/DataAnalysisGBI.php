@@ -1101,6 +1101,9 @@ class DataAnalysisGBI extends OpenApiClient
             $query['workspaceId'] = $request->workspaceId;
         }
         $body = [];
+        if (!Utils::isUnset($request->keep)) {
+            $body['keep'] = $request->keep;
+        }
         if (!Utils::isUnset($request->tableIdKey)) {
             $body['tableIdKey'] = $request->tableIdKey;
         }
@@ -1405,6 +1408,9 @@ class DataAnalysisGBI extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->keepTableNames)) {
             $body['keepTableNames'] = $request->keepTableNames;
+        }
+        if (!Utils::isUnset($request->noModifiedTableNames)) {
+            $body['noModifiedTableNames'] = $request->noModifiedTableNames;
         }
         if (!Utils::isUnset($request->pullSamples)) {
             $body['pullSamples'] = $request->pullSamples;

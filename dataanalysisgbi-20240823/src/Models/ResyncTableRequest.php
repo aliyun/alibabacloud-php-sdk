@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ResyncTableRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $keep;
+
+    /**
      * @description This parameter is required.
      *
      * @example table-AAAAAAAAFQBwSLJkUj4CYg
@@ -26,6 +31,7 @@ class ResyncTableRequest extends Model
      */
     public $workspaceId;
     protected $_name = [
+        'keep'        => 'keep',
         'tableIdKey'  => 'tableIdKey',
         'workspaceId' => 'workspaceId',
     ];
@@ -37,6 +43,9 @@ class ResyncTableRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keep) {
+            $res['keep'] = $this->keep;
+        }
         if (null !== $this->tableIdKey) {
             $res['tableIdKey'] = $this->tableIdKey;
         }
@@ -55,6 +64,9 @@ class ResyncTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['keep'])) {
+            $model->keep = $map['keep'];
+        }
         if (isset($map['tableIdKey'])) {
             $model->tableIdKey = $map['tableIdKey'];
         }
