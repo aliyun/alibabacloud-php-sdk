@@ -30,6 +30,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $gatewaySwimmingLaneRouteJson;
+
+    /**
+     * @var string
+     */
     public $groupId;
 
     /**
@@ -112,6 +117,7 @@ class data extends Model
         'enable'                          => 'Enable',
         'entryRules'                      => 'EntryRules',
         'gatewaySwimmingLaneRoute'        => 'GatewaySwimmingLaneRoute',
+        'gatewaySwimmingLaneRouteJson'    => 'GatewaySwimmingLaneRouteJson',
         'groupId'                         => 'GroupId',
         'id'                              => 'Id',
         'messageQueueFilterSide'          => 'MessageQueueFilterSide',
@@ -149,6 +155,9 @@ class data extends Model
         }
         if (null !== $this->gatewaySwimmingLaneRoute) {
             $res['GatewaySwimmingLaneRoute'] = null !== $this->gatewaySwimmingLaneRoute ? $this->gatewaySwimmingLaneRoute->toMap() : null;
+        }
+        if (null !== $this->gatewaySwimmingLaneRouteJson) {
+            $res['GatewaySwimmingLaneRouteJson'] = $this->gatewaySwimmingLaneRouteJson;
         }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
@@ -218,6 +227,9 @@ class data extends Model
         }
         if (isset($map['GatewaySwimmingLaneRoute'])) {
             $model->gatewaySwimmingLaneRoute = gatewaySwimmingLaneRoute::fromMap($map['GatewaySwimmingLaneRoute']);
+        }
+        if (isset($map['GatewaySwimmingLaneRouteJson'])) {
+            $model->gatewaySwimmingLaneRouteJson = $map['GatewaySwimmingLaneRouteJson'];
         }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
