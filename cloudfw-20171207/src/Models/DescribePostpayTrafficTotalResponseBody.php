@@ -72,6 +72,16 @@ class DescribePostpayTrafficTotalResponseBody extends Model
     public $totalNatTraffic;
 
     /**
+     * @var int
+     */
+    public $totalSdlBillTraffic;
+
+    /**
+     * @var int
+     */
+    public $totalSdlFreeTraffic;
+
+    /**
      * @description The total volume of traffic. If you use Cloud Firewall that uses the subscription billing method, this parameter indicates the total volume of burstable protected traffic. Unit: bytes.
      *
      * @example 2320274874426
@@ -105,6 +115,8 @@ class DescribePostpayTrafficTotalResponseBody extends Model
         'totalInternetTraffic' => 'TotalInternetTraffic',
         'totalNatAssets'       => 'TotalNatAssets',
         'totalNatTraffic'      => 'TotalNatTraffic',
+        'totalSdlBillTraffic'  => 'TotalSdlBillTraffic',
+        'totalSdlFreeTraffic'  => 'TotalSdlFreeTraffic',
         'totalTraffic'         => 'TotalTraffic',
         'totalVpcAssets'       => 'TotalVpcAssets',
         'totalVpcTraffic'      => 'TotalVpcTraffic',
@@ -137,6 +149,12 @@ class DescribePostpayTrafficTotalResponseBody extends Model
         }
         if (null !== $this->totalNatTraffic) {
             $res['TotalNatTraffic'] = $this->totalNatTraffic;
+        }
+        if (null !== $this->totalSdlBillTraffic) {
+            $res['TotalSdlBillTraffic'] = $this->totalSdlBillTraffic;
+        }
+        if (null !== $this->totalSdlFreeTraffic) {
+            $res['TotalSdlFreeTraffic'] = $this->totalSdlFreeTraffic;
         }
         if (null !== $this->totalTraffic) {
             $res['TotalTraffic'] = $this->totalTraffic;
@@ -179,6 +197,12 @@ class DescribePostpayTrafficTotalResponseBody extends Model
         }
         if (isset($map['TotalNatTraffic'])) {
             $model->totalNatTraffic = $map['TotalNatTraffic'];
+        }
+        if (isset($map['TotalSdlBillTraffic'])) {
+            $model->totalSdlBillTraffic = $map['TotalSdlBillTraffic'];
+        }
+        if (isset($map['TotalSdlFreeTraffic'])) {
+            $model->totalSdlFreeTraffic = $map['TotalSdlFreeTraffic'];
         }
         if (isset($map['TotalTraffic'])) {
             $model->totalTraffic = $map['TotalTraffic'];
