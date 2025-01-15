@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class license extends Model
 {
     /**
-     * @description License 的版本型号,free-免费版，trail-试用版，enterprise-企业版
+     * @description Edition of the License
      *
      * @example free
      *
@@ -18,7 +18,7 @@ class license extends Model
     public $edition;
 
     /**
-     * @description License 的有效期终止日期
+     * @description End date of the validity period of the License, timestamp
      *
      * @example 1723996800000
      *
@@ -27,7 +27,7 @@ class license extends Model
     public $endTime;
 
     /**
-     * @description License 的付费类型，prepay-预付费，postpay-后付费
+     * @description Payment type of the License
      *
      * @example prepay
      *
@@ -36,7 +36,7 @@ class license extends Model
     public $licenseChargeType;
 
     /**
-     * @description License 详细配置JSON
+     * @description Detailed configuration JSON string of the License
      *
      * @example {"modules":[{"features":[{"name":"urn:alibaba:idaas:license:module:ud:customField","status":"enabled"}]……{"name":"urn:alibaba:idaas:license:tag:enterprise","status":"enabled"}],"version":"1.0"}
      *
@@ -45,7 +45,7 @@ class license extends Model
     public $licenseConfigJson;
 
     /**
-     * @description License 的创建时间
+     * @description Creation time of the License, timestamp
      *
      * @example 1720509699000
      *
@@ -54,7 +54,7 @@ class license extends Model
     public $licenseCreateTime;
 
     /**
-     * @description License 的唯一标识
+     * @description Unique identifier of the License
      *
      * @example license_1234xxxx
      *
@@ -63,7 +63,7 @@ class license extends Model
     public $licenseId;
 
     /**
-     * @description License 的状态，valid-有效，expired-已过期，released-已释放
+     * @description Status of the License
      *
      * @example valid
      *
@@ -72,7 +72,7 @@ class license extends Model
     public $licenseStatus;
 
     /**
-     * @description License 的购买渠道
+     * @description Purchase channel of the License
      *
      * @example alibaba_cloud
      *
@@ -81,7 +81,7 @@ class license extends Model
     public $purchaseChannel;
 
     /**
-     * @description License 对应的外部商品唯一标识
+     * @description Unique external product identifier corresponding to the License
      *
      * @example eiam-cn-xxxxx
      *
@@ -90,7 +90,7 @@ class license extends Model
     public $purchaseInstanceId;
 
     /**
-     * @description License 的有效期开始日期
+     * @description Start date of the validity period of the License, timestamp
      *
      * @example 1720509699000
      *
@@ -99,7 +99,7 @@ class license extends Model
     public $startTime;
 
     /**
-     * @description License 的用户配额
+     * @description User quota of the License
      *
      * @example 100
      *

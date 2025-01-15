@@ -3250,7 +3250,9 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例当前生效的 License 信息
+     * @summary Query the currently effective License information of the instance
+     *  *
+     * @description Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
      *  *
      * @param GetInstanceLicenseRequest $request GetInstanceLicenseRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3283,7 +3285,9 @@ class Eiam extends OpenApiClient
     }
 
     /**
-     * @summary 查询实例当前生效的 License 信息
+     * @summary Query the currently effective License information of the instance
+     *  *
+     * @description Please ensure that your current instance is no longer in use. When the EIAM instance is deleted, all related data will be deleted.
      *  *
      * @param GetInstanceLicenseRequest $request GetInstanceLicenseRequest
      *

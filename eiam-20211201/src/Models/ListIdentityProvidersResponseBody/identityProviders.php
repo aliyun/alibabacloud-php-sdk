@@ -132,6 +132,13 @@ class identityProviders extends Model
     public $logoUrl;
 
     /**
+     * @example disabled
+     *
+     * @var string
+     */
+    public $periodicSyncStatus;
+
+    /**
      * @description IDaaS EIAM 是否支持UD同步
      *
      * @example disabled
@@ -180,6 +187,7 @@ class identityProviders extends Model
         'lastStatusCheckJobResult'   => 'LastStatusCheckJobResult',
         'lockReason'                 => 'LockReason',
         'logoUrl'                    => 'LogoUrl',
+        'periodicSyncStatus'         => 'PeriodicSyncStatus',
         'udPullStatus'               => 'UdPullStatus',
         'udPullTargetScope'          => 'UdPullTargetScope',
         'udPushStatus'               => 'UdPushStatus',
@@ -237,6 +245,9 @@ class identityProviders extends Model
         }
         if (null !== $this->logoUrl) {
             $res['LogoUrl'] = $this->logoUrl;
+        }
+        if (null !== $this->periodicSyncStatus) {
+            $res['PeriodicSyncStatus'] = $this->periodicSyncStatus;
         }
         if (null !== $this->udPullStatus) {
             $res['UdPullStatus'] = $this->udPullStatus;
@@ -306,6 +317,9 @@ class identityProviders extends Model
         }
         if (isset($map['LogoUrl'])) {
             $model->logoUrl = $map['LogoUrl'];
+        }
+        if (isset($map['PeriodicSyncStatus'])) {
+            $model->periodicSyncStatus = $map['PeriodicSyncStatus'];
         }
         if (isset($map['UdPullStatus'])) {
             $model->udPullStatus = $map['UdPullStatus'];

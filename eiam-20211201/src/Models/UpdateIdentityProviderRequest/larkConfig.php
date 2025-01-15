@@ -21,9 +21,21 @@ class larkConfig extends Model
      * @var string
      */
     public $appSecret;
+
+    /**
+     * @var string
+     */
+    public $encryptKey;
+
+    /**
+     * @var string
+     */
+    public $verificationToken;
     protected $_name = [
-        'appId'     => 'AppId',
-        'appSecret' => 'AppSecret',
+        'appId'             => 'AppId',
+        'appSecret'         => 'AppSecret',
+        'encryptKey'        => 'EncryptKey',
+        'verificationToken' => 'VerificationToken',
     ];
 
     public function validate()
@@ -38,6 +50,12 @@ class larkConfig extends Model
         }
         if (null !== $this->appSecret) {
             $res['AppSecret'] = $this->appSecret;
+        }
+        if (null !== $this->encryptKey) {
+            $res['EncryptKey'] = $this->encryptKey;
+        }
+        if (null !== $this->verificationToken) {
+            $res['VerificationToken'] = $this->verificationToken;
         }
 
         return $res;
@@ -56,6 +74,12 @@ class larkConfig extends Model
         }
         if (isset($map['AppSecret'])) {
             $model->appSecret = $map['AppSecret'];
+        }
+        if (isset($map['EncryptKey'])) {
+            $model->encryptKey = $map['EncryptKey'];
+        }
+        if (isset($map['VerificationToken'])) {
+            $model->verificationToken = $map['VerificationToken'];
         }
 
         return $model;
