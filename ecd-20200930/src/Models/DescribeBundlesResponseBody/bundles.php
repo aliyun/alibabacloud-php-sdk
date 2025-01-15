@@ -56,6 +56,11 @@ class bundles extends Model
     public $creationTime;
 
     /**
+     * @var string
+     */
+    public $dataDiskCategory;
+
+    /**
      * @description The description of the cloud computer template.
      *
      * @example test
@@ -228,6 +233,11 @@ class bundles extends Model
     public $stockState;
 
     /**
+     * @var string
+     */
+    public $systemDiskCategory;
+
+    /**
      * @description Indicates whether disk encryption is enabled.
      *
      * @example false
@@ -249,6 +259,7 @@ class bundles extends Model
         'bundleName'              => 'BundleName',
         'bundleType'              => 'BundleType',
         'creationTime'            => 'CreationTime',
+        'dataDiskCategory'        => 'DataDiskCategory',
         'description'             => 'Description',
         'desktopType'             => 'DesktopType',
         'desktopTypeAttribute'    => 'DesktopTypeAttribute',
@@ -263,6 +274,7 @@ class bundles extends Model
         'protocolType'            => 'ProtocolType',
         'sessionType'             => 'SessionType',
         'stockState'              => 'StockState',
+        'systemDiskCategory'      => 'SystemDiskCategory',
         'volumeEncryptionEnabled' => 'VolumeEncryptionEnabled',
         'volumeEncryptionKey'     => 'VolumeEncryptionKey',
     ];
@@ -285,6 +297,9 @@ class bundles extends Model
         }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->dataDiskCategory) {
+            $res['DataDiskCategory'] = $this->dataDiskCategory;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -334,6 +349,9 @@ class bundles extends Model
         if (null !== $this->stockState) {
             $res['StockState'] = $this->stockState;
         }
+        if (null !== $this->systemDiskCategory) {
+            $res['SystemDiskCategory'] = $this->systemDiskCategory;
+        }
         if (null !== $this->volumeEncryptionEnabled) {
             $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
         }
@@ -363,6 +381,9 @@ class bundles extends Model
         }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['DataDiskCategory'])) {
+            $model->dataDiskCategory = $map['DataDiskCategory'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
@@ -411,6 +432,9 @@ class bundles extends Model
         }
         if (isset($map['StockState'])) {
             $model->stockState = $map['StockState'];
+        }
+        if (isset($map['SystemDiskCategory'])) {
+            $model->systemDiskCategory = $map['SystemDiskCategory'];
         }
         if (isset($map['VolumeEncryptionEnabled'])) {
             $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];

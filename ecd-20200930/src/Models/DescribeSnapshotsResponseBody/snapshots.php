@@ -120,6 +120,16 @@ class snapshots extends Model
     public $remainTime;
 
     /**
+     * @var string
+     */
+    public $restorePointId;
+
+    /**
+     * @var string
+     */
+    public $restorePointName;
+
+    /**
      * @description The snapshot ID.
      *
      * @example s-2zeipxmnhej803x7****
@@ -232,6 +242,8 @@ class snapshots extends Model
         'progress'                => 'Progress',
         'protocolType'            => 'ProtocolType',
         'remainTime'              => 'RemainTime',
+        'restorePointId'          => 'RestorePointId',
+        'restorePointName'        => 'RestorePointName',
         'snapshotId'              => 'SnapshotId',
         'snapshotName'            => 'SnapshotName',
         'snapshotType'            => 'SnapshotType',
@@ -278,6 +290,12 @@ class snapshots extends Model
         }
         if (null !== $this->remainTime) {
             $res['RemainTime'] = $this->remainTime;
+        }
+        if (null !== $this->restorePointId) {
+            $res['RestorePointId'] = $this->restorePointId;
+        }
+        if (null !== $this->restorePointName) {
+            $res['RestorePointName'] = $this->restorePointName;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
@@ -344,6 +362,12 @@ class snapshots extends Model
         }
         if (isset($map['RemainTime'])) {
             $model->remainTime = $map['RemainTime'];
+        }
+        if (isset($map['RestorePointId'])) {
+            $model->restorePointId = $map['RestorePointId'];
+        }
+        if (isset($map['RestorePointName'])) {
+            $model->restorePointName = $map['RestorePointName'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];
