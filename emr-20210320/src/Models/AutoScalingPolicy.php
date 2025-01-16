@@ -19,8 +19,8 @@ class AutoScalingPolicy extends Model
      */
     public $scalingRules;
     protected $_name = [
-        'constraints'  => 'constraints',
-        'scalingRules' => 'scalingRules',
+        'constraints'  => 'Constraints',
+        'scalingRules' => 'ScalingRules',
     ];
 
     public function validate()
@@ -31,14 +31,14 @@ class AutoScalingPolicy extends Model
     {
         $res = [];
         if (null !== $this->constraints) {
-            $res['constraints'] = null !== $this->constraints ? $this->constraints->toMap() : null;
+            $res['Constraints'] = null !== $this->constraints ? $this->constraints->toMap() : null;
         }
         if (null !== $this->scalingRules) {
-            $res['scalingRules'] = [];
+            $res['ScalingRules'] = [];
             if (null !== $this->scalingRules && \is_array($this->scalingRules)) {
                 $n = 0;
                 foreach ($this->scalingRules as $item) {
-                    $res['scalingRules'][$n++] = null !== $item ? $item->toMap() : $item;
+                    $res['ScalingRules'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -54,14 +54,14 @@ class AutoScalingPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['constraints'])) {
-            $model->constraints = constraints::fromMap($map['constraints']);
+        if (isset($map['Constraints'])) {
+            $model->constraints = constraints::fromMap($map['Constraints']);
         }
-        if (isset($map['scalingRules'])) {
-            if (!empty($map['scalingRules'])) {
+        if (isset($map['ScalingRules'])) {
+            if (!empty($map['ScalingRules'])) {
                 $model->scalingRules = [];
                 $n                   = 0;
-                foreach ($map['scalingRules'] as $item) {
+                foreach ($map['ScalingRules'] as $item) {
                     $model->scalingRules[$n++] = null !== $item ? ScalingRule::fromMap($item) : $item;
                 }
             }

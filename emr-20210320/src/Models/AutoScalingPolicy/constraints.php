@@ -18,8 +18,8 @@ class constraints extends Model
      */
     public $minCapacity;
     protected $_name = [
-        'maxCapacity' => 'maxCapacity',
-        'minCapacity' => 'minCapacity',
+        'maxCapacity' => 'MaxCapacity',
+        'minCapacity' => 'MinCapacity',
     ];
 
     public function validate()
@@ -30,10 +30,10 @@ class constraints extends Model
     {
         $res = [];
         if (null !== $this->maxCapacity) {
-            $res['maxCapacity'] = $this->maxCapacity;
+            $res['MaxCapacity'] = $this->maxCapacity;
         }
         if (null !== $this->minCapacity) {
-            $res['minCapacity'] = $this->minCapacity;
+            $res['MinCapacity'] = $this->minCapacity;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class constraints extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['maxCapacity'])) {
-            $model->maxCapacity = $map['maxCapacity'];
+        if (isset($map['MaxCapacity'])) {
+            $model->maxCapacity = $map['MaxCapacity'];
         }
-        if (isset($map['minCapacity'])) {
-            $model->minCapacity = $map['minCapacity'];
+        if (isset($map['MinCapacity'])) {
+            $model->minCapacity = $map['MinCapacity'];
         }
 
         return $model;

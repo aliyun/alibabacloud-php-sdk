@@ -36,6 +36,11 @@ class scalingPolicies extends Model
     public $nodeGroupId;
 
     /**
+     * @var string
+     */
+    public $nodeGroupName;
+
+    /**
      * @description The ID of the auto scaling policy.
      *
      * @example asp-asduwe23znl***
@@ -61,6 +66,7 @@ class scalingPolicies extends Model
         'clusterId'         => 'ClusterId',
         'constraints'       => 'Constraints',
         'nodeGroupId'       => 'NodeGroupId',
+        'nodeGroupName'     => 'NodeGroupName',
         'scalingPolicyId'   => 'ScalingPolicyId',
         'scalingPolicyType' => 'ScalingPolicyType',
         'scalingRules'      => 'ScalingRules',
@@ -81,6 +87,9 @@ class scalingPolicies extends Model
         }
         if (null !== $this->nodeGroupId) {
             $res['NodeGroupId'] = $this->nodeGroupId;
+        }
+        if (null !== $this->nodeGroupName) {
+            $res['NodeGroupName'] = $this->nodeGroupName;
         }
         if (null !== $this->scalingPolicyId) {
             $res['ScalingPolicyId'] = $this->scalingPolicyId;
@@ -117,6 +126,9 @@ class scalingPolicies extends Model
         }
         if (isset($map['NodeGroupId'])) {
             $model->nodeGroupId = $map['NodeGroupId'];
+        }
+        if (isset($map['NodeGroupName'])) {
+            $model->nodeGroupName = $map['NodeGroupName'];
         }
         if (isset($map['ScalingPolicyId'])) {
             $model->scalingPolicyId = $map['ScalingPolicyId'];

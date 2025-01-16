@@ -48,11 +48,17 @@ class CreateScriptRequest extends Model
      * @var Script[]
      */
     public $scripts;
+
+    /**
+     * @var string
+     */
+    public $timeoutSecs;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
-        'regionId'   => 'RegionId',
-        'scriptType' => 'ScriptType',
-        'scripts'    => 'Scripts',
+        'clusterId'   => 'ClusterId',
+        'regionId'    => 'RegionId',
+        'scriptType'  => 'ScriptType',
+        'scripts'     => 'Scripts',
+        'timeoutSecs' => 'TimeoutSecs',
     ];
 
     public function validate()
@@ -79,6 +85,9 @@ class CreateScriptRequest extends Model
                     $res['Scripts'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->timeoutSecs) {
+            $res['TimeoutSecs'] = $this->timeoutSecs;
         }
 
         return $res;
@@ -109,6 +118,9 @@ class CreateScriptRequest extends Model
                     $model->scripts[$n++] = null !== $item ? Script::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TimeoutSecs'])) {
+            $model->timeoutSecs = $map['TimeoutSecs'];
         }
 
         return $model;

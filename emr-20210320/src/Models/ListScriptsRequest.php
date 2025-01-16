@@ -47,6 +47,16 @@ class ListScriptsRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $scriptId;
+
+    /**
+     * @var string
+     */
+    public $scriptName;
+
+    /**
      * @description Type of cluster script. Possible values:
      *
      * This parameter is required.
@@ -55,12 +65,20 @@ class ListScriptsRequest extends Model
      * @var string
      */
     public $scriptType;
+
+    /**
+     * @var string[]
+     */
+    public $statuses;
     protected $_name = [
         'clusterId'  => 'ClusterId',
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'regionId'   => 'RegionId',
+        'scriptId'   => 'ScriptId',
+        'scriptName' => 'ScriptName',
         'scriptType' => 'ScriptType',
+        'statuses'   => 'Statuses',
     ];
 
     public function validate()
@@ -82,8 +100,17 @@ class ListScriptsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->scriptId) {
+            $res['ScriptId'] = $this->scriptId;
+        }
+        if (null !== $this->scriptName) {
+            $res['ScriptName'] = $this->scriptName;
+        }
         if (null !== $this->scriptType) {
             $res['ScriptType'] = $this->scriptType;
+        }
+        if (null !== $this->statuses) {
+            $res['Statuses'] = $this->statuses;
         }
 
         return $res;
@@ -109,8 +136,19 @@ class ListScriptsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ScriptId'])) {
+            $model->scriptId = $map['ScriptId'];
+        }
+        if (isset($map['ScriptName'])) {
+            $model->scriptName = $map['ScriptName'];
+        }
         if (isset($map['ScriptType'])) {
             $model->scriptType = $map['ScriptType'];
+        }
+        if (isset($map['Statuses'])) {
+            if (!empty($map['Statuses'])) {
+                $model->statuses = $map['Statuses'];
+            }
         }
 
         return $model;

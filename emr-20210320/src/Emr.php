@@ -464,6 +464,9 @@ class Emr extends OpenApiClient
         if (!Utils::isUnset($request->scripts)) {
             $query['Scripts'] = $request->scripts;
         }
+        if (!Utils::isUnset($request->timeoutSecs)) {
+            $query['TimeoutSecs'] = $request->timeoutSecs;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3682,8 +3685,17 @@ class Emr extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->scriptId)) {
+            $query['ScriptId'] = $request->scriptId;
+        }
+        if (!Utils::isUnset($request->scriptName)) {
+            $query['ScriptName'] = $request->scriptName;
+        }
         if (!Utils::isUnset($request->scriptType)) {
             $query['ScriptType'] = $request->scriptType;
+        }
+        if (!Utils::isUnset($request->statuses)) {
+            $query['Statuses'] = $request->statuses;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
