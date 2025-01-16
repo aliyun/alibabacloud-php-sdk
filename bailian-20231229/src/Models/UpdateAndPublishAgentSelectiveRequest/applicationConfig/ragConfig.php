@@ -24,7 +24,7 @@ class ragConfig extends Model
     public $enableSearch;
 
     /**
-     * @var string
+     * @var bool
      */
     public $enableWebSearch;
 
