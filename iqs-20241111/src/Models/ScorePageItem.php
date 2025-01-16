@@ -80,6 +80,11 @@ class ScorePageItem extends Model
     public $mainText;
 
     /**
+     * @var string
+     */
+    public $markdownText;
+
+    /**
      * @example text/html
      *
      * @var string
@@ -123,21 +128,22 @@ class ScorePageItem extends Model
      */
     public $title;
     protected $_name = [
-        'cardType'    => 'cardType',
-        'displayLink' => 'displayLink',
-        'hostLogo'    => 'hostLogo',
-        'hostname'    => 'hostname',
-        'htmlSnippet' => 'htmlSnippet',
-        'htmlTitle'   => 'htmlTitle',
-        'images'      => 'images',
-        'link'        => 'link',
-        'mainText'    => 'mainText',
-        'mime'        => 'mime',
-        'pageMap'     => 'pageMap',
-        'publishTime' => 'publishTime',
-        'score'       => 'score',
-        'siteLabel'   => 'siteLabel',
-        'title'       => 'title',
+        'cardType'     => 'cardType',
+        'displayLink'  => 'displayLink',
+        'hostLogo'     => 'hostLogo',
+        'hostname'     => 'hostname',
+        'htmlSnippet'  => 'htmlSnippet',
+        'htmlTitle'    => 'htmlTitle',
+        'images'       => 'images',
+        'link'         => 'link',
+        'mainText'     => 'mainText',
+        'markdownText' => 'markdownText',
+        'mime'         => 'mime',
+        'pageMap'      => 'pageMap',
+        'publishTime'  => 'publishTime',
+        'score'        => 'score',
+        'siteLabel'    => 'siteLabel',
+        'title'        => 'title',
     ];
 
     public function validate()
@@ -179,6 +185,9 @@ class ScorePageItem extends Model
         }
         if (null !== $this->mainText) {
             $res['mainText'] = $this->mainText;
+        }
+        if (null !== $this->markdownText) {
+            $res['markdownText'] = $this->markdownText;
         }
         if (null !== $this->mime) {
             $res['mime'] = $this->mime;
@@ -242,6 +251,9 @@ class ScorePageItem extends Model
         }
         if (isset($map['mainText'])) {
             $model->mainText = $map['mainText'];
+        }
+        if (isset($map['markdownText'])) {
+            $model->markdownText = $map['markdownText'];
         }
         if (isset($map['mime'])) {
             $model->mime = $map['mime'];
