@@ -14,6 +14,11 @@ class ListUserDevicesRequest extends Model
     public $appStatuses;
 
     /**
+     * @var string[]
+     */
+    public $appVersions;
+
+    /**
      * @description This parameter is required.
      *
      * @example 1
@@ -122,6 +127,7 @@ class ListUserDevicesRequest extends Model
     public $username;
     protected $_name = [
         'appStatuses'    => 'AppStatuses',
+        'appVersions'    => 'AppVersions',
         'currentPage'    => 'CurrentPage',
         'department'     => 'Department',
         'deviceBelong'   => 'DeviceBelong',
@@ -151,6 +157,9 @@ class ListUserDevicesRequest extends Model
         $res = [];
         if (null !== $this->appStatuses) {
             $res['AppStatuses'] = $this->appStatuses;
+        }
+        if (null !== $this->appVersions) {
+            $res['AppVersions'] = $this->appVersions;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -221,6 +230,11 @@ class ListUserDevicesRequest extends Model
         if (isset($map['AppStatuses'])) {
             if (!empty($map['AppStatuses'])) {
                 $model->appStatuses = $map['AppStatuses'];
+            }
+        }
+        if (isset($map['AppVersions'])) {
+            if (!empty($map['AppVersions'])) {
+                $model->appVersions = $map['AppVersions'];
             }
         }
         if (isset($map['CurrentPage'])) {

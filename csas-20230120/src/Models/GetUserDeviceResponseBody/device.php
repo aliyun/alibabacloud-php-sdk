@@ -100,6 +100,11 @@ class device extends Model
     public $dlpStatus;
 
     /**
+     * @var string
+     */
+    public $edrStatus;
+
+    /**
      * @var historyUsers[]
      */
     public $historyUsers;
@@ -204,6 +209,7 @@ class device extends Model
         'deviceVersion'    => 'DeviceVersion',
         'disk'             => 'Disk',
         'dlpStatus'        => 'DlpStatus',
+        'edrStatus'        => 'EdrStatus',
         'historyUsers'     => 'HistoryUsers',
         'hostname'         => 'Hostname',
         'iaStatus'         => 'IaStatus',
@@ -265,6 +271,9 @@ class device extends Model
         }
         if (null !== $this->dlpStatus) {
             $res['DlpStatus'] = $this->dlpStatus;
+        }
+        if (null !== $this->edrStatus) {
+            $res['EdrStatus'] = $this->edrStatus;
         }
         if (null !== $this->historyUsers) {
             $res['HistoryUsers'] = [];
@@ -370,6 +379,9 @@ class device extends Model
         }
         if (isset($map['DlpStatus'])) {
             $model->dlpStatus = $map['DlpStatus'];
+        }
+        if (isset($map['EdrStatus'])) {
+            $model->edrStatus = $map['EdrStatus'];
         }
         if (isset($map['HistoryUsers'])) {
             if (!empty($map['HistoryUsers'])) {

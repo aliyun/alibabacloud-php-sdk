@@ -99,6 +99,11 @@ class devices extends Model
     public $dlpStatus;
 
     /**
+     * @var string
+     */
+    public $edrStatus;
+
+    /**
      * @example win10-64bit
      *
      * @var string
@@ -198,6 +203,7 @@ class devices extends Model
         'deviceVersion'    => 'DeviceVersion',
         'disk'             => 'Disk',
         'dlpStatus'        => 'DlpStatus',
+        'edrStatus'        => 'EdrStatus',
         'hostname'         => 'Hostname',
         'iaStatus'         => 'IaStatus',
         'innerIP'          => 'InnerIP',
@@ -258,6 +264,9 @@ class devices extends Model
         }
         if (null !== $this->dlpStatus) {
             $res['DlpStatus'] = $this->dlpStatus;
+        }
+        if (null !== $this->edrStatus) {
+            $res['EdrStatus'] = $this->edrStatus;
         }
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
@@ -354,6 +363,9 @@ class devices extends Model
         }
         if (isset($map['DlpStatus'])) {
             $model->dlpStatus = $map['DlpStatus'];
+        }
+        if (isset($map['EdrStatus'])) {
+            $model->edrStatus = $map['EdrStatus'];
         }
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];

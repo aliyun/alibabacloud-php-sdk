@@ -1,3 +1,9 @@
+2025-01-16 Version: 1.11.1
+- Update API GetUserDevice: update response param.
+- Update API ListUserDevices: add param AppVersions.
+- Update API ListUserDevices: update response param.
+
+
 2025-01-14 Version: 1.11.0
 - Support API AttachPolicy2ApprovalProcess.
 - Support API CreateApprovalProcess.
