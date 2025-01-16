@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The total number of messages that are in the Active state in the queue. The value is an approximate number.
+     * @description The total number of messages that are in the Active state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
      *
      * @example 20
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $createTime;
 
     /**
-     * @description The total number of the messages that are in the Delayed state in the queue. The value is an approximate number.
+     * @description The total number of messages that are in the Delayed state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
      *
      * @example 0
      *
@@ -46,7 +46,7 @@ class data extends Model
     public $delaySeconds;
 
     /**
-     * @description The total number of the messages that are in the Inactive state in the queue. The value is an approximate number.
+     * @description The total number of messages that are in the Inactive state in the queue. The value is an approximate value. Default value: 0. We recommend that you do not use the return value and that you call CloudMonitor API operations to query the metric value.
      *
      * @example 0
      *

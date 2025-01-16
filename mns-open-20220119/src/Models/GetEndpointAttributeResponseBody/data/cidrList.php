@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class cidrList extends Model
 {
     /**
+     * @description The ACL policy. Valid value:
+     *
+     *   **allow**: indicates that the current endpoint allows access from the corresponding CIDR block. (Only allow is supported)
+     *
      * @example allow
      *
      * @var string
@@ -16,6 +20,8 @@ class cidrList extends Model
     public $aclStrategy;
 
     /**
+     * @description The CIDR block.
+     *
      * @example 172.18.0.0/24
      *
      * @var string
@@ -23,6 +29,8 @@ class cidrList extends Model
     public $cidr;
 
     /**
+     * @description The time when the list was created.
+     *
      * @example 1701951224000
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokeEndpointAclResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class RevokeEndpointAclResponseBody extends Model
     public $code;
 
     /**
+     * @description The message returned.
+     *
      * @example operation success
      *
      * @var string
@@ -23,6 +27,8 @@ class RevokeEndpointAclResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 06273500-249F-5863-121D-74D51123****
      *
      * @var string
@@ -30,6 +36,8 @@ class RevokeEndpointAclResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The response status.
+     *
      * @example Success
      *
      * @var string
@@ -37,6 +45,8 @@ class RevokeEndpointAclResponseBody extends Model
     public $status;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

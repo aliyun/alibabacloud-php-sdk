@@ -67,11 +67,17 @@ class pageData extends Model
     public $messageRetentionPeriod;
 
     /**
+     * @description The tags added to the resources.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The internal URL of the message topic. The internal URL can be accessed over an internal network.
+     *
+     * @example http:// 111111111****.mns.us-west-1-internal.aliyuncs.com/topics/testTopic
+     *
      * @var string
      */
     public $topicInnerUrl;
@@ -86,6 +92,10 @@ class pageData extends Model
     public $topicName;
 
     /**
+     * @description The URL of the message topic.
+     *
+     * @example http:// 111111111****.mns.us-west-1.aliyuncs.com/topics/testTopic
+     *
      * @var string
      */
     public $topicUrl;

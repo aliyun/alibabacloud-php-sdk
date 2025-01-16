@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EnableEndpointRequest extends Model
 {
     /**
+     * @description The type of the endpoint. Valid value:
+     *
+     *   **public**: indicates a public endpoint. (Only public endpoint is supported.)
+     *
+     * This parameter is required.
      * @example public
      *
      * @var string

@@ -88,7 +88,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary AuthorizeEndpointAcl
+     * @summary Adds one or more ACLrules for an endpoint of a specified type.
      *  *
      * @param AuthorizeEndpointAclRequest $tmpReq  AuthorizeEndpointAclRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary AuthorizeEndpointAcl
+     * @summary Adds one or more ACLrules for an endpoint of a specified type.
      *  *
      * @param AuthorizeEndpointAclRequest $request AuthorizeEndpointAclRequest
      *
@@ -366,7 +366,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary DisableEndpoint
+     * @summary You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
      *  *
      * @param DisableEndpointRequest $request DisableEndpointRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -399,7 +399,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary DisableEndpoint
+     * @summary You can call this operation to disable an endpoint of a specified type. After the endpoint is disabled, requests from the endpoint are blocked and an error is returned.
      *  *
      * @param DisableEndpointRequest $request DisableEndpointRequest
      *
@@ -413,7 +413,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary EnableEndpoint
+     * @summary You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
      *  *
      * @param EnableEndpointRequest $request EnableEndpointRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -446,7 +446,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary EnableEndpoint
+     * @summary You can call this operation to enable an endpoint of a specified type. If the endpoint is enabled, requests from the endpoint that are included in the access control lists (ACLs) are not blocked.
      *  *
      * @param EnableEndpointRequest $request EnableEndpointRequest
      *
@@ -825,7 +825,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary RevokeEndpointAcl
+     * @summary Deletes one or more ACLs from an endpoint of a specified type.
      *  *
      * @param RevokeEndpointAclRequest $tmpReq  RevokeEndpointAclRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -869,7 +869,7 @@ class Mnsopen extends OpenApiClient
     }
 
     /**
-     * @summary RevokeEndpointAcl
+     * @summary Deletes one or more ACLs from an endpoint of a specified type.
      *  *
      * @param RevokeEndpointAclRequest $request RevokeEndpointAclRequest
      *

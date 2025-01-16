@@ -18,10 +18,10 @@ class SetQueueAttributesRequest extends Model
     public $delaySeconds;
 
     /**
-     * @description Specifies whether to enable the logging feature. Valid values:
+     * @description Specifies whether to enable the log management feature. Valid values:
      *
-     *   True
-     *   False (default)
+     *   true: enabled.
+     *   false: disabled. Default value: false.
      *
      * @example True
      *

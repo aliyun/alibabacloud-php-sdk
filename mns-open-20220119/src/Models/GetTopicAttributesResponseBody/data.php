@@ -67,6 +67,8 @@ class data extends Model
     public $messageRetentionPeriod;
 
     /**
+     * @description The tags added to the resources.
+     *
      * @var tags[]
      */
     public $tags;

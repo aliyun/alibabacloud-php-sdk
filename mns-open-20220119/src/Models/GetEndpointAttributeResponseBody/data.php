@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The CIDR blocks.
+     *
      * @var cidrList[]
      */
     public $cidrList;
 
     /**
+     * @description Specifies whether the endpoint is enabled.
+     *
      * @example true
      *
      * @var bool

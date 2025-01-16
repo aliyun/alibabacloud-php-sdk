@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RevokeEndpointAclRequest extends Model
 {
     /**
+     * @description The ACL policy. Valid value:
+     *
+     *   **allow**: indicates that the operation is initiated from an endpoint in CIDR whitelist. (Only allow is supported)
+     *
+     * This parameter is required.
      * @example allow
      *
      * @var string
@@ -16,11 +21,19 @@ class RevokeEndpointAclRequest extends Model
     public $aclStrategy;
 
     /**
+     * @description The CIDR blocks.
+     *
+     * This parameter is required.
      * @var string[]
      */
     public $cidrList;
 
     /**
+     * @description The type of the endpoint. Valid value:
+     *
+     *   **public**: indicates an public endpoint. (Only public endpoint is supported.)
+     *
+     * This parameter is required.
      * @example public
      *
      * @var string

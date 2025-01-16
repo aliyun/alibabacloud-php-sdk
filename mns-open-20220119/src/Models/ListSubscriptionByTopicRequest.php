@@ -36,7 +36,7 @@ class ListSubscriptionByTopicRequest extends Model
     public $subscriptionName;
 
     /**
-     * @description The name of the topic.
+     * @description The topic name.
      *
      * @example test
      *
