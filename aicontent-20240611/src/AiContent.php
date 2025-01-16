@@ -24,10 +24,36 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueRequ
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDialogueRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDialogueResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDifficultyRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantDifficultyResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantGrammarCheckRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantGrammarCheckResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRefineByContextRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRefineByContextResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRetryConversationRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRetryConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantStartConversationRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantStartConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantSuggestionRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantSuggestionResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantTranslateRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantTranslateResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherExpansionDialogueSuggestionRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherExpansionDialogueSuggestionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherSyncDialogueSuggestionRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherSyncDialogueSuggestionResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\GetTextbookAssistantTokenRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\GetTextbookAssistantTokenResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantArticlesRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantArticlesResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBooksRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBooksResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryImageAssetRequest;
@@ -687,6 +713,478 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * @summary 进行AI对话
+     *  *
+     * @param ExecuteTextbookAssistantDialogueRequest $request ExecuteTextbookAssistantDialogueRequest
+     * @param string[]                                $headers map
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteTextbookAssistantDialogueResponse ExecuteTextbookAssistantDialogueResponse
+     */
+    public function executeTextbookAssistantDialogueWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->chatId)) {
+            $body['chatId'] = $request->chatId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        if (!Utils::isUnset($request->userMessage)) {
+            $body['userMessage'] = $request->userMessage;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteTextbookAssistantDialogue',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/dialogue/ExecuteDialogue',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteTextbookAssistantDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 进行AI对话
+     *  *
+     * @param ExecuteTextbookAssistantDialogueRequest $request ExecuteTextbookAssistantDialogueRequest
+     *
+     * @return ExecuteTextbookAssistantDialogueResponse ExecuteTextbookAssistantDialogueResponse
+     */
+    public function executeTextbookAssistantDialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantDialogueWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 调整难度
+     *  *
+     * @param ExecuteTextbookAssistantDifficultyRequest $request ExecuteTextbookAssistantDifficultyRequest
+     * @param string[]                                  $headers map
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteTextbookAssistantDifficultyResponse ExecuteTextbookAssistantDifficultyResponse
+     */
+    public function executeTextbookAssistantDifficultyWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->action)) {
+            $body['action'] = $request->action;
+        }
+        if (!Utils::isUnset($request->assistant)) {
+            $body['assistant'] = $request->assistant;
+        }
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->chatId)) {
+            $body['chatId'] = $request->chatId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteTextbookAssistantDifficulty',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/dialogue/ExecuteDifficulty',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteTextbookAssistantDifficultyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 调整难度
+     *  *
+     * @param ExecuteTextbookAssistantDifficultyRequest $request ExecuteTextbookAssistantDifficultyRequest
+     *
+     * @return ExecuteTextbookAssistantDifficultyResponse ExecuteTextbookAssistantDifficultyResponse
+     */
+    public function executeTextbookAssistantDifficulty($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantDifficultyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 语法检测
+     *  *
+     * @param ExecuteTextbookAssistantGrammarCheckRequest $request ExecuteTextbookAssistantGrammarCheckRequest
+     * @param string[]                                    $headers map
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteTextbookAssistantGrammarCheckResponse ExecuteTextbookAssistantGrammarCheckResponse
+     */
+    public function executeTextbookAssistantGrammarCheckWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->chatId)) {
+            $body['chatId'] = $request->chatId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $body['user'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteTextbookAssistantGrammarCheck',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/dialogue/ExecuteGrammarCheck',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteTextbookAssistantGrammarCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 语法检测
+     *  *
+     * @param ExecuteTextbookAssistantGrammarCheckRequest $request ExecuteTextbookAssistantGrammarCheckRequest
+     *
+     * @return ExecuteTextbookAssistantGrammarCheckResponse ExecuteTextbookAssistantGrammarCheckResponse
+     */
+    public function executeTextbookAssistantGrammarCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantGrammarCheckWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 句子润色
+     *  *
+     * @param ExecuteTextbookAssistantRefineByContextRequest $request ExecuteTextbookAssistantRefineByContextRequest
+     * @param string[]                                       $headers map
+     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteTextbookAssistantRefineByContextResponse ExecuteTextbookAssistantRefineByContextResponse
+     */
+    public function executeTextbookAssistantRefineByContextWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->chatId)) {
+            $body['chatId'] = $request->chatId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $body['user'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteTextbookAssistantRefineByContext',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/dialogue/RefineByContext',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteTextbookAssistantRefineByContextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 句子润色
+     *  *
+     * @param ExecuteTextbookAssistantRefineByContextRequest $request ExecuteTextbookAssistantRefineByContextRequest
+     *
+     * @return ExecuteTextbookAssistantRefineByContextResponse ExecuteTextbookAssistantRefineByContextResponse
+     */
+    public function executeTextbookAssistantRefineByContext($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantRefineByContextWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 对话重试
+     *  *
+     * @param ExecuteTextbookAssistantRetryConversationRequest $request ExecuteTextbookAssistantRetryConversationRequest
+     * @param string[]                                         $headers map
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteTextbookAssistantRetryConversationResponse ExecuteTextbookAssistantRetryConversationResponse
+     */
+    public function executeTextbookAssistantRetryConversationWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->assistant)) {
+            $body['assistant'] = $request->assistant;
+        }
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->chatId)) {
+            $body['chatId'] = $request->chatId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteTextbookAssistantRetryConversation',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/dialogue/RetryConversation',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteTextbookAssistantRetryConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 对话重试
+     *  *
+     * @param ExecuteTextbookAssistantRetryConversationRequest $request ExecuteTextbookAssistantRetryConversationRequest
+     *
+     * @return ExecuteTextbookAssistantRetryConversationResponse ExecuteTextbookAssistantRetryConversationResponse
+     */
+    public function executeTextbookAssistantRetryConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantRetryConversationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 开启自由对话
+     *  *
+     * @param ExecuteTextbookAssistantStartConversationRequest $request ExecuteTextbookAssistantStartConversationRequest
+     * @param string[]                                         $headers map
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteTextbookAssistantStartConversationResponse ExecuteTextbookAssistantStartConversationResponse
+     */
+    public function executeTextbookAssistantStartConversationWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->articleId)) {
+            $body['articleId'] = $request->articleId;
+        }
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteTextbookAssistantStartConversation',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/dialogue/StartConversation',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteTextbookAssistantStartConversationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 开启自由对话
+     *  *
+     * @param ExecuteTextbookAssistantStartConversationRequest $request ExecuteTextbookAssistantStartConversationRequest
+     *
+     * @return ExecuteTextbookAssistantStartConversationResponse ExecuteTextbookAssistantStartConversationResponse
+     */
+    public function executeTextbookAssistantStartConversation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantStartConversationWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取鉴权参数
+     *  *
+     * @param ExecuteTextbookAssistantSuggestionRequest $request ExecuteTextbookAssistantSuggestionRequest
+     * @param string[]                                  $headers map
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteTextbookAssistantSuggestionResponse ExecuteTextbookAssistantSuggestionResponse
+     */
+    public function executeTextbookAssistantSuggestionWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->assistant)) {
+            $body['assistant'] = $request->assistant;
+        }
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->chatId)) {
+            $body['chatId'] = $request->chatId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteTextbookAssistantSuggestion',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/dialogue/Suggestion',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteTextbookAssistantSuggestionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取鉴权参数
+     *  *
+     * @param ExecuteTextbookAssistantSuggestionRequest $request ExecuteTextbookAssistantSuggestionRequest
+     *
+     * @return ExecuteTextbookAssistantSuggestionResponse ExecuteTextbookAssistantSuggestionResponse
+     */
+    public function executeTextbookAssistantSuggestion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantSuggestionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 翻译消息内容
+     *  *
+     * @param ExecuteTextbookAssistantTranslateRequest $request ExecuteTextbookAssistantTranslateRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ExecuteTextbookAssistantTranslateResponse ExecuteTextbookAssistantTranslateResponse
+     */
+    public function executeTextbookAssistantTranslateWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->assistant)) {
+            $body['assistant'] = $request->assistant;
+        }
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->chatId)) {
+            $body['chatId'] = $request->chatId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExecuteTextbookAssistantTranslate',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/dialogue/ExecuteTranslate',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExecuteTextbookAssistantTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 翻译消息内容
+     *  *
+     * @param ExecuteTextbookAssistantTranslateRequest $request ExecuteTextbookAssistantTranslateRequest
+     *
+     * @return ExecuteTextbookAssistantTranslateResponse ExecuteTextbookAssistantTranslateResponse
+     */
+    public function executeTextbookAssistantTranslate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantTranslateWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @summary 拓展练小助手
      *  *
      * @param GetAITeacherExpansionDialogueSuggestionRequest $request GetAITeacherExpansionDialogueSuggestionRequest
@@ -814,6 +1312,289 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->getAITeacherSyncDialogueSuggestionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取请求鉴权参数
+     *  *
+     * @param GetTextbookAssistantTokenRequest $request GetTextbookAssistantTokenRequest
+     * @param string[]                         $headers map
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetTextbookAssistantTokenResponse GetTextbookAssistantTokenResponse
+     */
+    public function getTextbookAssistantTokenWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceId)) {
+            $body['deviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->model)) {
+            $body['model'] = $request->model;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTextbookAssistantToken',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/teachingResource/GetToken',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTextbookAssistantTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取请求鉴权参数
+     *  *
+     * @param GetTextbookAssistantTokenRequest $request GetTextbookAssistantTokenRequest
+     *
+     * @return GetTextbookAssistantTokenResponse GetTextbookAssistantTokenResponse
+     */
+    public function getTextbookAssistantToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTextbookAssistantTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取文章列表
+     *  *
+     * @param ListTextbookAssistantArticlesRequest $request ListTextbookAssistantArticlesRequest
+     * @param string[]                             $headers map
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTextbookAssistantArticlesResponse ListTextbookAssistantArticlesResponse
+     */
+    public function listTextbookAssistantArticlesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->directoryId)) {
+            $body['directoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTextbookAssistantArticles',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/teachingResource/ListArticles',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTextbookAssistantArticlesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取文章列表
+     *  *
+     * @param ListTextbookAssistantArticlesRequest $request ListTextbookAssistantArticlesRequest
+     *
+     * @return ListTextbookAssistantArticlesResponse ListTextbookAssistantArticlesResponse
+     */
+    public function listTextbookAssistantArticles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTextbookAssistantArticlesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取书本下的目录信息
+     *  *
+     * @param ListTextbookAssistantBookDirectoriesRequest $request ListTextbookAssistantBookDirectoriesRequest
+     * @param string[]                                    $headers map
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTextbookAssistantBookDirectoriesResponse ListTextbookAssistantBookDirectoriesResponse
+     */
+    public function listTextbookAssistantBookDirectoriesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->bookId)) {
+            $body['bookId'] = $request->bookId;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTextbookAssistantBookDirectories',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/teachingResource/ListBookDirectories',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTextbookAssistantBookDirectoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取书本下的目录信息
+     *  *
+     * @param ListTextbookAssistantBookDirectoriesRequest $request ListTextbookAssistantBookDirectoriesRequest
+     *
+     * @return ListTextbookAssistantBookDirectoriesResponse ListTextbookAssistantBookDirectoriesResponse
+     */
+    public function listTextbookAssistantBookDirectories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTextbookAssistantBookDirectoriesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取包含年级下的书本列表
+     *  *
+     * @param ListTextbookAssistantBooksRequest $request ListTextbookAssistantBooksRequest
+     * @param string[]                          $headers map
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTextbookAssistantBooksResponse ListTextbookAssistantBooksResponse
+     */
+    public function listTextbookAssistantBooksWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->bookId)) {
+            $body['bookId'] = $request->bookId;
+        }
+        if (!Utils::isUnset($request->grade)) {
+            $body['grade'] = $request->grade;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $body['maxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $body['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->version)) {
+            $body['version'] = $request->version;
+        }
+        if (!Utils::isUnset($request->volume)) {
+            $body['volume'] = $request->volume;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTextbookAssistantBooks',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/teachingResource/ListBooks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTextbookAssistantBooksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取包含年级下的书本列表
+     *  *
+     * @param ListTextbookAssistantBooksRequest $request ListTextbookAssistantBooksRequest
+     *
+     * @return ListTextbookAssistantBooksResponse ListTextbookAssistantBooksResponse
+     */
+    public function listTextbookAssistantBooks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTextbookAssistantBooksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @summary 获取有资源的年级信息
+     *  *
+     * @param ListTextbookAssistantGradeVolumesRequest $request ListTextbookAssistantGradeVolumesRequest
+     * @param string[]                                 $headers map
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTextbookAssistantGradeVolumesResponse ListTextbookAssistantGradeVolumesResponse
+     */
+    public function listTextbookAssistantGradeVolumesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authToken)) {
+            $body['authToken'] = $request->authToken;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $body['scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTextbookAssistantGradeVolumes',
+            'version'     => '20240611',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/textbookAssistant/teachingResource/ListGradeVolumes',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTextbookAssistantGradeVolumesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 获取有资源的年级信息
+     *  *
+     * @param ListTextbookAssistantGradeVolumesRequest $request ListTextbookAssistantGradeVolumesRequest
+     *
+     * @return ListTextbookAssistantGradeVolumesResponse ListTextbookAssistantGradeVolumesResponse
+     */
+    public function listTextbookAssistantGradeVolumes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTextbookAssistantGradeVolumesWithOptions($request, $headers, $runtime);
     }
 
     /**
