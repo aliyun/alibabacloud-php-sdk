@@ -66,6 +66,11 @@ class instances extends Model
     public $instanceStatus;
 
     /**
+     * @description Indicates whether zone-redundant storage (ZRS) is enabled for the instance.
+     *
+     *   true: ZRS is enabled for the instance.
+     *   false: Locally redundant storage (LRS) is enabled for the instance.
+     *
      * @var bool
      */
     public $isMultiAZ;
@@ -101,7 +106,7 @@ class instances extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example ots_standard_public_cn-g4t3igqjj002
      *

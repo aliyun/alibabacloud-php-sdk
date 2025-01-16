@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
-     * @description The alias of the instance.
+     * @description The instance alias.
      *
      * @example instance-test
      *
@@ -26,6 +26,11 @@ class GetInstanceResponseBody extends Model
      * @var string
      */
     public $createTime;
+
+    /**
+     * @var float
+     */
+    public $elasticVCUUpperLimit;
 
     /**
      * @description The description of the instance.
@@ -71,6 +76,11 @@ class GetInstanceResponseBody extends Model
     public $instanceStatus;
 
     /**
+     * @description Indicates whether zone-redundant storage (ZRS) is enabled for the instance.
+     *
+     *   true: ZRS is enabled for the instance.
+     *   false: Locally redundant storage (LRS) is enabled for the instance.
+     *
      * @var bool
      */
     public $isMultiAZ;
@@ -227,6 +237,7 @@ class GetInstanceResponseBody extends Model
     protected $_name = [
         'aliasName'             => 'AliasName',
         'createTime'            => 'CreateTime',
+        'elasticVCUUpperLimit'  => 'ElasticVCUUpperLimit',
         'instanceDescription'   => 'InstanceDescription',
         'instanceName'          => 'InstanceName',
         'instanceSpecification' => 'InstanceSpecification',
@@ -261,6 +272,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->elasticVCUUpperLimit) {
+            $res['ElasticVCUUpperLimit'] = $this->elasticVCUUpperLimit;
         }
         if (null !== $this->instanceDescription) {
             $res['InstanceDescription'] = $this->instanceDescription;
@@ -345,6 +359,9 @@ class GetInstanceResponseBody extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['ElasticVCUUpperLimit'])) {
+            $model->elasticVCUUpperLimit = $map['ElasticVCUUpperLimit'];
         }
         if (isset($map['InstanceDescription'])) {
             $model->instanceDescription = $map['InstanceDescription'];
