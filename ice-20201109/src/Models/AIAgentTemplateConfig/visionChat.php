@@ -80,6 +80,11 @@ class visionChat extends Model
     public $voiceId;
 
     /**
+     * @var string[]
+     */
+    public $voiceIdList;
+
+    /**
      * @var string
      */
     public $voiceprintId;
@@ -113,6 +118,7 @@ class visionChat extends Model
         'userOfflineTimeout'       => 'UserOfflineTimeout',
         'userOnlineTimeout'        => 'UserOnlineTimeout',
         'voiceId'                  => 'VoiceId',
+        'voiceIdList'              => 'VoiceIdList',
         'voiceprintId'             => 'VoiceprintId',
         'volume'                   => 'Volume',
         'wakeUpQuery'              => 'WakeUpQuery',
@@ -173,6 +179,9 @@ class visionChat extends Model
         }
         if (null !== $this->voiceId) {
             $res['VoiceId'] = $this->voiceId;
+        }
+        if (null !== $this->voiceIdList) {
+            $res['VoiceIdList'] = $this->voiceIdList;
         }
         if (null !== $this->voiceprintId) {
             $res['VoiceprintId'] = $this->voiceprintId;
@@ -245,6 +254,11 @@ class visionChat extends Model
         }
         if (isset($map['VoiceId'])) {
             $model->voiceId = $map['VoiceId'];
+        }
+        if (isset($map['VoiceIdList'])) {
+            if (!empty($map['VoiceIdList'])) {
+                $model->voiceIdList = $map['VoiceIdList'];
+            }
         }
         if (isset($map['VoiceprintId'])) {
             $model->voiceprintId = $map['VoiceprintId'];

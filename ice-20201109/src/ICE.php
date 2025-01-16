@@ -182,6 +182,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetPipelineRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPlayInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPlayInfoResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetProjectExportJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetProjectExportJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetPublicMediaInfoResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetSmartHandleJobRequest;
@@ -412,6 +414,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaProducingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitPackageJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitProjectExportJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitProjectExportJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitScreenMediaHighlightsJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitScreenMediaHighlightsJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSmarttagJobRequest;
@@ -5219,6 +5223,53 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPlayInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 查询工程导出任务
+     *  *
+     * @param GetProjectExportJobRequest $request GetProjectExportJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetProjectExportJobResponse GetProjectExportJobResponse
+     */
+    public function getProjectExportJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetProjectExportJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetProjectExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 查询工程导出任务
+     *  *
+     * @param GetProjectExportJobRequest $request GetProjectExportJobRequest
+     *
+     * @return GetProjectExportJobResponse GetProjectExportJobResponse
+     */
+    public function getProjectExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getProjectExportJobWithOptions($request, $runtime);
     }
 
     /**
@@ -11807,6 +11858,67 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitPackageJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @summary 提交工程导出任务
+     *  *
+     * @param SubmitProjectExportJobRequest $request SubmitProjectExportJobRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SubmitProjectExportJobResponse SubmitProjectExportJobResponse
+     */
+    public function submitProjectExportJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->exportType)) {
+            $query['ExportType'] = $request->exportType;
+        }
+        if (!Utils::isUnset($request->outputMediaConfig)) {
+            $query['OutputMediaConfig'] = $request->outputMediaConfig;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->userData)) {
+            $query['UserData'] = $request->userData;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->timeline)) {
+            $body['Timeline'] = $request->timeline;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitProjectExportJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitProjectExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @summary 提交工程导出任务
+     *  *
+     * @param SubmitProjectExportJobRequest $request SubmitProjectExportJobRequest
+     *
+     * @return SubmitProjectExportJobResponse SubmitProjectExportJobResponse
+     */
+    public function submitProjectExportJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitProjectExportJobWithOptions($request, $runtime);
     }
 
     /**
