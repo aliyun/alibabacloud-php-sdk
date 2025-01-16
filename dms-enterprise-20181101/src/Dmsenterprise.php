@@ -2724,6 +2724,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->paramShrink)) {
             $query['Param'] = $request->paramShrink;
         }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+        }
         if (!Utils::isUnset($request->relatedUserListShrink)) {
             $query['RelatedUserList'] = $request->relatedUserListShrink;
         }
@@ -12836,6 +12839,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
         }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+        }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
         }
@@ -13870,6 +13876,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
         }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
+        }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
         }
@@ -14035,6 +14044,9 @@ class Dmsenterprise extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
@@ -14562,6 +14574,9 @@ class Dmsenterprise extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->realLoginUserUid)) {
+            $query['RealLoginUserUid'] = $request->realLoginUserUid;
         }
         if (!Utils::isUnset($request->reason)) {
             $query['Reason'] = $request->reason;

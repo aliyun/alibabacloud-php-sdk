@@ -19,6 +19,11 @@ class SkipDataCorrectRowCheckRequest extends Model
     public $orderId;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @description The reason for skipping the verification on the number of rows in the precheck for data change.
      *
      * This parameter is required.
@@ -37,9 +42,10 @@ class SkipDataCorrectRowCheckRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'orderId' => 'OrderId',
-        'reason'  => 'Reason',
-        'tid'     => 'Tid',
+        'orderId'          => 'OrderId',
+        'realLoginUserUid' => 'RealLoginUserUid',
+        'reason'           => 'Reason',
+        'tid'              => 'Tid',
     ];
 
     public function validate()
@@ -51,6 +57,9 @@ class SkipDataCorrectRowCheckRequest extends Model
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
@@ -72,6 +81,9 @@ class SkipDataCorrectRowCheckRequest extends Model
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];

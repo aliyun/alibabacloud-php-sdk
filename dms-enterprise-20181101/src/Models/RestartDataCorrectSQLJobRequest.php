@@ -29,6 +29,11 @@ class RestartDataCorrectSQLJobRequest extends Model
     public $orderId;
 
     /**
+     * @var string
+     */
+    public $realLoginUserUid;
+
+    /**
      * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://help.aliyun.com/document_detail/198073.html) operation to query the tenant ID.
      *
      * @example 3***
@@ -50,10 +55,11 @@ class RestartDataCorrectSQLJobRequest extends Model
      */
     public $type;
     protected $_name = [
-        'jobId'   => 'JobId',
-        'orderId' => 'OrderId',
-        'tid'     => 'Tid',
-        'type'    => 'Type',
+        'jobId'            => 'JobId',
+        'orderId'          => 'OrderId',
+        'realLoginUserUid' => 'RealLoginUserUid',
+        'tid'              => 'Tid',
+        'type'             => 'Type',
     ];
 
     public function validate()
@@ -68,6 +74,9 @@ class RestartDataCorrectSQLJobRequest extends Model
         }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
+        }
+        if (null !== $this->realLoginUserUid) {
+            $res['RealLoginUserUid'] = $this->realLoginUserUid;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -92,6 +101,9 @@ class RestartDataCorrectSQLJobRequest extends Model
         }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['RealLoginUserUid'])) {
+            $model->realLoginUserUid = $map['RealLoginUserUid'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
