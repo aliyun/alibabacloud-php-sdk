@@ -50,6 +50,8 @@ class ListFoldersForParentRequest extends Model
     public $queryKeyword;
 
     /**
+     * @description The tags. This parameter specifies a filter condition.
+     *
      * @var tag[]
      */
     public $tag;

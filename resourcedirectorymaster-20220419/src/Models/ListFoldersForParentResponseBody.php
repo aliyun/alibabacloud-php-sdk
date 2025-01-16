@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListFoldersForParentResponseBody extends Model
 {
     /**
-     * @description The information of the folders.
+     * @description The folders.
      *
      * @var folders
      */

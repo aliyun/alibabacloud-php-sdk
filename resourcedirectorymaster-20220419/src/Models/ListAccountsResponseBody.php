@@ -17,6 +17,11 @@ class ListAccountsResponseBody extends Model
     public $accounts;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The page number of the returned page.
      *
      * @example 1
@@ -53,6 +58,7 @@ class ListAccountsResponseBody extends Model
     public $totalCount;
     protected $_name = [
         'accounts'   => 'Accounts',
+        'nextToken'  => 'NextToken',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
@@ -68,6 +74,9 @@ class ListAccountsResponseBody extends Model
         $res = [];
         if (null !== $this->accounts) {
             $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -95,6 +104,9 @@ class ListAccountsResponseBody extends Model
         $model = new self();
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

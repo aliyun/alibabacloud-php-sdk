@@ -29,6 +29,8 @@ class CreateFolderRequest extends Model
     public $parentFolderId;
 
     /**
+     * @description The tag to add to the folder.
+     *
      * @var tag[]
      */
     public $tag;

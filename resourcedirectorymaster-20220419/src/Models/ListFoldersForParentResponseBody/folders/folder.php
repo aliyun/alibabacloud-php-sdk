@@ -37,6 +37,8 @@ class folder extends Model
     public $folderName;
 
     /**
+     * @description The tags added to the folder.
+     *
      * @var tags
      */
     public $tags;

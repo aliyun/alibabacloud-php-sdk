@@ -50,6 +50,8 @@ class CreateControlPolicyRequest extends Model
     public $policyName;
 
     /**
+     * @description The tag to add to the access control policy.
+     *
      * @var tag[]
      */
     public $tag;

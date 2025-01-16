@@ -22,6 +22,16 @@ class ListAccountsRequest extends Model
     public $includeTags;
 
     /**
+     * @var int
+     */
+    public $maxResults;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The number of the page to return.
      *
      * Pages start from page 1. Default value: 1.
@@ -59,6 +69,8 @@ class ListAccountsRequest extends Model
     public $tag;
     protected $_name = [
         'includeTags'  => 'IncludeTags',
+        'maxResults'   => 'MaxResults',
+        'nextToken'    => 'NextToken',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
         'queryKeyword' => 'QueryKeyword',
@@ -74,6 +86,12 @@ class ListAccountsRequest extends Model
         $res = [];
         if (null !== $this->includeTags) {
             $res['IncludeTags'] = $this->includeTags;
+        }
+        if (null !== $this->maxResults) {
+            $res['MaxResults'] = $this->maxResults;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -107,6 +125,12 @@ class ListAccountsRequest extends Model
         $model = new self();
         if (isset($map['IncludeTags'])) {
             $model->includeTags = $map['IncludeTags'];
+        }
+        if (isset($map['MaxResults'])) {
+            $model->maxResults = $map['MaxResults'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
