@@ -17,6 +17,11 @@ class data extends Model
     /**
      * @var string
      */
+    public $extra;
+
+    /**
+     * @var string
+     */
     public $taskErrorMessage;
 
     /**
@@ -39,6 +44,7 @@ class data extends Model
     public $text;
     protected $_name = [
         'asrResult'        => 'asrResult',
+        'extra'            => 'extra',
         'taskErrorMessage' => 'taskErrorMessage',
         'taskId'           => 'taskId',
         'taskStatus'       => 'taskStatus',
@@ -60,6 +66,9 @@ class data extends Model
                     $res['asrResult'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->extra) {
+            $res['extra'] = $this->extra;
         }
         if (null !== $this->taskErrorMessage) {
             $res['taskErrorMessage'] = $this->taskErrorMessage;
@@ -93,6 +102,9 @@ class data extends Model
                     $model->asrResult[$n++] = null !== $item ? asrResult::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['extra'])) {
+            $model->extra = $map['extra'];
         }
         if (isset($map['taskErrorMessage'])) {
             $model->taskErrorMessage = $map['taskErrorMessage'];

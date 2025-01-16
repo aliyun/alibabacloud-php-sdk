@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class transcription extends Model
 {
     /**
+     * @var string
+     */
+    public $asrModelCode;
+
+    /**
      * @example 1
      *
      * @var int
@@ -32,6 +37,11 @@ class transcription extends Model
     public $fileName;
 
     /**
+     * @var string
+     */
+    public $level;
+
+    /**
      * @example 1
      *
      * @var int
@@ -52,9 +62,11 @@ class transcription extends Model
      */
     public $voiceFileUrl;
     protected $_name = [
+        'asrModelCode'           => 'asrModelCode',
         'autoSplit'              => 'autoSplit',
         'clientChannel'          => 'clientChannel',
         'fileName'               => 'fileName',
+        'level'                  => 'level',
         'serviceChannel'         => 'serviceChannel',
         'serviceChannelKeywords' => 'serviceChannelKeywords',
         'voiceFileUrl'           => 'voiceFileUrl',
@@ -67,6 +79,9 @@ class transcription extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->asrModelCode) {
+            $res['asrModelCode'] = $this->asrModelCode;
+        }
         if (null !== $this->autoSplit) {
             $res['autoSplit'] = $this->autoSplit;
         }
@@ -75,6 +90,9 @@ class transcription extends Model
         }
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
+        }
+        if (null !== $this->level) {
+            $res['level'] = $this->level;
         }
         if (null !== $this->serviceChannel) {
             $res['serviceChannel'] = $this->serviceChannel;
@@ -97,6 +115,9 @@ class transcription extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['asrModelCode'])) {
+            $model->asrModelCode = $map['asrModelCode'];
+        }
         if (isset($map['autoSplit'])) {
             $model->autoSplit = $map['autoSplit'];
         }
@@ -105,6 +126,9 @@ class transcription extends Model
         }
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
+        }
+        if (isset($map['level'])) {
+            $model->level = $map['level'];
         }
         if (isset($map['serviceChannel'])) {
             $model->serviceChannel = $map['serviceChannel'];
