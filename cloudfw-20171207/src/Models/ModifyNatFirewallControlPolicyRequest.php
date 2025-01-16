@@ -15,7 +15,6 @@ class ModifyNatFirewallControlPolicyRequest extends Model
      *   **drop**: denies the traffic.
      *   **log**: monitors the traffic.
      *
-     * This parameter is required.
      * @example log
      *
      * @var string
@@ -42,7 +41,7 @@ class ModifyNatFirewallControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy. Fuzzy match is supported.
      *
-     * This parameter is required.
+     * > If you do not specify this parameter, the descriptions of all policies are queried.
      * @example test
      *
      * @var string
@@ -88,7 +87,6 @@ class ModifyNatFirewallControlPolicyRequest extends Model
      *   If **DestinationType** is set to domain, the value of **Destination** is a domain name. Example: \\*.aliyuncs.com
      *   If **DestinationType** is set to location, the value of **Destination** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: ["BJ11", "ZB"]
      *
-     * This parameter is required.
      * @example x.x.x.x/32
      *
      * @var string
@@ -103,7 +101,6 @@ class ModifyNatFirewallControlPolicyRequest extends Model
      *   **domain**: domain name
      *   **location**: destination location
      *
-     * This parameter is required.
      * @example net
      *
      * @var string
@@ -176,7 +173,7 @@ class ModifyNatFirewallControlPolicyRequest extends Model
      *
      * >  The value **ANY** indicates all types of applications.
      *
-     * This parameter is required.
+     * >  If the destination address type is a threat intelligence address book of the domain name type or a cloud service address book, you can set Proto to TCP. If you set Proto to TCP, you can set application types to HTTP, HTTPS, SMTP, SMTPS, and SSL.
      * @example TCP
      *
      * @var string
@@ -251,7 +248,6 @@ class ModifyNatFirewallControlPolicyRequest extends Model
      *   If **SourceType** is set to `net`, the value of this parameter is a CIDR block. Example: 10.2.XX.XX/24.
      *   If **SourceType** is set to `group`, the value of this parameter is an address book name. Example: db_group.
      *
-     * This parameter is required.
      * @example 192.168.0.25/32
      *
      * @var string
@@ -264,7 +260,6 @@ class ModifyNatFirewallControlPolicyRequest extends Model
      *   **net**: CIDR block
      *   **group**: address book
      *
-     * This parameter is required.
      * @example net
      *
      * @var string

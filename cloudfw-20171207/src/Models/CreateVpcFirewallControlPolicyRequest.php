@@ -42,6 +42,8 @@ class CreateVpcFirewallControlPolicyRequest extends Model
      * - **ANY**: all types of applications
      * @example HTTP
      *
+     * @deprecated
+     *
      * @var string
      */
     public $applicationName;

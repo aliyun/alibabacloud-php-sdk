@@ -17,7 +17,6 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   **drop**: blocks the traffic.
      *   **log**: monitors the traffic.
      *
-     * This parameter is required.
      * @example accept
      *
      * @var string
@@ -57,6 +56,8 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      * @example HTTP
      *
+     * @deprecated
+     *
      * @var string
      */
     public $applicationName;
@@ -71,7 +72,6 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy.
      *
-     * This parameter is required.
      * @example test
      *
      * @var string
@@ -122,8 +122,6 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   If **DestinationType** is set to `domain`, the value of this parameter must be a domain name.
      *
      * Example: \\*.aliyuncs.com
-     *
-     * This parameter is required.
      * @example 10.2.X.X/XX
      *
      * @var string
@@ -139,7 +137,6 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   **group**: address book
      *   **domain**: domain name
      *
-     * This parameter is required.
      * @example net
      *
      * @var string
@@ -193,7 +190,6 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   UDP
      *   ICMP
      *
-     * This parameter is required.
      * @example TCP
      *
      * @var string
@@ -273,7 +269,7 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      *   If **SourceType** is set to `group`, the value of this parameter must be an address book name.
      *
-     * This parameter is required.
+     * Example: db_group
      * @example 10.2.X.X/XX
      *
      * @var string
@@ -288,7 +284,6 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *   **net**: CIDR block
      *   **group**: address book
      *
-     * This parameter is required.
      * @example net
      *
      * @var string

@@ -45,6 +45,8 @@ class AddControlPolicyRequest extends Model
      * > The value of this parameter is based on the value of Proto. If Proto is set to TCP, you can set ApplicationName to any valid value. If Proto is set to UDP, ICMP, or ANY, you can set ApplicationName only to ANY. You must specify at least one of the ApplicationNameList and ApplicationName parameters.
      * @example ANY
      *
+     * @deprecated
+     *
      * @var string
      */
     public $applicationName;

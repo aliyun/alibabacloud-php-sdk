@@ -15,7 +15,6 @@ class ModifyControlPolicyRequest extends Model
      *   **drop**: denies the traffic.
      *   **log**: monitors the traffic.
      *
-     * This parameter is required.
      * @example accept
      *
      * @var string
@@ -55,6 +54,8 @@ class ModifyControlPolicyRequest extends Model
      * >  You must specify one of the ApplicationNameList and ApplicationName parameters. If you configure both ApplicationNameList and ApplicationName, only the value of ApplicationNameList is used.
      * @example HTTP
      *
+     * @deprecated
+     *
      * @var string
      */
     public $applicationName;
@@ -70,7 +71,6 @@ class ModifyControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy.
      *
-     * This parameter is required.
      * @example test
      *
      * @var string
@@ -115,7 +115,6 @@ class ModifyControlPolicyRequest extends Model
      *   If **DestinationType** is set to domain, the value of **Destination** is a domain name. Example: \\*.aliyuncs.com.
      *   If **DestinationType** is set to location, the value of **Destination** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: ["BJ11", "ZB"].
      *
-     * This parameter is required.
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -130,7 +129,6 @@ class ModifyControlPolicyRequest extends Model
      *   **domain**: domain name
      *   **location**: location
      *
-     * This parameter is required.
      * @example net
      *
      * @var string
@@ -143,7 +141,6 @@ class ModifyControlPolicyRequest extends Model
      *   **in**: inbound traffic
      *   **out**: outbound traffic
      *
-     * This parameter is required.
      * @example in
      *
      * @var string
@@ -195,7 +192,7 @@ class ModifyControlPolicyRequest extends Model
      *
      * >  The value **ANY** indicates all types of applications.
      *
-     * This parameter is required.
+     * >  If the traffic direction is outbound and the destination address is a threat intelligence address book of the domain name type or a cloud service address book, you can set Proto to TCP or ANY. If you set Proto to TCP, you can set ApplicationName to HTTP, HTTPS, SMTP, SMTPS, and SSL. If you set Proto to ANY, you can set ApplicationName to ANY.
      * @example TCP
      *
      * @var string
@@ -271,7 +268,6 @@ class ModifyControlPolicyRequest extends Model
      *   If **SourceType** is set to group, the value of **Source** is an address book. Example: db_group.
      *   If **SourceType** is set to location, the value of **Source** is a location. For more information about the location codes, see the "AddControlPolicy" topic. Example: ["BJ11", "ZB"]
      *
-     * This parameter is required.
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -285,7 +281,6 @@ class ModifyControlPolicyRequest extends Model
      *   **group**: address book
      *   **location**: location
      *
-     * This parameter is required.
      * @example net
      *
      * @var string
