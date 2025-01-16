@@ -183,6 +183,11 @@ class instanceModel extends Model
     public $renderingType;
 
     /**
+     * @var string
+     */
+    public $sessionStatus;
+
+    /**
      * @var tags[]
      */
     public $tags;
@@ -215,6 +220,7 @@ class instanceModel extends Model
         'rate'                     => 'Rate',
         'regionId'                 => 'RegionId',
         'renderingType'            => 'RenderingType',
+        'sessionStatus'            => 'SessionStatus',
         'tags'                     => 'Tags',
     ];
 
@@ -314,6 +320,9 @@ class instanceModel extends Model
         }
         if (null !== $this->renderingType) {
             $res['RenderingType'] = $this->renderingType;
+        }
+        if (null !== $this->sessionStatus) {
+            $res['SessionStatus'] = $this->sessionStatus;
         }
         if (null !== $this->tags) {
             $res['Tags'] = [];
@@ -425,6 +434,9 @@ class instanceModel extends Model
         }
         if (isset($map['RenderingType'])) {
             $model->renderingType = $map['RenderingType'];
+        }
+        if (isset($map['SessionStatus'])) {
+            $model->sessionStatus = $map['SessionStatus'];
         }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {

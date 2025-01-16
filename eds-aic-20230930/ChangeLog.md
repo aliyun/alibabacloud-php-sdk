@@ -1,3 +1,8 @@
+2025-01-16 Version: 3.2.5
+- Update API CheckResourceStock: update param AcpSpecId.
+- Update API DescribeAndroidInstances: update response param.
+
+
 2025-01-09 Version: 3.2.4
 - Update API CreatePolicyGroup: update param NetRedirectPolicy.
 - Update API ListPolicyGroups: update response param.
