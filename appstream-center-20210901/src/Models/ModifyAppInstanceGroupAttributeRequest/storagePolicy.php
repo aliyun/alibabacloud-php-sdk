@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest\storagePolicy\userProfileFollow;
 use AlibabaCloud\Tea\Model;
 
 class storagePolicy extends Model
@@ -12,8 +13,14 @@ class storagePolicy extends Model
      * @var string[]
      */
     public $storageTypeList;
+
+    /**
+     * @var userProfileFollow
+     */
+    public $userProfileFollow;
     protected $_name = [
-        'storageTypeList' => 'StorageTypeList',
+        'storageTypeList'   => 'StorageTypeList',
+        'userProfileFollow' => 'UserProfileFollow',
     ];
 
     public function validate()
@@ -25,6 +32,9 @@ class storagePolicy extends Model
         $res = [];
         if (null !== $this->storageTypeList) {
             $res['StorageTypeList'] = $this->storageTypeList;
+        }
+        if (null !== $this->userProfileFollow) {
+            $res['UserProfileFollow'] = null !== $this->userProfileFollow ? $this->userProfileFollow->toMap() : null;
         }
 
         return $res;
@@ -42,6 +52,9 @@ class storagePolicy extends Model
             if (!empty($map['StorageTypeList'])) {
                 $model->storageTypeList = $map['StorageTypeList'];
             }
+        }
+        if (isset($map['UserProfileFollow'])) {
+            $model->userProfileFollow = userProfileFollow::fromMap($map['UserProfileFollow']);
         }
 
         return $model;

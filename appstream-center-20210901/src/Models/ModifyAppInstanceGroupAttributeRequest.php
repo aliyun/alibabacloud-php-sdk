@@ -37,6 +37,11 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
     public $nodePool;
 
     /**
+     * @var bool
+     */
+    public $perSessionPerApp;
+
+    /**
      * @var string
      */
     public $preOpenAppId;
@@ -76,6 +81,7 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'network'              => 'Network',
         'nodePool'             => 'NodePool',
+        'perSessionPerApp'     => 'PerSessionPerApp',
         'preOpenAppId'         => 'PreOpenAppId',
         'preOpenMode'          => 'PreOpenMode',
         'productType'          => 'ProductType',
@@ -102,6 +108,9 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
         }
         if (null !== $this->nodePool) {
             $res['NodePool'] = null !== $this->nodePool ? $this->nodePool->toMap() : null;
+        }
+        if (null !== $this->perSessionPerApp) {
+            $res['PerSessionPerApp'] = $this->perSessionPerApp;
         }
         if (null !== $this->preOpenAppId) {
             $res['PreOpenAppId'] = $this->preOpenAppId;
@@ -144,6 +153,9 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
         }
         if (isset($map['NodePool'])) {
             $model->nodePool = nodePool::fromMap($map['NodePool']);
+        }
+        if (isset($map['PerSessionPerApp'])) {
+            $model->perSessionPerApp = $map['PerSessionPerApp'];
         }
         if (isset($map['PreOpenAppId'])) {
             $model->preOpenAppId = $map['PreOpenAppId'];

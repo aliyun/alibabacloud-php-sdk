@@ -33,6 +33,11 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
     public $nodePoolShrink;
 
     /**
+     * @var bool
+     */
+    public $perSessionPerApp;
+
+    /**
      * @var string
      */
     public $preOpenAppId;
@@ -72,6 +77,7 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
         'appInstanceGroupName' => 'AppInstanceGroupName',
         'networkShrink'        => 'Network',
         'nodePoolShrink'       => 'NodePool',
+        'perSessionPerApp'     => 'PerSessionPerApp',
         'preOpenAppId'         => 'PreOpenAppId',
         'preOpenMode'          => 'PreOpenMode',
         'productType'          => 'ProductType',
@@ -98,6 +104,9 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
         }
         if (null !== $this->nodePoolShrink) {
             $res['NodePool'] = $this->nodePoolShrink;
+        }
+        if (null !== $this->perSessionPerApp) {
+            $res['PerSessionPerApp'] = $this->perSessionPerApp;
         }
         if (null !== $this->preOpenAppId) {
             $res['PreOpenAppId'] = $this->preOpenAppId;
@@ -140,6 +149,9 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
         }
         if (isset($map['NodePool'])) {
             $model->nodePoolShrink = $map['NodePool'];
+        }
+        if (isset($map['PerSessionPerApp'])) {
+            $model->perSessionPerApp = $map['PerSessionPerApp'];
         }
         if (isset($map['PreOpenAppId'])) {
             $model->preOpenAppId = $map['PreOpenAppId'];

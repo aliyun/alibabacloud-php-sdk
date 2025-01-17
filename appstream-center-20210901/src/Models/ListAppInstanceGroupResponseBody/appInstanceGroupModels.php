@@ -54,6 +54,16 @@ class appInstanceGroupModels extends Model
     public $appPolicyId;
 
     /**
+     * @var bool
+     */
+    public $appPolicyImageCheck;
+
+    /**
+     * @var string
+     */
+    public $appPolicyVersion;
+
+    /**
      * @var apps[]
      */
     public $apps;
@@ -221,6 +231,8 @@ class appInstanceGroupModels extends Model
         'appInstanceGroupName'        => 'AppInstanceGroupName',
         'appInstanceType'             => 'AppInstanceType',
         'appPolicyId'                 => 'AppPolicyId',
+        'appPolicyImageCheck'         => 'AppPolicyImageCheck',
+        'appPolicyVersion'            => 'AppPolicyVersion',
         'apps'                        => 'Apps',
         'chargeResourceMode'          => 'ChargeResourceMode',
         'chargeType'                  => 'ChargeType',
@@ -271,6 +283,12 @@ class appInstanceGroupModels extends Model
         }
         if (null !== $this->appPolicyId) {
             $res['AppPolicyId'] = $this->appPolicyId;
+        }
+        if (null !== $this->appPolicyImageCheck) {
+            $res['AppPolicyImageCheck'] = $this->appPolicyImageCheck;
+        }
+        if (null !== $this->appPolicyVersion) {
+            $res['AppPolicyVersion'] = $this->appPolicyVersion;
         }
         if (null !== $this->apps) {
             $res['Apps'] = [];
@@ -385,6 +403,12 @@ class appInstanceGroupModels extends Model
         }
         if (isset($map['AppPolicyId'])) {
             $model->appPolicyId = $map['AppPolicyId'];
+        }
+        if (isset($map['AppPolicyImageCheck'])) {
+            $model->appPolicyImageCheck = $map['AppPolicyImageCheck'];
+        }
+        if (isset($map['AppPolicyVersion'])) {
+            $model->appPolicyVersion = $map['AppPolicyVersion'];
         }
         if (isset($map['Apps'])) {
             if (!empty($map['Apps'])) {

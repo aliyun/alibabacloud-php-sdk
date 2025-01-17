@@ -31,6 +31,11 @@ class CreateAppInstanceGroupRequest extends Model
     public $appInstanceGroupName;
 
     /**
+     * @var string
+     */
+    public $appPolicyId;
+
+    /**
      * @example false
      *
      * @var bool
@@ -166,6 +171,7 @@ class CreateAppInstanceGroupRequest extends Model
     protected $_name = [
         'appCenterImageId'     => 'AppCenterImageId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
+        'appPolicyId'          => 'AppPolicyId',
         'autoPay'              => 'AutoPay',
         'autoRenew'            => 'AutoRenew',
         'bizRegionId'          => 'BizRegionId',
@@ -200,6 +206,9 @@ class CreateAppInstanceGroupRequest extends Model
         }
         if (null !== $this->appInstanceGroupName) {
             $res['AppInstanceGroupName'] = $this->appInstanceGroupName;
+        }
+        if (null !== $this->appPolicyId) {
+            $res['AppPolicyId'] = $this->appPolicyId;
         }
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
@@ -278,6 +287,9 @@ class CreateAppInstanceGroupRequest extends Model
         }
         if (isset($map['AppInstanceGroupName'])) {
             $model->appInstanceGroupName = $map['AppInstanceGroupName'];
+        }
+        if (isset($map['AppPolicyId'])) {
+            $model->appPolicyId = $map['AppPolicyId'];
         }
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];

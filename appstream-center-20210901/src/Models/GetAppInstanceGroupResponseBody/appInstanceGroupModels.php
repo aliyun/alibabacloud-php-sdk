@@ -203,6 +203,11 @@ class appInstanceGroupModels extends Model
     public $sessionTimeout;
 
     /**
+     * @var string
+     */
+    public $sessionType;
+
+    /**
      * @example false
      *
      * @var bool
@@ -252,6 +257,7 @@ class appInstanceGroupModels extends Model
         'scalingStep'                 => 'ScalingStep',
         'scalingUsageThreshold'       => 'ScalingUsageThreshold',
         'sessionTimeout'              => 'SessionTimeout',
+        'sessionType'                 => 'SessionType',
         'skipUserAuthCheck'           => 'SkipUserAuthCheck',
         'specId'                      => 'SpecId',
         'status'                      => 'Status',
@@ -362,6 +368,9 @@ class appInstanceGroupModels extends Model
         }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
+        }
+        if (null !== $this->sessionType) {
+            $res['SessionType'] = $this->sessionType;
         }
         if (null !== $this->skipUserAuthCheck) {
             $res['SkipUserAuthCheck'] = $this->skipUserAuthCheck;
@@ -482,6 +491,9 @@ class appInstanceGroupModels extends Model
         }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];
+        }
+        if (isset($map['SessionType'])) {
+            $model->sessionType = $map['SessionType'];
         }
         if (isset($map['SkipUserAuthCheck'])) {
             $model->skipUserAuthCheck = $map['SkipUserAuthCheck'];
