@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class prependAsPath extends Model
 {
@@ -18,29 +18,43 @@ class prependAsPath extends Model
 
     public function validate()
     {
+        if (\is_array($this->asPath)) {
+            Model::validateArray($this->asPath);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asPath) {
-            $res['AsPath'] = $this->asPath;
+            if (\is_array($this->asPath)) {
+                $res['AsPath'] = [];
+                $n1            = 0;
+                foreach ($this->asPath as $item1) {
+                    $res['AsPath'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return prependAsPath
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AsPath'])) {
             if (!empty($map['AsPath'])) {
-                $model->asPath = $map['AsPath'];
+                $model->asPath = [];
+                $n1            = 0;
+                foreach ($map['AsPath'] as $item1) {
+                    $model->asPath[$n1++] = $item1;
+                }
             }
         }
 

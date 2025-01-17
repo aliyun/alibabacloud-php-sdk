@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCenBandwidthPackageResponseBody extends Model
 {
     /**
-     * @description The ID of the bandwidth plan.
-     *
-     * @example cenbwp-4c2zaavbvh5fx****
-     *
      * @var string
      */
     public $cenBandwidthPackageId;
-
     /**
-     * @description The ID of the order for the bandwidth plan.
-     *
-     * @example 20156420004****
-     *
      * @var string
      */
     public $cenBandwidthPackageOrderId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example E4B345CD-2CBA-4881-AF6D-E5D9BAE1CA7B
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class CreateCenBandwidthPackageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cenBandwidthPackageId) {
             $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
         }
+
         if (null !== $this->cenBandwidthPackageOrderId) {
             $res['CenBandwidthPackageOrderId'] = $this->cenBandwidthPackageOrderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class CreateCenBandwidthPackageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCenBandwidthPackageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenBandwidthPackageId'])) {
             $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
         }
+
         if (isset($map['CenBandwidthPackageOrderId'])) {
             $model->cenBandwidthPackageOrderId = $map['CenBandwidthPackageOrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

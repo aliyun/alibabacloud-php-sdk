@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnroutePrivateZoneInCenToVpcResponseBody extends Model
 {
     /**
-     * @example C0245BEF-52AC-44A8-A776-EF96FD26A5CA
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class UnroutePrivateZoneInCenToVpcResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class UnroutePrivateZoneInCenToVpcResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnroutePrivateZoneInCenToVpcResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

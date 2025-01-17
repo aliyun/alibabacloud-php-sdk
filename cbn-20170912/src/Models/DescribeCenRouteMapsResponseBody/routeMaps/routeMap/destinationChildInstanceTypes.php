@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class destinationChildInstanceTypes extends Model
 {
@@ -18,29 +18,43 @@ class destinationChildInstanceTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->destinationChildInstanceType)) {
+            Model::validateArray($this->destinationChildInstanceType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destinationChildInstanceType) {
-            $res['DestinationChildInstanceType'] = $this->destinationChildInstanceType;
+            if (\is_array($this->destinationChildInstanceType)) {
+                $res['DestinationChildInstanceType'] = [];
+                $n1                                  = 0;
+                foreach ($this->destinationChildInstanceType as $item1) {
+                    $res['DestinationChildInstanceType'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return destinationChildInstanceTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DestinationChildInstanceType'])) {
             if (!empty($map['DestinationChildInstanceType'])) {
-                $model->destinationChildInstanceType = $map['DestinationChildInstanceType'];
+                $model->destinationChildInstanceType = [];
+                $n1                                  = 0;
+                foreach ($map['DestinationChildInstanceType'] as $item1) {
+                    $model->destinationChildInstanceType[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,78 +4,38 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishRouteEntriesRequest extends Model
 {
     /**
-     * @description The ID of the CEN instance.
-     *
-     * This parameter is required.
-     * @example cen-7qthudw0ll6jmc****
-     *
      * @var string
      */
     public $cenId;
-
     /**
-     * @description The ID of the network instance.
-     *
-     * This parameter is required.
-     * @example vpc-rj9gt5nll27onu****
-     *
      * @var string
      */
     public $childInstanceId;
-
     /**
-     * @description The ID of the region where the network instance is deployed.
-     *
-     * This parameter is required.
-     * @example us-west-1
-     *
      * @var string
      */
     public $childInstanceRegionId;
-
     /**
-     * @description The ID of the route table configured on the network instance.
-     *
-     * This parameter is required.
-     * @example vtb-bp174d1gje7****
-     *
      * @var string
      */
     public $childInstanceRouteTableId;
-
     /**
-     * @description The type of the network instance. Valid values:
-     *
-     *   **VPC**: VPC
-     *   **VBR**: VBR
-     *
-     * This parameter is required.
-     * @example VPC
-     *
      * @var string
      */
     public $childInstanceType;
-
     /**
-     * @description The destination CIDR block of the route that you want to advertise.
-     *
-     * This parameter is required.
-     * @example 172.16.1.0/24
-     *
      * @var string
      */
     public $destinationCidrBlock;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -93,32 +53,40 @@ class PublishRouteEntriesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
+
         if (null !== $this->childInstanceId) {
             $res['ChildInstanceId'] = $this->childInstanceId;
         }
+
         if (null !== $this->childInstanceRegionId) {
             $res['ChildInstanceRegionId'] = $this->childInstanceRegionId;
         }
+
         if (null !== $this->childInstanceRouteTableId) {
             $res['ChildInstanceRouteTableId'] = $this->childInstanceRouteTableId;
         }
+
         if (null !== $this->childInstanceType) {
             $res['ChildInstanceType'] = $this->childInstanceType;
         }
+
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -126,35 +94,42 @@ class PublishRouteEntriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishRouteEntriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
+
         if (isset($map['ChildInstanceId'])) {
             $model->childInstanceId = $map['ChildInstanceId'];
         }
+
         if (isset($map['ChildInstanceRegionId'])) {
             $model->childInstanceRegionId = $map['ChildInstanceRegionId'];
         }
+
         if (isset($map['ChildInstanceRouteTableId'])) {
             $model->childInstanceRouteTableId = $map['ChildInstanceRouteTableId'];
         }
+
         if (isset($map['ChildInstanceType'])) {
             $model->childInstanceType = $map['ChildInstanceType'];
         }
+
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

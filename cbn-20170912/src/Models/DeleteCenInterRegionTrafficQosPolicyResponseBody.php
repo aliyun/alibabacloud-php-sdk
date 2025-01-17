@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCenInterRegionTrafficQosPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 6DF9A765-BCD2-5C7E-8C32-C35C8A361A39
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteCenInterRegionTrafficQosPolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteCenInterRegionTrafficQosPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCenInterRegionTrafficQosPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

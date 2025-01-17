@@ -4,102 +4,49 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterRouteTablesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterRouteTablesResponseBody\transitRouterRouteTables\routeTableOptions;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterRouteTablesResponseBody\transitRouterRouteTables\tags;
-use AlibabaCloud\Tea\Model;
 
 class transitRouterRouteTables extends Model
 {
     /**
-     * @description The time when the route table was created.
-     *
-     * The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
-     * @example 2021-03-15T09:39Z
-     *
      * @var string
      */
     public $createTime;
-
     /**
-     * @description The region ID of the Enterprise Edition transit router.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The features of the route table.
-     *
      * @var routeTableOptions
      */
     public $routeTableOptions;
-
     /**
-     * @description The tags.
-     *
      * @var tags[]
      */
     public $tags;
-
     /**
-     * @description The transit router ID.
-     *
-     * @example tr-8vb8bie2koduo5awz****
-     *
      * @var string
      */
     public $transitRouterId;
-
     /**
-     * @description The description of the route table.
-     *
-     * @example testdesc
-     *
      * @var string
      */
     public $transitRouterRouteTableDescription;
-
     /**
-     * @description The ID of the route table.
-     *
-     * @example vtb-bp1dudbh2d5na6b50****
-     *
      * @var string
      */
     public $transitRouterRouteTableId;
-
     /**
-     * @description The name of the route table.
-     *
-     * @example testname
-     *
      * @var string
      */
     public $transitRouterRouteTableName;
-
     /**
-     * @description The status of the route table. Valid values:
-     *
-     *   **Creating**
-     *   **Deleting**
-     *   **Active**
-     *
-     * @example Active
-     *
      * @var string
      */
     public $transitRouterRouteTableStatus;
-
     /**
-     * @description The type of the route table. Valid values:
-     *
-     *   **Custom**
-     *   **System**
-     *
-     * @example System
-     *
      * @var string
      */
     public $transitRouterRouteTableType;
@@ -118,44 +65,60 @@ class transitRouterRouteTables extends Model
 
     public function validate()
     {
+        if (null !== $this->routeTableOptions) {
+            $this->routeTableOptions->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->routeTableOptions) {
-            $res['RouteTableOptions'] = null !== $this->routeTableOptions ? $this->routeTableOptions->toMap() : null;
+            $res['RouteTableOptions'] = null !== $this->routeTableOptions ? $this->routeTableOptions->toArray($noStream) : $this->routeTableOptions;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
         }
+
         if (null !== $this->transitRouterRouteTableDescription) {
             $res['TransitRouterRouteTableDescription'] = $this->transitRouterRouteTableDescription;
         }
+
         if (null !== $this->transitRouterRouteTableId) {
             $res['TransitRouterRouteTableId'] = $this->transitRouterRouteTableId;
         }
+
         if (null !== $this->transitRouterRouteTableName) {
             $res['TransitRouterRouteTableName'] = $this->transitRouterRouteTableName;
         }
+
         if (null !== $this->transitRouterRouteTableStatus) {
             $res['TransitRouterRouteTableStatus'] = $this->transitRouterRouteTableStatus;
         }
+
         if (null !== $this->transitRouterRouteTableType) {
             $res['TransitRouterRouteTableType'] = $this->transitRouterRouteTableType;
         }
@@ -163,47 +126,56 @@ class transitRouterRouteTables extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transitRouterRouteTables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RouteTableOptions'])) {
             $model->routeTableOptions = routeTableOptions::fromMap($map['RouteTableOptions']);
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
         }
+
         if (isset($map['TransitRouterRouteTableDescription'])) {
             $model->transitRouterRouteTableDescription = $map['TransitRouterRouteTableDescription'];
         }
+
         if (isset($map['TransitRouterRouteTableId'])) {
             $model->transitRouterRouteTableId = $map['TransitRouterRouteTableId'];
         }
+
         if (isset($map['TransitRouterRouteTableName'])) {
             $model->transitRouterRouteTableName = $map['TransitRouterRouteTableName'];
         }
+
         if (isset($map['TransitRouterRouteTableStatus'])) {
             $model->transitRouterRouteTableStatus = $map['TransitRouterRouteTableStatus'];
         }
+
         if (isset($map['TransitRouterRouteTableType'])) {
             $model->transitRouterRouteTableType = $map['TransitRouterRouteTableType'];
         }

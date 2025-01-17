@@ -4,74 +4,42 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRouteServiceInCenRequest extends Model
 {
     /**
-     * @description The ID of the region where the cloud service is accessed.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $accessRegionId;
-
     /**
-     * @description The ID of the CEN instance.
-     *
-     * This parameter is required.
-     * @example cen-7qthudw0ll6jmc****
-     *
      * @var string
      */
     public $cenId;
-
     /**
-     * @description The IP addresses or CIDR blocks of the cloud service.
-     *
-     * This parameter is required.
-     * @example 100.118.28.0/24
-     *
      * @var string
      */
     public $host;
-
     /**
-     * @description The region ID of the cloud service.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $hostRegionId;
-
     /**
-     * @description The ID of the virtual private cloud (VPC) that is associated with the cloud service.
-     *
-     * @example vpc-bp1t36rn9l53iwbsf****
-     *
      * @var string
      */
     public $hostVpcId;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -90,35 +58,44 @@ class DeleteRouteServiceInCenRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessRegionId) {
             $res['AccessRegionId'] = $this->accessRegionId;
         }
+
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->hostRegionId) {
             $res['HostRegionId'] = $this->hostRegionId;
         }
+
         if (null !== $this->hostVpcId) {
             $res['HostVpcId'] = $this->hostVpcId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -126,38 +103,46 @@ class DeleteRouteServiceInCenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRouteServiceInCenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessRegionId'])) {
             $model->accessRegionId = $map['AccessRegionId'];
         }
+
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['HostRegionId'])) {
             $model->hostRegionId = $map['HostRegionId'];
         }
+
         if (isset($map['HostVpcId'])) {
             $model->hostVpcId = $map['HostVpcId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

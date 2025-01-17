@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class matchCommunitySet extends Model
 {
@@ -18,29 +18,43 @@ class matchCommunitySet extends Model
 
     public function validate()
     {
+        if (\is_array($this->matchCommunity)) {
+            Model::validateArray($this->matchCommunity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->matchCommunity) {
-            $res['MatchCommunity'] = $this->matchCommunity;
+            if (\is_array($this->matchCommunity)) {
+                $res['MatchCommunity'] = [];
+                $n1                    = 0;
+                foreach ($this->matchCommunity as $item1) {
+                    $res['MatchCommunity'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return matchCommunitySet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MatchCommunity'])) {
             if (!empty($map['MatchCommunity'])) {
-                $model->matchCommunity = $map['MatchCommunity'];
+                $model->matchCommunity = [];
+                $n1                    = 0;
+                foreach ($map['MatchCommunity'] as $item1) {
+                    $model->matchCommunity[$n1++] = $item1;
+                }
             }
         }
 

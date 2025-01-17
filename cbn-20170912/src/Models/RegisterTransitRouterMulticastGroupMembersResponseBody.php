@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegisterTransitRouterMulticastGroupMembersResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example EB985B7E-2CF8-5EC9-A7DB-F7C82ABD3ACE
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RegisterTransitRouterMulticastGroupMembersResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RegisterTransitRouterMulticastGroupMembersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegisterTransitRouterMulticastGroupMembersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

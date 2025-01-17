@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTransitRouterEcrAttachmentResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example C0245BEF-52AC-44A8-A776-EF96FD26A5CA
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the ECR connection.
-     *
-     * @example tr-attach-qieks13jnt1cchy***
-     *
      * @var string
      */
     public $transitRouterAttachmentId;
@@ -32,14 +23,16 @@ class CreateTransitRouterEcrAttachmentResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->transitRouterAttachmentId) {
             $res['TransitRouterAttachmentId'] = $this->transitRouterAttachmentId;
         }
@@ -47,17 +40,18 @@ class CreateTransitRouterEcrAttachmentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTransitRouterEcrAttachmentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TransitRouterAttachmentId'])) {
             $model->transitRouterAttachmentId = $map['TransitRouterAttachmentId'];
         }

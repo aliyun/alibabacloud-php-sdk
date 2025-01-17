@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCenRouteMapsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The request ID.
-     *
-     * @example 24CE1987-D1D1-5324-9BAD-2750B60E6ABB
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the routing policy.
-     *
      * @var routeMaps
      */
     public $routeMaps;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -61,23 +39,31 @@ class DescribeCenRouteMapsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->routeMaps) {
+            $this->routeMaps->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->routeMaps) {
-            $res['RouteMaps'] = null !== $this->routeMaps ? $this->routeMaps->toMap() : null;
+            $res['RouteMaps'] = null !== $this->routeMaps ? $this->routeMaps->toArray($noStream) : $this->routeMaps;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -85,26 +71,30 @@ class DescribeCenRouteMapsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCenRouteMapsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RouteMaps'])) {
             $model->routeMaps = routeMaps::fromMap($map['RouteMaps']);
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

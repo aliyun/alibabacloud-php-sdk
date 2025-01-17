@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListTagResourcesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTagResourcesResponseBody\tagResources\tagResource;
-use AlibabaCloud\Tea\Model;
 
 class tagResources extends Model
 {
@@ -19,17 +19,21 @@ class tagResources extends Model
 
     public function validate()
     {
+        if (\is_array($this->tagResource)) {
+            Model::validateArray($this->tagResource);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tagResource) {
-            $res['TagResource'] = [];
-            if (null !== $this->tagResource && \is_array($this->tagResource)) {
-                $n = 0;
-                foreach ($this->tagResource as $item) {
-                    $res['TagResource'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagResource)) {
+                $res['TagResource'] = [];
+                $n1                 = 0;
+                foreach ($this->tagResource as $item1) {
+                    $res['TagResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class tagResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tagResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TagResource'])) {
             if (!empty($map['TagResource'])) {
                 $model->tagResource = [];
-                $n                  = 0;
-                foreach ($map['TagResource'] as $item) {
-                    $model->tagResource[$n++] = null !== $item ? tagResource::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['TagResource'] as $item1) {
+                    $model->tagResource[$n1++] = tagResource::fromMap($item1);
                 }
             }
         }

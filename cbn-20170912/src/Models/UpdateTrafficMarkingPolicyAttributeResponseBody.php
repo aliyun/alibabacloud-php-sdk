@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTrafficMarkingPolicyAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 60BB11B2-7BF4-54DC-BCC9-F706E1EB02AC
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateTrafficMarkingPolicyAttributeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateTrafficMarkingPolicyAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTrafficMarkingPolicyAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCenInterRegionTrafficQosQueueResponseBody extends Model
 {
     /**
-     * @description The ID of the queue.
-     *
-     * @example qos-queue-irqhi8k5fdyuu5****
-     *
      * @var string
      */
     public $qosQueueId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 845F66F6-5C27-53A1-9428-B859086237B2
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class CreateCenInterRegionTrafficQosQueueResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qosQueueId) {
             $res['QosQueueId'] = $this->qosQueueId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class CreateCenInterRegionTrafficQosQueueResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCenInterRegionTrafficQosQueueResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QosQueueId'])) {
             $model->qosQueueId = $map['QosQueueId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

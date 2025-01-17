@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PublishRouteEntriesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example FBDB18D8-E91E-4978-8D6C-6E2E3EE10133
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class PublishRouteEntriesResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class PublishRouteEntriesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PublishRouteEntriesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

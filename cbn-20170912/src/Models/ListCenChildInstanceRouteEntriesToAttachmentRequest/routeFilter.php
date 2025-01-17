@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListCenChildInstanceRouteEntriesToAttachmentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routeFilter extends Model
 {
     /**
-     * @description The match mode of the route.
-     *
-     *   **prefix-exact-match**: exact match.
-     *
-     * @example prefix-exact-match
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The destination CIDR blocks.
-     *
      * @var string[]
      */
     public $value;
@@ -32,35 +23,51 @@ class routeFilter extends Model
 
     public function validate()
     {
+        if (\is_array($this->value)) {
+            Model::validateArray($this->value);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
-            $res['Value'] = $this->value;
+            if (\is_array($this->value)) {
+                $res['Value'] = [];
+                $n1           = 0;
+                foreach ($this->value as $item1) {
+                    $res['Value'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeFilter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
+                $model->value = [];
+                $n1           = 0;
+                foreach ($map['Value'] as $item1) {
+                    $model->value[$n1++] = $item1;
+                }
             }
         }
 

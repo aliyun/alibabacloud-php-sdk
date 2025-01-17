@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListCenInterRegionTrafficQosQueuesResponseBody\trafficQosQueues;
-use AlibabaCloud\Tea\Model;
 
 class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
-     *
-     *   If **NextToken** is empty, no next page exists.
-     *   If a value of **NextToken** is returned, the value indicates the token that is used for the next query.
-     *
-     * @example 0151fa6aa1ed****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 1D1E15D2-416D-54F3-BDD9-BC27DE4C6352
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the QoS queue.
-     *
      * @var trafficQosQueues[]
      */
     public $trafficQosQueues;
@@ -44,23 +29,29 @@ class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->trafficQosQueues)) {
+            Model::validateArray($this->trafficQosQueues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->trafficQosQueues) {
-            $res['TrafficQosQueues'] = [];
-            if (null !== $this->trafficQosQueues && \is_array($this->trafficQosQueues)) {
-                $n = 0;
-                foreach ($this->trafficQosQueues as $item) {
-                    $res['TrafficQosQueues'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->trafficQosQueues)) {
+                $res['TrafficQosQueues'] = [];
+                $n1                      = 0;
+                foreach ($this->trafficQosQueues as $item1) {
+                    $res['TrafficQosQueues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -68,26 +59,28 @@ class ListCenInterRegionTrafficQosQueuesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCenInterRegionTrafficQosQueuesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TrafficQosQueues'])) {
             if (!empty($map['TrafficQosQueues'])) {
                 $model->trafficQosQueues = [];
-                $n                       = 0;
-                foreach ($map['TrafficQosQueues'] as $item) {
-                    $model->trafficQosQueues[$n++] = null !== $item ? trafficQosQueues::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['TrafficQosQueues'] as $item1) {
+                    $model->trafficQosQueues[$n1++] = trafficQosQueues::fromMap($item1);
                 }
             }
         }

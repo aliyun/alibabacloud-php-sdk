@@ -1,3 +1,7 @@
+2025-01-17 Version: 1.2.3
+- Update API CreateTransitRouteTableAggregation: update param TransitRouteTableAggregationScope.
+
+
 2025-01-06 Version: 1.2.2
 - Update API ActiveFlowLog: update param CenId.
 - Update API CreateFlowlog: add param LogFormatString.

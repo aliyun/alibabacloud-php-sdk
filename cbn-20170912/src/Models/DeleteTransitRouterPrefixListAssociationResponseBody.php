@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTransitRouterPrefixListAssociationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 835E7F4B-B380-4E0F-96A5-6EA572388047
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteTransitRouterPrefixListAssociationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteTransitRouterPrefixListAssociationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTransitRouterPrefixListAssociationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

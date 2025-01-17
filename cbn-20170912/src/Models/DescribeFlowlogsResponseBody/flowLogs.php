@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeFlowlogsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeFlowlogsResponseBody\flowLogs\flowLog;
-use AlibabaCloud\Tea\Model;
 
 class flowLogs extends Model
 {
@@ -19,17 +19,21 @@ class flowLogs extends Model
 
     public function validate()
     {
+        if (\is_array($this->flowLog)) {
+            Model::validateArray($this->flowLog);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowLog) {
-            $res['FlowLog'] = [];
-            if (null !== $this->flowLog && \is_array($this->flowLog)) {
-                $n = 0;
-                foreach ($this->flowLog as $item) {
-                    $res['FlowLog'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->flowLog)) {
+                $res['FlowLog'] = [];
+                $n1             = 0;
+                foreach ($this->flowLog as $item1) {
+                    $res['FlowLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class flowLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flowLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowLog'])) {
             if (!empty($map['FlowLog'])) {
                 $model->flowLog = [];
-                $n              = 0;
-                foreach ($map['FlowLog'] as $item) {
-                    $model->flowLog[$n++] = null !== $item ? flowLog::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['FlowLog'] as $item1) {
+                    $model->flowLog[$n1++] = flowLog::fromMap($item1);
                 }
             }
         }

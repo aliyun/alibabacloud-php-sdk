@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListCenInterRegionTrafficQosQueuesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class effectiveBandwidthFilter extends Model
 {
     /**
-     * @description The actual bandwidth is equal to or larger than the specified value.
-     *
-     * @example 50
-     *
      * @var int
      */
     public $gte;
-
     /**
-     * @description The actual bandwidth is equal to or smaller than the specified value.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $lte;
@@ -32,14 +23,16 @@ class effectiveBandwidthFilter extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gte) {
             $res['Gte'] = $this->gte;
         }
+
         if (null !== $this->lte) {
             $res['Lte'] = $this->lte;
         }
@@ -47,17 +40,18 @@ class effectiveBandwidthFilter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return effectiveBandwidthFilter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Gte'])) {
             $model->gte = $map['Gte'];
         }
+
         if (isset($map['Lte'])) {
             $model->lte = $map['Lte'];
         }

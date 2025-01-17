@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeFlowlogsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tag extends Model
 {
     /**
-     * @description The tag key.
-     *
-     * You can specify at most 20 tag keys.
-     * @example TagKey
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description The tag value.
-     *
-     * Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
-     * @example TagValue
-     *
      * @var string
      */
     public $value;
@@ -34,14 +23,16 @@ class tag extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +40,18 @@ class tag extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tag
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGeographicRegionMembershipResponseBody\regionIds;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regionId extends Model
 {
     /**
-     * @description The ID of the region.
-     *
-     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
-     * @example us-west-1
-     *
      * @var string
      */
     public $regionId;
@@ -23,9 +18,10 @@ class regionId extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
@@ -35,11 +31,11 @@ class regionId extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regionId
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

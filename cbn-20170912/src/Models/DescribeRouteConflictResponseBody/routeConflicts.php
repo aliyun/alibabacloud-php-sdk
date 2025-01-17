@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeRouteConflictResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeRouteConflictResponseBody\routeConflicts\routeConflict;
-use AlibabaCloud\Tea\Model;
 
 class routeConflicts extends Model
 {
@@ -19,17 +19,21 @@ class routeConflicts extends Model
 
     public function validate()
     {
+        if (\is_array($this->routeConflict)) {
+            Model::validateArray($this->routeConflict);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->routeConflict) {
-            $res['RouteConflict'] = [];
-            if (null !== $this->routeConflict && \is_array($this->routeConflict)) {
-                $n = 0;
-                foreach ($this->routeConflict as $item) {
-                    $res['RouteConflict'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routeConflict)) {
+                $res['RouteConflict'] = [];
+                $n1                   = 0;
+                foreach ($this->routeConflict as $item1) {
+                    $res['RouteConflict'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class routeConflicts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeConflicts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouteConflict'])) {
             if (!empty($map['RouteConflict'])) {
                 $model->routeConflict = [];
-                $n                    = 0;
-                foreach ($map['RouteConflict'] as $item) {
-                    $model->routeConflict[$n++] = null !== $item ? routeConflict::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['RouteConflict'] as $item1) {
+                    $model->routeConflict[$n1++] = routeConflict::fromMap($item1);
                 }
             }
         }

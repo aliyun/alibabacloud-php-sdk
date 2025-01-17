@@ -4,81 +4,40 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeRouteServicesInCenResponseBody\routeServiceEntries;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeRouteServicesInCenResponseBody\routeServiceEntries\routeServiceEntry\cidrs;
-use AlibabaCloud\Tea\Model;
 
 class routeServiceEntry extends Model
 {
     /**
-     * @description The ID of the region where the cloud service is accessed.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $accessRegionId;
-
     /**
-     * @description The ID of the CEN instance.
-     *
-     * @example cen-pfa6ugf3xl0qsd****
-     *
      * @var string
      */
     public $cenId;
-
     /**
-     * @description The service addresses of the cloud service.
-     *
      * @var cidrs
      */
     public $cidrs;
-
     /**
-     * @description The description of the cloud service.
-     *
-     * @example descname
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The service address of the cloud service.
-     *
-     * @example 100.118.28.0/24
-     *
      * @var string
      */
     public $host;
-
     /**
-     * @description The region ID of the cloud service.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $hostRegionId;
-
     /**
-     * @description The ID of the VPC associated with the cloud service.
-     *
-     * @example vpc-bp1h8vbrbcgohcju5****
-     *
      * @var string
      */
     public $hostVpcId;
-
     /**
-     * @description The status of the cloud service. Valid values:
-     *
-     *   **Creating**
-     *   **Active**
-     *   **Deleting**
-     *
-     * @example Active
-     *
      * @var string
      */
     public $status;
@@ -95,32 +54,43 @@ class routeServiceEntry extends Model
 
     public function validate()
     {
+        if (null !== $this->cidrs) {
+            $this->cidrs->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessRegionId) {
             $res['AccessRegionId'] = $this->accessRegionId;
         }
+
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
+
         if (null !== $this->cidrs) {
-            $res['Cidrs'] = null !== $this->cidrs ? $this->cidrs->toMap() : null;
+            $res['Cidrs'] = null !== $this->cidrs ? $this->cidrs->toArray($noStream) : $this->cidrs;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->host) {
             $res['Host'] = $this->host;
         }
+
         if (null !== $this->hostRegionId) {
             $res['HostRegionId'] = $this->hostRegionId;
         }
+
         if (null !== $this->hostVpcId) {
             $res['HostVpcId'] = $this->hostVpcId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -128,35 +98,42 @@ class routeServiceEntry extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeServiceEntry
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessRegionId'])) {
             $model->accessRegionId = $map['AccessRegionId'];
         }
+
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
+
         if (isset($map['Cidrs'])) {
             $model->cidrs = cidrs::fromMap($map['Cidrs']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
         }
+
         if (isset($map['HostRegionId'])) {
             $model->hostRegionId = $map['HostRegionId'];
         }
+
         if (isset($map['HostVpcId'])) {
             $model->hostVpcId = $map['HostVpcId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

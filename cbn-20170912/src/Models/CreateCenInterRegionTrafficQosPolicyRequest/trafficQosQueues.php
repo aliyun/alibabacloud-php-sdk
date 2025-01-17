@@ -4,58 +4,27 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\CreateCenInterRegionTrafficQosPolicyRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class trafficQosQueues extends Model
 {
     /**
-     * @description The absolute bandwidth that can be consumed by the QoS queue. Unit: Mbit/s.
-     *
-     * >  The sum of the absolute bandwidth values of all the queues in a QoS policy cannot exceed the total bandwidth of the inter-region connection.
-     * @example 1
-     *
      * @var string
      */
     public $bandwidth;
-
     /**
-     * @description The Differentiated Services Code Point (DSCP) value that matches the current queue.
-     *
-     * Each QoS policy supports at most three queues. You can specify at most 60 DSCP values for each queue. Separate multiple DCSP values with commas (,).
      * @var int[]
      */
     public $dscps;
-
     /**
-     * @description The description of the current queue.
-     *
-     * This parameter is optional. If you enter a description, it must be 1 to 256 characters in length and cannot start with http:// or https://.
-     * @example desctest
-     *
      * @var string
      */
     public $qosQueueDescription;
-
     /**
-     * @description The name of the current queue.
-     *
-     * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
-     * @example nametest
-     *
      * @var string
      */
     public $qosQueueName;
-
     /**
-     * @description The percentage of the inter-region bandwidth that can be used by the queue.
-     *
-     * Each QoS policy supports at most 10 queues. You can specify a valid percentage for each queue.
-     *
-     * For example, a value of **1** specifies that the queue can consume 1% of the inter-region bandwidth.
-     *
-     * >  The sum of the percentage values of all the queues in a QoS policy cannot exceed 100%.
-     * @example 1
-     *
      * @var string
      */
     public $remainBandwidthPercent;
@@ -69,23 +38,37 @@ class trafficQosQueues extends Model
 
     public function validate()
     {
+        if (\is_array($this->dscps)) {
+            Model::validateArray($this->dscps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
+
         if (null !== $this->dscps) {
-            $res['Dscps'] = $this->dscps;
+            if (\is_array($this->dscps)) {
+                $res['Dscps'] = [];
+                $n1           = 0;
+                foreach ($this->dscps as $item1) {
+                    $res['Dscps'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->qosQueueDescription) {
             $res['QosQueueDescription'] = $this->qosQueueDescription;
         }
+
         if (null !== $this->qosQueueName) {
             $res['QosQueueName'] = $this->qosQueueName;
         }
+
         if (null !== $this->remainBandwidthPercent) {
             $res['RemainBandwidthPercent'] = $this->remainBandwidthPercent;
         }
@@ -93,28 +76,36 @@ class trafficQosQueues extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficQosQueues
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
+
         if (isset($map['Dscps'])) {
             if (!empty($map['Dscps'])) {
-                $model->dscps = $map['Dscps'];
+                $model->dscps = [];
+                $n1           = 0;
+                foreach ($map['Dscps'] as $item1) {
+                    $model->dscps[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['QosQueueDescription'])) {
             $model->qosQueueDescription = $map['QosQueueDescription'];
         }
+
         if (isset($map['QosQueueName'])) {
             $model->qosQueueName = $map['QosQueueName'];
         }
+
         if (isset($map['RemainBandwidthPercent'])) {
             $model->remainBandwidthPercent = $map['RemainBandwidthPercent'];
         }

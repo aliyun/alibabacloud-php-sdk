@@ -4,53 +4,28 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListCenInterRegionTrafficQosPoliciesResponseBody\trafficQosPolicies;
-use AlibabaCloud\Tea\Model;
 
 class ListCenInterRegionTrafficQosPoliciesResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
-
     /**
-     * @description The token that determines the start point of the query.
-     *
-     *   If **NextToken** was not returned in the previous query, it indicates that no additional results exist.
-     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
-     *
-     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 113BFD47-63DF-5D9D-972C-033FB9C360CD
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @description A list of QoS policies.
-     *
      * @var trafficQosPolicies[]
      */
     public $trafficQosPolicies;
@@ -64,29 +39,37 @@ class ListCenInterRegionTrafficQosPoliciesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->trafficQosPolicies)) {
+            Model::validateArray($this->trafficQosPolicies);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->trafficQosPolicies) {
-            $res['TrafficQosPolicies'] = [];
-            if (null !== $this->trafficQosPolicies && \is_array($this->trafficQosPolicies)) {
-                $n = 0;
-                foreach ($this->trafficQosPolicies as $item) {
-                    $res['TrafficQosPolicies'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->trafficQosPolicies)) {
+                $res['TrafficQosPolicies'] = [];
+                $n1                        = 0;
+                foreach ($this->trafficQosPolicies as $item1) {
+                    $res['TrafficQosPolicies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -94,32 +77,36 @@ class ListCenInterRegionTrafficQosPoliciesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCenInterRegionTrafficQosPoliciesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['TrafficQosPolicies'])) {
             if (!empty($map['TrafficQosPolicies'])) {
                 $model->trafficQosPolicies = [];
-                $n                         = 0;
-                foreach ($map['TrafficQosPolicies'] as $item) {
-                    $model->trafficQosPolicies[$n++] = null !== $item ? trafficQosPolicies::fromMap($item) : $item;
+                $n1                        = 0;
+                foreach ($map['TrafficQosPolicies'] as $item1) {
+                    $model->trafficQosPolicies[$n1++] = trafficQosPolicies::fromMap($item1);
                 }
             }
         }

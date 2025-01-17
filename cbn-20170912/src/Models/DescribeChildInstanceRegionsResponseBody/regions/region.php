@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeChildInstanceRegionsResponseBody\regions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class region extends Model
 {
     /**
-     * @description The name of the region.
-     *
-     * @example China (Hangzhou)
-     *
      * @var string
      */
     public $localName;
-
     /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -32,14 +23,16 @@ class region extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,17 +40,18 @@ class region extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return region
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

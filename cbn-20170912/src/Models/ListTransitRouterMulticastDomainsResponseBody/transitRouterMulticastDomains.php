@@ -4,85 +4,45 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterMulticastDomainsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterMulticastDomainsResponseBody\transitRouterMulticastDomains\options;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterMulticastDomainsResponseBody\transitRouterMulticastDomains\tags;
-use AlibabaCloud\Tea\Model;
 
 class transitRouterMulticastDomains extends Model
 {
     /**
-     * @description The CEN instance ID.
-     *
-     * @example cen-a7syd349kne38g****
-     *
      * @var string
      */
     public $cenId;
-
     /**
      * @var options
      */
     public $options;
-
     /**
-     * @description The region ID of the transit router.
-     *
-     * You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The status of the multicast domain.
-     *
-     * The valid value is **Active**, which indicates that the multicast domain is available.
-     * @example Active
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The tags.
-     *
      * @var tags[]
      */
     public $tags;
-
     /**
-     * @description The transit router ID.
-     *
-     * @example tr-bp1c23ijrl6d6c226h***
-     *
      * @var string
      */
     public $transitRouterId;
-
     /**
-     * @description The description of the multicast domain.
-     *
-     * @example desctest
-     *
      * @var string
      */
     public $transitRouterMulticastDomainDescription;
-
     /**
-     * @description The ID of the multicast domain.
-     *
-     * @example tr-mcast-domain-3r3bvbypxqheej****
-     *
      * @var string
      */
     public $transitRouterMulticastDomainId;
-
     /**
-     * @description The name of the multicast domain.
-     *
-     * @example nametest
-     *
      * @var string
      */
     public $transitRouterMulticastDomainName;
@@ -100,41 +60,56 @@ class transitRouterMulticastDomains extends Model
 
     public function validate()
     {
+        if (null !== $this->options) {
+            $this->options->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
+
         if (null !== $this->options) {
-            $res['Options'] = null !== $this->options ? $this->options->toMap() : null;
+            $res['Options'] = null !== $this->options ? $this->options->toArray($noStream) : $this->options;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
         }
+
         if (null !== $this->transitRouterMulticastDomainDescription) {
             $res['TransitRouterMulticastDomainDescription'] = $this->transitRouterMulticastDomainDescription;
         }
+
         if (null !== $this->transitRouterMulticastDomainId) {
             $res['TransitRouterMulticastDomainId'] = $this->transitRouterMulticastDomainId;
         }
+
         if (null !== $this->transitRouterMulticastDomainName) {
             $res['TransitRouterMulticastDomainName'] = $this->transitRouterMulticastDomainName;
         }
@@ -142,44 +117,52 @@ class transitRouterMulticastDomains extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transitRouterMulticastDomains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
+
         if (isset($map['Options'])) {
             $model->options = options::fromMap($map['Options']);
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
         }
+
         if (isset($map['TransitRouterMulticastDomainDescription'])) {
             $model->transitRouterMulticastDomainDescription = $map['TransitRouterMulticastDomainDescription'];
         }
+
         if (isset($map['TransitRouterMulticastDomainId'])) {
             $model->transitRouterMulticastDomainId = $map['TransitRouterMulticastDomainId'];
         }
+
         if (isset($map['TransitRouterMulticastDomainName'])) {
             $model->transitRouterMulticastDomainName = $map['TransitRouterMulticastDomainName'];
         }

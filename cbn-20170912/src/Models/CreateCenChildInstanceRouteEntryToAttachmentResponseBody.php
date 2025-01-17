@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCenChildInstanceRouteEntryToAttachmentResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A95A100B-3F3A-56F4-A5DE-19DB7E994807
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateCenChildInstanceRouteEntryToAttachmentResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateCenChildInstanceRouteEntryToAttachmentResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCenChildInstanceRouteEntryToAttachmentResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

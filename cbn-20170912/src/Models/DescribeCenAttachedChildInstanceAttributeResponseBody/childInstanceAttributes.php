@@ -4,40 +4,25 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenAttachedChildInstanceAttributeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenAttachedChildInstanceAttributeResponseBody\childInstanceAttributes\ipv6CidrBlocks;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenAttachedChildInstanceAttributeResponseBody\childInstanceAttributes\secondaryCidrBlocks;
-use AlibabaCloud\Tea\Model;
 
 class childInstanceAttributes extends Model
 {
     /**
-     * @description The IPv4 CIDR block of the VPC.
-     *
-     * @example 192.168.0.0/16
-     *
      * @var string
      */
     public $cidrBlock;
-
     /**
-     * @description The IPv6 CIDR block of the VPC.
-     *
-     * @example 2408:XXXX:0:a600::/56
-     *
      * @var string
      */
     public $ipv6CidrBlock;
-
     /**
-     * @description The IPv6 CIDR blocks of the VPC.
-     *
      * @var ipv6CidrBlocks
      */
     public $ipv6CidrBlocks;
-
     /**
-     * @description The information about the VPC secondary CIDR block.
-     *
      * @var secondaryCidrBlocks
      */
     public $secondaryCidrBlocks;
@@ -50,44 +35,57 @@ class childInstanceAttributes extends Model
 
     public function validate()
     {
+        if (null !== $this->ipv6CidrBlocks) {
+            $this->ipv6CidrBlocks->validate();
+        }
+        if (null !== $this->secondaryCidrBlocks) {
+            $this->secondaryCidrBlocks->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
+
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
+
         if (null !== $this->ipv6CidrBlocks) {
-            $res['Ipv6CidrBlocks'] = null !== $this->ipv6CidrBlocks ? $this->ipv6CidrBlocks->toMap() : null;
+            $res['Ipv6CidrBlocks'] = null !== $this->ipv6CidrBlocks ? $this->ipv6CidrBlocks->toArray($noStream) : $this->ipv6CidrBlocks;
         }
+
         if (null !== $this->secondaryCidrBlocks) {
-            $res['SecondaryCidrBlocks'] = null !== $this->secondaryCidrBlocks ? $this->secondaryCidrBlocks->toMap() : null;
+            $res['SecondaryCidrBlocks'] = null !== $this->secondaryCidrBlocks ? $this->secondaryCidrBlocks->toArray($noStream) : $this->secondaryCidrBlocks;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return childInstanceAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }
+
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
+
         if (isset($map['Ipv6CidrBlocks'])) {
             $model->ipv6CidrBlocks = ipv6CidrBlocks::fromMap($map['Ipv6CidrBlocks']);
         }
+
         if (isset($map['SecondaryCidrBlocks'])) {
             $model->secondaryCidrBlocks = secondaryCidrBlocks::fromMap($map['SecondaryCidrBlocks']);
         }

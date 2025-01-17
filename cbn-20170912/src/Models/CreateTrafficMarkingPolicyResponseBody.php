@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateTrafficMarkingPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0876E54E-3E36-5C31-89F0-9EE8A9266F9A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the traffic marking policy.
-     *
-     * @example tm-u9nxup5kww5po8****
-     *
      * @var string
      */
     public $trafficMarkingPolicyId;
@@ -32,14 +23,16 @@ class CreateTrafficMarkingPolicyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->trafficMarkingPolicyId) {
             $res['TrafficMarkingPolicyId'] = $this->trafficMarkingPolicyId;
         }
@@ -47,17 +40,18 @@ class CreateTrafficMarkingPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTrafficMarkingPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TrafficMarkingPolicyId'])) {
             $model->trafficMarkingPolicyId = $map['TrafficMarkingPolicyId'];
         }

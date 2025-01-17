@@ -4,35 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenBandwidthPackagesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description The filter conditions. You can use filter conditions to filter the bandwidth plans that you want to query. The following filter conditions are supported:
-     *
-     *   **CenId**: CEN instance ID
-     *
-     *   **Status**: bandwidth plan status. Valid values:
-     *
-     *   **Idle**: not associated with a CEN instance.
-     *   **InUse**: associated with a CEN instance.
-     *
-     *   **CenBandwidthPackageId**: bandwidth plan ID
-     *
-     *   **Name**: bandwidth plan name You can specify one or more filter conditions. The maximum value of **N** is **5**.
-     *
-     * @example CenId
-     *
      * @var string
      */
     public $key;
-
     /**
-     * @description Specify a filter value based on the **Key** parameter. You can specify multiple filter values for each **Key**. The logical operator between filter values is **OR**. If one filter value is matched, the filter condition is matched.
-     *
-     * @example Idle
-     *
      * @var string[]
      */
     public $value;
@@ -43,35 +23,51 @@ class filter extends Model
 
     public function validate()
     {
+        if (\is_array($this->value)) {
+            Model::validateArray($this->value);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->value) {
-            $res['Value'] = $this->value;
+            if (\is_array($this->value)) {
+                $res['Value'] = [];
+                $n1           = 0;
+                foreach ($this->value as $item1) {
+                    $res['Value'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
+                $model->value = [];
+                $n1           = 0;
+                foreach ($map['Value'] as $item1) {
+                    $model->value[$n1++] = $item1;
+                }
             }
         }
 

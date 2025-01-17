@@ -4,69 +4,31 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterRouteEntriesResponseBody\transitRouterRouteEntries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class pathAttributes extends Model
 {
     /**
-     * @description The route AS path.
-     *
      * @var string[]
      */
     public $asPaths;
-
     /**
-     * @description The route community.
-     *
      * @var string[]
      */
     public $communities;
-
     /**
-     * @description The source instance ID.
-     *
-     * @example vbr-m5ent6du8deaq5*****
-     *
      * @var string
      */
     public $originInstanceId;
-
     /**
-     * @description The source instance type. Valid values:
-     *
-     *   **VPC**
-     *   **VBR**
-     *   **TR**
-     *   **VPN**
-     *   **CCN**
-     *
-     * @example VBR
-     *
      * @var string
      */
     public $originInstanceType;
-
     /**
-     * @description The route type. Valid values:
-     *
-     *   **System**
-     *   **Custom**
-     *   **static**
-     *   **BGP**
-     *   **BlackHole**
-     *
-     * @example BGP
-     *
      * @var string
      */
     public $originRouteType;
-
     /**
-     * @description The route priority.
-     *
-     * A smaller value indicates a higher priority.
-     * @example 50
-     *
      * @var int
      */
     public $preference;
@@ -81,26 +43,50 @@ class pathAttributes extends Model
 
     public function validate()
     {
+        if (\is_array($this->asPaths)) {
+            Model::validateArray($this->asPaths);
+        }
+        if (\is_array($this->communities)) {
+            Model::validateArray($this->communities);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asPaths) {
-            $res['AsPaths'] = $this->asPaths;
+            if (\is_array($this->asPaths)) {
+                $res['AsPaths'] = [];
+                $n1             = 0;
+                foreach ($this->asPaths as $item1) {
+                    $res['AsPaths'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->communities) {
-            $res['Communities'] = $this->communities;
+            if (\is_array($this->communities)) {
+                $res['Communities'] = [];
+                $n1                 = 0;
+                foreach ($this->communities as $item1) {
+                    $res['Communities'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->originInstanceId) {
             $res['OriginInstanceId'] = $this->originInstanceId;
         }
+
         if (null !== $this->originInstanceType) {
             $res['OriginInstanceType'] = $this->originInstanceType;
         }
+
         if (null !== $this->originRouteType) {
             $res['OriginRouteType'] = $this->originRouteType;
         }
+
         if (null !== $this->preference) {
             $res['Preference'] = $this->preference;
         }
@@ -108,33 +94,46 @@ class pathAttributes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return pathAttributes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AsPaths'])) {
             if (!empty($map['AsPaths'])) {
-                $model->asPaths = $map['AsPaths'];
+                $model->asPaths = [];
+                $n1             = 0;
+                foreach ($map['AsPaths'] as $item1) {
+                    $model->asPaths[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Communities'])) {
             if (!empty($map['Communities'])) {
-                $model->communities = $map['Communities'];
+                $model->communities = [];
+                $n1                 = 0;
+                foreach ($map['Communities'] as $item1) {
+                    $model->communities[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OriginInstanceId'])) {
             $model->originInstanceId = $map['OriginInstanceId'];
         }
+
         if (isset($map['OriginInstanceType'])) {
             $model->originInstanceType = $map['OriginInstanceType'];
         }
+
         if (isset($map['OriginRouteType'])) {
             $model->originRouteType = $map['OriginRouteType'];
         }
+
         if (isset($map['Preference'])) {
             $model->preference = $map['Preference'];
         }

@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenBandwidthPackagesResponseBody\cenBandwidthPackages;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCenBandwidthPackagesResponseBody extends Model
 {
     /**
-     * @description The details about the bandwidth plan.
-     *
      * @var cenBandwidthPackages
      */
     public $cenBandwidthPackages;
-
     /**
-     * @description The number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9D7E2400-2755-4AF5-9B73-12565E4F73A0
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
@@ -61,23 +39,31 @@ class DescribeCenBandwidthPackagesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->cenBandwidthPackages) {
+            $this->cenBandwidthPackages->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cenBandwidthPackages) {
-            $res['CenBandwidthPackages'] = null !== $this->cenBandwidthPackages ? $this->cenBandwidthPackages->toMap() : null;
+            $res['CenBandwidthPackages'] = null !== $this->cenBandwidthPackages ? $this->cenBandwidthPackages->toArray($noStream) : $this->cenBandwidthPackages;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -85,26 +71,30 @@ class DescribeCenBandwidthPackagesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCenBandwidthPackagesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenBandwidthPackages'])) {
             $model->cenBandwidthPackages = cenBandwidthPackages::fromMap($map['CenBandwidthPackages']);
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

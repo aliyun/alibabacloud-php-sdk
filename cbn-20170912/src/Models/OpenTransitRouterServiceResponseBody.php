@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenTransitRouterServiceResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
-     *
-     * @example 21370700730****
-     *
      * @var string
      */
     public $orderId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 866DEBE1-6411-51EC-80D8-975349B9FB4A
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class OpenTransitRouterServiceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class OpenTransitRouterServiceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenTransitRouterServiceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceInstanceIds extends Model
 {
@@ -18,29 +18,43 @@ class sourceInstanceIds extends Model
 
     public function validate()
     {
+        if (\is_array($this->sourceInstanceId)) {
+            Model::validateArray($this->sourceInstanceId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceInstanceId) {
-            $res['SourceInstanceId'] = $this->sourceInstanceId;
+            if (\is_array($this->sourceInstanceId)) {
+                $res['SourceInstanceId'] = [];
+                $n1                      = 0;
+                foreach ($this->sourceInstanceId as $item1) {
+                    $res['SourceInstanceId'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceInstanceIds
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceInstanceId'])) {
             if (!empty($map['SourceInstanceId'])) {
-                $model->sourceInstanceId = $map['SourceInstanceId'];
+                $model->sourceInstanceId = [];
+                $n1                      = 0;
+                foreach ($map['SourceInstanceId'] as $item1) {
+                    $model->sourceInstanceId[$n1++] = $item1;
+                }
             }
         }
 

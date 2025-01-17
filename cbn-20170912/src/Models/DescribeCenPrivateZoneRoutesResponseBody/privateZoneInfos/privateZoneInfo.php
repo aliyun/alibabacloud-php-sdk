@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenPrivateZoneRoutesResponseBody\privateZoneInfos;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class privateZoneInfo extends Model
 {
     /**
-     * @description The ID of the region where PrivateZone is accessed.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $accessRegionId;
-
     /**
-     * @description The ID of the region where PrivateZone is deployed.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $hostRegionId;
-
     /**
-     * @description The ID of the VPC that is associated with PrivateZone.
-     *
-     * @example vpc-bp18sth14qii3pnvo****
-     *
      * @var string
      */
     public $hostVpcId;
-
     /**
-     * @description The status of PrivateZone. Valid values:
-     *
-     *   **Creating**: being created
-     *   **Active**: available
-     *   **Deleting**: being deleted
-     *
-     * @example Active
-     *
      * @var string
      */
     public $status;
@@ -56,20 +33,24 @@ class privateZoneInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessRegionId) {
             $res['AccessRegionId'] = $this->accessRegionId;
         }
+
         if (null !== $this->hostRegionId) {
             $res['HostRegionId'] = $this->hostRegionId;
         }
+
         if (null !== $this->hostVpcId) {
             $res['HostVpcId'] = $this->hostVpcId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -77,23 +58,26 @@ class privateZoneInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privateZoneInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessRegionId'])) {
             $model->accessRegionId = $map['AccessRegionId'];
         }
+
         if (isset($map['HostRegionId'])) {
             $model->hostRegionId = $map['HostRegionId'];
         }
+
         if (isset($map['HostVpcId'])) {
             $model->hostVpcId = $map['HostVpcId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

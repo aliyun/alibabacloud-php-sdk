@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterVpcAttachmentsResponseBody\transitRouterAttachments;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zoneMappings extends Model
 {
     /**
-     * @description The ID of the ENI created by the Enterprise Edition transit router in the vSwitch.
-     *
-     * @example eni-bp149hmyaqegerml****
-     *
      * @var string
      */
     public $networkInterfaceId;
-
     /**
-     * @description The vSwitch ID.
-     *
-     * @example vsw-bp1a214sbus8z3b54****
-     *
      * @var string
      */
     public $vSwitchId;
-
     /**
-     * @description The zone ID.
-     *
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
@@ -42,17 +28,20 @@ class zoneMappings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->networkInterfaceId) {
             $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
+
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -60,20 +49,22 @@ class zoneMappings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneMappings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NetworkInterfaceId'])) {
             $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
+
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

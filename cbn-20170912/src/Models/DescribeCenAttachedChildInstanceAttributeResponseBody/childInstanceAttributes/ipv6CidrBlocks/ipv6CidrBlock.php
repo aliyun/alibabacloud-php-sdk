@@ -4,30 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenAttachedChildInstanceAttributeResponseBody\childInstanceAttributes\ipv6CidrBlocks;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ipv6CidrBlock extends Model
 {
     /**
-     * @description The IPv6 CIDR block of the VPC.
-     *
-     * @example 2408:XXXX:0:6a::/56
-     *
      * @var string
      */
     public $ipv6CidrBlock;
-
     /**
-     * @description The type of the IPv6 CIDR block of the VPC. Valid values:
-     *
-     *   BGP (default): Alibaba Cloud Border Gateway Protocol (BGP) IPv6
-     *   ChinaMobile: China Mobile (single line)
-     *   ChinaUnicom: China Unicom (single line)
-     *   ChinaTelecom: China Telecom (single line)
-     *
-     * >  If you are on the whitelist of single-line bandwidth, you can set this parameter to ChinaTelecom, ChinaUnicom, or ChinaMobile.
-     * @example BGP
-     *
      * @var string
      */
     public $ipv6Isp;
@@ -38,14 +23,16 @@ class ipv6CidrBlock extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
         }
+
         if (null !== $this->ipv6Isp) {
             $res['Ipv6Isp'] = $this->ipv6Isp;
         }
@@ -53,17 +40,18 @@ class ipv6CidrBlock extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ipv6CidrBlock
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];
         }
+
         if (isset($map['Ipv6Isp'])) {
             $model->ipv6Isp = $map['Ipv6Isp'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DisableTransitRouterRouteTablePropagationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A7C43F99-B1E5-4A53-AB64-4BAE8AF4484E
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DisableTransitRouterRouteTablePropagationResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DisableTransitRouterRouteTablePropagationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisableTransitRouterRouteTablePropagationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

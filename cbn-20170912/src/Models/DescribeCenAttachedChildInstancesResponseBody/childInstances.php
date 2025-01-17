@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenAttachedChildInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenAttachedChildInstancesResponseBody\childInstances\childInstance;
-use AlibabaCloud\Tea\Model;
 
 class childInstances extends Model
 {
@@ -19,17 +19,21 @@ class childInstances extends Model
 
     public function validate()
     {
+        if (\is_array($this->childInstance)) {
+            Model::validateArray($this->childInstance);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->childInstance) {
-            $res['ChildInstance'] = [];
-            if (null !== $this->childInstance && \is_array($this->childInstance)) {
-                $n = 0;
-                foreach ($this->childInstance as $item) {
-                    $res['ChildInstance'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->childInstance)) {
+                $res['ChildInstance'] = [];
+                $n1                   = 0;
+                foreach ($this->childInstance as $item1) {
+                    $res['ChildInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class childInstances extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return childInstances
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChildInstance'])) {
             if (!empty($map['ChildInstance'])) {
                 $model->childInstance = [];
-                $n                    = 0;
-                foreach ($map['ChildInstance'] as $item) {
-                    $model->childInstance[$n++] = null !== $item ? childInstance::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['ChildInstance'] as $item1) {
+                    $model->childInstance[$n1++] = childInstance::fromMap($item1);
                 }
             }
         }

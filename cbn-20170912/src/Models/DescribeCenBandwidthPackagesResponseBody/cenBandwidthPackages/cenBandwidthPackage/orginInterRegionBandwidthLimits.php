@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenBandwidthPackagesResponseBody\cenBandwidthPackages\cenBandwidthPackage;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenBandwidthPackagesResponseBody\cenBandwidthPackages\cenBandwidthPackage\orginInterRegionBandwidthLimits\orginInterRegionBandwidthLimit;
-use AlibabaCloud\Tea\Model;
 
 class orginInterRegionBandwidthLimits extends Model
 {
@@ -19,17 +19,21 @@ class orginInterRegionBandwidthLimits extends Model
 
     public function validate()
     {
+        if (\is_array($this->orginInterRegionBandwidthLimit)) {
+            Model::validateArray($this->orginInterRegionBandwidthLimit);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->orginInterRegionBandwidthLimit) {
-            $res['OrginInterRegionBandwidthLimit'] = [];
-            if (null !== $this->orginInterRegionBandwidthLimit && \is_array($this->orginInterRegionBandwidthLimit)) {
-                $n = 0;
-                foreach ($this->orginInterRegionBandwidthLimit as $item) {
-                    $res['OrginInterRegionBandwidthLimit'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->orginInterRegionBandwidthLimit)) {
+                $res['OrginInterRegionBandwidthLimit'] = [];
+                $n1                                    = 0;
+                foreach ($this->orginInterRegionBandwidthLimit as $item1) {
+                    $res['OrginInterRegionBandwidthLimit'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class orginInterRegionBandwidthLimits extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return orginInterRegionBandwidthLimits
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrginInterRegionBandwidthLimit'])) {
             if (!empty($map['OrginInterRegionBandwidthLimit'])) {
                 $model->orginInterRegionBandwidthLimit = [];
-                $n                                     = 0;
-                foreach ($map['OrginInterRegionBandwidthLimit'] as $item) {
-                    $model->orginInterRegionBandwidthLimit[$n++] = null !== $item ? orginInterRegionBandwidthLimit::fromMap($item) : $item;
+                $n1                                    = 0;
+                foreach ($map['OrginInterRegionBandwidthLimit'] as $item1) {
+                    $model->orginInterRegionBandwidthLimit[$n1++] = orginInterRegionBandwidthLimit::fromMap($item1);
                 }
             }
         }

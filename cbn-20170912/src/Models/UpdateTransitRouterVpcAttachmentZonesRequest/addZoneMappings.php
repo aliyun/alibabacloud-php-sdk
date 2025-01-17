@@ -4,30 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterVpcAttachmentZonesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class addZoneMappings extends Model
 {
     /**
-     * @description The ID of the vSwitch that you want to add to the VPC connection.
-     *
-     * You can specify at most 10 vSwitches in each call.
-     *
-     *   If the VPC connection belongs to the current Alibaba Cloud account, you can call the [DescribeVSwitches](https://help.aliyun.com/document_detail/35748.html) operation to query the IDs of the vSwitches and zones of the VPC.
-     *   If the VPC connection belongs to another Alibaba Cloud account, you can call the [ListGrantVSwitchesToCen](https://help.aliyun.com/document_detail/427599.html) operation to query the IDs of the vSwitches and zones of the VPC.
-     *
-     * @example vsw-wz988dda8ldm4uvmx****
-     *
      * @var string
      */
     public $vSwitchId;
-
     /**
-     * @description The ID of the zone where the vSwitch that you want to add to the VPC connection is deployed.
-     *
-     * You can specify at most 10 vSwitches in each call.
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
@@ -38,14 +23,16 @@ class addZoneMappings extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -53,17 +40,18 @@ class addZoneMappings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addZoneMappings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
         }
+
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AssociateCenBandwidthPackageResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 0C2EE7A8-74D4-4081-8236-CEBDE3BBCF50
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class AssociateCenBandwidthPackageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class AssociateCenBandwidthPackageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AssociateCenBandwidthPackageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

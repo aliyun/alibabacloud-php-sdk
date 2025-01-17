@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetCenInterRegionBandwidthLimitResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 530BC816-F575-412A-AAB2-435125D26328
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class SetCenInterRegionBandwidthLimitResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class SetCenInterRegionBandwidthLimitResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetCenInterRegionBandwidthLimitResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

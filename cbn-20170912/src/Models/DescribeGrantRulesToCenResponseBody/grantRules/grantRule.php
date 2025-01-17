@@ -4,87 +4,39 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGrantRulesToCenResponseBody\grantRules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class grantRule extends Model
 {
     /**
-     * @description The ID of the CEN instance.
-     *
-     * @example cen-nye53d7p3hzyu4****
-     *
      * @var string
      */
     public $cenId;
-
     /**
-     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
-     *
-     * @example 1210123456123456
-     *
      * @var int
      */
     public $cenOwnerId;
-
     /**
-     * @description The ID of the network instance.
-     *
-     * @example vpc-bp1rgeww9mdstuuar****
-     *
      * @var string
      */
     public $childInstanceId;
-
     /**
-     * @description The ID of the Alibaba Cloud account to which the network instance belongs.
-     *
-     * @example 1250123456123456
-     *
      * @var int
      */
     public $childInstanceOwnerId;
-
     /**
-     * @description The region ID of the network instance.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $childInstanceRegionId;
-
     /**
-     * @description The type of the network instance. Valid values:
-     *
-     *   **VPC**: VPC
-     *   **VBR**: VBR
-     *   **CCN**: CCN instance
-     *   **VPN**: IPsec-VPN connection
-     *
-     * @example VPC
-     *
      * @var string
      */
     public $childInstanceType;
-
     /**
-     * @description The time when the permissions were granted to the CEN instance.
-     *
-     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
-     * @example 2024-01-24T16:27Z
-     *
      * @var int
      */
     public $createTime;
-
     /**
-     * @description The entity that pays the fees of the network instance. Valid values:
-     *
-     *   **PayByCenOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the CEN instance belongs.
-     *   **PayByResourceOwner**: The fees of the connections and data forwarding on the transit router are paid by the Alibaba Cloud account to which the network instance belongs.
-     *
-     * @example PayByCenOwner
-     *
      * @var string
      */
     public $orderType;
@@ -101,32 +53,40 @@ class grantRule extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
+
         if (null !== $this->cenOwnerId) {
             $res['CenOwnerId'] = $this->cenOwnerId;
         }
+
         if (null !== $this->childInstanceId) {
             $res['ChildInstanceId'] = $this->childInstanceId;
         }
+
         if (null !== $this->childInstanceOwnerId) {
             $res['ChildInstanceOwnerId'] = $this->childInstanceOwnerId;
         }
+
         if (null !== $this->childInstanceRegionId) {
             $res['ChildInstanceRegionId'] = $this->childInstanceRegionId;
         }
+
         if (null !== $this->childInstanceType) {
             $res['ChildInstanceType'] = $this->childInstanceType;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
         }
@@ -134,35 +94,42 @@ class grantRule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return grantRule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
+
         if (isset($map['CenOwnerId'])) {
             $model->cenOwnerId = $map['CenOwnerId'];
         }
+
         if (isset($map['ChildInstanceId'])) {
             $model->childInstanceId = $map['ChildInstanceId'];
         }
+
         if (isset($map['ChildInstanceOwnerId'])) {
             $model->childInstanceOwnerId = $map['ChildInstanceOwnerId'];
         }
+
         if (isset($map['ChildInstanceRegionId'])) {
             $model->childInstanceRegionId = $map['ChildInstanceRegionId'];
         }
+
         if (isset($map['ChildInstanceType'])) {
             $model->childInstanceType = $map['ChildInstanceType'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];
         }

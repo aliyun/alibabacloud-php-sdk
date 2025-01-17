@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGrantRulesToCenResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeGrantRulesToCenResponseBody\grantRules\grantRule;
-use AlibabaCloud\Tea\Model;
 
 class grantRules extends Model
 {
@@ -19,17 +19,21 @@ class grantRules extends Model
 
     public function validate()
     {
+        if (\is_array($this->grantRule)) {
+            Model::validateArray($this->grantRule);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->grantRule) {
-            $res['GrantRule'] = [];
-            if (null !== $this->grantRule && \is_array($this->grantRule)) {
-                $n = 0;
-                foreach ($this->grantRule as $item) {
-                    $res['GrantRule'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->grantRule)) {
+                $res['GrantRule'] = [];
+                $n1               = 0;
+                foreach ($this->grantRule as $item1) {
+                    $res['GrantRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class grantRules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return grantRules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GrantRule'])) {
             if (!empty($map['GrantRule'])) {
                 $model->grantRule = [];
-                $n                = 0;
-                foreach ($map['GrantRule'] as $item) {
-                    $model->grantRule[$n++] = null !== $item ? grantRule::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['GrantRule'] as $item1) {
+                    $model->grantRule[$n1++] = grantRule::fromMap($item1);
                 }
             }
         }

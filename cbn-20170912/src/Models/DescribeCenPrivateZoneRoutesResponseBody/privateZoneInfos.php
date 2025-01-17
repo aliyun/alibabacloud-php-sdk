@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenPrivateZoneRoutesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenPrivateZoneRoutesResponseBody\privateZoneInfos\privateZoneInfo;
-use AlibabaCloud\Tea\Model;
 
 class privateZoneInfos extends Model
 {
@@ -19,17 +19,21 @@ class privateZoneInfos extends Model
 
     public function validate()
     {
+        if (\is_array($this->privateZoneInfo)) {
+            Model::validateArray($this->privateZoneInfo);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privateZoneInfo) {
-            $res['PrivateZoneInfo'] = [];
-            if (null !== $this->privateZoneInfo && \is_array($this->privateZoneInfo)) {
-                $n = 0;
-                foreach ($this->privateZoneInfo as $item) {
-                    $res['PrivateZoneInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->privateZoneInfo)) {
+                $res['PrivateZoneInfo'] = [];
+                $n1                     = 0;
+                foreach ($this->privateZoneInfo as $item1) {
+                    $res['PrivateZoneInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class privateZoneInfos extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return privateZoneInfos
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivateZoneInfo'])) {
             if (!empty($map['PrivateZoneInfo'])) {
                 $model->privateZoneInfo = [];
-                $n                      = 0;
-                foreach ($map['PrivateZoneInfo'] as $item) {
-                    $model->privateZoneInfo[$n++] = null !== $item ? privateZoneInfo::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['PrivateZoneInfo'] as $item1) {
+                    $model->privateZoneInfo[$n1++] = privateZoneInfo::fromMap($item1);
                 }
             }
         }

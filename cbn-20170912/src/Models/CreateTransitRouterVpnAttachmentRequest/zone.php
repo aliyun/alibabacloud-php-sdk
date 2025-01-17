@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterVpnAttachmentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zone extends Model
 {
     /**
-     * @description The zone ID of the read-only instance.
-     *
-     * You can call the [ListTransitRouterAvailableResource](https://help.aliyun.com/document_detail/261356.html) operation to query the most recent zone list.
-     * @example cn-hangzhou-h
-     *
      * @var string
      */
     public $zoneId;
@@ -23,9 +18,10 @@ class zone extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->zoneId) {
@@ -35,11 +31,11 @@ class zone extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zone
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

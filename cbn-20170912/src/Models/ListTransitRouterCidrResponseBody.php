@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\ListTransitRouterCidrResponseBody\cidrLists;
-use AlibabaCloud\Tea\Model;
 
 class ListTransitRouterCidrResponseBody extends Model
 {
     /**
-     * @description The information about the CIDR block.
-     *
      * @var cidrLists[]
      */
     public $cidrLists;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 0876E54E-3E36-5C31-89F0-9EE8A9266F9A
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListTransitRouterCidrResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->cidrLists)) {
+            Model::validateArray($this->cidrLists);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cidrLists) {
-            $res['CidrLists'] = [];
-            if (null !== $this->cidrLists && \is_array($this->cidrLists)) {
-                $n = 0;
-                foreach ($this->cidrLists as $item) {
-                    $res['CidrLists'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cidrLists)) {
+                $res['CidrLists'] = [];
+                $n1               = 0;
+                foreach ($this->cidrLists as $item1) {
+                    $res['CidrLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListTransitRouterCidrResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTransitRouterCidrResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CidrLists'])) {
             if (!empty($map['CidrLists'])) {
                 $model->cidrLists = [];
-                $n                = 0;
-                foreach ($map['CidrLists'] as $item) {
-                    $model->cidrLists[$n++] = null !== $item ? cidrLists::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['CidrLists'] as $item1) {
+                    $model->cidrLists[$n1++] = cidrLists::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

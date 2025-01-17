@@ -4,146 +4,68 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeFlowlogsResponseBody\flowLogs;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeFlowlogsResponseBody\flowLogs\flowLog\tags;
-use AlibabaCloud\Tea\Model;
 
 class flowLog extends Model
 {
     /**
-     * @description The ID of the Cloud Enterprise Network (CEN) instance.
-     *
-     * @example cen-7qthudw0ll6jmc****
-     *
      * @var string
      */
     public $cenId;
-
     /**
-     * @description The time when the flow log was created.
-     *
-     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
-     * @example 2021-07-24T13:00:52Z
-     *
      * @var string
      */
     public $creationTime;
-
     /**
-     * @description The description of the flow log.
-     *
-     * @example myFlowlog
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the flow log.
-     *
-     * @example flowlog-m5evbtbpt****
-     *
      * @var string
      */
     public $flowLogId;
-
     /**
-     * @description The name of the flow log.
-     *
-     * @example myFlowlog
-     *
      * @var string
      */
     public $flowLogName;
-
     /**
-     * @description The flow log version.
-     *
-     * Flow logs are automatically created in the latest version, which is **3**.
-     * @example 3
-     *
      * @var string
      */
     public $flowLogVersion;
-
     /**
-     * @description The time window for collecting log data. Unit: seconds. Valid values: **60** or **600** Default value: **600**.
-     *
-     * @example 60
-     *
      * @var int
      */
     public $interval;
-
     /**
-     * @description The string that defines the format of the flow log. Format:
-     *
-     * `${Field 1}${Field 2}${Field 3}`
-     * @example ${srcaddr}${dstaddr}${bytes}
-     *
      * @var string
      */
     public $logFormatString;
-
     /**
-     * @description The Logstore that stores the captured traffic data.
-     *
-     * @example FlowLogStore
-     *
      * @var string
      */
     public $logStoreName;
-
     /**
-     * @description The name of the project that stores the captured traffic data.
-     *
-     * @example FlowLogProject
-     *
      * @var string
      */
     public $projectName;
-
     /**
-     * @description The region ID of the flow log.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The status of the flow log. Valid values:
-     *
-     *   **Active**: The flow log is enabled.
-     *   **Inactive**: The flow log is disabled.
-     *
-     * @example Active
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The tags.
-     *
      * @var tags
      */
     public $tags;
-
     /**
-     * @description The ID of the network instance connection
-     *
-     * @example tr-attach-5x4o4ynzuqbv6g****
-     *
      * @var string
      */
     public $transitRouterAttachmentId;
-
     /**
-     * @description The ID of the transit router.
-     *
-     * @example tr-bp1g9313sx675zr1lajmj
-     *
      * @var string
      */
     public $transitRouterId;
@@ -167,53 +89,71 @@ class flowLog extends Model
 
     public function validate()
     {
+        if (null !== $this->tags) {
+            $this->tags->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->flowLogId) {
             $res['FlowLogId'] = $this->flowLogId;
         }
+
         if (null !== $this->flowLogName) {
             $res['FlowLogName'] = $this->flowLogName;
         }
+
         if (null !== $this->flowLogVersion) {
             $res['FlowLogVersion'] = $this->flowLogVersion;
         }
+
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
         }
+
         if (null !== $this->logFormatString) {
             $res['LogFormatString'] = $this->logFormatString;
         }
+
         if (null !== $this->logStoreName) {
             $res['LogStoreName'] = $this->logStoreName;
         }
+
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
+            $res['Tags'] = null !== $this->tags ? $this->tags->toArray($noStream) : $this->tags;
         }
+
         if (null !== $this->transitRouterAttachmentId) {
             $res['TransitRouterAttachmentId'] = $this->transitRouterAttachmentId;
         }
+
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
         }
@@ -221,56 +161,70 @@ class flowLog extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flowLog
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['FlowLogId'])) {
             $model->flowLogId = $map['FlowLogId'];
         }
+
         if (isset($map['FlowLogName'])) {
             $model->flowLogName = $map['FlowLogName'];
         }
+
         if (isset($map['FlowLogVersion'])) {
             $model->flowLogVersion = $map['FlowLogVersion'];
         }
+
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];
         }
+
         if (isset($map['LogFormatString'])) {
             $model->logFormatString = $map['LogFormatString'];
         }
+
         if (isset($map['LogStoreName'])) {
             $model->logStoreName = $map['LogStoreName'];
         }
+
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
+
         if (isset($map['TransitRouterAttachmentId'])) {
             $model->transitRouterAttachmentId = $map['TransitRouterAttachmentId'];
         }
+
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
         }

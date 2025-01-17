@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateTransitRouterVbrAttachmentAttributeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 91B36DC3-FF8A-45C3-AC1E-456B1789136D
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UpdateTransitRouterVbrAttachmentAttributeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UpdateTransitRouterVbrAttachmentAttributeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateTransitRouterVbrAttachmentAttributeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeRouteServicesInCenResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeRouteServicesInCenResponseBody\routeServiceEntries\routeServiceEntry;
-use AlibabaCloud\Tea\Model;
 
 class routeServiceEntries extends Model
 {
@@ -19,17 +19,21 @@ class routeServiceEntries extends Model
 
     public function validate()
     {
+        if (\is_array($this->routeServiceEntry)) {
+            Model::validateArray($this->routeServiceEntry);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->routeServiceEntry) {
-            $res['RouteServiceEntry'] = [];
-            if (null !== $this->routeServiceEntry && \is_array($this->routeServiceEntry)) {
-                $n = 0;
-                foreach ($this->routeServiceEntry as $item) {
-                    $res['RouteServiceEntry'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routeServiceEntry)) {
+                $res['RouteServiceEntry'] = [];
+                $n1                       = 0;
+                foreach ($this->routeServiceEntry as $item1) {
+                    $res['RouteServiceEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class routeServiceEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeServiceEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RouteServiceEntry'])) {
             if (!empty($map['RouteServiceEntry'])) {
                 $model->routeServiceEntry = [];
-                $n                        = 0;
-                foreach ($map['RouteServiceEntry'] as $item) {
-                    $model->routeServiceEntry[$n++] = null !== $item ? routeServiceEntry::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['RouteServiceEntry'] as $item1) {
+                    $model->routeServiceEntry[$n1++] = routeServiceEntry::fromMap($item1);
                 }
             }
         }

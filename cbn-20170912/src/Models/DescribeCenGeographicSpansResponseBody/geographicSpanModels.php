@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenGeographicSpansResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenGeographicSpansResponseBody\geographicSpanModels\geographicSpanModel;
-use AlibabaCloud\Tea\Model;
 
 class geographicSpanModels extends Model
 {
@@ -19,17 +19,21 @@ class geographicSpanModels extends Model
 
     public function validate()
     {
+        if (\is_array($this->geographicSpanModel)) {
+            Model::validateArray($this->geographicSpanModel);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->geographicSpanModel) {
-            $res['GeographicSpanModel'] = [];
-            if (null !== $this->geographicSpanModel && \is_array($this->geographicSpanModel)) {
-                $n = 0;
-                foreach ($this->geographicSpanModel as $item) {
-                    $res['GeographicSpanModel'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->geographicSpanModel)) {
+                $res['GeographicSpanModel'] = [];
+                $n1                         = 0;
+                foreach ($this->geographicSpanModel as $item1) {
+                    $res['GeographicSpanModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class geographicSpanModels extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return geographicSpanModels
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GeographicSpanModel'])) {
             if (!empty($map['GeographicSpanModel'])) {
                 $model->geographicSpanModel = [];
-                $n                          = 0;
-                foreach ($map['GeographicSpanModel'] as $item) {
-                    $model->geographicSpanModel[$n++] = null !== $item ? geographicSpanModel::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['GeographicSpanModel'] as $item1) {
+                    $model->geographicSpanModel[$n1++] = geographicSpanModel::fromMap($item1);
                 }
             }
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TempUpgradeCenBandwidthPackageSpecResponseBody extends Model
 {
     /**
-     * @example DB0A026C-A8E5-40AB-977E-3A87DD78F694
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +18,10 @@ class TempUpgradeCenBandwidthPackageSpecResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class TempUpgradeCenBandwidthPackageSpecResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TempUpgradeCenBandwidthPackageSpecResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

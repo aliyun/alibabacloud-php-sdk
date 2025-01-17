@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\UpdateTransitRouterRouteTableRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routeTableOptions extends Model
 {
     /**
-     * @description Indicates whether multi-region ECMP routing is enabled. Valid values:
-     *
-     * - **disable**: If multi-region ECMP routing is disabled, routes that are learned from different regions but have the same prefix and attributes select the transit router with the smallest region ID as the next hop. Region IDs are sorted in alphabetic order. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
-     * - **enable**: If multi-region ECMP routing is enabled, routes that are learned from different regions but have the same prefix and attributes form an ECMP route. The network latency and bandwidth consumption also vary based on the region. Proceed with caution.
-     * @example disable
-     *
      * @var string
      */
     public $multiRegionECMP;
@@ -24,9 +18,10 @@ class routeTableOptions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->multiRegionECMP) {
@@ -36,11 +31,11 @@ class routeTableOptions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routeTableOptions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

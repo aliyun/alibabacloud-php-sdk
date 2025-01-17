@@ -4,45 +4,27 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTransitRouterAvailableResourceResponseBody extends Model
 {
     /**
-     * @description A list of zone IDs.
-     *
      * @var string[]
      */
     public $availableZones;
-
     /**
-     * @description A list of primary zones.
-     *
      * @var string[]
      */
     public $masterZones;
-
     /**
-     * @description The request ID.
-     *
-     * @example B4F480E0-4E76-5E43-9966-8322C28A158A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description A list of secondary zone IDs.
-     *
      * @var string[]
      */
     public $slaveZones;
-
     /**
-     * @description Indicates whether the zone supports the multicast feature.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $supportMulticast;
@@ -56,23 +38,55 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableZones)) {
+            Model::validateArray($this->availableZones);
+        }
+        if (\is_array($this->masterZones)) {
+            Model::validateArray($this->masterZones);
+        }
+        if (\is_array($this->slaveZones)) {
+            Model::validateArray($this->slaveZones);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableZones) {
-            $res['AvailableZones'] = $this->availableZones;
+            if (\is_array($this->availableZones)) {
+                $res['AvailableZones'] = [];
+                $n1                    = 0;
+                foreach ($this->availableZones as $item1) {
+                    $res['AvailableZones'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->masterZones) {
-            $res['MasterZones'] = $this->masterZones;
+            if (\is_array($this->masterZones)) {
+                $res['MasterZones'] = [];
+                $n1                 = 0;
+                foreach ($this->masterZones as $item1) {
+                    $res['MasterZones'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->slaveZones) {
-            $res['SlaveZones'] = $this->slaveZones;
+            if (\is_array($this->slaveZones)) {
+                $res['SlaveZones'] = [];
+                $n1                = 0;
+                foreach ($this->slaveZones as $item1) {
+                    $res['SlaveZones'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->supportMulticast) {
             $res['SupportMulticast'] = $this->supportMulticast;
         }
@@ -80,32 +94,48 @@ class ListTransitRouterAvailableResourceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTransitRouterAvailableResourceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableZones'])) {
             if (!empty($map['AvailableZones'])) {
-                $model->availableZones = $map['AvailableZones'];
+                $model->availableZones = [];
+                $n1                    = 0;
+                foreach ($map['AvailableZones'] as $item1) {
+                    $model->availableZones[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MasterZones'])) {
             if (!empty($map['MasterZones'])) {
-                $model->masterZones = $map['MasterZones'];
+                $model->masterZones = [];
+                $n1                 = 0;
+                foreach ($map['MasterZones'] as $item1) {
+                    $model->masterZones[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SlaveZones'])) {
             if (!empty($map['SlaveZones'])) {
-                $model->slaveZones = $map['SlaveZones'];
+                $model->slaveZones = [];
+                $n1                = 0;
+                foreach ($map['SlaveZones'] as $item1) {
+                    $model->slaveZones[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SupportMulticast'])) {
             $model->supportMulticast = $map['SupportMulticast'];
         }

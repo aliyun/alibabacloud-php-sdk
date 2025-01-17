@@ -4,45 +4,30 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyCenBandwidthPackageSpecRequest extends Model
 {
     /**
-     * @description The new maximum bandwidth value of the bandwidth plan. Unit: Mbit/s.
-     *
-     * Valid values: **2** to **10000**.
-     * @example 2
-     *
      * @var int
      */
     public $bandwidth;
-
     /**
-     * @description The ID of the bandwidth plan.
-     *
-     * This parameter is required.
-     * @example cenbwp-4c2zaavbvh5x****
-     *
      * @var string
      */
     public $cenBandwidthPackageId;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
@@ -58,26 +43,32 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bandwidth) {
             $res['Bandwidth'] = $this->bandwidth;
         }
+
         if (null !== $this->cenBandwidthPackageId) {
             $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
@@ -85,29 +76,34 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyCenBandwidthPackageSpecRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bandwidth'])) {
             $model->bandwidth = $map['Bandwidth'];
         }
+
         if (isset($map['CenBandwidthPackageId'])) {
             $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }

@@ -4,51 +4,35 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshTransitRouteTableAggregationRequest extends Model
 {
     /**
-     * @example 02fb3da4-130e-11e9-8e44-001****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
      * @var string
      */
     public $ownerAccount;
-
     /**
      * @var int
      */
     public $ownerId;
-
     /**
      * @var string
      */
     public $resourceOwnerAccount;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example 192.168.53.0/24
-     *
      * @var string
      */
     public $transitRouteTableAggregationCidr;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example vtb-iq8qgruq1ry8jc7vt****
-     *
      * @var string
      */
     public $transitRouteTableId;
@@ -64,29 +48,36 @@ class RefreshTransitRouteTableAggregationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->transitRouteTableAggregationCidr) {
             $res['TransitRouteTableAggregationCidr'] = $this->transitRouteTableAggregationCidr;
         }
+
         if (null !== $this->transitRouteTableId) {
             $res['TransitRouteTableId'] = $this->transitRouteTableId;
         }
@@ -94,32 +85,38 @@ class RefreshTransitRouteTableAggregationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshTransitRouteTableAggregationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['TransitRouteTableAggregationCidr'])) {
             $model->transitRouteTableAggregationCidr = $map['TransitRouteTableAggregationCidr'];
         }
+
         if (isset($map['TransitRouteTableId'])) {
             $model->transitRouteTableId = $map['TransitRouteTableId'];
         }

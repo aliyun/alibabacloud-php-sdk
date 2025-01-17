@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenChildInstanceRouteEntriesResponseBody\cenRouteEntries\cenRouteEntry;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenChildInstanceRouteEntriesResponseBody\cenRouteEntries\cenRouteEntry\cenRouteMapRecords\cenRouteMapRecord;
-use AlibabaCloud\Tea\Model;
 
 class cenRouteMapRecords extends Model
 {
@@ -19,17 +19,21 @@ class cenRouteMapRecords extends Model
 
     public function validate()
     {
+        if (\is_array($this->cenRouteMapRecord)) {
+            Model::validateArray($this->cenRouteMapRecord);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cenRouteMapRecord) {
-            $res['CenRouteMapRecord'] = [];
-            if (null !== $this->cenRouteMapRecord && \is_array($this->cenRouteMapRecord)) {
-                $n = 0;
-                foreach ($this->cenRouteMapRecord as $item) {
-                    $res['CenRouteMapRecord'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cenRouteMapRecord)) {
+                $res['CenRouteMapRecord'] = [];
+                $n1                       = 0;
+                foreach ($this->cenRouteMapRecord as $item1) {
+                    $res['CenRouteMapRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class cenRouteMapRecords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cenRouteMapRecords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CenRouteMapRecord'])) {
             if (!empty($map['CenRouteMapRecord'])) {
                 $model->cenRouteMapRecord = [];
-                $n                        = 0;
-                foreach ($map['CenRouteMapRecord'] as $item) {
-                    $model->cenRouteMapRecord[$n++] = null !== $item ? cenRouteMapRecord::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['CenRouteMapRecord'] as $item1) {
+                    $model->cenRouteMapRecord[$n1++] = cenRouteMapRecord::fromMap($item1);
                 }
             }
         }

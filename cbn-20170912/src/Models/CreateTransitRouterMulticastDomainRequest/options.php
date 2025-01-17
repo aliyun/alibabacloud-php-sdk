@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\CreateTransitRouterMulticastDomainRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class options extends Model
 {
@@ -18,9 +18,10 @@ class options extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->igmpv2Support) {
@@ -30,11 +31,11 @@ class options extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return options
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

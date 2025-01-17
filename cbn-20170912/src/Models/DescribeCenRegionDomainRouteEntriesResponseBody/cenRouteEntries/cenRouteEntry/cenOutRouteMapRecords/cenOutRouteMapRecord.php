@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRegionDomainRouteEntriesResponseBody\cenRouteEntries\cenRouteEntry\cenOutRouteMapRecords;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cenOutRouteMapRecord extends Model
 {
     /**
-     * @description The ID of the region where the routing policy is applied.
-     *
-     * @example ccn-cn-shanghai
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The ID of the routing policy.
-     *
-     * @example cenrmap-dbarzidzp7ek4k****
-     *
      * @var string
      */
     public $routeMapId;
@@ -32,14 +23,16 @@ class cenOutRouteMapRecord extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->routeMapId) {
             $res['RouteMapId'] = $this->routeMapId;
         }
@@ -47,17 +40,18 @@ class cenOutRouteMapRecord extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cenOutRouteMapRecord
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RouteMapId'])) {
             $model->routeMapId = $map['RouteMapId'];
         }

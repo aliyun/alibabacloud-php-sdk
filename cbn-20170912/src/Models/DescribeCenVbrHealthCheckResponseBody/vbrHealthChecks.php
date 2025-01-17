@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenVbrHealthCheckResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenVbrHealthCheckResponseBody\vbrHealthChecks\vbrHealthCheck;
-use AlibabaCloud\Tea\Model;
 
 class vbrHealthChecks extends Model
 {
@@ -19,17 +19,21 @@ class vbrHealthChecks extends Model
 
     public function validate()
     {
+        if (\is_array($this->vbrHealthCheck)) {
+            Model::validateArray($this->vbrHealthCheck);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vbrHealthCheck) {
-            $res['VbrHealthCheck'] = [];
-            if (null !== $this->vbrHealthCheck && \is_array($this->vbrHealthCheck)) {
-                $n = 0;
-                foreach ($this->vbrHealthCheck as $item) {
-                    $res['VbrHealthCheck'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vbrHealthCheck)) {
+                $res['VbrHealthCheck'] = [];
+                $n1                    = 0;
+                foreach ($this->vbrHealthCheck as $item1) {
+                    $res['VbrHealthCheck'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class vbrHealthChecks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vbrHealthChecks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['VbrHealthCheck'])) {
             if (!empty($map['VbrHealthCheck'])) {
                 $model->vbrHealthCheck = [];
-                $n                     = 0;
-                foreach ($map['VbrHealthCheck'] as $item) {
-                    $model->vbrHealthCheck[$n++] = null !== $item ? vbrHealthCheck::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['VbrHealthCheck'] as $item1) {
+                    $model->vbrHealthCheck[$n1++] = vbrHealthCheck::fromMap($item1);
                 }
             }
         }

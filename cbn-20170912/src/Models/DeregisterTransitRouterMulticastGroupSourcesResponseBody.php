@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeregisterTransitRouterMulticastGroupSourcesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 53E7E8BE-7F4E-5458-ACCA-9B5C1D6A642D
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeregisterTransitRouterMulticastGroupSourcesResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeregisterTransitRouterMulticastGroupSourcesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeregisterTransitRouterMulticastGroupSourcesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models\DescribeCenRouteMapsResponseBody\routeMaps\routeMap;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class operateCommunitySet extends Model
 {
@@ -18,29 +18,43 @@ class operateCommunitySet extends Model
 
     public function validate()
     {
+        if (\is_array($this->operateCommunity)) {
+            Model::validateArray($this->operateCommunity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operateCommunity) {
-            $res['OperateCommunity'] = $this->operateCommunity;
+            if (\is_array($this->operateCommunity)) {
+                $res['OperateCommunity'] = [];
+                $n1                      = 0;
+                foreach ($this->operateCommunity as $item1) {
+                    $res['OperateCommunity'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return operateCommunitySet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperateCommunity'])) {
             if (!empty($map['OperateCommunity'])) {
-                $model->operateCommunity = $map['OperateCommunity'];
+                $model->operateCommunity = [];
+                $n1                      = 0;
+                foreach ($map['OperateCommunity'] as $item1) {
+                    $model->operateCommunity[$n1++] = $item1;
+                }
             }
         }
 

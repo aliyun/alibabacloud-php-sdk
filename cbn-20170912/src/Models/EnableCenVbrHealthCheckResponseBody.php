@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EnableCenVbrHealthCheckResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 1F59F19C-EFD2-40B1-94D5-65B40CA8E34A
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class EnableCenVbrHealthCheckResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class EnableCenVbrHealthCheckResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EnableCenVbrHealthCheckResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
