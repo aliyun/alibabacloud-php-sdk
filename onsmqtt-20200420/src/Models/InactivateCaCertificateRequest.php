@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InactivateCaCertificateRequest extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for MQTT instance to which the CA certificate is bound.
-     *
-     * This parameter is required.
-     * @example post-cn-7mz2d******
-     *
      * @var string
      */
     public $mqttInstanceId;
-
     /**
-     * @description The serial number of the CA certificate that you want to deregister. The serial number is the unique identifier of a CA certificate.
-     *
-     * This parameter is required.
-     * @example 007269004887******
-     *
      * @var string
      */
     public $sn;
@@ -34,14 +23,16 @@ class InactivateCaCertificateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mqttInstanceId) {
             $res['MqttInstanceId'] = $this->mqttInstanceId;
         }
+
         if (null !== $this->sn) {
             $res['Sn'] = $this->sn;
         }
@@ -49,17 +40,18 @@ class InactivateCaCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InactivateCaCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MqttInstanceId'])) {
             $model->mqttInstanceId = $map['MqttInstanceId'];
         }
+
         if (isset($map['Sn'])) {
             $model->sn = $map['Sn'];
         }

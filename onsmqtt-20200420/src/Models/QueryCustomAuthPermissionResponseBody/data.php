@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthPermissionResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryCustomAuthPermissionResponseBody\data\results;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The token that marks the end position of the previous returned page. To obtain the next batch of data, call the operation again by using the value of NextToken returned by the previous request. If you call this operation for the first time or want to query all results, set NextToken to an empty string.
-     *
-     * @example AAAAAV/vsqTyeMlX1MIk7/b6NrZLIlsSVf49O04ac7HAmlBoaYspakK7ZZkR3vRDp5Y9Nz0EmuWYrtF+1qkUwuJzPk/qEto/FGxl5Kd+qdwNt3t8
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The response results.
-     *
      * @var results[]
      */
     public $results;
@@ -31,20 +24,25 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->results)) {
+            Model::validateArray($this->results);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->results) {
-            $res['Results'] = [];
-            if (null !== $this->results && \is_array($this->results)) {
-                $n = 0;
-                foreach ($this->results as $item) {
-                    $res['Results'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->results)) {
+                $res['Results'] = [];
+                $n1             = 0;
+                foreach ($this->results as $item1) {
+                    $res['Results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n              = 0;
-                foreach ($map['Results'] as $item) {
-                    $model->results[$n++] = null !== $item ? results::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Results'] as $item1) {
+                    $model->results[$n1++] = results::fromMap($item1);
                 }
             }
         }

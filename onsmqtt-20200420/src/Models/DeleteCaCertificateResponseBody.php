@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCaCertificateResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The serial number of the CA certificate that you deleted. The serial number is the unique identifier of a CA certificate.
-     *
-     * @example 007269004887******
-     *
      * @var string
      */
     public $sn;
@@ -32,14 +23,16 @@ class DeleteCaCertificateResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sn) {
             $res['Sn'] = $this->sn;
         }
@@ -47,17 +40,18 @@ class DeleteCaCertificateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCaCertificateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Sn'])) {
             $model->sn = $map['Sn'];
         }

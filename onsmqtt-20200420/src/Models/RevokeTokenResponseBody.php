@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeTokenResponseBody extends Model
 {
     /**
-     * @description The request ID. This parameter is a common parameter.
-     *
-     * @example 833EDFCB-C447-4CE3-B21F-3A4C2D1B****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class RevokeTokenResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class RevokeTokenResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeTokenResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

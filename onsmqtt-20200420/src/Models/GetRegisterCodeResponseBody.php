@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRegisterCodeResponseBody extends Model
 {
     /**
-     * @description The registration code of the CA certificate.
-     *
-     * @example 13274673-8f90-4630-bea1-9cccb25756ad2089******
-     *
      * @var string
      */
     public $registerCode;
-
     /**
-     * @description The request ID.
-     *
-     * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class GetRegisterCodeResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->registerCode) {
             $res['RegisterCode'] = $this->registerCode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class GetRegisterCodeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRegisterCodeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegisterCode'])) {
             $model->registerCode = $map['RegisterCode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

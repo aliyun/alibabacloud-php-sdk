@@ -4,24 +4,18 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetSniConfigRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $defaultCertificate;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $mqttInstanceId;
-
     /**
      * @var string
      */
@@ -34,17 +28,20 @@ class SetSniConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultCertificate) {
             $res['DefaultCertificate'] = $this->defaultCertificate;
         }
+
         if (null !== $this->mqttInstanceId) {
             $res['MqttInstanceId'] = $this->mqttInstanceId;
         }
+
         if (null !== $this->sniConfig) {
             $res['SniConfig'] = $this->sniConfig;
         }
@@ -52,20 +49,22 @@ class SetSniConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetSniConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultCertificate'])) {
             $model->defaultCertificate = $map['DefaultCertificate'];
         }
+
         if (isset($map['MqttInstanceId'])) {
             $model->mqttInstanceId = $map['MqttInstanceId'];
         }
+
         if (isset($map['SniConfig'])) {
             $model->sniConfig = $map['SniConfig'];
         }

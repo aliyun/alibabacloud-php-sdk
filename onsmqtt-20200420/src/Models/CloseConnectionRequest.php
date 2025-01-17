@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloseConnectionRequest extends Model
 {
     /**
-     * @description Client ID of the device
-     *
-     * This parameter is required.
-     * @example GID_test@@@test
-     *
      * @var string
      */
     public $clientId;
-
     /**
-     * @description ID of the Micro Message Queue MQTT version instance.
-     *
-     * This parameter is required.
-     * @example post-cn-0pp12gl****
-     *
      * @var string
      */
     public $instanceId;
@@ -34,14 +23,16 @@ class CloseConnectionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,17 +40,18 @@ class CloseConnectionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloseConnectionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

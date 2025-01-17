@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnRegisterDeviceCredentialResponseBody extends Model
 {
     /**
-     * @description The unique ID that the system generates for the request. This parameter is a common parameter.
-     *
-     * @example E4581CCD-62AF-44D9-B5B4-D1DBDC0E****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UnRegisterDeviceCredentialResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UnRegisterDeviceCredentialResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnRegisterDeviceCredentialResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

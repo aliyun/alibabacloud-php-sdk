@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGroupIdResponseBody extends Model
 {
     /**
-     * @description The request ID. This parameter is a common parameter.
-     *
-     * @example 0621DDD7-F0E9-4D35-8900-518116D6****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteGroupIdResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteGroupIdResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGroupIdResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

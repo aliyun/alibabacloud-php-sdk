@@ -4,41 +4,24 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCertificateByCaSnResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCertificateByCaSnResponseBody\data\deviceCertificateVOS;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Details of the device certificate.
-     *
      * @var deviceCertificateVOS[]
      */
     public $deviceCertificateVOS;
-
     /**
-     * @description The current page number of the returned query records.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $pageNo;
-
     /**
-     * @description The maximum number of results to display per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description Total number of query results.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $total;
@@ -51,26 +34,33 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->deviceCertificateVOS)) {
+            Model::validateArray($this->deviceCertificateVOS);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceCertificateVOS) {
-            $res['DeviceCertificateVOS'] = [];
-            if (null !== $this->deviceCertificateVOS && \is_array($this->deviceCertificateVOS)) {
-                $n = 0;
-                foreach ($this->deviceCertificateVOS as $item) {
-                    $res['DeviceCertificateVOS'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->deviceCertificateVOS)) {
+                $res['DeviceCertificateVOS'] = [];
+                $n1                          = 0;
+                foreach ($this->deviceCertificateVOS as $item1) {
+                    $res['DeviceCertificateVOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -78,29 +68,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceCertificateVOS'])) {
             if (!empty($map['DeviceCertificateVOS'])) {
                 $model->deviceCertificateVOS = [];
-                $n                           = 0;
-                foreach ($map['DeviceCertificateVOS'] as $item) {
-                    $model->deviceCertificateVOS[$n++] = null !== $item ? deviceCertificateVOS::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['DeviceCertificateVOS'] as $item1) {
+                    $model->deviceCertificateVOS[$n1++] = deviceCertificateVOS::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

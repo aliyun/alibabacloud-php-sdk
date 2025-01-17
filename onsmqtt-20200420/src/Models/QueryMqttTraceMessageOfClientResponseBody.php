@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessageOfClientResponseBody\messageOfClientList;
-use AlibabaCloud\Tea\Model;
 
 class QueryMqttTraceMessageOfClientResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The returned messages.
-     *
      * @var messageOfClientList[]
      */
     public $messageOfClientList;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The request ID. You can use the ID to troubleshoot issues. This parameter is a common parameter.
-     *
-     * @example B096B9D6-62F3-4567-BB59-58D1362E****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of messages returned.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $total;
@@ -61,29 +39,37 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->messageOfClientList)) {
+            Model::validateArray($this->messageOfClientList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->messageOfClientList) {
-            $res['MessageOfClientList'] = [];
-            if (null !== $this->messageOfClientList && \is_array($this->messageOfClientList)) {
-                $n = 0;
-                foreach ($this->messageOfClientList as $item) {
-                    $res['MessageOfClientList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messageOfClientList)) {
+                $res['MessageOfClientList'] = [];
+                $n1                         = 0;
+                foreach ($this->messageOfClientList as $item1) {
+                    $res['MessageOfClientList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -91,32 +77,36 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMqttTraceMessageOfClientResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['MessageOfClientList'])) {
             if (!empty($map['MessageOfClientList'])) {
                 $model->messageOfClientList = [];
-                $n                          = 0;
-                foreach ($map['MessageOfClientList'] as $item) {
-                    $model->messageOfClientList[$n++] = null !== $item ? messageOfClientList::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['MessageOfClientList'] as $item1) {
+                    $model->messageOfClientList[$n1++] = messageOfClientList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\GetDeviceCredentialResponseBody\deviceCredential;
-use AlibabaCloud\Tea\Model;
 
 class GetDeviceCredentialResponseBody extends Model
 {
     /**
-     * @description The information about the access credential of the device.
-     *
      * @var deviceCredential
      */
     public $deviceCredential;
-
     /**
-     * @description The request ID. This parameter is a common parameter.
-     *
-     * @example E4581CCF-62AF-44D9-B5B4-D1DQDC0E****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetDeviceCredentialResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->deviceCredential) {
+            $this->deviceCredential->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceCredential) {
-            $res['DeviceCredential'] = null !== $this->deviceCredential ? $this->deviceCredential->toMap() : null;
+            $res['DeviceCredential'] = null !== $this->deviceCredential ? $this->deviceCredential->toArray($noStream) : $this->deviceCredential;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetDeviceCredentialResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDeviceCredentialResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceCredential'])) {
             $model->deviceCredential = deviceCredential::fromMap($map['DeviceCredential']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

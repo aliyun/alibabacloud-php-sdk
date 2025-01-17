@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QuerySessionByClientIdRequest extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for MQTT client that you want to query.
-     *
-     * This parameter is required.
-     * @example GID_test@@@test
-     *
      * @var string
      */
     public $clientId;
-
     /**
-     * @description The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can obtain the instance ID on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com).
-     *
-     * This parameter is required.
-     * @example post-cn-0pp12gl****
-     *
      * @var string
      */
     public $instanceId;
@@ -34,14 +23,16 @@ class QuerySessionByClientIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,17 +40,18 @@ class QuerySessionByClientIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QuerySessionByClientIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

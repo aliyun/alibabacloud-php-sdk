@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRegisterCodeRequest extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for MQTT instance.
-     *
-     * This parameter is required.
-     * @example post-cn-7mz2d******
-     *
      * @var string
      */
     public $mqttInstanceId;
@@ -23,9 +18,10 @@ class GetRegisterCodeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mqttInstanceId) {
@@ -35,11 +31,11 @@ class GetRegisterCodeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRegisterCodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

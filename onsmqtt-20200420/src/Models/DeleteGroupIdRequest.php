@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteGroupIdRequest extends Model
 {
     /**
-     * @description The ID of the group that you want to delete.
-     *
-     * This parameter is required.
-     * @example GID_test
-     *
      * @var string
      */
     public $groupId;
-
     /**
-     * @description The ID of the ApsaraMQ for MQTT instance from which you want to delete a group.
-     *
-     * This parameter is required.
-     * @example mqtt-cn-0pp1ldu****
-     *
      * @var string
      */
     public $instanceId;
@@ -34,14 +23,16 @@ class DeleteGroupIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,17 +40,18 @@ class DeleteGroupIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteGroupIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

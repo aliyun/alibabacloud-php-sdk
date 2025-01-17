@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListGroupIdRequest extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for MQTT instance whose groups you want to query.
-     *
-     * This parameter is required.
-     * @example mqtt-cn-0pp1ldu****
-     *
      * @var string
      */
     public $instanceId;
@@ -23,9 +18,10 @@ class ListGroupIdRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
@@ -35,11 +31,11 @@ class ListGroupIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListGroupIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

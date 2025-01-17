@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\BatchQuerySessionByClientIdsResponseBody\onlineStatusList;
-use AlibabaCloud\Tea\Model;
 
 class BatchQuerySessionByClientIdsResponseBody extends Model
 {
     /**
-     * @description The status list of all queried ApsaraMQ for MQTT clients.
-     *
      * @var onlineStatusList[]
      */
     public $onlineStatusList;
-
     /**
-     * @description The request ID. This parameter is a common parameter.
-     *
-     * @example 63309FDB-ED6C-46AE-B31C-A172FBA0****
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->onlineStatusList)) {
+            Model::validateArray($this->onlineStatusList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onlineStatusList) {
-            $res['OnlineStatusList'] = [];
-            if (null !== $this->onlineStatusList && \is_array($this->onlineStatusList)) {
-                $n = 0;
-                foreach ($this->onlineStatusList as $item) {
-                    $res['OnlineStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->onlineStatusList)) {
+                $res['OnlineStatusList'] = [];
+                $n1                      = 0;
+                foreach ($this->onlineStatusList as $item1) {
+                    $res['OnlineStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchQuerySessionByClientIdsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OnlineStatusList'])) {
             if (!empty($map['OnlineStatusList'])) {
                 $model->onlineStatusList = [];
-                $n                       = 0;
-                foreach ($map['OnlineStatusList'] as $item) {
-                    $model->onlineStatusList[$n++] = null !== $item ? onlineStatusList::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['OnlineStatusList'] as $item1) {
+                    $model->onlineStatusList[$n1++] = onlineStatusList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

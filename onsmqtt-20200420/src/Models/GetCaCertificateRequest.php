@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCaCertificateRequest extends Model
 {
     /**
-     * @description The instance ID bound to the CA certificate, which is the instance ID of the MQTT version of the cloud message queue.
-     *
-     * This parameter is required.
-     * @example post-cn-7mz2d******
-     *
      * @var string
      */
     public $mqttInstanceId;
-
     /**
-     * @description The SN serial number of the CA certificate to be queried, used to uniquely identify a CA certificate.
-     *
-     * This parameter is required.
-     * @example 007269004887******
-     *
      * @var string
      */
     public $sn;
@@ -34,14 +23,16 @@ class GetCaCertificateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mqttInstanceId) {
             $res['MqttInstanceId'] = $this->mqttInstanceId;
         }
+
         if (null !== $this->sn) {
             $res['Sn'] = $this->sn;
         }
@@ -49,17 +40,18 @@ class GetCaCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCaCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MqttInstanceId'])) {
             $model->mqttInstanceId = $map['MqttInstanceId'];
         }
+
         if (isset($map['Sn'])) {
             $model->sn = $map['Sn'];
         }

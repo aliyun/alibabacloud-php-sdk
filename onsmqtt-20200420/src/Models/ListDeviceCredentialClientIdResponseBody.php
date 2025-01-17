@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCredentialClientIdResponseBody\deviceCredentialClientIdList;
-use AlibabaCloud\Tea\Model;
 
 class ListDeviceCredentialClientIdResponseBody extends Model
 {
     /**
-     * @description Returns the information list.
-     *
      * @var deviceCredentialClientIdList
      */
     public $deviceCredentialClientIdList;
-
     /**
-     * @description Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
-     *
-     * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListDeviceCredentialClientIdResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->deviceCredentialClientIdList) {
+            $this->deviceCredentialClientIdList->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deviceCredentialClientIdList) {
-            $res['DeviceCredentialClientIdList'] = null !== $this->deviceCredentialClientIdList ? $this->deviceCredentialClientIdList->toMap() : null;
+            $res['DeviceCredentialClientIdList'] = null !== $this->deviceCredentialClientIdList ? $this->deviceCredentialClientIdList->toArray($noStream) : $this->deviceCredentialClientIdList;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListDeviceCredentialClientIdResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDeviceCredentialClientIdResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeviceCredentialClientIdList'])) {
             $model->deviceCredentialClientIdList = deviceCredentialClientIdList::fromMap($map['DeviceCredentialClientIdList']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

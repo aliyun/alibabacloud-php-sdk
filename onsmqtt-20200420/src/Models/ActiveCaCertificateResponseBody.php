@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ActiveCaCertificateResponseBody extends Model
 {
     /**
-     * @description Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
-     *
-     * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The SN serial number of the activated CA certificate, used to uniquely identify a CA certificate.
-     *
-     * @example 007269004887******
-     *
      * @var string
      */
     public $sn;
@@ -32,14 +23,16 @@ class ActiveCaCertificateResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sn) {
             $res['Sn'] = $this->sn;
         }
@@ -47,17 +40,18 @@ class ActiveCaCertificateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ActiveCaCertificateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Sn'])) {
             $model->sn = $map['Sn'];
         }

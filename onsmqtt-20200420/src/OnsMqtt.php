@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveCaCertificateRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveCaCertificateResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ActiveDeviceCertificateRequest;
@@ -100,11 +99,10 @@ use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthIdentityRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthIdentityResponse;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthPermissionRequest;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\UpdateCustomAuthPermissionResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class OnsMqtt extends OpenApiClient
 {
@@ -129,40 +127,43 @@ class OnsMqtt extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Activate CA Certificate
-     *  *
-     * @description - 仅铂金版和专业版实例支持使用ActiveCaCertificate接口。
-     * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
-     * -  ActiveCaCertificate接口仅支持对已在云消息队列 MQTT 版服务端注册的CA证书进行操作，您可以通过[ListCaCertificate](https://help.aliyun.com/document_detail/436768.html)接口查询指定实例下已注册的CA证书。
-     *  *
-     * @param ActiveCaCertificateRequest $request ActiveCaCertificateRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Activate CA Certificate.
      *
-     * @return ActiveCaCertificateResponse ActiveCaCertificateResponse
+     * @param request - ActiveCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ActiveCaCertificateResponse
+     *
+     * @param ActiveCaCertificateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ActiveCaCertificateResponse
      */
     public function activeCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mqttInstanceId)) {
-            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        if (null !== $request->mqttInstanceId) {
+            @$query['MqttInstanceId'] = $request->mqttInstanceId;
         }
-        if (!Utils::isUnset($request->sn)) {
-            $query['Sn'] = $request->sn;
+
+        if (null !== $request->sn) {
+            @$query['Sn'] = $request->sn;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ActiveCaCertificate',
@@ -180,15 +181,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Activate CA Certificate
-     *  *
-     * @description - 仅铂金版和专业版实例支持使用ActiveCaCertificate接口。
-     * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
-     * -  ActiveCaCertificate接口仅支持对已在云消息队列 MQTT 版服务端注册的CA证书进行操作，您可以通过[ListCaCertificate](https://help.aliyun.com/document_detail/436768.html)接口查询指定实例下已注册的CA证书。
-     *  *
-     * @param ActiveCaCertificateRequest $request ActiveCaCertificateRequest
+     * Activate CA Certificate.
      *
-     * @return ActiveCaCertificateResponse ActiveCaCertificateResponse
+     * @param request - ActiveCaCertificateRequest
+     * @returns ActiveCaCertificateResponse
+     *
+     * @param ActiveCaCertificateRequest $request
+     *
+     * @return ActiveCaCertificateResponse
      */
     public function activeCaCertificate($request)
     {
@@ -198,31 +198,39 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Reactivates a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client based on the registered CA certificate. If the CA certificate matches the device certificate, the client passes the authentication and the system automatically registers the device certificate with the ApsaraMQ for MQTT broker. After a device certificate is registered with an ApsaraMQ for MQTT broker, the certificate is automatically activated. If your device certificate is changed to the inactivated state, you can call this operation to reactivate the device certificate.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
-     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *  *
-     * @param ActiveDeviceCertificateRequest $request ActiveDeviceCertificateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Reactivates a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client based on the registered CA certificate. If the CA certificate matches the device certificate, the client passes the authentication and the system automatically registers the device certificate with the ApsaraMQ for MQTT broker. After a device certificate is registered with an ApsaraMQ for MQTT broker, the certificate is automatically activated. If your device certificate is changed to the inactivated state, you can call this operation to reactivate the device certificate.
      *
-     * @return ActiveDeviceCertificateResponse ActiveDeviceCertificateResponse
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *
+     * @param request - ActiveDeviceCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ActiveDeviceCertificateResponse
+     *
+     * @param ActiveDeviceCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ActiveDeviceCertificateResponse
      */
     public function activeDeviceCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->caSn)) {
-            $query['CaSn'] = $request->caSn;
+        if (null !== $request->caSn) {
+            @$query['CaSn'] = $request->caSn;
         }
-        if (!Utils::isUnset($request->deviceSn)) {
-            $query['DeviceSn'] = $request->deviceSn;
+
+        if (null !== $request->deviceSn) {
+            @$query['DeviceSn'] = $request->deviceSn;
         }
-        if (!Utils::isUnset($request->mqttInstanceId)) {
-            $query['MqttInstanceId'] = $request->mqttInstanceId;
+
+        if (null !== $request->mqttInstanceId) {
+            @$query['MqttInstanceId'] = $request->mqttInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ActiveDeviceCertificate',
@@ -240,14 +248,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Reactivates a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client based on the registered CA certificate. If the CA certificate matches the device certificate, the client passes the authentication and the system automatically registers the device certificate with the ApsaraMQ for MQTT broker. After a device certificate is registered with an ApsaraMQ for MQTT broker, the certificate is automatically activated. If your device certificate is changed to the inactivated state, you can call this operation to reactivate the device certificate.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
-     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *  *
-     * @param ActiveDeviceCertificateRequest $request ActiveDeviceCertificateRequest
+     * Reactivates a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client based on the registered CA certificate. If the CA certificate matches the device certificate, the client passes the authentication and the system automatically registers the device certificate with the ApsaraMQ for MQTT broker. After a device certificate is registered with an ApsaraMQ for MQTT broker, the certificate is automatically activated. If your device certificate is changed to the inactivated state, you can call this operation to reactivate the device certificate.
      *
-     * @return ActiveDeviceCertificateResponse ActiveDeviceCertificateResponse
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *
+     * @param request - ActiveDeviceCertificateRequest
+     * @returns ActiveDeviceCertificateResponse
+     *
+     * @param ActiveDeviceCertificateRequest $request
+     *
+     * @return ActiveDeviceCertificateResponse
      */
     public function activeDeviceCertificate($request)
     {
@@ -257,25 +269,31 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Adds a device to the connection blacklist to disable connections from the device.
-     *  *
-     * @param AddCustomAuthConnectBlackRequest $request AddCustomAuthConnectBlackRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Adds a device to the connection blacklist to disable connections from the device.
      *
-     * @return AddCustomAuthConnectBlackResponse AddCustomAuthConnectBlackResponse
+     * @param request - AddCustomAuthConnectBlackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddCustomAuthConnectBlackResponse
+     *
+     * @param AddCustomAuthConnectBlackRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddCustomAuthConnectBlackResponse
      */
     public function addCustomAuthConnectBlackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddCustomAuthConnectBlack',
@@ -293,11 +311,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Adds a device to the connection blacklist to disable connections from the device.
-     *  *
-     * @param AddCustomAuthConnectBlackRequest $request AddCustomAuthConnectBlackRequest
+     * Adds a device to the connection blacklist to disable connections from the device.
      *
-     * @return AddCustomAuthConnectBlackResponse AddCustomAuthConnectBlackResponse
+     * @param request - AddCustomAuthConnectBlackRequest
+     * @returns AddCustomAuthConnectBlackResponse
+     *
+     * @param AddCustomAuthConnectBlackRequest $request
+     *
+     * @return AddCustomAuthConnectBlackResponse
      */
     public function addCustomAuthConnectBlack($request)
     {
@@ -307,37 +328,47 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Adds the information about identity authentication. The identity can be accurate to a client.
-     *  *
-     * @param AddCustomAuthIdentityRequest $request AddCustomAuthIdentityRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Adds the information about identity authentication. The identity can be accurate to a client.
      *
-     * @return AddCustomAuthIdentityResponse AddCustomAuthIdentityResponse
+     * @param request - AddCustomAuthIdentityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddCustomAuthIdentityResponse
+     *
+     * @param AddCustomAuthIdentityRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddCustomAuthIdentityResponse
      */
     public function addCustomAuthIdentityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->secret)) {
-            $body['Secret'] = $request->secret;
+
+        if (null !== $request->secret) {
+            @$body['Secret'] = $request->secret;
         }
-        if (!Utils::isUnset($request->signMode)) {
-            $body['SignMode'] = $request->signMode;
+
+        if (null !== $request->signMode) {
+            @$body['SignMode'] = $request->signMode;
         }
-        if (!Utils::isUnset($request->username)) {
-            $body['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$body['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddCustomAuthIdentity',
@@ -355,11 +386,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Adds the information about identity authentication. The identity can be accurate to a client.
-     *  *
-     * @param AddCustomAuthIdentityRequest $request AddCustomAuthIdentityRequest
+     * Adds the information about identity authentication. The identity can be accurate to a client.
      *
-     * @return AddCustomAuthIdentityResponse AddCustomAuthIdentityResponse
+     * @param request - AddCustomAuthIdentityRequest
+     * @returns AddCustomAuthIdentityResponse
+     *
+     * @param AddCustomAuthIdentityRequest $request
+     *
+     * @return AddCustomAuthIdentityResponse
      */
     public function addCustomAuthIdentity($request)
     {
@@ -369,37 +403,47 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Adds permissions on topics. You must create a level-1 topic in the ApsaraMQ for MQTT console before you call this operation.
-     *  *
-     * @param AddCustomAuthPermissionRequest $request AddCustomAuthPermissionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Grants permissions on topics. You must create a parent topic in the console before you call this API operation.
      *
-     * @return AddCustomAuthPermissionResponse AddCustomAuthPermissionResponse
+     * @param request - AddCustomAuthPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns AddCustomAuthPermissionResponse
+     *
+     * @param AddCustomAuthPermissionRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return AddCustomAuthPermissionResponse
      */
     public function addCustomAuthPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->effect)) {
-            $body['Effect'] = $request->effect;
+        if (null !== $request->effect) {
+            @$body['Effect'] = $request->effect;
         }
-        if (!Utils::isUnset($request->identity)) {
-            $body['Identity'] = $request->identity;
+
+        if (null !== $request->identity) {
+            @$body['Identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->permitAction)) {
-            $body['PermitAction'] = $request->permitAction;
+
+        if (null !== $request->permitAction) {
+            @$body['PermitAction'] = $request->permitAction;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'AddCustomAuthPermission',
@@ -417,11 +461,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Adds permissions on topics. You must create a level-1 topic in the ApsaraMQ for MQTT console before you call this operation.
-     *  *
-     * @param AddCustomAuthPermissionRequest $request AddCustomAuthPermissionRequest
+     * Grants permissions on topics. You must create a parent topic in the console before you call this API operation.
      *
-     * @return AddCustomAuthPermissionResponse AddCustomAuthPermissionResponse
+     * @param request - AddCustomAuthPermissionRequest
+     * @returns AddCustomAuthPermissionResponse
+     *
+     * @param AddCustomAuthPermissionRequest $request
+     *
+     * @return AddCustomAuthPermissionResponse
      */
     public function addCustomAuthPermission($request)
     {
@@ -431,34 +478,43 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Applies for a token from ApsaraMQ for MQTT. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker.
-     *  *
-     * @description *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param ApplyTokenRequest $request ApplyTokenRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Applies for a token from ApsaraMQ for MQTT. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker.
      *
-     * @return ApplyTokenResponse ApplyTokenResponse
+     * @remarks
+     *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - ApplyTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ApplyTokenResponse
+     *
+     * @param ApplyTokenRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ApplyTokenResponse
      */
     public function applyTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->actions)) {
-            $query['Actions'] = $request->actions;
+        if (null !== $request->actions) {
+            @$query['Actions'] = $request->actions;
         }
-        if (!Utils::isUnset($request->expireTime)) {
-            $query['ExpireTime'] = $request->expireTime;
+
+        if (null !== $request->expireTime) {
+            @$query['ExpireTime'] = $request->expireTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->resources)) {
-            $query['Resources'] = $request->resources;
+
+        if (null !== $request->resources) {
+            @$query['Resources'] = $request->resources;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ApplyToken',
@@ -476,14 +532,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Applies for a token from ApsaraMQ for MQTT. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker.
-     *  *
-     * @description *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param ApplyTokenRequest $request ApplyTokenRequest
+     * Applies for a token from ApsaraMQ for MQTT. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker.
      *
-     * @return ApplyTokenResponse ApplyTokenResponse
+     * @remarks
+     *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - ApplyTokenRequest
+     * @returns ApplyTokenResponse
+     *
+     * @param ApplyTokenRequest $request
+     *
+     * @return ApplyTokenResponse
      */
     public function applyToken($request)
     {
@@ -493,29 +553,36 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of multiple ApsaraMQ for MQTT clients by client ID.
-     *  *
-     * @description *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * Queries the status of multiple ApsaraMQ for MQTT clients by client ID.
+     *
+     * @remarks
+     *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
      * *   You can call the **BatchQuerySessionByClientIds** operation to query the status of up to 10 ApsaraMQ for MQTT clients in a single query.
      * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param BatchQuerySessionByClientIdsRequest $request BatchQuerySessionByClientIdsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchQuerySessionByClientIdsResponse BatchQuerySessionByClientIdsResponse
+     * @param request - BatchQuerySessionByClientIdsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns BatchQuerySessionByClientIdsResponse
+     *
+     * @param BatchQuerySessionByClientIdsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return BatchQuerySessionByClientIdsResponse
      */
     public function batchQuerySessionByClientIdsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientIdList)) {
-            $query['ClientIdList'] = $request->clientIdList;
+        if (null !== $request->clientIdList) {
+            @$query['ClientIdList'] = $request->clientIdList;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'BatchQuerySessionByClientIds',
@@ -533,15 +600,19 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of multiple ApsaraMQ for MQTT clients by client ID.
-     *  *
-     * @description *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * Queries the status of multiple ApsaraMQ for MQTT clients by client ID.
+     *
+     * @remarks
+     *   You can call the **BatchQuerySessionByClientIds** operation up to 100 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
      * *   You can call the **BatchQuerySessionByClientIds** operation to query the status of up to 10 ApsaraMQ for MQTT clients in a single query.
      * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param BatchQuerySessionByClientIdsRequest $request BatchQuerySessionByClientIdsRequest
      *
-     * @return BatchQuerySessionByClientIdsResponse BatchQuerySessionByClientIdsResponse
+     * @param request - BatchQuerySessionByClientIdsRequest
+     * @returns BatchQuerySessionByClientIdsResponse
+     *
+     * @param BatchQuerySessionByClientIdsRequest $request
+     *
+     * @return BatchQuerySessionByClientIdsResponse
      */
     public function batchQuerySessionByClientIds($request)
     {
@@ -551,27 +622,34 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Proactively closes an online connection. After you call this API operation, the device may reconnect to the broker based on the client reconnection mechanism.
-     *  *
-     * @description This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
-     *  *
-     * @param CloseConnectionRequest $request CloseConnectionRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Proactively closes an online connection. After you call this API operation, the device may reconnect to the broker based on the client reconnection mechanism.
      *
-     * @return CloseConnectionResponse CloseConnectionResponse
+     * @remarks
+     * This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
+     *
+     * @param request - CloseConnectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CloseConnectionResponse
+     *
+     * @param CloseConnectionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CloseConnectionResponse
      */
     public function closeConnectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CloseConnection',
@@ -589,13 +667,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Proactively closes an online connection. After you call this API operation, the device may reconnect to the broker based on the client reconnection mechanism.
-     *  *
-     * @description This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
-     *  *
-     * @param CloseConnectionRequest $request CloseConnectionRequest
+     * Proactively closes an online connection. After you call this API operation, the device may reconnect to the broker based on the client reconnection mechanism.
      *
-     * @return CloseConnectionResponse CloseConnectionResponse
+     * @remarks
+     * This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
+     *
+     * @param request - CloseConnectionRequest
+     * @returns CloseConnectionResponse
+     *
+     * @param CloseConnectionRequest $request
+     *
+     * @return CloseConnectionResponse
      */
     public function closeConnection($request)
     {
@@ -605,27 +687,34 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Creates a group ID. Before you connect producers and consumers to an ApsaraMQ for MQTT broker to send and receive messages, you must specify a unique ID for each client for identification. A client ID is in the format of \\<GroupID>@@@\\<DeviceID>. In the preceding format, DeviceID is the custom ID that you specify for the client, and GroupID is the ID of the group that you create on the ApsaraMQ for MQTT broker in advance.
-     *  *
-     * @description Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param CreateGroupIdRequest $request CreateGroupIdRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a group ID. Before you connect producers and consumers to an ApsaraMQ for MQTT broker to send and receive messages, you must specify a unique ID for each client for identification. A client ID is in the format of \\<GroupID>@@@\\<DeviceID>. In the preceding format, DeviceID is the custom ID that you specify for the client, and GroupID is the ID of the group that you create on the ApsaraMQ for MQTT broker in advance.
      *
-     * @return CreateGroupIdResponse CreateGroupIdResponse
+     * @remarks
+     * Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - CreateGroupIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateGroupIdResponse
+     *
+     * @param CreateGroupIdRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateGroupIdResponse
      */
     public function createGroupIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateGroupId',
@@ -643,13 +732,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Creates a group ID. Before you connect producers and consumers to an ApsaraMQ for MQTT broker to send and receive messages, you must specify a unique ID for each client for identification. A client ID is in the format of \\<GroupID>@@@\\<DeviceID>. In the preceding format, DeviceID is the custom ID that you specify for the client, and GroupID is the ID of the group that you create on the ApsaraMQ for MQTT broker in advance.
-     *  *
-     * @description Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param CreateGroupIdRequest $request CreateGroupIdRequest
+     * Creates a group ID. Before you connect producers and consumers to an ApsaraMQ for MQTT broker to send and receive messages, you must specify a unique ID for each client for identification. A client ID is in the format of \\<GroupID>@@@\\<DeviceID>. In the preceding format, DeviceID is the custom ID that you specify for the client, and GroupID is the ID of the group that you create on the ApsaraMQ for MQTT broker in advance.
      *
-     * @return CreateGroupIdResponse CreateGroupIdResponse
+     * @remarks
+     * Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - CreateGroupIdRequest
+     * @returns CreateGroupIdResponse
+     *
+     * @param CreateGroupIdRequest $request
+     *
+     * @return CreateGroupIdResponse
      */
     public function createGroupId($request)
     {
@@ -659,30 +752,37 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a certificate authority (CA) certificate from an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you can use a CA certificate, you must register the certificate with an ApsaraMQ for MQTT broker. If you no longer require a CA certificate, you can call this operation to delete the certificate from the ApsaraMQ for MQTT broker.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * Deletes a certificate authority (CA) certificate from an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you can use a CA certificate, you must register the certificate with an ApsaraMQ for MQTT broker. If you no longer require a CA certificate, you can call this operation to delete the certificate from the ApsaraMQ for MQTT broker.
+     *
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      * *   You can call this operation to delete only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
      * *   If you delete a specific CA certificate from an ApsaraMQ for MQTT broker, all device certificates that are issued by the CA certificate and are registered with the ApsaraMQ for MQTT broker are automatically deleted.
-     *  *
-     * @param DeleteCaCertificateRequest $request DeleteCaCertificateRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCaCertificateResponse DeleteCaCertificateResponse
+     * @param request - DeleteCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCaCertificateResponse
+     *
+     * @param DeleteCaCertificateRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DeleteCaCertificateResponse
      */
     public function deleteCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mqttInstanceId)) {
-            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        if (null !== $request->mqttInstanceId) {
+            @$query['MqttInstanceId'] = $request->mqttInstanceId;
         }
-        if (!Utils::isUnset($request->sn)) {
-            $query['Sn'] = $request->sn;
+
+        if (null !== $request->sn) {
+            @$query['Sn'] = $request->sn;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteCaCertificate',
@@ -700,16 +800,20 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a certificate authority (CA) certificate from an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you can use a CA certificate, you must register the certificate with an ApsaraMQ for MQTT broker. If you no longer require a CA certificate, you can call this operation to delete the certificate from the ApsaraMQ for MQTT broker.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * Deletes a certificate authority (CA) certificate from an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you can use a CA certificate, you must register the certificate with an ApsaraMQ for MQTT broker. If you no longer require a CA certificate, you can call this operation to delete the certificate from the ApsaraMQ for MQTT broker.
+     *
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      * *   You can call this operation to delete only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
      * *   If you delete a specific CA certificate from an ApsaraMQ for MQTT broker, all device certificates that are issued by the CA certificate and are registered with the ApsaraMQ for MQTT broker are automatically deleted.
-     *  *
-     * @param DeleteCaCertificateRequest $request DeleteCaCertificateRequest
      *
-     * @return DeleteCaCertificateResponse DeleteCaCertificateResponse
+     * @param request - DeleteCaCertificateRequest
+     * @returns DeleteCaCertificateResponse
+     *
+     * @param DeleteCaCertificateRequest $request
+     *
+     * @return DeleteCaCertificateResponse
      */
     public function deleteCaCertificate($request)
     {
@@ -719,25 +823,31 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a connection blacklist.
-     *  *
-     * @param DeleteCustomAuthConnectBlackRequest $request DeleteCustomAuthConnectBlackRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Deletes a connection blacklist.
      *
-     * @return DeleteCustomAuthConnectBlackResponse DeleteCustomAuthConnectBlackResponse
+     * @param request - DeleteCustomAuthConnectBlackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomAuthConnectBlackResponse
+     *
+     * @param DeleteCustomAuthConnectBlackRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteCustomAuthConnectBlackResponse
      */
     public function deleteCustomAuthConnectBlackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomAuthConnectBlack',
@@ -755,11 +865,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a connection blacklist.
-     *  *
-     * @param DeleteCustomAuthConnectBlackRequest $request DeleteCustomAuthConnectBlackRequest
+     * Deletes a connection blacklist.
      *
-     * @return DeleteCustomAuthConnectBlackResponse DeleteCustomAuthConnectBlackResponse
+     * @param request - DeleteCustomAuthConnectBlackRequest
+     * @returns DeleteCustomAuthConnectBlackResponse
+     *
+     * @param DeleteCustomAuthConnectBlackRequest $request
+     *
+     * @return DeleteCustomAuthConnectBlackResponse
      */
     public function deleteCustomAuthConnectBlack($request)
     {
@@ -769,31 +882,39 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an identity for custom authorization.
-     *  *
-     * @param DeleteCustomAuthIdentityRequest $request DeleteCustomAuthIdentityRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Deletes an identity for custom authorization.
      *
-     * @return DeleteCustomAuthIdentityResponse DeleteCustomAuthIdentityResponse
+     * @param request - DeleteCustomAuthIdentityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomAuthIdentityResponse
+     *
+     * @param DeleteCustomAuthIdentityRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCustomAuthIdentityResponse
      */
     public function deleteCustomAuthIdentityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->username)) {
-            $body['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$body['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomAuthIdentity',
@@ -811,11 +932,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an identity for custom authorization.
-     *  *
-     * @param DeleteCustomAuthIdentityRequest $request DeleteCustomAuthIdentityRequest
+     * Deletes an identity for custom authorization.
      *
-     * @return DeleteCustomAuthIdentityResponse DeleteCustomAuthIdentityResponse
+     * @param request - DeleteCustomAuthIdentityRequest
+     * @returns DeleteCustomAuthIdentityResponse
+     *
+     * @param DeleteCustomAuthIdentityRequest $request
+     *
+     * @return DeleteCustomAuthIdentityResponse
      */
     public function deleteCustomAuthIdentity($request)
     {
@@ -825,31 +949,39 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes permissions on a topic.
-     *  *
-     * @param DeleteCustomAuthPermissionRequest $request DeleteCustomAuthPermissionRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deletes permissions on a topic.
      *
-     * @return DeleteCustomAuthPermissionResponse DeleteCustomAuthPermissionResponse
+     * @param request - DeleteCustomAuthPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteCustomAuthPermissionResponse
+     *
+     * @param DeleteCustomAuthPermissionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteCustomAuthPermissionResponse
      */
     public function deleteCustomAuthPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->identity)) {
-            $body['Identity'] = $request->identity;
+        if (null !== $request->identity) {
+            @$body['Identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'DeleteCustomAuthPermission',
@@ -867,11 +999,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes permissions on a topic.
-     *  *
-     * @param DeleteCustomAuthPermissionRequest $request DeleteCustomAuthPermissionRequest
+     * Deletes permissions on a topic.
      *
-     * @return DeleteCustomAuthPermissionResponse DeleteCustomAuthPermissionResponse
+     * @param request - DeleteCustomAuthPermissionRequest
+     * @returns DeleteCustomAuthPermissionResponse
+     *
+     * @param DeleteCustomAuthPermissionRequest $request
+     *
+     * @return DeleteCustomAuthPermissionResponse
      */
     public function deleteCustomAuthPermission($request)
     {
@@ -881,31 +1016,39 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the registration information about a specific device certificate from an ApsaraMQ for MQTT broker. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client. If you no longer require a device certificate, you can call this operation to delete the registration information about the certificate from an ApsaraMQ for MQTT broker.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
-     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *  *
-     * @param DeleteDeviceCertificateRequest $request DeleteDeviceCertificateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Deletes the registration information about a specific device certificate from an ApsaraMQ for MQTT broker. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client. If you no longer require a device certificate, you can call this operation to delete the registration information about the certificate from an ApsaraMQ for MQTT broker.
      *
-     * @return DeleteDeviceCertificateResponse DeleteDeviceCertificateResponse
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *
+     * @param request - DeleteDeviceCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDeviceCertificateResponse
+     *
+     * @param DeleteDeviceCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteDeviceCertificateResponse
      */
     public function deleteDeviceCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->caSn)) {
-            $query['CaSn'] = $request->caSn;
+        if (null !== $request->caSn) {
+            @$query['CaSn'] = $request->caSn;
         }
-        if (!Utils::isUnset($request->deviceSn)) {
-            $query['DeviceSn'] = $request->deviceSn;
+
+        if (null !== $request->deviceSn) {
+            @$query['DeviceSn'] = $request->deviceSn;
         }
-        if (!Utils::isUnset($request->mqttInstanceId)) {
-            $query['MqttInstanceId'] = $request->mqttInstanceId;
+
+        if (null !== $request->mqttInstanceId) {
+            @$query['MqttInstanceId'] = $request->mqttInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDeviceCertificate',
@@ -923,14 +1066,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes the registration information about a specific device certificate from an ApsaraMQ for MQTT broker. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client. If you no longer require a device certificate, you can call this operation to delete the registration information about the certificate from an ApsaraMQ for MQTT broker.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
-     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *  *
-     * @param DeleteDeviceCertificateRequest $request DeleteDeviceCertificateRequest
+     * Deletes the registration information about a specific device certificate from an ApsaraMQ for MQTT broker. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client. If you no longer require a device certificate, you can call this operation to delete the registration information about the certificate from an ApsaraMQ for MQTT broker.
      *
-     * @return DeleteDeviceCertificateResponse DeleteDeviceCertificateResponse
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *
+     * @param request - DeleteDeviceCertificateRequest
+     * @returns DeleteDeviceCertificateResponse
+     *
+     * @param DeleteDeviceCertificateRequest $request
+     *
+     * @return DeleteDeviceCertificateResponse
      */
     public function deleteDeviceCertificate($request)
     {
@@ -940,27 +1087,34 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a group from an ApsaraMQ for MQTT instance.
-     *  *
-     * @description Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param DeleteGroupIdRequest $request DeleteGroupIdRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Deletes a group from an ApsaraMQ for MQTT instance.
      *
-     * @return DeleteGroupIdResponse DeleteGroupIdResponse
+     * @remarks
+     * Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - DeleteGroupIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteGroupIdResponse
+     *
+     * @param DeleteGroupIdRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteGroupIdResponse
      */
     public function deleteGroupIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteGroupId',
@@ -978,13 +1132,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a group from an ApsaraMQ for MQTT instance.
-     *  *
-     * @description Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param DeleteGroupIdRequest $request DeleteGroupIdRequest
+     * Deletes a group from an ApsaraMQ for MQTT instance.
      *
-     * @return DeleteGroupIdResponse DeleteGroupIdResponse
+     * @remarks
+     * Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - DeleteGroupIdRequest
+     * @returns DeleteGroupIdResponse
+     *
+     * @param DeleteGroupIdRequest $request
+     *
+     * @return DeleteGroupIdResponse
      */
     public function deleteGroupId($request)
     {
@@ -994,22 +1152,23 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
-     *  *
-     * @description - 仅铂金版和专业版实例支持使用GetCaCertificate接口。
-     * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
-     *  *
-     * @param GetCaCertificateRequest $request GetCaCertificateRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
      *
-     * @return GetCaCertificateResponse GetCaCertificateResponse
+     * @param request - GetCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetCaCertificateResponse
+     *
+     * @param GetCaCertificateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetCaCertificateResponse
      */
     public function getCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetCaCertificate',
@@ -1027,14 +1186,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
-     *  *
-     * @description - 仅铂金版和专业版实例支持使用GetCaCertificate接口。
-     * - 单用户请求频率限制为500次/秒。如有特殊需求，请联系云消息队列 MQTT 版技术支持，钉钉群号：35228338。
-     *  *
-     * @param GetCaCertificateRequest $request GetCaCertificateRequest
+     * Queries the details of a certificate authority (CA) certificate, such as the content and status of the certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
      *
-     * @return GetCaCertificateResponse GetCaCertificateResponse
+     * @param request - GetCaCertificateRequest
+     * @returns GetCaCertificateResponse
+     *
+     * @param GetCaCertificateRequest $request
+     *
+     * @return GetCaCertificateResponse
      */
     public function getCaCertificate($request)
     {
@@ -1044,21 +1203,26 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
-     *  *
-     * @description - Only Platinum edition instances support the use of the GetDeviceCertificate interface. - The request frequency limit per user is 500 requests/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param GetDeviceCertificateRequest $request GetDeviceCertificateRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
      *
-     * @return GetDeviceCertificateResponse GetDeviceCertificateResponse
+     * @remarks
+     * - Only Platinum edition instances support the use of the GetDeviceCertificate interface. - The request frequency limit per user is 500 requests/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
+     *
+     * @param request - GetDeviceCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeviceCertificateResponse
+     *
+     * @param GetDeviceCertificateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetDeviceCertificateResponse
      */
     public function getDeviceCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDeviceCertificate',
@@ -1076,13 +1240,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
-     *  *
-     * @description - Only Platinum edition instances support the use of the GetDeviceCertificate interface. - The request frequency limit per user is 500 requests/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param GetDeviceCertificateRequest $request GetDeviceCertificateRequest
+     * Queries the details of a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
      *
-     * @return GetDeviceCertificateResponse GetDeviceCertificateResponse
+     * @remarks
+     * - Only Platinum edition instances support the use of the GetDeviceCertificate interface. - The request frequency limit per user is 500 requests/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
+     *
+     * @param request - GetDeviceCertificateRequest
+     * @returns GetDeviceCertificateResponse
+     *
+     * @param GetDeviceCertificateRequest $request
+     *
+     * @return GetDeviceCertificateResponse
      */
     public function getDeviceCertificate($request)
     {
@@ -1092,28 +1260,35 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the access credential of a device. If unique-certificate-per-device authentication is used as the authentication method on an ApsaraMQ for MQTT broker, an access credential that you apply for in advance is required for authentication when you connect your device to the broker. The connection can be established only after the authentication is passed.
-     *  *
-     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param GetDeviceCredentialRequest $request GetDeviceCredentialRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Queries the access credential of a device. If unique-certificate-per-device authentication is used as the authentication method on an ApsaraMQ for MQTT broker, an access credential that you apply for in advance is required for authentication when you connect your device to the broker. The connection can be established only after the authentication is passed.
      *
-     * @return GetDeviceCredentialResponse GetDeviceCredentialResponse
+     * @remarks
+     *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - GetDeviceCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDeviceCredentialResponse
+     *
+     * @param GetDeviceCredentialRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDeviceCredentialResponse
      */
     public function getDeviceCredentialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDeviceCredential',
@@ -1131,14 +1306,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the access credential of a device. If unique-certificate-per-device authentication is used as the authentication method on an ApsaraMQ for MQTT broker, an access credential that you apply for in advance is required for authentication when you connect your device to the broker. The connection can be established only after the authentication is passed.
-     *  *
-     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param GetDeviceCredentialRequest $request GetDeviceCredentialRequest
+     * Queries the access credential of a device. If unique-certificate-per-device authentication is used as the authentication method on an ApsaraMQ for MQTT broker, an access credential that you apply for in advance is required for authentication when you connect your device to the broker. The connection can be established only after the authentication is passed.
      *
-     * @return GetDeviceCredentialResponse GetDeviceCredentialResponse
+     * @remarks
+     *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - GetDeviceCredentialRequest
+     * @returns GetDeviceCredentialResponse
+     *
+     * @param GetDeviceCredentialRequest $request
+     *
+     * @return GetDeviceCredentialResponse
      */
     public function getDeviceCredential($request)
     {
@@ -1148,22 +1327,27 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the registration code of a specific certificate authority (CA) certificate. When you register a CA certificate with an ApsaraMQ for MQTT broker, you must upload the validation certificate of the CA certificate to verify whether you have the private key of the CA certificate. The validation certificate of a CA certificate must be generated by using the registration code of the CA certificate.
-     *  *
-     * @description *   This API operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
-     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *  *
-     * @param GetRegisterCodeRequest $request GetRegisterCodeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Obtains the registration code of a specific certificate authority (CA) certificate. When you register a CA certificate with an ApsaraMQ for MQTT broker, you must upload the validation certificate of the CA certificate to verify whether you have the private key of the CA certificate. The validation certificate of a CA certificate must be generated by using the registration code of the CA certificate.
      *
-     * @return GetRegisterCodeResponse GetRegisterCodeResponse
+     * @remarks
+     *   This API operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *
+     * @param request - GetRegisterCodeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetRegisterCodeResponse
+     *
+     * @param GetRegisterCodeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetRegisterCodeResponse
      */
     public function getRegisterCodeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetRegisterCode',
@@ -1181,14 +1365,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the registration code of a specific certificate authority (CA) certificate. When you register a CA certificate with an ApsaraMQ for MQTT broker, you must upload the validation certificate of the CA certificate to verify whether you have the private key of the CA certificate. The validation certificate of a CA certificate must be generated by using the registration code of the CA certificate.
-     *  *
-     * @description *   This API operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
-     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *  *
-     * @param GetRegisterCodeRequest $request GetRegisterCodeRequest
+     * Obtains the registration code of a specific certificate authority (CA) certificate. When you register a CA certificate with an ApsaraMQ for MQTT broker, you must upload the validation certificate of the CA certificate to verify whether you have the private key of the CA certificate. The validation certificate of a CA certificate must be generated by using the registration code of the CA certificate.
      *
-     * @return GetRegisterCodeResponse GetRegisterCodeResponse
+     * @remarks
+     *   This API operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *
+     * @param request - GetRegisterCodeRequest
+     * @returns GetRegisterCodeResponse
+     *
+     * @param GetRegisterCodeRequest $request
+     *
+     * @return GetRegisterCodeResponse
      */
     public function getRegisterCode($request)
     {
@@ -1198,29 +1386,36 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deregister a certificate authority (CA) certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. If you no longer require a CA certificate, you can call this operation to deregister the certificate. If you want to continue using a deregistered CA certificate, you can call the ActiveCaCertificate operation to reactivate the certificate.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * Deregister a certificate authority (CA) certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. If you no longer require a CA certificate, you can call this operation to deregister the certificate. If you want to continue using a deregistered CA certificate, you can call the ActiveCaCertificate operation to reactivate the certificate.
+     *
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      * *   You can call this operation to deregister only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
-     *  *
-     * @param InactivateCaCertificateRequest $request InactivateCaCertificateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return InactivateCaCertificateResponse InactivateCaCertificateResponse
+     * @param request - InactivateCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InactivateCaCertificateResponse
+     *
+     * @param InactivateCaCertificateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return InactivateCaCertificateResponse
      */
     public function inactivateCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->mqttInstanceId)) {
-            $query['MqttInstanceId'] = $request->mqttInstanceId;
+        if (null !== $request->mqttInstanceId) {
+            @$query['MqttInstanceId'] = $request->mqttInstanceId;
         }
-        if (!Utils::isUnset($request->sn)) {
-            $query['Sn'] = $request->sn;
+
+        if (null !== $request->sn) {
+            @$query['Sn'] = $request->sn;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InactivateCaCertificate',
@@ -1238,15 +1433,19 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deregister a certificate authority (CA) certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. If you no longer require a CA certificate, you can call this operation to deregister the certificate. If you want to continue using a deregistered CA certificate, you can call the ActiveCaCertificate operation to reactivate the certificate.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * Deregister a certificate authority (CA) certificate. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. If you no longer require a CA certificate, you can call this operation to deregister the certificate. If you want to continue using a deregistered CA certificate, you can call the ActiveCaCertificate operation to reactivate the certificate.
+     *
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
      * *   You can call this operation to deregister only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/436768.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
-     *  *
-     * @param InactivateCaCertificateRequest $request InactivateCaCertificateRequest
      *
-     * @return InactivateCaCertificateResponse InactivateCaCertificateResponse
+     * @param request - InactivateCaCertificateRequest
+     * @returns InactivateCaCertificateResponse
+     *
+     * @param InactivateCaCertificateRequest $request
+     *
+     * @return InactivateCaCertificateResponse
      */
     public function inactivateCaCertificate($request)
     {
@@ -1256,31 +1455,39 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deregisters a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
-     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *  *
-     * @param InactivateDeviceCertificateRequest $request InactivateDeviceCertificateRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Deregisters a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
      *
-     * @return InactivateDeviceCertificateResponse InactivateDeviceCertificateResponse
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *
+     * @param request - InactivateDeviceCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns InactivateDeviceCertificateResponse
+     *
+     * @param InactivateDeviceCertificateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return InactivateDeviceCertificateResponse
      */
     public function inactivateDeviceCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->caSn)) {
-            $query['CaSn'] = $request->caSn;
+        if (null !== $request->caSn) {
+            @$query['CaSn'] = $request->caSn;
         }
-        if (!Utils::isUnset($request->deviceSn)) {
-            $query['DeviceSn'] = $request->deviceSn;
+
+        if (null !== $request->deviceSn) {
+            @$query['DeviceSn'] = $request->deviceSn;
         }
-        if (!Utils::isUnset($request->mqttInstanceId)) {
-            $query['MqttInstanceId'] = $request->mqttInstanceId;
+
+        if (null !== $request->mqttInstanceId) {
+            @$query['MqttInstanceId'] = $request->mqttInstanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'InactivateDeviceCertificate',
@@ -1298,14 +1505,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deregisters a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
-     *  *
-     * @description *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
-     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     *  *
-     * @param InactivateDeviceCertificateRequest $request InactivateDeviceCertificateRequest
+     * Deregisters a device certificate. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
      *
-     * @return InactivateDeviceCertificateResponse InactivateDeviceCertificateResponse
+     * @remarks
+     *   This operation is supported only by ApsaraMQ for MQTT Enterprise Platinum Edition and Professional Edition instances.
+     * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     *
+     * @param request - InactivateDeviceCertificateRequest
+     * @returns InactivateDeviceCertificateResponse
+     *
+     * @param InactivateDeviceCertificateRequest $request
+     *
+     * @return InactivateDeviceCertificateResponse
      */
     public function inactivateDeviceCertificate($request)
     {
@@ -1315,21 +1526,26 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries all certificate authority (CA) certificates that are registered with an ApsaraMQ for MQTT instance. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
-     *  *
-     * @description - Only Platinum and Professional instances support using the ListCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact the Micro Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param ListCaCertificateRequest $request ListCaCertificateRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Queries all certificate authority (CA) certificates that are registered with an ApsaraMQ for MQTT instance. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
      *
-     * @return ListCaCertificateResponse ListCaCertificateResponse
+     * @remarks
+     * - Only Platinum and Professional instances support using the ListCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact the Micro Message Queue MQTT version technical support, DingTalk group number: 35228338.
+     *
+     * @param request - ListCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListCaCertificateResponse
+     *
+     * @param ListCaCertificateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCaCertificateResponse
      */
     public function listCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListCaCertificate',
@@ -1347,13 +1563,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries all certificate authority (CA) certificates that are registered with an ApsaraMQ for MQTT instance. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
-     *  *
-     * @description - Only Platinum and Professional instances support using the ListCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact the Micro Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param ListCaCertificateRequest $request ListCaCertificateRequest
+     * Queries all certificate authority (CA) certificates that are registered with an ApsaraMQ for MQTT instance. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates.
      *
-     * @return ListCaCertificateResponse ListCaCertificateResponse
+     * @remarks
+     * - Only Platinum and Professional instances support using the ListCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact the Micro Message Queue MQTT version technical support, DingTalk group number: 35228338.
+     *
+     * @param request - ListCaCertificateRequest
+     * @returns ListCaCertificateResponse
+     *
+     * @param ListCaCertificateRequest $request
+     *
+     * @return ListCaCertificateResponse
      */
     public function listCaCertificate($request)
     {
@@ -1363,21 +1583,26 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries all device certificates that are registered with an ApsaraMQ for MQTT instance. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
-     *  *
-     * @description - Only Platinum and Professional instances support using the ListDeviceCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param ListDeviceCertificateRequest $request ListDeviceCertificateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries all device certificates that are registered with an ApsaraMQ for MQTT instance. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
      *
-     * @return ListDeviceCertificateResponse ListDeviceCertificateResponse
+     * @remarks
+     * - Only Platinum and Professional instances support using the ListDeviceCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
+     *
+     * @param request - ListDeviceCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeviceCertificateResponse
+     *
+     * @param ListDeviceCertificateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDeviceCertificateResponse
      */
     public function listDeviceCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeviceCertificate',
@@ -1395,13 +1620,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries all device certificates that are registered with an ApsaraMQ for MQTT instance. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
-     *  *
-     * @description - Only Platinum and Professional instances support using the ListDeviceCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param ListDeviceCertificateRequest $request ListDeviceCertificateRequest
+     * Queries all device certificates that are registered with an ApsaraMQ for MQTT instance. Device certificates are digital certificates issued to clients by certificate authority (CA) root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
      *
-     * @return ListDeviceCertificateResponse ListDeviceCertificateResponse
+     * @remarks
+     * - Only Platinum and Professional instances support using the ListDeviceCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
+     *
+     * @param request - ListDeviceCertificateRequest
+     * @returns ListDeviceCertificateResponse
+     *
+     * @param ListDeviceCertificateRequest $request
+     *
+     * @return ListDeviceCertificateResponse
      */
     public function listDeviceCertificate($request)
     {
@@ -1411,21 +1640,26 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries all device certificates that are issued by a certificate authority (CA) certificate and registered with ApsaraMQ for MQTT brokers. Device certificates are digital certificates issued to clients by CA root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
-     *  *
-     * @description - Only Platinum and Professional edition instances support using the ListDeviceCertificateByCaSn interface. - The request frequency limit for a single user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param ListDeviceCertificateByCaSnRequest $request ListDeviceCertificateByCaSnRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries all device certificates that are issued by a certificate authority (CA) certificate and registered with ApsaraMQ for MQTT brokers. Device certificates are digital certificates issued to clients by CA root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
      *
-     * @return ListDeviceCertificateByCaSnResponse ListDeviceCertificateByCaSnResponse
+     * @remarks
+     * - Only Platinum and Professional edition instances support using the ListDeviceCertificateByCaSn interface. - The request frequency limit for a single user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
+     *
+     * @param request - ListDeviceCertificateByCaSnRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeviceCertificateByCaSnResponse
+     *
+     * @param ListDeviceCertificateByCaSnRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListDeviceCertificateByCaSnResponse
      */
     public function listDeviceCertificateByCaSnWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeviceCertificateByCaSn',
@@ -1443,13 +1677,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries all device certificates that are issued by a certificate authority (CA) certificate and registered with ApsaraMQ for MQTT brokers. Device certificates are digital certificates issued to clients by CA root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
-     *  *
-     * @description - Only Platinum and Professional edition instances support using the ListDeviceCertificateByCaSn interface. - The request frequency limit for a single user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param ListDeviceCertificateByCaSnRequest $request ListDeviceCertificateByCaSnRequest
+     * Queries all device certificates that are issued by a certificate authority (CA) certificate and registered with ApsaraMQ for MQTT brokers. Device certificates are digital certificates issued to clients by CA root certificates. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, the broker uses the device certificate to authenticate the client. If the client passes the authentication, the client and the broker can communicate with each other based on the encrypted private key in the device certificate. If the client fails the authentication, access requests from the client are denied by the client.
      *
-     * @return ListDeviceCertificateByCaSnResponse ListDeviceCertificateByCaSnResponse
+     * @remarks
+     * - Only Platinum and Professional edition instances support using the ListDeviceCertificateByCaSn interface. - The request frequency limit for a single user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
+     *
+     * @param request - ListDeviceCertificateByCaSnRequest
+     * @returns ListDeviceCertificateByCaSnResponse
+     *
+     * @param ListDeviceCertificateByCaSnRequest $request
+     *
+     * @return ListDeviceCertificateByCaSnResponse
      */
     public function listDeviceCertificateByCaSn($request)
     {
@@ -1459,34 +1697,43 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
-     *  *
-     * @param ListDeviceCredentialClientIdRequest $request ListDeviceCredentialClientIdRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
      *
-     * @return ListDeviceCredentialClientIdResponse ListDeviceCredentialClientIdResponse
+     * @param request - ListDeviceCredentialClientIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDeviceCredentialClientIdResponse
+     *
+     * @param ListDeviceCredentialClientIdRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListDeviceCredentialClientIdResponse
      */
     public function listDeviceCredentialClientIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
+        if (null !== $request->groupId) {
+            @$query['GroupId'] = $request->groupId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDeviceCredentialClientId',
@@ -1504,11 +1751,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
-     *  *
-     * @param ListDeviceCredentialClientIdRequest $request ListDeviceCredentialClientIdRequest
+     * Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
      *
-     * @return ListDeviceCredentialClientIdResponse ListDeviceCredentialClientIdResponse
+     * @param request - ListDeviceCredentialClientIdRequest
+     * @returns ListDeviceCredentialClientIdResponse
+     *
+     * @param ListDeviceCredentialClientIdRequest $request
+     *
+     * @return ListDeviceCredentialClientIdResponse
      */
     public function listDeviceCredentialClientId($request)
     {
@@ -1518,24 +1768,30 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries all groups on an ApsaraMQ for MQTT instance.
-     *  *
-     * @description Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param ListGroupIdRequest $request ListGroupIdRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries all groups on an ApsaraMQ for MQTT instance.
      *
-     * @return ListGroupIdResponse ListGroupIdResponse
+     * @remarks
+     * Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - ListGroupIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListGroupIdResponse
+     *
+     * @param ListGroupIdRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListGroupIdResponse
      */
     public function listGroupIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListGroupId',
@@ -1553,13 +1809,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries all groups on an ApsaraMQ for MQTT instance.
-     *  *
-     * @description Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param ListGroupIdRequest $request ListGroupIdRequest
+     * Queries all groups on an ApsaraMQ for MQTT instance.
      *
-     * @return ListGroupIdResponse ListGroupIdResponse
+     * @remarks
+     * Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - ListGroupIdRequest
+     * @returns ListGroupIdResponse
+     *
+     * @param ListGroupIdRequest $request
+     *
+     * @return ListGroupIdResponse
      */
     public function listGroupId($request)
     {
@@ -1569,31 +1829,39 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 查询标签
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询标签.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -1611,11 +1879,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 查询标签
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * 查询标签.
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1625,19 +1896,23 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries a client ID in a connection blacklist.
-     *  *
-     * @param QueryCustomAuthConnectBlackRequest $request QueryCustomAuthConnectBlackRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * Queries a client ID in a connection blacklist.
      *
-     * @return QueryCustomAuthConnectBlackResponse QueryCustomAuthConnectBlackResponse
+     * @param request - QueryCustomAuthConnectBlackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryCustomAuthConnectBlackResponse
+     *
+     * @param QueryCustomAuthConnectBlackRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return QueryCustomAuthConnectBlackResponse
      */
     public function queryCustomAuthConnectBlackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryCustomAuthConnectBlack',
@@ -1655,11 +1930,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries a client ID in a connection blacklist.
-     *  *
-     * @param QueryCustomAuthConnectBlackRequest $request QueryCustomAuthConnectBlackRequest
+     * Queries a client ID in a connection blacklist.
      *
-     * @return QueryCustomAuthConnectBlackResponse QueryCustomAuthConnectBlackResponse
+     * @param request - QueryCustomAuthConnectBlackRequest
+     * @returns QueryCustomAuthConnectBlackResponse
+     *
+     * @param QueryCustomAuthConnectBlackRequest $request
+     *
+     * @return QueryCustomAuthConnectBlackResponse
      */
     public function queryCustomAuthConnectBlack($request)
     {
@@ -1669,19 +1947,23 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about custom identity authentication.
-     *  *
-     * @param QueryCustomAuthIdentityRequest $request QueryCustomAuthIdentityRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Queries the information about custom identity authentication.
      *
-     * @return QueryCustomAuthIdentityResponse QueryCustomAuthIdentityResponse
+     * @param request - QueryCustomAuthIdentityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryCustomAuthIdentityResponse
+     *
+     * @param QueryCustomAuthIdentityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryCustomAuthIdentityResponse
      */
     public function queryCustomAuthIdentityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryCustomAuthIdentity',
@@ -1699,11 +1981,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about custom identity authentication.
-     *  *
-     * @param QueryCustomAuthIdentityRequest $request QueryCustomAuthIdentityRequest
+     * Queries the information about custom identity authentication.
      *
-     * @return QueryCustomAuthIdentityResponse QueryCustomAuthIdentityResponse
+     * @param request - QueryCustomAuthIdentityRequest
+     * @returns QueryCustomAuthIdentityResponse
+     *
+     * @param QueryCustomAuthIdentityRequest $request
+     *
+     * @return QueryCustomAuthIdentityResponse
      */
     public function queryCustomAuthIdentity($request)
     {
@@ -1713,19 +1998,23 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the authorization information about a topic.
-     *  *
-     * @param QueryCustomAuthPermissionRequest $request QueryCustomAuthPermissionRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Queries the authorization information about a topic.
      *
-     * @return QueryCustomAuthPermissionResponse QueryCustomAuthPermissionResponse
+     * @param request - QueryCustomAuthPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryCustomAuthPermissionResponse
+     *
+     * @param QueryCustomAuthPermissionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryCustomAuthPermissionResponse
      */
     public function queryCustomAuthPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryCustomAuthPermission',
@@ -1743,11 +2032,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the authorization information about a topic.
-     *  *
-     * @param QueryCustomAuthPermissionRequest $request QueryCustomAuthPermissionRequest
+     * Queries the authorization information about a topic.
      *
-     * @return QueryCustomAuthPermissionResponse QueryCustomAuthPermissionResponse
+     * @param request - QueryCustomAuthPermissionRequest
+     * @returns QueryCustomAuthPermissionResponse
+     *
+     * @param QueryCustomAuthPermissionRequest $request
+     *
+     * @return QueryCustomAuthPermissionResponse
      */
     public function queryCustomAuthPermission($request)
     {
@@ -1757,46 +2049,59 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the trace of a device that corresponds to an ApsaraMQ for MQTT client by page. When the status of a device is abnormal, you can call this operation to query the connection history of the device. This helps you efficiently troubleshoot issues.
-     *  *
-     * @description *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     *  *
-     * @param QueryMqttTraceDeviceRequest $request QueryMqttTraceDeviceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the trace of a device that corresponds to an ApsaraMQ for MQTT client by page. When the status of a device is abnormal, you can call this operation to query the connection history of the device. This helps you efficiently troubleshoot issues.
      *
-     * @return QueryMqttTraceDeviceResponse QueryMqttTraceDeviceResponse
+     * @remarks
+     *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *
+     * @param request - QueryMqttTraceDeviceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryMqttTraceDeviceResponse
+     *
+     * @param QueryMqttTraceDeviceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryMqttTraceDeviceResponse
      */
     public function queryMqttTraceDeviceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mqttRegionId)) {
-            $query['MqttRegionId'] = $request->mqttRegionId;
+
+        if (null !== $request->mqttRegionId) {
+            @$query['MqttRegionId'] = $request->mqttRegionId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reverse)) {
-            $query['Reverse'] = $request->reverse;
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryMqttTraceDevice',
@@ -1814,14 +2119,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the trace of a device that corresponds to an ApsaraMQ for MQTT client by page. When the status of a device is abnormal, you can call this operation to query the connection history of the device. This helps you efficiently troubleshoot issues.
-     *  *
-     * @description *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     *  *
-     * @param QueryMqttTraceDeviceRequest $request QueryMqttTraceDeviceRequest
+     * Queries the trace of a device that corresponds to an ApsaraMQ for MQTT client by page. When the status of a device is abnormal, you can call this operation to query the connection history of the device. This helps you efficiently troubleshoot issues.
      *
-     * @return QueryMqttTraceDeviceResponse QueryMqttTraceDeviceResponse
+     * @remarks
+     *   Each successful call to the **QueryMqttTraceDevice** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *
+     * @param request - QueryMqttTraceDeviceRequest
+     * @returns QueryMqttTraceDeviceResponse
+     *
+     * @param QueryMqttTraceDeviceRequest $request
+     *
+     * @return QueryMqttTraceDeviceResponse
      */
     public function queryMqttTraceDevice($request)
     {
@@ -1831,46 +2140,59 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries messages on a device within a specific period of time. If a message is not sent or received as expected, you can call this operation to query the messaging status of the message to efficiently troubleshoot issues.
-     *  *
-     * @description *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     *  *
-     * @param QueryMqttTraceMessageOfClientRequest $request QueryMqttTraceMessageOfClientRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries messages on a device within a specific period of time. If a message is not sent or received as expected, you can call this operation to query the messaging status of the message to efficiently troubleshoot issues.
      *
-     * @return QueryMqttTraceMessageOfClientResponse QueryMqttTraceMessageOfClientResponse
+     * @remarks
+     *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *
+     * @param request - QueryMqttTraceMessageOfClientRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryMqttTraceMessageOfClientResponse
+     *
+     * @param QueryMqttTraceMessageOfClientRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return QueryMqttTraceMessageOfClientResponse
      */
     public function queryMqttTraceMessageOfClientWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mqttRegionId)) {
-            $query['MqttRegionId'] = $request->mqttRegionId;
+
+        if (null !== $request->mqttRegionId) {
+            @$query['MqttRegionId'] = $request->mqttRegionId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reverse)) {
-            $query['Reverse'] = $request->reverse;
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryMqttTraceMessageOfClient',
@@ -1888,14 +2210,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries messages on a device within a specific period of time. If a message is not sent or received as expected, you can call this operation to query the messaging status of the message to efficiently troubleshoot issues.
-     *  *
-     * @description *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     *  *
-     * @param QueryMqttTraceMessageOfClientRequest $request QueryMqttTraceMessageOfClientRequest
+     * Queries messages on a device within a specific period of time. If a message is not sent or received as expected, you can call this operation to query the messaging status of the message to efficiently troubleshoot issues.
      *
-     * @return QueryMqttTraceMessageOfClientResponse QueryMqttTraceMessageOfClientResponse
+     * @remarks
+     *   Each successful call to the **QueryMqttTraceMessageOfClient** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *
+     * @param request - QueryMqttTraceMessageOfClientRequest
+     * @returns QueryMqttTraceMessageOfClientResponse
+     *
+     * @param QueryMqttTraceMessageOfClientRequest $request
+     *
+     * @return QueryMqttTraceMessageOfClientResponse
      */
     public function queryMqttTraceMessageOfClient($request)
     {
@@ -1905,37 +2231,47 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the trace of a message. If a message is not sent or received as expected, you can call this operation to view the message details to troubleshoot the issue. For example, you can query the time when the message is published and the client that publishes the message.
-     *  *
-     * @description *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     *  *
-     * @param QueryMqttTraceMessagePublishRequest $request QueryMqttTraceMessagePublishRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the trace of a message. If a message is not sent or received as expected, you can call this operation to view the message details to troubleshoot the issue. For example, you can query the time when the message is published and the client that publishes the message.
      *
-     * @return QueryMqttTraceMessagePublishResponse QueryMqttTraceMessagePublishResponse
+     * @remarks
+     *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *
+     * @param request - QueryMqttTraceMessagePublishRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryMqttTraceMessagePublishResponse
+     *
+     * @param QueryMqttTraceMessagePublishRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return QueryMqttTraceMessagePublishResponse
      */
     public function queryMqttTraceMessagePublishWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mqttRegionId)) {
-            $query['MqttRegionId'] = $request->mqttRegionId;
+
+        if (null !== $request->mqttRegionId) {
+            @$query['MqttRegionId'] = $request->mqttRegionId;
         }
-        if (!Utils::isUnset($request->msgId)) {
-            $query['MsgId'] = $request->msgId;
+
+        if (null !== $request->msgId) {
+            @$query['MsgId'] = $request->msgId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryMqttTraceMessagePublish',
@@ -1953,14 +2289,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the trace of a message. If a message is not sent or received as expected, you can call this operation to view the message details to troubleshoot the issue. For example, you can query the time when the message is published and the client that publishes the message.
-     *  *
-     * @description *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     *  *
-     * @param QueryMqttTraceMessagePublishRequest $request QueryMqttTraceMessagePublishRequest
+     * Queries the trace of a message. If a message is not sent or received as expected, you can call this operation to view the message details to troubleshoot the issue. For example, you can query the time when the message is published and the client that publishes the message.
      *
-     * @return QueryMqttTraceMessagePublishResponse QueryMqttTraceMessagePublishResponse
+     * @remarks
+     *   Each successful call to the **QueryMqttTraceMessagePublish** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *
+     * @param request - QueryMqttTraceMessagePublishRequest
+     * @returns QueryMqttTraceMessagePublishResponse
+     *
+     * @param QueryMqttTraceMessagePublishRequest $request
+     *
+     * @return QueryMqttTraceMessagePublishResponse
      */
     public function queryMqttTraceMessagePublish($request)
     {
@@ -1970,49 +2310,63 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the delivery trace of a message. If a message is not sent or received as expected, you can call this operation to view the details about the message. For example, you can query the clients that subscribe to the message and the time when the message is delivered. This operation helps you locate the problem and identify the cause of the problem.
-     *  *
-     * @description *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     *  *
-     * @param QueryMqttTraceMessageSubscribeRequest $request QueryMqttTraceMessageSubscribeRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the delivery trace of a message. If a message is not sent or received as expected, you can call this operation to view the details about the message. For example, you can query the clients that subscribe to the message and the time when the message is delivered. This operation helps you locate the problem and identify the cause of the problem.
      *
-     * @return QueryMqttTraceMessageSubscribeResponse QueryMqttTraceMessageSubscribeResponse
+     * @remarks
+     *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *
+     * @param request - QueryMqttTraceMessageSubscribeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryMqttTraceMessageSubscribeResponse
+     *
+     * @param QueryMqttTraceMessageSubscribeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryMqttTraceMessageSubscribeResponse
      */
     public function queryMqttTraceMessageSubscribeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->beginTime)) {
-            $query['BeginTime'] = $request->beginTime;
+        if (null !== $request->beginTime) {
+            @$query['BeginTime'] = $request->beginTime;
         }
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
+
+        if (null !== $request->currentPage) {
+            @$query['CurrentPage'] = $request->currentPage;
         }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mqttRegionId)) {
-            $query['MqttRegionId'] = $request->mqttRegionId;
+
+        if (null !== $request->mqttRegionId) {
+            @$query['MqttRegionId'] = $request->mqttRegionId;
         }
-        if (!Utils::isUnset($request->msgId)) {
-            $query['MsgId'] = $request->msgId;
+
+        if (null !== $request->msgId) {
+            @$query['MsgId'] = $request->msgId;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->reverse)) {
-            $query['Reverse'] = $request->reverse;
+
+        if (null !== $request->reverse) {
+            @$query['Reverse'] = $request->reverse;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryMqttTraceMessageSubscribe',
@@ -2030,14 +2384,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the delivery trace of a message. If a message is not sent or received as expected, you can call this operation to view the details about the message. For example, you can query the clients that subscribe to the message and the time when the message is delivered. This operation helps you locate the problem and identify the cause of the problem.
-     *  *
-     * @description *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     *  *
-     * @param QueryMqttTraceMessageSubscribeRequest $request QueryMqttTraceMessageSubscribeRequest
+     * Queries the delivery trace of a message. If a message is not sent or received as expected, you can call this operation to view the details about the message. For example, you can query the clients that subscribe to the message and the time when the message is delivered. This operation helps you locate the problem and identify the cause of the problem.
      *
-     * @return QueryMqttTraceMessageSubscribeResponse QueryMqttTraceMessageSubscribeResponse
+     * @remarks
+     *   Each successful call to the **QueryMqttTraceMessageSubscribe** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     *
+     * @param request - QueryMqttTraceMessageSubscribeRequest
+     * @returns QueryMqttTraceMessageSubscribeResponse
+     *
+     * @param QueryMqttTraceMessageSubscribeRequest $request
+     *
+     * @return QueryMqttTraceMessageSubscribeResponse
      */
     public function queryMqttTraceMessageSubscribe($request)
     {
@@ -2047,28 +2405,35 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the running status of an ApsaraMQ for MQTT client. You can troubleshoot issues based on the queried results. You can enter the ID of an ApsaraMQ for MQTT client to check the connection status and IP address of the device.
-     *  *
-     * @description *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param QuerySessionByClientIdRequest $request QuerySessionByClientIdRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the running status of an ApsaraMQ for MQTT client. You can troubleshoot issues based on the queried results. You can enter the ID of an ApsaraMQ for MQTT client to check the connection status and IP address of the device.
      *
-     * @return QuerySessionByClientIdResponse QuerySessionByClientIdResponse
+     * @remarks
+     *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - QuerySessionByClientIdRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QuerySessionByClientIdResponse
+     *
+     * @param QuerySessionByClientIdRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QuerySessionByClientIdResponse
      */
     public function querySessionByClientIdWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QuerySessionByClientId',
@@ -2086,14 +2451,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the running status of an ApsaraMQ for MQTT client. You can troubleshoot issues based on the queried results. You can enter the ID of an ApsaraMQ for MQTT client to check the connection status and IP address of the device.
-     *  *
-     * @description *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param QuerySessionByClientIdRequest $request QuerySessionByClientIdRequest
+     * Queries the running status of an ApsaraMQ for MQTT client. You can troubleshoot issues based on the queried results. You can enter the ID of an ApsaraMQ for MQTT client to check the connection status and IP address of the device.
      *
-     * @return QuerySessionByClientIdResponse QuerySessionByClientIdResponse
+     * @remarks
+     *   You can call this operation up to 500 times per second.**** For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - QuerySessionByClientIdRequest
+     * @returns QuerySessionByClientIdResponse
+     *
+     * @param QuerySessionByClientIdRequest $request
+     *
+     * @return QuerySessionByClientIdResponse
      */
     public function querySessionByClientId($request)
     {
@@ -2103,28 +2472,35 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of a token. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker. A token is a temporary credential and is valid only within a specific period of time. You can call this operation to query whether a token expires.
-     *  *
-     * @description *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param QueryTokenRequest $request QueryTokenRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries the status of a token. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker. A token is a temporary credential and is valid only within a specific period of time. You can call this operation to query whether a token expires.
      *
-     * @return QueryTokenResponse QueryTokenResponse
+     * @remarks
+     *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - QueryTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns QueryTokenResponse
+     *
+     * @param QueryTokenRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return QueryTokenResponse
      */
     public function queryTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'QueryToken',
@@ -2142,14 +2518,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Queries the status of a token. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker. A token is a temporary credential and is valid only within a specific period of time. You can call this operation to query whether a token expires.
-     *  *
-     * @description *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param QueryTokenRequest $request QueryTokenRequest
+     * Queries the status of a token. If token-based authentication is used for permission authentication on an ApsaraMQ for MQTT broker, a token that is issued by the broker is required for authentication each time a client is connected to the broker. A token is a temporary credential and is valid only within a specific period of time. You can call this operation to query whether a token expires.
      *
-     * @return QueryTokenResponse QueryTokenResponse
+     * @remarks
+     *   You can call this operation up to 100 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - QueryTokenRequest
+     * @returns QueryTokenResponse
+     *
+     * @param QueryTokenRequest $request
+     *
+     * @return QueryTokenResponse
      */
     public function queryToken($request)
     {
@@ -2159,29 +2539,36 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Updates the access credential of a device.
-     *  *
-     * @description ## [](#)Limits
+     * Updates the access credential of a device.
+     *
+     * @remarks
+     * ## [](#)Limits
      * You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
      * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param RefreshDeviceCredentialRequest $request RefreshDeviceCredentialRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RefreshDeviceCredentialResponse RefreshDeviceCredentialResponse
+     * @param request - RefreshDeviceCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RefreshDeviceCredentialResponse
+     *
+     * @param RefreshDeviceCredentialRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RefreshDeviceCredentialResponse
      */
     public function refreshDeviceCredentialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RefreshDeviceCredential',
@@ -2199,15 +2586,19 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Updates the access credential of a device.
-     *  *
-     * @description ## [](#)Limits
+     * Updates the access credential of a device.
+     *
+     * @remarks
+     * ## [](#)Limits
      * You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
      * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param RefreshDeviceCredentialRequest $request RefreshDeviceCredentialRequest
      *
-     * @return RefreshDeviceCredentialResponse RefreshDeviceCredentialResponse
+     * @param request - RefreshDeviceCredentialRequest
+     * @returns RefreshDeviceCredentialResponse
+     *
+     * @param RefreshDeviceCredentialRequest $request
+     *
+     * @return RefreshDeviceCredentialResponse
      */
     public function refreshDeviceCredential($request)
     {
@@ -2217,33 +2608,42 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
-     *  *
-     * @description - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param RegisterCaCertificateRequest $request RegisterCaCertificateRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * RegisterCaCertificate.
      *
-     * @return RegisterCaCertificateResponse RegisterCaCertificateResponse
+     * @remarks
+     * Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
+     *
+     * @param request - RegisterCaCertificateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterCaCertificateResponse
+     *
+     * @param RegisterCaCertificateRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RegisterCaCertificateResponse
      */
     public function registerCaCertificateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->caContent)) {
-            $query['CaContent'] = $request->caContent;
+        if (null !== $request->caContent) {
+            @$query['CaContent'] = $request->caContent;
         }
-        if (!Utils::isUnset($request->caName)) {
-            $query['CaName'] = $request->caName;
+
+        if (null !== $request->caName) {
+            @$query['CaName'] = $request->caName;
         }
-        if (!Utils::isUnset($request->mqttInstanceId)) {
-            $query['MqttInstanceId'] = $request->mqttInstanceId;
+
+        if (null !== $request->mqttInstanceId) {
+            @$query['MqttInstanceId'] = $request->mqttInstanceId;
         }
-        if (!Utils::isUnset($request->verificationContent)) {
-            $query['VerificationContent'] = $request->verificationContent;
+
+        if (null !== $request->verificationContent) {
+            @$query['VerificationContent'] = $request->verificationContent;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterCaCertificate',
@@ -2261,13 +2661,17 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
-     *  *
-     * @description - Only Platinum and Professional instances support using the RegisterCaCertificate interface. - The request frequency limit per user is 500 times/second. For special requirements, please contact Cloud Message Queue MQTT version technical support, DingTalk group number: 35228338.
-     *  *
-     * @param RegisterCaCertificateRequest $request RegisterCaCertificateRequest
+     * RegisterCaCertificate.
      *
-     * @return RegisterCaCertificateResponse RegisterCaCertificateResponse
+     * @remarks
+     * Registers a certificate authority (CA) certificate with an ApsaraMQ for MQTT broker. ApsaraMQ for MQTT allows you to use X.509 certificates for authentication. When you connect an ApsaraMQ for MQTT client to an ApsaraMQ for MQTT broker, you can use the device certificate to implement authentication. CA certificates are used to issue device certificates to clients and validate the device certificates. Before you use a device certificate to authenticate an ApsaraMQ for MQTT client, you must register the CA certificate for which you apply with the ApsaraMQ for MQTT broker.
+     *
+     * @param request - RegisterCaCertificateRequest
+     * @returns RegisterCaCertificateResponse
+     *
+     * @param RegisterCaCertificateRequest $request
+     *
+     * @return RegisterCaCertificateResponse
      */
     public function registerCaCertificate($request)
     {
@@ -2277,28 +2681,35 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Registers an access credential for a device. In unique-certificate-per-device authentication mode, an application server applies a unique access credential for each device from the corresponding ApsaraMQ for MQTT broker. The access credential of a device consists of the client ID, AccessKey ID, and AccessKey secret of the device. When you connect a device to ApsaraMQ for MQTT, you must configure Username and Password based on the access credential of the device for authentication. You can activate the device and transfer data between the device and ApsaraMQ for MQTT only after the authentication is passed.
-     *  *
-     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param RegisterDeviceCredentialRequest $request RegisterDeviceCredentialRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Registers an access credential for a device. In unique-certificate-per-device authentication mode, an application server applies a unique access credential for each device from the corresponding ApsaraMQ for MQTT broker. The access credential of a device consists of the client ID, AccessKey ID, and AccessKey secret of the device. When you connect a device to ApsaraMQ for MQTT, you must configure Username and Password based on the access credential of the device for authentication. You can activate the device and transfer data between the device and ApsaraMQ for MQTT only after the authentication is passed.
      *
-     * @return RegisterDeviceCredentialResponse RegisterDeviceCredentialResponse
+     * @remarks
+     *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - RegisterDeviceCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterDeviceCredentialResponse
+     *
+     * @param RegisterDeviceCredentialRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RegisterDeviceCredentialResponse
      */
     public function registerDeviceCredentialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RegisterDeviceCredential',
@@ -2316,14 +2727,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Registers an access credential for a device. In unique-certificate-per-device authentication mode, an application server applies a unique access credential for each device from the corresponding ApsaraMQ for MQTT broker. The access credential of a device consists of the client ID, AccessKey ID, and AccessKey secret of the device. When you connect a device to ApsaraMQ for MQTT, you must configure Username and Password based on the access credential of the device for authentication. You can activate the device and transfer data between the device and ApsaraMQ for MQTT only after the authentication is passed.
-     *  *
-     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param RegisterDeviceCredentialRequest $request RegisterDeviceCredentialRequest
+     * Registers an access credential for a device. In unique-certificate-per-device authentication mode, an application server applies a unique access credential for each device from the corresponding ApsaraMQ for MQTT broker. The access credential of a device consists of the client ID, AccessKey ID, and AccessKey secret of the device. When you connect a device to ApsaraMQ for MQTT, you must configure Username and Password based on the access credential of the device for authentication. You can activate the device and transfer data between the device and ApsaraMQ for MQTT only after the authentication is passed.
      *
-     * @return RegisterDeviceCredentialResponse RegisterDeviceCredentialResponse
+     * @remarks
+     *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - RegisterDeviceCredentialRequest
+     * @returns RegisterDeviceCredentialResponse
+     *
+     * @param RegisterDeviceCredentialRequest $request
+     *
+     * @return RegisterDeviceCredentialResponse
      */
     public function registerDeviceCredential($request)
     {
@@ -2333,28 +2748,35 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Revokes a token.
-     *  *
-     * @description *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param RevokeTokenRequest $request RevokeTokenRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Revokes a token.
      *
-     * @return RevokeTokenResponse RevokeTokenResponse
+     * @remarks
+     *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - RevokeTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RevokeTokenResponse
+     *
+     * @param RevokeTokenRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return RevokeTokenResponse
      */
     public function revokeTokenWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->token)) {
-            $query['Token'] = $request->token;
+
+        if (null !== $request->token) {
+            @$query['Token'] = $request->token;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'RevokeToken',
@@ -2372,14 +2794,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Revokes a token.
-     *  *
-     * @description *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
-     * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param RevokeTokenRequest $request RevokeTokenRequest
+     * Revokes a token.
      *
-     * @return RevokeTokenResponse RevokeTokenResponse
+     * @remarks
+     *   You can call this operation up to 5 times per second per account. If you want to increase the limit, join the DingTalk group 35228338 to contact ApsaraMQ for MQTT technical support.
+     * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - RevokeTokenRequest
+     * @returns RevokeTokenResponse
+     *
+     * @param RevokeTokenRequest $request
+     *
+     * @return RevokeTokenResponse
      */
     public function revokeToken($request)
     {
@@ -2389,33 +2815,40 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Sends a single message from an application on a cloud server to ApsaraMQ for MQTT.
-     *  *
-     * @description *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
-     * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
-     * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](https://help.aliyun.com/document_detail/174527.html). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param SendMessageRequest $request SendMessageRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Sends a single message from an application on a cloud server to ApsaraMQ for MQTT.
      *
-     * @return SendMessageResponse SendMessageResponse
+     * @remarks
+     *   The **SendMessage** operation is called by an application on a cloud server. This operation is complementary to the operation that is called to send a message from an ApsaraMQ for MQTT client. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
+     * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT broker to forward messages to ApsaraMQ for RocketMQ, use [an SDK to send the messages](https://help.aliyun.com/document_detail/174527.html). The **SendMessage** operation supports up to 1,000 queries per second (QPS). For more information, see [QPS limits](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **SendMessage** operation is calculated as a message transaction per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - SendMessageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SendMessageResponse
+     *
+     * @param SendMessageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendMessageResponse
      */
     public function sendMessageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->mqttTopic)) {
-            $query['MqttTopic'] = $request->mqttTopic;
+
+        if (null !== $request->mqttTopic) {
+            @$query['MqttTopic'] = $request->mqttTopic;
         }
-        if (!Utils::isUnset($request->payload)) {
-            $query['Payload'] = $request->payload;
+
+        if (null !== $request->payload) {
+            @$query['Payload'] = $request->payload;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SendMessage',
@@ -2433,16 +2866,19 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Sends a single message from an application on a cloud server to ApsaraMQ for MQTT.
-     *  *
-     * @description *   The **SendMessage** operation is called by applications on cloud servers. It is complementary to the operation that is called by ApsaraMQ for MQTT clients to send messages. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
-     * *   Before you call the **SendMessage** operation, make sure that the kernel version of your ApsaraMQ for MQTT instance is 3.3.0 or later. You can obtain the information about the kernel version on the [Instance Details](https://mqtt.console.aliyun.com) page that corresponds to the instance in the **ApsaraMQ for MQTT console**.
-     * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT to forward messages to ApsaraMQ for RocketMQ, send the messages by using an SDK. For more information, see [Export data from ApsaraMQ for MQTT to other Alibaba Cloud services](https://help.aliyun.com/document_detail/174527.html). You can call the **SendMessage** operation up to 1,000 times per second. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **SendMessage** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For information about the billing details, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param SendMessageRequest $request SendMessageRequest
+     * Sends a single message from an application on a cloud server to ApsaraMQ for MQTT.
      *
-     * @return SendMessageResponse SendMessageResponse
+     * @remarks
+     *   The **SendMessage** operation is called by an application on a cloud server. This operation is complementary to the operation that is called to send a message from an ApsaraMQ for MQTT client. For information about the differences between the scenarios of sending messages from applications on cloud servers and the scenarios of sending messages from ApsaraMQ for MQTT clients, see [Developer guide](https://help.aliyun.com/document_detail/179160.html).
+     * *   Messages that are sent by calling the **SendMessage** operation cannot be forwarded to ApsaraMQ for RocketMQ. If you want to use an ApsaraMQ for MQTT broker to forward messages to ApsaraMQ for RocketMQ, use [an SDK to send the messages](https://help.aliyun.com/document_detail/174527.html). The **SendMessage** operation supports up to 1,000 queries per second (QPS). For more information, see [QPS limits](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **SendMessage** operation is calculated as a message transaction per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - SendMessageRequest
+     * @returns SendMessageResponse
+     *
+     * @param SendMessageRequest $request
+     *
+     * @return SendMessageResponse
      */
     public function sendMessage($request)
     {
@@ -2452,28 +2888,35 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 配置多域名证书
-     *  *
-     * @param SetSniConfigRequest $request SetSniConfigRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Configures a multi-domain certificate.
      *
-     * @return SetSniConfigResponse SetSniConfigResponse
+     * @param request - SetSniConfigRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetSniConfigResponse
+     *
+     * @param SetSniConfigRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return SetSniConfigResponse
      */
     public function setSniConfigWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defaultCertificate)) {
-            $query['DefaultCertificate'] = $request->defaultCertificate;
+        if (null !== $request->defaultCertificate) {
+            @$query['DefaultCertificate'] = $request->defaultCertificate;
         }
-        if (!Utils::isUnset($request->mqttInstanceId)) {
-            $query['MqttInstanceId'] = $request->mqttInstanceId;
+
+        if (null !== $request->mqttInstanceId) {
+            @$query['MqttInstanceId'] = $request->mqttInstanceId;
         }
-        if (!Utils::isUnset($request->sniConfig)) {
-            $query['SniConfig'] = $request->sniConfig;
+
+        if (null !== $request->sniConfig) {
+            @$query['SniConfig'] = $request->sniConfig;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetSniConfig',
@@ -2491,11 +2934,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 配置多域名证书
-     *  *
-     * @param SetSniConfigRequest $request SetSniConfigRequest
+     * Configures a multi-domain certificate.
      *
-     * @return SetSniConfigResponse SetSniConfigResponse
+     * @param request - SetSniConfigRequest
+     * @returns SetSniConfigResponse
+     *
+     * @param SetSniConfigRequest $request
+     *
+     * @return SetSniConfigResponse
      */
     public function setSniConfig($request)
     {
@@ -2505,28 +2951,35 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 新增tag
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 新增tag.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -2544,11 +2997,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 新增tag
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * 新增tag.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -2558,28 +3014,35 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
-     *  *
-     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param UnRegisterDeviceCredentialRequest $request UnRegisterDeviceCredentialRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
      *
-     * @return UnRegisterDeviceCredentialResponse UnRegisterDeviceCredentialResponse
+     * @remarks
+     *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - UnRegisterDeviceCredentialRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UnRegisterDeviceCredentialResponse
+     *
+     * @param UnRegisterDeviceCredentialRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UnRegisterDeviceCredentialResponse
      */
     public function unRegisterDeviceCredentialWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$query['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UnRegisterDeviceCredential',
@@ -2597,14 +3060,18 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
-     *  *
-     * @description *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
-     * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
-     *  *
-     * @param UnRegisterDeviceCredentialRequest $request UnRegisterDeviceCredentialRequest
+     * Deregisters the access credential of a device. After the access credential of a device is deregistered, you can no longer use the access credential to authenticate the device on the ApsaraMQ for MQTT broker.
      *
-     * @return UnRegisterDeviceCredentialResponse UnRegisterDeviceCredentialResponse
+     * @remarks
+     *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
+     * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
+     *
+     * @param request - UnRegisterDeviceCredentialRequest
+     * @returns UnRegisterDeviceCredentialResponse
+     *
+     * @param UnRegisterDeviceCredentialRequest $request
+     *
+     * @return UnRegisterDeviceCredentialResponse
      */
     public function unRegisterDeviceCredential($request)
     {
@@ -2614,31 +3081,39 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 删除标签.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -2656,11 +3131,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary 删除标签
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * 删除标签.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -2670,37 +3148,47 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about custom identity authentication.
-     *  *
-     * @param UpdateCustomAuthIdentityRequest $request UpdateCustomAuthIdentityRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Updates the information about custom identity authentication.
      *
-     * @return UpdateCustomAuthIdentityResponse UpdateCustomAuthIdentityResponse
+     * @param request - UpdateCustomAuthIdentityRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCustomAuthIdentityResponse
+     *
+     * @param UpdateCustomAuthIdentityRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateCustomAuthIdentityResponse
      */
     public function updateCustomAuthIdentityWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $body['ClientId'] = $request->clientId;
+        if (null !== $request->clientId) {
+            @$body['ClientId'] = $request->clientId;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->secret)) {
-            $body['Secret'] = $request->secret;
+
+        if (null !== $request->secret) {
+            @$body['Secret'] = $request->secret;
         }
-        if (!Utils::isUnset($request->signMode)) {
-            $body['SignMode'] = $request->signMode;
+
+        if (null !== $request->signMode) {
+            @$body['SignMode'] = $request->signMode;
         }
-        if (!Utils::isUnset($request->username)) {
-            $body['Username'] = $request->username;
+
+        if (null !== $request->username) {
+            @$body['Username'] = $request->username;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCustomAuthIdentity',
@@ -2718,11 +3206,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Updates the information about custom identity authentication.
-     *  *
-     * @param UpdateCustomAuthIdentityRequest $request UpdateCustomAuthIdentityRequest
+     * Updates the information about custom identity authentication.
      *
-     * @return UpdateCustomAuthIdentityResponse UpdateCustomAuthIdentityResponse
+     * @param request - UpdateCustomAuthIdentityRequest
+     * @returns UpdateCustomAuthIdentityResponse
+     *
+     * @param UpdateCustomAuthIdentityRequest $request
+     *
+     * @return UpdateCustomAuthIdentityResponse
      */
     public function updateCustomAuthIdentity($request)
     {
@@ -2732,37 +3223,47 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Updates the permissions on a topic.
-     *  *
-     * @param UpdateCustomAuthPermissionRequest $request UpdateCustomAuthPermissionRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * Updates the permissions on a topic.
      *
-     * @return UpdateCustomAuthPermissionResponse UpdateCustomAuthPermissionResponse
+     * @param request - UpdateCustomAuthPermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateCustomAuthPermissionResponse
+     *
+     * @param UpdateCustomAuthPermissionRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdateCustomAuthPermissionResponse
      */
     public function updateCustomAuthPermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->effect)) {
-            $body['Effect'] = $request->effect;
+        if (null !== $request->effect) {
+            @$body['Effect'] = $request->effect;
         }
-        if (!Utils::isUnset($request->identity)) {
-            $body['Identity'] = $request->identity;
+
+        if (null !== $request->identity) {
+            @$body['Identity'] = $request->identity;
         }
-        if (!Utils::isUnset($request->identityType)) {
-            $body['IdentityType'] = $request->identityType;
+
+        if (null !== $request->identityType) {
+            @$body['IdentityType'] = $request->identityType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $body['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$body['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->permitAction)) {
-            $body['PermitAction'] = $request->permitAction;
+
+        if (null !== $request->permitAction) {
+            @$body['PermitAction'] = $request->permitAction;
         }
-        if (!Utils::isUnset($request->topic)) {
-            $body['Topic'] = $request->topic;
+
+        if (null !== $request->topic) {
+            @$body['Topic'] = $request->topic;
         }
+
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateCustomAuthPermission',
@@ -2780,11 +3281,14 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * @summary Updates the permissions on a topic.
-     *  *
-     * @param UpdateCustomAuthPermissionRequest $request UpdateCustomAuthPermissionRequest
+     * Updates the permissions on a topic.
      *
-     * @return UpdateCustomAuthPermissionResponse UpdateCustomAuthPermissionResponse
+     * @param request - UpdateCustomAuthPermissionRequest
+     * @returns UpdateCustomAuthPermissionResponse
+     *
+     * @param UpdateCustomAuthPermissionRequest $request
+     *
+     * @return UpdateCustomAuthPermissionResponse
      */
     public function updateCustomAuthPermission($request)
     {

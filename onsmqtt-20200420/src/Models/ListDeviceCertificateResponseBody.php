@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListDeviceCertificateResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class ListDeviceCertificateResponseBody extends Model
 {
     /**
-     * @description Query result.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description Public parameters, each request ID is unique and can be used for troubleshooting and problem localization.
-     *
-     * @example 020F6A43-19E6-4B6E-B846-44EB31DF****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class ListDeviceCertificateResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class ListDeviceCertificateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDeviceCertificateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

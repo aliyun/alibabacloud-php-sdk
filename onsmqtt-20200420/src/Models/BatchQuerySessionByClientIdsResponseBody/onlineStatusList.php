@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models\BatchQuerySessionByClientIdsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class onlineStatusList extends Model
 {
     /**
-     * @description The ID of the ApsaraMQ for MQTT client. For more information about client IDs, see [Terms](https://help.aliyun.com/document_detail/42420.html).
-     *
-     * @example GID_test@0001
-     *
      * @var string
      */
     public $clientId;
-
     /**
-     * @description Indicates whether the ApsaraMQ for MQTT client is online. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $onlineStatus;
@@ -35,14 +23,16 @@ class onlineStatusList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientId) {
             $res['ClientId'] = $this->clientId;
         }
+
         if (null !== $this->onlineStatus) {
             $res['OnlineStatus'] = $this->onlineStatus;
         }
@@ -50,17 +40,18 @@ class onlineStatusList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return onlineStatusList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientId'])) {
             $model->clientId = $map['ClientId'];
         }
+
         if (isset($map['OnlineStatus'])) {
             $model->onlineStatus = $map['OnlineStatus'];
         }

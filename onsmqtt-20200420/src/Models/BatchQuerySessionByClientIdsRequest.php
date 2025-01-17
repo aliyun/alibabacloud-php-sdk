@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchQuerySessionByClientIdsRequest extends Model
 {
     /**
-     * @description The ApsaraMQ for MQTT clients.
-     *
-     * This parameter is required.
-     * @example ClientIdList.1
-     *
      * @var string[]
      */
     public $clientIdList;
-
     /**
-     * @description The ID of the ApsaraMQ for MQTT instance. The ID must be consistent with the ID of the instance that the ApsaraMQ for MQTT client uses. You can obtain the instance ID on the **Instance Details** page that corresponds to the instance in the [ApsaraMQ for MQTT console](https://mqtt.console.aliyun.com).
-     *
-     * This parameter is required.
-     * @example post-cn-0pp12gl****
-     *
      * @var string
      */
     public $instanceId;
@@ -34,14 +23,25 @@ class BatchQuerySessionByClientIdsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->clientIdList)) {
+            Model::validateArray($this->clientIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientIdList) {
-            $res['ClientIdList'] = $this->clientIdList;
+            if (\is_array($this->clientIdList)) {
+                $res['ClientIdList'] = [];
+                $n1                  = 0;
+                foreach ($this->clientIdList as $item1) {
+                    $res['ClientIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,19 +49,24 @@ class BatchQuerySessionByClientIdsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchQuerySessionByClientIdsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientIdList'])) {
             if (!empty($map['ClientIdList'])) {
-                $model->clientIdList = $map['ClientIdList'];
+                $model->clientIdList = [];
+                $n1                  = 0;
+                foreach ($map['ClientIdList'] as $item1) {
+                    $model->clientIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OnsMqtt\V20200420\Models\QueryMqttTraceMessagePublishResponseBody\messageTraceLists;
-use AlibabaCloud\Tea\Model;
 
 class QueryMqttTraceMessagePublishResponseBody extends Model
 {
     /**
-     * @description The message traces.
-     *
      * @var messageTraceLists[]
      */
     public $messageTraceLists;
-
     /**
-     * @description The request ID. You can use the ID to troubleshoot issues. This parameter is a common parameter.
-     *
-     * @example 69AD5550-BF22-438A-9202-A6E89185****
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->messageTraceLists)) {
+            Model::validateArray($this->messageTraceLists);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->messageTraceLists) {
-            $res['MessageTraceLists'] = [];
-            if (null !== $this->messageTraceLists && \is_array($this->messageTraceLists)) {
-                $n = 0;
-                foreach ($this->messageTraceLists as $item) {
-                    $res['MessageTraceLists'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->messageTraceLists)) {
+                $res['MessageTraceLists'] = [];
+                $n1                       = 0;
+                foreach ($this->messageTraceLists as $item1) {
+                    $res['MessageTraceLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryMqttTraceMessagePublishResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MessageTraceLists'])) {
             if (!empty($map['MessageTraceLists'])) {
                 $model->messageTraceLists = [];
-                $n                        = 0;
-                foreach ($map['MessageTraceLists'] as $item) {
-                    $model->messageTraceLists[$n++] = null !== $item ? messageTraceLists::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['MessageTraceLists'] as $item1) {
+                    $model->messageTraceLists[$n1++] = messageTraceLists::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
