@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatResponseBody\payload\output\hotTopicSummaries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class news extends Model
 {
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $title;
-
     /**
-     * @example http://xxx
-     *
      * @var string
      */
     public $url;
@@ -28,14 +23,16 @@ class news extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -43,17 +40,18 @@ class news extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return news
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

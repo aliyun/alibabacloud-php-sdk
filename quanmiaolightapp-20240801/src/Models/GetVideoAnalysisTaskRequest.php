@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVideoAnalysisTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example a3d1c2ac-f086-4a21-9069-f5631542f5a2
-     *
      * @var string
      */
     public $taskId;
@@ -22,9 +18,10 @@ class GetVideoAnalysisTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -34,11 +31,11 @@ class GetVideoAnalysisTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVideoAnalysisTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicChatRequest\stepForBroadcastContentConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customHotValueWeights extends Model
 {
     /**
-     * @example comments
-     *
      * @var string
      */
     public $dimension;
-
     /**
-     * @example 1
-     *
      * @var int
      */
     public $weight;
@@ -28,14 +23,16 @@ class customHotValueWeights extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimension) {
             $res['dimension'] = $this->dimension;
         }
+
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -43,17 +40,18 @@ class customHotValueWeights extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customHotValueWeights
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dimension'])) {
             $model->dimension = $map['dimension'];
         }
+
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

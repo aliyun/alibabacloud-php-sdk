@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GenerateBroadcastNewsRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $prompt;
@@ -20,9 +18,10 @@ class GenerateBroadcastNewsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prompt) {
@@ -32,11 +31,11 @@ class GenerateBroadcastNewsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateBroadcastNewsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

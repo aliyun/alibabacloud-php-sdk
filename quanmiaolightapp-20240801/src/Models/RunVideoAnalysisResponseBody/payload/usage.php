@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class usage extends Model
 {
@@ -12,12 +12,10 @@ class usage extends Model
      * @var int
      */
     public $inputTokens;
-
     /**
      * @var int
      */
     public $outputTokens;
-
     /**
      * @var int
      */
@@ -30,17 +28,20 @@ class usage extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputTokens) {
             $res['inputTokens'] = $this->inputTokens;
         }
+
         if (null !== $this->outputTokens) {
             $res['outputTokens'] = $this->outputTokens;
         }
+
         if (null !== $this->totalTokens) {
             $res['totalTokens'] = $this->totalTokens;
         }
@@ -48,20 +49,22 @@ class usage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['inputTokens'])) {
             $model->inputTokens = $map['inputTokens'];
         }
+
         if (isset($map['outputTokens'])) {
             $model->outputTokens = $map['outputTokens'];
         }
+
         if (isset($map['totalTokens'])) {
             $model->totalTokens = $map['totalTokens'];
         }

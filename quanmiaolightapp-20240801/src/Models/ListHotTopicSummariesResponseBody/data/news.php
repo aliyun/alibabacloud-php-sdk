@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\ListHotTopicSummariesResponseBody\data\news\comments;
-use AlibabaCloud\Tea\Model;
 
 class news extends Model
 {
@@ -13,33 +13,19 @@ class news extends Model
      * @var comments[]
      */
     public $comments;
-
     /**
-     * @example xx
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @example 2024-09-10 15:32:00
-     *
      * @var string
      */
     public $pubTime;
-
     /**
-     * @example xx
-     *
      * @var string
      */
     public $title;
-
     /**
-     * @description url
-     *
-     * @example http://xxx
-     *
      * @var string
      */
     public $url;
@@ -53,29 +39,37 @@ class news extends Model
 
     public function validate()
     {
+        if (\is_array($this->comments)) {
+            Model::validateArray($this->comments);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comments) {
-            $res['comments'] = [];
-            if (null !== $this->comments && \is_array($this->comments)) {
-                $n = 0;
-                foreach ($this->comments as $item) {
-                    $res['comments'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->comments)) {
+                $res['comments'] = [];
+                $n1              = 0;
+                foreach ($this->comments as $item1) {
+                    $res['comments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->pubTime) {
             $res['pubTime'] = $this->pubTime;
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -83,32 +77,36 @@ class news extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return news
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['comments'])) {
             if (!empty($map['comments'])) {
                 $model->comments = [];
-                $n               = 0;
-                foreach ($map['comments'] as $item) {
-                    $model->comments[$n++] = null !== $item ? comments::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['comments'] as $item1) {
+                    $model->comments[$n1++] = comments::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['pubTime'])) {
             $model->pubTime = $map['pubTime'];
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }
