@@ -22,10 +22,16 @@ class analysisResp extends Model
     /**
      * @var string
      */
+    public $dialogSop;
+
+    /**
+     * @var string
+     */
     public $dialogSummary;
     protected $_name = [
         'dialogExecPlan' => 'dialogExecPlan',
         'dialogLabels'   => 'dialogLabels',
+        'dialogSop'      => 'dialogSop',
         'dialogSummary'  => 'dialogSummary',
     ];
 
@@ -47,6 +53,9 @@ class analysisResp extends Model
                     $res['dialogLabels'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dialogSop) {
+            $res['dialogSop'] = $this->dialogSop;
         }
         if (null !== $this->dialogSummary) {
             $res['dialogSummary'] = $this->dialogSummary;
@@ -74,6 +83,9 @@ class analysisResp extends Model
                     $model->dialogLabels[$n++] = null !== $item ? dialogLabels::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['dialogSop'])) {
+            $model->dialogSop = $map['dialogSop'];
         }
         if (isset($map['dialogSummary'])) {
             $model->dialogSummary = $map['dialogSummary'];
