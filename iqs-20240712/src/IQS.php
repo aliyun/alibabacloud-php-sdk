@@ -14,8 +14,6 @@ use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\DrivingDirectionNovaResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionNovaRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionNovaResponse;
-use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionRequest;
-use AlibabaCloud\SDK\IQS\V20240712\Models\ElectrobikeDirectionResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\GeoCodeRequest;
 use AlibabaCloud\SDK\IQS\V20240712\Models\GeoCodeResponse;
 use AlibabaCloud\SDK\IQS\V20240712\Models\NearbySearchNovaRequest;
@@ -235,65 +233,6 @@ class IQS extends OpenApiClient
         $headers = [];
 
         return $this->drivingDirectionNovaWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @summary 根据起终点坐标检索符合条件的电动车路线规划方案
-     *  *
-     * @param ElectrobikeDirectionRequest $request ElectrobikeDirectionRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
-     *
-     * @return ElectrobikeDirectionResponse ElectrobikeDirectionResponse
-     */
-    public function electrobikeDirectionWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->destinationLatitude)) {
-            $query['destinationLatitude'] = $request->destinationLatitude;
-        }
-        if (!Utils::isUnset($request->destinationLongitude)) {
-            $query['destinationLongitude'] = $request->destinationLongitude;
-        }
-        if (!Utils::isUnset($request->originLatitude)) {
-            $query['originLatitude'] = $request->originLatitude;
-        }
-        if (!Utils::isUnset($request->originLongitude)) {
-            $query['originLongitude'] = $request->originLongitude;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ElectrobikeDirection',
-            'version'     => '2024-07-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ipaas/v1/direction/electrobike',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ElectrobikeDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @summary 根据起终点坐标检索符合条件的电动车路线规划方案
-     *  *
-     * @param ElectrobikeDirectionRequest $request ElectrobikeDirectionRequest
-     *
-     * @return ElectrobikeDirectionResponse ElectrobikeDirectionResponse
-     */
-    public function electrobikeDirection($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->electrobikeDirectionWithOptions($request, $headers, $runtime);
     }
 
     /**

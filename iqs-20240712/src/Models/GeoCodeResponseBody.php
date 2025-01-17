@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GeoCodeResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @var data[]
      */
     public $data;
@@ -31,6 +36,11 @@ class GeoCodeResponseBody extends Model
     /**
      * @var string
      */
+    public $message;
+
+    /**
+     * @var string
+     */
     public $requestId;
 
     /**
@@ -40,9 +50,11 @@ class GeoCodeResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'code'         => 'code',
         'data'         => 'data',
         'errorCode'    => 'errorCode',
         'errorMessage' => 'errorMessage',
+        'message'      => 'message',
         'requestId'    => 'requestId',
         'success'      => 'success',
     ];
@@ -54,6 +66,9 @@ class GeoCodeResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
         if (null !== $this->data) {
             $res['data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -68,6 +83,9 @@ class GeoCodeResponseBody extends Model
         }
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
@@ -87,6 +105,9 @@ class GeoCodeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
         if (isset($map['data'])) {
             if (!empty($map['data'])) {
                 $model->data = [];
@@ -101,6 +122,9 @@ class GeoCodeResponseBody extends Model
         }
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
+        }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
