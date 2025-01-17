@@ -4,41 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsSecurityEventSummaryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class assets extends Model
 {
     /**
-     * @description The type of the asset. Valid values:
-     *
-     *   **namespace**
-     *   **clusters**
-     *   **applications**
-     *   **pods**
-     *   **containers**
-     *   **images**
-     *   **hosts**
-     *
-     * @example namespace
-     *
      * @var string
      */
     public $assetType;
-
     /**
-     * @description The number of potential risky assets.
-     *
-     * @example 16
-     *
      * @var int
      */
     public $riskCount;
-
     /**
-     * @description The total number of assets.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $totalCount;
@@ -50,17 +28,20 @@ class assets extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
         }
+
         if (null !== $this->riskCount) {
             $res['RiskCount'] = $this->riskCount;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -68,20 +49,22 @@ class assets extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return assets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
         }
+
         if (isset($map['RiskCount'])) {
             $model->riskCount = $map['RiskCount'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

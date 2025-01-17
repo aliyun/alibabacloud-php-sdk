@@ -4,31 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetAuthVersionStatisticResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statistics extends Model
 {
     /**
-     * @description The edition of Security Center. Valid values:
-     *
-     *   **1**: Basic edition (Unauthorized)
-     *   **6**: Anti-virus edition
-     *   **5**: Advanced edition
-     *   **3**: Enterprise edition
-     *   **7**: Ultimate edition
-     *   **10**: Value-added Plan edition
-     *
-     * @example 6
-     *
      * @var int
      */
     public $authVersion;
-
     /**
-     * @description The number of authorized servers.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
@@ -39,14 +23,16 @@ class statistics extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authVersion) {
             $res['AuthVersion'] = $this->authVersion;
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
@@ -54,17 +40,18 @@ class statistics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statistics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthVersion'])) {
             $model->authVersion = $map['AuthVersion'];
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }

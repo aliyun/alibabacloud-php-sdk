@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\CreateHoneypotProbeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class honeypotProbe extends Model
 {
     /**
-     * @description The ID of the probe.
-     *
-     * @example b69e9aa8-2ea8-4c5a-836a-c1fbacff****
-     *
      * @var string
      */
     public $probeId;
@@ -22,9 +18,10 @@ class honeypotProbe extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->probeId) {
@@ -34,11 +31,11 @@ class honeypotProbe extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return honeypotProbe
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

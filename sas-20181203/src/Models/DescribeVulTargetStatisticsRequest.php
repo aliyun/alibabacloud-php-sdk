@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVulTargetStatisticsRequest extends Model
 {
     /**
-     * @description The type of the vulnerability. Valid values:
-     *
-     *   **cve**: Linux software vulnerability
-     *   **sys**: Windows system vulnerability
-     *   **cms**: Web-CMS vulnerability
-     *   **emg**: urgent vulnerability
-     *
-     * @example cve
-     *
      * @var string
      */
     public $type;
@@ -27,9 +18,10 @@ class DescribeVulTargetStatisticsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->type) {
@@ -39,11 +31,11 @@ class DescribeVulTargetStatisticsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVulTargetStatisticsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

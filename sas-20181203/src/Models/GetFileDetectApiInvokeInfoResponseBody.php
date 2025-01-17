@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetFileDetectApiInvokeInfoResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class GetFileDetectApiInvokeInfoResponseBody extends Model
 {
     /**
-     * @description Returns the response body.
-     *
      * @var data
      */
     public $data;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 9f368b6e-d60a-43c5-bd6f-c7087f2d****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetFileDetectApiInvokeInfoResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetFileDetectApiInvokeInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileDetectApiInvokeInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

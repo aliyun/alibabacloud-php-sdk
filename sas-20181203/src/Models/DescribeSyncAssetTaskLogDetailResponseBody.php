@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSyncAssetTaskLogDetailResponseBody\pageInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSyncAssetTaskLogDetailResponseBody\taskRecordDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSyncAssetTaskLogDetailResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The details of the tasks.
-     *
      * @var taskRecordDetails[]
      */
     public $taskRecordDetails;
@@ -40,23 +30,32 @@ class DescribeSyncAssetTaskLogDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        if (\is_array($this->taskRecordDetails)) {
+            Model::validateArray($this->taskRecordDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskRecordDetails) {
-            $res['TaskRecordDetails'] = [];
-            if (null !== $this->taskRecordDetails && \is_array($this->taskRecordDetails)) {
-                $n = 0;
-                foreach ($this->taskRecordDetails as $item) {
-                    $res['TaskRecordDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskRecordDetails)) {
+                $res['TaskRecordDetails'] = [];
+                $n1                       = 0;
+                foreach ($this->taskRecordDetails as $item1) {
+                    $res['TaskRecordDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -64,26 +63,28 @@ class DescribeSyncAssetTaskLogDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSyncAssetTaskLogDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskRecordDetails'])) {
             if (!empty($map['TaskRecordDetails'])) {
                 $model->taskRecordDetails = [];
-                $n                        = 0;
-                foreach ($map['TaskRecordDetails'] as $item) {
-                    $model->taskRecordDetails[$n++] = null !== $item ? taskRecordDetails::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['TaskRecordDetails'] as $item1) {
+                    $model->taskRecordDetails[$n1++] = taskRecordDetails::fromMap($item1);
                 }
             }
         }

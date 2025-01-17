@@ -4,41 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRiskCheckSummaryRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The ID of the Alibaba Cloud account that is added as a member by using the multi-account control feature.
-     *
-     * @example 1232428423234****
-     *
      * @var string
      */
     public $resourceDirectoryAccountId;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
@@ -51,20 +33,24 @@ class DescribeRiskCheckSummaryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -72,23 +58,26 @@ class DescribeRiskCheckSummaryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRiskCheckSummaryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

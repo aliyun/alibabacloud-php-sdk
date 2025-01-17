@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClientUserDefineRuleTypesResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 340D7FC4-D575-1661-8ACD-CFA7BE57****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array consisting of the rule types that are supported.
-     *
      * @var string[]
      */
     public $userDefineRuleTypes;
@@ -30,35 +23,51 @@ class ListClientUserDefineRuleTypesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->userDefineRuleTypes)) {
+            Model::validateArray($this->userDefineRuleTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userDefineRuleTypes) {
-            $res['UserDefineRuleTypes'] = $this->userDefineRuleTypes;
+            if (\is_array($this->userDefineRuleTypes)) {
+                $res['UserDefineRuleTypes'] = [];
+                $n1                         = 0;
+                foreach ($this->userDefineRuleTypes as $item1) {
+                    $res['UserDefineRuleTypes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClientUserDefineRuleTypesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserDefineRuleTypes'])) {
             if (!empty($map['UserDefineRuleTypes'])) {
-                $model->userDefineRuleTypes = $map['UserDefineRuleTypes'];
+                $model->userDefineRuleTypes = [];
+                $n1                         = 0;
+                foreach ($map['UserDefineRuleTypes'] as $item1) {
+                    $model->userDefineRuleTypes[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,44 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigRequest\customConfigs;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigRequest\repairConfigs;
-use AlibabaCloud\Tea\Model;
 
 class ChangeCheckCustomConfigRequest extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
-     * @example 76
-     *
      * @var int
      */
     public $checkId;
-
     /**
-     * @description The custom configuration items of the check item.
-     *
      * @var customConfigs[]
      */
     public $customConfigs;
-
     /**
-     * @description The region where the Security Center instance is deployed. Valid values:
-     *
-     *   **cn-hangzhou**: International
-     *   **ap-southeast-1**: Singapore
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The parameters required for fixing risk items.
-     *
      * @var repairConfigs[]
      */
     public $repairConfigs;
@@ -54,32 +35,42 @@ class ChangeCheckCustomConfigRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->customConfigs)) {
+            Model::validateArray($this->customConfigs);
+        }
+        if (\is_array($this->repairConfigs)) {
+            Model::validateArray($this->repairConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
+
         if (null !== $this->customConfigs) {
-            $res['CustomConfigs'] = [];
-            if (null !== $this->customConfigs && \is_array($this->customConfigs)) {
-                $n = 0;
-                foreach ($this->customConfigs as $item) {
-                    $res['CustomConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customConfigs)) {
+                $res['CustomConfigs'] = [];
+                $n1                   = 0;
+                foreach ($this->customConfigs as $item1) {
+                    $res['CustomConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->repairConfigs) {
-            $res['RepairConfigs'] = [];
-            if (null !== $this->repairConfigs && \is_array($this->repairConfigs)) {
-                $n = 0;
-                foreach ($this->repairConfigs as $item) {
-                    $res['RepairConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->repairConfigs)) {
+                $res['RepairConfigs'] = [];
+                $n1                   = 0;
+                foreach ($this->repairConfigs as $item1) {
+                    $res['RepairConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -87,35 +78,38 @@ class ChangeCheckCustomConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ChangeCheckCustomConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
+
         if (isset($map['CustomConfigs'])) {
             if (!empty($map['CustomConfigs'])) {
                 $model->customConfigs = [];
-                $n                    = 0;
-                foreach ($map['CustomConfigs'] as $item) {
-                    $model->customConfigs[$n++] = null !== $item ? customConfigs::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['CustomConfigs'] as $item1) {
+                    $model->customConfigs[$n1++] = customConfigs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RepairConfigs'])) {
             if (!empty($map['RepairConfigs'])) {
                 $model->repairConfigs = [];
-                $n                    = 0;
-                foreach ($map['RepairConfigs'] as $item) {
-                    $model->repairConfigs[$n++] = null !== $item ? repairConfigs::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['RepairConfigs'] as $item1) {
+                    $model->repairConfigs[$n1++] = repairConfigs::fromMap($item1);
                 }
             }
         }

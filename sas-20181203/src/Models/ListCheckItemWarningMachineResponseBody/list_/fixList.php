@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningMachineResponseBody\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fixList extends Model
 {
     /**
-     * @description The ID of the baseline.
-     *
-     * @example 72
-     *
      * @var int
      */
     public $riskId;
-
     /**
-     * @description The name of the baseline.
-     *
-     * @example Alibaba Cloud Linux/Aliyun Linux 2 Baseline for China classified protection of cybersecurity-Level II
-     *
      * @var string
      */
     public $riskName;
@@ -32,14 +23,16 @@ class fixList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
         }
+
         if (null !== $this->riskName) {
             $res['RiskName'] = $this->riskName;
         }
@@ -47,17 +40,18 @@ class fixList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fixList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
         }
+
         if (isset($map['RiskName'])) {
             $model->riskName = $map['RiskName'];
         }

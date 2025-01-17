@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceListResponseBody\exposedInstances;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeExposedInstanceListResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeExposedInstanceListResponseBody extends Model
 {
     /**
-     * @description The details of the exposures.
-     *
      * @var exposedInstances[]
      */
     public $exposedInstances;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 598A4A61-ABA7-456B-8725-7378258276D9
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeExposedInstanceListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->exposedInstances)) {
+            Model::validateArray($this->exposedInstances);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exposedInstances) {
-            $res['ExposedInstances'] = [];
-            if (null !== $this->exposedInstances && \is_array($this->exposedInstances)) {
-                $n = 0;
-                foreach ($this->exposedInstances as $item) {
-                    $res['ExposedInstances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->exposedInstances)) {
+                $res['ExposedInstances'] = [];
+                $n1                      = 0;
+                foreach ($this->exposedInstances as $item1) {
+                    $res['ExposedInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeExposedInstanceListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExposedInstanceListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExposedInstances'])) {
             if (!empty($map['ExposedInstances'])) {
                 $model->exposedInstances = [];
-                $n                       = 0;
-                foreach ($map['ExposedInstances'] as $item) {
-                    $model->exposedInstances[$n++] = null !== $item ? exposedInstances::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['ExposedInstances'] as $item1) {
+                    $model->exposedInstances[$n1++] = exposedInstances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

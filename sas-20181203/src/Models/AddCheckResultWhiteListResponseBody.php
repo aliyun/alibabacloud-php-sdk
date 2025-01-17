@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddCheckResultWhiteListResponseBody extends Model
 {
     /**
-     * @description The data returned. This parameter is deprecated.
-     *
-     * @example 1
-     *
      * @var mixed[]
      */
     public $data;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example C699E4E4-F2F4-58FC-A949-457FFE59****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The IDs of the whitelist rules that are generated.
-     *
      * @var int[]
      */
     public $ruleIds;
@@ -40,41 +28,72 @@ class AddCheckResultWhiteListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        if (\is_array($this->ruleIds)) {
+            Model::validateArray($this->ruleIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                foreach ($this->data as $key1 => $value1) {
+                    $res['Data'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->ruleIds) {
-            $res['RuleIds'] = $this->ruleIds;
+            if (\is_array($this->ruleIds)) {
+                $res['RuleIds'] = [];
+                $n1             = 0;
+                foreach ($this->ruleIds as $item1) {
+                    $res['RuleIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddCheckResultWhiteListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                foreach ($map['Data'] as $key1 => $value1) {
+                    $model->data[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RuleIds'])) {
             if (!empty($map['RuleIds'])) {
-                $model->ruleIds = $map['RuleIds'];
+                $model->ruleIds = [];
+                $n1             = 0;
+                foreach ($map['RuleIds'] as $item1) {
+                    $model->ruleIds[$n1++] = $item1;
+                }
             }
         }
 

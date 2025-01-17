@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponseBody\suspEvents;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class details extends Model
 {
     /**
-     * @description The display name of the alert event.
-     *
-     * @example Login with unusual location
-     *
      * @var string
      */
     public $nameDisplay;
-
     /**
-     * @description The type of the alert event.
-     *
-     * @example text
-     *
      * @var string
      */
     public $type;
-
     /**
-     * @description The path of the alert event.
-     *
-     * @example /etc/crontab
-     *
      * @var string
      */
     public $value;
-
     /**
-     * @description The display name of the path of the alert event.
-     *
-     * @example /etc/crontab
-     *
      * @var string
      */
     public $valueDisplay;
@@ -52,20 +33,24 @@ class details extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nameDisplay) {
             $res['NameDisplay'] = $this->nameDisplay;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
+
         if (null !== $this->valueDisplay) {
             $res['ValueDisplay'] = $this->valueDisplay;
         }
@@ -73,23 +58,26 @@ class details extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return details
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NameDisplay'])) {
             $model->nameDisplay = $map['NameDisplay'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }
+
         if (isset($map['ValueDisplay'])) {
             $model->valueDisplay = $map['ValueDisplay'];
         }

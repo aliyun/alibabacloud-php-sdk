@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnBindHybridProxyResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to query logs and troubleshoot issues.
-     *
-     * @example 3956048F-9D73-5EDB-834B-4827BB483977
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class UnBindHybridProxyResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class UnBindHybridProxyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnBindHybridProxyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

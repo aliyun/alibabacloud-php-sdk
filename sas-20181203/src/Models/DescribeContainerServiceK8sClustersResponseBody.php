@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeContainerServiceK8sClustersResponseBody\k8sClusters;
-use AlibabaCloud\Tea\Model;
 
 class DescribeContainerServiceK8sClustersResponseBody extends Model
 {
     /**
-     * @description The information about the clusters.
-     *
      * @var k8sClusters[]
      */
     public $k8sClusters;
-
     /**
-     * @description The request ID.
-     *
-     * @example 20456DD5-5CBF-5015-9173-12CA4246B***
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeContainerServiceK8sClustersResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->k8sClusters)) {
+            Model::validateArray($this->k8sClusters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->k8sClusters) {
-            $res['K8sClusters'] = [];
-            if (null !== $this->k8sClusters && \is_array($this->k8sClusters)) {
-                $n = 0;
-                foreach ($this->k8sClusters as $item) {
-                    $res['K8sClusters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->k8sClusters)) {
+                $res['K8sClusters'] = [];
+                $n1                 = 0;
+                foreach ($this->k8sClusters as $item1) {
+                    $res['K8sClusters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeContainerServiceK8sClustersResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeContainerServiceK8sClustersResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['K8sClusters'])) {
             if (!empty($map['K8sClusters'])) {
                 $model->k8sClusters = [];
-                $n                  = 0;
-                foreach ($map['K8sClusters'] as $item) {
-                    $model->k8sClusters[$n++] = null !== $item ? k8sClusters::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['K8sClusters'] as $item1) {
+                    $model->k8sClusters[$n1++] = k8sClusters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

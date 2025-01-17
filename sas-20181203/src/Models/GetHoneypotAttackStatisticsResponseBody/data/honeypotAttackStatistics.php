@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotAttackStatisticsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class honeypotAttackStatistics extends Model
 {
     /**
-     * @description The number of times the value is counted.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $statisticsCount;
-
     /**
-     * @description The statistical value.
-     *
-     * @example 112.168.1.**
-     *
      * @var string
      */
     public $statisticsValue;
@@ -32,14 +23,16 @@ class honeypotAttackStatistics extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->statisticsCount) {
             $res['StatisticsCount'] = $this->statisticsCount;
         }
+
         if (null !== $this->statisticsValue) {
             $res['StatisticsValue'] = $this->statisticsValue;
         }
@@ -47,17 +40,18 @@ class honeypotAttackStatistics extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return honeypotAttackStatistics
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StatisticsCount'])) {
             $model->statisticsCount = $map['StatisticsCount'];
         }
+
         if (isset($map['StatisticsValue'])) {
             $model->statisticsValue = $map['StatisticsValue'];
         }

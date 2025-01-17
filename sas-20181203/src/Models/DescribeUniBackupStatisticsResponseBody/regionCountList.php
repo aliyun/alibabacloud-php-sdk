@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUniBackupStatisticsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regionCountList extends Model
 {
     /**
-     * @description The number of database instances that are automatically scanned.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $automaticCount;
-
     /**
-     * @description The ID of the region in which the database instance resides.
-     *
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -32,14 +23,16 @@ class regionCountList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->automaticCount) {
             $res['AutomaticCount'] = $this->automaticCount;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,17 +40,18 @@ class regionCountList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regionCountList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutomaticCount'])) {
             $model->automaticCount = $map['AutomaticCount'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

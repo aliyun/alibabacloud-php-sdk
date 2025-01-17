@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoNodeResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoNodeResponseBody\node\propertyList;
-use AlibabaCloud\Tea\Model;
 
 class node extends Model
 {
     /**
-     * @description The name of the node.
-     *
-     * @example login
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description An array that consists of the properties of the node.
-     *
      * @var propertyList[]
      */
     public $propertyList;
-
     /**
-     * @description The type of the node.
-     *
-     * @example Alert
-     *
      * @var string
      */
     public $type;
@@ -41,23 +29,29 @@ class node extends Model
 
     public function validate()
     {
+        if (\is_array($this->propertyList)) {
+            Model::validateArray($this->propertyList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->propertyList) {
-            $res['PropertyList'] = [];
-            if (null !== $this->propertyList && \is_array($this->propertyList)) {
-                $n = 0;
-                foreach ($this->propertyList as $item) {
-                    $res['PropertyList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->propertyList)) {
+                $res['PropertyList'] = [];
+                $n1                  = 0;
+                foreach ($this->propertyList as $item1) {
+                    $res['PropertyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -65,26 +59,28 @@ class node extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return node
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['PropertyList'])) {
             if (!empty($map['PropertyList'])) {
                 $model->propertyList = [];
-                $n                   = 0;
-                foreach ($map['PropertyList'] as $item) {
-                    $model->propertyList[$n++] = null !== $item ? propertyList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['PropertyList'] as $item1) {
+                    $model->propertyList[$n1++] = propertyList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

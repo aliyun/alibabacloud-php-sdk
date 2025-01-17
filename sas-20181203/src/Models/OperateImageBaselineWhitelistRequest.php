@@ -4,57 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OperateImageBaselineWhitelistRequest extends Model
 {
     /**
-     * @description The keys of baseline check items.
-     *
-     * This parameter is required.
-     * @example hc.image.checklist.identify.hc_exploit_es_linux.item
-     *
      * @var string
      */
     public $baselineItemKeyList;
-
     /**
-     * @description The UUID of the image.
-     *
-     * @example a5250ebca765dc9eb1a84b790b0e****
-     *
      * @var string
      */
     public $imageUuid;
-
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The operation that you want to perform on the check items. Valid values:
-     *
-     *   **add**: adds the check items to the whitelist
-     *   **del**: removes the check items from the whitelist
-     *
-     * This parameter is required.
-     * @example add
-     *
      * @var string
      */
     public $operation;
-
     /**
-     * @description The types of the assets that you want to scan.
-     *
      * @var string[]
      */
     public $scanRange;
@@ -68,53 +38,75 @@ class OperateImageBaselineWhitelistRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->scanRange)) {
+            Model::validateArray($this->scanRange);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baselineItemKeyList) {
             $res['BaselineItemKeyList'] = $this->baselineItemKeyList;
         }
+
         if (null !== $this->imageUuid) {
             $res['ImageUuid'] = $this->imageUuid;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
+
         if (null !== $this->scanRange) {
-            $res['ScanRange'] = $this->scanRange;
+            if (\is_array($this->scanRange)) {
+                $res['ScanRange'] = [];
+                $n1               = 0;
+                foreach ($this->scanRange as $item1) {
+                    $res['ScanRange'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OperateImageBaselineWhitelistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaselineItemKeyList'])) {
             $model->baselineItemKeyList = $map['BaselineItemKeyList'];
         }
+
         if (isset($map['ImageUuid'])) {
             $model->imageUuid = $map['ImageUuid'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
+
         if (isset($map['ScanRange'])) {
             if (!empty($map['ScanRange'])) {
-                $model->scanRange = $map['ScanRange'];
+                $model->scanRange = [];
+                $n1               = 0;
+                foreach ($map['ScanRange'] as $item1) {
+                    $model->scanRange[$n1++] = $item1;
+                }
             }
         }
 

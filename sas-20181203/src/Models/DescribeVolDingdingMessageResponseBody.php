@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVolDingdingMessageResponseBody extends Model
 {
     /**
-     * @description The QR code address of the DingTalk group.
-     *
-     * @example https://www.wikihow.com/images_en/thumb/4/48/Get-the-URL-for-Pictures-Step-4-Version-4.jpg/v4-728px-Get-the-URL-for-Pictures-Step-4-Version-4.jpg.webp
-     *
      * @var string
      */
     public $dingdingUrl;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7A437E93-47EE-548F-ABCE-13F89AA85585
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DescribeVolDingdingMessageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dingdingUrl) {
             $res['DingdingUrl'] = $this->dingdingUrl;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DescribeVolDingdingMessageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVolDingdingMessageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DingdingUrl'])) {
             $model->dingdingUrl = $map['DingdingUrl'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

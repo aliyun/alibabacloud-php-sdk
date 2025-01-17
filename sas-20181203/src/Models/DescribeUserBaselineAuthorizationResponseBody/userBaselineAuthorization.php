@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeUserBaselineAuthorizationResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userBaselineAuthorization extends Model
 {
     /**
-     * @description Indicates whether Security Center is authorized to run configuration checks on cloud services.
-     *
-     *   **0**: no. Security Center is not authorized to run configuration checks on cloud services.
-     *   **1**: yes. Security Center is authorized to run configuration checks on cloud services.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -25,9 +18,10 @@ class userBaselineAuthorization extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
@@ -37,11 +31,11 @@ class userBaselineAuthorization extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userBaselineAuthorization
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeWarningExportInfoRequest extends Model
 {
     /**
-     * @description The ID of the export task.
-     *
-     * This parameter is required.
-     * @example 14356
-     *
      * @var int
      */
     public $exportId;
@@ -23,9 +18,10 @@ class DescribeWarningExportInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exportId) {
@@ -35,11 +31,11 @@ class DescribeWarningExportInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWarningExportInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

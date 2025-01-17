@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeImageInfoListRequest extends Model
 {
     /**
-     * @description The UUID of the server. Separate multiple UUIDs with commas (,).
-     *
-     * This parameter is required.
-     * @example 391abd09184cbd3743d7f5ec125d****,
-     * e6aeb2a5b6004479398b0bcd1160****
      * @var string
      */
     public $uuids;
@@ -23,9 +18,10 @@ class DescribeImageInfoListRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->uuids) {
@@ -35,11 +31,11 @@ class DescribeImageInfoListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageInfoListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

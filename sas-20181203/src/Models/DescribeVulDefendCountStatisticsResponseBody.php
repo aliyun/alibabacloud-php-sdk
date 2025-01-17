@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVulDefendCountStatisticsResponseBody extends Model
 {
     /**
-     * @description The number of defended vulnerabilities.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $raspDefendedCount;
-
     /**
-     * @description The number of supported vulnerabilities.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $raspDefensibleCount;
-
     /**
-     * @description The request ID.
-     *
-     * @example CE500770-42D3-442E-9DDD-156E0F9F3B45
-     *
      * @var string
      */
     public $requestId;
@@ -42,17 +28,20 @@ class DescribeVulDefendCountStatisticsResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->raspDefendedCount) {
             $res['RaspDefendedCount'] = $this->raspDefendedCount;
         }
+
         if (null !== $this->raspDefensibleCount) {
             $res['RaspDefensibleCount'] = $this->raspDefensibleCount;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -60,20 +49,22 @@ class DescribeVulDefendCountStatisticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVulDefendCountStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RaspDefendedCount'])) {
             $model->raspDefendedCount = $map['RaspDefendedCount'];
         }
+
         if (isset($map['RaspDefensibleCount'])) {
             $model->raspDefensibleCount = $map['RaspDefensibleCount'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

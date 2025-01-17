@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePublishAutoUpgradeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic upgrade. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
-     *
-     * @example 1
-     *
      * @var int
      */
     public $autoUpgrade;
@@ -25,9 +18,10 @@ class UpdatePublishAutoUpgradeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoUpgrade) {
@@ -37,11 +31,11 @@ class UpdatePublishAutoUpgradeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePublishAutoUpgradeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

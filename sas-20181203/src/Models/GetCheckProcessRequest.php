@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCheckProcessRequest extends Model
 {
     /**
-     * @description The ID of the task.
-     *
-     * > You can call the [SubmitCheck](~~SubmitCheck~~) operation to query the ID.
-     * @example 5347c7b6-c85c-4070-846a-3029e08e****
-     *
      * @var string
      */
     public $taskId;
@@ -23,9 +18,10 @@ class GetCheckProcessRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskId) {
@@ -35,11 +31,11 @@ class GetCheckProcessRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCheckProcessRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

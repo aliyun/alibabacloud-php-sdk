@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaPluginStatusResponseBody\installStatus;
-use AlibabaCloud\Tea\Model;
 
 class GetOpaPluginStatusResponseBody extends Model
 {
     /**
-     * @description The installation status of the components that are required for clusters protected by proactive defense for containers.
-     *
      * @var installStatus[]
      */
     public $installStatus;
-
     /**
-     * @description The request ID.
-     *
-     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8BF6F
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class GetOpaPluginStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->installStatus)) {
+            Model::validateArray($this->installStatus);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->installStatus) {
-            $res['InstallStatus'] = [];
-            if (null !== $this->installStatus && \is_array($this->installStatus)) {
-                $n = 0;
-                foreach ($this->installStatus as $item) {
-                    $res['InstallStatus'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->installStatus)) {
+                $res['InstallStatus'] = [];
+                $n1                   = 0;
+                foreach ($this->installStatus as $item1) {
+                    $res['InstallStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class GetOpaPluginStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOpaPluginStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstallStatus'])) {
             if (!empty($map['InstallStatus'])) {
                 $model->installStatus = [];
-                $n                    = 0;
-                foreach ($map['InstallStatus'] as $item) {
-                    $model->installStatus[$n++] = null !== $item ? installStatus::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['InstallStatus'] as $item1) {
+                    $model->installStatus[$n1++] = installStatus::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

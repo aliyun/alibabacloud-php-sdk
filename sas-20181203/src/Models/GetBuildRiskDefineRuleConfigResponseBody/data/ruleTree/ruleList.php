@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetBuildRiskDefineRuleConfigResponseBody\data\ruleTree;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleList extends Model
 {
     /**
-     * @description The check item.
-     *
-     * @example add
-     *
      * @var string
      */
     public $ruleKey;
-
     /**
-     * @description The name of the check item.
-     *
-     * @example used ADD
-     *
      * @var string
      */
     public $ruleName;
-
     /**
-     * @description Indicates whether the check item is selected. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $selected;
@@ -45,17 +28,20 @@ class ruleList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleKey) {
             $res['RuleKey'] = $this->ruleKey;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->selected) {
             $res['Selected'] = $this->selected;
         }
@@ -63,20 +49,22 @@ class ruleList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RuleKey'])) {
             $model->ruleKey = $map['RuleKey'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['Selected'])) {
             $model->selected = $map['Selected'];
         }

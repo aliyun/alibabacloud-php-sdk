@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckTypesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckTypesResponseBody\data\checkDetails;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The detail of check items.
-     *
      * @var checkDetails[]
      */
     public $checkDetails;
-
     /**
-     * @description The type of the check item.
-     *
-     * @example data_integrity
-     *
      * @var string
      */
     public $checkType;
-
     /**
-     * @description The display name of the check item type.
-     *
-     * @example Data Integrity
-     *
      * @var string
      */
     public $checkTypeDisName;
@@ -41,23 +29,29 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->checkDetails)) {
+            Model::validateArray($this->checkDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkDetails) {
-            $res['CheckDetails'] = [];
-            if (null !== $this->checkDetails && \is_array($this->checkDetails)) {
-                $n = 0;
-                foreach ($this->checkDetails as $item) {
-                    $res['CheckDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->checkDetails)) {
+                $res['CheckDetails'] = [];
+                $n1                  = 0;
+                foreach ($this->checkDetails as $item1) {
+                    $res['CheckDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
+
         if (null !== $this->checkTypeDisName) {
             $res['CheckTypeDisName'] = $this->checkTypeDisName;
         }
@@ -65,26 +59,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckDetails'])) {
             if (!empty($map['CheckDetails'])) {
                 $model->checkDetails = [];
-                $n                   = 0;
-                foreach ($map['CheckDetails'] as $item) {
-                    $model->checkDetails[$n++] = null !== $item ? checkDetails::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['CheckDetails'] as $item1) {
+                    $model->checkDetails[$n1++] = checkDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }
+
         if (isset($map['CheckTypeDisName'])) {
             $model->checkTypeDisName = $map['CheckTypeDisName'];
         }

@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteVpcHoneyPotRequest extends Model
 {
     /**
-     * @description The ID of the virtual private cloud (VPC) on which the honeypot is deployed.
-     *
-     * This parameter is required.
-     * @example vpc-d7o009q63fqy21r8u****
-     *
      * @var string
      */
     public $vpcId;
@@ -23,9 +18,10 @@ class DeleteVpcHoneyPotRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcId) {
@@ -35,11 +31,11 @@ class DeleteVpcHoneyPotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteVpcHoneyPotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

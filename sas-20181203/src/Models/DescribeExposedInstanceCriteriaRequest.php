@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeExposedInstanceCriteriaRequest extends Model
 {
     /**
-     * @description The ID of the member in the resource directory.
-     *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the account ID.
-     * @example 1232428423234****
-     *
      * @var string
      */
     public $resourceDirectoryAccountId;
-
     /**
-     * @description The value of the search condition. Fuzzy match is supported.
-     *
-     * >  You can specify the name, ID, public IP address, private IP address, component, port, or IP address of an exposed asset.
-     * @example id
-     *
      * @var string
      */
     public $value;
@@ -34,14 +23,16 @@ class DescribeExposedInstanceCriteriaRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -49,17 +40,18 @@ class DescribeExposedInstanceCriteriaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeExposedInstanceCriteriaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

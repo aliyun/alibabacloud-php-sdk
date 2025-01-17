@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAgentlessRegionResponseBody extends Model
 {
     /**
-     * @description The information about the regions.
-     *
      * @var string[]
      */
     public $regionList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92****
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +23,25 @@ class ListAgentlessRegionResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->regionList)) {
+            Model::validateArray($this->regionList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionList) {
-            $res['RegionList'] = $this->regionList;
+            if (\is_array($this->regionList)) {
+                $res['RegionList'] = [];
+                $n1                = 0;
+                foreach ($this->regionList as $item1) {
+                    $res['RegionList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,19 +49,24 @@ class ListAgentlessRegionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAgentlessRegionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionList'])) {
             if (!empty($map['RegionList'])) {
-                $model->regionList = $map['RegionList'];
+                $model->regionList = [];
+                $n1                = 0;
+                foreach ($map['RegionList'] as $item1) {
+                    $model->regionList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

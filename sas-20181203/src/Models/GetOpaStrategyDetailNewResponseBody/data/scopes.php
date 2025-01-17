@@ -4,43 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetOpaStrategyDetailNewResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class scopes extends Model
 {
     /**
-     * @description The rule instance ID of the cluster.
-     *
-     * @example ack-0
-     *
      * @var string
      */
     public $ackPolicyInstanceId;
-
     /**
-     * @description Indicates whether all namespaces are included. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
-     *
-     * @example 1
-     *
      * @var int
      */
     public $allNamespace;
-
     /**
-     * @description The cluster ID.
-     *
-     * @example c1fdb5fd8d**7163
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The namespaces.
-     *
      * @var string[]
      */
     public $namespaceList;
@@ -53,47 +33,67 @@ class scopes extends Model
 
     public function validate()
     {
+        if (\is_array($this->namespaceList)) {
+            Model::validateArray($this->namespaceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ackPolicyInstanceId) {
             $res['AckPolicyInstanceId'] = $this->ackPolicyInstanceId;
         }
+
         if (null !== $this->allNamespace) {
             $res['AllNamespace'] = $this->allNamespace;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->namespaceList) {
-            $res['NamespaceList'] = $this->namespaceList;
+            if (\is_array($this->namespaceList)) {
+                $res['NamespaceList'] = [];
+                $n1                   = 0;
+                foreach ($this->namespaceList as $item1) {
+                    $res['NamespaceList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return scopes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AckPolicyInstanceId'])) {
             $model->ackPolicyInstanceId = $map['AckPolicyInstanceId'];
         }
+
         if (isset($map['AllNamespace'])) {
             $model->allNamespace = $map['AllNamespace'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['NamespaceList'])) {
             if (!empty($map['NamespaceList'])) {
-                $model->namespaceList = $map['NamespaceList'];
+                $model->namespaceList = [];
+                $n1                   = 0;
+                foreach ($map['NamespaceList'] as $item1) {
+                    $model->namespaceList[$n1++] = $item1;
+                }
             }
         }
 

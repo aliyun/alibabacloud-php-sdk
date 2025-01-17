@@ -4,61 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureRiskListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class riskList extends Model
 {
     /**
-     * @description The number of alerts.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $alarmCount;
-
     /**
-     * @description The domain name.
-     *
-     * @example test.com
-     *
      * @var string
      */
     public $domain;
-
     /**
-     * @description The issuer of the certificate.
-     *
-     * @example globalsign
-     *
      * @var string
      */
     public $sslBrand;
-
     /**
-     * @description Indicates whether the certificate is configured. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
-     *
-     * @example 1
-     *
      * @var int
      */
     public $sslStatus;
-
     /**
-     * @description The UUIDs of the backend servers of the website.
-     *
      * @var string[]
      */
     public $uuidList;
-
     /**
-     * @description The number of vulnerabilities.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $vulCount;
@@ -73,26 +43,41 @@ class riskList extends Model
 
     public function validate()
     {
+        if (\is_array($this->uuidList)) {
+            Model::validateArray($this->uuidList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->alarmCount) {
             $res['AlarmCount'] = $this->alarmCount;
         }
+
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->sslBrand) {
             $res['SslBrand'] = $this->sslBrand;
         }
+
         if (null !== $this->sslStatus) {
             $res['SslStatus'] = $this->sslStatus;
         }
+
         if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
+            if (\is_array($this->uuidList)) {
+                $res['UuidList'] = [];
+                $n1              = 0;
+                foreach ($this->uuidList as $item1) {
+                    $res['UuidList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->vulCount) {
             $res['VulCount'] = $this->vulCount;
         }
@@ -100,31 +85,40 @@ class riskList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return riskList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AlarmCount'])) {
             $model->alarmCount = $map['AlarmCount'];
         }
+
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['SslBrand'])) {
             $model->sslBrand = $map['SslBrand'];
         }
+
         if (isset($map['SslStatus'])) {
             $model->sslStatus = $map['SslStatus'];
         }
+
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
-                $model->uuidList = $map['UuidList'];
+                $model->uuidList = [];
+                $n1              = 0;
+                foreach ($map['UuidList'] as $item1) {
+                    $model->uuidList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['VulCount'])) {
             $model->vulCount = $map['VulCount'];
         }

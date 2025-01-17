@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOssScanConfigRequest extends Model
 {
     /**
-     * @description The name of the bucket.
-     *
-     * @example iboxpublic****
-     *
      * @var string
      */
     public $bucketName;
-
     /**
-     * @description The policy ID.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $id;
@@ -32,14 +23,16 @@ class GetOssScanConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucketName) {
             $res['BucketName'] = $this->bucketName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -47,17 +40,18 @@ class GetOssScanConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssScanConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BucketName'])) {
             $model->bucketName = $map['BucketName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

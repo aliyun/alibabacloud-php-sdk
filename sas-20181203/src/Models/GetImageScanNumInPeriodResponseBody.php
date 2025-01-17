@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetImageScanNumInPeriodResponseBody\imageScanData;
-use AlibabaCloud\Tea\Model;
 
 class GetImageScanNumInPeriodResponseBody extends Model
 {
     /**
-     * @description The data returned.
-     *
      * @var imageScanData
      */
     public $imageScanData;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class GetImageScanNumInPeriodResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->imageScanData) {
+            $this->imageScanData->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageScanData) {
-            $res['ImageScanData'] = null !== $this->imageScanData ? $this->imageScanData->toMap() : null;
+            $res['ImageScanData'] = null !== $this->imageScanData ? $this->imageScanData->toArray($noStream) : $this->imageScanData;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class GetImageScanNumInPeriodResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageScanNumInPeriodResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageScanData'])) {
             $model->imageScanData = imageScanData::fromMap($map['ImageScanData']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVulWhitelistRequest extends Model
 {
     /**
-     * @description The ID of the whitelist.
-     *
-     * @example 1275
-     *
      * @var int
      */
     public $vulWhitelistId;
@@ -22,9 +18,10 @@ class GetVulWhitelistRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vulWhitelistId) {
@@ -34,11 +31,11 @@ class GetVulWhitelistRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVulWhitelistRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

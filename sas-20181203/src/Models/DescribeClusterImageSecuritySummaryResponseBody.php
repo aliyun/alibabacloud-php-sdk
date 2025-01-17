@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClusterImageSecuritySummaryResponseBody\clusterImageEvent;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterImageSecuritySummaryResponseBody extends Model
 {
     /**
-     * @description The information about the image-related security events.
-     *
      * @var clusterImageEvent
      */
     public $clusterImageEvent;
-
     /**
-     * @description The request ID.
-     *
-     * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeClusterImageSecuritySummaryResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->clusterImageEvent) {
+            $this->clusterImageEvent->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterImageEvent) {
-            $res['ClusterImageEvent'] = null !== $this->clusterImageEvent ? $this->clusterImageEvent->toMap() : null;
+            $res['ClusterImageEvent'] = null !== $this->clusterImageEvent ? $this->clusterImageEvent->toArray($noStream) : $this->clusterImageEvent;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeClusterImageSecuritySummaryResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterImageSecuritySummaryResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterImageEvent'])) {
             $model->clusterImageEvent = clusterImageEvent::fromMap($map['ClusterImageEvent']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

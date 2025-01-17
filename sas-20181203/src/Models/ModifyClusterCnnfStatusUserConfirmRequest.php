@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyClusterCnnfStatusUserConfirmRequest extends Model
 {
     /**
-     * @description The cluster IDs.
-     *
      * @var string[]
      */
     public $clusterIds;
-
     /**
-     * @description Specifies whether to fix the blocking status of the cluster. Valid values:
-     *
-     *   true: yes
-     *   false: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $userConfirm;
@@ -33,14 +23,25 @@ class ModifyClusterCnnfStatusUserConfirmRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->clusterIds)) {
+            Model::validateArray($this->clusterIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterIds) {
-            $res['ClusterIds'] = $this->clusterIds;
+            if (\is_array($this->clusterIds)) {
+                $res['ClusterIds'] = [];
+                $n1                = 0;
+                foreach ($this->clusterIds as $item1) {
+                    $res['ClusterIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userConfirm) {
             $res['UserConfirm'] = $this->userConfirm;
         }
@@ -48,19 +49,24 @@ class ModifyClusterCnnfStatusUserConfirmRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyClusterCnnfStatusUserConfirmRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterIds'])) {
             if (!empty($map['ClusterIds'])) {
-                $model->clusterIds = $map['ClusterIds'];
+                $model->clusterIds = [];
+                $n1                = 0;
+                foreach ($map['ClusterIds'] as $item1) {
+                    $model->clusterIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserConfirm'])) {
             $model->userConfirm = $map['UserConfirm'];
         }

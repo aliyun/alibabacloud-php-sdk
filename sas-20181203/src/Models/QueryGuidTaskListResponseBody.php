@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGuidTaskListResponseBody\guideTaskConfigList;
-use AlibabaCloud\Tea\Model;
 
 class QueryGuidTaskListResponseBody extends Model
 {
     /**
-     * @description The list of beginner tasks.
-     *
      * @var guideTaskConfigList[]
      */
     public $guideTaskConfigList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7532B7EE-7CE7-5F4D-BF04-B12447D****
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class QueryGuidTaskListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->guideTaskConfigList)) {
+            Model::validateArray($this->guideTaskConfigList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->guideTaskConfigList) {
-            $res['GuideTaskConfigList'] = [];
-            if (null !== $this->guideTaskConfigList && \is_array($this->guideTaskConfigList)) {
-                $n = 0;
-                foreach ($this->guideTaskConfigList as $item) {
-                    $res['GuideTaskConfigList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->guideTaskConfigList)) {
+                $res['GuideTaskConfigList'] = [];
+                $n1                         = 0;
+                foreach ($this->guideTaskConfigList as $item1) {
+                    $res['GuideTaskConfigList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class QueryGuidTaskListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryGuidTaskListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GuideTaskConfigList'])) {
             if (!empty($map['GuideTaskConfigList'])) {
                 $model->guideTaskConfigList = [];
-                $n                          = 0;
-                foreach ($map['GuideTaskConfigList'] as $item) {
-                    $model->guideTaskConfigList[$n++] = null !== $item ? guideTaskConfigList::fromMap($item) : $item;
+                $n1                         = 0;
+                foreach ($map['GuideTaskConfigList'] as $item1) {
+                    $model->guideTaskConfigList[$n1++] = guideTaskConfigList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

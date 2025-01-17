@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReleaseSasInstanceRequest extends Model
 {
@@ -12,7 +12,6 @@ class ReleaseSasInstanceRequest extends Model
      * @var string
      */
     public $chargeType;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class ReleaseSasInstanceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -39,17 +40,18 @@ class ReleaseSasInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReleaseSasInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

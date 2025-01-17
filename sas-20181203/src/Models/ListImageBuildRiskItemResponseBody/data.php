@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListImageBuildRiskItemResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The type key of the risky build command.
-     *
-     * @example key
-     *
      * @var string
      */
     public $itemKey;
-
     /**
-     * @description The type name of the risky build command.
-     *
-     * @example itemName.
-     *
      * @var string
      */
     public $itemName;
@@ -32,14 +23,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->itemKey) {
             $res['ItemKey'] = $this->itemKey;
         }
+
         if (null !== $this->itemName) {
             $res['ItemName'] = $this->itemName;
         }
@@ -47,17 +40,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ItemKey'])) {
             $model->itemKey = $map['ItemKey'];
         }
+
         if (isset($map['ItemName'])) {
             $model->itemName = $map['ItemName'];
         }

@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationProcessDetailResponseBody\pageInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListOperationProcessDetailResponseBody\processDetails;
-use AlibabaCloud\Tea\Model;
 
 class ListOperationProcessDetailResponseBody extends Model
 {
@@ -14,15 +14,11 @@ class ListOperationProcessDetailResponseBody extends Model
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
      * @var processDetails[]
      */
     public $processDetails;
-
     /**
-     * @example CE500770-42D3-442E-9DDD-156E0F9F3***
-     *
      * @var string
      */
     public $requestId;
@@ -34,23 +30,32 @@ class ListOperationProcessDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        if (\is_array($this->processDetails)) {
+            Model::validateArray($this->processDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->processDetails) {
-            $res['ProcessDetails'] = [];
-            if (null !== $this->processDetails && \is_array($this->processDetails)) {
-                $n = 0;
-                foreach ($this->processDetails as $item) {
-                    $res['ProcessDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->processDetails)) {
+                $res['ProcessDetails'] = [];
+                $n1                    = 0;
+                foreach ($this->processDetails as $item1) {
+                    $res['ProcessDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,26 +63,28 @@ class ListOperationProcessDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListOperationProcessDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['ProcessDetails'])) {
             if (!empty($map['ProcessDetails'])) {
                 $model->processDetails = [];
-                $n                     = 0;
-                foreach ($map['ProcessDetails'] as $item) {
-                    $model->processDetails[$n++] = null !== $item ? processDetails::fromMap($item) : $item;
+                $n1                    = 0;
+                foreach ($map['ProcessDetails'] as $item1) {
+                    $model->processDetails[$n1++] = processDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

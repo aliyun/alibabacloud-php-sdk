@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClusterSuspEventStatisticsResponseBody\suspStatistics;
-use AlibabaCloud\Tea\Model;
 
 class GetClusterSuspEventStatisticsResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example ACF97412-FD09-4D1F-994F-34DF12BR****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The number of alerts by risk level.
-     *
      * @var suspStatistics
      */
     public $suspStatistics;
@@ -31,32 +24,38 @@ class GetClusterSuspEventStatisticsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->suspStatistics) {
+            $this->suspStatistics->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->suspStatistics) {
-            $res['SuspStatistics'] = null !== $this->suspStatistics ? $this->suspStatistics->toMap() : null;
+            $res['SuspStatistics'] = null !== $this->suspStatistics ? $this->suspStatistics->toArray($noStream) : $this->suspStatistics;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClusterSuspEventStatisticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuspStatistics'])) {
             $model->suspStatistics = suspStatistics::fromMap($map['SuspStatistics']);
         }

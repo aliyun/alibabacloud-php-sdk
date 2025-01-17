@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPublishBatchResponseBody\batchList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPublishBatchResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListPublishBatchResponseBody extends Model
 {
     /**
-     * @description The information about the release batches.
-     *
      * @var batchList[]
      */
     public $batchList;
-
     /**
-     * @description The page information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7532B7EE-7CE7-5F4D-BF04-B12447DDCAE1
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class ListPublishBatchResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->batchList)) {
+            Model::validateArray($this->batchList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->batchList) {
-            $res['BatchList'] = [];
-            if (null !== $this->batchList && \is_array($this->batchList)) {
-                $n = 0;
-                foreach ($this->batchList as $item) {
-                    $res['BatchList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->batchList)) {
+                $res['BatchList'] = [];
+                $n1               = 0;
+                foreach ($this->batchList as $item1) {
+                    $res['BatchList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class ListPublishBatchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPublishBatchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BatchList'])) {
             if (!empty($map['BatchList'])) {
                 $model->batchList = [];
-                $n                = 0;
-                foreach ($map['BatchList'] as $item) {
-                    $model->batchList[$n++] = null !== $item ? batchList::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['BatchList'] as $item1) {
+                    $model->batchList[$n1++] = batchList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

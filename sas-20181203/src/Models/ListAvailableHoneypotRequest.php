@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAvailableHoneypotRequest extends Model
 {
     /**
-     * @description The ID of the management node to which the honeypot is deployed.
-     *
-     * @example 4341018b-8e01-43f6-b1d2-af29a2a4****
-     *
      * @var string
      */
     public $nodeId;
@@ -22,9 +18,10 @@ class ListAvailableHoneypotRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeId) {
@@ -34,11 +31,11 @@ class ListAvailableHoneypotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAvailableHoneypotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

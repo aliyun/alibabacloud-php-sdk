@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomizeReportListResponseBody\reportList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCustomizeReportListResponseBody extends Model
 {
     /**
-     * @description The reports.
-     *
      * @var reportList[]
      */
     public $reportList;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 9FBC6E47-7508-58C9-9E76-528E118CB1CC
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeCustomizeReportListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->reportList)) {
+            Model::validateArray($this->reportList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reportList) {
-            $res['ReportList'] = [];
-            if (null !== $this->reportList && \is_array($this->reportList)) {
-                $n = 0;
-                foreach ($this->reportList as $item) {
-                    $res['ReportList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reportList)) {
+                $res['ReportList'] = [];
+                $n1                = 0;
+                foreach ($this->reportList as $item1) {
+                    $res['ReportList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeCustomizeReportListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCustomizeReportListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReportList'])) {
             if (!empty($map['ReportList'])) {
                 $model->reportList = [];
-                $n                 = 0;
-                foreach ($map['ReportList'] as $item) {
-                    $model->reportList[$n++] = null !== $item ? reportList::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['ReportList'] as $item1) {
+                    $model->reportList[$n1++] = reportList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

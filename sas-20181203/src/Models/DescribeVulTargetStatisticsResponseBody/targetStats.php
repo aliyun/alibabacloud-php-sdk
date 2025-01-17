@@ -4,46 +4,24 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulTargetStatisticsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulTargetStatisticsResponseBody\targetStats\targets;
-use AlibabaCloud\Tea\Model;
 
 class targetStats extends Model
 {
     /**
-     * @description An array that consists of available servers.
-     *
      * @var targets[]
      */
     public $targets;
-
     /**
-     * @description The total number of servers.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @description The number of servers to which the configurations are applied.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $uuidCount;
-
     /**
-     * @description The type of the vulnerability. Valid values:
-     *
-     *   cve: Linux software vulnerabilities
-     *   sys: Windows system vulnerabilities
-     *   cms: Web-CMS vulnerabilities
-     *   emg: urgent vulnerabilities
-     *
-     * @example cve
-     *
      * @var string
      */
     public $vulType;
@@ -56,26 +34,33 @@ class targetStats extends Model
 
     public function validate()
     {
+        if (\is_array($this->targets)) {
+            Model::validateArray($this->targets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targets) {
-            $res['Targets'] = [];
-            if (null !== $this->targets && \is_array($this->targets)) {
-                $n = 0;
-                foreach ($this->targets as $item) {
-                    $res['Targets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->targets)) {
+                $res['Targets'] = [];
+                $n1             = 0;
+                foreach ($this->targets as $item1) {
+                    $res['Targets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->uuidCount) {
             $res['UuidCount'] = $this->uuidCount;
         }
+
         if (null !== $this->vulType) {
             $res['VulType'] = $this->vulType;
         }
@@ -83,29 +68,32 @@ class targetStats extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetStats
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Targets'])) {
             if (!empty($map['Targets'])) {
                 $model->targets = [];
-                $n              = 0;
-                foreach ($map['Targets'] as $item) {
-                    $model->targets[$n++] = null !== $item ? targets::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Targets'] as $item1) {
+                    $model->targets[$n1++] = targets::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['UuidCount'])) {
             $model->uuidCount = $map['UuidCount'];
         }
+
         if (isset($map['VulType'])) {
             $model->vulType = $map['VulType'];
         }

@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAffectedMaliciousFileImagesResponseBody\affectedMaliciousFileImagesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAffectedMaliciousFileImagesResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAffectedMaliciousFileImagesResponseBody extends Model
 {
     /**
-     * @description An array consisting of the images that have malicious image samples.
-     *
      * @var affectedMaliciousFileImagesResponse[]
      */
     public $affectedMaliciousFileImagesResponse;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example ACF97412-FD09-4D1F-994F-34DF12BREF20
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->affectedMaliciousFileImagesResponse)) {
+            Model::validateArray($this->affectedMaliciousFileImagesResponse);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->affectedMaliciousFileImagesResponse) {
-            $res['AffectedMaliciousFileImagesResponse'] = [];
-            if (null !== $this->affectedMaliciousFileImagesResponse && \is_array($this->affectedMaliciousFileImagesResponse)) {
-                $n = 0;
-                foreach ($this->affectedMaliciousFileImagesResponse as $item) {
-                    $res['AffectedMaliciousFileImagesResponse'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->affectedMaliciousFileImagesResponse)) {
+                $res['AffectedMaliciousFileImagesResponse'] = [];
+                $n1                                         = 0;
+                foreach ($this->affectedMaliciousFileImagesResponse as $item1) {
+                    $res['AffectedMaliciousFileImagesResponse'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeAffectedMaliciousFileImagesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAffectedMaliciousFileImagesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AffectedMaliciousFileImagesResponse'])) {
             if (!empty($map['AffectedMaliciousFileImagesResponse'])) {
                 $model->affectedMaliciousFileImagesResponse = [];
-                $n                                          = 0;
-                foreach ($map['AffectedMaliciousFileImagesResponse'] as $item) {
-                    $model->affectedMaliciousFileImagesResponse[$n++] = null !== $item ? affectedMaliciousFileImagesResponse::fromMap($item) : $item;
+                $n1                                         = 0;
+                foreach ($map['AffectedMaliciousFileImagesResponse'] as $item1) {
+                    $model->affectedMaliciousFileImagesResponse[$n1++] = affectedMaliciousFileImagesResponse::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

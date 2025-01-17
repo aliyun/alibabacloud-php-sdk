@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspEventsResponseBody\suspEvents;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eventNotes extends Model
 {
     /**
-     * @description The note.
-     *
-     * @example Test
-     *
      * @var string
      */
     public $note;
-
     /**
-     * @description The ID of the note.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $noteId;
-
     /**
-     * @description The time when the note was created.
-     *
-     * @example 2018-09-26 01:51:01
-     *
      * @var string
      */
     public $noteTime;
@@ -42,17 +28,20 @@ class eventNotes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->note) {
             $res['Note'] = $this->note;
         }
+
         if (null !== $this->noteId) {
             $res['NoteId'] = $this->noteId;
         }
+
         if (null !== $this->noteTime) {
             $res['NoteTime'] = $this->noteTime;
         }
@@ -60,20 +49,22 @@ class eventNotes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventNotes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Note'])) {
             $model->note = $map['Note'];
         }
+
         if (isset($map['NoteId'])) {
             $model->noteId = $map['NoteId'];
         }
+
         if (isset($map['NoteTime'])) {
             $model->noteTime = $map['NoteTime'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class overallItemStatistic extends Model
 {
     /**
-     * @description The number of check items supported by the system.
-     *
-     * @example 620
-     *
      * @var int
      */
     public $releaseCount;
-
     /**
-     * @description The number of check items available to you.
-     *
-     * @example 25
-     *
      * @var int
      */
     public $resultCount;
@@ -32,14 +23,16 @@ class overallItemStatistic extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->releaseCount) {
             $res['ReleaseCount'] = $this->releaseCount;
         }
+
         if (null !== $this->resultCount) {
             $res['ResultCount'] = $this->resultCount;
         }
@@ -47,17 +40,18 @@ class overallItemStatistic extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return overallItemStatistic
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReleaseCount'])) {
             $model->releaseCount = $map['ReleaseCount'];
         }
+
         if (isset($map['ResultCount'])) {
             $model->resultCount = $map['ResultCount'];
         }

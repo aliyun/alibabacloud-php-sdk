@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyUsageNewestResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class newestStatisticItems extends Model
 {
     /**
-     * @example 1566178646000
-     *
      * @var int
      */
     public $create;
-
     /**
-     * @example root
-     *
      * @var string
      */
     public $name;
@@ -28,14 +23,16 @@ class newestStatisticItems extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->create) {
             $res['Create'] = $this->create;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -43,17 +40,18 @@ class newestStatisticItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return newestStatisticItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Create'])) {
             $model->create = $map['Create'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

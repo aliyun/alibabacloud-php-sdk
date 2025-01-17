@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineItemListResponseBody\baselineItemInfos;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineItemListResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeImageBaselineItemListResponseBody extends Model
 {
     /**
-     * @description An array that consists of baseline check items.
-     *
      * @var baselineItemInfos[]
      */
     public $baselineItemInfos;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 24A20733-10A0-4AF6-BE6B-E3322413****
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeImageBaselineItemListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->baselineItemInfos)) {
+            Model::validateArray($this->baselineItemInfos);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->baselineItemInfos) {
-            $res['BaselineItemInfos'] = [];
-            if (null !== $this->baselineItemInfos && \is_array($this->baselineItemInfos)) {
-                $n = 0;
-                foreach ($this->baselineItemInfos as $item) {
-                    $res['BaselineItemInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->baselineItemInfos)) {
+                $res['BaselineItemInfos'] = [];
+                $n1                       = 0;
+                foreach ($this->baselineItemInfos as $item1) {
+                    $res['BaselineItemInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeImageBaselineItemListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeImageBaselineItemListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BaselineItemInfos'])) {
             if (!empty($map['BaselineItemInfos'])) {
                 $model->baselineItemInfos = [];
-                $n                        = 0;
-                foreach ($map['BaselineItemInfos'] as $item) {
-                    $model->baselineItemInfos[$n++] = null !== $item ? baselineItemInfos::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['BaselineItemInfos'] as $item1) {
+                    $model->baselineItemInfos[$n1++] = baselineItemInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

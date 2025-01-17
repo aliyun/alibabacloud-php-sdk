@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAutoDelConfigRequest extends Model
 {
     /**
-     * @description The number of days after which a detected vulnerability is automatically deleted. Unit: days. Valid values:
-     *
-     *   7
-     *   30
-     *   90
-     *
-     * @example 30
-     *
      * @var int
      */
     public $days;
@@ -26,9 +18,10 @@ class ModifyAutoDelConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->days) {
@@ -38,11 +31,11 @@ class ModifyAutoDelConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAutoDelConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

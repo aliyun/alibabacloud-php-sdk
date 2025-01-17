@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListSystemAggregationRulesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aggregationList extends Model
 {
     /**
-     * @description The ID of the aggregation type.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the aggregation type.
-     *
-     * @example Remote control\\*\\*\\*\\*
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The number of rules that are of the aggregation type.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $ruleCount;
@@ -42,17 +28,20 @@ class aggregationList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ruleCount) {
             $res['RuleCount'] = $this->ruleCount;
         }
@@ -60,20 +49,22 @@ class aggregationList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aggregationList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['RuleCount'])) {
             $model->ruleCount = $map['RuleCount'];
         }

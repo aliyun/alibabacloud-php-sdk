@@ -4,51 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyStrategyTargetRequest extends Model
 {
     /**
-     * @description The ID of the baseline check policy. The ID is returned after the policy is created. The value of this parameter is in the JSON format and contains the following field:
-     *
-     *   **strategyId**: the ID of the policy
-     *
-     * This parameter is required.
-     * @example {"strategyId":8070645}
-     *
      * @var string
      */
     public $config;
-
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
-
     /**
-     * @description The information about the asset group to which the policy is applied. The value of this parameter is in the JSON format and contains the following fields:
-     *
-     *   **TargetType**: the type of the asset to which the policy is applied. Set the value to **groupId**, which indicates that the policy is applied to an asset group.
-     *   **BindUuidCount**: the number of servers to which the policy is applied.
-     *   **Target**: the ID of the asset group.
-     *
-     * This parameter is required.
-     * @example [{"Target":"9273980","BindUuidCount":5320,"TargetType":"groupId","Flag":"del"},{"Target":"9677606","TargetType":"groupId","Flag":"del"},{"Target":"10121607","BindUuidCount":7,"TargetType":"groupId","Flag":"add"},{"Target":"10670708","BindUuidCount":2,"TargetType":"groupId","Flag":"del"},{"Target":"11246338","BindUuidCount":6,"TargetType":"groupId","Flag":"del"},{"Target":"11291161","BindUuidCount":13,"TargetType":"groupId","Flag":"del"}]
-     *
      * @var string
      */
     public $target;
-
     /**
-     * @description The type of the configuration. Set the value to **hc_strategy**.
-     *
-     * This parameter is required.
-     * @example hc_strategy
-     *
      * @var string
      */
     public $type;
@@ -61,20 +33,24 @@ class ModifyStrategyTargetRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['Config'] = $this->config;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -82,23 +58,26 @@ class ModifyStrategyTargetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyStrategyTargetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             $model->config = $map['Config'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

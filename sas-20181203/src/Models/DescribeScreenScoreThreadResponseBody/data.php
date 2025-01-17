@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeScreenScoreThreadResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The trends of the scores on the security dashboard.
-     *
      * @var string[]
      */
     public $socreThread;
-
     /**
-     * @description The dates of the scores on the security dashboard.
-     *
      * @var string[]
      */
     public $socreThreadDate;
@@ -28,37 +23,66 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->socreThread)) {
+            Model::validateArray($this->socreThread);
+        }
+        if (\is_array($this->socreThreadDate)) {
+            Model::validateArray($this->socreThreadDate);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->socreThread) {
-            $res['SocreThread'] = $this->socreThread;
+            if (\is_array($this->socreThread)) {
+                $res['SocreThread'] = [];
+                $n1                 = 0;
+                foreach ($this->socreThread as $item1) {
+                    $res['SocreThread'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->socreThreadDate) {
-            $res['SocreThreadDate'] = $this->socreThreadDate;
+            if (\is_array($this->socreThreadDate)) {
+                $res['SocreThreadDate'] = [];
+                $n1                     = 0;
+                foreach ($this->socreThreadDate as $item1) {
+                    $res['SocreThreadDate'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SocreThread'])) {
             if (!empty($map['SocreThread'])) {
-                $model->socreThread = $map['SocreThread'];
+                $model->socreThread = [];
+                $n1                 = 0;
+                foreach ($map['SocreThread'] as $item1) {
+                    $model->socreThread[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SocreThreadDate'])) {
             if (!empty($map['SocreThreadDate'])) {
-                $model->socreThreadDate = $map['SocreThreadDate'];
+                $model->socreThreadDate = [];
+                $n1                     = 0;
+                foreach ($map['SocreThreadDate'] as $item1) {
+                    $model->socreThreadDate[$n1++] = $item1;
+                }
             }
         }
 

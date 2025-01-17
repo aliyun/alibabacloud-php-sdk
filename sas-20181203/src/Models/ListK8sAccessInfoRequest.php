@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListK8sAccessInfoRequest extends Model
 {
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example None
-     *
      * @var string
      */
     public $aliyunYundunGatewayApiName;
-
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example None
-     *
      * @var string
      */
     public $aliyunYundunGatewayPopName;
-
     /**
-     * @description This parameter is deprecated.
-     *
-     * @example None
-     *
      * @var string
      */
     public $aliyunYundunGatewayProjectName;
-
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example en
-     *
      * @var string
      */
     public $lang;
@@ -55,20 +33,24 @@ class ListK8sAccessInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunYundunGatewayApiName) {
             $res['AliyunYundunGatewayApiName'] = $this->aliyunYundunGatewayApiName;
         }
+
         if (null !== $this->aliyunYundunGatewayPopName) {
             $res['AliyunYundunGatewayPopName'] = $this->aliyunYundunGatewayPopName;
         }
+
         if (null !== $this->aliyunYundunGatewayProjectName) {
             $res['AliyunYundunGatewayProjectName'] = $this->aliyunYundunGatewayProjectName;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -76,23 +58,26 @@ class ListK8sAccessInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListK8sAccessInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliyunYundunGatewayApiName'])) {
             $model->aliyunYundunGatewayApiName = $map['AliyunYundunGatewayApiName'];
         }
+
         if (isset($map['AliyunYundunGatewayPopName'])) {
             $model->aliyunYundunGatewayPopName = $map['AliyunYundunGatewayPopName'];
         }
+
         if (isset($map['AliyunYundunGatewayProjectName'])) {
             $model->aliyunYundunGatewayProjectName = $map['AliyunYundunGatewayProjectName'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

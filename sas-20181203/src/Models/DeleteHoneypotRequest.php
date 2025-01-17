@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteHoneypotRequest extends Model
 {
     /**
-     * @description The ID of the honeypot.
-     *
-     * This parameter is required.
-     * @example 558b5fa40948ebe2171a74757c54dc7e58f761870fa7ee6a105e70947ec82aa9
-     *
      * @var string
      */
     public $honeypotId;
-
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
@@ -36,14 +23,16 @@ class DeleteHoneypotRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->honeypotId) {
             $res['HoneypotId'] = $this->honeypotId;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -51,17 +40,18 @@ class DeleteHoneypotRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteHoneypotRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HoneypotId'])) {
             $model->honeypotId = $map['HoneypotId'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

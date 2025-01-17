@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListPrivateK8sResponseBody\privateK8sInfos;
-use AlibabaCloud\Tea\Model;
 
 class ListPrivateK8sResponseBody extends Model
 {
     /**
-     * @description The information about the self-managed Kubernetes clusters.
-     *
      * @var privateK8sInfos[]
      */
     public $privateK8sInfos;
-
     /**
-     * @description The request ID.
-     *
-     * @example 52870893-48A7-5A9E-9E05-6253E5B6****
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListPrivateK8sResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->privateK8sInfos)) {
+            Model::validateArray($this->privateK8sInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privateK8sInfos) {
-            $res['PrivateK8sInfos'] = [];
-            if (null !== $this->privateK8sInfos && \is_array($this->privateK8sInfos)) {
-                $n = 0;
-                foreach ($this->privateK8sInfos as $item) {
-                    $res['PrivateK8sInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->privateK8sInfos)) {
+                $res['PrivateK8sInfos'] = [];
+                $n1                     = 0;
+                foreach ($this->privateK8sInfos as $item1) {
+                    $res['PrivateK8sInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListPrivateK8sResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPrivateK8sResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PrivateK8sInfos'])) {
             if (!empty($map['PrivateK8sInfos'])) {
                 $model->privateK8sInfos = [];
-                $n                      = 0;
-                foreach ($map['PrivateK8sInfos'] as $item) {
-                    $model->privateK8sInfos[$n++] = null !== $item ? privateK8sInfos::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['PrivateK8sInfos'] as $item1) {
+                    $model->privateK8sInfos[$n1++] = privateK8sInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

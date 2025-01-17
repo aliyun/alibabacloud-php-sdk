@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageEventOperationConditionResponseBody\data\operations;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class conditions extends Model
 {
     /**
-     * @description The keyword of the condition. Valid values:
-     *
-     *   **MD5**
-     *   **PATH**
-     *
-     * @example MD5
-     *
      * @var string
      */
     public $conditionKey;
-
     /**
-     * @description The name of the condition.
-     *
-     * @example MD5
-     *
      * @var string
      */
     public $conditionName;
-
     /**
-     * @description The matching types.
-     *
      * @var string[]
      */
     public $supportedMisType;
@@ -43,41 +28,59 @@ class conditions extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedMisType)) {
+            Model::validateArray($this->supportedMisType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditionKey) {
             $res['ConditionKey'] = $this->conditionKey;
         }
+
         if (null !== $this->conditionName) {
             $res['ConditionName'] = $this->conditionName;
         }
+
         if (null !== $this->supportedMisType) {
-            $res['SupportedMisType'] = $this->supportedMisType;
+            if (\is_array($this->supportedMisType)) {
+                $res['SupportedMisType'] = [];
+                $n1                      = 0;
+                foreach ($this->supportedMisType as $item1) {
+                    $res['SupportedMisType'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conditions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConditionKey'])) {
             $model->conditionKey = $map['ConditionKey'];
         }
+
         if (isset($map['ConditionName'])) {
             $model->conditionName = $map['ConditionName'];
         }
+
         if (isset($map['SupportedMisType'])) {
             if (!empty($map['SupportedMisType'])) {
-                $model->supportedMisType = $map['SupportedMisType'];
+                $model->supportedMisType = [];
+                $n1                      = 0;
+                foreach ($map['SupportedMisType'] as $item1) {
+                    $model->supportedMisType[$n1++] = $item1;
+                }
             }
         }
 

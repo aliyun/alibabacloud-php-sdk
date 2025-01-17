@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\HandleSecurityEventsResponseBody\handleSecurityEventsResponse;
-use AlibabaCloud\Tea\Model;
 
 class HandleSecurityEventsResponseBody extends Model
 {
     /**
-     * @description The handling result of the alert events.
-     *
      * @var handleSecurityEventsResponse
      */
     public $handleSecurityEventsResponse;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example FF0020B9-999F-5DE2-985F-DB282BDA5311
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class HandleSecurityEventsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->handleSecurityEventsResponse) {
+            $this->handleSecurityEventsResponse->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->handleSecurityEventsResponse) {
-            $res['HandleSecurityEventsResponse'] = null !== $this->handleSecurityEventsResponse ? $this->handleSecurityEventsResponse->toMap() : null;
+            $res['HandleSecurityEventsResponse'] = null !== $this->handleSecurityEventsResponse ? $this->handleSecurityEventsResponse->toArray($noStream) : $this->handleSecurityEventsResponse;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class HandleSecurityEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HandleSecurityEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HandleSecurityEventsResponse'])) {
             $model->handleSecurityEventsResponse = handleSecurityEventsResponse::fromMap($map['HandleSecurityEventsResponse']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class illegalCustomConfigs extends Model
 {
     /**
-     * @description The name of the custom configuration item, which is unique in a check item.
-     *
-     * @example SessionTimeMax
-     *
      * @var string
      */
     public $name;
@@ -22,9 +18,10 @@ class illegalCustomConfigs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -34,11 +31,11 @@ class illegalCustomConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return illegalCustomConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

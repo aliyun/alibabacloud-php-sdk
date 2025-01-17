@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedInstancesResponseBody\instances;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedInstancesResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeGroupedInstancesResponseBody extends Model
 {
     /**
-     * @description The information about the assets.
-     *
      * @var instances[]
      */
     public $instances;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 52A3AEE6-114A-499D-8990-4BA9B27FE0AA
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeGroupedInstancesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1               = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeGroupedInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGroupedInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1++] = instances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

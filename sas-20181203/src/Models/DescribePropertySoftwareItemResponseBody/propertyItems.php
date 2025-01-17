@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertySoftwareItemResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class propertyItems extends Model
 {
     /**
-     * @description The number of servers on which the software is installed.
-     *
-     * @example 23
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The name of the software.
-     *
-     * @example aaa_base
-     *
      * @var string
      */
     public $name;
@@ -32,14 +23,16 @@ class propertyItems extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -47,17 +40,18 @@ class propertyItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return propertyItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

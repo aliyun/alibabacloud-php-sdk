@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\OperateAgentClientInstallResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aegisCelintInstallResposeList extends Model
 {
     /**
-     * @description The ID of the server.
-     *
-     * @example i-uf6j8vq9l4r5ntht****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The ID of the installation task.
-     *
-     * @example 2856
-     *
      * @var int
      */
     public $recordId;
-
     /**
-     * @description The UUID of the server.
-     *
-     * @example 1587bedb-fdb4-48c4-9330-****
-     *
      * @var string
      */
     public $uuid;
@@ -42,17 +28,20 @@ class aegisCelintInstallResposeList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -60,20 +49,22 @@ class aegisCelintInstallResposeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aegisCelintInstallResposeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

@@ -4,78 +4,35 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IgnoreHcCheckWarningsRequest extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * >  You can call the [DescribeCheckWarnings](https://help.aliyun.com/document_detail/116182.html) operation to query the IDs of check items.
-     * @example 21313
-     *
      * @var string
      */
     public $checkIds;
-
     /**
-     * @description The ID of the alert that is triggered by the check item. Separate multiple IDs with commas (,).
-     *
-     * >  You can call the [DescribeCheckWarnings](https://help.aliyun.com/document_detail/116182.html) operation to query the IDs of alerts that are triggered by check items.
-     * @example 98146905,98146907
-     *
      * @var string
      */
     public $checkWarningIds;
-
     /**
-     * @description The reason for the current operation.
-     *
-     * @example ignore
-     *
      * @var string
      */
     public $reason;
-
     /**
-     * @description The ID of the risk item that you want to ignore or cancel ignoring.
-     *
-     * >  You can call the [DescribeCheckWarningSummary](https://help.aliyun.com/document_detail/116179.html) operation to query the IDs of risk items.
-     * @example 51
-     *
      * @var string
      */
     public $riskId;
-
     /**
-     * @description The data source. If this parameter is left empty, the server baseline results are queried by default. Valid values:
-     * **default**: server
-     * **agentless**
-     *
-     * @example agentless
-     *
      * @var string
      */
     public $source;
-
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 192.168.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
-
     /**
-     * @description The type of the operation that you want to perform. Valid values:
-     *
-     *   **1**: ignores a risk item
-     *   **2**: cancels ignoring a risk item
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $type;
@@ -91,29 +48,36 @@ class IgnoreHcCheckWarningsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkIds) {
             $res['CheckIds'] = $this->checkIds;
         }
+
         if (null !== $this->checkWarningIds) {
             $res['CheckWarningIds'] = $this->checkWarningIds;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
+
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
         }
+
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -121,32 +85,38 @@ class IgnoreHcCheckWarningsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IgnoreHcCheckWarningsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckIds'])) {
             $model->checkIds = $map['CheckIds'];
         }
+
         if (isset($map['CheckWarningIds'])) {
             $model->checkWarningIds = $map['CheckWarningIds'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
+
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
         }
+
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

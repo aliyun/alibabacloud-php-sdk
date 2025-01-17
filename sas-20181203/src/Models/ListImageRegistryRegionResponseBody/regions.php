@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListImageRegistryRegionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class regions extends Model
 {
     /**
-     * @description The region ID of the image.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The name of the region.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionName;
@@ -32,14 +23,16 @@ class regions extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
@@ -47,17 +40,18 @@ class regions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return regions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }

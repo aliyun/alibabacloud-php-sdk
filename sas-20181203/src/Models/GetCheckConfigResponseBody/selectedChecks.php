@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class selectedChecks extends Model
 {
     /**
-     * @description The ID of the check item.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $checkId;
-
     /**
-     * @description The section ID of the check item.
-     *
-     * @example 69
-     *
      * @var int
      */
     public $sectionId;
@@ -32,14 +23,16 @@ class selectedChecks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
+
         if (null !== $this->sectionId) {
             $res['SectionId'] = $this->sectionId;
         }
@@ -47,17 +40,18 @@ class selectedChecks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return selectedChecks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
+
         if (isset($map['SectionId'])) {
             $model->sectionId = $map['SectionId'];
         }

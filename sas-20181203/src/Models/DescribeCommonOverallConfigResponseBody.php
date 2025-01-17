@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonOverallConfigResponseBody\overallConfig;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCommonOverallConfigResponseBody extends Model
 {
     /**
-     * @description The information about the feature.
-     *
      * @var overallConfig
      */
     public $overallConfig;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6D9CDB47-6191-4415-BE63-7E8B12CD4FBE
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeCommonOverallConfigResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->overallConfig) {
+            $this->overallConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->overallConfig) {
-            $res['OverallConfig'] = null !== $this->overallConfig ? $this->overallConfig->toMap() : null;
+            $res['OverallConfig'] = null !== $this->overallConfig ? $this->overallConfig->toArray($noStream) : $this->overallConfig;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeCommonOverallConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCommonOverallConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OverallConfig'])) {
             $model->overallConfig = overallConfig::fromMap($map['OverallConfig']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,54 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCustomBlockRecordRequest extends Model
 {
     /**
-     * @description The IP address that you want to specify in the policy.
-     *
-     * This parameter is required.
-     * @example 192.168.xx.xx
-     *
      * @var string
      */
     public $blockIp;
-
     /**
-     * @description The traffic direction that you want to specify in the policy. Valid values:
-     *
-     *   **in**: inbound
-     *   **out**: outbound
-     *
-     * This parameter is required.
-     * @example in
-     *
      * @var string
      */
     public $bound;
-
     /**
-     * @description The expiration time of the policy.
-     *
-     * This parameter is required.
-     * @example 1859094550000
-     *
      * @var int
      */
     public $expireTime;
-
     /**
      * @var int
      */
     public $resourceOwnerId;
-
     /**
-     * @description The UUIDs of the servers. Separate multiple UUIDs with commas (,).
-     *
-     * This parameter is required.
-     * @example 71c846d6-5c84-4714-acfc-58265bc3****,5013b5e8-1613-43a8-b4de-651db318****,df53f0ad-b3ba-4fe0-9ec7-f42a2ae2****
-     *
      * @var string
      */
     public $uuids;
@@ -65,23 +38,28 @@ class CreateCustomBlockRecordRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->blockIp) {
             $res['BlockIp'] = $this->blockIp;
         }
+
         if (null !== $this->bound) {
             $res['Bound'] = $this->bound;
         }
+
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
         }
@@ -89,26 +67,30 @@ class CreateCustomBlockRecordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCustomBlockRecordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BlockIp'])) {
             $model->blockIp = $map['BlockIp'];
         }
+
         if (isset($map['Bound'])) {
             $model->bound = $map['Bound'];
         }
+
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];
         }

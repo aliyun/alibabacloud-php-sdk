@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAccessKeyLeakDetailRequest extends Model
 {
     /**
-     * @description The ID of the AccessKey pair leak event.
-     *
-     * This parameter is required.
-     * @example 389357
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The Alibaba Cloud account ID of the member in the resource directory.
-     *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to query the ID.
-     * @example 127608589417****
-     *
      * @var int
      */
     public $resourceDirectoryAccountId;
@@ -34,14 +23,16 @@ class DescribeAccessKeyLeakDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
@@ -49,17 +40,18 @@ class DescribeAccessKeyLeakDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAccessKeyLeakDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }

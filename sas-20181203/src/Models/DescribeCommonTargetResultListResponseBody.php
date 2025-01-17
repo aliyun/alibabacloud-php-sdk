@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCommonTargetResultListResponseBody\targetConfig;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCommonTargetResultListResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6673D49C-A9AB-40DD-B4A2-B92306701AE7
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the configuration item.
-     *
      * @var targetConfig
      */
     public $targetConfig;
@@ -31,32 +24,38 @@ class DescribeCommonTargetResultListResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->targetConfig) {
+            $this->targetConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->targetConfig) {
-            $res['TargetConfig'] = null !== $this->targetConfig ? $this->targetConfig->toMap() : null;
+            $res['TargetConfig'] = null !== $this->targetConfig ? $this->targetConfig->toArray($noStream) : $this->targetConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCommonTargetResultListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TargetConfig'])) {
             $model->targetConfig = targetConfig::fromMap($map['TargetConfig']);
         }

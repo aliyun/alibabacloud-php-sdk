@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRelateMaliciousResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRelateMaliciousResponseBody\list_\details;
-use AlibabaCloud\Tea\Model;
 
 class list_ extends Model
 {
@@ -13,131 +13,83 @@ class list_ extends Model
      * @var details[]
      */
     public $details;
-
     /**
      * @var string
      */
     public $downloadUrl;
-
     /**
-     * @description The file path.
-     *
-     * @example /root/logs/arms/tracelogs/log****
-     *
      * @var string
      */
     public $filePath;
-
     /**
-     * @description The timestamp when the first scan was performed. Unit: milliseconds.
-     *
-     * @example 168257753****
-     *
      * @var int
      */
     public $firstScanTimestamp;
-
     /**
      * @var string
      */
     public $highLight;
-
     /**
      * @var int
      */
     public $id;
-
     /**
-     * @description The name of the asset.
-     *
-     * @example sql-test-0****
-     *
      * @var string
      */
     public $instanceName;
-
     /**
-     * @description The public IP address of the server.
-     *
-     * @example 8.210.XX.XX
-     *
      * @var string
      */
     public $internetIp;
-
     /**
-     * @description The private IP address of the server.
-     *
-     * @example 172.25.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
-
     /**
-     * @description The timestamp when the last scan was performed. Unit: milliseconds.
-     *
-     * @example 168257753****
-     *
      * @var int
      */
     public $latestScanTimestamp;
-
     /**
      * @var string
      */
     public $level;
-
     /**
      * @var string
      */
     public $maliciousMd5;
-
     /**
      * @var string
      */
     public $maliciousName;
-
     /**
      * @var string
      */
     public $maliciousType;
-
     /**
      * @var string
      */
     public $operateResult;
-
     /**
      * @var string
      */
     public $operateTimestamp;
-
     /**
      * @var string
      */
     public $partition;
-
     /**
      * @var string
      */
     public $targetId;
-
     /**
      * @var string
      */
     public $targetName;
-
     /**
      * @var string
      */
     public $targetType;
-
     /**
-     * @description The UUID of the server.
-     *
-     * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
-     *
      * @var string
      */
     public $uuid;
@@ -167,77 +119,101 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->details)) {
+            Model::validateArray($this->details);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->details) {
-            $res['Details'] = [];
-            if (null !== $this->details && \is_array($this->details)) {
-                $n = 0;
-                foreach ($this->details as $item) {
-                    $res['Details'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->details)) {
+                $res['Details'] = [];
+                $n1             = 0;
+                foreach ($this->details as $item1) {
+                    $res['Details'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->downloadUrl) {
             $res['DownloadUrl'] = $this->downloadUrl;
         }
+
         if (null !== $this->filePath) {
             $res['FilePath'] = $this->filePath;
         }
+
         if (null !== $this->firstScanTimestamp) {
             $res['FirstScanTimestamp'] = $this->firstScanTimestamp;
         }
+
         if (null !== $this->highLight) {
             $res['HighLight'] = $this->highLight;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
+
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
+
         if (null !== $this->latestScanTimestamp) {
             $res['LatestScanTimestamp'] = $this->latestScanTimestamp;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->maliciousMd5) {
             $res['MaliciousMd5'] = $this->maliciousMd5;
         }
+
         if (null !== $this->maliciousName) {
             $res['MaliciousName'] = $this->maliciousName;
         }
+
         if (null !== $this->maliciousType) {
             $res['MaliciousType'] = $this->maliciousType;
         }
+
         if (null !== $this->operateResult) {
             $res['OperateResult'] = $this->operateResult;
         }
+
         if (null !== $this->operateTimestamp) {
             $res['OperateTimestamp'] = $this->operateTimestamp;
         }
+
         if (null !== $this->partition) {
             $res['Partition'] = $this->partition;
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
+
         if (null !== $this->targetName) {
             $res['TargetName'] = $this->targetName;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -245,80 +221,100 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Details'])) {
             if (!empty($map['Details'])) {
                 $model->details = [];
-                $n              = 0;
-                foreach ($map['Details'] as $item) {
-                    $model->details[$n++] = null !== $item ? details::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Details'] as $item1) {
+                    $model->details[$n1++] = details::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DownloadUrl'])) {
             $model->downloadUrl = $map['DownloadUrl'];
         }
+
         if (isset($map['FilePath'])) {
             $model->filePath = $map['FilePath'];
         }
+
         if (isset($map['FirstScanTimestamp'])) {
             $model->firstScanTimestamp = $map['FirstScanTimestamp'];
         }
+
         if (isset($map['HighLight'])) {
             $model->highLight = $map['HighLight'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
+
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
+
         if (isset($map['LatestScanTimestamp'])) {
             $model->latestScanTimestamp = $map['LatestScanTimestamp'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['MaliciousMd5'])) {
             $model->maliciousMd5 = $map['MaliciousMd5'];
         }
+
         if (isset($map['MaliciousName'])) {
             $model->maliciousName = $map['MaliciousName'];
         }
+
         if (isset($map['MaliciousType'])) {
             $model->maliciousType = $map['MaliciousType'];
         }
+
         if (isset($map['OperateResult'])) {
             $model->operateResult = $map['OperateResult'];
         }
+
         if (isset($map['OperateTimestamp'])) {
             $model->operateTimestamp = $map['OperateTimestamp'];
         }
+
         if (isset($map['Partition'])) {
             $model->partition = $map['Partition'];
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
+
         if (isset($map['TargetName'])) {
             $model->targetName = $map['TargetName'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

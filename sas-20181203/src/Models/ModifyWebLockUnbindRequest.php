@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyWebLockUnbindRequest extends Model
 {
     /**
-     * @description The UUID of the server for which you want to disable web tamper proofing.
-     *
-     * > You can call the [DescribeWebLockBindList](~~DescribeWebLockBindList~~) operation to query the UUIDs of servers.
-     * @example 8d217d3f-6999-43a6-a435-c7a6854180e9
-     *
      * @var string
      */
     public $uuid;
@@ -23,9 +18,10 @@ class ModifyWebLockUnbindRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->uuid) {
@@ -35,11 +31,11 @@ class ModifyWebLockUnbindRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyWebLockUnbindRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

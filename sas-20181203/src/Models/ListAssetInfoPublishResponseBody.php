@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetInfoPublishResponseBody\assetList;
-use AlibabaCloud\Tea\Model;
 
 class ListAssetInfoPublishResponseBody extends Model
 {
     /**
-     * @description The servers.
-     *
      * @var assetList[]
      */
     public $assetList;
-
     /**
-     * @description The request ID.
-     *
-     * @example 3956048F-9D73-5EDB-834B-4827BB483977
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class ListAssetInfoPublishResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->assetList)) {
+            Model::validateArray($this->assetList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetList) {
-            $res['AssetList'] = [];
-            if (null !== $this->assetList && \is_array($this->assetList)) {
-                $n = 0;
-                foreach ($this->assetList as $item) {
-                    $res['AssetList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assetList)) {
+                $res['AssetList'] = [];
+                $n1               = 0;
+                foreach ($this->assetList as $item1) {
+                    $res['AssetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class ListAssetInfoPublishResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAssetInfoPublishResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetList'])) {
             if (!empty($map['AssetList'])) {
                 $model->assetList = [];
-                $n                = 0;
-                foreach ($map['AssetList'] as $item) {
-                    $model->assetList[$n++] = null !== $item ? assetList::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['AssetList'] as $item1) {
+                    $model->assetList[$n1++] = assetList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyOpenLogShipperRequest extends Model
 {
     /**
-     * @description The ID of the request source. Default value: **aegis**. Valid values:
-     *
-     *   **aegis**: Server Guard
-     *   **sas**: Security Center
-     *
-     * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
-     * @example sas
-     *
      * @var string
      */
     public $from;
-
     /**
-     * @description The Alibaba Cloud account ID of the member in the resource directory.
-     *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
-     * @example 127608589417****
-     *
      * @var int
      */
     public $resourceDirectoryAccountId;
@@ -37,14 +23,16 @@ class ModifyOpenLogShipperRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
@@ -52,17 +40,18 @@ class ModifyOpenLogShipperRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyOpenLogShipperRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }

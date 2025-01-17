@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeInstallCodesResponseBody\installCodes;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstallCodesResponseBody extends Model
 {
     /**
-     * @description The information about the installation commands.
-     *
      * @var installCodes[]
      */
     public $installCodes;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example C0D6119F-92EE-1276-B8B6-C81A7F9D57F5
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeInstallCodesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->installCodes)) {
+            Model::validateArray($this->installCodes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->installCodes) {
-            $res['InstallCodes'] = [];
-            if (null !== $this->installCodes && \is_array($this->installCodes)) {
-                $n = 0;
-                foreach ($this->installCodes as $item) {
-                    $res['InstallCodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->installCodes)) {
+                $res['InstallCodes'] = [];
+                $n1                  = 0;
+                foreach ($this->installCodes as $item1) {
+                    $res['InstallCodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeInstallCodesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstallCodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstallCodes'])) {
             if (!empty($map['InstallCodes'])) {
                 $model->installCodes = [];
-                $n                   = 0;
-                foreach ($map['InstallCodes'] as $item) {
-                    $model->installCodes[$n++] = null !== $item ? installCodes::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['InstallCodes'] as $item1) {
+                    $model->installCodes[$n1++] = installCodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

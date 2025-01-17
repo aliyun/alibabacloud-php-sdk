@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeWebLockExclusiveFileTypeResponseBody extends Model
 {
     /**
-     * @description An array that consists of the types of the files that are excluded from web tamper proofing.
-     *
      * @var string[]
      */
     public $exclusiveFileType;
-
     /**
-     * @description The request ID.
-     *
-     * @example 9CCD7D51-5E81-5FF5-BD74-813DDD248430
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of types of the files that are excluded from web tamper proofing.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $totalCount;
@@ -40,17 +28,29 @@ class DescribeWebLockExclusiveFileTypeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->exclusiveFileType)) {
+            Model::validateArray($this->exclusiveFileType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exclusiveFileType) {
-            $res['ExclusiveFileType'] = $this->exclusiveFileType;
+            if (\is_array($this->exclusiveFileType)) {
+                $res['ExclusiveFileType'] = [];
+                $n1                       = 0;
+                foreach ($this->exclusiveFileType as $item1) {
+                    $res['ExclusiveFileType'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -58,22 +58,28 @@ class DescribeWebLockExclusiveFileTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebLockExclusiveFileTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExclusiveFileType'])) {
             if (!empty($map['ExclusiveFileType'])) {
-                $model->exclusiveFileType = $map['ExclusiveFileType'];
+                $model->exclusiveFileType = [];
+                $n1                       = 0;
+                foreach ($map['ExclusiveFileType'] as $item1) {
+                    $model->exclusiveFileType[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,35 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryIncidentVertexNodesResponseBody\vertexNodes;
-use AlibabaCloud\Tea\Model;
 
 class QueryIncidentVertexNodesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example ACF97412-FD09-4D1F-994F-34DF12BREF20
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
-
     /**
-     * @description The results that are returned.
-     *
      * @var vertexNodes
      */
     public $vertexNodes;
@@ -44,38 +29,46 @@ class QueryIncidentVertexNodesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->vertexNodes) {
+            $this->vertexNodes->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->vertexNodes) {
-            $res['VertexNodes'] = null !== $this->vertexNodes ? $this->vertexNodes->toMap() : null;
+            $res['VertexNodes'] = null !== $this->vertexNodes ? $this->vertexNodes->toArray($noStream) : $this->vertexNodes;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryIncidentVertexNodesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['VertexNodes'])) {
             $model->vertexNodes = vertexNodes::fromMap($map['VertexNodes']);
         }

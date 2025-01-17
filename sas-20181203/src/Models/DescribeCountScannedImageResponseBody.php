@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCountScannedImageResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 3F4236AB-7070-538D-85EB-98EBFE6C****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The number of images that are scanned.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $scannedCount;
@@ -32,14 +23,16 @@ class DescribeCountScannedImageResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scannedCount) {
             $res['ScannedCount'] = $this->scannedCount;
         }
@@ -47,17 +40,18 @@ class DescribeCountScannedImageResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCountScannedImageResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ScannedCount'])) {
             $model->scannedCount = $map['ScannedCount'];
         }

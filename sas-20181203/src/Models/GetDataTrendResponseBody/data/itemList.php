@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetDataTrendResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class itemList extends Model
 {
     /**
-     * @description The statistical values of the trend data.
-     *
      * @var int[]
      */
     public $countList;
-
     /**
-     * @description The type of the security data. Valid values:
-     *
-     *   **HC_NEW**: the number of new baseline risks.
-     *   **HC_OPERATE**: the number of handled baseline risks.
-     *   **VUL_NEW**: the number of new vulnerabilities.
-     *   **VUL_OPERATE**: the number of handled vulnerabilities.
-     *   **SUSP_NEW**: the number of new alerts.
-     *   **SUSP_OPERATE**: the number of handled alerts.
-     *
-     * @example HC_NEW
-     *
      * @var string
      */
     public $keyName;
@@ -37,14 +23,25 @@ class itemList extends Model
 
     public function validate()
     {
+        if (\is_array($this->countList)) {
+            Model::validateArray($this->countList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->countList) {
-            $res['CountList'] = $this->countList;
+            if (\is_array($this->countList)) {
+                $res['CountList'] = [];
+                $n1               = 0;
+                foreach ($this->countList as $item1) {
+                    $res['CountList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->keyName) {
             $res['KeyName'] = $this->keyName;
         }
@@ -52,19 +49,24 @@ class itemList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return itemList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CountList'])) {
             if (!empty($map['CountList'])) {
-                $model->countList = $map['CountList'];
+                $model->countList = [];
+                $n1               = 0;
+                foreach ($map['CountList'] as $item1) {
+                    $model->countList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['KeyName'])) {
             $model->keyName = $map['KeyName'];
         }

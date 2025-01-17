@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeChartDataResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class allChartSubTypeList extends Model
 {
     /**
-     * @description The subtype of the chart.
-     *
-     * @example CID_SUSPICIOUS_TREND-ALL
-     *
      * @var string
      */
     public $subType;
-
     /**
-     * @description The name of the chart subtype.
-     *
-     * @example All Alerts
-     *
      * @var string
      */
     public $subTypeName;
@@ -32,14 +23,16 @@ class allChartSubTypeList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->subType) {
             $res['SubType'] = $this->subType;
         }
+
         if (null !== $this->subTypeName) {
             $res['SubTypeName'] = $this->subTypeName;
         }
@@ -47,17 +40,18 @@ class allChartSubTypeList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return allChartSubTypeList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SubType'])) {
             $model->subType = $map['SubType'];
         }
+
         if (isset($map['SubTypeName'])) {
             $model->subTypeName = $map['SubTypeName'];
         }

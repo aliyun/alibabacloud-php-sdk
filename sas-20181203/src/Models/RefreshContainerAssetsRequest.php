@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshContainerAssetsRequest extends Model
 {
     /**
-     * @description The type of the container asset whose statistics you want to refresh. Valid values:
-     *
-     *   **IMAGE**
-     *   **CONTAINER**
-     *
-     * This parameter is required.
-     * @example IMAGE
-     *
      * @var string
      */
     public $assetType;
@@ -26,9 +18,10 @@ class RefreshContainerAssetsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetType) {
@@ -38,11 +31,11 @@ class RefreshContainerAssetsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshContainerAssetsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

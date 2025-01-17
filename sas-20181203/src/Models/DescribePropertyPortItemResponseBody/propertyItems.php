@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyPortItemResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class propertyItems extends Model
 {
     /**
-     * @description The number of servers that use the port.
-     *
-     * @example 495
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The number of the listening port.
-     *
-     * @example 22
-     *
      * @var string
      */
     public $port;
-
     /**
-     * @description The network protocol of the port.
-     *
-     * @example tcp
-     *
      * @var string
      */
     public $proto;
@@ -42,17 +28,20 @@ class propertyItems extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->proto) {
             $res['Proto'] = $this->proto;
         }
@@ -60,20 +49,22 @@ class propertyItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return propertyItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['Proto'])) {
             $model->proto = $map['Proto'];
         }

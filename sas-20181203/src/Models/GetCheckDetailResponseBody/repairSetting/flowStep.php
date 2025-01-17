@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckDetailResponseBody\repairSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class flowStep extends Model
 {
@@ -12,7 +12,6 @@ class flowStep extends Model
      * @var string
      */
     public $showText;
-
     /**
      * @var string
      */
@@ -24,14 +23,16 @@ class flowStep extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->showText) {
             $res['ShowText'] = $this->showText;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -39,17 +40,18 @@ class flowStep extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return flowStep
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ShowText'])) {
             $model->showText = $map['ShowText'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyTargetResponseBody\strategyTargets;
-use AlibabaCloud\Tea\Model;
 
 class DescribeStrategyTargetResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 001BAB34-D70A-54B0-B1D7-91B76DCDD8E8
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the assets to which the baseline check policy is applied.
-     *
      * @var strategyTargets[]
      */
     public $strategyTargets;
@@ -31,20 +24,25 @@ class DescribeStrategyTargetResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->strategyTargets)) {
+            Model::validateArray($this->strategyTargets);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->strategyTargets) {
-            $res['StrategyTargets'] = [];
-            if (null !== $this->strategyTargets && \is_array($this->strategyTargets)) {
-                $n = 0;
-                foreach ($this->strategyTargets as $item) {
-                    $res['StrategyTargets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->strategyTargets)) {
+                $res['StrategyTargets'] = [];
+                $n1                     = 0;
+                foreach ($this->strategyTargets as $item1) {
+                    $res['StrategyTargets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class DescribeStrategyTargetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeStrategyTargetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StrategyTargets'])) {
             if (!empty($map['StrategyTargets'])) {
                 $model->strategyTargets = [];
-                $n                      = 0;
-                foreach ($map['StrategyTargets'] as $item) {
-                    $model->strategyTargets[$n++] = null !== $item ? strategyTargets::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['StrategyTargets'] as $item1) {
+                    $model->strategyTargets[$n1++] = strategyTargets::fromMap($item1);
                 }
             }
         }

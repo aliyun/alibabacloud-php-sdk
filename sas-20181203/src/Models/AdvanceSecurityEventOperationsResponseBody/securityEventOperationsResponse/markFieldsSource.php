@@ -4,46 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\AdvanceSecurityEventOperationsResponseBody\securityEventOperationsResponse;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class markFieldsSource extends Model
 {
     /**
-     * @description The alias of the field that can be used in the whitelist rule.
-     *
-     * @example file path
-     *
      * @var string
      */
     public $filedAliasName;
-
     /**
-     * @description The field that can be used in the whitelist rule.
-     *
-     * @example filePath
-     *
      * @var string
      */
     public $filedName;
-
     /**
-     * @description The value of the field that can be used in the whitelist rule.
-     *
-     * @example contains
-     *
      * @var string
      */
     public $markMisValue;
-
     /**
-     * @description The operation that is supported in the whitelist rule. Valid values:
-     *
-     *   **contains**: contains
-     *   **notContains**: does not contain
-     *   **regex**: regular expression
-     *   **strEqual**: equals
-     *   **strNotEqual**: does not equal
-     *
      * @var string[]
      */
     public $supportedMisType;
@@ -56,47 +33,67 @@ class markFieldsSource extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedMisType)) {
+            Model::validateArray($this->supportedMisType);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filedAliasName) {
             $res['FiledAliasName'] = $this->filedAliasName;
         }
+
         if (null !== $this->filedName) {
             $res['FiledName'] = $this->filedName;
         }
+
         if (null !== $this->markMisValue) {
             $res['MarkMisValue'] = $this->markMisValue;
         }
+
         if (null !== $this->supportedMisType) {
-            $res['SupportedMisType'] = $this->supportedMisType;
+            if (\is_array($this->supportedMisType)) {
+                $res['SupportedMisType'] = [];
+                $n1                      = 0;
+                foreach ($this->supportedMisType as $item1) {
+                    $res['SupportedMisType'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return markFieldsSource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FiledAliasName'])) {
             $model->filedAliasName = $map['FiledAliasName'];
         }
+
         if (isset($map['FiledName'])) {
             $model->filedName = $map['FiledName'];
         }
+
         if (isset($map['MarkMisValue'])) {
             $model->markMisValue = $map['MarkMisValue'];
         }
+
         if (isset($map['SupportedMisType'])) {
             if (!empty($map['SupportedMisType'])) {
-                $model->supportedMisType = $map['SupportedMisType'];
+                $model->supportedMisType = [];
+                $n1                      = 0;
+                foreach ($map['SupportedMisType'] as $item1) {
+                    $model->supportedMisType[$n1++] = $item1;
+                }
             }
         }
 

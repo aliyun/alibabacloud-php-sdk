@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListVulGlobalConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vulGlobalConfigList extends Model
 {
     /**
-     * @description The key of the configuration item.
-     *
-     * @example vul_scan_ip_list
-     *
      * @var string
      */
     public $configKey;
-
     /**
-     * @description The value of the configuration item.
-     *
-     * @example 127.0.*.*,127.0.*.*
-     *
      * @var string
      */
     public $configValue;
@@ -32,14 +23,16 @@ class vulGlobalConfigList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configKey) {
             $res['ConfigKey'] = $this->configKey;
         }
+
         if (null !== $this->configValue) {
             $res['ConfigValue'] = $this->configValue;
         }
@@ -47,17 +40,18 @@ class vulGlobalConfigList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vulGlobalConfigList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigKey'])) {
             $model->configKey = $map['ConfigKey'];
         }
+
         if (isset($map['ConfigValue'])) {
             $model->configValue = $map['ConfigValue'];
         }

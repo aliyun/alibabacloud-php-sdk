@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IgnoreIdcProbeScanResultRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Valid values:
-     *
-     *   **1**: adds the scan result to the whitelist.
-     *   **2**: ignores the scan result.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $ignoreAction;
-
     /**
-     * @description The ID of the scan result. Separate multiple IDs with commas (,).
-     *
-     * This parameter is required.
-     * @example 332098932,332098964,332098963
-     *
      * @var string
      */
     public $scanResultIds;
@@ -37,14 +23,16 @@ class IgnoreIdcProbeScanResultRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ignoreAction) {
             $res['IgnoreAction'] = $this->ignoreAction;
         }
+
         if (null !== $this->scanResultIds) {
             $res['ScanResultIds'] = $this->scanResultIds;
         }
@@ -52,17 +40,18 @@ class IgnoreIdcProbeScanResultRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IgnoreIdcProbeScanResultRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IgnoreAction'])) {
             $model->ignoreAction = $map['IgnoreAction'];
         }
+
         if (isset($map['ScanResultIds'])) {
             $model->scanResultIds = $map['ScanResultIds'];
         }

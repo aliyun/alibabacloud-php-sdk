@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ReceiveFunctionTrialRewardByAliUidResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 94004FDB-27EC-5666-83D4-D0C5C624****
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ReceiveFunctionTrialRewardByAliUidResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ReceiveFunctionTrialRewardByAliUidResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ReceiveFunctionTrialRewardByAliUidResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

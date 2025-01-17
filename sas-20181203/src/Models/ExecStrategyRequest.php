@@ -4,28 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExecStrategyRequest extends Model
 {
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The ID of the baseline check policy.
-     *
-     * >  You can call the [DescribeStrategy](~~DescribeStrategy~~) operation to query the IDs of baseline check policies.
-     * @example 215421
-     *
      * @var int
      */
     public $strategyId;
@@ -36,14 +23,16 @@ class ExecStrategyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
@@ -51,17 +40,18 @@ class ExecStrategyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecStrategyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }

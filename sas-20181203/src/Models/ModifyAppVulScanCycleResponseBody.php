@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAppVulScanCycleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example AFEDC54D-70A2-5E56-A69B-E3D8AA8A5197
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyAppVulScanCycleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyAppVulScanCycleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAppVulScanCycleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

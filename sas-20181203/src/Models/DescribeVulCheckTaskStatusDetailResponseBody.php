@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeVulCheckTaskStatusDetailResponseBody\taskStatuses;
-use AlibabaCloud\Tea\Model;
 
 class DescribeVulCheckTaskStatusDetailResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array that consists of the status information about the vulnerability scan tasks on the server.
-     *
      * @var taskStatuses[]
      */
     public $taskStatuses;
-
     /**
-     * @description The total number of vulnerability scan tasks on the server.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class DescribeVulCheckTaskStatusDetailResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->taskStatuses)) {
+            Model::validateArray($this->taskStatuses);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskStatuses) {
-            $res['TaskStatuses'] = [];
-            if (null !== $this->taskStatuses && \is_array($this->taskStatuses)) {
-                $n = 0;
-                foreach ($this->taskStatuses as $item) {
-                    $res['TaskStatuses'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskStatuses)) {
+                $res['TaskStatuses'] = [];
+                $n1                  = 0;
+                foreach ($this->taskStatuses as $item1) {
+                    $res['TaskStatuses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class DescribeVulCheckTaskStatusDetailResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVulCheckTaskStatusDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskStatuses'])) {
             if (!empty($map['TaskStatuses'])) {
                 $model->taskStatuses = [];
-                $n                   = 0;
-                foreach ($map['TaskStatuses'] as $item) {
-                    $model->taskStatuses[$n++] = null !== $item ? taskStatuses::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['TaskStatuses'] as $item1) {
+                    $model->taskStatuses[$n1++] = taskStatuses::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

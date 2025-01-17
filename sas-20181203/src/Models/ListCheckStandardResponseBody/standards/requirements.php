@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckStandardResponseBody\standards;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class requirements extends Model
 {
     /**
-     * @description The ID of the requirement.
-     *
-     * @example 11
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The number of check items in the requirement.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $riskCheckCount;
-
     /**
-     * @description The display name of the search condition.
-     *
-     * @example RAM identity authentication
-     *
      * @var string
      */
     public $showName;
-
     /**
-     * @description The priority for display.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $showPriorityLevel;
@@ -52,20 +33,24 @@ class requirements extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->riskCheckCount) {
             $res['RiskCheckCount'] = $this->riskCheckCount;
         }
+
         if (null !== $this->showName) {
             $res['ShowName'] = $this->showName;
         }
+
         if (null !== $this->showPriorityLevel) {
             $res['ShowPriorityLevel'] = $this->showPriorityLevel;
         }
@@ -73,23 +58,26 @@ class requirements extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return requirements
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RiskCheckCount'])) {
             $model->riskCheckCount = $map['RiskCheckCount'];
         }
+
         if (isset($map['ShowName'])) {
             $model->showName = $map['ShowName'];
         }
+
         if (isset($map['ShowPriorityLevel'])) {
             $model->showPriorityLevel = $map['ShowPriorityLevel'];
         }

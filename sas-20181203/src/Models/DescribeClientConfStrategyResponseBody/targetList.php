@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeClientConfStrategyResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetList extends Model
 {
     /**
-     * @description The UUID of the Security Center agent.
-     *
-     * @example 2b1753a6-04d9-448e-ad17-7abdf19f****
-     *
      * @var string
      */
     public $uuid;
@@ -22,9 +18,10 @@ class targetList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->uuid) {
@@ -34,11 +31,11 @@ class targetList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

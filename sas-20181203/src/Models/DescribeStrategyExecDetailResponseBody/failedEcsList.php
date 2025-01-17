@@ -4,51 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeStrategyExecDetailResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failedEcsList extends Model
 {
     /**
-     * @description The IP address of the server on which the baseline check was performed.
-     *
-     * @example 115.28.XX.XX
-     *
      * @var string
      */
     public $IP;
-
     /**
-     * @description The name of the instance.
-     *
-     * @example worker-k8s-for-cs-cf5741fb95c3a45d0864f0e4544dc****
-     *
      * @var string
      */
     public $instanceName;
-
     /**
-     * @description The public IP address.
-     *
-     * @example 115.28.XX.XX
-     *
      * @var string
      */
     public $internetIp;
-
     /**
-     * @description The private IP address.
-     *
-     * @example 172.31.XX.XX
-     *
      * @var string
      */
     public $intranetIp;
-
     /**
-     * @description The failure cause for the check item.
-     *
-     * @example Detect timeout
-     *
      * @var string
      */
     public $reason;
@@ -62,23 +38,28 @@ class failedEcsList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->IP) {
             $res['IP'] = $this->IP;
         }
+
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
         }
+
         if (null !== $this->internetIp) {
             $res['InternetIp'] = $this->internetIp;
         }
+
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
@@ -86,26 +67,30 @@ class failedEcsList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failedEcsList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IP'])) {
             $model->IP = $map['IP'];
         }
+
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];
         }
+
         if (isset($map['InternetIp'])) {
             $model->internetIp = $map['InternetIp'];
         }
+
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }

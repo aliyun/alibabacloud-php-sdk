@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class QueryIncidentTracingJudgeResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 73563FEF-BBCB-151C-88AA-8A409CBAF0C6
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
-
     /**
-     * @description The request result.
-     *
      * @var int[]
      */
     public $tracingJudge;
@@ -43,40 +28,58 @@ class QueryIncidentTracingJudgeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->tracingJudge)) {
+            Model::validateArray($this->tracingJudge);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->tracingJudge) {
-            $res['TracingJudge'] = $this->tracingJudge;
+            if (\is_array($this->tracingJudge)) {
+                $res['TracingJudge'] = [];
+                foreach ($this->tracingJudge as $key1 => $value1) {
+                    $res['TracingJudge'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryIncidentTracingJudgeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TracingJudge'])) {
-            $model->tracingJudge = $map['TracingJudge'];
+            if (!empty($map['TracingJudge'])) {
+                $model->tracingJudge = [];
+                foreach ($map['TracingJudge'] as $key1 => $value1) {
+                    $model->tracingJudge[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

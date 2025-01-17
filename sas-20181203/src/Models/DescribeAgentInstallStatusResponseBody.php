@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAgentInstallStatusResponseBody\aegisClientInvokeStatusResponseList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAgentInstallStatusResponseBody extends Model
 {
     /**
-     * @description The status of servers.
-     *
      * @var aegisClientInvokeStatusResponseList[]
      */
     public $aegisClientInvokeStatusResponseList;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeAgentInstallStatusResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->aegisClientInvokeStatusResponseList)) {
+            Model::validateArray($this->aegisClientInvokeStatusResponseList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aegisClientInvokeStatusResponseList) {
-            $res['AegisClientInvokeStatusResponseList'] = [];
-            if (null !== $this->aegisClientInvokeStatusResponseList && \is_array($this->aegisClientInvokeStatusResponseList)) {
-                $n = 0;
-                foreach ($this->aegisClientInvokeStatusResponseList as $item) {
-                    $res['AegisClientInvokeStatusResponseList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aegisClientInvokeStatusResponseList)) {
+                $res['AegisClientInvokeStatusResponseList'] = [];
+                $n1                                         = 0;
+                foreach ($this->aegisClientInvokeStatusResponseList as $item1) {
+                    $res['AegisClientInvokeStatusResponseList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeAgentInstallStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAgentInstallStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AegisClientInvokeStatusResponseList'])) {
             if (!empty($map['AegisClientInvokeStatusResponseList'])) {
                 $model->aegisClientInvokeStatusResponseList = [];
-                $n                                          = 0;
-                foreach ($map['AegisClientInvokeStatusResponseList'] as $item) {
-                    $model->aegisClientInvokeStatusResponseList[$n++] = null !== $item ? aegisClientInvokeStatusResponseList::fromMap($item) : $item;
+                $n1                                         = 0;
+                foreach ($map['AegisClientInvokeStatusResponseList'] as $item1) {
+                    $model->aegisClientInvokeStatusResponseList[$n1++] = aegisClientInvokeStatusResponseList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

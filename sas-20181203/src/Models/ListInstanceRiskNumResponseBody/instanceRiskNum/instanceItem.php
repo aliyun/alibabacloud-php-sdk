@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceRiskNumResponseBody\instanceRiskNum;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceItem extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example i-wz9fdluqx20mp2x7****
-     *
      * @var string
      */
     public $instanceId;
-
     /**
-     * @description The UUID of the instance.
-     *
-     * @example f2d6e901-1004-4ca8-9dae-53ec04a9****
-     *
      * @var string
      */
     public $uuid;
@@ -32,14 +23,16 @@ class instanceItem extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -47,17 +40,18 @@ class instanceItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

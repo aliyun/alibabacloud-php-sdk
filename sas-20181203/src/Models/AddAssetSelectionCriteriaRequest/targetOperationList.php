@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\AddAssetSelectionCriteriaRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class targetOperationList extends Model
 {
     /**
-     * @description The type of the operation. Valid values:
-     *
-     *   **add**
-     *   **del**
-     *
-     * @example del
-     *
      * @var string
      */
     public $operation;
-
     /**
-     * @description The ID of the asset.
-     *
-     * @example 1188****
-     *
      * @var string
      */
     public $target;
@@ -35,14 +23,16 @@ class targetOperationList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
+
         if (null !== $this->target) {
             $res['Target'] = $this->target;
         }
@@ -50,17 +40,18 @@ class targetOperationList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return targetOperationList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
+
         if (isset($map['Target'])) {
             $model->target = $map['Target'];
         }

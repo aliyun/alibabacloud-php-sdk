@@ -4,85 +4,43 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionTargetDetailResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleTarget extends Model
 {
     /**
-     * @description The name of the application to which the network object belongs.
-     *
-     * @example netperf-client
-     *
      * @var string
      */
     public $appName;
-
     /**
-     * @description The ID of the container cluster.
-     *
-     * @example ca6e6594def8d4be8b2795fd12c32****
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description The name of the container cluster.
-     *
-     * @example sas-test-cnnf
-     *
      * @var string
      */
     public $clusterName;
-
     /**
-     * @description An array that consists of the images of the network object.
-     *
      * @var string[]
      */
     public $imageList;
-
     /**
-     * @description The namespace.
-     *
-     * @example secondary
-     *
      * @var string
      */
     public $namespace;
-
     /**
-     * @description An array that consists of the labels specified for the network object.
-     *
      * @var string[]
      */
     public $tagList;
-
     /**
-     * @description The ID of the network object.
-     *
-     * @example 400723
-     *
      * @var int
      */
     public $targetId;
-
     /**
-     * @description The name of the network object.
-     *
-     * @example destination-test-obj-Na3cF
-     *
      * @var string
      */
     public $targetName;
-
     /**
-     * @description The type of the network object. Valid values:
-     *
-     *   **IMAGE**: image
-     *
-     * @example IMAGE
-     *
      * @var string
      */
     public $targetType;
@@ -100,35 +58,62 @@ class ruleTarget extends Model
 
     public function validate()
     {
+        if (\is_array($this->imageList)) {
+            Model::validateArray($this->imageList);
+        }
+        if (\is_array($this->tagList)) {
+            Model::validateArray($this->tagList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->imageList) {
-            $res['ImageList'] = $this->imageList;
+            if (\is_array($this->imageList)) {
+                $res['ImageList'] = [];
+                $n1               = 0;
+                foreach ($this->imageList as $item1) {
+                    $res['ImageList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->tagList) {
-            $res['TagList'] = $this->tagList;
+            if (\is_array($this->tagList)) {
+                $res['TagList'] = [];
+                $n1             = 0;
+                foreach ($this->tagList as $item1) {
+                    $res['TagList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->targetId) {
             $res['TargetId'] = $this->targetId;
         }
+
         if (null !== $this->targetName) {
             $res['TargetName'] = $this->targetName;
         }
+
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
         }
@@ -136,42 +121,58 @@ class ruleTarget extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleTarget
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['ImageList'])) {
             if (!empty($map['ImageList'])) {
-                $model->imageList = $map['ImageList'];
+                $model->imageList = [];
+                $n1               = 0;
+                foreach ($map['ImageList'] as $item1) {
+                    $model->imageList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
-                $model->tagList = $map['TagList'];
+                $model->tagList = [];
+                $n1             = 0;
+                foreach ($map['TagList'] as $item1) {
+                    $model->tagList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['TargetId'])) {
             $model->targetId = $map['TargetId'];
         }
+
         if (isset($map['TargetName'])) {
             $model->targetName = $map['TargetName'];
         }
+
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];
         }

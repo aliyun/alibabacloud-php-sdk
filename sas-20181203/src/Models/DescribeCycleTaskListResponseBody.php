@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCycleTaskListResponseBody\cycleScheduleResponseList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCycleTaskListResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCycleTaskListResponseBody extends Model
 {
     /**
-     * @description An array that consists of periodic scan tasks.
-     *
      * @var cycleScheduleResponseList[]
      */
     public $cycleScheduleResponseList;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeCycleTaskListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->cycleScheduleResponseList)) {
+            Model::validateArray($this->cycleScheduleResponseList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cycleScheduleResponseList) {
-            $res['CycleScheduleResponseList'] = [];
-            if (null !== $this->cycleScheduleResponseList && \is_array($this->cycleScheduleResponseList)) {
-                $n = 0;
-                foreach ($this->cycleScheduleResponseList as $item) {
-                    $res['CycleScheduleResponseList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cycleScheduleResponseList)) {
+                $res['CycleScheduleResponseList'] = [];
+                $n1                               = 0;
+                foreach ($this->cycleScheduleResponseList as $item1) {
+                    $res['CycleScheduleResponseList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeCycleTaskListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCycleTaskListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CycleScheduleResponseList'])) {
             if (!empty($map['CycleScheduleResponseList'])) {
                 $model->cycleScheduleResponseList = [];
-                $n                                = 0;
-                foreach ($map['CycleScheduleResponseList'] as $item) {
-                    $model->cycleScheduleResponseList[$n++] = null !== $item ? cycleScheduleResponseList::fromMap($item) : $item;
+                $n1                               = 0;
+                foreach ($map['CycleScheduleResponseList'] as $item1) {
+                    $model->cycleScheduleResponseList[$n1++] = cycleScheduleResponseList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

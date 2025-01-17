@@ -4,137 +4,63 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningSummaryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class list_ extends Model
 {
     /**
-     * @description The suggestion on the check item.
-     *
-     * @example In the Administrative Tools window, double-click Local Security Policy. In the Local Security Policy window that appears, choose Security Settings\\\\Local Policies\\\\Audit Policy, configure all audit policies as: `Success, Failure`.
-     *
      * @var string
      */
     public $advice;
-
     /**
-     * @description The types of the baselines to which the check item belongs.
-     *
      * @var string[]
      */
     public $affiliatedRiskTypes;
-
     /**
-     * @description The baselines to which the check item belongs.
-     *
      * @var string[]
      */
     public $affiliatedRisks;
-
     /**
-     * @description The alias of the baseline type.
-     *
-     * @example week_pa****
-     *
      * @var string
      */
     public $alias;
-
     /**
-     * @description The ID of the check item.
-     *
-     * @example 696
-     *
      * @var int
      */
     public $checkId;
-
     /**
-     * @description The description of the check item.
-     *
-     * @example Config the Event Audit policys
-     *
      * @var string
      */
     public $checkItem;
-
     /**
-     * @description The risk level of the check item. Valid values:
-     *
-     *   **high**
-     *   **medium**
-     *   **low**
-     *
-     * @example high
-     *
      * @var string
      */
     public $checkLevel;
-
     /**
-     * @description The type of the check item.
-     *
-     * @example Security audit
-     *
      * @var string
      */
     public $checkType;
-
     /**
-     * @description Indicates whether the check item belongs to the container runtime type. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $containerCheckItem;
-
     /**
-     * @description The description of the check item.
-     *
-     * @example Config the Event Audit policys
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The baselines in which the check item is enabled.
-     *
      * @var string[]
      */
     public $enableRisks;
-
     /**
-     * @description The type of the baseline.
-     *
-     * @example weak_password
-     *
      * @var string
      */
     public $riskType;
-
     /**
-     * @description The risk status of the check item. Valid values:
-     *
-     *   **1**: failed
-     *   **3**: passed
-     *   **6**: Added to Whitelist
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
-
     /**
-     * @description The number of servers that are affected by the check item.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $warningMachineCount;
@@ -157,50 +83,91 @@ class list_ extends Model
 
     public function validate()
     {
+        if (\is_array($this->affiliatedRiskTypes)) {
+            Model::validateArray($this->affiliatedRiskTypes);
+        }
+        if (\is_array($this->affiliatedRisks)) {
+            Model::validateArray($this->affiliatedRisks);
+        }
+        if (\is_array($this->enableRisks)) {
+            Model::validateArray($this->enableRisks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->advice) {
             $res['Advice'] = $this->advice;
         }
+
         if (null !== $this->affiliatedRiskTypes) {
-            $res['AffiliatedRiskTypes'] = $this->affiliatedRiskTypes;
+            if (\is_array($this->affiliatedRiskTypes)) {
+                $res['AffiliatedRiskTypes'] = [];
+                $n1                         = 0;
+                foreach ($this->affiliatedRiskTypes as $item1) {
+                    $res['AffiliatedRiskTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->affiliatedRisks) {
-            $res['AffiliatedRisks'] = $this->affiliatedRisks;
+            if (\is_array($this->affiliatedRisks)) {
+                $res['AffiliatedRisks'] = [];
+                $n1                     = 0;
+                foreach ($this->affiliatedRisks as $item1) {
+                    $res['AffiliatedRisks'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->alias) {
             $res['Alias'] = $this->alias;
         }
+
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
         }
+
         if (null !== $this->checkItem) {
             $res['CheckItem'] = $this->checkItem;
         }
+
         if (null !== $this->checkLevel) {
             $res['CheckLevel'] = $this->checkLevel;
         }
+
         if (null !== $this->checkType) {
             $res['CheckType'] = $this->checkType;
         }
+
         if (null !== $this->containerCheckItem) {
             $res['ContainerCheckItem'] = $this->containerCheckItem;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->enableRisks) {
-            $res['EnableRisks'] = $this->enableRisks;
+            if (\is_array($this->enableRisks)) {
+                $res['EnableRisks'] = [];
+                $n1                 = 0;
+                foreach ($this->enableRisks as $item1) {
+                    $res['EnableRisks'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->warningMachineCount) {
             $res['WarningMachineCount'] = $this->warningMachineCount;
         }
@@ -208,59 +175,84 @@ class list_ extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return list_
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Advice'])) {
             $model->advice = $map['Advice'];
         }
+
         if (isset($map['AffiliatedRiskTypes'])) {
             if (!empty($map['AffiliatedRiskTypes'])) {
-                $model->affiliatedRiskTypes = $map['AffiliatedRiskTypes'];
+                $model->affiliatedRiskTypes = [];
+                $n1                         = 0;
+                foreach ($map['AffiliatedRiskTypes'] as $item1) {
+                    $model->affiliatedRiskTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['AffiliatedRisks'])) {
             if (!empty($map['AffiliatedRisks'])) {
-                $model->affiliatedRisks = $map['AffiliatedRisks'];
+                $model->affiliatedRisks = [];
+                $n1                     = 0;
+                foreach ($map['AffiliatedRisks'] as $item1) {
+                    $model->affiliatedRisks[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Alias'])) {
             $model->alias = $map['Alias'];
         }
+
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
         }
+
         if (isset($map['CheckItem'])) {
             $model->checkItem = $map['CheckItem'];
         }
+
         if (isset($map['CheckLevel'])) {
             $model->checkLevel = $map['CheckLevel'];
         }
+
         if (isset($map['CheckType'])) {
             $model->checkType = $map['CheckType'];
         }
+
         if (isset($map['ContainerCheckItem'])) {
             $model->containerCheckItem = $map['ContainerCheckItem'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['EnableRisks'])) {
             if (!empty($map['EnableRisks'])) {
-                $model->enableRisks = $map['EnableRisks'];
+                $model->enableRisks = [];
+                $n1                 = 0;
+                foreach ($map['EnableRisks'] as $item1) {
+                    $model->enableRisks[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['WarningMachineCount'])) {
             $model->warningMachineCount = $map['WarningMachineCount'];
         }

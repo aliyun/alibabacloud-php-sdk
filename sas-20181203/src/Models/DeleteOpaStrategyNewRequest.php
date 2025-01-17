@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteOpaStrategyNewRequest extends Model
 {
     /**
-     * @description The IDs of rules.
-     *
      * @var int[]
      */
     public $strategyIds;
@@ -20,29 +18,43 @@ class DeleteOpaStrategyNewRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->strategyIds)) {
+            Model::validateArray($this->strategyIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->strategyIds) {
-            $res['StrategyIds'] = $this->strategyIds;
+            if (\is_array($this->strategyIds)) {
+                $res['StrategyIds'] = [];
+                $n1                 = 0;
+                foreach ($this->strategyIds as $item1) {
+                    $res['StrategyIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteOpaStrategyNewRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StrategyIds'])) {
             if (!empty($map['StrategyIds'])) {
-                $model->strategyIds = $map['StrategyIds'];
+                $model->strategyIds = [];
+                $n1                 = 0;
+                foreach ($map['StrategyIds'] as $item1) {
+                    $model->strategyIds[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OpenSensitiveFileScanRequest extends Model
 {
     /**
-     * @description Specifies whether to enable or disable sensitive file scan. Valid values:
-     *
-     *   **on**: enables sensitive file scan
-     *   **off**: disables sensitive file scan
-     *
-     * @example on
-     *
      * @var string
      */
     public $switchOn;
@@ -25,9 +18,10 @@ class OpenSensitiveFileScanRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->switchOn) {
@@ -37,11 +31,11 @@ class OpenSensitiveFileScanRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OpenSensitiveFileScanRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

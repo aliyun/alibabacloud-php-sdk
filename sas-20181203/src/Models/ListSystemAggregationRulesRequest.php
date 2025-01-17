@@ -4,74 +4,35 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListSystemAggregationRulesRequest extends Model
 {
     /**
-     * @description The IDs of the aggregation types.
-     *
      * @var int[]
      */
     public $aggregationIds;
-
     /**
-     * @description The number of the page to return.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The number of entries to return on each page.
-     *
-     * This parameter is required.
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The name of the rule.
-     *
-     * @example Rule\\*\\*\\*\\*
-     *
      * @var string
      */
     public $ruleName;
-
     /**
-     * @description The types of the rules.
-     *
      * @var int[]
      */
     public $ruleTypes;
-
     /**
-     * @description The type of the operating system. Valid values:
-     *
-     *   **2**: Windows
-     *   **1**: Linux
-     *   **0**: all
-     *
-     * @example 0
-     *
      * @var int
      */
     public $systemType;
@@ -87,29 +48,54 @@ class ListSystemAggregationRulesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->aggregationIds)) {
+            Model::validateArray($this->aggregationIds);
+        }
+        if (\is_array($this->ruleTypes)) {
+            Model::validateArray($this->ruleTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aggregationIds) {
-            $res['AggregationIds'] = $this->aggregationIds;
+            if (\is_array($this->aggregationIds)) {
+                $res['AggregationIds'] = [];
+                $n1                    = 0;
+                foreach ($this->aggregationIds as $item1) {
+                    $res['AggregationIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
         if (null !== $this->ruleTypes) {
-            $res['RuleTypes'] = $this->ruleTypes;
+            if (\is_array($this->ruleTypes)) {
+                $res['RuleTypes'] = [];
+                $n1               = 0;
+                foreach ($this->ruleTypes as $item1) {
+                    $res['RuleTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->systemType) {
             $res['SystemType'] = $this->systemType;
         }
@@ -117,36 +103,50 @@ class ListSystemAggregationRulesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSystemAggregationRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AggregationIds'])) {
             if (!empty($map['AggregationIds'])) {
-                $model->aggregationIds = $map['AggregationIds'];
+                $model->aggregationIds = [];
+                $n1                    = 0;
+                foreach ($map['AggregationIds'] as $item1) {
+                    $model->aggregationIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
         if (isset($map['RuleTypes'])) {
             if (!empty($map['RuleTypes'])) {
-                $model->ruleTypes = $map['RuleTypes'];
+                $model->ruleTypes = [];
+                $n1               = 0;
+                foreach ($map['RuleTypes'] as $item1) {
+                    $model->ruleTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SystemType'])) {
             $model->systemType = $map['SystemType'];
         }

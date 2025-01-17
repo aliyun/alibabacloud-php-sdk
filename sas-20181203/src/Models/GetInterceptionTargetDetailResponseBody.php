@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetInterceptionTargetDetailResponseBody\ruleTarget;
-use AlibabaCloud\Tea\Model;
 
 class GetInterceptionTargetDetailResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D65AADFC-1D20-5A6A-8F6A-9FA53C0DC1F8
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the network object.
-     *
      * @var ruleTarget
      */
     public $ruleTarget;
@@ -31,32 +24,38 @@ class GetInterceptionTargetDetailResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->ruleTarget) {
+            $this->ruleTarget->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->ruleTarget) {
-            $res['RuleTarget'] = null !== $this->ruleTarget ? $this->ruleTarget->toMap() : null;
+            $res['RuleTarget'] = null !== $this->ruleTarget ? $this->ruleTarget->toArray($noStream) : $this->ruleTarget;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInterceptionTargetDetailResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RuleTarget'])) {
             $model->ruleTarget = ruleTarget::fromMap($map['RuleTarget']);
         }

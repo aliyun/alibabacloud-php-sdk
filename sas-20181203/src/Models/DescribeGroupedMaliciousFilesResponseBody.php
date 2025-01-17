@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedMaliciousFilesResponseBody\groupedMaliciousFileResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeGroupedMaliciousFilesResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeGroupedMaliciousFilesResponseBody extends Model
 {
     /**
-     * @description The details of the malicious image sample.
-     *
      * @var groupedMaliciousFileResponse[]
      */
     public $groupedMaliciousFileResponse;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 8045E03E-6D91-4C53-9F22-5A1B84BB29D9
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->groupedMaliciousFileResponse)) {
+            Model::validateArray($this->groupedMaliciousFileResponse);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupedMaliciousFileResponse) {
-            $res['GroupedMaliciousFileResponse'] = [];
-            if (null !== $this->groupedMaliciousFileResponse && \is_array($this->groupedMaliciousFileResponse)) {
-                $n = 0;
-                foreach ($this->groupedMaliciousFileResponse as $item) {
-                    $res['GroupedMaliciousFileResponse'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->groupedMaliciousFileResponse)) {
+                $res['GroupedMaliciousFileResponse'] = [];
+                $n1                                  = 0;
+                foreach ($this->groupedMaliciousFileResponse as $item1) {
+                    $res['GroupedMaliciousFileResponse'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeGroupedMaliciousFilesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeGroupedMaliciousFilesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupedMaliciousFileResponse'])) {
             if (!empty($map['GroupedMaliciousFileResponse'])) {
                 $model->groupedMaliciousFileResponse = [];
-                $n                                   = 0;
-                foreach ($map['GroupedMaliciousFileResponse'] as $item) {
-                    $model->groupedMaliciousFileResponse[$n++] = null !== $item ? groupedMaliciousFileResponse::fromMap($item) : $item;
+                $n1                                  = 0;
+                foreach ($map['GroupedMaliciousFileResponse'] as $item1) {
+                    $model->groupedMaliciousFileResponse[$n1++] = groupedMaliciousFileResponse::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

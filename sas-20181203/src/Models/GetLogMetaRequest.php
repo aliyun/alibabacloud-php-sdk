@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLogMetaRequest extends Model
 {
     /**
-     * @description The name of the dedicated Logstore in which logs are stored.
-     *
-     * This parameter is required.
-     * @example aegis-log-login
-     *
      * @var string
      */
     public $logStore;
-
     /**
-     * @description The Alibaba Cloud account ID of the member in the resource directory.
-     *
-     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
-     * @example 127608589417****
-     *
      * @var int
      */
     public $resourceDirectoryAccountId;
@@ -34,14 +23,16 @@ class GetLogMetaRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logStore) {
             $res['LogStore'] = $this->logStore;
         }
+
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
@@ -49,17 +40,18 @@ class GetLogMetaRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLogMetaRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogStore'])) {
             $model->logStore = $map['LogStore'];
         }
+
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }

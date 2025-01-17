@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRisksResponseBody\risks;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRisksResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example EA54FE21-B006-5DFF-8D64-C4FFECDA****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The baselines.
-     *
      * @var risks[]
      */
     public $risks;
-
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 23
-     *
      * @var int
      */
     public $totalCount;
@@ -41,23 +29,29 @@ class DescribeRisksResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->risks)) {
+            Model::validateArray($this->risks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->risks) {
-            $res['Risks'] = [];
-            if (null !== $this->risks && \is_array($this->risks)) {
-                $n = 0;
-                foreach ($this->risks as $item) {
-                    $res['Risks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->risks)) {
+                $res['Risks'] = [];
+                $n1           = 0;
+                foreach ($this->risks as $item1) {
+                    $res['Risks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +59,28 @@ class DescribeRisksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRisksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Risks'])) {
             if (!empty($map['Risks'])) {
                 $model->risks = [];
-                $n            = 0;
-                foreach ($map['Risks'] as $item) {
-                    $model->risks[$n++] = null !== $item ? risks::fromMap($item) : $item;
+                $n1           = 0;
+                foreach ($map['Risks'] as $item1) {
+                    $model->risks[$n1++] = risks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

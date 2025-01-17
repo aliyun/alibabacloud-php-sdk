@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSasContainerWebDefenseRuleApplicationRequest extends Model
 {
     /**
-     * @description The ID of the rule.
-     *
-     * >  You can call the ListSasContainerWebDefenseRule operation to query the IDs of rules.
-     * @example 400599
-     *
      * @var int
      */
     public $ruleId;
@@ -23,9 +18,10 @@ class GetSasContainerWebDefenseRuleApplicationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ruleId) {
@@ -35,11 +31,11 @@ class GetSasContainerWebDefenseRuleApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSasContainerWebDefenseRuleApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

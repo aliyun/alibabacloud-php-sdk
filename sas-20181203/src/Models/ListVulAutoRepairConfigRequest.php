@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVulAutoRepairConfigRequest extends Model
 {
     /**
-     * @description The alias of the vulnerability.
-     *
-     * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability(CVE-2021-4034)
-     *
      * @var string
      */
     public $aliasName;
-
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The number of entries per page. Default value: **10**.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The type of the vulnerability. Valid values:
-     *
-     *   **cve**: Linux software vulnerability
-     *   **sys**: Windows system vulnerability
-     *
-     * @example cve
-     *
      * @var string
      */
     public $type;
@@ -55,20 +33,24 @@ class ListVulAutoRepairConfigRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliasName) {
             $res['AliasName'] = $this->aliasName;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -76,23 +58,26 @@ class ListVulAutoRepairConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVulAutoRepairConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AliasName'])) {
             $model->aliasName = $map['AliasName'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

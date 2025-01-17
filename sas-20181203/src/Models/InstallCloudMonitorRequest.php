@@ -4,50 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class InstallCloudMonitorRequest extends Model
 {
     /**
-     * @description The AccessKey ID that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey ID.
-     *
-     * > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
-     * @example usY*****R_U
-     *
      * @var string
      */
     public $agentAccessKey;
-
     /**
-     * @description The AccessKey secret that is required to install the CloudMonitor agent. You can call the [DescribeMonitoringAgentAccessKey](https://help.aliyun.com/document_detail/114948.html) operation to query the AccessKey secret.
-     *
-     * > This parameter is required only when you install the CloudMonitor agent on servers that are not deployed on Alibaba Cloud.
-     * @example UCxF2R1sIO90XlU9****
-     *
      * @var string
      */
     public $agentSecretKey;
-
     /**
-     * @description The version of the CloudMonitor agent that you want to install on the servers. For more information about the latest version of the CloudMonitor agent, see [Overview](https://help.aliyun.com/document_detail/183431.html).
-     *
-     * This parameter is required.
-     * @example 3.5.6
-     *
      * @var string
      */
     public $argusVersion;
-
     /**
-     * @description The IDs of the servers on which you want to install the CloudMonitor agent. Separate multiple IDs with commas (,).
-     *
      * @var string[]
      */
     public $instanceIdList;
-
     /**
-     * @description The UUIDs of the servers on which you want to install the CloudMonitor agent. Separate multiple UUIDs with commas (,).
-     *
      * @var string[]
      */
     public $uuidList;
@@ -61,55 +38,90 @@ class InstallCloudMonitorRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->instanceIdList)) {
+            Model::validateArray($this->instanceIdList);
+        }
+        if (\is_array($this->uuidList)) {
+            Model::validateArray($this->uuidList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentAccessKey) {
             $res['AgentAccessKey'] = $this->agentAccessKey;
         }
+
         if (null !== $this->agentSecretKey) {
             $res['AgentSecretKey'] = $this->agentSecretKey;
         }
+
         if (null !== $this->argusVersion) {
             $res['ArgusVersion'] = $this->argusVersion;
         }
+
         if (null !== $this->instanceIdList) {
-            $res['InstanceIdList'] = $this->instanceIdList;
+            if (\is_array($this->instanceIdList)) {
+                $res['InstanceIdList'] = [];
+                $n1                    = 0;
+                foreach ($this->instanceIdList as $item1) {
+                    $res['InstanceIdList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->uuidList) {
-            $res['UuidList'] = $this->uuidList;
+            if (\is_array($this->uuidList)) {
+                $res['UuidList'] = [];
+                $n1              = 0;
+                foreach ($this->uuidList as $item1) {
+                    $res['UuidList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return InstallCloudMonitorRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AgentAccessKey'])) {
             $model->agentAccessKey = $map['AgentAccessKey'];
         }
+
         if (isset($map['AgentSecretKey'])) {
             $model->agentSecretKey = $map['AgentSecretKey'];
         }
+
         if (isset($map['ArgusVersion'])) {
             $model->argusVersion = $map['ArgusVersion'];
         }
+
         if (isset($map['InstanceIdList'])) {
             if (!empty($map['InstanceIdList'])) {
-                $model->instanceIdList = $map['InstanceIdList'];
+                $model->instanceIdList = [];
+                $n1                    = 0;
+                foreach ($map['InstanceIdList'] as $item1) {
+                    $model->instanceIdList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UuidList'])) {
             if (!empty($map['UuidList'])) {
-                $model->uuidList = $map['UuidList'];
+                $model->uuidList = [];
+                $n1              = 0;
+                foreach ($map['UuidList'] as $item1) {
+                    $model->uuidList[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeNsasSuspEventTypeResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class eventTypes extends Model
 {
     /**
-     * @description The name of the alert type.
-     *
-     * @example Unusual Logon
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The number of assets for which an alert of the type is generated.
-     *
-     * @example 22
-     *
      * @var int
      */
     public $suspEventCount;
-
     /**
-     * @description The alert type.
-     *
-     * @example Unusual Logon
-     *
      * @var string
      */
     public $type;
@@ -42,17 +28,20 @@ class eventTypes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->suspEventCount) {
             $res['SuspEventCount'] = $this->suspEventCount;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -60,20 +49,22 @@ class eventTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return eventTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SuspEventCount'])) {
             $model->suspEventCount = $map['SuspEventCount'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

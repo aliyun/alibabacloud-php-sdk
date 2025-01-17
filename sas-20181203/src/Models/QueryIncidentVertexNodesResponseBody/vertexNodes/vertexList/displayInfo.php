@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\QueryIncidentVertexNodesResponseBody\vertexNodes\vertexList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class displayInfo extends Model
 {
     /**
-     * @description The display name of the property.
-     *
-     * @example zabbix
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The display value of the property.
-     *
-     * @example cs-nacos
-     *
      * @var string
      */
     public $value;
@@ -32,14 +23,16 @@ class displayInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -47,17 +40,18 @@ class displayInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return displayInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

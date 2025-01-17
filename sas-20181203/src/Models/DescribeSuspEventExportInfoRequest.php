@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSuspEventExportInfoRequest extends Model
 {
     /**
-     * @description The ID of the export task.
-     *
-     * > You can call the [ExportSuspEvents](~~ExportSuspEvents~~) operation to query the ID.
-     * @example 123
-     *
      * @var int
      */
     public $exportId;
@@ -23,9 +18,10 @@ class DescribeSuspEventExportInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->exportId) {
@@ -35,11 +31,11 @@ class DescribeSuspEventExportInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSuspEventExportInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

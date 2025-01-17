@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\OperateApplicationRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class containerWebDefenseApplicationDTOS extends Model
 {
     /**
-     * @description The ID of the cluster to which the container belongs.
-     *
-     * This parameter is required.
-     * @example ceb68cc58234141828677e383bd21ff0c
-     *
      * @var string
      */
     public $clusterId;
-
     /**
-     * @description Specifies whether to apply the configuration to the asset. Valid values:
-     *
-     *   **add**: applied
-     *   **del**: not applied
-     *
-     * This parameter is required.
-     * @example add
-     *
      * @var string
      */
     public $flag;
-
     /**
-     * @description The application ID. If the application is newly added, you do not need to specify this parameter.
-     *
-     * @example 196
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The value of the application tag.
-     *
-     * This parameter is required.
-     * @example app:app-003
-     *
      * @var string
      */
     public $tag;
@@ -58,20 +33,24 @@ class containerWebDefenseApplicationDTOS extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
         }
+
         if (null !== $this->flag) {
             $res['Flag'] = $this->flag;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -79,23 +58,26 @@ class containerWebDefenseApplicationDTOS extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return containerWebDefenseApplicationDTOS
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+
         if (isset($map['Flag'])) {
             $model->flag = $map['Flag'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }

@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttestorsResponseBody\attestors;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttestorsResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeAttestorsResponseBody extends Model
 {
     /**
-     * @description The witnesses.
-     *
      * @var attestors[]
      */
     public $attestors;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example 7BC55C8F-226E-5AF5-9A2C-2EC43864****
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeAttestorsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->attestors)) {
+            Model::validateArray($this->attestors);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attestors) {
-            $res['Attestors'] = [];
-            if (null !== $this->attestors && \is_array($this->attestors)) {
-                $n = 0;
-                foreach ($this->attestors as $item) {
-                    $res['Attestors'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->attestors)) {
+                $res['Attestors'] = [];
+                $n1               = 0;
+                foreach ($this->attestors as $item1) {
+                    $res['Attestors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeAttestorsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAttestorsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attestors'])) {
             if (!empty($map['Attestors'])) {
                 $model->attestors = [];
-                $n                = 0;
-                foreach ($map['Attestors'] as $item) {
-                    $model->attestors[$n++] = null !== $item ? attestors::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Attestors'] as $item1) {
+                    $model->attestors[$n1++] = attestors::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

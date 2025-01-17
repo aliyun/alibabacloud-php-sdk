@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetSensitiveDefineRuleConfigResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSensitiveDefineRuleConfigResponseBody\data\ruleTree\ruleList;
-use AlibabaCloud\Tea\Model;
 
 class ruleTree extends Model
 {
     /**
-     * @description The category keyword of the check rule.
-     *
-     * @example password
-     *
      * @var string
      */
     public $classKey;
-
     /**
-     * @description The category name of the check rule.
-     *
-     * @example password
-     *
      * @var string
      */
     public $className;
-
     /**
-     * @description The list of check rules.
-     *
      * @var ruleList[]
      */
     public $ruleList;
@@ -41,23 +29,29 @@ class ruleTree extends Model
 
     public function validate()
     {
+        if (\is_array($this->ruleList)) {
+            Model::validateArray($this->ruleList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classKey) {
             $res['ClassKey'] = $this->classKey;
         }
+
         if (null !== $this->className) {
             $res['ClassName'] = $this->className;
         }
+
         if (null !== $this->ruleList) {
-            $res['RuleList'] = [];
-            if (null !== $this->ruleList && \is_array($this->ruleList)) {
-                $n = 0;
-                foreach ($this->ruleList as $item) {
-                    $res['RuleList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ruleList)) {
+                $res['RuleList'] = [];
+                $n1              = 0;
+                foreach ($this->ruleList as $item1) {
+                    $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class ruleTree extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleTree
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassKey'])) {
             $model->classKey = $map['ClassKey'];
         }
+
         if (isset($map['ClassName'])) {
             $model->className = $map['ClassName'];
         }
+
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n               = 0;
-                foreach ($map['RuleList'] as $item) {
-                    $model->ruleList[$n++] = null !== $item ? ruleList::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['RuleList'] as $item1) {
+                    $model->ruleList[$n1++] = ruleList::fromMap($item1);
                 }
             }
         }

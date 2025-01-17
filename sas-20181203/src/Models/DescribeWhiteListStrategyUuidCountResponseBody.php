@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeWhiteListStrategyUuidCountResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example F8B6F758-BCD4-597A-8A2C-DA5A552C****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The number of the servers on which the application whitelist policy takes effect.
-     *
-     * @example 9
-     *
      * @var int
      */
     public $uuidCount;
@@ -32,14 +23,16 @@ class DescribeWhiteListStrategyUuidCountResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->uuidCount) {
             $res['UuidCount'] = $this->uuidCount;
         }
@@ -47,17 +40,18 @@ class DescribeWhiteListStrategyUuidCountResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWhiteListStrategyUuidCountResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UuidCount'])) {
             $model->uuidCount = $map['UuidCount'];
         }

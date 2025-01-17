@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetHoneypotPresetResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fileInfoList extends Model
 {
     /**
-     * @description The ID of the uploaded file.
-     *
-     * @example HONEYPOT_FILE/1765_167040128****
-     *
      * @var string
      */
     public $fileId;
-
     /**
-     * @description The name of the uploaded file.
-     *
-     * @example HONEYPOT_FILE****
-     *
      * @var string
      */
     public $fileName;
-
     /**
-     * @description The download URL.
-     *
-     * @example http://aegis****
-     *
      * @var string
      */
     public $ossUrl;
@@ -42,17 +28,20 @@ class fileInfoList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->ossUrl) {
             $res['OssUrl'] = $this->ossUrl;
         }
@@ -60,20 +49,22 @@ class fileInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fileInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['OssUrl'])) {
             $model->ossUrl = $map['OssUrl'];
         }

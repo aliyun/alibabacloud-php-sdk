@@ -4,59 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoDetailResponseBody\traceInfoDetail;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeTraceInfoDetailResponseBody\traceInfoDetail\vertexList\neighborList;
-use AlibabaCloud\Tea\Model;
 
 class vertexList extends Model
 {
     /**
-     * @description The number of times.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The ID of the vertex.
-     *
-     * @example a1d1fa39e5345dcef3f9712172xxxxxx
-     *
      * @var string
      */
     public $id;
-
     /**
-     * @description The name of the entity represented by the vertex.
-     *
-     * @example /usr/local/tomcat
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description An array that consists of the neighbor nodes.
-     *
      * @var neighborList[]
      */
     public $neighborList;
-
     /**
-     * @description The point in time.
-     *
-     * @example 2022-12-21 10:24:42
-     *
      * @var string
      */
     public $time;
-
     /**
-     * @description The type of the entity represented by the vertex.
-     *
-     * @example file_path
-     *
      * @var string
      */
     public $type;
@@ -71,32 +44,41 @@ class vertexList extends Model
 
     public function validate()
     {
+        if (\is_array($this->neighborList)) {
+            Model::validateArray($this->neighborList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->neighborList) {
-            $res['NeighborList'] = [];
-            if (null !== $this->neighborList && \is_array($this->neighborList)) {
-                $n = 0;
-                foreach ($this->neighborList as $item) {
-                    $res['NeighborList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->neighborList)) {
+                $res['NeighborList'] = [];
+                $n1                  = 0;
+                foreach ($this->neighborList as $item1) {
+                    $res['NeighborList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->time) {
             $res['Time'] = $this->time;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -104,35 +86,40 @@ class vertexList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vertexList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NeighborList'])) {
             if (!empty($map['NeighborList'])) {
                 $model->neighborList = [];
-                $n                   = 0;
-                foreach ($map['NeighborList'] as $item) {
-                    $model->neighborList[$n++] = null !== $item ? neighborList::fromMap($item) : $item;
+                $n1                  = 0;
+                foreach ($map['NeighborList'] as $item1) {
+                    $model->neighborList[$n1++] = neighborList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Time'])) {
             $model->time = $map['Time'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

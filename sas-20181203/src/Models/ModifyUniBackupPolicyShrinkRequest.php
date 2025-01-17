@@ -4,101 +4,43 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyUniBackupPolicyShrinkRequest extends Model
 {
     /**
-     * @description The name of the database account.
-     *
-     * @example sa
-     *
      * @var string
      */
     public $accountName;
-
     /**
-     * @description The password of the database account.
-     *
-     * @example Sa@****
-     *
      * @var string
      */
     public $accountPassword;
-
     /**
-     * @description The policy for full backup. The value of this parameter is a JSON string that contains the following fields:
-     *
-     *   **start**: the start time of a backup task
-     *   **interval**: the interval of backup tasks
-     *   **type**: the unit of the interval
-     *   **days**: the days of a week on which a backup task is performed
-     *
-     * @example {"days":[4],"interval":1,"planType":"weekly","startTime":"22:00:00"}
-     *
      * @var string
      */
     public $fullPlanShrink;
-
     /**
-     * @description The policy for incremental backup. The value of this parameter is a JSON string that contains the following fields:
-     *
-     *   **start**: the start time of a backup task
-     *   **interval**: the interval of backup tasks
-     *   **type**: the unit of the interval
-     *   **days**: the days of a week on which a backup task is performed
-     *
-     * @example {"interval":1,"planType":"daily","startTime":"23:30:00"}
-     *
      * @var string
      */
     public $incPlanShrink;
-
     /**
-     * @description The ID of the anti-ransomware policy.
-     *
-     * This parameter is required.
-     * @example 123
-     *
      * @var int
      */
     public $policyId;
-
     /**
-     * @description The name of the anti-ransomware policy.
-     *
-     * @example databak
-     *
      * @var string
      */
     public $policyName;
-
     /**
-     * @description The status of the anti-ransomware policy. Valid values:
-     *
-     *   **enabled**
-     *   **disabled**
-     *
-     * @example enabled
-     *
      * @var string
      */
     public $policyStatus;
-
     /**
-     * @description The retention period of the backup snapshot.
-     *
-     * @example 7
-     *
      * @var int
      */
     public $retention;
-
     /**
-     * @description The maximum network bandwidth that is allowed during data backup. Unit: bytes.
-     *
-     * @example 1048576
-     *
      * @var int
      */
     public $speedLimiter;
@@ -116,35 +58,44 @@ class ModifyUniBackupPolicyShrinkRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountName) {
             $res['AccountName'] = $this->accountName;
         }
+
         if (null !== $this->accountPassword) {
             $res['AccountPassword'] = $this->accountPassword;
         }
+
         if (null !== $this->fullPlanShrink) {
             $res['FullPlan'] = $this->fullPlanShrink;
         }
+
         if (null !== $this->incPlanShrink) {
             $res['IncPlan'] = $this->incPlanShrink;
         }
+
         if (null !== $this->policyId) {
             $res['PolicyId'] = $this->policyId;
         }
+
         if (null !== $this->policyName) {
             $res['PolicyName'] = $this->policyName;
         }
+
         if (null !== $this->policyStatus) {
             $res['PolicyStatus'] = $this->policyStatus;
         }
+
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
         }
+
         if (null !== $this->speedLimiter) {
             $res['SpeedLimiter'] = $this->speedLimiter;
         }
@@ -152,38 +103,46 @@ class ModifyUniBackupPolicyShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyUniBackupPolicyShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountName'])) {
             $model->accountName = $map['AccountName'];
         }
+
         if (isset($map['AccountPassword'])) {
             $model->accountPassword = $map['AccountPassword'];
         }
+
         if (isset($map['FullPlan'])) {
             $model->fullPlanShrink = $map['FullPlan'];
         }
+
         if (isset($map['IncPlan'])) {
             $model->incPlanShrink = $map['IncPlan'];
         }
+
         if (isset($map['PolicyId'])) {
             $model->policyId = $map['PolicyId'];
         }
+
         if (isset($map['PolicyName'])) {
             $model->policyName = $map['PolicyName'];
         }
+
         if (isset($map['PolicyStatus'])) {
             $model->policyStatus = $map['PolicyStatus'];
         }
+
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];
         }
+
         if (isset($map['SpeedLimiter'])) {
             $model->speedLimiter = $map['SpeedLimiter'];
         }

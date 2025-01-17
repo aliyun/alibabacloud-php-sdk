@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyWebLockRefreshRequest extends Model
 {
     /**
-     * @description The UUID of the server for which you want to refresh the status of the web tamper proofing feature.
-     *
-     * >  You can call the [DescribeWebLockBindList](~~DescribeWebLockBindList~~) operation to query the servers for which the web tamper proofing feature is enabled.
-     * @example 55c0f41b-3093-47a7-8eae-02d3a584****
-     *
      * @var string
      */
     public $uuid;
@@ -23,9 +18,10 @@ class ModifyWebLockRefreshRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->uuid) {
@@ -35,11 +31,11 @@ class ModifyWebLockRefreshRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyWebLockRefreshRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAllGroupsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class groups extends Model
 {
     /**
-     * @description The type of the server group. Valid values:
-     *
-     *   **0**: default group
-     *   **1**: other groups
-     *
-     * @example 1
-     *
      * @var int
      */
     public $groupFlag;
-
     /**
-     * @description The ID of the server group.
-     *
-     * @example 8834224
-     *
      * @var int
      */
     public $groupId;
-
     /**
-     * @description The name of the server group.
-     *
-     * @example abc
-     *
      * @var string
      */
     public $groupName;
@@ -45,17 +28,20 @@ class groups extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupFlag) {
             $res['GroupFlag'] = $this->groupFlag;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -63,20 +49,22 @@ class groups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return groups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupFlag'])) {
             $model->groupFlag = $map['GroupFlag'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyBackupPolicyStatusRequest extends Model
 {
     /**
-     * @description The ID of the anti-ransomware policy.
-     *
-     * This parameter is required.
-     * @example 30490
-     *
      * @var int
      */
     public $id;
-
     /**
-     * @description The version of the anti-ransomware policy. Set the value to **2.0.0**.
-     *
-     * This parameter is required.
-     * @example 2.0.0
-     *
      * @var string
      */
     public $policyVersion;
-
     /**
-     * @description Specifies whether to enable or disable the anti-ransomware policy. Valid values:
-     *
-     *   **enabled**: enables the anti-ransomware policy. After you enable the anti-ransomware policy, the anti-ransomware feature protects data on your servers. Data on your servers is backed up based on the policy.
-     *   **disabled**: disables the anti-ransomware policy. After you disable the anti-ransomware policy, the data backup task that is running based on the policy stops.
-     *
-     * This parameter is required.
-     * @example enabled
-     *
      * @var string
      */
     public $status;
@@ -48,17 +28,20 @@ class ModifyBackupPolicyStatusRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->policyVersion) {
             $res['PolicyVersion'] = $this->policyVersion;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -66,20 +49,22 @@ class ModifyBackupPolicyStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyBackupPolicyStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['PolicyVersion'])) {
             $model->policyVersion = $map['PolicyVersion'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

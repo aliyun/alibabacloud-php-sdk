@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeRiskItemTypeResponseBody\list_;
-use AlibabaCloud\Tea\Model;
 
 class DescribeRiskItemTypeResponseBody extends Model
 {
     /**
-     * @description An array that consists of information about the type of the check item.
-     *
      * @var list_[]
      */
     public $list;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 3B3F3A90-46A5-4023-A2D8-D68B14262F96
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class DescribeRiskItemTypeResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->list)) {
+            Model::validateArray($this->list);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->list) {
-            $res['List'] = [];
-            if (null !== $this->list && \is_array($this->list)) {
-                $n = 0;
-                foreach ($this->list as $item) {
-                    $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->list)) {
+                $res['List'] = [];
+                $n1          = 0;
+                foreach ($this->list as $item1) {
+                    $res['List'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class DescribeRiskItemTypeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRiskItemTypeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n           = 0;
-                foreach ($map['List'] as $item) {
-                    $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['List'] as $item1) {
+                    $model->list[$n1++] = list_::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

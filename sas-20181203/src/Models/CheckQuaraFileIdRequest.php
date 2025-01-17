@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckQuaraFileIdRequest extends Model
 {
     /**
-     * @description The IDs of quarantined files that you want to check.
-     *
-     * This parameter is required.
      * @var string[]
      */
     public $quaraFileIds;
-
     /**
-     * @description The UUID of the server on which you want to check quarantined files.
-     *
-     * This parameter is required.
-     * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
-     *
      * @var string
      */
     public $uuid;
@@ -32,14 +23,25 @@ class CheckQuaraFileIdRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->quaraFileIds)) {
+            Model::validateArray($this->quaraFileIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quaraFileIds) {
-            $res['QuaraFileIds'] = $this->quaraFileIds;
+            if (\is_array($this->quaraFileIds)) {
+                $res['QuaraFileIds'] = [];
+                $n1                  = 0;
+                foreach ($this->quaraFileIds as $item1) {
+                    $res['QuaraFileIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -47,19 +49,24 @@ class CheckQuaraFileIdRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckQuaraFileIdRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuaraFileIds'])) {
             if (!empty($map['QuaraFileIds'])) {
-                $model->quaraFileIds = $map['QuaraFileIds'];
+                $model->quaraFileIds = [];
+                $n1                  = 0;
+                foreach ($map['QuaraFileIds'] as $item1) {
+                    $model->quaraFileIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

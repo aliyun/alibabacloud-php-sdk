@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientUserDefineRuleResponseBody\userDefineRuleDetail;
-use AlibabaCloud\Tea\Model;
 
 class GetClientUserDefineRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 0B48AB3C-84FC-424D-A01D-B9270EF4****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the custom defense rule.
-     *
      * @var userDefineRuleDetail
      */
     public $userDefineRuleDetail;
@@ -31,32 +24,38 @@ class GetClientUserDefineRuleResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->userDefineRuleDetail) {
+            $this->userDefineRuleDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->userDefineRuleDetail) {
-            $res['UserDefineRuleDetail'] = null !== $this->userDefineRuleDetail ? $this->userDefineRuleDetail->toMap() : null;
+            $res['UserDefineRuleDetail'] = null !== $this->userDefineRuleDetail ? $this->userDefineRuleDetail->toArray($noStream) : $this->userDefineRuleDetail;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClientUserDefineRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UserDefineRuleDetail'])) {
             $model->userDefineRuleDetail = userDefineRuleDetail::fromMap($map['UserDefineRuleDetail']);
         }

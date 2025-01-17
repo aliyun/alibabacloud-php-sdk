@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDingTalkResponseBody\actionList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDingTalkResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDingTalkResponseBody extends Model
 {
     /**
-     * @description An array that consists of details of notifications.
-     *
      * @var actionList[]
      */
     public $actionList;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example B256A525-7E42-4BB9-A27C-9017FDDFF1A2
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeDingTalkResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->actionList)) {
+            Model::validateArray($this->actionList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionList) {
-            $res['ActionList'] = [];
-            if (null !== $this->actionList && \is_array($this->actionList)) {
-                $n = 0;
-                foreach ($this->actionList as $item) {
-                    $res['ActionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->actionList)) {
+                $res['ActionList'] = [];
+                $n1                = 0;
+                foreach ($this->actionList as $item1) {
+                    $res['ActionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeDingTalkResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDingTalkResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionList'])) {
             if (!empty($map['ActionList'])) {
                 $model->actionList = [];
-                $n                 = 0;
-                foreach ($map['ActionList'] as $item) {
-                    $model->actionList[$n++] = null !== $item ? actionList::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['ActionList'] as $item1) {
+                    $model->actionList[$n1++] = actionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAccountLabelResponseBody\accountLabelList;
-use AlibabaCloud\Tea\Model;
 
 class GetAccountLabelResponseBody extends Model
 {
     /**
-     * @description The tag list.
-     *
      * @var accountLabelList[]
      */
     public $accountLabelList;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7BC55C8F-226E-5AF5-9A2C-2EC43864****
-     *
      * @var string
      */
     public $requestId;
@@ -31,20 +24,25 @@ class GetAccountLabelResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->accountLabelList)) {
+            Model::validateArray($this->accountLabelList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountLabelList) {
-            $res['AccountLabelList'] = [];
-            if (null !== $this->accountLabelList && \is_array($this->accountLabelList)) {
-                $n = 0;
-                foreach ($this->accountLabelList as $item) {
-                    $res['AccountLabelList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accountLabelList)) {
+                $res['AccountLabelList'] = [];
+                $n1                      = 0;
+                foreach ($this->accountLabelList as $item1) {
+                    $res['AccountLabelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +50,24 @@ class GetAccountLabelResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAccountLabelResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountLabelList'])) {
             if (!empty($map['AccountLabelList'])) {
                 $model->accountLabelList = [];
-                $n                       = 0;
-                foreach ($map['AccountLabelList'] as $item) {
-                    $model->accountLabelList[$n++] = null !== $item ? accountLabelList::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['AccountLabelList'] as $item1) {
+                    $model->accountLabelList[$n1++] = accountLabelList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

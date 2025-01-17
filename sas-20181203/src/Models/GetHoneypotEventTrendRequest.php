@@ -4,53 +4,27 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetHoneypotEventTrendRequest extends Model
 {
     /**
-     * @description End time, timestamp format.
-     *
-     * @example 1687831329169
-     *
      * @var int
      */
     public $endTimeStamp;
-
     /**
-     * @description The language of the content within the request and response. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The risk levels of the alert events.
-     *
      * @var string[]
      */
     public $riskLevelList;
-
     /**
-     * @description The source IP address of the attack.
-     *
-     * This parameter is required.
-     * @example 10.91.254.***
-     *
      * @var string
      */
     public $srcIp;
-
     /**
-     * @description Start time, timestamp format.
-     *
-     * @example 1683516557757
-     *
      * @var int
      */
     public $startTimeStamp;
@@ -64,23 +38,37 @@ class GetHoneypotEventTrendRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->riskLevelList)) {
+            Model::validateArray($this->riskLevelList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endTimeStamp) {
             $res['EndTimeStamp'] = $this->endTimeStamp;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->riskLevelList) {
-            $res['RiskLevelList'] = $this->riskLevelList;
+            if (\is_array($this->riskLevelList)) {
+                $res['RiskLevelList'] = [];
+                $n1                   = 0;
+                foreach ($this->riskLevelList as $item1) {
+                    $res['RiskLevelList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->srcIp) {
             $res['SrcIp'] = $this->srcIp;
         }
+
         if (null !== $this->startTimeStamp) {
             $res['StartTimeStamp'] = $this->startTimeStamp;
         }
@@ -88,28 +76,36 @@ class GetHoneypotEventTrendRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetHoneypotEventTrendRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndTimeStamp'])) {
             $model->endTimeStamp = $map['EndTimeStamp'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['RiskLevelList'])) {
             if (!empty($map['RiskLevelList'])) {
-                $model->riskLevelList = $map['RiskLevelList'];
+                $model->riskLevelList = [];
+                $n1                   = 0;
+                foreach ($map['RiskLevelList'] as $item1) {
+                    $model->riskLevelList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SrcIp'])) {
             $model->srcIp = $map['SrcIp'];
         }
+
         if (isset($map['StartTimeStamp'])) {
             $model->startTimeStamp = $map['StartTimeStamp'];
         }

@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateFileDetectUploadUrlResponseBody\uploadUrlList;
-use AlibabaCloud\Tea\Model;
 
 class CreateFileDetectUploadUrlResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8BF6F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array consisting of the parameters that are required to upload a file.
-     *
      * @var uploadUrlList[]
      */
     public $uploadUrlList;
@@ -31,20 +24,25 @@ class CreateFileDetectUploadUrlResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->uploadUrlList)) {
+            Model::validateArray($this->uploadUrlList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->uploadUrlList) {
-            $res['UploadUrlList'] = [];
-            if (null !== $this->uploadUrlList && \is_array($this->uploadUrlList)) {
-                $n = 0;
-                foreach ($this->uploadUrlList as $item) {
-                    $res['UploadUrlList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->uploadUrlList)) {
+                $res['UploadUrlList'] = [];
+                $n1                   = 0;
+                foreach ($this->uploadUrlList as $item1) {
+                    $res['UploadUrlList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class CreateFileDetectUploadUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFileDetectUploadUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['UploadUrlList'])) {
             if (!empty($map['UploadUrlList'])) {
                 $model->uploadUrlList = [];
-                $n                    = 0;
-                foreach ($map['UploadUrlList'] as $item) {
-                    $model->uploadUrlList[$n++] = null !== $item ? uploadUrlList::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['UploadUrlList'] as $item1) {
+                    $model->uploadUrlList[$n1++] = uploadUrlList::fromMap($item1);
                 }
             }
         }

@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeDomainSecureVulListResponseBody\vulList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDomainSecureVulListResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 7532B7EE-7CE7-5F4D-BF04-B12447DD****
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of vulnerabilities returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
-
     /**
-     * @description The domain name-related vulnerabilities.
-     *
      * @var vulList[]
      */
     public $vulList;
@@ -41,23 +29,29 @@ class DescribeDomainSecureVulListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->vulList)) {
+            Model::validateArray($this->vulList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->vulList) {
-            $res['VulList'] = [];
-            if (null !== $this->vulList && \is_array($this->vulList)) {
-                $n = 0;
-                foreach ($this->vulList as $item) {
-                    $res['VulList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vulList)) {
+                $res['VulList'] = [];
+                $n1             = 0;
+                foreach ($this->vulList as $item1) {
+                    $res['VulList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class DescribeDomainSecureVulListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDomainSecureVulListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['VulList'])) {
             if (!empty($map['VulList'])) {
                 $model->vulList = [];
-                $n              = 0;
-                foreach ($map['VulList'] as $item) {
-                    $model->vulList[$n++] = null !== $item ? vulList::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['VulList'] as $item1) {
+                    $model->vulList[$n1++] = vulList::fromMap($item1);
                 }
             }
         }

@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetAccountLabelResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accountLabelList extends Model
 {
     /**
-     * @description The tag information.
-     *
-     * @example SasStep
-     *
      * @var string
      */
     public $labelSeries;
-
     /**
-     * @description Indicates whether the tag is valid.
-     *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
      * @var bool
      */
     public $labelStatus;
@@ -35,14 +23,16 @@ class accountLabelList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelSeries) {
             $res['LabelSeries'] = $this->labelSeries;
         }
+
         if (null !== $this->labelStatus) {
             $res['LabelStatus'] = $this->labelStatus;
         }
@@ -50,17 +40,18 @@ class accountLabelList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accountLabelList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelSeries'])) {
             $model->labelSeries = $map['LabelSeries'];
         }
+
         if (isset($map['LabelStatus'])) {
             $model->labelStatus = $map['LabelStatus'];
         }

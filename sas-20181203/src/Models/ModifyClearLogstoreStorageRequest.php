@@ -4,45 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyClearLogstoreStorageRequest extends Model
 {
     /**
-     * @description The ID of the request source. Set the value to **sas**.
-     *
-     * @example sas
-     *
      * @var string
      */
     public $from;
-
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese.
-     *   **en**: English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The name of the Logstore that stores logs.
-     *
-     * @example sas_sls_storage
-     *
      * @var string
      */
     public $userLogStore;
-
     /**
-     * @description The name of the project.
-     *
-     * @example sas-log-1234(uid)-cn-hangzhou
-     *
      * @var string
      */
     public $userProject;
@@ -55,20 +33,24 @@ class ModifyClearLogstoreStorageRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->from) {
             $res['From'] = $this->from;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->userLogStore) {
             $res['UserLogStore'] = $this->userLogStore;
         }
+
         if (null !== $this->userProject) {
             $res['UserProject'] = $this->userProject;
         }
@@ -76,23 +58,26 @@ class ModifyClearLogstoreStorageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyClearLogstoreStorageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['From'])) {
             $model->from = $map['From'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['UserLogStore'])) {
             $model->userLogStore = $map['UserLogStore'];
         }
+
         if (isset($map['UserProject'])) {
             $model->userProject = $map['UserProject'];
         }

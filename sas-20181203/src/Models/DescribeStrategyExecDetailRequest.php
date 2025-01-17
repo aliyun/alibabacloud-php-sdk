@@ -4,44 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeStrategyExecDetailRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The number of entries to return on each page. Default value: 10. If you leave this parameter empty, 10 entries are returned on each page.
-     *
-     * >  We recommend that you do not leave this parameter empty.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The source IP address of the request.
-     *
-     * @example 1.2.XX.XX
-     *
      * @var string
      */
     public $sourceIp;
-
     /**
-     * @description The ID of the baseline check policy.
-     *
-     * This parameter is required.
-     * @example 8437592
-     *
      * @var int
      */
     public $strategyId;
@@ -54,20 +33,24 @@ class DescribeStrategyExecDetailRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
+
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
         }
@@ -75,23 +58,26 @@ class DescribeStrategyExecDetailRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeStrategyExecDetailRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }
+
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];
         }

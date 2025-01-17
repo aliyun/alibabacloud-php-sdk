@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteHybridProxyRequest extends Model
 {
     /**
-     * @description The name of the proxy cluster.
-     *
-     * This parameter is required.
-     * @example test
-     *
      * @var string
      */
     public $clusterName;
-
     /**
-     * @description The UUID of the proxy node that you want to remove. The value starts with inet-proxy.
-     *
-     * This parameter is required.
-     * @example inet-proxy-d2d94e8b-bb25-4744-8004-1e08a53c****
-     *
      * @var string
      */
     public $uuid;
@@ -34,14 +23,16 @@ class DeleteHybridProxyRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
         }
@@ -49,17 +40,18 @@ class DeleteHybridProxyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteHybridProxyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];
         }

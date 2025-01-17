@@ -4,39 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetSyncRefreshRegionRequest extends Model
 {
     /**
-     * @description The access type of the multi-cloud site. Valid values:
-     *
-     *   **0**: The current site is not the default site of multi-cloud site. You can specify the current site as the default site of the multi-cloud site.
-     *   **1**: The current site is the default site of multi-cloud site.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $defaultRegion;
-
     /**
-     * @description The regions from which you want to synchronize assets at the current site.
-     *
      * @var string[]
      */
     public $regionIds;
-
     /**
-     * @description The cloud service provider. Valid values:
-     *
-     *   **Tencent**: Tencent Cloud
-     *   **HUAWEICLOUD**: Huawei Cloud
-     *   **Azure**: Microsoft Azure
-     *   **AWS**: Amazon Web Services (AWS)
-     *
-     * @example Tencent
-     *
      * @var string
      */
     public $vendor;
@@ -48,17 +28,29 @@ class SetSyncRefreshRegionRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->regionIds)) {
+            Model::validateArray($this->regionIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->defaultRegion) {
             $res['DefaultRegion'] = $this->defaultRegion;
         }
+
         if (null !== $this->regionIds) {
-            $res['RegionIds'] = $this->regionIds;
+            if (\is_array($this->regionIds)) {
+                $res['RegionIds'] = [];
+                $n1               = 0;
+                foreach ($this->regionIds as $item1) {
+                    $res['RegionIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->vendor) {
             $res['Vendor'] = $this->vendor;
         }
@@ -66,22 +58,28 @@ class SetSyncRefreshRegionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetSyncRefreshRegionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DefaultRegion'])) {
             $model->defaultRegion = $map['DefaultRegion'];
         }
+
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
-                $model->regionIds = $map['RegionIds'];
+                $model->regionIds = [];
+                $n1               = 0;
+                foreach ($map['RegionIds'] as $item1) {
+                    $model->regionIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Vendor'])) {
             $model->vendor = $map['Vendor'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSasContainerWebDefenseRuleResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 7532B7EE-7CE7-5F4D-BF04-B12447DDCAE1
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class DeleteSasContainerWebDefenseRuleResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class DeleteSasContainerWebDefenseRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSasContainerWebDefenseRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

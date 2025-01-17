@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeBackupPolicyResponseBody\backupPolicyDetail;
-use AlibabaCloud\Tea\Model;
 
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
-     * @description The details of the anti-ransomware policy.
-     *
      * @var backupPolicyDetail
      */
     public $backupPolicyDetail;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeBackupPolicyResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->backupPolicyDetail) {
+            $this->backupPolicyDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupPolicyDetail) {
-            $res['BackupPolicyDetail'] = null !== $this->backupPolicyDetail ? $this->backupPolicyDetail->toMap() : null;
+            $res['BackupPolicyDetail'] = null !== $this->backupPolicyDetail ? $this->backupPolicyDetail->toArray($noStream) : $this->backupPolicyDetail;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeBackupPolicyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupPolicyDetail'])) {
             $model->backupPolicyDetail = backupPolicyDetail::fromMap($map['BackupPolicyDetail']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningMachinesResponseBody\machines;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCheckWarningMachinesResponseBody extends Model
 {
     /**
-     * @description The number of the servers on which the same risk item is detected.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The servers on which the same risk item is detected.
-     *
      * @var machines[]
      */
     public $machines;
-
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example B3D989EB-2E59-584C-8438-5DFAA34A****
-     *
      * @var string
      */
     public $requestId;
@@ -61,29 +39,37 @@ class DescribeCheckWarningMachinesResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->machines)) {
+            Model::validateArray($this->machines);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->machines) {
-            $res['Machines'] = [];
-            if (null !== $this->machines && \is_array($this->machines)) {
-                $n = 0;
-                foreach ($this->machines as $item) {
-                    $res['Machines'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->machines)) {
+                $res['Machines'] = [];
+                $n1              = 0;
+                foreach ($this->machines as $item1) {
+                    $res['Machines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -91,32 +77,36 @@ class DescribeCheckWarningMachinesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCheckWarningMachinesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Machines'])) {
             if (!empty($map['Machines'])) {
                 $model->machines = [];
-                $n               = 0;
-                foreach ($map['Machines'] as $item) {
-                    $model->machines[$n++] = null !== $item ? machines::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Machines'] as $item1) {
+                    $model->machines[$n1++] = machines::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

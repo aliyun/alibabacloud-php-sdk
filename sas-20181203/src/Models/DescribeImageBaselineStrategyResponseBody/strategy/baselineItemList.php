@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribeImageBaselineStrategyResponseBody\strategy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class baselineItemList extends Model
 {
     /**
-     * @description The key of the baseline type.
-     *
-     * @example identification
-     *
      * @var string
      */
     public $classKey;
-
     /**
-     * @description The key of the baseline check item.
-     *
-     * @example duplicate_pwd_hash
-     *
      * @var string
      */
     public $itemKey;
-
     /**
-     * @description The key of the name for the baseline.
-     *
-     * @example identification
-     *
      * @var string
      */
     public $nameKey;
@@ -42,17 +28,20 @@ class baselineItemList extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->classKey) {
             $res['ClassKey'] = $this->classKey;
         }
+
         if (null !== $this->itemKey) {
             $res['ItemKey'] = $this->itemKey;
         }
+
         if (null !== $this->nameKey) {
             $res['NameKey'] = $this->nameKey;
         }
@@ -60,20 +49,22 @@ class baselineItemList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return baselineItemList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClassKey'])) {
             $model->classKey = $map['ClassKey'];
         }
+
         if (isset($map['ItemKey'])) {
             $model->itemKey = $map['ItemKey'];
         }
+
         if (isset($map['NameKey'])) {
             $model->nameKey = $map['NameKey'];
         }

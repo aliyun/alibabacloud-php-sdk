@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartVirusScanTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example DAE17926-4ABE-4DBD-9600-DDCB9B200F35
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the virus scan task.
-     *
-     * @example 282832
-     *
      * @var int
      */
     public $scanTaskId;
@@ -32,14 +23,16 @@ class StartVirusScanTaskResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->scanTaskId) {
             $res['ScanTaskId'] = $this->scanTaskId;
         }
@@ -47,17 +40,18 @@ class StartVirusScanTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartVirusScanTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ScanTaskId'])) {
             $model->scanTaskId = $map['ScanTaskId'];
         }

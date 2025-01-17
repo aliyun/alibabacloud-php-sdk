@@ -1,3 +1,13 @@
+2025-01-17 Version: 4.0.4
+- Update API AddCloudVendorAccountAK: add param VendorAuthAlias.
+- Update API AddCloudVendorAccountAK: update response param.
+- Update API DescribeCloudVendorAccountAKList: add param VendorAuthAlias.
+- Update API DescribeCloudVendorAccountAKList: update response param.
+- Update API GetAssetDetailByUuid: update response param.
+- Update API ModifyCloudVendorAccountAK: add param VendorAuthAlias.
+- Update API ModifyCloudVendorAccountAK: update response param.
+
+
 2025-01-14 Version: 4.0.3
 - Generated php 2018-12-03 for Sas.
 

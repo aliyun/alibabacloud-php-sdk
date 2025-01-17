@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class illegalRepairConfigs extends Model
 {
     /**
-     * @description The name of the invalid parameter required for fixing a risk item.
-     *
-     * @example SessionTimeMax
-     *
      * @var string
      */
     public $name;
@@ -22,9 +18,10 @@ class illegalRepairConfigs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -34,11 +31,11 @@ class illegalRepairConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return illegalRepairConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

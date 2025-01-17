@@ -4,29 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\GetSupportedModulesResponseBody\supportedModuleResponse;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportedModules extends Model
 {
     /**
-     * @description The code of the module. Valid values:
-     *
-     *   **HOST**: host
-     *   **CSPM**: configuration assessment
-     *   **SIEM**: CloudSiem
-     *   **TRIAL**: log audit
-     *
-     * @example HOST
-     *
      * @var string
      */
     public $module;
-
     /**
-     * @description The display name of the module.
-     *
-     * @example Configuration assessment
-     *
      * @var string
      */
     public $moduleDisp;
@@ -37,14 +23,16 @@ class supportedModules extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->module) {
             $res['Module'] = $this->module;
         }
+
         if (null !== $this->moduleDisp) {
             $res['ModuleDisp'] = $this->moduleDisp;
         }
@@ -52,17 +40,18 @@ class supportedModules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedModules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Module'])) {
             $model->module = $map['Module'];
         }
+
         if (isset($map['ModuleDisp'])) {
             $model->moduleDisp = $map['ModuleDisp'];
         }

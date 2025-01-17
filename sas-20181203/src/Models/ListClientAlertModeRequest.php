@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListClientAlertModeRequest extends Model
 {
     /**
-     * @description The protection mode. Valid values:
-     *
-     *   **strict**: The strict mode. False positives may be generated. We recommend that you enable this mode during major events.
-     *   **balance**: The balanced mode. More risks can be detected with less false positives in this mode.
-     *
-     * @example strict
-     *
      * @var string
      */
     public $mode;
@@ -25,9 +18,10 @@ class ListClientAlertModeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mode) {
@@ -37,11 +31,11 @@ class ListClientAlertModeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListClientAlertModeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

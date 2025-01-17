@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckStandardResponseBody\standards;
-use AlibabaCloud\Tea\Model;
 
 class ListCheckStandardResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example FA91FBDA-***
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The standards.
-     *
      * @var standards[]
      */
     public $standards;
@@ -31,20 +24,25 @@ class ListCheckStandardResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->standards)) {
+            Model::validateArray($this->standards);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->standards) {
-            $res['Standards'] = [];
-            if (null !== $this->standards && \is_array($this->standards)) {
-                $n = 0;
-                foreach ($this->standards as $item) {
-                    $res['Standards'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->standards)) {
+                $res['Standards'] = [];
+                $n1               = 0;
+                foreach ($this->standards as $item1) {
+                    $res['Standards'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class ListCheckStandardResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListCheckStandardResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Standards'])) {
             if (!empty($map['Standards'])) {
                 $model->standards = [];
-                $n                = 0;
-                foreach ($map['Standards'] as $item) {
-                    $model->standards[$n++] = null !== $item ? standards::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Standards'] as $item1) {
+                    $model->standards[$n1++] = standards::fromMap($item1);
                 }
             }
         }

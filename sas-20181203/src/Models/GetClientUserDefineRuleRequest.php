@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetClientUserDefineRuleRequest extends Model
 {
     /**
-     * @description The ID of the custom defense rule.
-     *
-     * This parameter is required.
-     * @example 200****
-     *
      * @var int
      */
     public $id;
@@ -23,9 +18,10 @@ class GetClientUserDefineRuleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -35,11 +31,11 @@ class GetClientUserDefineRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetClientUserDefineRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

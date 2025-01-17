@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockRecordsResponseBody\pageInfo;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCustomBlockRecordsResponseBody\recordList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCustomBlockRecordsResponseBody extends Model
 {
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description An array that consists of the defense rules.
-     *
      * @var recordList[]
      */
     public $recordList;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 028CF634-5268-5660-9575-48C9ED6B7T8Y
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class DescribeCustomBlockRecordsResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        if (\is_array($this->recordList)) {
+            Model::validateArray($this->recordList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->recordList) {
-            $res['RecordList'] = [];
-            if (null !== $this->recordList && \is_array($this->recordList)) {
-                $n = 0;
-                foreach ($this->recordList as $item) {
-                    $res['RecordList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->recordList)) {
+                $res['RecordList'] = [];
+                $n1                = 0;
+                foreach ($this->recordList as $item1) {
+                    $res['RecordList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class DescribeCustomBlockRecordsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCustomBlockRecordsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RecordList'])) {
             if (!empty($map['RecordList'])) {
                 $model->recordList = [];
-                $n                 = 0;
-                foreach ($map['RecordList'] as $item) {
-                    $model->recordList[$n++] = null !== $item ? recordList::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['RecordList'] as $item1) {
+                    $model->recordList[$n1++] = recordList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

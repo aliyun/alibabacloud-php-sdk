@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeConcernNecessityResponseBody extends Model
 {
     /**
-     * @description The priorities to fix the vulnerabilities. Valid values:
-     *
-     *   asap: high
-     *   later: medium
-     *   nntf: low
-     *
      * @var string[]
      */
     public $concernNecessity;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example ECC6B3E3-D496-512D-B46D-E6996A6B63EE
-     *
      * @var string
      */
     public $requestId;
@@ -34,14 +23,25 @@ class DescribeConcernNecessityResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->concernNecessity)) {
+            Model::validateArray($this->concernNecessity);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->concernNecessity) {
-            $res['ConcernNecessity'] = $this->concernNecessity;
+            if (\is_array($this->concernNecessity)) {
+                $res['ConcernNecessity'] = [];
+                $n1                      = 0;
+                foreach ($this->concernNecessity as $item1) {
+                    $res['ConcernNecessity'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,19 +49,24 @@ class DescribeConcernNecessityResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeConcernNecessityResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConcernNecessity'])) {
             if (!empty($map['ConcernNecessity'])) {
-                $model->concernNecessity = $map['ConcernNecessity'];
+                $model->concernNecessity = [];
+                $n1                      = 0;
+                foreach ($map['ConcernNecessity'] as $item1) {
+                    $model->concernNecessity[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

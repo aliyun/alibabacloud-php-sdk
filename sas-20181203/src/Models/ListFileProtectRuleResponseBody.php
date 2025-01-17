@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectRuleResponseBody\fileProtectList;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListFileProtectRuleResponseBody\pageInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListFileProtectRuleResponseBody extends Model
 {
     /**
-     * @description The details of returned data.
-     *
      * @var fileProtectList[]
      */
     public $fileProtectList;
-
     /**
-     * @description The pagination information.
-     *
      * @var pageInfo
      */
     public $pageInfo;
-
     /**
-     * @description The request ID.
-     *
-     * @example FBBEB173-1F43-505F-A876-C03ECDF6CE4C
-     *
      * @var string
      */
     public $requestId;
@@ -40,23 +30,32 @@ class ListFileProtectRuleResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->fileProtectList)) {
+            Model::validateArray($this->fileProtectList);
+        }
+        if (null !== $this->pageInfo) {
+            $this->pageInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileProtectList) {
-            $res['FileProtectList'] = [];
-            if (null !== $this->fileProtectList && \is_array($this->fileProtectList)) {
-                $n = 0;
-                foreach ($this->fileProtectList as $item) {
-                    $res['FileProtectList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileProtectList)) {
+                $res['FileProtectList'] = [];
+                $n1                     = 0;
+                foreach ($this->fileProtectList as $item1) {
+                    $res['FileProtectList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageInfo) {
-            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toMap() : null;
+            $res['PageInfo'] = null !== $this->pageInfo ? $this->pageInfo->toArray($noStream) : $this->pageInfo;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -64,26 +63,28 @@ class ListFileProtectRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFileProtectRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileProtectList'])) {
             if (!empty($map['FileProtectList'])) {
                 $model->fileProtectList = [];
-                $n                      = 0;
-                foreach ($map['FileProtectList'] as $item) {
-                    $model->fileProtectList[$n++] = null !== $item ? fileProtectList::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['FileProtectList'] as $item1) {
+                    $model->fileProtectList[$n1++] = fileProtectList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageInfo'])) {
             $model->pageInfo = pageInfo::fromMap($map['PageInfo']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

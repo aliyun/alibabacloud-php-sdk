@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListInstanceCatalogResponseBody\vendors\instanceTypes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class instanceSubTypes extends Model
 {
     /**
-     * @description The name of the asset subtype.
-     *
-     * @example SECURITY_GROUP
-     *
      * @var string
      */
     public $name;
@@ -22,9 +18,10 @@ class instanceSubTypes extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
@@ -34,11 +31,11 @@ class instanceSubTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceSubTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

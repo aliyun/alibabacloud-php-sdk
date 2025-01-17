@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSuspiciousOverallConfigResponseBody\overallConfig;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSuspiciousOverallConfigResponseBody extends Model
 {
     /**
-     * @description The configuration.
-     *
      * @var overallConfig
      */
     public $overallConfig;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 6673D49C-A9AB-40DD-B4A2-B92306701AE7
-     *
      * @var string
      */
     public $requestId;
@@ -31,14 +24,19 @@ class DescribeSuspiciousOverallConfigResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->overallConfig) {
+            $this->overallConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->overallConfig) {
-            $res['OverallConfig'] = null !== $this->overallConfig ? $this->overallConfig->toMap() : null;
+            $res['OverallConfig'] = null !== $this->overallConfig ? $this->overallConfig->toArray($noStream) : $this->overallConfig;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +44,18 @@ class DescribeSuspiciousOverallConfigResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSuspiciousOverallConfigResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OverallConfig'])) {
             $model->overallConfig = overallConfig::fromMap($map['OverallConfig']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

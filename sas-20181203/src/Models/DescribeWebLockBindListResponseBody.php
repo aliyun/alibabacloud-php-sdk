@@ -4,50 +4,28 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeWebLockBindListResponseBody\bindList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeWebLockBindListResponseBody extends Model
 {
     /**
-     * @description The information about the servers that have web tamper proofing enabled.
-     *
      * @var bindList[]
      */
     public $bindList;
-
     /**
-     * @description The page number of the returned page. Pages start from page 1. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description The number of entries returned per page. Default value: 20.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example D9354C1A-D709-4873-9AAE-41513327B247
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The total number of servers that have web tamper proofing enabled.
-     *
-     * @example 11409
-     *
      * @var int
      */
     public $totalCount;
@@ -61,29 +39,37 @@ class DescribeWebLockBindListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->bindList)) {
+            Model::validateArray($this->bindList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bindList) {
-            $res['BindList'] = [];
-            if (null !== $this->bindList && \is_array($this->bindList)) {
-                $n = 0;
-                foreach ($this->bindList as $item) {
-                    $res['BindList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->bindList)) {
+                $res['BindList'] = [];
+                $n1              = 0;
+                foreach ($this->bindList as $item1) {
+                    $res['BindList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -91,32 +77,36 @@ class DescribeWebLockBindListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeWebLockBindListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BindList'])) {
             if (!empty($map['BindList'])) {
                 $model->bindList = [];
-                $n               = 0;
-                foreach ($map['BindList'] as $item) {
-                    $model->bindList[$n++] = null !== $item ? bindList::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['BindList'] as $item1) {
+                    $model->bindList[$n1++] = bindList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

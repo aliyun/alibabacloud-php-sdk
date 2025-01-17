@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponseBody\basicData;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponseBody\basicData\instanceInfo\config;
-use AlibabaCloud\Tea\Model;
 
 class instanceInfo extends Model
 {
     /**
-     * @description The information about the configuration item whose risks are fixed for the instance.
-     *
      * @var config[]
      */
     public $config;
-
     /**
-     * @description The time of the first check.
-     *
-     * @example 1716447535531
-     *
      * @var int
      */
     public $firstUpdateTime;
-
     /**
-     * @description The time of the last check.
-     *
-     * @example 1716447535531
-     *
      * @var int
      */
     public $lastUpdateTime;
@@ -41,23 +29,29 @@ class instanceInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->config)) {
+            Model::validateArray($this->config);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
-            $res['Config'] = [];
-            if (null !== $this->config && \is_array($this->config)) {
-                $n = 0;
-                foreach ($this->config as $item) {
-                    $res['Config'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->config)) {
+                $res['Config'] = [];
+                $n1            = 0;
+                foreach ($this->config as $item1) {
+                    $res['Config'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->firstUpdateTime) {
             $res['FirstUpdateTime'] = $this->firstUpdateTime;
         }
+
         if (null !== $this->lastUpdateTime) {
             $res['LastUpdateTime'] = $this->lastUpdateTime;
         }
@@ -65,26 +59,28 @@ class instanceInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Config'])) {
             if (!empty($map['Config'])) {
                 $model->config = [];
-                $n             = 0;
-                foreach ($map['Config'] as $item) {
-                    $model->config[$n++] = null !== $item ? config::fromMap($item) : $item;
+                $n1            = 0;
+                foreach ($map['Config'] as $item1) {
+                    $model->config[$n1++] = config::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['FirstUpdateTime'])) {
             $model->firstUpdateTime = $map['FirstUpdateTime'];
         }
+
         if (isset($map['LastUpdateTime'])) {
             $model->lastUpdateTime = $map['LastUpdateTime'];
         }

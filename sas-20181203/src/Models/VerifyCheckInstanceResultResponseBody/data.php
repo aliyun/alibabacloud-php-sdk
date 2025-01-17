@@ -4,29 +4,18 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\VerifyCheckInstanceResultResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description An array consisting of instances that failed the check.
-     *
      * @var string[]
      */
     public $failInstances;
-
     /**
-     * @description The operation code of the task that checks the configurations of cloud services. Valid values:
-     *
-     *   **Throttling**
-     *   **ActionTrialUnauthorized**
-     *
-     * @example ActionTrialUnauthorized
-     *
      * @var string
      */
     public $operateCode;
-
     /**
      * @var string
      */
@@ -39,17 +28,29 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->failInstances)) {
+            Model::validateArray($this->failInstances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failInstances) {
-            $res['FailInstances'] = $this->failInstances;
+            if (\is_array($this->failInstances)) {
+                $res['FailInstances'] = [];
+                $n1                   = 0;
+                foreach ($this->failInstances as $item1) {
+                    $res['FailInstances'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->operateCode) {
             $res['OperateCode'] = $this->operateCode;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -57,22 +58,28 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailInstances'])) {
             if (!empty($map['FailInstances'])) {
-                $model->failInstances = $map['FailInstances'];
+                $model->failInstances = [];
+                $n1                   = 0;
+                foreach ($map['FailInstances'] as $item1) {
+                    $model->failInstances[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OperateCode'])) {
             $model->operateCode = $map['OperateCode'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

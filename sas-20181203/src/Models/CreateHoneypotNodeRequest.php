@@ -4,44 +4,23 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateHoneypotNodeRequest extends Model
 {
     /**
-     * @description Specifies whether to allow honeypots to access the Internet. Valid values:
-     *
-     *   **true**: allows honeypots to access the Internet.
-     *   **false**: does not allow honeypots to access the Internet.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $allowHoneypotAccessInternet;
-
     /**
-     * @description The number of available probes.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $availableProbeNum;
-
     /**
-     * @description The name of the management node.
-     *
-     * This parameter is required.
-     * @example manageNode
-     *
      * @var string
      */
     public $nodeName;
-
     /**
-     * @description The CIDR blocks that are allowed to access the management node.
-     *
      * @var string[]
      */
     public $securityGroupProbeIpList;
@@ -54,47 +33,67 @@ class CreateHoneypotNodeRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->securityGroupProbeIpList)) {
+            Model::validateArray($this->securityGroupProbeIpList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowHoneypotAccessInternet) {
             $res['AllowHoneypotAccessInternet'] = $this->allowHoneypotAccessInternet;
         }
+
         if (null !== $this->availableProbeNum) {
             $res['AvailableProbeNum'] = $this->availableProbeNum;
         }
+
         if (null !== $this->nodeName) {
             $res['NodeName'] = $this->nodeName;
         }
+
         if (null !== $this->securityGroupProbeIpList) {
-            $res['SecurityGroupProbeIpList'] = $this->securityGroupProbeIpList;
+            if (\is_array($this->securityGroupProbeIpList)) {
+                $res['SecurityGroupProbeIpList'] = [];
+                $n1                              = 0;
+                foreach ($this->securityGroupProbeIpList as $item1) {
+                    $res['SecurityGroupProbeIpList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateHoneypotNodeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowHoneypotAccessInternet'])) {
             $model->allowHoneypotAccessInternet = $map['AllowHoneypotAccessInternet'];
         }
+
         if (isset($map['AvailableProbeNum'])) {
             $model->availableProbeNum = $map['AvailableProbeNum'];
         }
+
         if (isset($map['NodeName'])) {
             $model->nodeName = $map['NodeName'];
         }
+
         if (isset($map['SecurityGroupProbeIpList'])) {
             if (!empty($map['SecurityGroupProbeIpList'])) {
-                $model->securityGroupProbeIpList = $map['SecurityGroupProbeIpList'];
+                $model->securityGroupProbeIpList = [];
+                $n1                              = 0;
+                foreach ($map['SecurityGroupProbeIpList'] as $item1) {
+                    $model->securityGroupProbeIpList[$n1++] = $item1;
+                }
             }
         }
 

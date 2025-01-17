@@ -4,32 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models\DescribePropertyTypeScaItemResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class propertyTypeItems extends Model
 {
     /**
-     * @description The name of the middleware type.
-     *
-     * @example Docker Component
-     *
      * @var string
      */
     public $name;
-
     /**
-     * @description The type of the middleware. Valid values:
-     *
-     *   **system_service**: system service
-     *   **software_library**: software library
-     *   **docker_component**: container component
-     *   **database**: database
-     *   **web_container**: web container
-     *   **jar**: JAR package
-     *   **web_framework**: web framework
-     *
-     * @example docker_component
-     *
      * @var string
      */
     public $type;
@@ -40,14 +23,16 @@ class propertyTypeItems extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -55,17 +40,18 @@ class propertyTypeItems extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return propertyTypeItems
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

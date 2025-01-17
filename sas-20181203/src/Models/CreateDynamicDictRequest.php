@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDynamicDictRequest extends Model
 {
     /**
-     * @description Specifies whether to overwrite existing data. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $override;
-
     /**
-     * @description The source IP address.
-     *
-     * @example 123.103.9.***
-     *
      * @var string
      */
     public $sourceIp;
@@ -35,14 +23,16 @@ class CreateDynamicDictRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->override) {
             $res['Override'] = $this->override;
         }
+
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
         }
@@ -50,17 +40,18 @@ class CreateDynamicDictRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDynamicDictRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Override'])) {
             $model->override = $map['Override'];
         }
+
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];
         }

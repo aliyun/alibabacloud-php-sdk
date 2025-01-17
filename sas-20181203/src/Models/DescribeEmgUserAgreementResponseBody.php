@@ -4,27 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeEmgUserAgreementResponseBody extends Model
 {
     /**
-     * @description Indicates whether Security Center is authorized to scan for urgent vulnerabilities. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * @example true
-     *
      * @var bool
      */
     public $auth;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 768BB9F5-8AF3-557F-A489-9BDD64CB3E4C
-     *
      * @var string
      */
     public $requestId;
@@ -35,14 +23,16 @@ class DescribeEmgUserAgreementResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->auth) {
             $res['Auth'] = $this->auth;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,17 +40,18 @@ class DescribeEmgUserAgreementResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEmgUserAgreementResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Auth'])) {
             $model->auth = $map['Auth'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

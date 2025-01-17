@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckFixDetailsResponseBody\checkFixDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCheckFixDetailsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the parameters.
-     *
      * @var checkFixDetails[]
      */
     public $checkFixDetails;
-
     /**
-     * @description The number of risk items that can be fixed.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $count;
-
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 0DBF1E27-98D8-5EC2-9CF3-4A2E26F6****
-     *
      * @var string
      */
     public $requestId;
@@ -41,23 +29,29 @@ class DescribeCheckFixDetailsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->checkFixDetails)) {
+            Model::validateArray($this->checkFixDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkFixDetails) {
-            $res['CheckFixDetails'] = [];
-            if (null !== $this->checkFixDetails && \is_array($this->checkFixDetails)) {
-                $n = 0;
-                foreach ($this->checkFixDetails as $item) {
-                    $res['CheckFixDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->checkFixDetails)) {
+                $res['CheckFixDetails'] = [];
+                $n1                     = 0;
+                foreach ($this->checkFixDetails as $item1) {
+                    $res['CheckFixDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->count) {
             $res['Count'] = $this->count;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,26 +59,28 @@ class DescribeCheckFixDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCheckFixDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckFixDetails'])) {
             if (!empty($map['CheckFixDetails'])) {
                 $model->checkFixDetails = [];
-                $n                      = 0;
-                foreach ($map['CheckFixDetails'] as $item) {
-                    $model->checkFixDetails[$n++] = null !== $item ? checkFixDetails::fromMap($item) : $item;
+                $n1                     = 0;
+                foreach ($map['CheckFixDetails'] as $item1) {
+                    $model->checkFixDetails[$n1++] = checkFixDetails::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Count'])) {
             $model->count = $map['Count'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

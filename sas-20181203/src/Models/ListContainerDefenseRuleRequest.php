@@ -4,67 +4,32 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListContainerDefenseRuleRequest\conditions;
-use AlibabaCloud\Tea\Model;
 
 class ListContainerDefenseRuleRequest extends Model
 {
     /**
-     * @description The details of the condition.
-     *
      * @var conditions[]
      */
     public $conditions;
-
     /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
-
     /**
-     * @description Specifies whether to query system rules.
-     *
-     * >  This parameter is deprecated.
-     * @example 1
-     *
      * @var int
      */
     public $isDefaultRule;
-
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese.
-     *   **en**: English.
-     *
-     * @example zh
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-     *
-     * >  We recommend that you do not leave this parameter empty.
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The rule type. Valid values:
-     *
-     *   1: system rule
-     *   2: user-defined rule
-     *
-     * @example 1
-     *
      * @var int
      */
     public $ruleType;
@@ -79,32 +44,41 @@ class ListContainerDefenseRuleRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->conditions)) {
+            Model::validateArray($this->conditions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->conditions) {
-            $res['Conditions'] = [];
-            if (null !== $this->conditions && \is_array($this->conditions)) {
-                $n = 0;
-                foreach ($this->conditions as $item) {
-                    $res['Conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->conditions)) {
+                $res['Conditions'] = [];
+                $n1                = 0;
+                foreach ($this->conditions as $item1) {
+                    $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->isDefaultRule) {
             $res['IsDefaultRule'] = $this->isDefaultRule;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->ruleType) {
             $res['RuleType'] = $this->ruleType;
         }
@@ -112,35 +86,40 @@ class ListContainerDefenseRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListContainerDefenseRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n                 = 0;
-                foreach ($map['Conditions'] as $item) {
-                    $model->conditions[$n++] = null !== $item ? conditions::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Conditions'] as $item1) {
+                    $model->conditions[$n1++] = conditions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['IsDefaultRule'])) {
             $model->isDefaultRule = $map['IsDefaultRule'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RuleType'])) {
             $model->ruleType = $map['RuleType'];
         }

@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFileProtectEventCountRequest extends Model
 {
     /**
-     * @description The status of the event. Valid values:
-     *
-     *   0: unhandled
-     *   1: handled
-     *
-     * @example 1
-     *
      * @var int
      */
     public $status;
@@ -25,9 +18,10 @@ class GetFileProtectEventCountRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
@@ -37,11 +31,11 @@ class GetFileProtectEventCountRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFileProtectEventCountRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

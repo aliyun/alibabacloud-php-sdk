@@ -4,20 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLocalDefaultRegionRequest extends Model
 {
     /**
-     * @description The cloud service provider. Valid values:
-     *
-     *   **Tencent**: Tencent Cloud.
-     *   **HUAWEICLOUD**: Huawei Cloud.
-     *   **Azure**: Microsoft Azure.
-     *   **AWS**: Amazon Web Services (AWS).
-     *
-     * @example Tencent
-     *
      * @var string
      */
     public $vendor;
@@ -27,9 +18,10 @@ class GetLocalDefaultRegionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vendor) {
@@ -39,11 +31,11 @@ class GetLocalDefaultRegionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLocalDefaultRegionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

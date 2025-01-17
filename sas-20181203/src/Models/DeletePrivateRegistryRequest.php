@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePrivateRegistryRequest extends Model
 {
     /**
-     * @description The ID of the image repository.
-     *
-     * This parameter is required.
-     * @example 22233
-     *
      * @var int
      */
     public $registryId;
@@ -23,9 +18,10 @@ class DeletePrivateRegistryRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->registryId) {
@@ -35,11 +31,11 @@ class DeletePrivateRegistryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePrivateRegistryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

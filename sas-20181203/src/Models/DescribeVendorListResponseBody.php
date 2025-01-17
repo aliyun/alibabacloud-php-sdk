@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVendorListResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 340D7FC4-D575-1661-8ACD-CFA7BE57B795
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description An array that consists of the service providers.
-     *
      * @var string[]
      */
     public $vendorNameList;
@@ -30,35 +23,51 @@ class DescribeVendorListResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->vendorNameList)) {
+            Model::validateArray($this->vendorNameList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->vendorNameList) {
-            $res['VendorNameList'] = $this->vendorNameList;
+            if (\is_array($this->vendorNameList)) {
+                $res['VendorNameList'] = [];
+                $n1                    = 0;
+                foreach ($this->vendorNameList as $item1) {
+                    $res['VendorNameList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVendorListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['VendorNameList'])) {
             if (!empty($map['VendorNameList'])) {
-                $model->vendorNameList = $map['VendorNameList'];
+                $model->vendorNameList = [];
+                $n1                    = 0;
+                foreach ($map['VendorNameList'] as $item1) {
+                    $model->vendorNameList[$n1++] = $item1;
+                }
             }
         }
 
