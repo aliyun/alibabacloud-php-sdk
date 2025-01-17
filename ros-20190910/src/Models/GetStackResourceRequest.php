@@ -4,79 +4,31 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetStackResourceRequest extends Model
 {
     /**
-     * @description Specifies whether to query the resource properties. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The name of resource property N that you want to query.
-     *
-     * This parameter is required.
-     * @example WebServer
-     *
      * @var string
      */
     public $logicalResourceId;
-
     /**
-     * @description The logical ID of the resource defined in the template.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The status of the resource. Valid values:
-     *
-     *   CREATE_COMPLETE
-     *   CREATE_FAILED
-     *   CREATE_IN_PROGRESS
-     *   UPDATE_IN_PROGRESS
-     *   UPDATE_FAILED
-     *   UPDATE_COMPLETE
-     *   DELETE_IN_PROGRESS
-     *   DELETE_FAILED
-     *   CHECK_IN_PROGRESS
-     *   CHECK_FAILED
-     *   CHECK_COMPLETE
-     *   IMPORT_IN_PROGRESS
-     *   IMPORT_FAILED
-     *   IMPORT_COMPLETE
-     *
      * @var string[]
      */
     public $resourceAttributes;
-
     /**
-     * @description The name of resource property N that you want to query.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $showResourceAttributes;
-
     /**
-     * @description The ID of the region to which the stack belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-     *
      * @var string
      */
     public $stackId;
@@ -91,26 +43,41 @@ class GetStackResourceRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceAttributes)) {
+            Model::validateArray($this->resourceAttributes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceAttributes) {
-            $res['ResourceAttributes'] = $this->resourceAttributes;
+            if (\is_array($this->resourceAttributes)) {
+                $res['ResourceAttributes'] = [];
+                $n1                        = 0;
+                foreach ($this->resourceAttributes as $item1) {
+                    $res['ResourceAttributes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->showResourceAttributes) {
             $res['ShowResourceAttributes'] = $this->showResourceAttributes;
         }
+
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
@@ -118,31 +85,40 @@ class GetStackResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStackResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['LogicalResourceId'])) {
             $model->logicalResourceId = $map['LogicalResourceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceAttributes'])) {
             if (!empty($map['ResourceAttributes'])) {
-                $model->resourceAttributes = $map['ResourceAttributes'];
+                $model->resourceAttributes = [];
+                $n1                        = 0;
+                foreach ($map['ResourceAttributes'] as $item1) {
+                    $model->resourceAttributes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ShowResourceAttributes'])) {
             $model->showResourceAttributes = $map['ShowResourceAttributes'];
         }
+
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }

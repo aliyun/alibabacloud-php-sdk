@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateScratchRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceResources extends Model
 {
     /**
-     * @description The region ID of the resource.
-     *
-     * >
-     *
-     *   This parameter takes effect only when TemplateScratchType is set to ArchitectureDetection.
-     *
-     *   The region ID of a global resource is `global`. For example, the region ID of the ALIYUN::CDN::Domain global resource is `global`.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The related resource type filters.
-     *
      * @var string[]
      */
     public $relatedResourceTypeFilter;
-
     /**
-     * @description The resource ID.
-     *
-     * This parameter is required.
-     * @example vpc-bp1m6fww66xbntjyc****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The resource type.
-     *
-     * This parameter is required.
-     * @example ALIYUN::ECS::VPC
-     *
      * @var string
      */
     public $resourceType;
@@ -58,20 +33,33 @@ class sourceResources extends Model
 
     public function validate()
     {
+        if (\is_array($this->relatedResourceTypeFilter)) {
+            Model::validateArray($this->relatedResourceTypeFilter);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->relatedResourceTypeFilter) {
-            $res['RelatedResourceTypeFilter'] = $this->relatedResourceTypeFilter;
+            if (\is_array($this->relatedResourceTypeFilter)) {
+                $res['RelatedResourceTypeFilter'] = [];
+                $n1                               = 0;
+                foreach ($this->relatedResourceTypeFilter as $item1) {
+                    $res['RelatedResourceTypeFilter'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -79,25 +67,32 @@ class sourceResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RelatedResourceTypeFilter'])) {
             if (!empty($map['RelatedResourceTypeFilter'])) {
-                $model->relatedResourceTypeFilter = $map['RelatedResourceTypeFilter'];
+                $model->relatedResourceTypeFilter = [];
+                $n1                               = 0;
+                foreach ($map['RelatedResourceTypeFilter'] as $item1) {
+                    $model->relatedResourceTypeFilter[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

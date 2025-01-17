@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetStackPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The structure that contains the stack policy body. The stack policy body must be 1 to 16,384 bytes in length.
-     *
-     * @example {"Statement": [{"Action": "Update:*", "Effect": "Allow","Principal": "*","Resource": "*"}]}
-     *
      * @var mixed[]
      */
     public $stackPolicyBody;
@@ -32,34 +23,50 @@ class GetStackPolicyResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->stackPolicyBody)) {
+            Model::validateArray($this->stackPolicyBody);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->stackPolicyBody) {
-            $res['StackPolicyBody'] = $this->stackPolicyBody;
+            if (\is_array($this->stackPolicyBody)) {
+                $res['StackPolicyBody'] = [];
+                foreach ($this->stackPolicyBody as $key1 => $value1) {
+                    $res['StackPolicyBody'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStackPolicyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StackPolicyBody'])) {
-            $model->stackPolicyBody = $map['StackPolicyBody'];
+            if (!empty($map['StackPolicyBody'])) {
+                $model->stackPolicyBody = [];
+                foreach ($map['StackPolicyBody'] as $key1 => $value1) {
+                    $model->stackPolicyBody[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

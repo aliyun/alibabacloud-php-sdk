@@ -4,42 +4,19 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponseBody\log;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class terraformLogs extends Model
 {
     /**
-     * @description The name of the Terraform command that is run. Valid values:
-     *
-     *   apply
-     *   plan
-     *   destroy
-     *   version
-     *
-     * For more information about Terraform commands, see [Command](https://www.terraform.io/cli/commands).
-     * @example apply
-     *
      * @var string
      */
     public $command;
-
     /**
-     * @description The content of the output stream that is returned after the command is run.
-     *
-     * @example Apply complete! Resources: 42 added, 0 changed, 0 destroyed.
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description The output stream. Valid values:
-     *
-     *   stdout: standard output stream
-     *   stderr: standard error stream
-     *
-     * @example stdout
-     *
      * @var string
      */
     public $stream;
@@ -51,17 +28,20 @@ class terraformLogs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->command) {
             $res['Command'] = $this->command;
         }
+
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->stream) {
             $res['Stream'] = $this->stream;
         }
@@ -69,20 +49,22 @@ class terraformLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return terraformLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Command'])) {
             $model->command = $map['Command'];
         }
+
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Stream'])) {
             $model->stream = $map['Stream'];
         }

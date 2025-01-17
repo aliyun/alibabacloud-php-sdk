@@ -4,48 +4,23 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDiagnosticRequest extends Model
 {
     /**
-     * @description The keyword in the diagnosis.
-     *
-     * You can specify the ID of the stack that you want to diagnose.
-     * @example 37A5679B-8488-5A5D-8D5C-90E66A577A5D
-     *
      * @var string
      */
     public $diagnosticKey;
-
     /**
-     * @description The type of the item that is diagnosed. Set the value to Stack, which specifies that the stack is diagnosed.
-     *
-     * @example Stack
-     *
      * @var string
      */
     public $diagnosticType;
-
     /**
-     * @description The language of the diagnostic report to be generated. Only Chinese and English are supported.
-     *
-     * Valid values:
-     *
-     *   zh-cn
-     *   en
-     *
-     * @example zh-cn
-     *
      * @var string
      */
     public $lang;
-
     /**
-     * @description The name of the product that is diagonosed.
-     *
-     * @example ros
-     *
      * @var string
      */
     public $product;
@@ -58,20 +33,24 @@ class CreateDiagnosticRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diagnosticKey) {
             $res['DiagnosticKey'] = $this->diagnosticKey;
         }
+
         if (null !== $this->diagnosticType) {
             $res['DiagnosticType'] = $this->diagnosticType;
         }
+
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
+
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
@@ -79,23 +58,26 @@ class CreateDiagnosticRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDiagnosticRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiagnosticKey'])) {
             $model->diagnosticKey = $map['DiagnosticKey'];
         }
+
         if (isset($map['DiagnosticType'])) {
             $model->diagnosticType = $map['DiagnosticType'];
         }
+
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
+
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }

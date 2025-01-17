@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListResourceTypeVersionsRequest extends Model
 {
     /**
-     * @description The resource type.
-     *
-     * This parameter is required.
-     * @example MODULE::MyOrganization::MyService::MyUsecase
-     *
      * @var string
      */
     public $resourceType;
@@ -23,9 +18,10 @@ class ListResourceTypeVersionsRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceType) {
@@ -35,11 +31,11 @@ class ListResourceTypeVersionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceTypeVersionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,34 +4,19 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetResourceTypeTemplateResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 87F54B2B-AEF0-4C33-A72A-3F8856A575E9
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 51,200 bytes in length. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
-     *
-     * > We recommend that use TemplateContent instead of TemplateBody.
-     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
-     *
      * @var mixed[]
      */
     public $templateBody;
-
     /**
-     * @description The JSON-formatted structure of the template body. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
-     *
-     * @example {
-     * }
      * @var string
      */
     public $templateContent;
@@ -43,17 +28,28 @@ class GetResourceTypeTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->templateBody)) {
+            Model::validateArray($this->templateBody);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->templateBody) {
-            $res['TemplateBody'] = $this->templateBody;
+            if (\is_array($this->templateBody)) {
+                $res['TemplateBody'] = [];
+                foreach ($this->templateBody as $key1 => $value1) {
+                    $res['TemplateBody'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->templateContent) {
             $res['TemplateContent'] = $this->templateContent;
         }
@@ -61,20 +57,27 @@ class GetResourceTypeTemplateResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetResourceTypeTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TemplateBody'])) {
-            $model->templateBody = $map['TemplateBody'];
+            if (!empty($map['TemplateBody'])) {
+                $model->templateBody = [];
+                foreach ($map['TemplateBody'] as $key1 => $value1) {
+                    $model->templateBody[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['TemplateContent'])) {
             $model->templateContent = $map['TemplateContent'];
         }

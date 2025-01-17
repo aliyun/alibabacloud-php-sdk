@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackInstanceResponseBody\stackInstance;
-use AlibabaCloud\Tea\Model;
 
 class GetStackInstanceResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example B8A6B693-82C8-419D-8796-DE99EC33CFF9
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the stack.
-     *
      * @var stackInstance
      */
     public $stackInstance;
@@ -31,32 +24,38 @@ class GetStackInstanceResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->stackInstance) {
+            $this->stackInstance->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->stackInstance) {
-            $res['StackInstance'] = null !== $this->stackInstance ? $this->stackInstance->toMap() : null;
+            $res['StackInstance'] = null !== $this->stackInstance ? $this->stackInstance->toArray($noStream) : $this->stackInstance;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStackInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StackInstance'])) {
             $model->stackInstance = stackInstance::fromMap($map['StackInstance']);
         }

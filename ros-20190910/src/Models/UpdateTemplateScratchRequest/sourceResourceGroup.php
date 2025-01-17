@@ -4,23 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateScratchRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceResourceGroup extends Model
 {
     /**
-     * @description The ID of the source resource group.
-     *
-     * This parameter is required.
-     * @example rg-acfmzawhxxc****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The resource types for filtering resources.
-     *
      * @var string[]
      */
     public $resourceTypeFilter;
@@ -31,35 +23,51 @@ class sourceResourceGroup extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceTypeFilter)) {
+            Model::validateArray($this->resourceTypeFilter);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->resourceTypeFilter) {
-            $res['ResourceTypeFilter'] = $this->resourceTypeFilter;
+            if (\is_array($this->resourceTypeFilter)) {
+                $res['ResourceTypeFilter'] = [];
+                $n1                        = 0;
+                foreach ($this->resourceTypeFilter as $item1) {
+                    $res['ResourceTypeFilter'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceResourceGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['ResourceTypeFilter'])) {
             if (!empty($map['ResourceTypeFilter'])) {
-                $model->resourceTypeFilter = $map['ResourceTypeFilter'];
+                $model->resourceTypeFilter = [];
+                $n1                        = 0;
+                foreach ($map['ResourceTypeFilter'] as $item1) {
+                    $model->resourceTypeFilter[$n1++] = $item1;
+                }
             }
         }
 

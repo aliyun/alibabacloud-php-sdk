@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class preferenceParameters extends Model
 {
     /**
-     * @description The parameter name.
-     *
-     * @example DeletionPolicy
-     *
      * @var string
      */
     public $parameterKey;
-
     /**
-     * @description The parameter value.
-     *
-     * @example Retain
-     *
      * @var string
      */
     public $parameterValue;
@@ -32,14 +23,16 @@ class preferenceParameters extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameterKey) {
             $res['ParameterKey'] = $this->parameterKey;
         }
+
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
         }
@@ -47,17 +40,18 @@ class preferenceParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return preferenceParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterKey'])) {
             $model->parameterKey = $map['ParameterKey'];
         }
+
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
         }

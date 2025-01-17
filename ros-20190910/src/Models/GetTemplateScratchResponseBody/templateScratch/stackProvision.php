@@ -4,30 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stackProvision extends Model
 {
     /**
-     * @description Indicates whether the resource is replicated by calling the [CreateStack](https://help.aliyun.com/document_detail/132086.html) operation. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $creatable;
-
     /**
-     * @description Indicates whether the resource is managed by calling the [CreateChangeSet](https://help.aliyun.com/document_detail/131051.html) operation. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example false
-     *
      * @var bool
      */
     public $importable;
@@ -38,14 +23,16 @@ class stackProvision extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->creatable) {
             $res['Creatable'] = $this->creatable;
         }
+
         if (null !== $this->importable) {
             $res['Importable'] = $this->importable;
         }
@@ -53,17 +40,18 @@ class stackProvision extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stackProvision
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Creatable'])) {
             $model->creatable = $map['Creatable'];
         }
+
         if (isset($map['Importable'])) {
             $model->importable = $map['Importable'];
         }

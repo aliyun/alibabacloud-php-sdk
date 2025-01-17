@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateParameterConstraints;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportedResourceTypes extends Model
 {
     /**
-     * @description The names of properties that are supported by the resource type.
-     *
      * @var string[]
      */
     public $properties;
-
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ECS::Disk
-     *
      * @var string
      */
     public $resourceType;
@@ -30,14 +23,25 @@ class supportedResourceTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                $n1                = 0;
+                foreach ($this->properties as $item1) {
+                    $res['Properties'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -45,19 +49,24 @@ class supportedResourceTypes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedResourceTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {
-                $model->properties = $map['Properties'];
+                $model->properties = [];
+                $n1                = 0;
+                foreach ($map['Properties'] as $item1) {
+                    $model->properties[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

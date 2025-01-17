@@ -4,52 +4,11 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetServiceProvisionsRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class services extends Model
 {
     /**
-     * @description The name of the service or feature. Valid values:
-     *
-     *   AHAS: Application High Availability Service
-     *   ARMS: Application Real-Time Monitoring Service (ARMS)
-     *   ApiGateway: API Gateway
-     *   BatchCompute: Batch Compute
-     *   BrainIndustrial: Industrial Brain
-     *   CloudStorageGateway: Cloud Storage Gateway (CSG)
-     *   CMS: CloudMonitor
-     *   CR: Container Registry
-     *   CS: Container Service for Kubernetes (ACK)
-     *   DCDN: Dynamic Content Delivery Network (DCDN)
-     *   DataHub: DataHub
-     *   DataWorks: DataWorks
-     *   EDAS: Enterprise Distributed Application Service (EDAS)
-     *   EHPC: E-HPC
-     *   EMAS: Enterprise Mobile Application Studio (EMAS)
-     *   FC: Function Compute
-     *   FNF: CloudFlow (SWF)
-     *   MaxCompute: MaxCompute
-     *   MNS: Message Service (MNS)
-     *   HBR: Cloud Backup
-     *   IMM: Intelligent Media Management (IMM)
-     *   IOT: IoT Platform
-     *   KMS: Key Management Service (KMS)
-     *   NAS: Apsara File Storage NAS (NAS)
-     *   NLP: Natural Language Processing (NLP)
-     *   OSS: Object Storage Service (OSS)
-     *   OTS: Tablestore
-     *   PrivateLink: PrivateLink
-     *   PrivateZone: Alibaba Cloud DNS PrivateZone
-     *   RocketMQ: ApsaraMQ for RocketMQ
-     *   SAE: Serverless App Engine (SAE)
-     *   SLS: Simple Log Service (SLS)
-     *   TrafficMirror: traffic mirroring
-     *   VS: Video Surveillance System
-     *   Xtrace: Managed Service for OpenTelemetry
-     *
-     * This parameter is required.
-     * @example EHPC
-     *
      * @var string
      */
     public $serviceName;
@@ -59,9 +18,10 @@ class services extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->serviceName) {
@@ -71,11 +31,11 @@ class services extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return services
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

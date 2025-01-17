@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteStackGroupRequest extends Model
 {
     /**
-     * @description The ID of the region to which the stack group belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The name of the stack group. The name must be unique in a region.
-     *
-     * This parameter is required.
-     * @example MyStackGroup
-     *
      * @var string
      */
     public $stackGroupName;
@@ -34,14 +23,16 @@ class DeleteStackGroupRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
         }
@@ -49,17 +40,18 @@ class DeleteStackGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStackGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
         }

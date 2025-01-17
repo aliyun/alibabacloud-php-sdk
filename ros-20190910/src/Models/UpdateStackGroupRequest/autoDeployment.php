@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class autoDeployment extends Model
 {
     /**
-     * @description The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
-     *
-     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
-     * @example true
-     *
      * @var bool
      */
     public $enabled;
-
     /**
-     * @description The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
-     *
-     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](https://help.aliyun.com/document_detail/111624.html).
-     * @example true
-     *
      * @var bool
      */
     public $retainStacksOnAccountRemoval;
@@ -34,14 +23,16 @@ class autoDeployment extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+
         if (null !== $this->retainStacksOnAccountRemoval) {
             $res['RetainStacksOnAccountRemoval'] = $this->retainStacksOnAccountRemoval;
         }
@@ -49,17 +40,18 @@ class autoDeployment extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return autoDeployment
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+
         if (isset($map['RetainStacksOnAccountRemoval'])) {
             $model->retainStacksOnAccountRemoval = $map['RetainStacksOnAccountRemoval'];
         }

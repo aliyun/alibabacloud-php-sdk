@@ -4,96 +4,44 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\DeleteStackInstancesRequest\deploymentTargets;
-use AlibabaCloud\Tea\Model;
 
 class DeleteStackInstancesRequest extends Model
 {
     /**
-     * @description The IDs of the execution accounts within which you want to deploy stacks in self-managed mode. You can specify up to 20 execution account IDs.
-     *
-     * @example ["151266687691****"]
-     *
      * @var string[]
      */
     public $accountIds;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
-     * For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The folders in which you want to deploy stacks in service-managed mode.
-     *
      * @var deploymentTargets
      */
     public $deploymentTargets;
-
     /**
-     * @description The description of the delete operation.
-     *
-     * The description must be 1 to 256 characters in length.
-     * @example Delete stack instances in hangzhou and beijing
-     *
      * @var string
      */
     public $operationDescription;
-
     /**
-     * @description The preference settings of the delete operation.
-     *
-     * > - You can specify only one of the following parameters: FailureToleranceCount and FailureTolerancePercentage.
-     * @example {"FailureToleranceCount": 1, "MaxConcurrentCount": 2}
-     *
      * @var mixed[]
      */
     public $operationPreferences;
-
     /**
-     * @description The region ID of the stack group. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The IDs of the regions where you want to delete the stacks. You can specify up to 20 region IDs.
-     *
-     * This parameter is required.
-     * @example ["cn-hangzhou", "cn-beijing"]
-     *
      * @var string[]
      */
     public $regionIds;
-
     /**
-     * @description Specifies whether to delete the stacks.
-     *
-     * Valid values:
-     *
-     *   true: retains the stacks.
-     *   false: deletes the stacks.
-     *
-     * This parameter is required.
-     * @example false
-     *
      * @var bool
      */
     public $retainStacks;
-
     /**
-     * @description The name of the stack group. The name must be unique within a region.\\
-     * This parameter is required.
-     * @example MyStackGroup
-     *
      * @var string
      */
     public $stackGroupName;
@@ -111,35 +59,73 @@ class DeleteStackInstancesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->accountIds)) {
+            Model::validateArray($this->accountIds);
+        }
+        if (null !== $this->deploymentTargets) {
+            $this->deploymentTargets->validate();
+        }
+        if (\is_array($this->operationPreferences)) {
+            Model::validateArray($this->operationPreferences);
+        }
+        if (\is_array($this->regionIds)) {
+            Model::validateArray($this->regionIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountIds) {
-            $res['AccountIds'] = $this->accountIds;
+            if (\is_array($this->accountIds)) {
+                $res['AccountIds'] = [];
+                $n1                = 0;
+                foreach ($this->accountIds as $item1) {
+                    $res['AccountIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->deploymentTargets) {
-            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toMap() : null;
+            $res['DeploymentTargets'] = null !== $this->deploymentTargets ? $this->deploymentTargets->toArray($noStream) : $this->deploymentTargets;
         }
+
         if (null !== $this->operationDescription) {
             $res['OperationDescription'] = $this->operationDescription;
         }
+
         if (null !== $this->operationPreferences) {
-            $res['OperationPreferences'] = $this->operationPreferences;
+            if (\is_array($this->operationPreferences)) {
+                $res['OperationPreferences'] = [];
+                foreach ($this->operationPreferences as $key1 => $value1) {
+                    $res['OperationPreferences'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->regionIds) {
-            $res['RegionIds'] = $this->regionIds;
+            if (\is_array($this->regionIds)) {
+                $res['RegionIds'] = [];
+                $n1               = 0;
+                foreach ($this->regionIds as $item1) {
+                    $res['RegionIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->retainStacks) {
             $res['RetainStacks'] = $this->retainStacks;
         }
+
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
         }
@@ -147,42 +133,63 @@ class DeleteStackInstancesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStackInstancesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
-                $model->accountIds = $map['AccountIds'];
+                $model->accountIds = [];
+                $n1                = 0;
+                foreach ($map['AccountIds'] as $item1) {
+                    $model->accountIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['DeploymentTargets'])) {
             $model->deploymentTargets = deploymentTargets::fromMap($map['DeploymentTargets']);
         }
+
         if (isset($map['OperationDescription'])) {
             $model->operationDescription = $map['OperationDescription'];
         }
+
         if (isset($map['OperationPreferences'])) {
-            $model->operationPreferences = $map['OperationPreferences'];
+            if (!empty($map['OperationPreferences'])) {
+                $model->operationPreferences = [];
+                foreach ($map['OperationPreferences'] as $key1 => $value1) {
+                    $model->operationPreferences[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
-                $model->regionIds = $map['RegionIds'];
+                $model->regionIds = [];
+                $n1               = 0;
+                foreach ($map['RegionIds'] as $item1) {
+                    $model->regionIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RetainStacks'])) {
             $model->retainStacks = $map['RetainStacks'];
         }
+
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
         }

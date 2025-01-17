@@ -4,30 +4,20 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListStackOperationRisksResponseBody\riskResources;
-use AlibabaCloud\Tea\Model;
 
 class ListStackOperationRisksResponseBody extends Model
 {
     /**
-     * @description The operations on which the permissions are not granted to the Alibaba Cloud account of the caller.
-     *
      * @var string[]
      */
     public $missingPolicyActions;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example 72108E7A-E874-4A5E-B22C-A61E94AD12CD
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The resources that are at risk.
-     *
      * @var riskResources[]
      */
     public $riskResources;
@@ -39,23 +29,38 @@ class ListStackOperationRisksResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->missingPolicyActions)) {
+            Model::validateArray($this->missingPolicyActions);
+        }
+        if (\is_array($this->riskResources)) {
+            Model::validateArray($this->riskResources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->missingPolicyActions) {
-            $res['MissingPolicyActions'] = $this->missingPolicyActions;
+            if (\is_array($this->missingPolicyActions)) {
+                $res['MissingPolicyActions'] = [];
+                $n1                          = 0;
+                foreach ($this->missingPolicyActions as $item1) {
+                    $res['MissingPolicyActions'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->riskResources) {
-            $res['RiskResources'] = [];
-            if (null !== $this->riskResources && \is_array($this->riskResources)) {
-                $n = 0;
-                foreach ($this->riskResources as $item) {
-                    $res['RiskResources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->riskResources)) {
+                $res['RiskResources'] = [];
+                $n1                   = 0;
+                foreach ($this->riskResources as $item1) {
+                    $res['RiskResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -63,28 +68,34 @@ class ListStackOperationRisksResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListStackOperationRisksResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MissingPolicyActions'])) {
             if (!empty($map['MissingPolicyActions'])) {
-                $model->missingPolicyActions = $map['MissingPolicyActions'];
+                $model->missingPolicyActions = [];
+                $n1                          = 0;
+                foreach ($map['MissingPolicyActions'] as $item1) {
+                    $model->missingPolicyActions[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RiskResources'])) {
             if (!empty($map['RiskResources'])) {
                 $model->riskResources = [];
-                $n                    = 0;
-                foreach ($map['RiskResources'] as $item) {
-                    $model->riskResources[$n++] = null !== $item ? riskResources::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['RiskResources'] as $item1) {
+                    $model->riskResources[$n1++] = riskResources::fromMap($item1);
                 }
             }
         }

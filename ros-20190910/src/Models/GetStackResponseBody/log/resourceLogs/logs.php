@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\log\resourceLogs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logs extends Model
 {
     /**
-     * @description The content of a resource log.
-     *
-     * @example []
-     *
      * @var string
      */
     public $content;
-
     /**
-     * @description The keywords of a resource log.
-     *
      * @var string[]
      */
     public $keys;
@@ -30,35 +23,51 @@ class logs extends Model
 
     public function validate()
     {
+        if (\is_array($this->keys)) {
+            Model::validateArray($this->keys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['Content'] = $this->content;
         }
+
         if (null !== $this->keys) {
-            $res['Keys'] = $this->keys;
+            if (\is_array($this->keys)) {
+                $res['Keys'] = [];
+                $n1          = 0;
+                foreach ($this->keys as $item1) {
+                    $res['Keys'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
         }
+
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
-                $model->keys = $map['Keys'];
+                $model->keys = [];
+                $n1          = 0;
+                foreach ($map['Keys'] as $item1) {
+                    $model->keys[$n1++] = $item1;
+                }
             }
         }
 

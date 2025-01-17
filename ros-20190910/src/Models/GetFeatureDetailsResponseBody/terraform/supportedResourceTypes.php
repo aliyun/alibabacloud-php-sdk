@@ -4,42 +4,28 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform\supportedResourceTypes\stackOperationRisk;
-use AlibabaCloud\Tea\Model;
 
 class supportedResourceTypes extends Model
 {
     /**
-     * @description The resource types that support the custom tag feature.
-     *
      * @var string[]
      */
     public $customTag;
-
     /**
-     * @description The resource types that support the price inquiry feature.
-     *
      * @var string[]
      */
     public $estimateCost;
-
     /**
-     * @description The resource types that support the resource group feature.
-     *
      * @var string[]
      */
     public $resourceGroup;
-
     /**
-     * @description The resource type that support the risk check feature.
-     *
      * @var stackOperationRisk
      */
     public $stackOperationRisk;
-
     /**
-     * @description The resource types that support the system tag `acs:ros:stackId`.
-     *
      * @var string[]
      */
     public $systemTag;
@@ -53,59 +39,123 @@ class supportedResourceTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->customTag)) {
+            Model::validateArray($this->customTag);
+        }
+        if (\is_array($this->estimateCost)) {
+            Model::validateArray($this->estimateCost);
+        }
+        if (\is_array($this->resourceGroup)) {
+            Model::validateArray($this->resourceGroup);
+        }
+        if (null !== $this->stackOperationRisk) {
+            $this->stackOperationRisk->validate();
+        }
+        if (\is_array($this->systemTag)) {
+            Model::validateArray($this->systemTag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customTag) {
-            $res['CustomTag'] = $this->customTag;
+            if (\is_array($this->customTag)) {
+                $res['CustomTag'] = [];
+                $n1               = 0;
+                foreach ($this->customTag as $item1) {
+                    $res['CustomTag'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->estimateCost) {
-            $res['EstimateCost'] = $this->estimateCost;
+            if (\is_array($this->estimateCost)) {
+                $res['EstimateCost'] = [];
+                $n1                  = 0;
+                foreach ($this->estimateCost as $item1) {
+                    $res['EstimateCost'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceGroup) {
-            $res['ResourceGroup'] = $this->resourceGroup;
+            if (\is_array($this->resourceGroup)) {
+                $res['ResourceGroup'] = [];
+                $n1                   = 0;
+                foreach ($this->resourceGroup as $item1) {
+                    $res['ResourceGroup'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->stackOperationRisk) {
-            $res['StackOperationRisk'] = null !== $this->stackOperationRisk ? $this->stackOperationRisk->toMap() : null;
+            $res['StackOperationRisk'] = null !== $this->stackOperationRisk ? $this->stackOperationRisk->toArray($noStream) : $this->stackOperationRisk;
         }
+
         if (null !== $this->systemTag) {
-            $res['SystemTag'] = $this->systemTag;
+            if (\is_array($this->systemTag)) {
+                $res['SystemTag'] = [];
+                $n1               = 0;
+                foreach ($this->systemTag as $item1) {
+                    $res['SystemTag'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedResourceTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomTag'])) {
             if (!empty($map['CustomTag'])) {
-                $model->customTag = $map['CustomTag'];
+                $model->customTag = [];
+                $n1               = 0;
+                foreach ($map['CustomTag'] as $item1) {
+                    $model->customTag[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['EstimateCost'])) {
             if (!empty($map['EstimateCost'])) {
-                $model->estimateCost = $map['EstimateCost'];
+                $model->estimateCost = [];
+                $n1                  = 0;
+                foreach ($map['EstimateCost'] as $item1) {
+                    $model->estimateCost[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceGroup'])) {
             if (!empty($map['ResourceGroup'])) {
-                $model->resourceGroup = $map['ResourceGroup'];
+                $model->resourceGroup = [];
+                $n1                   = 0;
+                foreach ($map['ResourceGroup'] as $item1) {
+                    $model->resourceGroup[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['StackOperationRisk'])) {
             $model->stackOperationRisk = stackOperationRisk::fromMap($map['StackOperationRisk']);
         }
+
         if (isset($map['SystemTag'])) {
             if (!empty($map['SystemTag'])) {
-                $model->systemTag = $map['SystemTag'];
+                $model->systemTag = [];
+                $n1               = 0;
+                foreach ($map['SystemTag'] as $item1) {
+                    $model->systemTag[$n1++] = $item1;
+                }
             }
         }
 

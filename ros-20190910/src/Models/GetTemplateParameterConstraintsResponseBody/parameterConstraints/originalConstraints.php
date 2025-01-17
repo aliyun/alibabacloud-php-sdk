@@ -4,66 +4,80 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class originalConstraints extends Model
 {
     /**
-     * @description The values of the parameter.
-     *
      * @var mixed[]
      */
     public $allowedValues;
-
     /**
-     * @description The name of the resource property.
-     *
-     * @example ZoneId
-     *
+     * @var string
+     */
+    public $behavior;
+    /**
+     * @var string
+     */
+    public $behaviorReason;
+    /**
      * @var string
      */
     public $propertyName;
-
     /**
-     * @description The name of the resource that is defined in the template.
-     *
-     * @example MyECS
-     *
      * @var string
      */
     public $resourceName;
-
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ECS::InstanceGroup
-     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'allowedValues' => 'AllowedValues',
-        'propertyName'  => 'PropertyName',
-        'resourceName'  => 'ResourceName',
-        'resourceType'  => 'ResourceType',
+        'allowedValues'  => 'AllowedValues',
+        'behavior'       => 'Behavior',
+        'behaviorReason' => 'BehaviorReason',
+        'propertyName'   => 'PropertyName',
+        'resourceName'   => 'ResourceName',
+        'resourceType'   => 'ResourceType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->allowedValues)) {
+            Model::validateArray($this->allowedValues);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->allowedValues) {
-            $res['AllowedValues'] = $this->allowedValues;
+            if (\is_array($this->allowedValues)) {
+                $res['AllowedValues'] = [];
+                $n1                   = 0;
+                foreach ($this->allowedValues as $item1) {
+                    $res['AllowedValues'][$n1++] = $item1;
+                }
+            }
         }
+
+        if (null !== $this->behavior) {
+            $res['Behavior'] = $this->behavior;
+        }
+
+        if (null !== $this->behaviorReason) {
+            $res['BehaviorReason'] = $this->behaviorReason;
+        }
+
         if (null !== $this->propertyName) {
             $res['PropertyName'] = $this->propertyName;
         }
+
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -71,25 +85,40 @@ class originalConstraints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return originalConstraints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AllowedValues'])) {
             if (!empty($map['AllowedValues'])) {
-                $model->allowedValues = $map['AllowedValues'];
+                $model->allowedValues = [];
+                $n1                   = 0;
+                foreach ($map['AllowedValues'] as $item1) {
+                    $model->allowedValues[$n1++] = $item1;
+                }
             }
         }
+
+        if (isset($map['Behavior'])) {
+            $model->behavior = $map['Behavior'];
+        }
+
+        if (isset($map['BehaviorReason'])) {
+            $model->behaviorReason = $map['BehaviorReason'];
+        }
+
         if (isset($map['PropertyName'])) {
             $model->propertyName = $map['PropertyName'];
         }
+
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

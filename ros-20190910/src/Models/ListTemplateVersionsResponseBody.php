@@ -4,32 +4,20 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateVersionsResponseBody\versions;
-use AlibabaCloud\Tea\Model;
 
 class ListTemplateVersionsResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The versions.
-     *
      * @var versions[]
      */
     public $versions;
@@ -41,23 +29,29 @@ class ListTemplateVersionsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->versions)) {
+            Model::validateArray($this->versions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->versions) {
-            $res['Versions'] = [];
-            if (null !== $this->versions && \is_array($this->versions)) {
-                $n = 0;
-                foreach ($this->versions as $item) {
-                    $res['Versions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->versions)) {
+                $res['Versions'] = [];
+                $n1              = 0;
+                foreach ($this->versions as $item1) {
+                    $res['Versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -65,26 +59,28 @@ class ListTemplateVersionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTemplateVersionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Versions'])) {
             if (!empty($map['Versions'])) {
                 $model->versions = [];
-                $n               = 0;
-                foreach ($map['Versions'] as $item) {
-                    $model->versions[$n++] = null !== $item ? versions::fromMap($item) : $item;
+                $n1              = 0;
+                foreach ($map['Versions'] as $item1) {
+                    $model->versions[$n1++] = versions::fromMap($item1);
                 }
             }
         }

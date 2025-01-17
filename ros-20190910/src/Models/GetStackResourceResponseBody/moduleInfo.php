@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResourceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class moduleInfo extends Model
 {
     /**
-     * @description The concatenated logical IDs of one or more modules that contain the resource. The modules are listed from the outermost layer and separated by forward slashes (`/`).
-     *
-     * `moduleA/moduleB`
-     * @example moduleA/moduleB
-     *
      * @var string
      */
     public $logicalIdHierarchy;
-
     /**
-     * @description The concatenated types of one or more modules that contain the resource. The module types are listed from the outermost layer and separated by forward slashes (`/`).
-     *
-     * `MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example`
-     * @example MODULE::ROS::Parent::Example/MODULE::ROS::Child::Example
-     *
      * @var string
      */
     public $typeHierarchy;
@@ -34,14 +23,16 @@ class moduleInfo extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logicalIdHierarchy) {
             $res['LogicalIdHierarchy'] = $this->logicalIdHierarchy;
         }
+
         if (null !== $this->typeHierarchy) {
             $res['TypeHierarchy'] = $this->typeHierarchy;
         }
@@ -49,17 +40,18 @@ class moduleInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return moduleInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogicalIdHierarchy'])) {
             $model->logicalIdHierarchy = $map['LogicalIdHierarchy'];
         }
+
         if (isset($map['TypeHierarchy'])) {
             $model->typeHierarchy = $map['TypeHierarchy'];
         }

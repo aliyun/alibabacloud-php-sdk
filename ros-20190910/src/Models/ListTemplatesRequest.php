@@ -4,81 +4,46 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesRequest\filters;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesRequest\tag;
-use AlibabaCloud\Tea\Model;
 
 class ListTemplatesRequest extends Model
 {
     /**
-     * @description Specifies whether to query the tag information. Valid values:
-     *
-     *   Enabled
-     *   Disabled (default)
-     *
-     * @example Enabled
-     *
+     * @var filters[]
+     */
+    public $filters;
+    /**
      * @var string
      */
     public $includeTags;
-
     /**
-     * @description The page number.\\
-     * Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries per page.\\
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The ID of the resource group.\\
-     * For more information about resource groups, see the "Resource Group" section of [What is Resource Management?](https://help.aliyun.com/document_detail/94475.html)
-     * @example rg-acfmxazb4ph6aiy****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The sharing type of the template.
-     *
-     * Valid values:
-     *
-     *   Private (default): The template belongs to the template owner.
-     *   Shared: The template is shared with other users.
-     *   Official: The template is the shared template of the official version.
-     *
-     * @example Private
-     *
      * @var string
      */
     public $shareType;
-
     /**
-     * @description The tags. You can specify up to 20 tags.
-     *
      * @var tag[]
      */
     public $tag;
-
     /**
-     * @description The template name. This parameter takes effect only when ShareType is set to Private. The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or letter.
-     *
-     * @example MyTemplate
-     *
      * @var string
      */
     public $templateName;
     protected $_name = [
+        'filters'         => 'Filters',
         'includeTags'     => 'IncludeTags',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
@@ -90,35 +55,58 @@ class ListTemplatesRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->filters)) {
+            Model::validateArray($this->filters);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->includeTags) {
-            $res['IncludeTags'] = $this->includeTags;
-        }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
-        if (null !== $this->shareType) {
-            $res['ShareType'] = $this->shareType;
-        }
-        if (null !== $this->tag) {
-            $res['Tag'] = [];
-            if (null !== $this->tag && \is_array($this->tag)) {
-                $n = 0;
-                foreach ($this->tag as $item) {
-                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+        if (null !== $this->filters) {
+            if (\is_array($this->filters)) {
+                $res['Filters'] = [];
+                $n1             = 0;
+                foreach ($this->filters as $item1) {
+                    $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
+        if (null !== $this->includeTags) {
+            $res['IncludeTags'] = $this->includeTags;
+        }
+
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1         = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -126,38 +114,54 @@ class ListTemplatesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTemplatesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['IncludeTags'])) {
-            $model->includeTags = $map['IncludeTags'];
-        }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
-        if (isset($map['ShareType'])) {
-            $model->shareType = $map['ShareType'];
-        }
-        if (isset($map['Tag'])) {
-            if (!empty($map['Tag'])) {
-                $model->tag = [];
-                $n          = 0;
-                foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+        if (isset($map['Filters'])) {
+            if (!empty($map['Filters'])) {
+                $model->filters = [];
+                $n1             = 0;
+                foreach ($map['Filters'] as $item1) {
+                    $model->filters[$n1++] = filters::fromMap($item1);
                 }
             }
         }
+
+        if (isset($map['IncludeTags'])) {
+            $model->includeTags = $map['IncludeTags'];
+        }
+
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1         = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

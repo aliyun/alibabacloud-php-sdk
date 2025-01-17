@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplateScratchesResponseBody\templateScratches;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceResources extends Model
 {
     /**
-     * @description The resource ID.
-     *
-     * @example vpc-m5eauuq80anx59v28****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ECS::VPC
-     *
      * @var string
      */
     public $resourceType;
@@ -32,14 +23,16 @@ class sourceResources extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -47,17 +40,18 @@ class sourceResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

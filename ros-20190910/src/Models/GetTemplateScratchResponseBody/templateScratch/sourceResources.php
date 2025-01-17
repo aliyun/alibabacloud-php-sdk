@@ -4,31 +4,19 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sourceResources extends Model
 {
     /**
-     * @description The related resource type filters.
-     *
      * @var string[]
      */
     public $relatedResourceTypeFilter;
-
     /**
-     * @description The resource ID.
-     *
-     * @example vpc-m5e7cv7e9mz69sszb****
-     *
      * @var string
      */
     public $resourceId;
-
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ECS::VPC
-     *
      * @var string
      */
     public $resourceType;
@@ -40,17 +28,29 @@ class sourceResources extends Model
 
     public function validate()
     {
+        if (\is_array($this->relatedResourceTypeFilter)) {
+            Model::validateArray($this->relatedResourceTypeFilter);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->relatedResourceTypeFilter) {
-            $res['RelatedResourceTypeFilter'] = $this->relatedResourceTypeFilter;
+            if (\is_array($this->relatedResourceTypeFilter)) {
+                $res['RelatedResourceTypeFilter'] = [];
+                $n1                               = 0;
+                foreach ($this->relatedResourceTypeFilter as $item1) {
+                    $res['RelatedResourceTypeFilter'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -58,22 +58,28 @@ class sourceResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RelatedResourceTypeFilter'])) {
             if (!empty($map['RelatedResourceTypeFilter'])) {
-                $model->relatedResourceTypeFilter = $map['RelatedResourceTypeFilter'];
+                $model->relatedResourceTypeFilter = [];
+                $n1                               = 0;
+                foreach ($map['RelatedResourceTypeFilter'] as $item1) {
+                    $model->relatedResourceTypeFilter[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

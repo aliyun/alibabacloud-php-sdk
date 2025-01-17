@@ -4,26 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackInstancesRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parameterOverrides extends Model
 {
     /**
-     * @description The key of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the name that you specified when you created the stack group.
-     *
-     * This parameter is required.
-     * @example Amount
-     *
      * @var string
      */
     public $parameterKey;
-
     /**
-     * @description The value of parameter N that you want to use to override a specific parameter. If you do not specify this parameter, ROS uses the value that you specified when you created the stack group.
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var string
      */
     public $parameterValue;
@@ -34,14 +23,16 @@ class parameterOverrides extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parameterKey) {
             $res['ParameterKey'] = $this->parameterKey;
         }
+
         if (null !== $this->parameterValue) {
             $res['ParameterValue'] = $this->parameterValue;
         }
@@ -49,17 +40,18 @@ class parameterOverrides extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameterOverrides
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParameterKey'])) {
             $model->parameterKey = $map['ParameterKey'];
         }
+
         if (isset($map['ParameterValue'])) {
             $model->parameterValue = $map['ParameterValue'];
         }

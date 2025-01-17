@@ -4,15 +4,12 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody\stack;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody\stack\log\terraformLogs;
-use AlibabaCloud\Tea\Model;
 
 class log extends Model
 {
     /**
-     * @description The Terraform logs. This parameter is returned only if the stack is a Terraform stack.
-     *
-     * > This parameter contains the logs of previewing the stack.
      * @var terraformLogs[]
      */
     public $terraformLogs;
@@ -22,17 +19,21 @@ class log extends Model
 
     public function validate()
     {
+        if (\is_array($this->terraformLogs)) {
+            Model::validateArray($this->terraformLogs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->terraformLogs) {
-            $res['TerraformLogs'] = [];
-            if (null !== $this->terraformLogs && \is_array($this->terraformLogs)) {
-                $n = 0;
-                foreach ($this->terraformLogs as $item) {
-                    $res['TerraformLogs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->terraformLogs)) {
+                $res['TerraformLogs'] = [];
+                $n1                   = 0;
+                foreach ($this->terraformLogs as $item1) {
+                    $res['TerraformLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -40,20 +41,20 @@ class log extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return log
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TerraformLogs'])) {
             if (!empty($map['TerraformLogs'])) {
                 $model->terraformLogs = [];
-                $n                    = 0;
-                foreach ($map['TerraformLogs'] as $item) {
-                    $model->terraformLogs[$n++] = null !== $item ? terraformLogs::fromMap($item) : $item;
+                $n1                   = 0;
+                foreach ($map['TerraformLogs'] as $item1) {
+                    $model->terraformLogs[$n1++] = terraformLogs::fromMap($item1);
                 }
             }
         }

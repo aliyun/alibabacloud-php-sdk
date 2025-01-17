@@ -4,155 +4,73 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupResponseBody\stackGroup\autoDeployment;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupResponseBody\stackGroup\parameters;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupResponseBody\stackGroup\stackGroupDriftDetectionDetail;
-use AlibabaCloud\Tea\Model;
 
 class stackGroup extends Model
 {
     /**
-     * @description The parameters of the stack group.
-     *
-     * @example AliyunROSStackGroupAdministrationRole
-     *
      * @var string
      */
     public $administrationRoleName;
-
     /**
-     * @description Indicates whether automatic deployment is enabled.
-     *
-     * Valid values:
-     *
-     *   true: Automatic deployment is enabled. If a member account is added to the folder to which the stack group belongs after automatic deployment is enabled, the stack group deploys its stack instances in the specified region where the added account is deployed. If the account is deleted from the folder, the stack instances in the specified region are deleted from the stack group.
-     *   false: Automatic deployment is disabled. After automatic deployment is disabled, the stack instances remain unchanged when the member account in the folder is changed.
-     *
      * @var autoDeployment
      */
     public $autoDeployment;
-
     /**
      * @var string
      */
     public $createTime;
-
     /**
-     * @description The name of the stack group.
-     *
-     * @example StackGroup Description
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The template body.
-     *
-     * @example AliyunROSStackGroupExecutionRole
-     *
      * @var string
      */
     public $executionRoleName;
-
     /**
-     * @description The key of the parameter.
-     *
      * @var parameters[]
      */
     public $parameters;
-
     /**
-     * @description The information about automatic deployment settings.
-     *
-     * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
-     * @example SELF_MANAGED
-     *
      * @var string
      */
     public $permissionModel;
-
     /**
-     * @description The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
-     *
-     * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
      * @var string[]
      */
     public $rdFolderIds;
-
     /**
-     * @description The permission model.
-     *
-     * Valid values:
-     *
-     *   SELF_MANAGED: the self-managed permission model
-     *   SERVICE_MANAGED: the service-managed permission model
-     *
-     * >  For more information about the permission models of stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
-     * @example rg-acfmxazb4ph6aiy****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The time when drift detection was performed on the stack group.
-     *
      * @var stackGroupDriftDetectionDetail
      */
     public $stackGroupDriftDetectionDetail;
-
     /**
-     * @description The status of the stack group.
-     *
-     * Valid values:
-     *
-     *   ACTIVE
-     *   DELETED
-     *
-     * @example fd0ddef9-9540-4b42-a464-94f77835****
-     *
      * @var string
      */
     public $stackGroupId;
-
     /**
-     * @description The name of the RAM role that is specified for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
-     *
-     * @example MyStackGroup
-     *
      * @var string
      */
     public $stackGroupName;
-
     /**
-     * @description The name of the RAM role that is specified for the administrator account in Resource Orchestration Service (ROS) when you create the self-managed stack group. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
-     *
-     * @example ACTIVE
-     *
      * @var string
      */
     public $status;
-
     /**
-     * @description The structure that contains the template body.
-     *
-     * > We recommend that you use TemplateContent instead of TemplateBody.
-     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
-     *
      * @var string
      */
     public $templateBody;
-
     /**
-     * @description The JSON-formatted structure that contains the template body. For more information, see [Template syntax](https://help.aliyun.com/document_detail/28857.html).
-     *
-     * @example {
-     * }
      * @var string
      */
     public $templateContent;
-
     /**
      * @var string
      */
@@ -178,62 +96,96 @@ class stackGroup extends Model
 
     public function validate()
     {
+        if (null !== $this->autoDeployment) {
+            $this->autoDeployment->validate();
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        if (\is_array($this->rdFolderIds)) {
+            Model::validateArray($this->rdFolderIds);
+        }
+        if (null !== $this->stackGroupDriftDetectionDetail) {
+            $this->stackGroupDriftDetectionDetail->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->administrationRoleName) {
             $res['AdministrationRoleName'] = $this->administrationRoleName;
         }
+
         if (null !== $this->autoDeployment) {
-            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toMap() : null;
+            $res['AutoDeployment'] = null !== $this->autoDeployment ? $this->autoDeployment->toArray($noStream) : $this->autoDeployment;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->executionRoleName) {
             $res['ExecutionRoleName'] = $this->executionRoleName;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1                = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->permissionModel) {
             $res['PermissionModel'] = $this->permissionModel;
         }
+
         if (null !== $this->rdFolderIds) {
-            $res['RdFolderIds'] = $this->rdFolderIds;
+            if (\is_array($this->rdFolderIds)) {
+                $res['RdFolderIds'] = [];
+                $n1                 = 0;
+                foreach ($this->rdFolderIds as $item1) {
+                    $res['RdFolderIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->stackGroupDriftDetectionDetail) {
-            $res['StackGroupDriftDetectionDetail'] = null !== $this->stackGroupDriftDetectionDetail ? $this->stackGroupDriftDetectionDetail->toMap() : null;
+            $res['StackGroupDriftDetectionDetail'] = null !== $this->stackGroupDriftDetectionDetail ? $this->stackGroupDriftDetectionDetail->toArray($noStream) : $this->stackGroupDriftDetectionDetail;
         }
+
         if (null !== $this->stackGroupId) {
             $res['StackGroupId'] = $this->stackGroupId;
         }
+
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
+
         if (null !== $this->templateContent) {
             $res['TemplateContent'] = $this->templateContent;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -241,67 +193,86 @@ class stackGroup extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stackGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdministrationRoleName'])) {
             $model->administrationRoleName = $map['AdministrationRoleName'];
         }
+
         if (isset($map['AutoDeployment'])) {
             $model->autoDeployment = autoDeployment::fromMap($map['AutoDeployment']);
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ExecutionRoleName'])) {
             $model->executionRoleName = $map['ExecutionRoleName'];
         }
+
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PermissionModel'])) {
             $model->permissionModel = $map['PermissionModel'];
         }
+
         if (isset($map['RdFolderIds'])) {
             if (!empty($map['RdFolderIds'])) {
-                $model->rdFolderIds = $map['RdFolderIds'];
+                $model->rdFolderIds = [];
+                $n1                 = 0;
+                foreach ($map['RdFolderIds'] as $item1) {
+                    $model->rdFolderIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['StackGroupDriftDetectionDetail'])) {
             $model->stackGroupDriftDetectionDetail = stackGroupDriftDetectionDetail::fromMap($map['StackGroupDriftDetectionDetail']);
         }
+
         if (isset($map['StackGroupId'])) {
             $model->stackGroupId = $map['StackGroupId'];
         }
+
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
+
         if (isset($map['TemplateContent'])) {
             $model->templateContent = $map['TemplateContent'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

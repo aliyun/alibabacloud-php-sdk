@@ -4,71 +4,35 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListStackEventsRequest extends Model
 {
     /**
-     * @description The logical IDs of the resources.
-     *
-     * @example WebServer
-     *
      * @var string[]
      */
     public $logicalResourceId;
-
     /**
-     * @description The number of the page to return.\\
-     * Default value: 1.
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
-
     /**
-     * @description The number of entries to return on each page.\\
-     * Default value: 10.
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
-
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The resource types.
-     *
-     * @example ALIYUN::ECS::Instance
-     *
      * @var string[]
      */
     public $resourceType;
-
     /**
-     * @description The stack ID.
-     *
-     * This parameter is required.
-     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-     *
      * @var string
      */
     public $stackId;
-
     /**
-     * @description The status of the resource.
-     *
-     * @example CREATE_IN_PROGRESS
-     *
      * @var string[]
      */
     public $status;
@@ -84,69 +48,121 @@ class ListStackEventsRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->logicalResourceId)) {
+            Model::validateArray($this->logicalResourceId);
+        }
+        if (\is_array($this->resourceType)) {
+            Model::validateArray($this->resourceType);
+        }
+        if (\is_array($this->status)) {
+            Model::validateArray($this->status);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logicalResourceId) {
-            $res['LogicalResourceId'] = $this->logicalResourceId;
+            if (\is_array($this->logicalResourceId)) {
+                $res['LogicalResourceId'] = [];
+                $n1                       = 0;
+                foreach ($this->logicalResourceId as $item1) {
+                    $res['LogicalResourceId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+            if (\is_array($this->resourceType)) {
+                $res['ResourceType'] = [];
+                $n1                  = 0;
+                foreach ($this->resourceType as $item1) {
+                    $res['ResourceType'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
+
         if (null !== $this->status) {
-            $res['Status'] = $this->status;
+            if (\is_array($this->status)) {
+                $res['Status'] = [];
+                $n1            = 0;
+                foreach ($this->status as $item1) {
+                    $res['Status'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListStackEventsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogicalResourceId'])) {
             if (!empty($map['LogicalResourceId'])) {
-                $model->logicalResourceId = $map['LogicalResourceId'];
+                $model->logicalResourceId = [];
+                $n1                       = 0;
+                foreach ($map['LogicalResourceId'] as $item1) {
+                    $model->logicalResourceId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             if (!empty($map['ResourceType'])) {
-                $model->resourceType = $map['ResourceType'];
+                $model->resourceType = [];
+                $n1                  = 0;
+                foreach ($map['ResourceType'] as $item1) {
+                    $model->resourceType[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
+
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
-                $model->status = $map['Status'];
+                $model->status = [];
+                $n1            = 0;
+                foreach ($map['Status'] as $item1) {
+                    $model->status[$n1++] = $item1;
+                }
             }
         }
 

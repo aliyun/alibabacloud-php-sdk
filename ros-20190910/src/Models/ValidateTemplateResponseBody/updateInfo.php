@@ -4,82 +4,47 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class updateInfo extends Model
 {
     /**
-     * @description The parameters that can be modified.
-     *
      * @var string[]
      */
     public $parametersAllowedToBeModified;
-
     /**
-     * @description The parameters whose changes cause service interruptions.
-     *
-     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersCauseInterruptionIfModified;
-
     /**
-     * @description The parameters whose changes trigger replacement updates for resources.
-     *
-     * > -  This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersCauseReplacementIfModified;
-
     /**
-     * @description The parameters that can be modified under specific conditions.
-     *
      * @var string[]
      */
     public $parametersConditionallyAllowedToBeModified;
-
     /**
-     * @description The parameters whose changes cause service interruptions under specific conditions.
-     *
-     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersConditionallyCauseInterruptionIfModified;
-
     /**
-     * @description The parameters whose changes trigger replacement updates for resources under specific conditions.
-     *
-     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersConditionallyCauseReplacementIfModified;
-
     /**
-     * @description The parameters that cannot be modified.
-     *
      * @var string[]
      */
     public $parametersNotAllowedToBeModified;
-
     /**
-     * @description The parameters that can be modified under uncertain conditions.
-     *
      * @var string[]
      */
     public $parametersUncertainlyAllowedToBeModified;
-
     /**
-     * @description The parameters whose changes cause service interruptions under uncertain conditions.
-     *
-     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersUncertainlyCauseInterruptionIfModified;
-
     /**
-     * @description The parameters whose changes trigger replacement updates for resources under uncertain conditions.
-     *
-     * > -  This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersUncertainlyCauseReplacementIfModified;
@@ -98,101 +63,250 @@ class updateInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->parametersAllowedToBeModified)) {
+            Model::validateArray($this->parametersAllowedToBeModified);
+        }
+        if (\is_array($this->parametersCauseInterruptionIfModified)) {
+            Model::validateArray($this->parametersCauseInterruptionIfModified);
+        }
+        if (\is_array($this->parametersCauseReplacementIfModified)) {
+            Model::validateArray($this->parametersCauseReplacementIfModified);
+        }
+        if (\is_array($this->parametersConditionallyAllowedToBeModified)) {
+            Model::validateArray($this->parametersConditionallyAllowedToBeModified);
+        }
+        if (\is_array($this->parametersConditionallyCauseInterruptionIfModified)) {
+            Model::validateArray($this->parametersConditionallyCauseInterruptionIfModified);
+        }
+        if (\is_array($this->parametersConditionallyCauseReplacementIfModified)) {
+            Model::validateArray($this->parametersConditionallyCauseReplacementIfModified);
+        }
+        if (\is_array($this->parametersNotAllowedToBeModified)) {
+            Model::validateArray($this->parametersNotAllowedToBeModified);
+        }
+        if (\is_array($this->parametersUncertainlyAllowedToBeModified)) {
+            Model::validateArray($this->parametersUncertainlyAllowedToBeModified);
+        }
+        if (\is_array($this->parametersUncertainlyCauseInterruptionIfModified)) {
+            Model::validateArray($this->parametersUncertainlyCauseInterruptionIfModified);
+        }
+        if (\is_array($this->parametersUncertainlyCauseReplacementIfModified)) {
+            Model::validateArray($this->parametersUncertainlyCauseReplacementIfModified);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->parametersAllowedToBeModified) {
-            $res['ParametersAllowedToBeModified'] = $this->parametersAllowedToBeModified;
+            if (\is_array($this->parametersAllowedToBeModified)) {
+                $res['ParametersAllowedToBeModified'] = [];
+                $n1                                   = 0;
+                foreach ($this->parametersAllowedToBeModified as $item1) {
+                    $res['ParametersAllowedToBeModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersCauseInterruptionIfModified) {
-            $res['ParametersCauseInterruptionIfModified'] = $this->parametersCauseInterruptionIfModified;
+            if (\is_array($this->parametersCauseInterruptionIfModified)) {
+                $res['ParametersCauseInterruptionIfModified'] = [];
+                $n1                                           = 0;
+                foreach ($this->parametersCauseInterruptionIfModified as $item1) {
+                    $res['ParametersCauseInterruptionIfModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersCauseReplacementIfModified) {
-            $res['ParametersCauseReplacementIfModified'] = $this->parametersCauseReplacementIfModified;
+            if (\is_array($this->parametersCauseReplacementIfModified)) {
+                $res['ParametersCauseReplacementIfModified'] = [];
+                $n1                                          = 0;
+                foreach ($this->parametersCauseReplacementIfModified as $item1) {
+                    $res['ParametersCauseReplacementIfModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersConditionallyAllowedToBeModified) {
-            $res['ParametersConditionallyAllowedToBeModified'] = $this->parametersConditionallyAllowedToBeModified;
+            if (\is_array($this->parametersConditionallyAllowedToBeModified)) {
+                $res['ParametersConditionallyAllowedToBeModified'] = [];
+                $n1                                                = 0;
+                foreach ($this->parametersConditionallyAllowedToBeModified as $item1) {
+                    $res['ParametersConditionallyAllowedToBeModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersConditionallyCauseInterruptionIfModified) {
-            $res['ParametersConditionallyCauseInterruptionIfModified'] = $this->parametersConditionallyCauseInterruptionIfModified;
+            if (\is_array($this->parametersConditionallyCauseInterruptionIfModified)) {
+                $res['ParametersConditionallyCauseInterruptionIfModified'] = [];
+                $n1                                                        = 0;
+                foreach ($this->parametersConditionallyCauseInterruptionIfModified as $item1) {
+                    $res['ParametersConditionallyCauseInterruptionIfModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersConditionallyCauseReplacementIfModified) {
-            $res['ParametersConditionallyCauseReplacementIfModified'] = $this->parametersConditionallyCauseReplacementIfModified;
+            if (\is_array($this->parametersConditionallyCauseReplacementIfModified)) {
+                $res['ParametersConditionallyCauseReplacementIfModified'] = [];
+                $n1                                                       = 0;
+                foreach ($this->parametersConditionallyCauseReplacementIfModified as $item1) {
+                    $res['ParametersConditionallyCauseReplacementIfModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersNotAllowedToBeModified) {
-            $res['ParametersNotAllowedToBeModified'] = $this->parametersNotAllowedToBeModified;
+            if (\is_array($this->parametersNotAllowedToBeModified)) {
+                $res['ParametersNotAllowedToBeModified'] = [];
+                $n1                                      = 0;
+                foreach ($this->parametersNotAllowedToBeModified as $item1) {
+                    $res['ParametersNotAllowedToBeModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersUncertainlyAllowedToBeModified) {
-            $res['ParametersUncertainlyAllowedToBeModified'] = $this->parametersUncertainlyAllowedToBeModified;
+            if (\is_array($this->parametersUncertainlyAllowedToBeModified)) {
+                $res['ParametersUncertainlyAllowedToBeModified'] = [];
+                $n1                                              = 0;
+                foreach ($this->parametersUncertainlyAllowedToBeModified as $item1) {
+                    $res['ParametersUncertainlyAllowedToBeModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersUncertainlyCauseInterruptionIfModified) {
-            $res['ParametersUncertainlyCauseInterruptionIfModified'] = $this->parametersUncertainlyCauseInterruptionIfModified;
+            if (\is_array($this->parametersUncertainlyCauseInterruptionIfModified)) {
+                $res['ParametersUncertainlyCauseInterruptionIfModified'] = [];
+                $n1                                                      = 0;
+                foreach ($this->parametersUncertainlyCauseInterruptionIfModified as $item1) {
+                    $res['ParametersUncertainlyCauseInterruptionIfModified'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parametersUncertainlyCauseReplacementIfModified) {
-            $res['ParametersUncertainlyCauseReplacementIfModified'] = $this->parametersUncertainlyCauseReplacementIfModified;
+            if (\is_array($this->parametersUncertainlyCauseReplacementIfModified)) {
+                $res['ParametersUncertainlyCauseReplacementIfModified'] = [];
+                $n1                                                     = 0;
+                foreach ($this->parametersUncertainlyCauseReplacementIfModified as $item1) {
+                    $res['ParametersUncertainlyCauseReplacementIfModified'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return updateInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ParametersAllowedToBeModified'])) {
             if (!empty($map['ParametersAllowedToBeModified'])) {
-                $model->parametersAllowedToBeModified = $map['ParametersAllowedToBeModified'];
+                $model->parametersAllowedToBeModified = [];
+                $n1                                   = 0;
+                foreach ($map['ParametersAllowedToBeModified'] as $item1) {
+                    $model->parametersAllowedToBeModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersCauseInterruptionIfModified'])) {
             if (!empty($map['ParametersCauseInterruptionIfModified'])) {
-                $model->parametersCauseInterruptionIfModified = $map['ParametersCauseInterruptionIfModified'];
+                $model->parametersCauseInterruptionIfModified = [];
+                $n1                                           = 0;
+                foreach ($map['ParametersCauseInterruptionIfModified'] as $item1) {
+                    $model->parametersCauseInterruptionIfModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersCauseReplacementIfModified'])) {
             if (!empty($map['ParametersCauseReplacementIfModified'])) {
-                $model->parametersCauseReplacementIfModified = $map['ParametersCauseReplacementIfModified'];
+                $model->parametersCauseReplacementIfModified = [];
+                $n1                                          = 0;
+                foreach ($map['ParametersCauseReplacementIfModified'] as $item1) {
+                    $model->parametersCauseReplacementIfModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersConditionallyAllowedToBeModified'])) {
             if (!empty($map['ParametersConditionallyAllowedToBeModified'])) {
-                $model->parametersConditionallyAllowedToBeModified = $map['ParametersConditionallyAllowedToBeModified'];
+                $model->parametersConditionallyAllowedToBeModified = [];
+                $n1                                                = 0;
+                foreach ($map['ParametersConditionallyAllowedToBeModified'] as $item1) {
+                    $model->parametersConditionallyAllowedToBeModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersConditionallyCauseInterruptionIfModified'])) {
             if (!empty($map['ParametersConditionallyCauseInterruptionIfModified'])) {
-                $model->parametersConditionallyCauseInterruptionIfModified = $map['ParametersConditionallyCauseInterruptionIfModified'];
+                $model->parametersConditionallyCauseInterruptionIfModified = [];
+                $n1                                                        = 0;
+                foreach ($map['ParametersConditionallyCauseInterruptionIfModified'] as $item1) {
+                    $model->parametersConditionallyCauseInterruptionIfModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersConditionallyCauseReplacementIfModified'])) {
             if (!empty($map['ParametersConditionallyCauseReplacementIfModified'])) {
-                $model->parametersConditionallyCauseReplacementIfModified = $map['ParametersConditionallyCauseReplacementIfModified'];
+                $model->parametersConditionallyCauseReplacementIfModified = [];
+                $n1                                                       = 0;
+                foreach ($map['ParametersConditionallyCauseReplacementIfModified'] as $item1) {
+                    $model->parametersConditionallyCauseReplacementIfModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersNotAllowedToBeModified'])) {
             if (!empty($map['ParametersNotAllowedToBeModified'])) {
-                $model->parametersNotAllowedToBeModified = $map['ParametersNotAllowedToBeModified'];
+                $model->parametersNotAllowedToBeModified = [];
+                $n1                                      = 0;
+                foreach ($map['ParametersNotAllowedToBeModified'] as $item1) {
+                    $model->parametersNotAllowedToBeModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersUncertainlyAllowedToBeModified'])) {
             if (!empty($map['ParametersUncertainlyAllowedToBeModified'])) {
-                $model->parametersUncertainlyAllowedToBeModified = $map['ParametersUncertainlyAllowedToBeModified'];
+                $model->parametersUncertainlyAllowedToBeModified = [];
+                $n1                                              = 0;
+                foreach ($map['ParametersUncertainlyAllowedToBeModified'] as $item1) {
+                    $model->parametersUncertainlyAllowedToBeModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersUncertainlyCauseInterruptionIfModified'])) {
             if (!empty($map['ParametersUncertainlyCauseInterruptionIfModified'])) {
-                $model->parametersUncertainlyCauseInterruptionIfModified = $map['ParametersUncertainlyCauseInterruptionIfModified'];
+                $model->parametersUncertainlyCauseInterruptionIfModified = [];
+                $n1                                                      = 0;
+                foreach ($map['ParametersUncertainlyCauseInterruptionIfModified'] as $item1) {
+                    $model->parametersUncertainlyCauseInterruptionIfModified[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ParametersUncertainlyCauseReplacementIfModified'])) {
             if (!empty($map['ParametersUncertainlyCauseReplacementIfModified'])) {
-                $model->parametersUncertainlyCauseReplacementIfModified = $map['ParametersUncertainlyCauseReplacementIfModified'];
+                $model->parametersUncertainlyCauseReplacementIfModified = [];
+                $n1                                                     = 0;
+                foreach ($map['ParametersUncertainlyCauseReplacementIfModified'] as $item1) {
+                    $model->parametersUncertainlyCauseReplacementIfModified[$n1++] = $item1;
+                }
             }
         }
 

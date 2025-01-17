@@ -4,62 +4,32 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListDiagnosticsResponseBody\diagnostics;
-use AlibabaCloud\Tea\Model;
 
 class ListDiagnosticsResponseBody extends Model
 {
     /**
-     * @description The items that are diagnosed.
-     *
      * @var diagnostics[]
      */
     public $diagnostics;
-
     /**
-     * @description The HTTP status code returned. The value 200 indicates that the request was successful.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
-
     /**
-     * @description The error message returned.
-     *
-     * @example You are not authorized to complete this action.
-     *
      * @var string
      */
     public $message;
-
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results.
-     *
-     * @example caeba0bbb2be03f84eb48b699f01****
-     *
      * @var string
      */
     public $nextToken;
-
     /**
-     * @description The request ID.
-     *
-     * @example 1983D1C4-88EA-5D7D-90AB-467D01867A5D
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var string
      */
     public $success;
@@ -74,32 +44,41 @@ class ListDiagnosticsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->diagnostics)) {
+            Model::validateArray($this->diagnostics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diagnostics) {
-            $res['Diagnostics'] = [];
-            if (null !== $this->diagnostics && \is_array($this->diagnostics)) {
-                $n = 0;
-                foreach ($this->diagnostics as $item) {
-                    $res['Diagnostics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->diagnostics)) {
+                $res['Diagnostics'] = [];
+                $n1                 = 0;
+                foreach ($this->diagnostics as $item1) {
+                    $res['Diagnostics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -107,35 +86,40 @@ class ListDiagnosticsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDiagnosticsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Diagnostics'])) {
             if (!empty($map['Diagnostics'])) {
                 $model->diagnostics = [];
-                $n                  = 0;
-                foreach ($map['Diagnostics'] as $item) {
-                    $model->diagnostics[$n++] = null !== $item ? diagnostics::fromMap($item) : $item;
+                $n1                 = 0;
+                foreach ($map['Diagnostics'] as $item1) {
+                    $model->diagnostics[$n1++] = diagnostics::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

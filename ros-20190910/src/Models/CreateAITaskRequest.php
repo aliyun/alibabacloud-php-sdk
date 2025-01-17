@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateAITaskRequest extends Model
 {
@@ -12,24 +12,15 @@ class CreateAITaskRequest extends Model
      * @var string
      */
     public $prompt;
-
     /**
-     * @example GenerateTemplate
-     *
      * @var string
      */
     public $taskType;
-
     /**
-     * @example {"ROSTemplateFormatVersion": "2015-09-01"}
-     *
      * @var string
      */
     public $template;
-
     /**
-     * @example ROS
-     *
      * @var string
      */
     public $templateType;
@@ -42,20 +33,24 @@ class CreateAITaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->prompt) {
             $res['Prompt'] = $this->prompt;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
+
         if (null !== $this->template) {
             $res['Template'] = $this->template;
         }
+
         if (null !== $this->templateType) {
             $res['TemplateType'] = $this->templateType;
         }
@@ -63,23 +58,26 @@ class CreateAITaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateAITaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Prompt'])) {
             $model->prompt = $map['Prompt'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }
+
         if (isset($map['Template'])) {
             $model->template = $map['Template'];
         }
+
         if (isset($map['TemplateType'])) {
             $model->templateType = $map['TemplateType'];
         }

@@ -4,57 +4,35 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ImportStacksToStackGroupRequest extends Model
 {
     /**
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @example Import ops stacks to stack group
-     *
      * @var string
      */
     public $operationDescription;
-
     /**
-     * @example {"FailureToleranceCount": 1,"MaxConcurrentCount": 2}
-     *
      * @var mixed[]
      */
     public $operationPreferences;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
      * @var string[]
      */
     public $resourceDirectoryFolderIds;
-
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $stackArns;
-
     /**
-     * @description This parameter is required.
-     *
-     * @example MyStackGroup
-     *
      * @var string
      */
     public $stackGroupName;
@@ -70,29 +48,62 @@ class ImportStacksToStackGroupRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->operationPreferences)) {
+            Model::validateArray($this->operationPreferences);
+        }
+        if (\is_array($this->resourceDirectoryFolderIds)) {
+            Model::validateArray($this->resourceDirectoryFolderIds);
+        }
+        if (\is_array($this->stackArns)) {
+            Model::validateArray($this->stackArns);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->operationDescription) {
             $res['OperationDescription'] = $this->operationDescription;
         }
+
         if (null !== $this->operationPreferences) {
-            $res['OperationPreferences'] = $this->operationPreferences;
+            if (\is_array($this->operationPreferences)) {
+                $res['OperationPreferences'] = [];
+                foreach ($this->operationPreferences as $key1 => $value1) {
+                    $res['OperationPreferences'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceDirectoryFolderIds) {
-            $res['ResourceDirectoryFolderIds'] = $this->resourceDirectoryFolderIds;
+            if (\is_array($this->resourceDirectoryFolderIds)) {
+                $res['ResourceDirectoryFolderIds'] = [];
+                $n1                                = 0;
+                foreach ($this->resourceDirectoryFolderIds as $item1) {
+                    $res['ResourceDirectoryFolderIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->stackArns) {
-            $res['StackArns'] = $this->stackArns;
+            if (\is_array($this->stackArns)) {
+                $res['StackArns'] = [];
+                $n1               = 0;
+                foreach ($this->stackArns as $item1) {
+                    $res['StackArns'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
         }
@@ -100,36 +111,55 @@ class ImportStacksToStackGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ImportStacksToStackGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['OperationDescription'])) {
             $model->operationDescription = $map['OperationDescription'];
         }
+
         if (isset($map['OperationPreferences'])) {
-            $model->operationPreferences = $map['OperationPreferences'];
+            if (!empty($map['OperationPreferences'])) {
+                $model->operationPreferences = [];
+                foreach ($map['OperationPreferences'] as $key1 => $value1) {
+                    $model->operationPreferences[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceDirectoryFolderIds'])) {
             if (!empty($map['ResourceDirectoryFolderIds'])) {
-                $model->resourceDirectoryFolderIds = $map['ResourceDirectoryFolderIds'];
+                $model->resourceDirectoryFolderIds = [];
+                $n1                                = 0;
+                foreach ($map['ResourceDirectoryFolderIds'] as $item1) {
+                    $model->resourceDirectoryFolderIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['StackArns'])) {
             if (!empty($map['StackArns'])) {
-                $model->stackArns = $map['StackArns'];
+                $model->stackArns = [];
+                $n1               = 0;
+                foreach ($map['StackArns'] as $item1) {
+                    $model->stackArns[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class driftDetection extends Model
 {
     /**
-     * @description The resource types that are supported by the drift detection feature.
-     *
      * @var string[]
      */
     public $supportedResourceTypes;
@@ -20,29 +18,43 @@ class driftDetection extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedResourceTypes)) {
+            Model::validateArray($this->supportedResourceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedResourceTypes) {
-            $res['SupportedResourceTypes'] = $this->supportedResourceTypes;
+            if (\is_array($this->supportedResourceTypes)) {
+                $res['SupportedResourceTypes'] = [];
+                $n1                            = 0;
+                foreach ($this->supportedResourceTypes as $item1) {
+                    $res['SupportedResourceTypes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return driftDetection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedResourceTypes'])) {
             if (!empty($map['SupportedResourceTypes'])) {
-                $model->supportedResourceTypes = $map['SupportedResourceTypes'];
+                $model->supportedResourceTypes = [];
+                $n1                            = 0;
+                foreach ($map['SupportedResourceTypes'] as $item1) {
+                    $model->supportedResourceTypes[$n1++] = $item1;
+                }
             }
         }
 

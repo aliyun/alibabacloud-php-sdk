@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateParameterConstraints\supportedResourceTypes;
-use AlibabaCloud\Tea\Model;
 
 class templateParameterConstraints extends Model
 {
     /**
-     * @description The resource types that support the template parameter constraint feature.
-     *
      * @var supportedResourceTypes[]
      */
     public $supportedResourceTypes;
@@ -21,17 +19,21 @@ class templateParameterConstraints extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedResourceTypes)) {
+            Model::validateArray($this->supportedResourceTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedResourceTypes) {
-            $res['SupportedResourceTypes'] = [];
-            if (null !== $this->supportedResourceTypes && \is_array($this->supportedResourceTypes)) {
-                $n = 0;
-                foreach ($this->supportedResourceTypes as $item) {
-                    $res['SupportedResourceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedResourceTypes)) {
+                $res['SupportedResourceTypes'] = [];
+                $n1                            = 0;
+                foreach ($this->supportedResourceTypes as $item1) {
+                    $res['SupportedResourceTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -39,20 +41,20 @@ class templateParameterConstraints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return templateParameterConstraints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedResourceTypes'])) {
             if (!empty($map['SupportedResourceTypes'])) {
                 $model->supportedResourceTypes = [];
-                $n                             = 0;
-                foreach ($map['SupportedResourceTypes'] as $item) {
-                    $model->supportedResourceTypes[$n++] = null !== $item ? supportedResourceTypes::fromMap($item) : $item;
+                $n1                            = 0;
+                foreach ($map['SupportedResourceTypes'] as $item1) {
+                    $model->supportedResourceTypes[$n1++] = supportedResourceTypes::fromMap($item1);
                 }
             }
         }

@@ -4,64 +4,39 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\outputs;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\resources;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\resourceTypes;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponseBody\updateInfo;
-use AlibabaCloud\Tea\Model;
 
 class ValidateTemplateResponseBody extends Model
 {
     /**
-     * @description The description of the template.
-     *
-     * @example No description
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The outputs of the template.
-     *
      * @var outputs[]
      */
     public $outputs;
-
     /**
-     * @description The parameters that are defined in the Parameters section of the template.
-     *
      * @var mixed[][]
      */
     public $parameters;
-
     /**
-     * @description The request ID.
-     *
-     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The resource types that are used in the template.
-     *
      * @var resourceTypes
      */
     public $resourceTypes;
-
     /**
-     * @description The regular resources that are defined in the template.
-     *
-     * > -  For a Terraform template, the resource whose definition contains `count` or `for_each` is not displayed as a list.
      * @var resources[]
      */
     public $resources;
-
     /**
-     * @description The information about the stack update. This parameter cannot be returned if the value of UpdateInfoOptions contains Disabled.
-     *
      * @var updateInfo
      */
     public $updateInfo;
@@ -77,88 +52,136 @@ class ValidateTemplateResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->outputs)) {
+            Model::validateArray($this->outputs);
+        }
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        if (null !== $this->resourceTypes) {
+            $this->resourceTypes->validate();
+        }
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        if (null !== $this->updateInfo) {
+            $this->updateInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->outputs) {
-            $res['Outputs'] = [];
-            if (null !== $this->outputs && \is_array($this->outputs)) {
-                $n = 0;
-                foreach ($this->outputs as $item) {
-                    $res['Outputs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outputs)) {
+                $res['Outputs'] = [];
+                $n1             = 0;
+                foreach ($this->outputs as $item1) {
+                    $res['Outputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = $this->parameters;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1                = 0;
+                foreach ($this->parameters as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Parameters'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Parameters'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceTypes) {
-            $res['ResourceTypes'] = null !== $this->resourceTypes ? $this->resourceTypes->toMap() : null;
+            $res['ResourceTypes'] = null !== $this->resourceTypes ? $this->resourceTypes->toArray($noStream) : $this->resourceTypes;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = [];
-            if (null !== $this->resources && \is_array($this->resources)) {
-                $n = 0;
-                foreach ($this->resources as $item) {
-                    $res['Resources'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                $n1               = 0;
+                foreach ($this->resources as $item1) {
+                    $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->updateInfo) {
-            $res['UpdateInfo'] = null !== $this->updateInfo ? $this->updateInfo->toMap() : null;
+            $res['UpdateInfo'] = null !== $this->updateInfo ? $this->updateInfo->toArray($noStream) : $this->updateInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ValidateTemplateResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n              = 0;
-                foreach ($map['Outputs'] as $item) {
-                    $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
+                $n1             = 0;
+                foreach ($map['Outputs'] as $item1) {
+                    $model->outputs[$n1++] = outputs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
-                $model->parameters = $map['Parameters'];
+                $model->parameters = [];
+                $n1                = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->parameters[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->parameters[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceTypes'])) {
             $model->resourceTypes = resourceTypes::fromMap($map['ResourceTypes']);
         }
+
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n                = 0;
-                foreach ($map['Resources'] as $item) {
-                    $model->resources[$n++] = null !== $item ? resources::fromMap($item) : $item;
+                $n1               = 0;
+                foreach ($map['Resources'] as $item1) {
+                    $model->resources[$n1++] = resources::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UpdateInfo'])) {
             $model->updateInfo = updateInfo::fromMap($map['UpdateInfo']);
         }

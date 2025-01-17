@@ -4,30 +4,19 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceIdentifierSummaries extends Model
 {
     /**
-     * @description The logical IDs of all resources of the type that is specified by ResouceType in the template.
-     *
      * @var string[]
      */
     public $logicalResourceIds;
-
     /**
-     * @description The resource properties. You can use a resource property to identify the resource that you want to manage. For example, VpcId is an identifier property of ALIYUN::ECS::VPC.
-     *
      * @var string[]
      */
     public $resourceIdentifiers;
-
     /**
-     * @description The resource type.
-     *
-     * > The resource import feature is supported for the resource type.
-     * @example ALIYUN::ECS::VPC
-     *
      * @var string
      */
     public $resourceType;
@@ -39,17 +28,38 @@ class resourceIdentifierSummaries extends Model
 
     public function validate()
     {
+        if (\is_array($this->logicalResourceIds)) {
+            Model::validateArray($this->logicalResourceIds);
+        }
+        if (\is_array($this->resourceIdentifiers)) {
+            Model::validateArray($this->resourceIdentifiers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logicalResourceIds) {
-            $res['LogicalResourceIds'] = $this->logicalResourceIds;
+            if (\is_array($this->logicalResourceIds)) {
+                $res['LogicalResourceIds'] = [];
+                $n1                        = 0;
+                foreach ($this->logicalResourceIds as $item1) {
+                    $res['LogicalResourceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceIdentifiers) {
-            $res['ResourceIdentifiers'] = $this->resourceIdentifiers;
+            if (\is_array($this->resourceIdentifiers)) {
+                $res['ResourceIdentifiers'] = [];
+                $n1                         = 0;
+                foreach ($this->resourceIdentifiers as $item1) {
+                    $res['ResourceIdentifiers'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -57,24 +67,34 @@ class resourceIdentifierSummaries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceIdentifierSummaries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogicalResourceIds'])) {
             if (!empty($map['LogicalResourceIds'])) {
-                $model->logicalResourceIds = $map['LogicalResourceIds'];
+                $model->logicalResourceIds = [];
+                $n1                        = 0;
+                foreach ($map['LogicalResourceIds'] as $item1) {
+                    $model->logicalResourceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceIdentifiers'])) {
             if (!empty($map['ResourceIdentifiers'])) {
-                $model->resourceIdentifiers = $map['ResourceIdentifiers'];
+                $model->resourceIdentifiers = [];
+                $n1                         = 0;
+                foreach ($map['ResourceIdentifiers'] as $item1) {
+                    $model->resourceIdentifiers[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

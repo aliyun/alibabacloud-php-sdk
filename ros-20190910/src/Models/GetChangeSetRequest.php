@@ -4,38 +4,19 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetChangeSetRequest extends Model
 {
     /**
-     * @description The ID of the change set.
-     *
-     * This parameter is required.
-     * @example 4c11658d-bd47-4dd0-ba64-727edc62****
-     *
      * @var string
      */
     public $changeSetId;
-
     /**
-     * @description The region ID of the change set. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description Specifies whether to obtain the template. Valid values:
-     *
-     *   true
-     *   false (default)
-     *
-     * @example false
-     *
      * @var bool
      */
     public $showTemplate;
@@ -47,17 +28,20 @@ class GetChangeSetRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeSetId) {
             $res['ChangeSetId'] = $this->changeSetId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->showTemplate) {
             $res['ShowTemplate'] = $this->showTemplate;
         }
@@ -65,20 +49,22 @@ class GetChangeSetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetChangeSetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeSetId'])) {
             $model->changeSetId = $map['ChangeSetId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ShowTemplate'])) {
             $model->showTemplate = $map['ShowTemplate'];
         }

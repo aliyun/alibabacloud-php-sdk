@@ -4,8 +4,7 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CancelStackOperationRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CancelStackOperationResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CancelUpdateStackRequest;
@@ -190,11 +189,10 @@ use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateScratchResponse;
 use AlibabaCloud\SDK\ROS\V20190910\Models\UpdateTemplateScratchShrinkRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateRequest;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ValidateTemplateResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class ROS extends OpenApiClient
 {
@@ -219,42 +217,51 @@ class ROS extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Cancels operations on a stack.
-     *  *
-     * @param CancelStackOperationRequest $request CancelStackOperationRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Cancels operations on a stack.
      *
-     * @return CancelStackOperationResponse CancelStackOperationResponse
+     * @param request - CancelStackOperationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelStackOperationResponse
+     *
+     * @param CancelStackOperationRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CancelStackOperationResponse
      */
     public function cancelStackOperationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->allowedStackOperations)) {
-            $query['AllowedStackOperations'] = $request->allowedStackOperations;
+        if (null !== $request->allowedStackOperations) {
+            @$query['AllowedStackOperations'] = $request->allowedStackOperations;
         }
-        if (!Utils::isUnset($request->cancelType)) {
-            $query['CancelType'] = $request->cancelType;
+
+        if (null !== $request->cancelType) {
+            @$query['CancelType'] = $request->cancelType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelStackOperation',
@@ -272,11 +279,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels operations on a stack.
-     *  *
-     * @param CancelStackOperationRequest $request CancelStackOperationRequest
+     * Cancels operations on a stack.
      *
-     * @return CancelStackOperationResponse CancelStackOperationResponse
+     * @param request - CancelStackOperationRequest
+     * @returns CancelStackOperationResponse
+     *
+     * @param CancelStackOperationRequest $request
+     *
+     * @return CancelStackOperationResponse
      */
     public function cancelStackOperation($request)
     {
@@ -286,28 +296,35 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels an update operation on a stack. You can call this operation to cancel an update operation on a stack when the stack is being updated or created.
-     *  *
-     * @param CancelUpdateStackRequest $request CancelUpdateStackRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Cancels an update operation on a stack. You can call this operation to cancel an update operation on a stack when the stack is being updated or created.
      *
-     * @return CancelUpdateStackResponse CancelUpdateStackResponse
+     * @param request - CancelUpdateStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CancelUpdateStackResponse
+     *
+     * @param CancelUpdateStackRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CancelUpdateStackResponse
      */
     public function cancelUpdateStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cancelType)) {
-            $query['CancelType'] = $request->cancelType;
+        if (null !== $request->cancelType) {
+            @$query['CancelType'] = $request->cancelType;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CancelUpdateStack',
@@ -325,11 +342,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Cancels an update operation on a stack. You can call this operation to cancel an update operation on a stack when the stack is being updated or created.
-     *  *
-     * @param CancelUpdateStackRequest $request CancelUpdateStackRequest
+     * Cancels an update operation on a stack. You can call this operation to cancel an update operation on a stack when the stack is being updated or created.
      *
-     * @return CancelUpdateStackResponse CancelUpdateStackResponse
+     * @param request - CancelUpdateStackRequest
+     * @returns CancelUpdateStackResponse
+     *
+     * @param CancelUpdateStackRequest $request
+     *
+     * @return CancelUpdateStackResponse
      */
     public function cancelUpdateStack($request)
     {
@@ -339,60 +359,78 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Continues to create a stack after the stack fails to be created.
-     *  *
-     * @description This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
-     *  *
-     * @param ContinueCreateStackRequest $request ContinueCreateStackRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Continues to create a stack after the stack fails to be created.
      *
-     * @return ContinueCreateStackResponse ContinueCreateStackResponse
+     * @remarks
+     * This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
+     *
+     * @param request - ContinueCreateStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ContinueCreateStackResponse
+     *
+     * @param ContinueCreateStackRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ContinueCreateStackResponse
      */
     public function continueCreateStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->mode)) {
-            $query['Mode'] = $request->mode;
+
+        if (null !== $request->mode) {
+            @$query['Mode'] = $request->mode;
         }
-        if (!Utils::isUnset($request->parallelism)) {
-            $query['Parallelism'] = $request->parallelism;
+
+        if (null !== $request->parallelism) {
+            @$query['Parallelism'] = $request->parallelism;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->ramRoleName)) {
-            $query['RamRoleName'] = $request->ramRoleName;
+
+        if (null !== $request->ramRoleName) {
+            @$query['RamRoleName'] = $request->ramRoleName;
         }
-        if (!Utils::isUnset($request->recreatingOptions)) {
-            $query['RecreatingOptions'] = $request->recreatingOptions;
+
+        if (null !== $request->recreatingOptions) {
+            @$query['RecreatingOptions'] = $request->recreatingOptions;
         }
-        if (!Utils::isUnset($request->recreatingResources)) {
-            $query['RecreatingResources'] = $request->recreatingResources;
+
+        if (null !== $request->recreatingResources) {
+            @$query['RecreatingResources'] = $request->recreatingResources;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
+
+        if (null !== $request->templateBody) {
+            @$query['TemplateBody'] = $request->templateBody;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ContinueCreateStack',
@@ -410,13 +448,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Continues to create a stack after the stack fails to be created.
-     *  *
-     * @description This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
-     *  *
-     * @param ContinueCreateStackRequest $request ContinueCreateStackRequest
+     * Continues to create a stack after the stack fails to be created.
      *
-     * @return ContinueCreateStackResponse ContinueCreateStackResponse
+     * @remarks
+     * This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
+     *
+     * @param request - ContinueCreateStackRequest
+     * @returns ContinueCreateStackResponse
+     *
+     * @param ContinueCreateStackRequest $request
+     *
+     * @return ContinueCreateStackResponse
      */
     public function continueCreateStack($request)
     {
@@ -426,33 +468,41 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 创建AI任务
-     *  *
-     * @param CreateAITaskRequest $request CreateAITaskRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 创建AI任务
      *
-     * @return CreateAITaskResponse CreateAITaskResponse
+     * @param request - CreateAITaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateAITaskResponse
+     *
+     * @param CreateAITaskRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateAITaskResponse
      */
     public function createAITaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->prompt)) {
-            $query['Prompt'] = $request->prompt;
+        if (null !== $request->prompt) {
+            @$query['Prompt'] = $request->prompt;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->template)) {
-            $body['Template'] = $request->template;
+        if (null !== $request->template) {
+            @$body['Template'] = $request->template;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateAITask',
@@ -470,11 +520,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 创建AI任务
-     *  *
-     * @param CreateAITaskRequest $request CreateAITaskRequest
+     * 创建AI任务
      *
-     * @return CreateAITaskResponse CreateAITaskResponse
+     * @param request - CreateAITaskRequest
+     * @returns CreateAITaskResponse
+     *
+     * @param CreateAITaskRequest $request
+     *
+     * @return CreateAITaskResponse
      */
     public function createAITask($request)
     {
@@ -484,9 +537,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a change set for a stack. You can view proposed changes before you execute the change set.
-     *  *
-     * @description ### [](#)Scenarios
+     * Creates a change set for a stack. You can view proposed changes before you execute the change set.
+     *
+     * @remarks
+     * ### [](#)Scenarios
      * #### [](#)Use a change set to create a stack
      * If you want to manage a large number of cloud resources and preview the creation effect of the resources before a stack that contains the resources is created, you can create the stack by using a change set. In this case, you must set `ChangeSetType` to CREATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
      * #### [](#)Use a change set to update a stack
@@ -501,95 +555,124 @@ class ROS extends OpenApiClient
      * *   Change sets reflect only the changes to stacks. Change sets do not reflect whether stacks can be successfully updated.
      * *   A change set does not check if you exceed an account limit, if you update resources that cannot be updated, or if you have insufficient permissions to modify resources, all of which can cause a stack update to fail. If a stack update fails, Resource Orchestration Service (ROS) attempts to roll back your resources to their original status.
      * This topic provides an example on how to use a change set to update a stack. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The template of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *  *
-     * @param CreateChangeSetRequest $request CreateChangeSetRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateChangeSetResponse CreateChangeSetResponse
+     * @param request - CreateChangeSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateChangeSetResponse
+     *
+     * @param CreateChangeSetRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateChangeSetResponse
      */
     public function createChangeSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeSetName)) {
-            $query['ChangeSetName'] = $request->changeSetName;
+        if (null !== $request->changeSetName) {
+            @$query['ChangeSetName'] = $request->changeSetName;
         }
-        if (!Utils::isUnset($request->changeSetType)) {
-            $query['ChangeSetType'] = $request->changeSetType;
+
+        if (null !== $request->changeSetType) {
+            @$query['ChangeSetType'] = $request->changeSetType;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->disableRollback)) {
-            $query['DisableRollback'] = $request->disableRollback;
+
+        if (null !== $request->disableRollback) {
+            @$query['DisableRollback'] = $request->disableRollback;
         }
-        if (!Utils::isUnset($request->notificationURLs)) {
-            $query['NotificationURLs'] = $request->notificationURLs;
+
+        if (null !== $request->notificationURLs) {
+            @$query['NotificationURLs'] = $request->notificationURLs;
         }
-        if (!Utils::isUnset($request->parallelism)) {
-            $query['Parallelism'] = $request->parallelism;
+
+        if (null !== $request->parallelism) {
+            @$query['Parallelism'] = $request->parallelism;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->ramRoleName)) {
-            $query['RamRoleName'] = $request->ramRoleName;
+
+        if (null !== $request->ramRoleName) {
+            @$query['RamRoleName'] = $request->ramRoleName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replacementOption)) {
-            $query['ReplacementOption'] = $request->replacementOption;
+
+        if (null !== $request->replacementOption) {
+            @$query['ReplacementOption'] = $request->replacementOption;
         }
-        if (!Utils::isUnset($request->resourcesToImport)) {
-            $query['ResourcesToImport'] = $request->resourcesToImport;
+
+        if (null !== $request->resourcesToImport) {
+            @$query['ResourcesToImport'] = $request->resourcesToImport;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->stackName)) {
-            $query['StackName'] = $request->stackName;
+
+        if (null !== $request->stackName) {
+            @$query['StackName'] = $request->stackName;
         }
-        if (!Utils::isUnset($request->stackPolicyBody)) {
-            $query['StackPolicyBody'] = $request->stackPolicyBody;
+
+        if (null !== $request->stackPolicyBody) {
+            @$query['StackPolicyBody'] = $request->stackPolicyBody;
         }
-        if (!Utils::isUnset($request->stackPolicyDuringUpdateBody)) {
-            $query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
+
+        if (null !== $request->stackPolicyDuringUpdateBody) {
+            @$query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
         }
-        if (!Utils::isUnset($request->stackPolicyDuringUpdateURL)) {
-            $query['StackPolicyDuringUpdateURL'] = $request->stackPolicyDuringUpdateURL;
+
+        if (null !== $request->stackPolicyDuringUpdateURL) {
+            @$query['StackPolicyDuringUpdateURL'] = $request->stackPolicyDuringUpdateURL;
         }
-        if (!Utils::isUnset($request->stackPolicyURL)) {
-            $query['StackPolicyURL'] = $request->stackPolicyURL;
+
+        if (null !== $request->stackPolicyURL) {
+            @$query['StackPolicyURL'] = $request->stackPolicyURL;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+
+        if (null !== $request->timeoutInMinutes) {
+            @$query['TimeoutInMinutes'] = $request->timeoutInMinutes;
         }
-        if (!Utils::isUnset($request->usePreviousParameters)) {
-            $query['UsePreviousParameters'] = $request->usePreviousParameters;
+
+        if (null !== $request->usePreviousParameters) {
+            @$query['UsePreviousParameters'] = $request->usePreviousParameters;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateChangeSet',
@@ -607,9 +690,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a change set for a stack. You can view proposed changes before you execute the change set.
-     *  *
-     * @description ### [](#)Scenarios
+     * Creates a change set for a stack. You can view proposed changes before you execute the change set.
+     *
+     * @remarks
+     * ### [](#)Scenarios
      * #### [](#)Use a change set to create a stack
      * If you want to manage a large number of cloud resources and preview the creation effect of the resources before a stack that contains the resources is created, you can create the stack by using a change set. In this case, you must set `ChangeSetType` to CREATE and configure the relevant parameters. For more information about change sets, see [Change set](https://help.aliyun.com/document_detail/155649.html).
      * #### [](#)Use a change set to update a stack
@@ -624,10 +708,13 @@ class ROS extends OpenApiClient
      * *   Change sets reflect only the changes to stacks. Change sets do not reflect whether stacks can be successfully updated.
      * *   A change set does not check if you exceed an account limit, if you update resources that cannot be updated, or if you have insufficient permissions to modify resources, all of which can cause a stack update to fail. If a stack update fails, Resource Orchestration Service (ROS) attempts to roll back your resources to their original status.
      * This topic provides an example on how to use a change set to update a stack. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The template of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *  *
-     * @param CreateChangeSetRequest $request CreateChangeSetRequest
      *
-     * @return CreateChangeSetResponse CreateChangeSetResponse
+     * @param request - CreateChangeSetRequest
+     * @returns CreateChangeSetResponse
+     *
+     * @param CreateChangeSetRequest $request
+     *
+     * @return CreateChangeSetResponse
      */
     public function createChangeSet($request)
     {
@@ -637,31 +724,39 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dignosis task.
-     *  *
-     * @param CreateDiagnosticRequest $request CreateDiagnosticRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Creates a dignosis task.
      *
-     * @return CreateDiagnosticResponse CreateDiagnosticResponse
+     * @param request - CreateDiagnosticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDiagnosticResponse
+     *
+     * @param CreateDiagnosticRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateDiagnosticResponse
      */
     public function createDiagnosticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->diagnosticKey)) {
-            $query['DiagnosticKey'] = $request->diagnosticKey;
+        if (null !== $request->diagnosticKey) {
+            @$query['DiagnosticKey'] = $request->diagnosticKey;
         }
-        if (!Utils::isUnset($request->diagnosticType)) {
-            $query['DiagnosticType'] = $request->diagnosticType;
+
+        if (null !== $request->diagnosticType) {
+            @$query['DiagnosticType'] = $request->diagnosticType;
         }
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
+
+        if (null !== $request->product) {
+            @$query['Product'] = $request->product;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateDiagnostic',
@@ -679,11 +774,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a dignosis task.
-     *  *
-     * @param CreateDiagnosticRequest $request CreateDiagnosticRequest
+     * Creates a dignosis task.
      *
-     * @return CreateDiagnosticResponse CreateDiagnosticResponse
+     * @param request - CreateDiagnosticRequest
+     * @returns CreateDiagnosticResponse
+     *
+     * @param CreateDiagnosticRequest $request
+     *
+     * @return CreateDiagnosticResponse
      */
     public function createDiagnostic($request)
     {
@@ -693,93 +791,120 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a stack that contains a collection of resources by using a Resource Orchestration Service (ROS) template.
-     *  *
-     * @description A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](https://help.aliyun.com/document_detail/172973.html).\\
+     * Creates a stack that contains a collection of resources by using a Resource Orchestration Service (ROS) template.
+     *
+     * @remarks
+     * A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](https://help.aliyun.com/document_detail/172973.html).\\
      * When you call the operation, take note of the following limits:
      * *   You can create up to 200 stacks within an Alibaba Cloud account.
      * *   You can create up to 200 resources in a stack.
      * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *  *
-     * @param CreateStackRequest $request CreateStackRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateStackResponse CreateStackResponse
+     * @param request - CreateStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateStackResponse
+     *
+     * @param CreateStackRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateStackResponse
      */
     public function createStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->createOption)) {
-            $query['CreateOption'] = $request->createOption;
+
+        if (null !== $request->createOption) {
+            @$query['CreateOption'] = $request->createOption;
         }
-        if (!Utils::isUnset($request->createOptions)) {
-            $query['CreateOptions'] = $request->createOptions;
+
+        if (null !== $request->createOptions) {
+            @$query['CreateOptions'] = $request->createOptions;
         }
-        if (!Utils::isUnset($request->deletionProtection)) {
-            $query['DeletionProtection'] = $request->deletionProtection;
+
+        if (null !== $request->deletionProtection) {
+            @$query['DeletionProtection'] = $request->deletionProtection;
         }
-        if (!Utils::isUnset($request->disableRollback)) {
-            $query['DisableRollback'] = $request->disableRollback;
+
+        if (null !== $request->disableRollback) {
+            @$query['DisableRollback'] = $request->disableRollback;
         }
-        if (!Utils::isUnset($request->notificationURLs)) {
-            $query['NotificationURLs'] = $request->notificationURLs;
+
+        if (null !== $request->notificationURLs) {
+            @$query['NotificationURLs'] = $request->notificationURLs;
         }
-        if (!Utils::isUnset($request->parallelism)) {
-            $query['Parallelism'] = $request->parallelism;
+
+        if (null !== $request->parallelism) {
+            @$query['Parallelism'] = $request->parallelism;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->ramRoleName)) {
-            $query['RamRoleName'] = $request->ramRoleName;
+
+        if (null !== $request->ramRoleName) {
+            @$query['RamRoleName'] = $request->ramRoleName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->stackName)) {
-            $query['StackName'] = $request->stackName;
+
+        if (null !== $request->stackName) {
+            @$query['StackName'] = $request->stackName;
         }
-        if (!Utils::isUnset($request->stackPolicyBody)) {
-            $query['StackPolicyBody'] = $request->stackPolicyBody;
+
+        if (null !== $request->stackPolicyBody) {
+            @$query['StackPolicyBody'] = $request->stackPolicyBody;
         }
-        if (!Utils::isUnset($request->stackPolicyURL)) {
-            $query['StackPolicyURL'] = $request->stackPolicyURL;
+
+        if (null !== $request->stackPolicyURL) {
+            @$query['StackPolicyURL'] = $request->stackPolicyURL;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
-        if (!Utils::isUnset($request->templateScratchRegionId)) {
-            $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+
+        if (null !== $request->templateScratchRegionId) {
+            @$query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+
+        if (null !== $request->timeoutInMinutes) {
+            @$query['TimeoutInMinutes'] = $request->timeoutInMinutes;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateStack',
@@ -797,17 +922,21 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a stack that contains a collection of resources by using a Resource Orchestration Service (ROS) template.
-     *  *
-     * @description A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](https://help.aliyun.com/document_detail/172973.html).\\
+     * Creates a stack that contains a collection of resources by using a Resource Orchestration Service (ROS) template.
+     *
+     * @remarks
+     * A stack is a collection of ROS resources that you can manage as a single unit. To create a collection of resources, you can create a stack. For more information about stacks, see [Overview](https://help.aliyun.com/document_detail/172973.html).\\
      * When you call the operation, take note of the following limits:
      * *   You can create up to 200 stacks within an Alibaba Cloud account.
      * *   You can create up to 200 resources in a stack.
      * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *  *
-     * @param CreateStackRequest $request CreateStackRequest
      *
-     * @return CreateStackResponse CreateStackResponse
+     * @param request - CreateStackRequest
+     * @returns CreateStackResponse
+     *
+     * @param CreateStackRequest $request
+     *
+     * @return CreateStackResponse
      */
     public function createStack($request)
     {
@@ -817,84 +946,107 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates stack groups based on Resource Orchestration Service (ROS) templates. Stack groups allow you to create stacks within multiple Alibaba Cloud accounts across regions.
-     *  *
-     * @description A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
+     * Creates stack groups based on Resource Orchestration Service (ROS) templates. Stack groups allow you to create stacks within multiple Alibaba Cloud accounts across regions.
+     *
+     * @remarks
+     * A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
      * You can create a stack group that is granted self-managed or service-managed permissions:
      * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
      * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member account of the resource directory.
      * For more information about stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
      * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
-     *  *
-     * @param CreateStackGroupRequest $tmpReq  CreateStackGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateStackGroupResponse CreateStackGroupResponse
+     * @param tmpReq - CreateStackGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateStackGroupResponse
+     *
+     * @param CreateStackGroupRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateStackGroupResponse
      */
     public function createStackGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateStackGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->autoDeployment)) {
-            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->autoDeployment) {
+            $request->autoDeploymentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->administrationRoleName)) {
-            $query['AdministrationRoleName'] = $request->administrationRoleName;
+        if (null !== $request->administrationRoleName) {
+            @$query['AdministrationRoleName'] = $request->administrationRoleName;
         }
-        if (!Utils::isUnset($request->autoDeploymentShrink)) {
-            $query['AutoDeployment'] = $request->autoDeploymentShrink;
+
+        if (null !== $request->autoDeploymentShrink) {
+            @$query['AutoDeployment'] = $request->autoDeploymentShrink;
         }
-        if (!Utils::isUnset($request->capabilities)) {
-            $query['Capabilities'] = $request->capabilities;
+
+        if (null !== $request->capabilities) {
+            @$query['Capabilities'] = $request->capabilities;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->executionRoleName)) {
-            $query['ExecutionRoleName'] = $request->executionRoleName;
+
+        if (null !== $request->executionRoleName) {
+            @$query['ExecutionRoleName'] = $request->executionRoleName;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->permissionModel)) {
-            $query['PermissionModel'] = $request->permissionModel;
+
+        if (null !== $request->permissionModel) {
+            @$query['PermissionModel'] = $request->permissionModel;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->stackArn)) {
-            $query['StackArn'] = $request->stackArn;
+
+        if (null !== $request->stackArn) {
+            @$query['StackArn'] = $request->stackArn;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateStackGroup',
@@ -912,18 +1064,22 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates stack groups based on Resource Orchestration Service (ROS) templates. Stack groups allow you to create stacks within multiple Alibaba Cloud accounts across regions.
-     *  *
-     * @description A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
+     * Creates stack groups based on Resource Orchestration Service (ROS) templates. Stack groups allow you to create stacks within multiple Alibaba Cloud accounts across regions.
+     *
+     * @remarks
+     * A stack group is a collection of ROS stacks that you can manage as a unit. You can use an ROS template of a stack group to create stacks within Alibaba Cloud accounts across regions.
      * You can create a stack group that is granted self-managed or service-managed permissions:
      * *   If you use an Alibaba Cloud account to create a self-managed stack group, the administrator account and the execution account are Alibaba Cloud accounts.
      * *   If you enable a resource directory and use the management account or a delegated administrator account of the resource directory to create a service-managed stack group, the administrator account is the management account or delegated administrator account, and the execution account is a member account of the resource directory.
      * For more information about stack groups, see [Overview](https://help.aliyun.com/document_detail/154578.html).
      * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
-     *  *
-     * @param CreateStackGroupRequest $request CreateStackGroupRequest
      *
-     * @return CreateStackGroupResponse CreateStackGroupResponse
+     * @param request - CreateStackGroupRequest
+     * @returns CreateStackGroupResponse
+     *
+     * @param CreateStackGroupRequest $request
+     *
+     * @return CreateStackGroupResponse
      */
     public function createStackGroup($request)
     {
@@ -933,72 +1089,93 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates stack instances in the specified accounts and regions.
-     *  *
-     * @description Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
-     * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
-     *  *
-     * @param CreateStackInstancesRequest $tmpReq  CreateStackInstancesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates stack instances in the specified accounts and regions.
      *
-     * @return CreateStackInstancesResponse CreateStackInstancesResponse
+     * @remarks
+     * Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
+     * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+     *
+     * @param tmpReq - CreateStackInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateStackInstancesResponse
+     *
+     * @param CreateStackInstancesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateStackInstancesResponse
      */
     public function createStackInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateStackInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->accountIds)) {
-            $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accountIds) {
+            $request->accountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+
+        if (null !== $tmpReq->deploymentTargets) {
+            $request->deploymentTargetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
-        if (!Utils::isUnset($tmpReq->operationPreferences)) {
-            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+
+        if (null !== $tmpReq->operationPreferences) {
+            $request->operationPreferencesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        if (!Utils::isUnset($tmpReq->regionIds)) {
-            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
+
+        if (null !== $tmpReq->regionIds) {
+            $request->regionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIdsShrink)) {
-            $query['AccountIds'] = $request->accountIdsShrink;
+        if (null !== $request->accountIdsShrink) {
+            @$query['AccountIds'] = $request->accountIdsShrink;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->deploymentOptions)) {
-            $query['DeploymentOptions'] = $request->deploymentOptions;
+
+        if (null !== $request->deploymentOptions) {
+            @$query['DeploymentOptions'] = $request->deploymentOptions;
         }
-        if (!Utils::isUnset($request->deploymentTargetsShrink)) {
-            $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
+
+        if (null !== $request->deploymentTargetsShrink) {
+            @$query['DeploymentTargets'] = $request->deploymentTargetsShrink;
         }
-        if (!Utils::isUnset($request->disableRollback)) {
-            $query['DisableRollback'] = $request->disableRollback;
+
+        if (null !== $request->disableRollback) {
+            @$query['DisableRollback'] = $request->disableRollback;
         }
-        if (!Utils::isUnset($request->operationDescription)) {
-            $query['OperationDescription'] = $request->operationDescription;
+
+        if (null !== $request->operationDescription) {
+            @$query['OperationDescription'] = $request->operationDescription;
         }
-        if (!Utils::isUnset($request->operationPreferencesShrink)) {
-            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+
+        if (null !== $request->operationPreferencesShrink) {
+            @$query['OperationPreferences'] = $request->operationPreferencesShrink;
         }
-        if (!Utils::isUnset($request->parameterOverrides)) {
-            $query['ParameterOverrides'] = $request->parameterOverrides;
+
+        if (null !== $request->parameterOverrides) {
+            @$query['ParameterOverrides'] = $request->parameterOverrides;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionIdsShrink)) {
-            $query['RegionIds'] = $request->regionIdsShrink;
+
+        if (null !== $request->regionIdsShrink) {
+            @$query['RegionIds'] = $request->regionIdsShrink;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+
+        if (null !== $request->timeoutInMinutes) {
+            @$query['TimeoutInMinutes'] = $request->timeoutInMinutes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateStackInstances',
@@ -1016,14 +1193,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates stack instances in the specified accounts and regions.
-     *  *
-     * @description Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
-     * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
-     *  *
-     * @param CreateStackInstancesRequest $request CreateStackInstancesRequest
+     * Creates stack instances in the specified accounts and regions.
      *
-     * @return CreateStackInstancesResponse CreateStackInstancesResponse
+     * @remarks
+     * Before you call this operation, make sure that a stack group is created. For more information, see [CreateStackGroup](https://help.aliyun.com/document_detail/151333.html).
+     * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+     *
+     * @param request - CreateStackInstancesRequest
+     * @returns CreateStackInstancesResponse
+     *
+     * @param CreateStackInstancesRequest $request
+     *
+     * @return CreateStackInstancesResponse
      */
     public function createStackInstances($request)
     {
@@ -1033,44 +1214,56 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom template.
-     *  *
-     * @description In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
-     *  *
-     * @param CreateTemplateRequest $request CreateTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Creates a custom template.
      *
-     * @return CreateTemplateResponse CreateTemplateResponse
+     * @remarks
+     * In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+     *
+     * @param request - CreateTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTemplateResponse
      */
     public function createTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->validationOptions)) {
-            $query['ValidationOptions'] = $request->validationOptions;
+
+        if (null !== $request->validationOptions) {
+            @$query['ValidationOptions'] = $request->validationOptions;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateTemplate',
@@ -1088,13 +1281,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a custom template.
-     *  *
-     * @description In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
-     *  *
-     * @param CreateTemplateRequest $request CreateTemplateRequest
+     * Creates a custom template.
      *
-     * @return CreateTemplateResponse CreateTemplateResponse
+     * @remarks
+     * In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
+     *
+     * @param request - CreateTemplateRequest
+     * @returns CreateTemplateResponse
+     *
+     * @param CreateTemplateRequest $request
+     *
+     * @return CreateTemplateResponse
      */
     public function createTemplate($request)
     {
@@ -1104,9 +1301,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a resource scenario.
-     *  *
-     * @description ### [](#)Limits
+     * Creates a resource scenario.
+     *
+     * @remarks
+     * ### [](#)Limits
      * Only specific resource types support the resource scenario feature. For more information, see [Resource types that support the scenario feature](https://help.aliyun.com/document_detail/353175.htmll).
      * ### [](#)Description
      * Resource Orchestration Service (ROS) provides the resource scenario feature that allows you to specify the scope of a collection of resources on a user interface (UI) and perform operations, such as replication and management, on the resources. This helps you manage resources in a simplified manner. For more information about resource scenarios, see [Overview](https://help.aliyun.com/document_detail/352074.html).
@@ -1119,68 +1317,88 @@ class ROS extends OpenApiClient
      * #### [](#)Resource migration scenario
      * If you want to migrate a collection of resources and dependencies between the resources, you can create a resource migration scenario. When you migrate the resources, ROS generates a stack. You can view the migration progress on the Stacks tab of the scenario details page. After you migrate the resources, you can delete source resources. For more information, see [Resource migration scenario](https://help.aliyun.com/document_detail/379902.html).
      * This topic provides an example on how to create a resource replication scenario in the China (Hangzhou) region to replicate a resource. In this example, a virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
-     *  *
-     * @param CreateTemplateScratchRequest $tmpReq  CreateTemplateScratchRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTemplateScratchResponse CreateTemplateScratchResponse
+     * @param tmpReq - CreateTemplateScratchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateTemplateScratchResponse
+     *
+     * @param CreateTemplateScratchRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateTemplateScratchResponse
      */
     public function createTemplateScratchWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateTemplateScratchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->preferenceParameters)) {
-            $request->preferenceParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->preferenceParameters, 'PreferenceParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->preferenceParameters) {
+            $request->preferenceParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->preferenceParameters, 'PreferenceParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceResourceGroup)) {
-            $request->sourceResourceGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResourceGroup, 'SourceResourceGroup', 'json');
+
+        if (null !== $tmpReq->sourceResourceGroup) {
+            $request->sourceResourceGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceResourceGroup, 'SourceResourceGroup', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceResources)) {
-            $request->sourceResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResources, 'SourceResources', 'json');
+
+        if (null !== $tmpReq->sourceResources) {
+            $request->sourceResourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceResources, 'SourceResources', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceTag)) {
-            $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceTag, 'SourceTag', 'json');
+
+        if (null !== $tmpReq->sourceTag) {
+            $request->sourceTagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceTag, 'SourceTag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->executionMode)) {
-            $query['ExecutionMode'] = $request->executionMode;
+
+        if (null !== $request->executionMode) {
+            @$query['ExecutionMode'] = $request->executionMode;
         }
-        if (!Utils::isUnset($request->logicalIdStrategy)) {
-            $query['LogicalIdStrategy'] = $request->logicalIdStrategy;
+
+        if (null !== $request->logicalIdStrategy) {
+            @$query['LogicalIdStrategy'] = $request->logicalIdStrategy;
         }
-        if (!Utils::isUnset($request->preferenceParametersShrink)) {
-            $query['PreferenceParameters'] = $request->preferenceParametersShrink;
+
+        if (null !== $request->preferenceParametersShrink) {
+            @$query['PreferenceParameters'] = $request->preferenceParametersShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceResourceGroupShrink)) {
-            $query['SourceResourceGroup'] = $request->sourceResourceGroupShrink;
+
+        if (null !== $request->sourceResourceGroupShrink) {
+            @$query['SourceResourceGroup'] = $request->sourceResourceGroupShrink;
         }
-        if (!Utils::isUnset($request->sourceResourcesShrink)) {
-            $query['SourceResources'] = $request->sourceResourcesShrink;
+
+        if (null !== $request->sourceResourcesShrink) {
+            @$query['SourceResources'] = $request->sourceResourcesShrink;
         }
-        if (!Utils::isUnset($request->sourceTagShrink)) {
-            $query['SourceTag'] = $request->sourceTagShrink;
+
+        if (null !== $request->sourceTagShrink) {
+            @$query['SourceTag'] = $request->sourceTagShrink;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templateScratchType)) {
-            $query['TemplateScratchType'] = $request->templateScratchType;
+
+        if (null !== $request->templateScratchType) {
+            @$query['TemplateScratchType'] = $request->templateScratchType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'CreateTemplateScratch',
@@ -1198,9 +1416,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a resource scenario.
-     *  *
-     * @description ### [](#)Limits
+     * Creates a resource scenario.
+     *
+     * @remarks
+     * ### [](#)Limits
      * Only specific resource types support the resource scenario feature. For more information, see [Resource types that support the scenario feature](https://help.aliyun.com/document_detail/353175.htmll).
      * ### [](#)Description
      * Resource Orchestration Service (ROS) provides the resource scenario feature that allows you to specify the scope of a collection of resources on a user interface (UI) and perform operations, such as replication and management, on the resources. This helps you manage resources in a simplified manner. For more information about resource scenarios, see [Overview](https://help.aliyun.com/document_detail/352074.html).
@@ -1213,10 +1432,13 @@ class ROS extends OpenApiClient
      * #### [](#)Resource migration scenario
      * If you want to migrate a collection of resources and dependencies between the resources, you can create a resource migration scenario. When you migrate the resources, ROS generates a stack. You can view the migration progress on the Stacks tab of the scenario details page. After you migrate the resources, you can delete source resources. For more information, see [Resource migration scenario](https://help.aliyun.com/document_detail/379902.html).
      * This topic provides an example on how to create a resource replication scenario in the China (Hangzhou) region to replicate a resource. In this example, a virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
-     *  *
-     * @param CreateTemplateScratchRequest $request CreateTemplateScratchRequest
      *
-     * @return CreateTemplateScratchResponse CreateTemplateScratchResponse
+     * @param request - CreateTemplateScratchRequest
+     * @returns CreateTemplateScratchResponse
+     *
+     * @param CreateTemplateScratchRequest $request
+     *
+     * @return CreateTemplateScratchResponse
      */
     public function createTemplateScratch($request)
     {
@@ -1226,33 +1448,40 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes change sets.
-     *  *
-     * @description *   Before you call this operation, make sure that the following requirements are met:
+     * Deletes change sets.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that the following requirements are met:
      *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
      *     *   The execution status is UNAVAILABLE or AVAILABLE.
      * *   After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
      * *   After a stack is deleted, change sets associated with the stack are deleted.
      * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
      * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
-     *  *
-     * @param DeleteChangeSetRequest $request DeleteChangeSetRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteChangeSetResponse DeleteChangeSetResponse
+     * @param request - DeleteChangeSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteChangeSetResponse
+     *
+     * @param DeleteChangeSetRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteChangeSetResponse
      */
     public function deleteChangeSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeSetId)) {
-            $query['ChangeSetId'] = $request->changeSetId;
+        if (null !== $request->changeSetId) {
+            @$query['ChangeSetId'] = $request->changeSetId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteChangeSet',
@@ -1270,19 +1499,23 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes change sets.
-     *  *
-     * @description *   Before you call this operation, make sure that the following requirements are met:
+     * Deletes change sets.
+     *
+     * @remarks
+     *   Before you call this operation, make sure that the following requirements are met:
      *     *   The status of the change set is CREATE_COMPLETE, CREATE_FAILED, or DELETE_FAILED.
      *     *   The execution status is UNAVAILABLE or AVAILABLE.
      * *   After a change set is executed, other change sets associated with the same stack as this change set are also deleted.
      * *   After a stack is deleted, change sets associated with the stack are deleted.
      * *   If a change set of the CREATE type is deleted, you must delete stacks associated with the change set.
      * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
-     *  *
-     * @param DeleteChangeSetRequest $request DeleteChangeSetRequest
      *
-     * @return DeleteChangeSetResponse DeleteChangeSetResponse
+     * @param request - DeleteChangeSetRequest
+     * @returns DeleteChangeSetResponse
+     *
+     * @param DeleteChangeSetRequest $request
+     *
+     * @return DeleteChangeSetResponse
      */
     public function deleteChangeSet($request)
     {
@@ -1292,22 +1525,27 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a diagnostic record.
-     *  *
-     * @param DeleteDiagnosticRequest $request DeleteDiagnosticRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a diagnostic record.
      *
-     * @return DeleteDiagnosticResponse DeleteDiagnosticResponse
+     * @param request - DeleteDiagnosticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDiagnosticResponse
+     *
+     * @param DeleteDiagnosticRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteDiagnosticResponse
      */
     public function deleteDiagnosticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteDiagnostic',
@@ -1325,11 +1563,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a diagnostic record.
-     *  *
-     * @param DeleteDiagnosticRequest $request DeleteDiagnosticRequest
+     * Deletes a diagnostic record.
      *
-     * @return DeleteDiagnosticResponse DeleteDiagnosticResponse
+     * @param request - DeleteDiagnosticRequest
+     * @returns DeleteDiagnosticResponse
+     *
+     * @param DeleteDiagnosticRequest $request
+     *
+     * @return DeleteDiagnosticResponse
      */
     public function deleteDiagnostic($request)
     {
@@ -1339,40 +1580,51 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a stack. You can specify whether to retain resources.
-     *  *
-     * @param DeleteStackRequest $request DeleteStackRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Deletes a stack. You can specify whether to retain resources.
      *
-     * @return DeleteStackResponse DeleteStackResponse
+     * @param request - DeleteStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteStackResponse
+     *
+     * @param DeleteStackRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteStackResponse
      */
     public function deleteStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deleteOptions)) {
-            $query['DeleteOptions'] = $request->deleteOptions;
+        if (null !== $request->deleteOptions) {
+            @$query['DeleteOptions'] = $request->deleteOptions;
         }
-        if (!Utils::isUnset($request->parallelism)) {
-            $query['Parallelism'] = $request->parallelism;
+
+        if (null !== $request->parallelism) {
+            @$query['Parallelism'] = $request->parallelism;
         }
-        if (!Utils::isUnset($request->ramRoleName)) {
-            $query['RamRoleName'] = $request->ramRoleName;
+
+        if (null !== $request->ramRoleName) {
+            @$query['RamRoleName'] = $request->ramRoleName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->retainAllResources)) {
-            $query['RetainAllResources'] = $request->retainAllResources;
+
+        if (null !== $request->retainAllResources) {
+            @$query['RetainAllResources'] = $request->retainAllResources;
         }
-        if (!Utils::isUnset($request->retainResources)) {
-            $query['RetainResources'] = $request->retainResources;
+
+        if (null !== $request->retainResources) {
+            @$query['RetainResources'] = $request->retainResources;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteStack',
@@ -1390,11 +1642,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a stack. You can specify whether to retain resources.
-     *  *
-     * @param DeleteStackRequest $request DeleteStackRequest
+     * Deletes a stack. You can specify whether to retain resources.
      *
-     * @return DeleteStackResponse DeleteStackResponse
+     * @param request - DeleteStackRequest
+     * @returns DeleteStackResponse
+     *
+     * @param DeleteStackRequest $request
+     *
+     * @return DeleteStackResponse
      */
     public function deleteStack($request)
     {
@@ -1404,28 +1659,35 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a stack group.
-     *  *
-     * @description A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](https://help.aliyun.com/document_detail/151715.html) operation to delete stacks.
-     * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
-     *  *
-     * @param DeleteStackGroupRequest $request DeleteStackGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes a stack group.
      *
-     * @return DeleteStackGroupResponse DeleteStackGroupResponse
+     * @remarks
+     * A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](https://help.aliyun.com/document_detail/151715.html) operation to delete stacks.
+     * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
+     *
+     * @param request - DeleteStackGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteStackGroupResponse
+     *
+     * @param DeleteStackGroupRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteStackGroupResponse
      */
     public function deleteStackGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteStackGroup',
@@ -1443,14 +1705,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a stack group.
-     *  *
-     * @description A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](https://help.aliyun.com/document_detail/151715.html) operation to delete stacks.
-     * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
-     *  *
-     * @param DeleteStackGroupRequest $request DeleteStackGroupRequest
+     * Deletes a stack group.
      *
-     * @return DeleteStackGroupResponse DeleteStackGroupResponse
+     * @remarks
+     * A stack group can be deleted only when the stack group does not contain stacks. You can call the [DeleteStackInstances](https://help.aliyun.com/document_detail/151715.html) operation to delete stacks.
+     * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
+     *
+     * @param request - DeleteStackGroupRequest
+     * @returns DeleteStackGroupResponse
+     *
+     * @param DeleteStackGroupRequest $request
+     *
+     * @return DeleteStackGroupResponse
      */
     public function deleteStackGroup($request)
     {
@@ -1460,62 +1726,80 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes stack instances in the specified accounts and regions. You can retain specific resources based on your business requirements when you call this operation.
-     *  *
-     * @description In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
-     *  *
-     * @param DeleteStackInstancesRequest $tmpReq  DeleteStackInstancesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes stack instances in the specified accounts and regions. You can retain specific resources based on your business requirements when you call this operation.
      *
-     * @return DeleteStackInstancesResponse DeleteStackInstancesResponse
+     * @remarks
+     * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
+     *
+     * @param tmpReq - DeleteStackInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteStackInstancesResponse
+     *
+     * @param DeleteStackInstancesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteStackInstancesResponse
      */
     public function deleteStackInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DeleteStackInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->accountIds)) {
-            $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accountIds) {
+            $request->accountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+
+        if (null !== $tmpReq->deploymentTargets) {
+            $request->deploymentTargetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
-        if (!Utils::isUnset($tmpReq->operationPreferences)) {
-            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+
+        if (null !== $tmpReq->operationPreferences) {
+            $request->operationPreferencesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        if (!Utils::isUnset($tmpReq->regionIds)) {
-            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
+
+        if (null !== $tmpReq->regionIds) {
+            $request->regionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIdsShrink)) {
-            $query['AccountIds'] = $request->accountIdsShrink;
+        if (null !== $request->accountIdsShrink) {
+            @$query['AccountIds'] = $request->accountIdsShrink;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->deploymentTargetsShrink)) {
-            $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
+
+        if (null !== $request->deploymentTargetsShrink) {
+            @$query['DeploymentTargets'] = $request->deploymentTargetsShrink;
         }
-        if (!Utils::isUnset($request->operationDescription)) {
-            $query['OperationDescription'] = $request->operationDescription;
+
+        if (null !== $request->operationDescription) {
+            @$query['OperationDescription'] = $request->operationDescription;
         }
-        if (!Utils::isUnset($request->operationPreferencesShrink)) {
-            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+
+        if (null !== $request->operationPreferencesShrink) {
+            @$query['OperationPreferences'] = $request->operationPreferencesShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionIdsShrink)) {
-            $query['RegionIds'] = $request->regionIdsShrink;
+
+        if (null !== $request->regionIdsShrink) {
+            @$query['RegionIds'] = $request->regionIdsShrink;
         }
-        if (!Utils::isUnset($request->retainStacks)) {
-            $query['RetainStacks'] = $request->retainStacks;
+
+        if (null !== $request->retainStacks) {
+            @$query['RetainStacks'] = $request->retainStacks;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteStackInstances',
@@ -1533,13 +1817,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes stack instances in the specified accounts and regions. You can retain specific resources based on your business requirements when you call this operation.
-     *  *
-     * @description In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
-     *  *
-     * @param DeleteStackInstancesRequest $request DeleteStackInstancesRequest
+     * Deletes stack instances in the specified accounts and regions. You can retain specific resources based on your business requirements when you call this operation.
      *
-     * @return DeleteStackInstancesResponse DeleteStackInstancesResponse
+     * @remarks
+     * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
+     *
+     * @param request - DeleteStackInstancesRequest
+     * @returns DeleteStackInstancesResponse
+     *
+     * @param DeleteStackInstancesRequest $request
+     *
+     * @return DeleteStackInstancesResponse
      */
     public function deleteStackInstances($request)
     {
@@ -1549,24 +1837,30 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a template.
-     *  *
-     * @description If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
-     *  *
-     * @param DeleteTemplateRequest $request DeleteTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Deletes a template.
      *
-     * @return DeleteTemplateResponse DeleteTemplateResponse
+     * @remarks
+     * If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
+     *
+     * @param request - DeleteTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTemplateResponse
+     *
+     * @param DeleteTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTemplate',
@@ -1584,13 +1878,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a template.
-     *  *
-     * @description If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
-     *  *
-     * @param DeleteTemplateRequest $request DeleteTemplateRequest
+     * Deletes a template.
      *
-     * @return DeleteTemplateResponse DeleteTemplateResponse
+     * @remarks
+     * If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
+     *
+     * @param request - DeleteTemplateRequest
+     * @returns DeleteTemplateResponse
+     *
+     * @param DeleteTemplateRequest $request
+     *
+     * @return DeleteTemplateResponse
      */
     public function deleteTemplate($request)
     {
@@ -1600,27 +1898,34 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scenario.
-     *  *
-     * @description In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
-     *  *
-     * @param DeleteTemplateScratchRequest $request DeleteTemplateScratchRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Deletes a scenario.
      *
-     * @return DeleteTemplateScratchResponse DeleteTemplateScratchResponse
+     * @remarks
+     * In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
+     *
+     * @param request - DeleteTemplateScratchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteTemplateScratchResponse
+     *
+     * @param DeleteTemplateScratchRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteTemplateScratchResponse
      */
     public function deleteTemplateScratchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeleteTemplateScratch',
@@ -1638,13 +1943,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a scenario.
-     *  *
-     * @description In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
-     *  *
-     * @param DeleteTemplateScratchRequest $request DeleteTemplateScratchRequest
+     * Deletes a scenario.
      *
-     * @return DeleteTemplateScratchResponse DeleteTemplateScratchResponse
+     * @remarks
+     * In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
+     *
+     * @param request - DeleteTemplateScratchRequest
+     * @returns DeleteTemplateScratchResponse
+     *
+     * @param DeleteTemplateScratchRequest $request
+     *
+     * @return DeleteTemplateScratchResponse
      */
     public function deleteTemplateScratch($request)
     {
@@ -1654,31 +1963,38 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a resource type or a version of a resource type.
-     *  *
-     * @description *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
+     * Deletes a resource type or a version of a resource type.
+     *
+     * @remarks
+     *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
      * *   If you delete a version of a resource type, you can no longer use the version in ROS.
      * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
      * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
      * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
-     *  *
-     * @param DeregisterResourceTypeRequest $request DeregisterResourceTypeRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeregisterResourceTypeResponse DeregisterResourceTypeResponse
+     * @param request - DeregisterResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeregisterResourceTypeResponse
+     *
+     * @param DeregisterResourceTypeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeregisterResourceTypeResponse
      */
     public function deregisterResourceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DeregisterResourceType',
@@ -1696,17 +2012,21 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Deletes a resource type or a version of a resource type.
-     *  *
-     * @description *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
+     * Deletes a resource type or a version of a resource type.
+     *
+     * @remarks
+     *   If you delete a resource type, you can no longer use the resource type in Resource Orchestration Service (ROS).
      * *   If you delete a version of a resource type, you can no longer use the version in ROS.
      * *   If a resource type has only one version, you can delete the version by calling the operation. If a resource type has more than one version, you must manually delete the remaining versions.
      * *   When a resource type has more than one version, you cannot delete the default version by calling the operation.
      * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
-     *  *
-     * @param DeregisterResourceTypeRequest $request DeregisterResourceTypeRequest
      *
-     * @return DeregisterResourceTypeResponse DeregisterResourceTypeResponse
+     * @param request - DeregisterResourceTypeRequest
+     * @returns DeregisterResourceTypeResponse
+     *
+     * @param DeregisterResourceTypeRequest $request
+     *
+     * @return DeregisterResourceTypeResponse
      */
     public function deregisterResourceType($request)
     {
@@ -1716,22 +2036,27 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of available regions.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['AcceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeRegions',
@@ -1749,11 +2074,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of available regions.
-     *  *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * Queries a list of available regions.
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @param request - DescribeRegionsRequest
+     * @returns DescribeRegionsResponse
+     *
+     * @param DescribeRegionsRequest $request
+     *
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -1763,31 +2091,39 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to detect drift on a stack.
-     *  *
-     * @param DetectStackDriftRequest $request DetectStackDriftRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to detect drift on a stack.
      *
-     * @return DetectStackDriftResponse DetectStackDriftResponse
+     * @param request - DetectStackDriftRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetectStackDriftResponse
+     *
+     * @param DetectStackDriftRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DetectStackDriftResponse
      */
     public function detectStackDriftWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->logicalResourceId)) {
-            $query['LogicalResourceId'] = $request->logicalResourceId;
+
+        if (null !== $request->logicalResourceId) {
+            @$query['LogicalResourceId'] = $request->logicalResourceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetectStackDrift',
@@ -1805,11 +2141,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to detect drift on a stack.
-     *  *
-     * @param DetectStackDriftRequest $request DetectStackDriftRequest
+     * You can call this operation to detect drift on a stack.
      *
-     * @return DetectStackDriftResponse DetectStackDriftResponse
+     * @param request - DetectStackDriftRequest
+     * @returns DetectStackDriftResponse
+     *
+     * @param DetectStackDriftRequest $request
+     *
+     * @return DetectStackDriftResponse
      */
     public function detectStackDrift($request)
     {
@@ -1819,34 +2158,43 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DetectStackGroupDriftRequest $tmpReq  DetectStackGroupDriftRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param tmpReq - DetectStackGroupDriftRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetectStackGroupDriftResponse
      *
-     * @return DetectStackGroupDriftResponse DetectStackGroupDriftResponse
+     * @param DetectStackGroupDriftRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DetectStackGroupDriftResponse
      */
     public function detectStackGroupDriftWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new DetectStackGroupDriftShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->operationPreferences)) {
-            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operationPreferences) {
+            $request->operationPreferencesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->operationPreferencesShrink)) {
-            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+
+        if (null !== $request->operationPreferencesShrink) {
+            @$query['OperationPreferences'] = $request->operationPreferencesShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetectStackGroupDrift',
@@ -1864,9 +2212,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param DetectStackGroupDriftRequest $request DetectStackGroupDriftRequest
+     * @param request - DetectStackGroupDriftRequest
+     * @returns DetectStackGroupDriftResponse
      *
-     * @return DetectStackGroupDriftResponse DetectStackGroupDriftResponse
+     * @param DetectStackGroupDriftRequest $request
+     *
+     * @return DetectStackGroupDriftResponse
      */
     public function detectStackGroupDrift($request)
     {
@@ -1876,31 +2227,39 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Performs drift detection on resources in a stack to determine whether the resources have drifted from the expected configurations.
-     *  *
-     * @param DetectStackResourceDriftRequest $request DetectStackResourceDriftRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Performs drift detection on resources in a stack to determine whether the resources have drifted from the expected configurations.
      *
-     * @return DetectStackResourceDriftResponse DetectStackResourceDriftResponse
+     * @param request - DetectStackResourceDriftRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DetectStackResourceDriftResponse
+     *
+     * @param DetectStackResourceDriftRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DetectStackResourceDriftResponse
      */
     public function detectStackResourceDriftWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->logicalResourceId)) {
-            $query['LogicalResourceId'] = $request->logicalResourceId;
+
+        if (null !== $request->logicalResourceId) {
+            @$query['LogicalResourceId'] = $request->logicalResourceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'DetectStackResourceDrift',
@@ -1918,11 +2277,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Performs drift detection on resources in a stack to determine whether the resources have drifted from the expected configurations.
-     *  *
-     * @param DetectStackResourceDriftRequest $request DetectStackResourceDriftRequest
+     * Performs drift detection on resources in a stack to determine whether the resources have drifted from the expected configurations.
      *
-     * @return DetectStackResourceDriftResponse DetectStackResourceDriftResponse
+     * @param request - DetectStackResourceDriftRequest
+     * @returns DetectStackResourceDriftResponse
+     *
+     * @param DetectStackResourceDriftRequest $request
+     *
+     * @return DetectStackResourceDriftResponse
      */
     public function detectStackResourceDrift($request)
     {
@@ -1932,30 +2294,38 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Executes change sets.
-     *  *
-     * @description In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
-     *  *
-     * @param ExecuteChangeSetRequest $request ExecuteChangeSetRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Executes change sets.
      *
-     * @return ExecuteChangeSetResponse ExecuteChangeSetResponse
+     * @remarks
+     * In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
+     *
+     * @param request - ExecuteChangeSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ExecuteChangeSetResponse
+     *
+     * @param ExecuteChangeSetRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExecuteChangeSetResponse
      */
     public function executeChangeSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeSetId)) {
-            $query['ChangeSetId'] = $request->changeSetId;
+        if (null !== $request->changeSetId) {
+            @$query['ChangeSetId'] = $request->changeSetId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ExecuteChangeSet',
@@ -1973,13 +2343,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Executes change sets.
-     *  *
-     * @description In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
-     *  *
-     * @param ExecuteChangeSetRequest $request ExecuteChangeSetRequest
+     * Executes change sets.
      *
-     * @return ExecuteChangeSetResponse ExecuteChangeSetResponse
+     * @remarks
+     * In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
+     *
+     * @param request - ExecuteChangeSetRequest
+     * @returns ExecuteChangeSetResponse
+     *
+     * @param ExecuteChangeSetRequest $request
+     *
+     * @return ExecuteChangeSetResponse
      */
     public function executeChangeSet($request)
     {
@@ -1989,34 +2363,43 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Generates a template for a resource scenario.
-     *  *
-     * @description In this example, a template is generated for a resource management scenario that resides in the China (Hangzhou) region. The ID of the resource scenario is `ts-aa9c62feab844a6b****`.
-     * >  You cannot generate a template for a resource detection scenario.
-     *  *
-     * @param GenerateTemplateByScratchRequest $request GenerateTemplateByScratchRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * Generates a template for a resource scenario.
      *
-     * @return GenerateTemplateByScratchResponse GenerateTemplateByScratchResponse
+     * @remarks
+     * In this example, a template is generated for a resource management scenario that resides in the China (Hangzhou) region. The ID of the resource scenario is `ts-aa9c62feab844a6b****`.
+     * >  You cannot generate a template for a resource detection scenario.
+     *
+     * @param request - GenerateTemplateByScratchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateTemplateByScratchResponse
+     *
+     * @param GenerateTemplateByScratchRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GenerateTemplateByScratchResponse
      */
     public function generateTemplateByScratchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->provisionRegionId)) {
-            $query['ProvisionRegionId'] = $request->provisionRegionId;
+        if (null !== $request->provisionRegionId) {
+            @$query['ProvisionRegionId'] = $request->provisionRegionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
-        if (!Utils::isUnset($request->templateType)) {
-            $query['TemplateType'] = $request->templateType;
+
+        if (null !== $request->templateType) {
+            @$query['TemplateType'] = $request->templateType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GenerateTemplateByScratch',
@@ -2034,14 +2417,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Generates a template for a resource scenario.
-     *  *
-     * @description In this example, a template is generated for a resource management scenario that resides in the China (Hangzhou) region. The ID of the resource scenario is `ts-aa9c62feab844a6b****`.
-     * >  You cannot generate a template for a resource detection scenario.
-     *  *
-     * @param GenerateTemplateByScratchRequest $request GenerateTemplateByScratchRequest
+     * Generates a template for a resource scenario.
      *
-     * @return GenerateTemplateByScratchResponse GenerateTemplateByScratchResponse
+     * @remarks
+     * In this example, a template is generated for a resource management scenario that resides in the China (Hangzhou) region. The ID of the resource scenario is `ts-aa9c62feab844a6b****`.
+     * >  You cannot generate a template for a resource detection scenario.
+     *
+     * @param request - GenerateTemplateByScratchRequest
+     * @returns GenerateTemplateByScratchResponse
+     *
+     * @param GenerateTemplateByScratchRequest $request
+     *
+     * @return GenerateTemplateByScratchResponse
      */
     public function generateTemplateByScratch($request)
     {
@@ -2051,37 +2438,47 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Generates the information about a policy that is required by a template.
-     *  *
-     * @description If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
-     * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
-     *  *
-     * @param GenerateTemplatePolicyRequest $request GenerateTemplatePolicyRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Generates the information about a policy that is required by a template.
      *
-     * @return GenerateTemplatePolicyResponse GenerateTemplatePolicyResponse
+     * @remarks
+     * If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
+     * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
+     *
+     * @param request - GenerateTemplatePolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GenerateTemplatePolicyResponse
+     *
+     * @param GenerateTemplatePolicyRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GenerateTemplatePolicyResponse
      */
     public function generateTemplatePolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->operationTypes)) {
-            $query['OperationTypes'] = $request->operationTypes;
+        if (null !== $request->operationTypes) {
+            @$query['OperationTypes'] = $request->operationTypes;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
+
+        if (null !== $request->templateBody) {
+            @$query['TemplateBody'] = $request->templateBody;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GenerateTemplatePolicy',
@@ -2099,14 +2496,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Generates the information about a policy that is required by a template.
-     *  *
-     * @description If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
-     * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
-     *  *
-     * @param GenerateTemplatePolicyRequest $request GenerateTemplatePolicyRequest
+     * Generates the information about a policy that is required by a template.
      *
-     * @return GenerateTemplatePolicyResponse GenerateTemplatePolicyResponse
+     * @remarks
+     * If the policy information is related to Enterprise Distributed Application Service (EDAS), you must log on to your Alibaba Cloud account and grant the required permissions to the relevant RAM users.
+     * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
+     *
+     * @param request - GenerateTemplatePolicyRequest
+     * @returns GenerateTemplatePolicyResponse
+     *
+     * @param GenerateTemplatePolicyRequest $request
+     *
+     * @return GenerateTemplatePolicyResponse
      */
     public function generateTemplatePolicy($request)
     {
@@ -2116,25 +2517,31 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定AI任务信息
-     *  *
-     * @param GetAITaskRequest $request GetAITaskRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 查询指定AI任务信息.
      *
-     * @return GetAITaskResponse GetAITaskResponse
+     * @param request - GetAITaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAITaskResponse
+     *
+     * @param GetAITaskRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetAITaskResponse
      */
     public function getAITaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputOption)) {
-            $query['OutputOption'] = $request->outputOption;
+        if (null !== $request->outputOption) {
+            @$query['OutputOption'] = $request->outputOption;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetAITask',
@@ -2152,11 +2559,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 查询指定AI任务信息
-     *  *
-     * @param GetAITaskRequest $request GetAITaskRequest
+     * 查询指定AI任务信息.
      *
-     * @return GetAITaskResponse GetAITaskResponse
+     * @param request - GetAITaskRequest
+     * @returns GetAITaskResponse
+     *
+     * @param GetAITaskRequest $request
+     *
+     * @return GetAITaskResponse
      */
     public function getAITask($request)
     {
@@ -2166,30 +2576,38 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries change sets. You can determine whether to query the templates of change sets.
-     *  *
-     * @description In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
-     *  *
-     * @param GetChangeSetRequest $request GetChangeSetRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries change sets. You can determine whether to query the templates of change sets.
      *
-     * @return GetChangeSetResponse GetChangeSetResponse
+     * @remarks
+     * In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
+     *
+     * @param request - GetChangeSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetChangeSetResponse
+     *
+     * @param GetChangeSetRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetChangeSetResponse
      */
     public function getChangeSetWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeSetId)) {
-            $query['ChangeSetId'] = $request->changeSetId;
+        if (null !== $request->changeSetId) {
+            @$query['ChangeSetId'] = $request->changeSetId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->showTemplate)) {
-            $query['ShowTemplate'] = $request->showTemplate;
+
+        if (null !== $request->showTemplate) {
+            @$query['ShowTemplate'] = $request->showTemplate;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetChangeSet',
@@ -2207,13 +2625,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries change sets. You can determine whether to query the templates of change sets.
-     *  *
-     * @description In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
-     *  *
-     * @param GetChangeSetRequest $request GetChangeSetRequest
+     * Queries change sets. You can determine whether to query the templates of change sets.
      *
-     * @return GetChangeSetResponse GetChangeSetResponse
+     * @remarks
+     * In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
+     *
+     * @param request - GetChangeSetRequest
+     * @returns GetChangeSetResponse
+     *
+     * @param GetChangeSetRequest $request
+     *
+     * @return GetChangeSetResponse
      */
     public function getChangeSet($request)
     {
@@ -2223,22 +2645,27 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the diagnosis details based on a specified diagnostic report ID.
-     *  *
-     * @param GetDiagnosticRequest $request GetDiagnosticRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Obtains the diagnosis details based on a specified diagnostic report ID.
      *
-     * @return GetDiagnosticResponse GetDiagnosticResponse
+     * @param request - GetDiagnosticRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetDiagnosticResponse
+     *
+     * @param GetDiagnosticRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetDiagnosticResponse
      */
     public function getDiagnosticWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->reportId)) {
-            $query['ReportId'] = $request->reportId;
+        if (null !== $request->reportId) {
+            @$query['ReportId'] = $request->reportId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetDiagnostic',
@@ -2256,11 +2683,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Obtains the diagnosis details based on a specified diagnostic report ID.
-     *  *
-     * @param GetDiagnosticRequest $request GetDiagnosticRequest
+     * Obtains the diagnosis details based on a specified diagnostic report ID.
      *
-     * @return GetDiagnosticResponse GetDiagnosticResponse
+     * @param request - GetDiagnosticRequest
+     * @returns GetDiagnosticResponse
+     *
+     * @param GetDiagnosticRequest $request
+     *
+     * @return GetDiagnosticResponse
      */
     public function getDiagnostic($request)
     {
@@ -2270,29 +2700,36 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of features that are supported by Resource Orchestration Service (ROS).
-     *  *
-     * @description You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+     * Queries the details of features that are supported by Resource Orchestration Service (ROS).
+     *
+     * @remarks
+     * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
      * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
      * >  In the Examples section, only part of the sample code is provided.
-     *  *
-     * @param GetFeatureDetailsRequest $request GetFeatureDetailsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFeatureDetailsResponse GetFeatureDetailsResponse
+     * @param request - GetFeatureDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetFeatureDetailsResponse
+     *
+     * @param GetFeatureDetailsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetFeatureDetailsResponse
      */
     public function getFeatureDetailsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->feature)) {
-            $query['Feature'] = $request->feature;
+        if (null !== $request->feature) {
+            @$query['Feature'] = $request->feature;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetFeatureDetails',
@@ -2310,15 +2747,19 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of features that are supported by Resource Orchestration Service (ROS).
-     *  *
-     * @description You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+     * Queries the details of features that are supported by Resource Orchestration Service (ROS).
+     *
+     * @remarks
+     * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
      * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
      * >  In the Examples section, only part of the sample code is provided.
-     *  *
-     * @param GetFeatureDetailsRequest $request GetFeatureDetailsRequest
      *
-     * @return GetFeatureDetailsResponse GetFeatureDetailsResponse
+     * @param request - GetFeatureDetailsRequest
+     * @returns GetFeatureDetailsResponse
+     *
+     * @param GetFeatureDetailsRequest $request
+     *
+     * @return GetFeatureDetailsResponse
      */
     public function getFeatureDetails($request)
     {
@@ -2328,27 +2769,34 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
-     *  *
-     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
-     *  *
-     * @param GetResourceTypeRequest $request GetResourceTypeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
      *
-     * @return GetResourceTypeResponse GetResourceTypeResponse
+     * @remarks
+     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *
+     * @param request - GetResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceTypeResponse
+     *
+     * @param GetResourceTypeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetResourceTypeResponse
      */
     public function getResourceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceType',
@@ -2366,13 +2814,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
-     *  *
-     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
-     *  *
-     * @param GetResourceTypeRequest $request GetResourceTypeRequest
+     * This topic provides an example on how to query the details of `ALIYUN::ROS::WaitConditionHandle`.
      *
-     * @return GetResourceTypeResponse GetResourceTypeResponse
+     * @remarks
+     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *
+     * @param request - GetResourceTypeRequest
+     * @returns GetResourceTypeResponse
+     *
+     * @param GetResourceTypeRequest $request
+     *
+     * @return GetResourceTypeResponse
      */
     public function getResourceType($request)
     {
@@ -2382,25 +2834,31 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Generates a sample template based on a resource type.
-     *  *
-     * @param GetResourceTypeTemplateRequest $request GetResourceTypeTemplateRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Generates a sample template based on a resource type.
      *
-     * @return GetResourceTypeTemplateResponse GetResourceTypeTemplateResponse
+     * @param request - GetResourceTypeTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetResourceTypeTemplateResponse
+     *
+     * @param GetResourceTypeTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetResourceTypeTemplateResponse
      */
     public function getResourceTypeTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetResourceTypeTemplate',
@@ -2418,11 +2876,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Generates a sample template based on a resource type.
-     *  *
-     * @param GetResourceTypeTemplateRequest $request GetResourceTypeTemplateRequest
+     * Generates a sample template based on a resource type.
      *
-     * @return GetResourceTypeTemplateResponse GetResourceTypeTemplateResponse
+     * @param request - GetResourceTypeTemplateRequest
+     * @returns GetResourceTypeTemplateResponse
+     *
+     * @param GetResourceTypeTemplateRequest $request
+     *
+     * @return GetResourceTypeTemplateResponse
      */
     public function getResourceTypeTemplate($request)
     {
@@ -2432,46 +2893,58 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the activation status and the RAM roles of an Alibaba Cloud service.
-     *  *
-     * @description ### Description
+     * Queries the activation status and the RAM roles of an Alibaba Cloud service.
+     *
+     * @remarks
+     * ### Description
      * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
      * > Make sure that you have the permissions to call the [GetRole](https://help.aliyun.com/document_detail/28711.html) operation.
-     *  *
-     * @param GetServiceProvisionsRequest $request GetServiceProvisionsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
+     * @param request - GetServiceProvisionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetServiceProvisionsResponse
+     *
+     * @param GetServiceProvisionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetServiceProvisionsResponse
      */
     public function getServiceProvisionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->services)) {
-            $query['Services'] = $request->services;
+
+        if (null !== $request->services) {
+            @$query['Services'] = $request->services;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetServiceProvisions',
@@ -2489,15 +2962,19 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the activation status and the RAM roles of an Alibaba Cloud service.
-     *  *
-     * @description ### Description
+     * Queries the activation status and the RAM roles of an Alibaba Cloud service.
+     *
+     * @remarks
+     * ### Description
      * This topic describes how to query the activation status and the RAM roles of an Alibaba Cloud service. In this example, the Elastic High Performance Computing (E-HPC) service that is deployed in the China (Hangzhou) region is queried.
      * > Make sure that you have the permissions to call the [GetRole](https://help.aliyun.com/document_detail/28711.html) operation.
-     *  *
-     * @param GetServiceProvisionsRequest $request GetServiceProvisionsRequest
      *
-     * @return GetServiceProvisionsResponse GetServiceProvisionsResponse
+     * @param request - GetServiceProvisionsRequest
+     * @returns GetServiceProvisionsResponse
+     *
+     * @param GetServiceProvisionsRequest $request
+     *
+     * @return GetServiceProvisionsResponse
      */
     public function getServiceProvisions($request)
     {
@@ -2507,39 +2984,50 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a stack in Resource Orchestration Service (ROS).
-     *  *
-     * @description In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
-     *  *
-     * @param GetStackRequest $request GetStackRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a stack in Resource Orchestration Service (ROS).
      *
-     * @return GetStackResponse GetStackResponse
+     * @remarks
+     * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
+     *
+     * @param request - GetStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStackResponse
+     *
+     * @param GetStackRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetStackResponse
      */
     public function getStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->logOption)) {
-            $query['LogOption'] = $request->logOption;
+
+        if (null !== $request->logOption) {
+            @$query['LogOption'] = $request->logOption;
         }
-        if (!Utils::isUnset($request->outputOption)) {
-            $query['OutputOption'] = $request->outputOption;
+
+        if (null !== $request->outputOption) {
+            @$query['OutputOption'] = $request->outputOption;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->showResourceProgress)) {
-            $query['ShowResourceProgress'] = $request->showResourceProgress;
+
+        if (null !== $request->showResourceProgress) {
+            @$query['ShowResourceProgress'] = $request->showResourceProgress;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStack',
@@ -2557,13 +3045,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a stack in Resource Orchestration Service (ROS).
-     *  *
-     * @description In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
-     *  *
-     * @param GetStackRequest $request GetStackRequest
+     * Queries the information about a stack in Resource Orchestration Service (ROS).
      *
-     * @return GetStackResponse GetStackResponse
+     * @remarks
+     * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
+     *
+     * @param request - GetStackRequest
+     * @returns GetStackResponse
+     *
+     * @param GetStackRequest $request
+     *
+     * @return GetStackResponse
      */
     public function getStack($request)
     {
@@ -2573,27 +3065,34 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the drift detection status of a stack.
-     *  *
-     * @description In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
-     *  *
-     * @param GetStackDriftDetectionStatusRequest $request GetStackDriftDetectionStatusRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * Queries the drift detection status of a stack.
      *
-     * @return GetStackDriftDetectionStatusResponse GetStackDriftDetectionStatusResponse
+     * @remarks
+     * In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
+     *
+     * @param request - GetStackDriftDetectionStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStackDriftDetectionStatusResponse
+     *
+     * @param GetStackDriftDetectionStatusRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetStackDriftDetectionStatusResponse
      */
     public function getStackDriftDetectionStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->driftDetectionId)) {
-            $query['DriftDetectionId'] = $request->driftDetectionId;
+        if (null !== $request->driftDetectionId) {
+            @$query['DriftDetectionId'] = $request->driftDetectionId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStackDriftDetectionStatus',
@@ -2611,13 +3110,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the drift detection status of a stack.
-     *  *
-     * @description In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
-     *  *
-     * @param GetStackDriftDetectionStatusRequest $request GetStackDriftDetectionStatusRequest
+     * Queries the drift detection status of a stack.
      *
-     * @return GetStackDriftDetectionStatusResponse GetStackDriftDetectionStatusResponse
+     * @remarks
+     * In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
+     *
+     * @param request - GetStackDriftDetectionStatusRequest
+     * @returns GetStackDriftDetectionStatusResponse
+     *
+     * @param GetStackDriftDetectionStatusRequest $request
+     *
+     * @return GetStackDriftDetectionStatusResponse
      */
     public function getStackDriftDetectionStatus($request)
     {
@@ -2627,30 +3130,38 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
-     *  *
-     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
-     *  *
-     * @param GetStackGroupRequest $request GetStackGroupRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
      *
-     * @return GetStackGroupResponse GetStackGroupResponse
+     * @remarks
+     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *
+     * @param request - GetStackGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStackGroupResponse
+     *
+     * @param GetStackGroupRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetStackGroupResponse
      */
     public function getStackGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackGroupId)) {
-            $query['StackGroupId'] = $request->stackGroupId;
+
+        if (null !== $request->stackGroupId) {
+            @$query['StackGroupId'] = $request->stackGroupId;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStackGroup',
@@ -2668,13 +3179,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
-     *  *
-     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
-     *  *
-     * @param GetStackGroupRequest $request GetStackGroupRequest
+     * In this example, the information about a stack group named \\`MyStackGroup\\` is queried. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
      *
-     * @return GetStackGroupResponse GetStackGroupResponse
+     * @remarks
+     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *
+     * @param request - GetStackGroupRequest
+     * @returns GetStackGroupResponse
+     *
+     * @param GetStackGroupRequest $request
+     *
+     * @return GetStackGroupResponse
      */
     public function getStackGroup($request)
     {
@@ -2684,27 +3199,34 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a stack group operation in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *  *
-     * @param GetStackGroupOperationRequest $request GetStackGroupOperationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a stack group operation in an Alibaba Cloud region.
      *
-     * @return GetStackGroupOperationResponse GetStackGroupOperationResponse
+     * @remarks
+     * In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *
+     * @param request - GetStackGroupOperationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStackGroupOperationResponse
+     *
+     * @param GetStackGroupOperationRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetStackGroupOperationResponse
      */
     public function getStackGroupOperationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->operationId)) {
-            $query['OperationId'] = $request->operationId;
+        if (null !== $request->operationId) {
+            @$query['OperationId'] = $request->operationId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStackGroupOperation',
@@ -2722,13 +3244,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a stack group operation in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *  *
-     * @param GetStackGroupOperationRequest $request GetStackGroupOperationRequest
+     * Queries the information about a stack group operation in an Alibaba Cloud region.
      *
-     * @return GetStackGroupOperationResponse GetStackGroupOperationResponse
+     * @remarks
+     * In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *
+     * @param request - GetStackGroupOperationRequest
+     * @returns GetStackGroupOperationResponse
+     *
+     * @param GetStackGroupOperationRequest $request
+     *
+     * @return GetStackGroupOperationResponse
      */
     public function getStackGroupOperation($request)
     {
@@ -2738,36 +3264,46 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a stack instance that is associated with a stack group.
-     *  *
-     * @description In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *  *
-     * @param GetStackInstanceRequest $request GetStackInstanceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a stack instance that is associated with a stack group.
      *
-     * @return GetStackInstanceResponse GetStackInstanceResponse
+     * @remarks
+     * In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *
+     * @param request - GetStackInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStackInstanceResponse
+     *
+     * @param GetStackInstanceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetStackInstanceResponse
      */
     public function getStackInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->outputOption)) {
-            $query['OutputOption'] = $request->outputOption;
+        if (null !== $request->outputOption) {
+            @$query['OutputOption'] = $request->outputOption;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
-        if (!Utils::isUnset($request->stackInstanceAccountId)) {
-            $query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
+
+        if (null !== $request->stackInstanceAccountId) {
+            @$query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
         }
-        if (!Utils::isUnset($request->stackInstanceRegionId)) {
-            $query['StackInstanceRegionId'] = $request->stackInstanceRegionId;
+
+        if (null !== $request->stackInstanceRegionId) {
+            @$query['StackInstanceRegionId'] = $request->stackInstanceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStackInstance',
@@ -2785,13 +3321,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a stack instance that is associated with a stack group.
-     *  *
-     * @description In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *  *
-     * @param GetStackInstanceRequest $request GetStackInstanceRequest
+     * Queries the information about a stack instance that is associated with a stack group.
      *
-     * @return GetStackInstanceResponse GetStackInstanceResponse
+     * @remarks
+     * In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *
+     * @param request - GetStackInstanceRequest
+     * @returns GetStackInstanceResponse
+     *
+     * @param GetStackInstanceRequest $request
+     *
+     * @return GetStackInstanceResponse
      */
     public function getStackInstance($request)
     {
@@ -2801,27 +3341,34 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to query information about a stack policy.
-     *  *
-     * @description In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
-     *  *
-     * @param GetStackPolicyRequest $request GetStackPolicyRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to query information about a stack policy.
      *
-     * @return GetStackPolicyResponse GetStackPolicyResponse
+     * @remarks
+     * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+     *
+     * @param request - GetStackPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStackPolicyResponse
+     *
+     * @param GetStackPolicyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetStackPolicyResponse
      */
     public function getStackPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStackPolicy',
@@ -2839,13 +3386,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to query information about a stack policy.
-     *  *
-     * @description In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
-     *  *
-     * @param GetStackPolicyRequest $request GetStackPolicyRequest
+     * You can call this operation to query information about a stack policy.
      *
-     * @return GetStackPolicyResponse GetStackPolicyResponse
+     * @remarks
+     * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
+     *
+     * @param request - GetStackPolicyRequest
+     * @returns GetStackPolicyResponse
+     *
+     * @param GetStackPolicyRequest $request
+     *
+     * @return GetStackPolicyResponse
      */
     public function getStackPolicy($request)
     {
@@ -2855,42 +3406,53 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary For more information about common request parameters, see [Common parameters]\\(~~131957~~).
-     *  *
-     * @description | Http status code | Error code | Error message | Description |
+     * For more information about common request parameters, see [Common parameters]\\(~~131957~~).
+     *
+     * @remarks
+     * | Http status code | Error code | Error message | Description |
      * | ---------------- | ---------- | ------------- | ----------- |
      * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
      * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
-     *  *
-     * @param GetStackResourceRequest $request GetStackResourceRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetStackResourceResponse GetStackResourceResponse
+     * @param request - GetStackResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetStackResourceResponse
+     *
+     * @param GetStackResourceRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetStackResourceResponse
      */
     public function getStackResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->logicalResourceId)) {
-            $query['LogicalResourceId'] = $request->logicalResourceId;
+
+        if (null !== $request->logicalResourceId) {
+            @$query['LogicalResourceId'] = $request->logicalResourceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceAttributes)) {
-            $query['ResourceAttributes'] = $request->resourceAttributes;
+
+        if (null !== $request->resourceAttributes) {
+            @$query['ResourceAttributes'] = $request->resourceAttributes;
         }
-        if (!Utils::isUnset($request->showResourceAttributes)) {
-            $query['ShowResourceAttributes'] = $request->showResourceAttributes;
+
+        if (null !== $request->showResourceAttributes) {
+            @$query['ShowResourceAttributes'] = $request->showResourceAttributes;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetStackResource',
@@ -2908,16 +3470,20 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary For more information about common request parameters, see [Common parameters]\\(~~131957~~).
-     *  *
-     * @description | Http status code | Error code | Error message | Description |
+     * For more information about common request parameters, see [Common parameters]\\(~~131957~~).
+     *
+     * @remarks
+     * | Http status code | Error code | Error message | Description |
      * | ---------------- | ---------- | ------------- | ----------- |
      * | 404 | ResourceNotFound | The Resource ({name}) could not be found in Stack {stack}. | The error message returned because the specified resource does not exist in the stack. name indicates the resource name. stack indicates the stack name or ID. |
      * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
-     *  *
-     * @param GetStackResourceRequest $request GetStackResourceRequest
      *
-     * @return GetStackResourceResponse GetStackResourceResponse
+     * @param request - GetStackResourceRequest
+     * @returns GetStackResourceResponse
+     *
+     * @param GetStackResourceRequest $request
+     *
+     * @return GetStackResourceResponse
      */
     public function getStackResource($request)
     {
@@ -2927,48 +3493,62 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a template based on stacks, stack groups, change sets, or any custom template information.
-     *  *
-     * @description In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
-     *  *
-     * @param GetTemplateRequest $request GetTemplateRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a template based on stacks, stack groups, change sets, or any custom template information.
      *
-     * @return GetTemplateResponse GetTemplateResponse
+     * @remarks
+     * In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
+     *
+     * @param request - GetTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateResponse
+     *
+     * @param GetTemplateRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetTemplateResponse
      */
     public function getTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeSetId)) {
-            $query['ChangeSetId'] = $request->changeSetId;
+        if (null !== $request->changeSetId) {
+            @$query['ChangeSetId'] = $request->changeSetId;
         }
-        if (!Utils::isUnset($request->includePermission)) {
-            $query['IncludePermission'] = $request->includePermission;
+
+        if (null !== $request->includePermission) {
+            @$query['IncludePermission'] = $request->includePermission;
         }
-        if (!Utils::isUnset($request->includeTags)) {
-            $query['IncludeTags'] = $request->includeTags;
+
+        if (null !== $request->includeTags) {
+            @$query['IncludeTags'] = $request->includeTags;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateStage)) {
-            $query['TemplateStage'] = $request->templateStage;
+
+        if (null !== $request->templateStage) {
+            @$query['TemplateStage'] = $request->templateStage;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTemplate',
@@ -2986,13 +3566,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a template based on stacks, stack groups, change sets, or any custom template information.
-     *  *
-     * @description In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
-     *  *
-     * @param GetTemplateRequest $request GetTemplateRequest
+     * Queries the details of a template based on stacks, stack groups, change sets, or any custom template information.
      *
-     * @return GetTemplateResponse GetTemplateResponse
+     * @remarks
+     * In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
+     *
+     * @param request - GetTemplateRequest
+     * @returns GetTemplateResponse
+     *
+     * @param GetTemplateRequest $request
+     *
+     * @return GetTemplateResponse
      */
     public function getTemplate($request)
     {
@@ -3002,9 +3586,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the estimated prices of the resources in a template.
-     *  *
-     * @description ###
+     * Queries the estimated prices of the resources in a template.
+     *
+     * @remarks
+     * ###
      * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](https://help.aliyun.com/document_detail/203165.html) topic.
      * *   For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](https://help.aliyun.com/document_detail/184389.html) topic.
      * The following sample code provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create based on a template. In this example, the following template is used:
@@ -3054,50 +3639,64 @@ class ROS extends OpenApiClient
      *         }
      *       }
      *     }
-     *  *
-     * @param GetTemplateEstimateCostRequest $request GetTemplateEstimateCostRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateEstimateCostResponse GetTemplateEstimateCostResponse
+     * @param request - GetTemplateEstimateCostRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateEstimateCostResponse
+     *
+     * @param GetTemplateEstimateCostRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTemplateEstimateCostResponse
      */
     public function getTemplateEstimateCostWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
-        if (!Utils::isUnset($request->templateScratchRegionId)) {
-            $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+
+        if (null !== $request->templateScratchRegionId) {
+            @$query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateEstimateCost',
@@ -3115,9 +3714,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the estimated prices of the resources in a template.
-     *  *
-     * @description ###
+     * Queries the estimated prices of the resources in a template.
+     *
+     * @remarks
+     * ###
      * *   For more information about the resources that support price inquiry in Resource Orchestration Service (ROS) templates, see the "**Resource types that support price inquiry**" section of the [Estimate resource prices](https://help.aliyun.com/document_detail/203165.html) topic.
      * *   For more information about the resources that support price inquiry in Terraform templates, see the "**ROS resources supported by Terraform**" section of the [ROS features and resources supported by Terraform](https://help.aliyun.com/document_detail/184389.html) topic.
      * The following sample code provides an example on how to query the estimated price of an elastic IP address (EIP) that you want to create based on a template. In this example, the following template is used:
@@ -3167,10 +3767,13 @@ class ROS extends OpenApiClient
      *         }
      *       }
      *     }
-     *  *
-     * @param GetTemplateEstimateCostRequest $request GetTemplateEstimateCostRequest
      *
-     * @return GetTemplateEstimateCostResponse GetTemplateEstimateCostResponse
+     * @param request - GetTemplateEstimateCostRequest
+     * @returns GetTemplateEstimateCostResponse
+     *
+     * @param GetTemplateEstimateCostRequest $request
+     *
+     * @return GetTemplateEstimateCostResponse
      */
     public function getTemplateEstimateCost($request)
     {
@@ -3180,62 +3783,79 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the values of one or more parameters in a template.
-     *  *
-     * @description This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
-     * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
-     *  *
-     * @param GetTemplateParameterConstraintsRequest $tmpReq  GetTemplateParameterConstraintsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * Queries the values of one or more parameters in a template.
      *
-     * @return GetTemplateParameterConstraintsResponse GetTemplateParameterConstraintsResponse
+     * @remarks
+     * This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
+     * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
+     *
+     * @param tmpReq - GetTemplateParameterConstraintsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateParameterConstraintsResponse
+     *
+     * @param GetTemplateParameterConstraintsRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetTemplateParameterConstraintsResponse
      */
     public function getTemplateParameterConstraintsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetTemplateParameterConstraintsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->parametersKeyFilter)) {
-            $request->parametersKeyFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parametersKeyFilter, 'ParametersKeyFilter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parametersKeyFilter) {
+            $request->parametersKeyFilterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parametersKeyFilter, 'ParametersKeyFilter', 'json');
         }
-        if (!Utils::isUnset($tmpReq->parametersOrder)) {
-            $request->parametersOrderShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parametersOrder, 'ParametersOrder', 'json');
+
+        if (null !== $tmpReq->parametersOrder) {
+            $request->parametersOrderShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parametersOrder, 'ParametersOrder', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->parametersKeyFilterShrink)) {
-            $query['ParametersKeyFilter'] = $request->parametersKeyFilterShrink;
+
+        if (null !== $request->parametersKeyFilterShrink) {
+            @$query['ParametersKeyFilter'] = $request->parametersKeyFilterShrink;
         }
-        if (!Utils::isUnset($request->parametersOrderShrink)) {
-            $query['ParametersOrder'] = $request->parametersOrderShrink;
+
+        if (null !== $request->parametersOrderShrink) {
+            @$query['ParametersOrder'] = $request->parametersOrderShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateParameterConstraints',
@@ -3253,14 +3873,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the values of one or more parameters in a template.
-     *  *
-     * @description This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
-     * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
-     *  *
-     * @param GetTemplateParameterConstraintsRequest $request GetTemplateParameterConstraintsRequest
+     * Queries the values of one or more parameters in a template.
      *
-     * @return GetTemplateParameterConstraintsResponse GetTemplateParameterConstraintsResponse
+     * @remarks
+     * This topic provides an example on how to query the values of a parameter. In this example, the values of the `ZoneInfo` parameter in a template that is created in the China (Hangzhou) region are queried. The template body is `{"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}`.
+     * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
+     *
+     * @param request - GetTemplateParameterConstraintsRequest
+     * @returns GetTemplateParameterConstraintsResponse
+     *
+     * @param GetTemplateParameterConstraintsRequest $request
+     *
+     * @return GetTemplateParameterConstraintsResponse
      */
     public function getTemplateParameterConstraints($request)
     {
@@ -3270,40 +3894,51 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 推荐参数
-     *  *
-     * @param GetTemplateRecommendParametersRequest $request GetTemplateRecommendParametersRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * 推荐参数.
      *
-     * @return GetTemplateRecommendParametersResponse GetTemplateRecommendParametersResponse
+     * @param request - GetTemplateRecommendParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateRecommendParametersResponse
+     *
+     * @param GetTemplateRecommendParametersRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetTemplateRecommendParametersResponse
      */
     public function getTemplateRecommendParametersWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
+
+        if (null !== $request->templateBody) {
+            @$query['TemplateBody'] = $request->templateBody;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateRecommendParameters',
@@ -3321,11 +3956,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 推荐参数
-     *  *
-     * @param GetTemplateRecommendParametersRequest $request GetTemplateRecommendParametersRequest
+     * 推荐参数.
      *
-     * @return GetTemplateRecommendParametersResponse GetTemplateRecommendParametersResponse
+     * @param request - GetTemplateRecommendParametersRequest
+     * @returns GetTemplateRecommendParametersResponse
+     *
+     * @param GetTemplateRecommendParametersRequest $request
+     *
+     * @return GetTemplateRecommendParametersResponse
      */
     public function getTemplateRecommendParameters($request)
     {
@@ -3335,30 +3973,38 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a resource scenario.
-     *  *
-     * @description In this example, the details of the resource scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
-     *  *
-     * @param GetTemplateScratchRequest $request GetTemplateScratchRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the details of a resource scenario.
      *
-     * @return GetTemplateScratchResponse GetTemplateScratchResponse
+     * @remarks
+     * In this example, the details of the resource scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
+     *
+     * @param request - GetTemplateScratchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateScratchResponse
+     *
+     * @param GetTemplateScratchRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTemplateScratchResponse
      */
     public function getTemplateScratchWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->showDataOption)) {
-            $query['ShowDataOption'] = $request->showDataOption;
+
+        if (null !== $request->showDataOption) {
+            @$query['ShowDataOption'] = $request->showDataOption;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateScratch',
@@ -3376,13 +4022,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the details of a resource scenario.
-     *  *
-     * @description In this example, the details of the resource scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
-     *  *
-     * @param GetTemplateScratchRequest $request GetTemplateScratchRequest
+     * Queries the details of a resource scenario.
      *
-     * @return GetTemplateScratchResponse GetTemplateScratchResponse
+     * @remarks
+     * In this example, the details of the resource scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
+     *
+     * @param request - GetTemplateScratchRequest
+     * @returns GetTemplateScratchResponse
+     *
+     * @param GetTemplateScratchRequest $request
+     *
+     * @return GetTemplateScratchResponse
      */
     public function getTemplateScratch($request)
     {
@@ -3392,49 +4042,63 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a template resource by using the relevant template, stack, stack group, or change set.
-     *  *
-     * @param GetTemplateSummaryRequest $request GetTemplateSummaryRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about a template resource by using the relevant template, stack, stack group, or change set.
      *
-     * @return GetTemplateSummaryResponse GetTemplateSummaryResponse
+     * @param request - GetTemplateSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetTemplateSummaryResponse
+     *
+     * @param GetTemplateSummaryRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetTemplateSummaryResponse
      */
     public function getTemplateSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeSetId)) {
-            $query['ChangeSetId'] = $request->changeSetId;
+        if (null !== $request->changeSetId) {
+            @$query['ChangeSetId'] = $request->changeSetId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
+
+        if (null !== $request->templateBody) {
+            @$query['TemplateBody'] = $request->templateBody;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateSummary',
@@ -3452,11 +4116,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about a template resource by using the relevant template, stack, stack group, or change set.
-     *  *
-     * @param GetTemplateSummaryRequest $request GetTemplateSummaryRequest
+     * Queries the information about a template resource by using the relevant template, stack, stack group, or change set.
      *
-     * @return GetTemplateSummaryResponse GetTemplateSummaryResponse
+     * @param request - GetTemplateSummaryRequest
+     * @returns GetTemplateSummaryResponse
+     *
+     * @param GetTemplateSummaryRequest $request
+     *
+     * @return GetTemplateSummaryResponse
      */
     public function getTemplateSummary($request)
     {
@@ -3466,49 +4133,65 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ImportStacksToStackGroupRequest $tmpReq  ImportStacksToStackGroupRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Import stacks from multiple different accounts into a stack group.
      *
-     * @return ImportStacksToStackGroupResponse ImportStacksToStackGroupResponse
+     * @param tmpReq - ImportStacksToStackGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ImportStacksToStackGroupResponse
+     *
+     * @param ImportStacksToStackGroupRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ImportStacksToStackGroupResponse
      */
     public function importStacksToStackGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ImportStacksToStackGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->operationPreferences)) {
-            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->operationPreferences) {
+            $request->operationPreferencesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        if (!Utils::isUnset($tmpReq->resourceDirectoryFolderIds)) {
-            $request->resourceDirectoryFolderIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceDirectoryFolderIds, 'ResourceDirectoryFolderIds', 'json');
+
+        if (null !== $tmpReq->resourceDirectoryFolderIds) {
+            $request->resourceDirectoryFolderIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->resourceDirectoryFolderIds, 'ResourceDirectoryFolderIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->stackArns)) {
-            $request->stackArnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->stackArns, 'StackArns', 'json');
+
+        if (null !== $tmpReq->stackArns) {
+            $request->stackArnsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->stackArns, 'StackArns', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->operationDescription)) {
-            $query['OperationDescription'] = $request->operationDescription;
+
+        if (null !== $request->operationDescription) {
+            @$query['OperationDescription'] = $request->operationDescription;
         }
-        if (!Utils::isUnset($request->operationPreferencesShrink)) {
-            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+
+        if (null !== $request->operationPreferencesShrink) {
+            @$query['OperationPreferences'] = $request->operationPreferencesShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceDirectoryFolderIdsShrink)) {
-            $query['ResourceDirectoryFolderIds'] = $request->resourceDirectoryFolderIdsShrink;
+
+        if (null !== $request->resourceDirectoryFolderIdsShrink) {
+            @$query['ResourceDirectoryFolderIds'] = $request->resourceDirectoryFolderIdsShrink;
         }
-        if (!Utils::isUnset($request->stackArnsShrink)) {
-            $query['StackArns'] = $request->stackArnsShrink;
+
+        if (null !== $request->stackArnsShrink) {
+            @$query['StackArns'] = $request->stackArnsShrink;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ImportStacksToStackGroup',
@@ -3526,9 +4209,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param ImportStacksToStackGroupRequest $request ImportStacksToStackGroupRequest
+     * Import stacks from multiple different accounts into a stack group.
      *
-     * @return ImportStacksToStackGroupResponse ImportStacksToStackGroupResponse
+     * @param request - ImportStacksToStackGroupRequest
+     * @returns ImportStacksToStackGroupResponse
+     *
+     * @param ImportStacksToStackGroupRequest $request
+     *
+     * @return ImportStacksToStackGroupResponse
      */
     public function importStacksToStackGroup($request)
     {
@@ -3538,28 +4226,35 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定AITask事件列表
-     *  *
-     * @param ListAITaskEventsRequest $request ListAITaskEventsRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 获取指定AITask事件列表.
      *
-     * @return ListAITaskEventsResponse ListAITaskEventsResponse
+     * @param request - ListAITaskEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAITaskEventsResponse
+     *
+     * @param ListAITaskEventsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAITaskEventsResponse
      */
     public function listAITaskEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAITaskEvents',
@@ -3577,11 +4272,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 获取指定AITask事件列表
-     *  *
-     * @param ListAITaskEventsRequest $request ListAITaskEventsRequest
+     * 获取指定AITask事件列表.
      *
-     * @return ListAITaskEventsResponse ListAITaskEventsResponse
+     * @param request - ListAITaskEventsRequest
+     * @returns ListAITaskEventsResponse
+     *
+     * @param ListAITaskEventsRequest $request
+     *
+     * @return ListAITaskEventsResponse
      */
     public function listAITaskEvents($request)
     {
@@ -3591,31 +4289,39 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 查询AI任务列表
-     *  *
-     * @param ListAITasksRequest $request ListAITasksRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 查询AI任务列表.
      *
-     * @return ListAITasksResponse ListAITasksResponse
+     * @param request - ListAITasksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListAITasksResponse
+     *
+     * @param ListAITasksRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListAITasksResponse
      */
     public function listAITasksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $query['TaskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$query['TaskType'] = $request->taskType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListAITasks',
@@ -3633,11 +4339,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary 查询AI任务列表
-     *  *
-     * @param ListAITasksRequest $request ListAITasksRequest
+     * 查询AI任务列表.
      *
-     * @return ListAITasksResponse ListAITasksResponse
+     * @param request - ListAITasksRequest
+     * @returns ListAITasksResponse
+     *
+     * @param ListAITasksRequest $request
+     *
+     * @return ListAITasksResponse
      */
     public function listAITasks($request)
     {
@@ -3647,43 +4356,55 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries change sets.
-     *  *
-     * @param ListChangeSetsRequest $request ListChangeSetsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Queries change sets.
      *
-     * @return ListChangeSetsResponse ListChangeSetsResponse
+     * @param request - ListChangeSetsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListChangeSetsResponse
+     *
+     * @param ListChangeSetsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListChangeSetsResponse
      */
     public function listChangeSetsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->changeSetId)) {
-            $query['ChangeSetId'] = $request->changeSetId;
+        if (null !== $request->changeSetId) {
+            @$query['ChangeSetId'] = $request->changeSetId;
         }
-        if (!Utils::isUnset($request->changeSetName)) {
-            $query['ChangeSetName'] = $request->changeSetName;
+
+        if (null !== $request->changeSetName) {
+            @$query['ChangeSetName'] = $request->changeSetName;
         }
-        if (!Utils::isUnset($request->executionStatus)) {
-            $query['ExecutionStatus'] = $request->executionStatus;
+
+        if (null !== $request->executionStatus) {
+            @$query['ExecutionStatus'] = $request->executionStatus;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListChangeSets',
@@ -3701,11 +4422,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries change sets.
-     *  *
-     * @param ListChangeSetsRequest $request ListChangeSetsRequest
+     * Queries change sets.
      *
-     * @return ListChangeSetsResponse ListChangeSetsResponse
+     * @param request - ListChangeSetsRequest
+     * @returns ListChangeSetsResponse
+     *
+     * @param ListChangeSetsRequest $request
+     *
+     * @return ListChangeSetsResponse
      */
     public function listChangeSets($request)
     {
@@ -3715,34 +4439,43 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a diagnostic report.
-     *  *
-     * @param ListDiagnosticsRequest $request ListDiagnosticsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a diagnostic report.
      *
-     * @return ListDiagnosticsResponse ListDiagnosticsResponse
+     * @param request - ListDiagnosticsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListDiagnosticsResponse
+     *
+     * @param ListDiagnosticsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListDiagnosticsResponse
      */
     public function listDiagnosticsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->diagnosticKey)) {
-            $query['DiagnosticKey'] = $request->diagnosticKey;
+        if (null !== $request->diagnosticKey) {
+            @$query['DiagnosticKey'] = $request->diagnosticKey;
         }
-        if (!Utils::isUnset($request->diagnosticProduct)) {
-            $query['DiagnosticProduct'] = $request->diagnosticProduct;
+
+        if (null !== $request->diagnosticProduct) {
+            @$query['DiagnosticProduct'] = $request->diagnosticProduct;
         }
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListDiagnostics',
@@ -3760,11 +4493,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a diagnostic report.
-     *  *
-     * @param ListDiagnosticsRequest $request ListDiagnosticsRequest
+     * Queries a diagnostic report.
      *
-     * @return ListDiagnosticsResponse ListDiagnosticsResponse
+     * @param request - ListDiagnosticsRequest
+     * @returns ListDiagnosticsResponse
+     *
+     * @param ListDiagnosticsRequest $request
+     *
+     * @return ListDiagnosticsResponse
      */
     public function listDiagnostics($request)
     {
@@ -3774,37 +4510,47 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the registration records of a resource.
-     *  *
-     * @param ListResourceTypeRegistrationsRequest $request ListResourceTypeRegistrationsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * Queries the registration records of a resource.
      *
-     * @return ListResourceTypeRegistrationsResponse ListResourceTypeRegistrationsResponse
+     * @param request - ListResourceTypeRegistrationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceTypeRegistrationsResponse
+     *
+     * @param ListResourceTypeRegistrationsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListResourceTypeRegistrationsResponse
      */
     public function listResourceTypeRegistrationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->registrationId)) {
-            $query['RegistrationId'] = $request->registrationId;
+
+        if (null !== $request->registrationId) {
+            @$query['RegistrationId'] = $request->registrationId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourceTypeRegistrations',
@@ -3822,11 +4568,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the registration records of a resource.
-     *  *
-     * @param ListResourceTypeRegistrationsRequest $request ListResourceTypeRegistrationsRequest
+     * Queries the registration records of a resource.
      *
-     * @return ListResourceTypeRegistrationsResponse ListResourceTypeRegistrationsResponse
+     * @param request - ListResourceTypeRegistrationsRequest
+     * @returns ListResourceTypeRegistrationsResponse
+     *
+     * @param ListResourceTypeRegistrationsRequest $request
+     *
+     * @return ListResourceTypeRegistrationsResponse
      */
     public function listResourceTypeRegistrations($request)
     {
@@ -3836,22 +4585,27 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
-     *  *
-     * @param ListResourceTypeVersionsRequest $request ListResourceTypeVersionsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
      *
-     * @return ListResourceTypeVersionsResponse ListResourceTypeVersionsResponse
+     * @param request - ListResourceTypeVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceTypeVersionsResponse
+     *
+     * @param ListResourceTypeVersionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListResourceTypeVersionsResponse
      */
     public function listResourceTypeVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourceTypeVersions',
@@ -3869,11 +4623,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
-     *  *
-     * @param ListResourceTypeVersionsRequest $request ListResourceTypeVersionsRequest
+     * Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
      *
-     * @return ListResourceTypeVersionsResponse ListResourceTypeVersionsResponse
+     * @param request - ListResourceTypeVersionsRequest
+     * @returns ListResourceTypeVersionsResponse
+     *
+     * @param ListResourceTypeVersionsRequest $request
+     *
+     * @return ListResourceTypeVersionsResponse
      */
     public function listResourceTypeVersions($request)
     {
@@ -3883,30 +4640,38 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
-     *  *
-     * @description For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
-     *  *
-     * @param ListResourceTypesRequest $request ListResourceTypesRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
      *
-     * @return ListResourceTypesResponse ListResourceTypesResponse
+     * @remarks
+     * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
+     *
+     * @param request - ListResourceTypesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListResourceTypesResponse
+     *
+     * @param ListResourceTypesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListResourceTypesResponse
      */
     public function listResourceTypesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->provider)) {
-            $query['Provider'] = $request->provider;
+
+        if (null !== $request->provider) {
+            @$query['Provider'] = $request->provider;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListResourceTypes',
@@ -3924,13 +4689,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
-     *  *
-     * @description For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
-     *  *
-     * @param ListResourceTypesRequest $request ListResourceTypesRequest
+     * This topic provides an example on how to query the list of resource types supported by Resource Orchestration Service (ROS).
      *
-     * @return ListResourceTypesResponse ListResourceTypesResponse
+     * @remarks
+     * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
+     *
+     * @param request - ListResourceTypesRequest
+     * @returns ListResourceTypesResponse
+     *
+     * @param ListResourceTypesRequest $request
+     *
+     * @return ListResourceTypesResponse
      */
     public function listResourceTypes($request)
     {
@@ -3940,40 +4709,51 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a stack and the resource events of the stack.
-     *  *
-     * @param ListStackEventsRequest $request ListStackEventsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a stack and the resource events of the stack.
      *
-     * @return ListStackEventsResponse ListStackEventsResponse
+     * @param request - ListStackEventsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStackEventsResponse
+     *
+     * @param ListStackEventsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListStackEventsResponse
      */
     public function listStackEventsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->logicalResourceId)) {
-            $query['LogicalResourceId'] = $request->logicalResourceId;
+        if (null !== $request->logicalResourceId) {
+            @$query['LogicalResourceId'] = $request->logicalResourceId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStackEvents',
@@ -3991,11 +4771,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a stack and the resource events of the stack.
-     *  *
-     * @param ListStackEventsRequest $request ListStackEventsRequest
+     * Queries a stack and the resource events of the stack.
      *
-     * @return ListStackEventsResponse ListStackEventsResponse
+     * @param request - ListStackEventsRequest
+     * @returns ListStackEventsResponse
+     *
+     * @param ListStackEventsRequest $request
+     *
+     * @return ListStackEventsResponse
      */
     public function listStackEvents($request)
     {
@@ -4005,33 +4788,42 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the results of an operation on a stack group.
-     *  *
-     * @description In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
-     *  *
-     * @param ListStackGroupOperationResultsRequest $request ListStackGroupOperationResultsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Queries the results of an operation on a stack group.
      *
-     * @return ListStackGroupOperationResultsResponse ListStackGroupOperationResultsResponse
+     * @remarks
+     * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     *
+     * @param request - ListStackGroupOperationResultsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStackGroupOperationResultsResponse
+     *
+     * @param ListStackGroupOperationResultsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListStackGroupOperationResultsResponse
      */
     public function listStackGroupOperationResultsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->operationId)) {
-            $query['OperationId'] = $request->operationId;
+        if (null !== $request->operationId) {
+            @$query['OperationId'] = $request->operationId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStackGroupOperationResults',
@@ -4049,13 +4841,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the results of an operation on a stack group.
-     *  *
-     * @description In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
-     *  *
-     * @param ListStackGroupOperationResultsRequest $request ListStackGroupOperationResultsRequest
+     * Queries the results of an operation on a stack group.
      *
-     * @return ListStackGroupOperationResultsResponse ListStackGroupOperationResultsResponse
+     * @remarks
+     * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
+     *
+     * @param request - ListStackGroupOperationResultsRequest
+     * @returns ListStackGroupOperationResultsResponse
+     *
+     * @param ListStackGroupOperationResultsRequest $request
+     *
+     * @return ListStackGroupOperationResultsResponse
      */
     public function listStackGroupOperationResults($request)
     {
@@ -4065,31 +4861,39 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about stack group operations in an Alibaba Cloud region.
-     *  *
-     * @param ListStackGroupOperationsRequest $request ListStackGroupOperationsRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * Queries the information about stack group operations in an Alibaba Cloud region.
      *
-     * @return ListStackGroupOperationsResponse ListStackGroupOperationsResponse
+     * @param request - ListStackGroupOperationsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStackGroupOperationsResponse
+     *
+     * @param ListStackGroupOperationsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListStackGroupOperationsResponse
      */
     public function listStackGroupOperationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStackGroupOperations',
@@ -4107,11 +4911,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the information about stack group operations in an Alibaba Cloud region.
-     *  *
-     * @param ListStackGroupOperationsRequest $request ListStackGroupOperationsRequest
+     * Queries the information about stack group operations in an Alibaba Cloud region.
      *
-     * @return ListStackGroupOperationsResponse ListStackGroupOperationsResponse
+     * @param request - ListStackGroupOperationsRequest
+     * @returns ListStackGroupOperationsResponse
+     *
+     * @param ListStackGroupOperationsRequest $request
+     *
+     * @return ListStackGroupOperationsResponse
      */
     public function listStackGroupOperations($request)
     {
@@ -4121,39 +4928,50 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of stack groups in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
-     *  *
-     * @param ListStackGroupsRequest $request ListStackGroupsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Queries a list of stack groups in an Alibaba Cloud region.
      *
-     * @return ListStackGroupsResponse ListStackGroupsResponse
+     * @remarks
+     * In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
+     *
+     * @param request - ListStackGroupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStackGroupsResponse
+     *
+     * @param ListStackGroupsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListStackGroupsResponse
      */
     public function listStackGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStackGroups',
@@ -4171,13 +4989,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of stack groups in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
-     *  *
-     * @param ListStackGroupsRequest $request ListStackGroupsRequest
+     * Queries a list of stack groups in an Alibaba Cloud region.
      *
-     * @return ListStackGroupsResponse ListStackGroupsResponse
+     * @remarks
+     * In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
+     *
+     * @param request - ListStackGroupsRequest
+     * @returns ListStackGroupsResponse
+     *
+     * @param ListStackGroupsRequest $request
+     *
+     * @return ListStackGroupsResponse
      */
     public function listStackGroups($request)
     {
@@ -4187,39 +5009,50 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of stack instances that are associated with a stack group in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *  *
-     * @param ListStackInstancesRequest $request ListStackInstancesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the list of stack instances that are associated with a stack group in an Alibaba Cloud region.
      *
-     * @return ListStackInstancesResponse ListStackInstancesResponse
+     * @remarks
+     * In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *
+     * @param request - ListStackInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStackInstancesResponse
+     *
+     * @param ListStackInstancesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListStackInstancesResponse
      */
     public function listStackInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
-        if (!Utils::isUnset($request->stackInstanceAccountId)) {
-            $query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
+
+        if (null !== $request->stackInstanceAccountId) {
+            @$query['StackInstanceAccountId'] = $request->stackInstanceAccountId;
         }
-        if (!Utils::isUnset($request->stackInstanceRegionId)) {
-            $query['StackInstanceRegionId'] = $request->stackInstanceRegionId;
+
+        if (null !== $request->stackInstanceRegionId) {
+            @$query['StackInstanceRegionId'] = $request->stackInstanceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStackInstances',
@@ -4237,13 +5070,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of stack instances that are associated with a stack group in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
-     *  *
-     * @param ListStackInstancesRequest $request ListStackInstancesRequest
+     * Queries the list of stack instances that are associated with a stack group in an Alibaba Cloud region.
      *
-     * @return ListStackInstancesResponse ListStackInstancesResponse
+     * @remarks
+     * In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
+     *
+     * @param request - ListStackInstancesRequest
+     * @returns ListStackInstancesResponse
+     *
+     * @param ListStackInstancesRequest $request
+     *
+     * @return ListStackInstancesResponse
      */
     public function listStackInstances($request)
     {
@@ -4253,58 +5090,74 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Detects stack-related operation risks and returns missing permissions and the causes of the risks.
-     *  *
-     * @description The ListStackOperationRisks operation is suitable for the following scenarios:
+     * Detects stack-related operation risks and returns missing permissions and the causes of the risks.
+     *
+     * @remarks
+     * The ListStackOperationRisks operation is suitable for the following scenarios:
      * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
      * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
-     *  *
-     * @param ListStackOperationRisksRequest $request ListStackOperationRisksRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListStackOperationRisksResponse ListStackOperationRisksResponse
+     * @param request - ListStackOperationRisksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStackOperationRisksResponse
+     *
+     * @param ListStackOperationRisksRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListStackOperationRisksResponse
      */
     public function listStackOperationRisksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->operationType)) {
-            $query['OperationType'] = $request->operationType;
+
+        if (null !== $request->operationType) {
+            @$query['OperationType'] = $request->operationType;
         }
-        if (!Utils::isUnset($request->ramRoleName)) {
-            $query['RamRoleName'] = $request->ramRoleName;
+
+        if (null !== $request->ramRoleName) {
+            @$query['RamRoleName'] = $request->ramRoleName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->retainAllResources)) {
-            $query['RetainAllResources'] = $request->retainAllResources;
+
+        if (null !== $request->retainAllResources) {
+            @$query['RetainAllResources'] = $request->retainAllResources;
         }
-        if (!Utils::isUnset($request->retainResources)) {
-            $query['RetainResources'] = $request->retainResources;
+
+        if (null !== $request->retainResources) {
+            @$query['RetainResources'] = $request->retainResources;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ListStackOperationRisks',
@@ -4322,15 +5175,19 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Detects stack-related operation risks and returns missing permissions and the causes of the risks.
-     *  *
-     * @description The ListStackOperationRisks operation is suitable for the following scenarios:
+     * Detects stack-related operation risks and returns missing permissions and the causes of the risks.
+     *
+     * @remarks
+     * The ListStackOperationRisks operation is suitable for the following scenarios:
      * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
      * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
-     *  *
-     * @param ListStackOperationRisksRequest $request ListStackOperationRisksRequest
      *
-     * @return ListStackOperationRisksResponse ListStackOperationRisksResponse
+     * @param request - ListStackOperationRisksRequest
+     * @returns ListStackOperationRisksResponse
+     *
+     * @param ListStackOperationRisksRequest $request
+     *
+     * @return ListStackOperationRisksResponse
      */
     public function listStackOperationRisks($request)
     {
@@ -4340,34 +5197,43 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary The query token. Set this parameter to the NextToken value returned in the last API call.
-     *  *
-     * @param ListStackResourceDriftsRequest $request ListStackResourceDriftsRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * The query token. Set this parameter to the NextToken value returned in the last API call.
      *
-     * @return ListStackResourceDriftsResponse ListStackResourceDriftsResponse
+     * @param request - ListStackResourceDriftsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStackResourceDriftsResponse
+     *
+     * @param ListStackResourceDriftsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListStackResourceDriftsResponse
      */
     public function listStackResourceDriftsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceDriftStatus)) {
-            $query['ResourceDriftStatus'] = $request->resourceDriftStatus;
+
+        if (null !== $request->resourceDriftStatus) {
+            @$query['ResourceDriftStatus'] = $request->resourceDriftStatus;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStackResourceDrifts',
@@ -4385,11 +5251,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary The query token. Set this parameter to the NextToken value returned in the last API call.
-     *  *
-     * @param ListStackResourceDriftsRequest $request ListStackResourceDriftsRequest
+     * The query token. Set this parameter to the NextToken value returned in the last API call.
      *
-     * @return ListStackResourceDriftsResponse ListStackResourceDriftsResponse
+     * @param request - ListStackResourceDriftsRequest
+     * @returns ListStackResourceDriftsResponse
+     *
+     * @param ListStackResourceDriftsRequest $request
+     *
+     * @return ListStackResourceDriftsResponse
      */
     public function listStackResourceDrifts($request)
     {
@@ -4399,27 +5268,34 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
-     *  *
-     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
-     *  *
-     * @param ListStackResourcesRequest $request ListStackResourcesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
      *
-     * @return ListStackResourcesResponse ListStackResourcesResponse
+     * @remarks
+     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *
+     * @param request - ListStackResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStackResourcesResponse
+     *
+     * @param ListStackResourcesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListStackResourcesResponse
      */
     public function listStackResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStackResources',
@@ -4437,13 +5313,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
-     *  *
-     * @description For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
-     *  *
-     * @param ListStackResourcesRequest $request ListStackResourcesRequest
+     * This topic provides an example on how to query the resources in a specified stack. In this example, the resources in the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Hangzhou) region are queried.
      *
-     * @return ListStackResourcesResponse ListStackResourcesResponse
+     * @remarks
+     * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
+     *
+     * @param request - ListStackResourcesRequest
+     * @returns ListStackResourcesResponse
+     *
+     * @param ListStackResourcesRequest $request
+     *
+     * @return ListStackResourcesResponse
      */
     public function listStackResources($request)
     {
@@ -4453,61 +5333,79 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of stacks.
-     *  *
-     * @description ###
-     * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
-     *  *
-     * @param ListStacksRequest $request ListStacksRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * Queries a list of stacks.
      *
-     * @return ListStacksResponse ListStacksResponse
+     * @remarks
+     * ###
+     * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+     *
+     * @param request - ListStacksRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListStacksResponse
+     *
+     * @param ListStacksRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListStacksResponse
      */
     public function listStacksWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
+        if (null !== $request->endTime) {
+            @$query['EndTime'] = $request->endTime;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->parentStackId)) {
-            $query['ParentStackId'] = $request->parentStackId;
+
+        if (null !== $request->parentStackId) {
+            @$query['ParentStackId'] = $request->parentStackId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->showNestedStack)) {
-            $query['ShowNestedStack'] = $request->showNestedStack;
+
+        if (null !== $request->showNestedStack) {
+            @$query['ShowNestedStack'] = $request->showNestedStack;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->stackIds)) {
-            $query['StackIds'] = $request->stackIds;
+
+        if (null !== $request->stackIds) {
+            @$query['StackIds'] = $request->stackIds;
         }
-        if (!Utils::isUnset($request->stackName)) {
-            $query['StackName'] = $request->stackName;
+
+        if (null !== $request->stackName) {
+            @$query['StackName'] = $request->stackName;
         }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
+
+        if (null !== $request->startTime) {
+            @$query['StartTime'] = $request->startTime;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListStacks',
@@ -4525,14 +5423,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of stacks.
-     *  *
-     * @description ###
-     * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
-     *  *
-     * @param ListStacksRequest $request ListStacksRequest
+     * Queries a list of stacks.
      *
-     * @return ListStacksResponse ListStacksResponse
+     * @remarks
+     * ###
+     * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
+     *
+     * @param request - ListStacksRequest
+     * @returns ListStacksResponse
+     *
+     * @param ListStacksRequest $request
+     *
+     * @return ListStacksResponse
      */
     public function listStacks($request)
     {
@@ -4542,30 +5444,38 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @remarks
+     * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
+     *
+     * @param request - ListTagKeysRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagKeys',
@@ -4583,13 +5493,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
-     *  *
-     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * Queries the tag keys that are added to resources in a template or stack in an Alibaba Cloud region.
      *
-     * @return ListTagKeysResponse ListTagKeysResponse
+     * @remarks
+     * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
+     *
+     * @param request - ListTagKeysRequest
+     * @returns ListTagKeysResponse
+     *
+     * @param ListTagKeysRequest $request
+     *
+     * @return ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -4599,39 +5513,49 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are added to resources in a template or stack in an Alibaba Cloud region.
-     *  *
-     * @description ###
+     * Queries the tags that are added to resources in a template or stack in an Alibaba Cloud region.
+     *
+     * @remarks
+     * ###
      * *   To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
      * *   If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
      * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagResources',
@@ -4649,16 +5573,20 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tags that are added to resources in a template or stack in an Alibaba Cloud region.
-     *  *
-     * @description ###
+     * Queries the tags that are added to resources in a template or stack in an Alibaba Cloud region.
+     *
+     * @remarks
+     * ###
      * *   To specify the query object, specify ResourceId or Tag in the request. Tag consists of Key and Value.
      * *   If you specify Tag and ResourceId, ROS resources that match both the parameters are returned.
      * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
-     *  *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @param request - ListTagResourcesRequest
+     * @returns ListTagResourcesResponse
+     *
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4668,33 +5596,42 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag values that are added to resources in a template or stack in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
-     *  *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries the tag values that are added to resources in a template or stack in an Alibaba Cloud region.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @remarks
+     * In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
+     *
+     * @param request - ListTagValuesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->key)) {
-            $query['Key'] = $request->key;
+        if (null !== $request->key) {
+            @$query['Key'] = $request->key;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTagValues',
@@ -4712,13 +5649,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the tag values that are added to resources in a template or stack in an Alibaba Cloud region.
-     *  *
-     * @description In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
-     *  *
-     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * Queries the tag values that are added to resources in a template or stack in an Alibaba Cloud region.
      *
-     * @return ListTagValuesResponse ListTagValuesResponse
+     * @remarks
+     * In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
+     *
+     * @param request - ListTagValuesRequest
+     * @returns ListTagValuesResponse
+     *
+     * @param ListTagValuesRequest $request
+     *
+     * @return ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -4728,45 +5669,58 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries scenarios.
-     *  *
-     * @description In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
-     *  *
-     * @param ListTemplateScratchesRequest $request ListTemplateScratchesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries scenarios.
      *
-     * @return ListTemplateScratchesResponse ListTemplateScratchesResponse
+     * @remarks
+     * In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
+     *
+     * @param request - ListTemplateScratchesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTemplateScratchesResponse
+     *
+     * @param ListTemplateScratchesRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListTemplateScratchesResponse
      */
     public function listTemplateScratchesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
-        if (!Utils::isUnset($request->templateScratchType)) {
-            $query['TemplateScratchType'] = $request->templateScratchType;
+
+        if (null !== $request->templateScratchType) {
+            @$query['TemplateScratchType'] = $request->templateScratchType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTemplateScratches',
@@ -4784,13 +5738,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries scenarios.
-     *  *
-     * @description In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
-     *  *
-     * @param ListTemplateScratchesRequest $request ListTemplateScratchesRequest
+     * Queries scenarios.
      *
-     * @return ListTemplateScratchesResponse ListTemplateScratchesResponse
+     * @remarks
+     * In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
+     *
+     * @param request - ListTemplateScratchesRequest
+     * @returns ListTemplateScratchesResponse
+     *
+     * @param ListTemplateScratchesRequest $request
+     *
+     * @return ListTemplateScratchesResponse
      */
     public function listTemplateScratches($request)
     {
@@ -4800,28 +5758,35 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of versions of a template.
-     *  *
-     * @param ListTemplateVersionsRequest $request ListTemplateVersionsRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Queries the list of versions of a template.
      *
-     * @return ListTemplateVersionsResponse ListTemplateVersionsResponse
+     * @param request - ListTemplateVersionsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTemplateVersionsResponse
+     *
+     * @param ListTemplateVersionsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListTemplateVersionsResponse
      */
     public function listTemplateVersionsWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->maxResults)) {
-            $query['MaxResults'] = $request->maxResults;
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
         }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTemplateVersions',
@@ -4839,11 +5804,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries the list of versions of a template.
-     *  *
-     * @param ListTemplateVersionsRequest $request ListTemplateVersionsRequest
+     * Queries the list of versions of a template.
      *
-     * @return ListTemplateVersionsResponse ListTemplateVersionsResponse
+     * @param request - ListTemplateVersionsRequest
+     * @returns ListTemplateVersionsResponse
+     *
+     * @param ListTemplateVersionsRequest $request
+     *
+     * @return ListTemplateVersionsResponse
      */
     public function listTemplateVersions($request)
     {
@@ -4853,40 +5821,55 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of private or shared templates.
-     *  *
-     * @param ListTemplatesRequest $request ListTemplatesRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Queries a list of private or shared templates.
      *
-     * @return ListTemplatesResponse ListTemplatesResponse
+     * @param request - ListTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListTemplatesResponse
      */
     public function listTemplatesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->includeTags)) {
-            $query['IncludeTags'] = $request->includeTags;
+        if (null !== $request->filters) {
+            @$query['Filters'] = $request->filters;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
+
+        if (null !== $request->includeTags) {
+            @$query['IncludeTags'] = $request->includeTags;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->shareType)) {
-            $query['ShareType'] = $request->shareType;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->shareType) {
+            @$query['ShareType'] = $request->shareType;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'ListTemplates',
@@ -4904,11 +5887,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Queries a list of private or shared templates.
-     *  *
-     * @param ListTemplatesRequest $request ListTemplatesRequest
+     * Queries a list of private or shared templates.
      *
-     * @return ListTemplatesResponse ListTemplatesResponse
+     * @param request - ListTemplatesRequest
+     * @returns ListTemplatesResponse
+     *
+     * @param ListTemplatesRequest $request
+     *
+     * @return ListTemplatesResponse
      */
     public function listTemplates($request)
     {
@@ -4918,33 +5904,42 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Moves a resource to a specific resource group.
-     *  *
-     * @description In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * Moves a resource to a specific resource group.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @remarks
+     * In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
+     *
+     * @param request - MoveResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->newResourceGroupId)) {
-            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'MoveResourceGroup',
@@ -4962,13 +5957,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Moves a resource to a specific resource group.
-     *  *
-     * @description In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
-     *  *
-     * @param MoveResourceGroupRequest $request MoveResourceGroupRequest
+     * Moves a resource to a specific resource group.
      *
-     * @return MoveResourceGroupResponse MoveResourceGroupResponse
+     * @remarks
+     * In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
+     *
+     * @param request - MoveResourceGroupRequest
+     * @returns MoveResourceGroupResponse
+     *
+     * @param MoveResourceGroupRequest $request
+     *
+     * @return MoveResourceGroupResponse
      */
     public function moveResourceGroup($request)
     {
@@ -4978,74 +5977,96 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Previews the information about a stack that you want to create based on a template. You can call this operation to verify whether the template resources are valid.
-     *  *
-     * @description This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *  *
-     * @param PreviewStackRequest $request PreviewStackRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Previews the information about a stack that you want to create based on a template. You can call this operation to verify whether the template resources are valid.
      *
-     * @return PreviewStackResponse PreviewStackResponse
+     * @remarks
+     * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     *
+     * @param request - PreviewStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns PreviewStackResponse
+     *
+     * @param PreviewStackRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return PreviewStackResponse
      */
     public function previewStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->disableRollback)) {
-            $query['DisableRollback'] = $request->disableRollback;
+
+        if (null !== $request->disableRollback) {
+            @$query['DisableRollback'] = $request->disableRollback;
         }
-        if (!Utils::isUnset($request->enablePreConfig)) {
-            $query['EnablePreConfig'] = $request->enablePreConfig;
+
+        if (null !== $request->enablePreConfig) {
+            @$query['EnablePreConfig'] = $request->enablePreConfig;
         }
-        if (!Utils::isUnset($request->parallelism)) {
-            $query['Parallelism'] = $request->parallelism;
+
+        if (null !== $request->parallelism) {
+            @$query['Parallelism'] = $request->parallelism;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->stackName)) {
-            $query['StackName'] = $request->stackName;
+
+        if (null !== $request->stackName) {
+            @$query['StackName'] = $request->stackName;
         }
-        if (!Utils::isUnset($request->stackPolicyBody)) {
-            $query['StackPolicyBody'] = $request->stackPolicyBody;
+
+        if (null !== $request->stackPolicyBody) {
+            @$query['StackPolicyBody'] = $request->stackPolicyBody;
         }
-        if (!Utils::isUnset($request->stackPolicyURL)) {
-            $query['StackPolicyURL'] = $request->stackPolicyURL;
+
+        if (null !== $request->stackPolicyURL) {
+            @$query['StackPolicyURL'] = $request->stackPolicyURL;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
-        if (!Utils::isUnset($request->templateScratchRegionId)) {
-            $query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
+
+        if (null !== $request->templateScratchRegionId) {
+            @$query['TemplateScratchRegionId'] = $request->templateScratchRegionId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+
+        if (null !== $request->timeoutInMinutes) {
+            @$query['TimeoutInMinutes'] = $request->timeoutInMinutes;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'PreviewStack',
@@ -5063,13 +6084,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Previews the information about a stack that you want to create based on a template. You can call this operation to verify whether the template resources are valid.
-     *  *
-     * @description This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
-     *  *
-     * @param PreviewStackRequest $request PreviewStackRequest
+     * Previews the information about a stack that you want to create based on a template. You can call this operation to verify whether the template resources are valid.
      *
-     * @return PreviewStackResponse PreviewStackResponse
+     * @remarks
+     * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
+     *
+     * @param request - PreviewStackRequest
+     * @returns PreviewStackResponse
+     *
+     * @param PreviewStackRequest $request
+     *
+     * @return PreviewStackResponse
      */
     public function previewStack($request)
     {
@@ -5079,42 +6104,53 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a new resource type, or creates a new version for an existing resource type.
-     *  *
-     * @description *   Versions increase from v1.
-     * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
-     *  *
-     * @param RegisterResourceTypeRequest $request RegisterResourceTypeRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Creates a new resource type, or creates a new version for an existing resource type.
      *
-     * @return RegisterResourceTypeResponse RegisterResourceTypeResponse
+     * @remarks
+     *   Versions increase from v1.
+     * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+     *
+     * @param request - RegisterResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RegisterResourceTypeResponse
+     *
+     * @param RegisterResourceTypeRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return RegisterResourceTypeResponse
      */
     public function registerResourceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->entityType)) {
-            $query['EntityType'] = $request->entityType;
+
+        if (null !== $request->entityType) {
+            @$query['EntityType'] = $request->entityType;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RegisterResourceType',
@@ -5132,14 +6168,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates a new resource type, or creates a new version for an existing resource type.
-     *  *
-     * @description *   Versions increase from v1.
-     * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
-     *  *
-     * @param RegisterResourceTypeRequest $request RegisterResourceTypeRequest
+     * Creates a new resource type, or creates a new version for an existing resource type.
      *
-     * @return RegisterResourceTypeResponse RegisterResourceTypeResponse
+     * @remarks
+     *   Versions increase from v1.
+     * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
+     *
+     * @param request - RegisterResourceTypeRequest
+     * @returns RegisterResourceTypeResponse
+     *
+     * @param RegisterResourceTypeRequest $request
+     *
+     * @return RegisterResourceTypeResponse
      */
     public function registerResourceType($request)
     {
@@ -5149,26 +6189,33 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param SetDeletionProtectionRequest $request SetDeletionProtectionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param request - SetDeletionProtectionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetDeletionProtectionResponse
      *
-     * @return SetDeletionProtectionResponse SetDeletionProtectionResponse
+     * @param SetDeletionProtectionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetDeletionProtectionResponse
      */
     public function setDeletionProtectionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->deletionProtection)) {
-            $query['DeletionProtection'] = $request->deletionProtection;
+        if (null !== $request->deletionProtection) {
+            @$query['DeletionProtection'] = $request->deletionProtection;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetDeletionProtection',
@@ -5186,9 +6233,12 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @param SetDeletionProtectionRequest $request SetDeletionProtectionRequest
+     * @param request - SetDeletionProtectionRequest
+     * @returns SetDeletionProtectionResponse
      *
-     * @return SetDeletionProtectionResponse SetDeletionProtectionResponse
+     * @param SetDeletionProtectionRequest $request
+     *
+     * @return SetDeletionProtectionResponse
      */
     public function setDeletionProtection($request)
     {
@@ -5198,31 +6248,39 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a resource type or a version of a resource type.
-     *  *
-     * @param SetResourceTypeRequest $request SetResourceTypeRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Modifies a resource type or a version of a resource type.
      *
-     * @return SetResourceTypeResponse SetResourceTypeResponse
+     * @param request - SetResourceTypeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetResourceTypeResponse
+     *
+     * @param SetResourceTypeRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return SetResourceTypeResponse
      */
     public function setResourceTypeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->defaultVersionId)) {
-            $query['DefaultVersionId'] = $request->defaultVersionId;
+        if (null !== $request->defaultVersionId) {
+            @$query['DefaultVersionId'] = $request->defaultVersionId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->versionId)) {
-            $query['VersionId'] = $request->versionId;
+
+        if (null !== $request->versionId) {
+            @$query['VersionId'] = $request->versionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetResourceType',
@@ -5240,11 +6298,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Modifies a resource type or a version of a resource type.
-     *  *
-     * @param SetResourceTypeRequest $request SetResourceTypeRequest
+     * Modifies a resource type or a version of a resource type.
      *
-     * @return SetResourceTypeResponse SetResourceTypeResponse
+     * @param request - SetResourceTypeRequest
+     * @returns SetResourceTypeResponse
+     *
+     * @param SetResourceTypeRequest $request
+     *
+     * @return SetResourceTypeResponse
      */
     public function setResourceType($request)
     {
@@ -5254,33 +6315,42 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to configure a stack policy.
-     *  *
-     * @description In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
-     *  *
-     * @param SetStackPolicyRequest $request SetStackPolicyRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * You can call this operation to configure a stack policy.
      *
-     * @return SetStackPolicyResponse SetStackPolicyResponse
+     * @remarks
+     * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
+     *
+     * @param request - SetStackPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetStackPolicyResponse
+     *
+     * @param SetStackPolicyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SetStackPolicyResponse
      */
     public function setStackPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->stackPolicyBody)) {
-            $query['StackPolicyBody'] = $request->stackPolicyBody;
+
+        if (null !== $request->stackPolicyBody) {
+            @$query['StackPolicyBody'] = $request->stackPolicyBody;
         }
-        if (!Utils::isUnset($request->stackPolicyURL)) {
-            $query['StackPolicyURL'] = $request->stackPolicyURL;
+
+        if (null !== $request->stackPolicyURL) {
+            @$query['StackPolicyURL'] = $request->stackPolicyURL;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetStackPolicy',
@@ -5298,13 +6368,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary You can call this operation to configure a stack policy.
-     *  *
-     * @description In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
-     *  *
-     * @param SetStackPolicyRequest $request SetStackPolicyRequest
+     * You can call this operation to configure a stack policy.
      *
-     * @return SetStackPolicyResponse SetStackPolicyResponse
+     * @remarks
+     * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
+     *
+     * @param request - SetStackPolicyRequest
+     * @returns SetStackPolicyResponse
+     *
+     * @param SetStackPolicyRequest $request
+     *
+     * @return SetStackPolicyResponse
      */
     public function setStackPolicy($request)
     {
@@ -5314,37 +6388,47 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Shares or unshares a template.
-     *  *
-     * @description In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account. The ID of the Alibaba Cloud account is `151266687691****`.
-     * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
-     *  *
-     * @param SetTemplatePermissionRequest $request SetTemplatePermissionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Shares or unshares a template.
      *
-     * @return SetTemplatePermissionResponse SetTemplatePermissionResponse
+     * @remarks
+     * In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account. The ID of the Alibaba Cloud account is `151266687691****`.
+     * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
+     *
+     * @param request - SetTemplatePermissionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SetTemplatePermissionResponse
+     *
+     * @param SetTemplatePermissionRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return SetTemplatePermissionResponse
      */
     public function setTemplatePermissionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->accountIds)) {
-            $query['AccountIds'] = $request->accountIds;
+        if (null !== $request->accountIds) {
+            @$query['AccountIds'] = $request->accountIds;
         }
-        if (!Utils::isUnset($request->shareOption)) {
-            $query['ShareOption'] = $request->shareOption;
+
+        if (null !== $request->shareOption) {
+            @$query['ShareOption'] = $request->shareOption;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
-        if (!Utils::isUnset($request->versionOption)) {
-            $query['VersionOption'] = $request->versionOption;
+
+        if (null !== $request->versionOption) {
+            @$query['VersionOption'] = $request->versionOption;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SetTemplatePermission',
@@ -5362,14 +6446,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Shares or unshares a template.
-     *  *
-     * @description In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account. The ID of the Alibaba Cloud account is `151266687691****`.
-     * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
-     *  *
-     * @param SetTemplatePermissionRequest $request SetTemplatePermissionRequest
+     * Shares or unshares a template.
      *
-     * @return SetTemplatePermissionResponse SetTemplatePermissionResponse
+     * @remarks
+     * In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is shared with an Alibaba Cloud account. The ID of the Alibaba Cloud account is `151266687691****`.
+     * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
+     *
+     * @param request - SetTemplatePermissionRequest
+     * @returns SetTemplatePermissionResponse
+     *
+     * @param SetTemplatePermissionRequest $request
+     *
+     * @return SetTemplatePermissionResponse
      */
     public function setTemplatePermission($request)
     {
@@ -5379,37 +6467,47 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Sends a signal to a resource in a stack.
-     *  *
-     * @param SignalResourceRequest $request SignalResourceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Sends a signal to a resource in a stack.
      *
-     * @return SignalResourceResponse SignalResourceResponse
+     * @param request - SignalResourceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns SignalResourceResponse
+     *
+     * @param SignalResourceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SignalResourceResponse
      */
     public function signalResourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->logicalResourceId)) {
-            $query['LogicalResourceId'] = $request->logicalResourceId;
+
+        if (null !== $request->logicalResourceId) {
+            @$query['LogicalResourceId'] = $request->logicalResourceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->uniqueId)) {
-            $query['UniqueId'] = $request->uniqueId;
+
+        if (null !== $request->uniqueId) {
+            @$query['UniqueId'] = $request->uniqueId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'SignalResource',
@@ -5427,11 +6525,14 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Sends a signal to a resource in a stack.
-     *  *
-     * @param SignalResourceRequest $request SignalResourceRequest
+     * Sends a signal to a resource in a stack.
      *
-     * @return SignalResourceResponse SignalResourceResponse
+     * @param request - SignalResourceRequest
+     * @returns SignalResourceResponse
+     *
+     * @param SignalResourceRequest $request
+     *
+     * @return SignalResourceResponse
      */
     public function signalResource($request)
     {
@@ -5441,27 +6542,34 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Stops a stack group operation.
-     *  *
-     * @description This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
-     *  *
-     * @param StopStackGroupOperationRequest $request StopStackGroupOperationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Stops a stack group operation.
      *
-     * @return StopStackGroupOperationResponse StopStackGroupOperationResponse
+     * @remarks
+     * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
+     *
+     * @param request - StopStackGroupOperationRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns StopStackGroupOperationResponse
+     *
+     * @param StopStackGroupOperationRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return StopStackGroupOperationResponse
      */
     public function stopStackGroupOperationWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->operationId)) {
-            $query['OperationId'] = $request->operationId;
+        if (null !== $request->operationId) {
+            @$query['OperationId'] = $request->operationId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'StopStackGroupOperation',
@@ -5479,13 +6587,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Stops a stack group operation.
-     *  *
-     * @description This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
-     *  *
-     * @param StopStackGroupOperationRequest $request StopStackGroupOperationRequest
+     * Stops a stack group operation.
      *
-     * @return StopStackGroupOperationResponse StopStackGroupOperationResponse
+     * @remarks
+     * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
+     *
+     * @param request - StopStackGroupOperationRequest
+     * @returns StopStackGroupOperationResponse
+     *
+     * @param StopStackGroupOperationRequest $request
+     *
+     * @return StopStackGroupOperationResponse
      */
     public function stopStackGroupOperation($request)
     {
@@ -5495,33 +6607,42 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates and adds tags to resources.
-     *  *
-     * @description This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates and adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'TagResources',
@@ -5539,13 +6660,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Creates and adds tags to resources.
-     *  *
-     * @description This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
-     *  *
-     * @param TagResourcesRequest $request TagResourcesRequest
+     * Creates and adds tags to resources.
      *
-     * @return TagResourcesResponse TagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
+     *
+     * @param request - TagResourcesRequest
+     * @returns TagResourcesResponse
+     *
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5555,36 +6680,46 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources and then deletes the tags.
-     *  *
-     * @description This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * Removes tags from resources and then deletes the tags.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UntagResources',
@@ -5602,13 +6737,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Removes tags from resources and then deletes the tags.
-     *  *
-     * @description This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
-     *  *
-     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * Removes tags from resources and then deletes the tags.
      *
-     * @return UntagResourcesResponse UntagResourcesResponse
+     * @remarks
+     * This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
+     *
+     * @param request - UntagResourcesRequest
+     * @returns UntagResourcesResponse
+     *
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -5618,92 +6757,119 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Updates a stack.
-     *  *
-     * @description The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
+     * Updates a stack.
+     *
+     * @remarks
+     * The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
      * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
      * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
      * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
-     *  *
-     * @param UpdateStackRequest $request UpdateStackRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateStackResponse UpdateStackResponse
+     * @param request - UpdateStackRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateStackResponse
+     *
+     * @param UpdateStackRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateStackResponse
      */
     public function updateStackWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->disableRollback)) {
-            $query['DisableRollback'] = $request->disableRollback;
+
+        if (null !== $request->disableRollback) {
+            @$query['DisableRollback'] = $request->disableRollback;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->dryRunOptions)) {
-            $query['DryRunOptions'] = $request->dryRunOptions;
+
+        if (null !== $request->dryRunOptions) {
+            @$query['DryRunOptions'] = $request->dryRunOptions;
         }
-        if (!Utils::isUnset($request->parallelism)) {
-            $query['Parallelism'] = $request->parallelism;
+
+        if (null !== $request->parallelism) {
+            @$query['Parallelism'] = $request->parallelism;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->ramRoleName)) {
-            $query['RamRoleName'] = $request->ramRoleName;
+
+        if (null !== $request->ramRoleName) {
+            @$query['RamRoleName'] = $request->ramRoleName;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->replacementOption)) {
-            $query['ReplacementOption'] = $request->replacementOption;
+
+        if (null !== $request->replacementOption) {
+            @$query['ReplacementOption'] = $request->replacementOption;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->stackPolicyBody)) {
-            $query['StackPolicyBody'] = $request->stackPolicyBody;
+
+        if (null !== $request->stackPolicyBody) {
+            @$query['StackPolicyBody'] = $request->stackPolicyBody;
         }
-        if (!Utils::isUnset($request->stackPolicyDuringUpdateBody)) {
-            $query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
+
+        if (null !== $request->stackPolicyDuringUpdateBody) {
+            @$query['StackPolicyDuringUpdateBody'] = $request->stackPolicyDuringUpdateBody;
         }
-        if (!Utils::isUnset($request->stackPolicyDuringUpdateURL)) {
-            $query['StackPolicyDuringUpdateURL'] = $request->stackPolicyDuringUpdateURL;
+
+        if (null !== $request->stackPolicyDuringUpdateURL) {
+            @$query['StackPolicyDuringUpdateURL'] = $request->stackPolicyDuringUpdateURL;
         }
-        if (!Utils::isUnset($request->stackPolicyURL)) {
-            $query['StackPolicyURL'] = $request->stackPolicyURL;
+
+        if (null !== $request->stackPolicyURL) {
+            @$query['StackPolicyURL'] = $request->stackPolicyURL;
         }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+
+        if (null !== $request->timeoutInMinutes) {
+            @$query['TimeoutInMinutes'] = $request->timeoutInMinutes;
         }
-        if (!Utils::isUnset($request->usePreviousParameters)) {
-            $query['UsePreviousParameters'] = $request->usePreviousParameters;
+
+        if (null !== $request->usePreviousParameters) {
+            @$query['UsePreviousParameters'] = $request->usePreviousParameters;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateStack',
@@ -5721,16 +6887,20 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Updates a stack.
-     *  *
-     * @description The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
+     * Updates a stack.
+     *
+     * @remarks
+     * The values of parameters in the Parameters section vary based on the value that you specify for the UsePreviousParameters parameter in the request. If you do not add the parameters that are defined in the template to the Parameters section, take note of the following items:
      * *   UsePreviousParameters is set to false: If the template parameters have default values, the default values are used. Otherwise, you must specify values for the template parameters in the Parameters section.
      * *   UsePreviousParameters is set to true: If you specify values for the template parameters when you create a stack, the values are used. If you leave the template parameters empty when you create a stack but the template parameters have default values, the default values are used.
      * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
-     *  *
-     * @param UpdateStackRequest $request UpdateStackRequest
      *
-     * @return UpdateStackResponse UpdateStackResponse
+     * @param request - UpdateStackRequest
+     * @returns UpdateStackResponse
+     *
+     * @param UpdateStackRequest $request
+     *
+     * @return UpdateStackResponse
      */
     public function updateStack($request)
     {
@@ -5740,101 +6910,131 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
-     *  *
-     * @description The name of the stack group. The name must be unique within a region.
-     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
-     *  *
-     * @param UpdateStackGroupRequest $tmpReq  UpdateStackGroupRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
      *
-     * @return UpdateStackGroupResponse UpdateStackGroupResponse
+     * @remarks
+     * The name of the stack group. The name must be unique within a region.
+     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
+     *
+     * @param tmpReq - UpdateStackGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateStackGroupResponse
+     *
+     * @param UpdateStackGroupRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateStackGroupResponse
      */
     public function updateStackGroupWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateStackGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->accountIds)) {
-            $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accountIds) {
+            $request->accountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->autoDeployment)) {
-            $request->autoDeploymentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
+
+        if (null !== $tmpReq->autoDeployment) {
+            $request->autoDeploymentShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->autoDeployment, 'AutoDeployment', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+
+        if (null !== $tmpReq->deploymentTargets) {
+            $request->deploymentTargetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
-        if (!Utils::isUnset($tmpReq->operationPreferences)) {
-            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+
+        if (null !== $tmpReq->operationPreferences) {
+            $request->operationPreferencesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        if (!Utils::isUnset($tmpReq->regionIds)) {
-            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
+
+        if (null !== $tmpReq->regionIds) {
+            $request->regionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIdsShrink)) {
-            $query['AccountIds'] = $request->accountIdsShrink;
+        if (null !== $request->accountIdsShrink) {
+            @$query['AccountIds'] = $request->accountIdsShrink;
         }
-        if (!Utils::isUnset($request->administrationRoleName)) {
-            $query['AdministrationRoleName'] = $request->administrationRoleName;
+
+        if (null !== $request->administrationRoleName) {
+            @$query['AdministrationRoleName'] = $request->administrationRoleName;
         }
-        if (!Utils::isUnset($request->autoDeploymentShrink)) {
-            $query['AutoDeployment'] = $request->autoDeploymentShrink;
+
+        if (null !== $request->autoDeploymentShrink) {
+            @$query['AutoDeployment'] = $request->autoDeploymentShrink;
         }
-        if (!Utils::isUnset($request->capabilities)) {
-            $query['Capabilities'] = $request->capabilities;
+
+        if (null !== $request->capabilities) {
+            @$query['Capabilities'] = $request->capabilities;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->deploymentOptions)) {
-            $query['DeploymentOptions'] = $request->deploymentOptions;
+
+        if (null !== $request->deploymentOptions) {
+            @$query['DeploymentOptions'] = $request->deploymentOptions;
         }
-        if (!Utils::isUnset($request->deploymentTargetsShrink)) {
-            $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
+
+        if (null !== $request->deploymentTargetsShrink) {
+            @$query['DeploymentTargets'] = $request->deploymentTargetsShrink;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->executionRoleName)) {
-            $query['ExecutionRoleName'] = $request->executionRoleName;
+
+        if (null !== $request->executionRoleName) {
+            @$query['ExecutionRoleName'] = $request->executionRoleName;
         }
-        if (!Utils::isUnset($request->operationDescription)) {
-            $query['OperationDescription'] = $request->operationDescription;
+
+        if (null !== $request->operationDescription) {
+            @$query['OperationDescription'] = $request->operationDescription;
         }
-        if (!Utils::isUnset($request->operationPreferencesShrink)) {
-            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+
+        if (null !== $request->operationPreferencesShrink) {
+            @$query['OperationPreferences'] = $request->operationPreferencesShrink;
         }
-        if (!Utils::isUnset($request->parameters)) {
-            $query['Parameters'] = $request->parameters;
+
+        if (null !== $request->parameters) {
+            @$query['Parameters'] = $request->parameters;
         }
-        if (!Utils::isUnset($request->permissionModel)) {
-            $query['PermissionModel'] = $request->permissionModel;
+
+        if (null !== $request->permissionModel) {
+            @$query['PermissionModel'] = $request->permissionModel;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionIdsShrink)) {
-            $query['RegionIds'] = $request->regionIdsShrink;
+
+        if (null !== $request->regionIdsShrink) {
+            @$query['RegionIds'] = $request->regionIdsShrink;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->templateVersion)) {
-            $query['TemplateVersion'] = $request->templateVersion;
+
+        if (null !== $request->templateVersion) {
+            @$query['TemplateVersion'] = $request->templateVersion;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateStackGroup',
@@ -5852,14 +7052,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
-     *  *
-     * @description The name of the stack group. The name must be unique within a region.
-     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
-     *  *
-     * @param UpdateStackGroupRequest $request UpdateStackGroupRequest
+     * The region ID of the stack group. You can call the [DescribeRegions]\\(~~131035~~) operation to query the latest list of Alibaba Cloud regions.
      *
-     * @return UpdateStackGroupResponse UpdateStackGroupResponse
+     * @remarks
+     * The name of the stack group. The name must be unique within a region.
+     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
+     *
+     * @param request - UpdateStackGroupRequest
+     * @returns UpdateStackGroupResponse
+     *
+     * @param UpdateStackGroupRequest $request
+     *
+     * @return UpdateStackGroupResponse
      */
     public function updateStackGroup($request)
     {
@@ -5869,65 +7073,84 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Updates stack instances in the specified accounts and regions.
-     *  *
-     * @description In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
-     *  *
-     * @param UpdateStackInstancesRequest $tmpReq  UpdateStackInstancesRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Updates stack instances in the specified accounts and regions.
      *
-     * @return UpdateStackInstancesResponse UpdateStackInstancesResponse
+     * @remarks
+     * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+     *
+     * @param tmpReq - UpdateStackInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateStackInstancesResponse
+     *
+     * @param UpdateStackInstancesRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateStackInstancesResponse
      */
     public function updateStackInstancesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateStackInstancesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->accountIds)) {
-            $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->accountIds) {
+            $request->accountIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
         }
-        if (!Utils::isUnset($tmpReq->deploymentTargets)) {
-            $request->deploymentTargetsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
+
+        if (null !== $tmpReq->deploymentTargets) {
+            $request->deploymentTargetsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->deploymentTargets, 'DeploymentTargets', 'json');
         }
-        if (!Utils::isUnset($tmpReq->operationPreferences)) {
-            $request->operationPreferencesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
+
+        if (null !== $tmpReq->operationPreferences) {
+            $request->operationPreferencesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->operationPreferences, 'OperationPreferences', 'json');
         }
-        if (!Utils::isUnset($tmpReq->regionIds)) {
-            $request->regionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
+
+        if (null !== $tmpReq->regionIds) {
+            $request->regionIdsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->regionIds, 'RegionIds', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->accountIdsShrink)) {
-            $query['AccountIds'] = $request->accountIdsShrink;
+        if (null !== $request->accountIdsShrink) {
+            @$query['AccountIds'] = $request->accountIdsShrink;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->deploymentTargetsShrink)) {
-            $query['DeploymentTargets'] = $request->deploymentTargetsShrink;
+
+        if (null !== $request->deploymentTargetsShrink) {
+            @$query['DeploymentTargets'] = $request->deploymentTargetsShrink;
         }
-        if (!Utils::isUnset($request->operationDescription)) {
-            $query['OperationDescription'] = $request->operationDescription;
+
+        if (null !== $request->operationDescription) {
+            @$query['OperationDescription'] = $request->operationDescription;
         }
-        if (!Utils::isUnset($request->operationPreferencesShrink)) {
-            $query['OperationPreferences'] = $request->operationPreferencesShrink;
+
+        if (null !== $request->operationPreferencesShrink) {
+            @$query['OperationPreferences'] = $request->operationPreferencesShrink;
         }
-        if (!Utils::isUnset($request->parameterOverrides)) {
-            $query['ParameterOverrides'] = $request->parameterOverrides;
+
+        if (null !== $request->parameterOverrides) {
+            @$query['ParameterOverrides'] = $request->parameterOverrides;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->regionIdsShrink)) {
-            $query['RegionIds'] = $request->regionIdsShrink;
+
+        if (null !== $request->regionIdsShrink) {
+            @$query['RegionIds'] = $request->regionIdsShrink;
         }
-        if (!Utils::isUnset($request->stackGroupName)) {
-            $query['StackGroupName'] = $request->stackGroupName;
+
+        if (null !== $request->stackGroupName) {
+            @$query['StackGroupName'] = $request->stackGroupName;
         }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
+
+        if (null !== $request->timeoutInMinutes) {
+            @$query['TimeoutInMinutes'] = $request->timeoutInMinutes;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateStackInstances',
@@ -5945,13 +7168,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Updates stack instances in the specified accounts and regions.
-     *  *
-     * @description In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
-     *  *
-     * @param UpdateStackInstancesRequest $request UpdateStackInstancesRequest
+     * Updates stack instances in the specified accounts and regions.
      *
-     * @return UpdateStackInstancesResponse UpdateStackInstancesResponse
+     * @remarks
+     * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
+     *
+     * @param request - UpdateStackInstancesRequest
+     * @returns UpdateStackInstancesResponse
+     *
+     * @param UpdateStackInstancesRequest $request
+     *
+     * @return UpdateStackInstancesResponse
      */
     public function updateStackInstances($request)
     {
@@ -5961,40 +7188,51 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Corrects a template to eliminate stack drift.
-     *  *
-     * @description Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
-     * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
-     *  *
-     * @param UpdateStackTemplateByResourcesRequest $request UpdateStackTemplateByResourcesRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * Corrects a template to eliminate stack drift.
      *
-     * @return UpdateStackTemplateByResourcesResponse UpdateStackTemplateByResourcesResponse
+     * @remarks
+     * Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
+     * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
+     *
+     * @param request - UpdateStackTemplateByResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateStackTemplateByResourcesResponse
+     *
+     * @param UpdateStackTemplateByResourcesRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateStackTemplateByResourcesResponse
      */
     public function updateStackTemplateByResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $query['DryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->logicalResourceId)) {
-            $query['LogicalResourceId'] = $request->logicalResourceId;
+
+        if (null !== $request->logicalResourceId) {
+            @$query['LogicalResourceId'] = $request->logicalResourceId;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->stackId)) {
-            $query['StackId'] = $request->stackId;
+
+        if (null !== $request->stackId) {
+            @$query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateFormat)) {
-            $query['TemplateFormat'] = $request->templateFormat;
+
+        if (null !== $request->templateFormat) {
+            @$query['TemplateFormat'] = $request->templateFormat;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateStackTemplateByResources',
@@ -6012,14 +7250,18 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Corrects a template to eliminate stack drift.
-     *  *
-     * @description Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
-     * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
-     *  *
-     * @param UpdateStackTemplateByResourcesRequest $request UpdateStackTemplateByResourcesRequest
+     * Corrects a template to eliminate stack drift.
      *
-     * @return UpdateStackTemplateByResourcesResponse UpdateStackTemplateByResourcesResponse
+     * @remarks
+     * Limits: You can eliminate only drift on stacks that have drifted. You must call the [DetectStackDrift](https://help.aliyun.com/document_detail/155094.html) operation to perform drift detection on a stack, call the [GetStackDriftDetectionStatus](https://help.aliyun.com/document_detail/155097.html) operation to query the drift status of the stack to make sure that the stack has drifted, and then call the UpdateStackTemplateByResources operation to eliminate drift.
+     * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
+     *
+     * @param request - UpdateStackTemplateByResourcesRequest
+     * @returns UpdateStackTemplateByResourcesResponse
+     *
+     * @param UpdateStackTemplateByResourcesRequest $request
+     *
+     * @return UpdateStackTemplateByResourcesResponse
      */
     public function updateStackTemplateByResources($request)
     {
@@ -6029,50 +7271,63 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Updates a template by specifying the template URL or template details.
-     *  *
-     * @description When you update a template, take note of the following items:
+     * Updates a template by specifying the template URL or template details.
+     *
+     * @remarks
+     * When you update a template, take note of the following items:
      * *   If you specify TemplateBody or TemplateURL, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to v2.
      * *   If you do not specify TemplateBody or TemplateURL, the version number remains unchanged.
      * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
-     *  *
-     * @param UpdateTemplateRequest $request UpdateTemplateRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateResponse UpdateTemplateResponse
+     * @param request - UpdateTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTemplateResponse
+     *
+     * @param UpdateTemplateRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTemplateResponse
      */
     public function updateTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->isDraft)) {
-            $query['IsDraft'] = $request->isDraft;
+
+        if (null !== $request->isDraft) {
+            @$query['IsDraft'] = $request->isDraft;
         }
-        if (!Utils::isUnset($request->rotateStrategy)) {
-            $query['RotateStrategy'] = $request->rotateStrategy;
+
+        if (null !== $request->rotateStrategy) {
+            @$query['RotateStrategy'] = $request->rotateStrategy;
         }
-        if (!Utils::isUnset($request->templateId)) {
-            $query['TemplateId'] = $request->templateId;
+
+        if (null !== $request->templateId) {
+            @$query['TemplateId'] = $request->templateId;
         }
-        if (!Utils::isUnset($request->templateName)) {
-            $query['TemplateName'] = $request->templateName;
+
+        if (null !== $request->templateName) {
+            @$query['TemplateName'] = $request->templateName;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->validationOptions)) {
-            $query['ValidationOptions'] = $request->validationOptions;
+
+        if (null !== $request->validationOptions) {
+            @$query['ValidationOptions'] = $request->validationOptions;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplate',
@@ -6090,16 +7345,20 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Updates a template by specifying the template URL or template details.
-     *  *
-     * @description When you update a template, take note of the following items:
+     * Updates a template by specifying the template URL or template details.
+     *
+     * @remarks
+     * When you update a template, take note of the following items:
      * *   If you specify TemplateBody or TemplateURL, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to v2.
      * *   If you do not specify TemplateBody or TemplateURL, the version number remains unchanged.
      * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
-     *  *
-     * @param UpdateTemplateRequest $request UpdateTemplateRequest
      *
-     * @return UpdateTemplateResponse UpdateTemplateResponse
+     * @param request - UpdateTemplateRequest
+     * @returns UpdateTemplateResponse
+     *
+     * @param UpdateTemplateRequest $request
+     *
+     * @return UpdateTemplateResponse
      */
     public function updateTemplate($request)
     {
@@ -6109,9 +7368,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Updates a scenario.
-     *  *
-     * @description ### [](#)Resource replication scenario
+     * Updates a scenario.
+     *
+     * @remarks
+     * ### [](#)Resource replication scenario
      * Resource Orchestration Service (ROS) allows you to update a resource replication scenario. The updates that you make to a resource replication scenario do not affect the stack that is generated by using the resource scenario. You can call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
      * ### [](#)Resource migration scenario
      * *   If you want to update a resource migration scenario in which the migrated source resources are retained, you can delete the source resources to manage the updated resource migration scenario. You can also call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
@@ -6123,65 +7383,84 @@ class ROS extends OpenApiClient
      * ### [](#)Resource detection scenario
      * After you update a resource detection scenario, ROS obtains the most recent data from Resource Center and renders the architecture diagram.
      * This topic provides an example on how to update a resource scenario. In this example, the ID of a virtual private cloud (VPC) in a resource scenario whose ID is `ts-7f7a704cf71c49a6****` is updated to `vpc-bp1m6fww66xbntjyc****`.
-     *  *
-     * @param UpdateTemplateScratchRequest $tmpReq  UpdateTemplateScratchRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTemplateScratchResponse UpdateTemplateScratchResponse
+     * @param tmpReq - UpdateTemplateScratchRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns UpdateTemplateScratchResponse
+     *
+     * @param UpdateTemplateScratchRequest $tmpReq
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateTemplateScratchResponse
      */
     public function updateTemplateScratchWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateTemplateScratchShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->preferenceParameters)) {
-            $request->preferenceParametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->preferenceParameters, 'PreferenceParameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->preferenceParameters) {
+            $request->preferenceParametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->preferenceParameters, 'PreferenceParameters', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceResourceGroup)) {
-            $request->sourceResourceGroupShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResourceGroup, 'SourceResourceGroup', 'json');
+
+        if (null !== $tmpReq->sourceResourceGroup) {
+            $request->sourceResourceGroupShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceResourceGroup, 'SourceResourceGroup', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceResources)) {
-            $request->sourceResourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceResources, 'SourceResources', 'json');
+
+        if (null !== $tmpReq->sourceResources) {
+            $request->sourceResourcesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceResources, 'SourceResources', 'json');
         }
-        if (!Utils::isUnset($tmpReq->sourceTag)) {
-            $request->sourceTagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sourceTag, 'SourceTag', 'json');
+
+        if (null !== $tmpReq->sourceTag) {
+            $request->sourceTagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->sourceTag, 'SourceTag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->executionMode)) {
-            $query['ExecutionMode'] = $request->executionMode;
+
+        if (null !== $request->executionMode) {
+            @$query['ExecutionMode'] = $request->executionMode;
         }
-        if (!Utils::isUnset($request->logicalIdStrategy)) {
-            $query['LogicalIdStrategy'] = $request->logicalIdStrategy;
+
+        if (null !== $request->logicalIdStrategy) {
+            @$query['LogicalIdStrategy'] = $request->logicalIdStrategy;
         }
-        if (!Utils::isUnset($request->preferenceParametersShrink)) {
-            $query['PreferenceParameters'] = $request->preferenceParametersShrink;
+
+        if (null !== $request->preferenceParametersShrink) {
+            @$query['PreferenceParameters'] = $request->preferenceParametersShrink;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceResourceGroupShrink)) {
-            $query['SourceResourceGroup'] = $request->sourceResourceGroupShrink;
+
+        if (null !== $request->sourceResourceGroupShrink) {
+            @$query['SourceResourceGroup'] = $request->sourceResourceGroupShrink;
         }
-        if (!Utils::isUnset($request->sourceResourcesShrink)) {
-            $query['SourceResources'] = $request->sourceResourcesShrink;
+
+        if (null !== $request->sourceResourcesShrink) {
+            @$query['SourceResources'] = $request->sourceResourcesShrink;
         }
-        if (!Utils::isUnset($request->sourceTagShrink)) {
-            $query['SourceTag'] = $request->sourceTagShrink;
+
+        if (null !== $request->sourceTagShrink) {
+            @$query['SourceTag'] = $request->sourceTagShrink;
         }
-        if (!Utils::isUnset($request->templateScratchId)) {
-            $query['TemplateScratchId'] = $request->templateScratchId;
+
+        if (null !== $request->templateScratchId) {
+            @$query['TemplateScratchId'] = $request->templateScratchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action'      => 'UpdateTemplateScratch',
@@ -6199,9 +7478,10 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Updates a scenario.
-     *  *
-     * @description ### [](#)Resource replication scenario
+     * Updates a scenario.
+     *
+     * @remarks
+     * ### [](#)Resource replication scenario
      * Resource Orchestration Service (ROS) allows you to update a resource replication scenario. The updates that you make to a resource replication scenario do not affect the stack that is generated by using the resource scenario. You can call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
      * ### [](#)Resource migration scenario
      * *   If you want to update a resource migration scenario in which the migrated source resources are retained, you can delete the source resources to manage the updated resource migration scenario. You can also call the [GenerateTemplateByScratch](https://help.aliyun.com/document_detail/610829.html) operation to generate a template for the resource scenario.
@@ -6213,10 +7493,13 @@ class ROS extends OpenApiClient
      * ### [](#)Resource detection scenario
      * After you update a resource detection scenario, ROS obtains the most recent data from Resource Center and renders the architecture diagram.
      * This topic provides an example on how to update a resource scenario. In this example, the ID of a virtual private cloud (VPC) in a resource scenario whose ID is `ts-7f7a704cf71c49a6****` is updated to `vpc-bp1m6fww66xbntjyc****`.
-     *  *
-     * @param UpdateTemplateScratchRequest $request UpdateTemplateScratchRequest
      *
-     * @return UpdateTemplateScratchResponse UpdateTemplateScratchResponse
+     * @param request - UpdateTemplateScratchRequest
+     * @returns UpdateTemplateScratchResponse
+     *
+     * @param UpdateTemplateScratchRequest $request
+     *
+     * @return UpdateTemplateScratchResponse
      */
     public function updateTemplateScratch($request)
     {
@@ -6226,41 +7509,52 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Validates a template by using a template URL or template body. The template is used to create a stack.
-     *  *
-     * @description In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
-     *  *
-     * @param ValidateTemplateRequest $request ValidateTemplateRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Validates a template by using a template URL or template body. The template is used to create a stack.
      *
-     * @return ValidateTemplateResponse ValidateTemplateResponse
+     * @remarks
+     * In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
+     *
+     * @param request - ValidateTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ValidateTemplateResponse
+     *
+     * @param ValidateTemplateRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ValidateTemplateResponse
      */
     public function validateTemplateWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (null !== $request->clientToken) {
+            @$query['ClientToken'] = $request->clientToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->templateURL)) {
-            $query['TemplateURL'] = $request->templateURL;
+
+        if (null !== $request->templateURL) {
+            @$query['TemplateURL'] = $request->templateURL;
         }
-        if (!Utils::isUnset($request->updateInfoOptions)) {
-            $query['UpdateInfoOptions'] = $request->updateInfoOptions;
+
+        if (null !== $request->updateInfoOptions) {
+            @$query['UpdateInfoOptions'] = $request->updateInfoOptions;
         }
-        if (!Utils::isUnset($request->validationOption)) {
-            $query['ValidationOption'] = $request->validationOption;
+
+        if (null !== $request->validationOption) {
+            @$query['ValidationOption'] = $request->validationOption;
         }
+
         $body = [];
-        if (!Utils::isUnset($request->templateBody)) {
-            $body['TemplateBody'] = $request->templateBody;
+        if (null !== $request->templateBody) {
+            @$body['TemplateBody'] = $request->templateBody;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
+            'query' => Utils::query($query),
+            'body'  => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ValidateTemplate',
@@ -6278,13 +7572,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * @summary Validates a template by using a template URL or template body. The template is used to create a stack.
-     *  *
-     * @description In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
-     *  *
-     * @param ValidateTemplateRequest $request ValidateTemplateRequest
+     * Validates a template by using a template URL or template body. The template is used to create a stack.
      *
-     * @return ValidateTemplateResponse ValidateTemplateResponse
+     * @remarks
+     * In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
+     *
+     * @param request - ValidateTemplateRequest
+     * @returns ValidateTemplateResponse
+     *
+     * @param ValidateTemplateRequest $request
+     *
+     * @return ValidateTemplateResponse
      */
     public function validateTemplate($request)
     {

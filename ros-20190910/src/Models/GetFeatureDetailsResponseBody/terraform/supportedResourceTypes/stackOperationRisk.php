@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform\supportedResourceTypes;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stackOperationRisk extends Model
 {
     /**
-     * @description The resource types that support the risk check performed to detect risks caused by a stack deletion operation.
-     *
      * @var string[]
      */
     public $deleteStack;
@@ -20,29 +18,43 @@ class stackOperationRisk extends Model
 
     public function validate()
     {
+        if (\is_array($this->deleteStack)) {
+            Model::validateArray($this->deleteStack);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteStack) {
-            $res['DeleteStack'] = $this->deleteStack;
+            if (\is_array($this->deleteStack)) {
+                $res['DeleteStack'] = [];
+                $n1                 = 0;
+                foreach ($this->deleteStack as $item1) {
+                    $res['DeleteStack'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stackOperationRisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteStack'])) {
             if (!empty($map['DeleteStack'])) {
-                $model->deleteStack = $map['DeleteStack'];
+                $model->deleteStack = [];
+                $n1                 = 0;
+                foreach ($map['DeleteStack'] as $item1) {
+                    $model->deleteStack[$n1++] = $item1;
+                }
             }
         }
 

@@ -1,3 +1,10 @@
+2025-01-17 Version: 2.5.3
+- Update API GetTemplate: update response param.
+- Update API GetTemplateParameterConstraints: update response param.
+- Update API ListTemplates: add param Filters.
+- Update API ListTemplates: update response param.
+
+
 2024-11-21 Version: 2.5.2
 - Update API CreateStackInstances: add param DeploymentOptions.
 - Update API UpdateStackGroup: add param DeploymentOptions.

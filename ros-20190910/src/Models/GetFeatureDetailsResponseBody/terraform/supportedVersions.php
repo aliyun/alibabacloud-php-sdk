@@ -4,39 +4,24 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform\supportedVersions\providerVersions;
-use AlibabaCloud\Tea\Model;
 
 class supportedVersions extends Model
 {
     /**
-     * @description The names and versions of the providers that correspond to the Terraform versions.
-     *
      * @var providerVersions[]
      */
     public $providerVersions;
-
     /**
-     * @description The Terraform version.
-     *
-     * @example 1.0.11
-     *
      * @var string
      */
     public $terraformVersion;
-
     /**
-     * @description The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
-     *
-     * @example Aliyun::Terraform-v1.0
-     *
      * @var string
      */
     public $transform;
-
     /**
-     * @description The Terraform versions that can be updated in ROS.
-     *
      * @var string[]
      */
     public $updateAllowedTransforms;
@@ -49,59 +34,82 @@ class supportedVersions extends Model
 
     public function validate()
     {
+        if (\is_array($this->providerVersions)) {
+            Model::validateArray($this->providerVersions);
+        }
+        if (\is_array($this->updateAllowedTransforms)) {
+            Model::validateArray($this->updateAllowedTransforms);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->providerVersions) {
-            $res['ProviderVersions'] = [];
-            if (null !== $this->providerVersions && \is_array($this->providerVersions)) {
-                $n = 0;
-                foreach ($this->providerVersions as $item) {
-                    $res['ProviderVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->providerVersions)) {
+                $res['ProviderVersions'] = [];
+                $n1                      = 0;
+                foreach ($this->providerVersions as $item1) {
+                    $res['ProviderVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->terraformVersion) {
             $res['TerraformVersion'] = $this->terraformVersion;
         }
+
         if (null !== $this->transform) {
             $res['Transform'] = $this->transform;
         }
+
         if (null !== $this->updateAllowedTransforms) {
-            $res['UpdateAllowedTransforms'] = $this->updateAllowedTransforms;
+            if (\is_array($this->updateAllowedTransforms)) {
+                $res['UpdateAllowedTransforms'] = [];
+                $n1                             = 0;
+                foreach ($this->updateAllowedTransforms as $item1) {
+                    $res['UpdateAllowedTransforms'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProviderVersions'])) {
             if (!empty($map['ProviderVersions'])) {
                 $model->providerVersions = [];
-                $n                       = 0;
-                foreach ($map['ProviderVersions'] as $item) {
-                    $model->providerVersions[$n++] = null !== $item ? providerVersions::fromMap($item) : $item;
+                $n1                      = 0;
+                foreach ($map['ProviderVersions'] as $item1) {
+                    $model->providerVersions[$n1++] = providerVersions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TerraformVersion'])) {
             $model->terraformVersion = $map['TerraformVersion'];
         }
+
         if (isset($map['Transform'])) {
             $model->transform = $map['Transform'];
         }
+
         if (isset($map['UpdateAllowedTransforms'])) {
             if (!empty($map['UpdateAllowedTransforms'])) {
-                $model->updateAllowedTransforms = $map['UpdateAllowedTransforms'];
+                $model->updateAllowedTransforms = [];
+                $n1                             = 0;
+                foreach ($map['UpdateAllowedTransforms'] as $item1) {
+                    $model->updateAllowedTransforms[$n1++] = $item1;
+                }
             }
         }
 

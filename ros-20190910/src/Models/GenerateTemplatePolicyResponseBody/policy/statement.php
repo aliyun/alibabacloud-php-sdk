@@ -4,43 +4,23 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplatePolicyResponseBody\policy;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class statement extends Model
 {
     /**
-     * @description The operations that are performed on the specified resource.
-     *
      * @var string[]
      */
     public $action;
-
     /**
-     * @description The condition that is required for the policy to take effect.
-     *
-     * @example {
-     * }
      * @var mixed[]
      */
     public $condition;
-
     /**
-     * @description The effect of the statement. Valid values:
-     *
-     *   Allow
-     *   Deny
-     *
-     * @example Allow
-     *
      * @var string
      */
     public $effect;
-
     /**
-     * @description The objects that the statement covers. An asterisk (\\*) indicates all resources.
-     *
-     * @example *
-     *
      * @var string
      */
     public $resource;
@@ -53,20 +33,41 @@ class statement extends Model
 
     public function validate()
     {
+        if (\is_array($this->action)) {
+            Model::validateArray($this->action);
+        }
+        if (\is_array($this->condition)) {
+            Model::validateArray($this->condition);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->action) {
-            $res['Action'] = $this->action;
+            if (\is_array($this->action)) {
+                $res['Action'] = [];
+                $n1            = 0;
+                foreach ($this->action as $item1) {
+                    $res['Action'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->condition) {
-            $res['Condition'] = $this->condition;
+            if (\is_array($this->condition)) {
+                $res['Condition'] = [];
+                foreach ($this->condition as $key1 => $value1) {
+                    $res['Condition'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->effect) {
             $res['Effect'] = $this->effect;
         }
+
         if (null !== $this->resource) {
             $res['Resource'] = $this->resource;
         }
@@ -74,25 +75,37 @@ class statement extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return statement
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Action'])) {
             if (!empty($map['Action'])) {
-                $model->action = $map['Action'];
+                $model->action = [];
+                $n1            = 0;
+                foreach ($map['Action'] as $item1) {
+                    $model->action[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Condition'])) {
-            $model->condition = $map['Condition'];
+            if (!empty($map['Condition'])) {
+                $model->condition = [];
+                foreach ($map['Condition'] as $key1 => $value1) {
+                    $model->condition[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Effect'])) {
             $model->effect = $map['Effect'];
         }
+
         if (isset($map['Resource'])) {
             $model->resource = $map['Resource'];
         }

@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class stacks extends Model
 {
     /**
-     * @description The region ID of the stack.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The stack ID.
-     *
-     * @example 3708bf6a-3a67-44d4-9eb1-c56704b9****
-     *
      * @var string
      */
     public $stackId;
-
     /**
-     * @description The purpose of the stack. Valid values:
-     *
-     *   ResourceImport: resource management
-     *   ArchitectureReplication: resource replication
-     *
-     * @example ArchitectureReplication
-     *
      * @var string
      */
     public $usageType;
@@ -45,17 +28,20 @@ class stacks extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
+
         if (null !== $this->usageType) {
             $res['UsageType'] = $this->usageType;
         }
@@ -63,20 +49,22 @@ class stacks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return stacks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
+
         if (isset($map['UsageType'])) {
             $model->usageType = $map['UsageType'];
         }

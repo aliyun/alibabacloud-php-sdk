@@ -4,60 +4,35 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\CreateTemplateRequest\tags;
-use AlibabaCloud\Tea\Model;
 
 class CreateTemplateRequest extends Model
 {
     /**
-     * @description The description of the template. The description can be up to 256 characters in length.
-     *
-     * @example It is a demo.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The ID of the resource group.\\
-     * For more information about resource groups, see [Resource groups](https://help.aliyun.com/document_detail/94475.html).
-     * @example rg-acfmxazb4ph6aiy****
-     *
      * @var string
      */
     public $resourceGroupId;
-
     /**
-     * @description The tags of the template.
-     *
      * @var tags[]
      */
     public $tags;
-
     /**
      * @var string
      */
     public $templateBody;
-
     /**
-     * @description The name of the template.\\
-     * This parameter is required.
-     * @example MyTemplate
-     *
      * @var string
      */
     public $templateName;
-
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body must be 1 to 1,024 bytes in length. If you do not specify the region of the OSS bucket, the value of RegionId is used.
-     *
-     * > You must specify TemplateBody or TemplateURL.
-     * @example oss://ros/template/demo
-     *
      * @var string
      */
     public $templateURL;
-
     /**
      * @var string[]
      */
@@ -74,77 +49,106 @@ class CreateTemplateRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        if (\is_array($this->validationOptions)) {
+            Model::validateArray($this->validationOptions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1          = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
+
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
         }
+
         if (null !== $this->validationOptions) {
-            $res['ValidationOptions'] = $this->validationOptions;
+            if (\is_array($this->validationOptions)) {
+                $res['ValidationOptions'] = [];
+                $n1                       = 0;
+                foreach ($this->validationOptions as $item1) {
+                    $res['ValidationOptions'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                $n1          = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }
+
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
         }
+
         if (isset($map['ValidationOptions'])) {
             if (!empty($map['ValidationOptions'])) {
-                $model->validationOptions = $map['ValidationOptions'];
+                $model->validationOptions = [];
+                $n1                       = 0;
+                foreach ($map['ValidationOptions'] as $item1) {
+                    $model->validationOptions[$n1++] = $item1;
+                }
             }
         }
 

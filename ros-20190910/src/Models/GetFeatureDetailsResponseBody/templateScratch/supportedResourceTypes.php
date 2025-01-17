@@ -4,70 +4,31 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\templateScratch;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportedResourceTypes extends Model
 {
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ECS::Disk
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description Indicates whether the resource scope can be specified by source resource group. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $sourceResourceGroupSupported;
-
     /**
-     * @description Indicates whether the resource scope can be specified by source resource. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $sourceResourcesSupported;
-
     /**
-     * @description Indicates whether the resource scope can be specified by source tag, resource group, or resource. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $sourceSupported;
-
     /**
-     * @description Indicates whether the resource scope can be specified by source tag. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $sourceTagSupported;
-
     /**
-     * @description The scenario types that are supported.
-     *
      * @var string[]
      */
     public $supportedTemplateScratchTypes;
@@ -82,59 +43,83 @@ class supportedResourceTypes extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedTemplateScratchTypes)) {
+            Model::validateArray($this->supportedTemplateScratchTypes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->sourceResourceGroupSupported) {
             $res['SourceResourceGroupSupported'] = $this->sourceResourceGroupSupported;
         }
+
         if (null !== $this->sourceResourcesSupported) {
             $res['SourceResourcesSupported'] = $this->sourceResourcesSupported;
         }
+
         if (null !== $this->sourceSupported) {
             $res['SourceSupported'] = $this->sourceSupported;
         }
+
         if (null !== $this->sourceTagSupported) {
             $res['SourceTagSupported'] = $this->sourceTagSupported;
         }
+
         if (null !== $this->supportedTemplateScratchTypes) {
-            $res['SupportedTemplateScratchTypes'] = $this->supportedTemplateScratchTypes;
+            if (\is_array($this->supportedTemplateScratchTypes)) {
+                $res['SupportedTemplateScratchTypes'] = [];
+                $n1                                   = 0;
+                foreach ($this->supportedTemplateScratchTypes as $item1) {
+                    $res['SupportedTemplateScratchTypes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportedResourceTypes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['SourceResourceGroupSupported'])) {
             $model->sourceResourceGroupSupported = $map['SourceResourceGroupSupported'];
         }
+
         if (isset($map['SourceResourcesSupported'])) {
             $model->sourceResourcesSupported = $map['SourceResourcesSupported'];
         }
+
         if (isset($map['SourceSupported'])) {
             $model->sourceSupported = $map['SourceSupported'];
         }
+
         if (isset($map['SourceTagSupported'])) {
             $model->sourceTagSupported = $map['SourceTagSupported'];
         }
+
         if (isset($map['SupportedTemplateScratchTypes'])) {
             if (!empty($map['SupportedTemplateScratchTypes'])) {
-                $model->supportedTemplateScratchTypes = $map['SupportedTemplateScratchTypes'];
+                $model->supportedTemplateScratchTypes = [];
+                $n1                                   = 0;
+                foreach ($map['SupportedTemplateScratchTypes'] as $item1) {
+                    $model->supportedTemplateScratchTypes[$n1++] = $item1;
+                }
             }
         }
 

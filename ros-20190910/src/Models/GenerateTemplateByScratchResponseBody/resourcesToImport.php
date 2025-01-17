@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplateByScratchResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourcesToImport extends Model
 {
     /**
-     * @description The logical ID of the resource.
-     *
-     * @example ECSVPC_001
-     *
      * @var string
      */
     public $logicalResourceId;
-
     /**
-     * @description The key-value mapping between strings. The value is a JSON string that identifies the resource that you want to import into a stack.\\
-     * A key is an identifier for a resource, and a value is an assignment of data to the key. For example, VpcId is a key that indicates the ID of a virtual private cloud (VPC), and `vpc-bp1m6fww66xbntjyc****"` is a value that is assigned to VpcId.
-     * @example {"VpcId": "vpc-bp1m6fww66xbntjyc****" }
-     *
      * @var mixed[]
      */
     public $resourceIdentifier;
-
     /**
-     * @description The type of the resource.
-     *
-     * @example ALIYUN::ECS::VPC
-     *
      * @var string
      */
     public $resourceType;
@@ -42,17 +28,28 @@ class resourcesToImport extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceIdentifier)) {
+            Model::validateArray($this->resourceIdentifier);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
         }
+
         if (null !== $this->resourceIdentifier) {
-            $res['ResourceIdentifier'] = $this->resourceIdentifier;
+            if (\is_array($this->resourceIdentifier)) {
+                $res['ResourceIdentifier'] = [];
+                foreach ($this->resourceIdentifier as $key1 => $value1) {
+                    $res['ResourceIdentifier'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -60,20 +57,27 @@ class resourcesToImport extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourcesToImport
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LogicalResourceId'])) {
             $model->logicalResourceId = $map['LogicalResourceId'];
         }
+
         if (isset($map['ResourceIdentifier'])) {
-            $model->resourceIdentifier = $map['ResourceIdentifier'];
+            if (!empty($map['ResourceIdentifier'])) {
+                $model->resourceIdentifier = [];
+                foreach ($map['ResourceIdentifier'] as $key1 => $value1) {
+                    $model->resourceIdentifier[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DetectStackGroupDriftResponseBody extends Model
 {
     /**
-     * @description The ID of the operation.
-     *
-     * @example 6da106ca-1784-4a6f-a7e1-e723863d****
-     *
      * @var string
      */
     public $operationId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
-     *
      * @var string
      */
     public $requestId;
@@ -32,14 +23,16 @@ class DetectStackGroupDriftResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operationId) {
             $res['OperationId'] = $this->operationId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +40,18 @@ class DetectStackGroupDriftResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DetectStackGroupDriftResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OperationId'])) {
             $model->operationId = $map['OperationId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

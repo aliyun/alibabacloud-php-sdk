@@ -4,42 +4,23 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetStackResponseBody\resourceProgress;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class inProgressResourceDetails extends Model
 {
     /**
-     * @description The desired progress value of the resource.
-     *
-     * @example 10
-     *
      * @var float
      */
     public $progressTargetValue;
-
     /**
-     * @description The current progress value of the resource.
-     *
-     * @example 5
-     *
      * @var float
      */
     public $progressValue;
-
     /**
-     * @description The resource name.
-     *
-     * @example WaitCondition
-     *
      * @var string
      */
     public $resourceName;
-
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ROS::WaitCondition
-     *
      * @var string
      */
     public $resourceType;
@@ -52,20 +33,24 @@ class inProgressResourceDetails extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->progressTargetValue) {
             $res['ProgressTargetValue'] = $this->progressTargetValue;
         }
+
         if (null !== $this->progressValue) {
             $res['ProgressValue'] = $this->progressValue;
         }
+
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -73,23 +58,26 @@ class inProgressResourceDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inProgressResourceDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProgressTargetValue'])) {
             $model->progressTargetValue = $map['ProgressTargetValue'];
         }
+
         if (isset($map['ProgressValue'])) {
             $model->progressValue = $map['ProgressValue'];
         }
+
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

@@ -4,22 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform\supportedVersions;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class providerVersions extends Model
 {
     /**
-     * @description The name of the provider.
-     *
-     * @example alicloud
-     *
      * @var string
      */
     public $providerName;
-
     /**
-     * @description The provider versions.
-     *
      * @var string[]
      */
     public $supportedVersions;
@@ -30,35 +23,51 @@ class providerVersions extends Model
 
     public function validate()
     {
+        if (\is_array($this->supportedVersions)) {
+            Model::validateArray($this->supportedVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->providerName) {
             $res['ProviderName'] = $this->providerName;
         }
+
         if (null !== $this->supportedVersions) {
-            $res['SupportedVersions'] = $this->supportedVersions;
+            if (\is_array($this->supportedVersions)) {
+                $res['SupportedVersions'] = [];
+                $n1                       = 0;
+                foreach ($this->supportedVersions as $item1) {
+                    $res['SupportedVersions'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return providerVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ProviderName'])) {
             $model->providerName = $map['ProviderName'];
         }
+
         if (isset($map['SupportedVersions'])) {
             if (!empty($map['SupportedVersions'])) {
-                $model->supportedVersions = $map['SupportedVersions'];
+                $model->supportedVersions = [];
+                $n1                       = 0;
+                foreach ($map['SupportedVersions'] as $item1) {
+                    $model->supportedVersions[$n1++] = $item1;
+                }
             }
         }
 

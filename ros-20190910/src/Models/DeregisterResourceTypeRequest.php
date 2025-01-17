@@ -4,25 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeregisterResourceTypeRequest extends Model
 {
     /**
-     * @description The resource type.
-     *
-     * This parameter is required.
-     * @example MODULE::MyOrganization::MyService::MyUsecase
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description The version ID. If you want to delete a version of the resource type, you must specify this parameter.
-     *
-     * @example v1
-     *
      * @var string
      */
     public $versionId;
@@ -33,14 +23,16 @@ class DeregisterResourceTypeRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->versionId) {
             $res['VersionId'] = $this->versionId;
         }
@@ -48,17 +40,18 @@ class DeregisterResourceTypeRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeregisterResourceTypeRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['VersionId'])) {
             $model->versionId = $map['VersionId'];
         }

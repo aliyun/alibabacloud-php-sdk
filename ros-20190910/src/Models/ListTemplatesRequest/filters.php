@@ -2,28 +2,23 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ROS\V20190910\Models;
+namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListTemplatesRequest;
 
 use AlibabaCloud\Dara\Model;
 
-class ListTagValuesResponseBody extends Model
+class filters extends Model
 {
     /**
      * @var string
      */
-    public $nextToken;
-    /**
-     * @var string
-     */
-    public $requestId;
+    public $name;
     /**
      * @var string[]
      */
     public $values;
     protected $_name = [
-        'nextToken' => 'NextToken',
-        'requestId' => 'RequestId',
-        'values'    => 'Values',
+        'name'   => 'Name',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -37,12 +32,8 @@ class ListTagValuesResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
 
         if (null !== $this->values) {
@@ -66,12 +57,8 @@ class ListTagValuesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
 
         if (isset($map['Values'])) {

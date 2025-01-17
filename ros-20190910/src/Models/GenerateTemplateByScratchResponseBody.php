@@ -4,33 +4,20 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GenerateTemplateByScratchResponseBody\resourcesToImport;
-use AlibabaCloud\Tea\Model;
 
 class GenerateTemplateByScratchResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D22C1D13-D74E-558C-AF68-1B4C05FA6F1A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The resources that you want to import into a stack in the resource management scenario.
-     *
-     * > This parameter is returned only for a resource management scenario.
      * @var resourcesToImport[]
      */
     public $resourcesToImport;
-
     /**
-     * @description The template content of the resource scenario.
-     *
-     * @example {\\"ROSTemplateFormatVersion\\": \\"2015-09-01\\", \\"Resources\\": {\\"ECSVPC_001\\": {\\"DeletionPolicy\\": \\"Retain\\", \\"Type\\": \\"ALIYUN::ECS::VPC\\", \\"Properties\\": {\\"CidrBlock\\": \\"172.16.0.0/12\\", \\"VpcName\\": \\"MyTestVpc\\", \\"EnableIpv6\\": false}}}}
-     *
      * @var string
      */
     public $templateBody;
@@ -42,23 +29,29 @@ class GenerateTemplateByScratchResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourcesToImport)) {
+            Model::validateArray($this->resourcesToImport);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourcesToImport) {
-            $res['ResourcesToImport'] = [];
-            if (null !== $this->resourcesToImport && \is_array($this->resourcesToImport)) {
-                $n = 0;
-                foreach ($this->resourcesToImport as $item) {
-                    $res['ResourcesToImport'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourcesToImport)) {
+                $res['ResourcesToImport'] = [];
+                $n1                       = 0;
+                foreach ($this->resourcesToImport as $item1) {
+                    $res['ResourcesToImport'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
@@ -66,26 +59,28 @@ class GenerateTemplateByScratchResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GenerateTemplateByScratchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourcesToImport'])) {
             if (!empty($map['ResourcesToImport'])) {
                 $model->resourcesToImport = [];
-                $n                        = 0;
-                foreach ($map['ResourcesToImport'] as $item) {
-                    $model->resourcesToImport[$n++] = null !== $item ? resourcesToImport::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['ResourcesToImport'] as $item1) {
+                    $model->resourcesToImport[$n1++] = resourcesToImport::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }

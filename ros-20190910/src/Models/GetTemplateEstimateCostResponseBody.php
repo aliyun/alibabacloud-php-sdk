@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTemplateEstimateCostResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 6DEA36EF-C97D-5658-A4AC-4F5DB08D1A89
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The resource details.
-     *
-     * @example [{\\"LogicalResourceIdPattern\\": \\"wait1\\", \\"ResourceType\\": \\"time_sleep\\", \\"ResourcePath\\": \\"wait1\\"}, {\\"LogicalResourceIdPattern\\": \\"wait2\\", \\"ResourceType\\": \\"time_sleep\\", \\"ResourcePath\\": \\"wait2\\"}]
-     *
      * @var mixed[]
      */
     public $resources;
@@ -32,34 +23,50 @@ class GetTemplateEstimateCostResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resources)) {
+            Model::validateArray($this->resources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resources) {
-            $res['Resources'] = $this->resources;
+            if (\is_array($this->resources)) {
+                $res['Resources'] = [];
+                foreach ($this->resources as $key1 => $value1) {
+                    $res['Resources'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTemplateEstimateCostResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Resources'])) {
-            $model->resources = $map['Resources'];
+            if (!empty($map['Resources'])) {
+                $model->resources = [];
+                foreach ($map['Resources'] as $key1 => $value1) {
+                    $model->resources[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

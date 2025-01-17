@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\ListResourceTypeVersionsResponseBody\resourceTypeVersions;
-use AlibabaCloud\Tea\Model;
 
 class ListResourceTypeVersionsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The versions of the resource types.
-     *
      * @var resourceTypeVersions[]
      */
     public $resourceTypeVersions;
@@ -31,20 +24,25 @@ class ListResourceTypeVersionsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->resourceTypeVersions)) {
+            Model::validateArray($this->resourceTypeVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceTypeVersions) {
-            $res['ResourceTypeVersions'] = [];
-            if (null !== $this->resourceTypeVersions && \is_array($this->resourceTypeVersions)) {
-                $n = 0;
-                foreach ($this->resourceTypeVersions as $item) {
-                    $res['ResourceTypeVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceTypeVersions)) {
+                $res['ResourceTypeVersions'] = [];
+                $n1                          = 0;
+                foreach ($this->resourceTypeVersions as $item1) {
+                    $res['ResourceTypeVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +50,24 @@ class ListResourceTypeVersionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListResourceTypeVersionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceTypeVersions'])) {
             if (!empty($map['ResourceTypeVersions'])) {
                 $model->resourceTypeVersions = [];
-                $n                           = 0;
-                foreach ($map['ResourceTypeVersions'] as $item) {
-                    $model->resourceTypeVersions[$n++] = null !== $item ? resourceTypeVersions::fromMap($item) : $item;
+                $n1                          = 0;
+                foreach ($map['ResourceTypeVersions'] as $item1) {
+                    $model->resourceTypeVersions[$n1++] = resourceTypeVersions::fromMap($item1);
                 }
             }
         }

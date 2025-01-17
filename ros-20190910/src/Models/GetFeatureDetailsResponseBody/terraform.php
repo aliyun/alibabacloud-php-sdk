@@ -4,22 +4,17 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform\supportedResourceTypes;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetFeatureDetailsResponseBody\terraform\supportedVersions;
-use AlibabaCloud\Tea\Model;
 
 class terraform extends Model
 {
     /**
-     * @description The resource types that support the scenario feature.
-     *
      * @var supportedResourceTypes
      */
     public $supportedResourceTypes;
-
     /**
-     * @description The Terraform versions.
-     *
      * @var supportedVersions[]
      */
     public $supportedVersions;
@@ -30,20 +25,28 @@ class terraform extends Model
 
     public function validate()
     {
+        if (null !== $this->supportedResourceTypes) {
+            $this->supportedResourceTypes->validate();
+        }
+        if (\is_array($this->supportedVersions)) {
+            Model::validateArray($this->supportedVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->supportedResourceTypes) {
-            $res['SupportedResourceTypes'] = null !== $this->supportedResourceTypes ? $this->supportedResourceTypes->toMap() : null;
+            $res['SupportedResourceTypes'] = null !== $this->supportedResourceTypes ? $this->supportedResourceTypes->toArray($noStream) : $this->supportedResourceTypes;
         }
+
         if (null !== $this->supportedVersions) {
-            $res['SupportedVersions'] = [];
-            if (null !== $this->supportedVersions && \is_array($this->supportedVersions)) {
-                $n = 0;
-                foreach ($this->supportedVersions as $item) {
-                    $res['SupportedVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportedVersions)) {
+                $res['SupportedVersions'] = [];
+                $n1                       = 0;
+                foreach ($this->supportedVersions as $item1) {
+                    $res['SupportedVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -51,23 +54,24 @@ class terraform extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return terraform
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SupportedResourceTypes'])) {
             $model->supportedResourceTypes = supportedResourceTypes::fromMap($map['SupportedResourceTypes']);
         }
+
         if (isset($map['SupportedVersions'])) {
             if (!empty($map['SupportedVersions'])) {
                 $model->supportedVersions = [];
-                $n                        = 0;
-                foreach ($map['SupportedVersions'] as $item) {
-                    $model->supportedVersions[$n++] = null !== $item ? supportedVersions::fromMap($item) : $item;
+                $n1                       = 0;
+                foreach ($map['SupportedVersions'] as $item1) {
+                    $model->supportedVersions[$n1++] = supportedVersions::fromMap($item1);
                 }
             }
         }

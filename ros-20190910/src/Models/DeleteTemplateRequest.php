@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTemplateRequest extends Model
 {
     /**
-     * @description The ID of the template. This parameter applies to only private templates.
-     *
-     * This parameter is required.
-     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
-     *
      * @var string
      */
     public $templateId;
@@ -23,9 +18,10 @@ class DeleteTemplateRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->templateId) {
@@ -35,11 +31,11 @@ class DeleteTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

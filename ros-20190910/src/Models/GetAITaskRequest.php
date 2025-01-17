@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAITaskRequest extends Model
 {
     /**
-     * @example Disabled
-     *
      * @var string
      */
     public $outputOption;
-
     /**
-     * @example t-asasas*****
-     *
      * @var string
      */
     public $taskId;
@@ -28,14 +23,16 @@ class GetAITaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->outputOption) {
             $res['OutputOption'] = $this->outputOption;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -43,17 +40,18 @@ class GetAITaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAITaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OutputOption'])) {
             $model->outputOption = $map['OutputOption'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

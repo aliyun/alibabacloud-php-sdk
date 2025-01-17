@@ -4,24 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class notSupportResources extends Model
 {
     /**
-     * @description The name of the resource property.
-     *
-     * @example InstanceName
-     *
      * @var string
      */
     public $propertyName;
-
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ECS::InstanceGroup
-     *
      * @var string
      */
     public $resourceType;
@@ -32,14 +23,16 @@ class notSupportResources extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->propertyName) {
             $res['PropertyName'] = $this->propertyName;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -47,17 +40,18 @@ class notSupportResources extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return notSupportResources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PropertyName'])) {
             $model->propertyName = $map['PropertyName'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

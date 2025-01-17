@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetStackGroupOperationResponseBody\stackGroupOperation;
-use AlibabaCloud\Tea\Model;
 
 class GetStackGroupOperationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The information about the stack group operation.
-     *
      * @var stackGroupOperation
      */
     public $stackGroupOperation;
@@ -31,32 +24,38 @@ class GetStackGroupOperationResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->stackGroupOperation) {
+            $this->stackGroupOperation->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->stackGroupOperation) {
-            $res['StackGroupOperation'] = null !== $this->stackGroupOperation ? $this->stackGroupOperation->toMap() : null;
+            $res['StackGroupOperation'] = null !== $this->stackGroupOperation ? $this->stackGroupOperation->toArray($noStream) : $this->stackGroupOperation;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStackGroupOperationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StackGroupOperation'])) {
             $model->stackGroupOperation = stackGroupOperation::fromMap($map['StackGroupOperation']);
         }

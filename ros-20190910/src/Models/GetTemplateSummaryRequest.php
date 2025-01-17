@@ -4,101 +4,48 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateSummaryRequest\parameters;
-use AlibabaCloud\Tea\Model;
 
 class GetTemplateSummaryRequest extends Model
 {
     /**
-     * @description The ID of the change set.
-     *
-     * You can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, StackId, ChangeSetId, and StackGroupName.
-     * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
-     *
      * @var string
      */
     public $changeSetId;
-
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\\
-     * For more information, see [Ensure idempotence](https://help.aliyun.com/document_detail/134212.html).
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
      * @var string
      */
     public $clientToken;
-
     /**
-     * @description The parameters that are defined in the template.
-     *
      * @var parameters[]
      */
     public $parameters;
-
     /**
-     * @description The region ID of the stack or stack group that uses the template. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-     *
-     * This parameter takes effect only when one of the following parameters are specified: StackId, ChangeSetId, and StackGroupName.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description The name of the stack group.
-     *
-     * You can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, StackId, ChangeSetId, and StackGroupName.
-     * @example my-stack-group
-     *
      * @var string
      */
     public $stackGroupName;
-
     /**
-     * @description The stack ID.
-     *
-     * You can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, StackId, ChangeSetId, and StackGroupName.
-     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-     *
      * @var string
      */
     public $stackId;
-
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.\\
-     * You can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, StackId, ChangeSetId, and StackGroupName.
-     * @example {"ROSTemplateFormatVersion":"2015-09-01"}
-     *
      * @var string
      */
     public $templateBody;
-
     /**
-     * @description The template ID. This parameter applies to shared and private templates.
-     *
-     * You can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, StackId, ChangeSetId, and StackGroupName.
-     * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
-     *
      * @var string
      */
     public $templateId;
-
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
-     *
-     * The URL can be up to 1,024 bytes in length.
-     * @example oss://ros/template/demo
-     *
      * @var string
      */
     public $templateURL;
-
     /**
-     * @description The version of the template. This parameter takes effect when TemplateId is specified.
-     *
-     * @example v1
-     *
      * @var string
      */
     public $templateVersion;
@@ -117,44 +64,57 @@ class GetTemplateSummaryRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->parameters)) {
+            Model::validateArray($this->parameters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeSetId) {
             $res['ChangeSetId'] = $this->changeSetId;
         }
+
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->parameters) {
-            $res['Parameters'] = [];
-            if (null !== $this->parameters && \is_array($this->parameters)) {
-                $n = 0;
-                foreach ($this->parameters as $item) {
-                    $res['Parameters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->parameters)) {
+                $res['Parameters'] = [];
+                $n1                = 0;
+                foreach ($this->parameters as $item1) {
+                    $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->stackGroupName) {
             $res['StackGroupName'] = $this->stackGroupName;
         }
+
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
+
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
+
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
         }
+
         if (null !== $this->templateVersion) {
             $res['TemplateVersion'] = $this->templateVersion;
         }
@@ -162,47 +122,56 @@ class GetTemplateSummaryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTemplateSummaryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeSetId'])) {
             $model->changeSetId = $map['ChangeSetId'];
         }
+
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n                 = 0;
-                foreach ($map['Parameters'] as $item) {
-                    $model->parameters[$n++] = null !== $item ? parameters::fromMap($item) : $item;
+                $n1                = 0;
+                foreach ($map['Parameters'] as $item1) {
+                    $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['StackGroupName'])) {
             $model->stackGroupName = $map['StackGroupName'];
         }
+
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
+
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }
+
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
         }
+
         if (isset($map['TemplateVersion'])) {
             $model->templateVersion = $map['TemplateVersion'];
         }

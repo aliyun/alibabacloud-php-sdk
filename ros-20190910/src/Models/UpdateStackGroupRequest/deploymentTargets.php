@@ -4,20 +4,15 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\UpdateStackGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class deploymentTargets extends Model
 {
     /**
-     * @description The list of one or more Alibaba Cloud accounts with which you want to share or unshare the template.
-     *
      * @var string[]
      */
     public $accountIds;
-
     /**
-     * @description The ID of the operation.
-     *
      * @var string[]
      */
     public $rdFolderIds;
@@ -28,37 +23,66 @@ class deploymentTargets extends Model
 
     public function validate()
     {
+        if (\is_array($this->accountIds)) {
+            Model::validateArray($this->accountIds);
+        }
+        if (\is_array($this->rdFolderIds)) {
+            Model::validateArray($this->rdFolderIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accountIds) {
-            $res['AccountIds'] = $this->accountIds;
+            if (\is_array($this->accountIds)) {
+                $res['AccountIds'] = [];
+                $n1                = 0;
+                foreach ($this->accountIds as $item1) {
+                    $res['AccountIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->rdFolderIds) {
-            $res['RdFolderIds'] = $this->rdFolderIds;
+            if (\is_array($this->rdFolderIds)) {
+                $res['RdFolderIds'] = [];
+                $n1                 = 0;
+                foreach ($this->rdFolderIds as $item1) {
+                    $res['RdFolderIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return deploymentTargets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
-                $model->accountIds = $map['AccountIds'];
+                $model->accountIds = [];
+                $n1                = 0;
+                foreach ($map['AccountIds'] as $item1) {
+                    $model->accountIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RdFolderIds'])) {
             if (!empty($map['RdFolderIds'])) {
-                $model->rdFolderIds = $map['RdFolderIds'];
+                $model->rdFolderIds = [];
+                $n1                 = 0;
+                foreach ($map['RdFolderIds'] as $item1) {
+                    $model->rdFolderIds[$n1++] = $item1;
+                }
             }
         }
 

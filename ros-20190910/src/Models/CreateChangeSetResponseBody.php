@@ -4,33 +4,19 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateChangeSetResponseBody extends Model
 {
     /**
-     * @description The ID of the change set.
-     *
-     * @example e85abe0c-6528-43fb-ae93-fdf8de22****
-     *
      * @var string
      */
     public $changeSetId;
-
     /**
-     * @description The ID of the request.
-     *
-     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The ID of the stack.
-     *
-     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-     *
      * @var string
      */
     public $stackId;
@@ -42,17 +28,20 @@ class CreateChangeSetResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeSetId) {
             $res['ChangeSetId'] = $this->changeSetId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
@@ -60,20 +49,22 @@ class CreateChangeSetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateChangeSetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChangeSetId'])) {
             $model->changeSetId = $map['ChangeSetId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }

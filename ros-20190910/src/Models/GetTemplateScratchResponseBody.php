@@ -4,23 +4,16 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateScratchResponseBody\templateScratch;
-use AlibabaCloud\Tea\Model;
 
 class GetTemplateScratchResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example A8E0EF98-6FBD-5656-8298-FC8194F0F7B7
-     *
      * @var string
      */
     public $requestId;
-
     /**
-     * @description The resource scenario.
-     *
      * @var templateScratch
      */
     public $templateScratch;
@@ -31,32 +24,38 @@ class GetTemplateScratchResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->templateScratch) {
+            $this->templateScratch->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->templateScratch) {
-            $res['TemplateScratch'] = null !== $this->templateScratch ? $this->templateScratch->toMap() : null;
+            $res['TemplateScratch'] = null !== $this->templateScratch ? $this->templateScratch->toArray($noStream) : $this->templateScratch;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTemplateScratchResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TemplateScratch'])) {
             $model->templateScratch = templateScratch::fromMap($map['TemplateScratch']);
         }

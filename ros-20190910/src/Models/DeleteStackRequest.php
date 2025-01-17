@@ -4,70 +4,35 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteStackRequest extends Model
 {
     /**
-     * @description The options for deleting the stack.
-     *
      * @var string[]
      */
     public $deleteOptions;
-
     /**
      * @var int
      */
     public $parallelism;
-
     /**
-     * @description The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\\
-     * The name of the RAM role can be up to 64 bytes in length.
-     * @example test-role
-     *
      * @var string
      */
     public $ramRoleName;
-
     /**
-     * @description The region ID of the stack. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/131035.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
-
     /**
-     * @description Specifies whether to retain all resources in the stack.
-     *
-     * Valid values:
-     *
-     *   true
-     *   false (default)
-     *
-     * @example false
-     *
      * @var bool
      */
     public $retainAllResources;
-
     /**
-     * @description The resources that you want to retain.
-     *
-     * @example WebServer
-     *
      * @var string[]
      */
     public $retainResources;
-
     /**
-     * @description The ID of the stack.
-     *
-     * This parameter is required.
-     * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
-     *
      * @var string
      */
     public $stackId;
@@ -83,29 +48,54 @@ class DeleteStackRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->deleteOptions)) {
+            Model::validateArray($this->deleteOptions);
+        }
+        if (\is_array($this->retainResources)) {
+            Model::validateArray($this->retainResources);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deleteOptions) {
-            $res['DeleteOptions'] = $this->deleteOptions;
+            if (\is_array($this->deleteOptions)) {
+                $res['DeleteOptions'] = [];
+                $n1                   = 0;
+                foreach ($this->deleteOptions as $item1) {
+                    $res['DeleteOptions'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->parallelism) {
             $res['Parallelism'] = $this->parallelism;
         }
+
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->retainAllResources) {
             $res['RetainAllResources'] = $this->retainAllResources;
         }
+
         if (null !== $this->retainResources) {
-            $res['RetainResources'] = $this->retainResources;
+            if (\is_array($this->retainResources)) {
+                $res['RetainResources'] = [];
+                $n1                     = 0;
+                foreach ($this->retainResources as $item1) {
+                    $res['RetainResources'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
@@ -113,36 +103,50 @@ class DeleteStackRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteStackRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DeleteOptions'])) {
             if (!empty($map['DeleteOptions'])) {
-                $model->deleteOptions = $map['DeleteOptions'];
+                $model->deleteOptions = [];
+                $n1                   = 0;
+                foreach ($map['DeleteOptions'] as $item1) {
+                    $model->deleteOptions[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Parallelism'])) {
             $model->parallelism = $map['Parallelism'];
         }
+
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RetainAllResources'])) {
             $model->retainAllResources = $map['RetainAllResources'];
         }
+
         if (isset($map['RetainResources'])) {
             if (!empty($map['RetainResources'])) {
-                $model->retainResources = $map['RetainResources'];
+                $model->retainResources = [];
+                $n1                     = 0;
+                foreach ($map['RetainResources'] as $item1) {
+                    $model->retainResources[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }

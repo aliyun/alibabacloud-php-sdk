@@ -4,105 +4,47 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\PreviewStackResponseBody\stack;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resources extends Model
 {
     /**
-     * @description The resource type of an Alibaba Cloud service.
-     *
-     * @example ACS::ECS::Instance
-     *
      * @var string
      */
     public $acsResourceType;
-
     /**
-     * @description The action that is performed on the resource. Valid values:
-     *
-     *   Add
-     *   Modify
-     *   Remove
-     *   None
-     *
-     * @example Add
-     *
      * @var string
      */
     public $action;
-
     /**
-     * @description The description of the resource.
-     *
-     * @example ECS instance.
-     *
      * @var string
      */
     public $description;
-
     /**
-     * @description The logical ID of the resource.
-     *
-     * @example WebServer
-     *
      * @var string
      */
     public $logicalResourceId;
-
     /**
-     * @description The physical ID of the resource.
-     *
-     * This parameter is returned only if Action is set to Modify or Remove.
-     * @example i-a1b2c3***
-     *
      * @var string
      */
     public $physicalResourceId;
-
     /**
-     * @description The resource properties.
-     *
-     * @example {   "DiskMappings": [     {       "Category": "cloud_ssd",       "Size": "20"     }   ],   "SystemDisk_Category": "cloud_ssd",   "InstanceChargeType": "PostPaid",   "AutoRenew": "False",   "WillReplace": true,   "ImageId": "centos_7",   "InstanceType": "ecs.g6.large",   "AllocatePublicIP": true,   "AutoRenewPeriod": 1,   "IoOptimized": "optimized",   "ZoneId": "cn-beijing-g",   "VSwitchId": "",   "SecurityGroupId": "",   "Period": 1,   "InternetChargeType": "PayByTraffic",   "SystemDiskCategory": "cloud_efficiency",   "InternetMaxBandwidthOut": 1,   "VpcId": "",   "InternetMaxBandwidthIn": 200,   "PeriodUnit": "Month" }
-     *
      * @var mixed[]
      */
     public $properties;
-
     /**
-     * @description Indicates whether a replacement update is performed on the template. Valid values:
-     *
-     *   True: A replacement update is performed on the template.
-     *   False: A change is made on the template.
-     *   Conditional: A replacement update may be performed on the template. You can check whether a replacement update is performed when the template is in use.
-     *
-     * > This parameter is returned only if Action is set to Modify.
-     * @example False
-     *
      * @var string
      */
     public $replacement;
-
     /**
-     * @description The resources on which the stack depends.
-     *
      * @var string[]
      */
     public $requiredBy;
-
     /**
-     * @description The resource type.
-     *
-     * @example ALIYUN::ECS::Instance
-     *
      * @var string
      */
     public $resourceType;
-
     /**
-     * @description The information about the nested stack. The data structure of the value is the same as the data structure of the entire response.
-     *
-     * @example {}
-     *
      * @var mixed[]
      */
     public $stack;
@@ -121,84 +63,142 @@ class resources extends Model
 
     public function validate()
     {
+        if (\is_array($this->properties)) {
+            Model::validateArray($this->properties);
+        }
+        if (\is_array($this->requiredBy)) {
+            Model::validateArray($this->requiredBy);
+        }
+        if (\is_array($this->stack)) {
+            Model::validateArray($this->stack);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acsResourceType) {
             $res['AcsResourceType'] = $this->acsResourceType;
         }
+
         if (null !== $this->action) {
             $res['Action'] = $this->action;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->logicalResourceId) {
             $res['LogicalResourceId'] = $this->logicalResourceId;
         }
+
         if (null !== $this->physicalResourceId) {
             $res['PhysicalResourceId'] = $this->physicalResourceId;
         }
+
         if (null !== $this->properties) {
-            $res['Properties'] = $this->properties;
+            if (\is_array($this->properties)) {
+                $res['Properties'] = [];
+                foreach ($this->properties as $key1 => $value1) {
+                    $res['Properties'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->replacement) {
             $res['Replacement'] = $this->replacement;
         }
+
         if (null !== $this->requiredBy) {
-            $res['RequiredBy'] = $this->requiredBy;
+            if (\is_array($this->requiredBy)) {
+                $res['RequiredBy'] = [];
+                $n1                = 0;
+                foreach ($this->requiredBy as $item1) {
+                    $res['RequiredBy'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->stack) {
-            $res['Stack'] = $this->stack;
+            if (\is_array($this->stack)) {
+                $res['Stack'] = [];
+                foreach ($this->stack as $key1 => $value1) {
+                    $res['Stack'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resources
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcsResourceType'])) {
             $model->acsResourceType = $map['AcsResourceType'];
         }
+
         if (isset($map['Action'])) {
             $model->action = $map['Action'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['LogicalResourceId'])) {
             $model->logicalResourceId = $map['LogicalResourceId'];
         }
+
         if (isset($map['PhysicalResourceId'])) {
             $model->physicalResourceId = $map['PhysicalResourceId'];
         }
+
         if (isset($map['Properties'])) {
-            $model->properties = $map['Properties'];
+            if (!empty($map['Properties'])) {
+                $model->properties = [];
+                foreach ($map['Properties'] as $key1 => $value1) {
+                    $model->properties[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Replacement'])) {
             $model->replacement = $map['Replacement'];
         }
+
         if (isset($map['RequiredBy'])) {
             if (!empty($map['RequiredBy'])) {
-                $model->requiredBy = $map['RequiredBy'];
+                $model->requiredBy = [];
+                $n1                = 0;
+                foreach ($map['RequiredBy'] as $item1) {
+                    $model->requiredBy[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Stack'])) {
-            $model->stack = $map['Stack'];
+            if (!empty($map['Stack'])) {
+                $model->stack = [];
+                foreach ($map['Stack'] as $key1 => $value1) {
+                    $model->stack[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

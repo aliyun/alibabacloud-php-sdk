@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDiagnosticRequest extends Model
 {
     /**
-     * @description The ID of the diagnostic report.
-     *
-     * @example dr-d540def087714890****
-     *
      * @var string
      */
     public $reportId;
@@ -22,9 +18,10 @@ class GetDiagnosticRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->reportId) {
@@ -34,11 +31,11 @@ class GetDiagnosticRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDiagnosticRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
